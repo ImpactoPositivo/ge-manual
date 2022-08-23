@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Modelando um processo</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+        <article>
+            <h1>Visão geral</h1>
+            <p>Somente as pessoas registradas como usuários têm o direito de acessar o ProcessMaker. Esses usuários podem ser organizados em grupos e departamentos . O tipo de atividades que os usuários podem realizar e a interface que os usuários veem são determinados por suas funções .</p>
+        </article>
+
+        <article>
+            <h1>A Guia Usuários</h1>
+            <p>Para administrar usuários, grupos e departamentos, faça login como "administrador" ou outro usuário que tenha a permissão PM_USERS em sua função. Em seguida, vá para a guia Usuários na barra lateral no menu Admin :</p>
+
+            <figure>
+                <img src="../_imagens/guia-usuarios.png" alt="Guia de Usuários">
+            </figure>
+
+            <p><strong>Usuários:</strong> Uma conta de usuário no Gestor Express geralmente representa uma pessoa na organização, mas também pode representar uma conta com privilégios especiais, como a conta "admin".</p>
+            <p><strong>Grupos:</strong> Os usuários podem ser atribuídos a zero, um ou mais grupos. Um grupo de usuários simplifica a atribuição de usuários a tarefas. Por exemplo, um processo de "Help Desk" pode envolver um grupo de funcionários de suporte ao cliente, todos pertencentes a um grupo chamado "Suporte ao cliente".</p>
+            <p><strong>Departamentos:</strong> organiza os usuários em uma estrutura organizacional hierárquica. Um usuário só pode pertencer a um departamento.</p>
+            <p><strong>Funções:</strong> Permite definir funções personalizadas com diferentes níveis de permissões, para que as funções e privilégios de diferentes usuários possam ser facilmente controlados e gerenciados.</p>
+            <p><strong>Experiência do usuário:</strong> esta é uma opção para usar uma interface simplificada para a caixa de entrada de processos. Para obter mais informações, visite Experiência do usuário</p>
+        </article>
+
+        <article>
+            <h1>Usuários</h1>
+            <p>Para ver a lista de usuários registrados no workspace atual, vá para Admin => Usuários => Usuários.</p>
+
+            <figure>
+                <img src="../_imagens/tela-usuarios.png" alt="Tela de Usuários">
+            </figure>
+            <p>As colunas a seguir fornecem informações sobre as contas de usuário:</p>
+
+            <p><strong>Nome de usuário:</strong> exibe o nome de usuário, que é usado para efetuar login no Gestor Express e identificar o usuário.</p>
+            <p><strong>Nome Completo:</strong> Exibe o sobrenome e o nome de cada usuário.</p>
+            <p><strong>Status:</strong> Exibe o status do usuário: Ativo , Inativo ou Férias</p>
+            <p><strong>Função:</strong> Exibe a função atual de cada conta de usuário. Existem três funções padrão: OPERATOR, SUPERVISOR e ADMINISTRADOR. As contas de usuário atribuídas à função ADMINISTRADOR podem criar, modificar ou excluir processos existentes. As contas de usuário atribuídas à função OPERATOR são destinadas ao modo de produção, com acesso limitado à interface INÍCIO. Funções adicionais podem ser definidas para dar aos usuários um conjunto diferente de permissões.</p>
+            <p><strong>Departamento:</strong> Exibe o departamento ao qual o usuário pertence.</p>
+            <p><strong>Último Login:</strong> Exibe a última vez que o usuário fez login.</p>
+            <p><strong># Processos:</strong> Exibe o número de processos em que o usuário participou (ou seja, foi designado para trabalhar).</p>
+            <p><strong>Data de vencimento:</strong> Exibe a data em que a conta do usuário está programada para ser desativada.</p>
+
+            <p>Para pesquisar usuários, use o campo no canto superior direito da janela Usuários:</p>
+
+            <p><strong>Pesquisar:</strong> Para encontrar usuários, insira o texto encontrado no nome completo, nome de usuário ou e-mails dos usuários. Depois de inserir o texto na caixa <strong>Pesquisar</strong>, pressione <strong>Buscar</strong> para filtrar a lista de usuários. Para remover o filtro, exclua o texto e pressione Buscar novamente. Para fazer uma pesquisa de curinga, use "_" (um sublinhado) para representar qualquer caractere único e "%" (um sinal de porcentagem) para representar qualquer número de caracteres, incluindo espaços e zero caracteres. Por exemplo, "an%o" encontraria "J<strong>an</strong>io S<strong>o</strong>uza", "<strong>an</strong>derson@gest<strong>o</strong>rexpress.com.br" e "J<strong>an</strong>ete P<strong>o</strong>ntes". Para pesquisar os caracteres literais "_" e "%", use "\_" e "\%". Observe que a pesquisa não diferencia maiúsculas de minúsculas.</p>
+        </article>
+
+        <article>
+            <h1>Alterando a lista de usuários</h1>
+            <p>Por padrão, os usuários são listados de acordo com a ordem em que são encontrados na tabela do banco de dados; no entanto, a tabela pode ser reordenada por coluna clicando no cabeçalho da coluna. Para classificar a coluna em ordem crescente ou decrescente, clique na seta para baixo à direita do rótulo do cabeçalho e selecione <strong>Ordem Ascendente</strong> ou <strong>Ordem Descendente</strong> no menu suspenso.</p>
+
+            <figure>
+                <img src="../_imagens/guis-usuarios.png" alt="Ordenar compos da tabela usuarios">
+            </figure>
+            <p>Para alterar quais colunas são exibidas na lista Usuário, clique na seta para baixo no cabeçalho de uma coluna e selecione Colunas no menu suspenso. Em seguida, marque ou desmarque as caixas de seleção ao lado das colunas a serem exibidas na lista.</p>
+            <figure>
+                <img src="../_imagens/usuarios-ordenar.png" alt="Ordenar compos da tabela usuarios">
+            </figure>
+        </article>
+
+        <article>
+            <h1>Criando novos usuários</h1>
+            <p>Novos usuários podem ser criados dentro da interface do Gestor Express.</p>
+
+            <p>Para criar um novo usuário dentro da interface do Gestor Express, vá para Admin => Usuários => Usuários e clique no botão Novo na barra de ferramentas.</p>
+
+            <figure>
+                <img src="../_imagens/usuario-novo.png" alt="Novo Usuário">  
+            </figure>
+            <p>Preencha o seguinte formulário. Todos os campos obrigatórios são identificados por um asterisco (*).</p>
+
+            <figure>
+                <img src="../_imagens/usuario-formulario.png" alt="Formulário para novo Usuário"> 
+            </figure>
+
+        </article>
+    
+    </section>
+
+    <aside id="lado">
+        <h2>Conteúdo:</h2>
+        <ol>
+            <li>Visão geral</li>
+            <li>A guia Usuários</li>
+            <li>Usuários</li>
+            <ol type="A">
+                <li>Alterando a lista de usuários</li>
+                <li>Criando novos usuários</li>
+                <li>Resumo da conta de usuário</li>
+                <li>Personalizando as informações do usuário</li>
+                <ol type="i">
+                   <li>Usando Substituído por</li>
+                     <ol type="a">
+                        <li>Considerações antes de usar Substituído por</li> 
+                    </ol>
+                </ol>
+                <li>Editando as informações do usuário</li>
+                <ol type="i">
+                    <li>Usando a interface do usuário</li>
+                    <li>Acessando as opções de resumo</li>
+                    <li>Acessando as opções do usuário</li>
+                </ol>
+                <li>Excluindo usuários</li>
+                <li>Habilitando/Desabilitando Usuários</li>
+                <li>Atribuindo grupos a usuários</li>
+                <li>Atribuindo fontes de autenticação a usuários existentes</li>
+            </ol>
+            <li>Grupos</li>
+            <ol type="A">
+                <li>Criando grupos</li>
+                <ol type="i">
+                    <li>Ativar e Desativar Grupos</li>
+                </ol>
+                <li>Atribuindo usuários a grupos</li>
+            </ol>
+            <li>Departamentos e Subdepartamentos</li>
+            <ol type="A">
+                <li>Criando um novo departamento</li>
+                <li>Editando um departamento</li>
+                <li>Atribuindo usuários a departamentos</li>
+                <li>Excluindo departamentos</li>
+                <li>Configurando o Gerente do Departamento</li>
+            </ol>
+        </ol>
+    </aside>
+    <footer>
+        <figure>
+            <img id="rodape" src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        </figure>
+        <h1>Impacto Positivo Comércio e Serviço de Informática Ltda.</h1>
+        <p>Avenida Nações Unidas, 17-17, Conjunto 306/307, </p>
+        <p>Vila Santo Antônio, 17015-903, Bauru, SP</p>
+        <p> <a href="https//:www.gestorexpress.com.br" target="_blank">www.gestorexpress.com.br</a></p>
+    </footer>
+</main>
+</body>
+</html>

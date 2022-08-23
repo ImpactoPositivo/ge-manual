@@ -83,6 +83,11 @@ section p {
     padding: 15px 0px 10px 40px;
 }
 
+#detalhe img {
+    width: 30%;
+    padding: 15px 0px 10px 40px;
+}
+
 section ol {
     padding-left: 45px;
 }
@@ -116,7 +121,34 @@ section ol > li a:hover {
     background-color: #c0d6fd;
     color: var(--cor1);
     padding: 20px;
-    margin-top: 5px;
+    margin: 5px 0px 5px 0px;
+}
+
+#lado ol {
+    padding-left: 5px;
+}
+
+#lado ul {
+    padding-left: 25px;
+}
+
+#lado ol > li {
+    line-height: 1.5em;
+}
+
+#lado ul > li {
+    line-height: 1.5em;
+}
+
+#lado ol > li a {
+    text-decoration: none;
+    color: black;
+}
+
+#lado ol > li a:hover {
+    text-decoration: underline;
+    color: var(--cor2);
+    font-weight: bold;
 }
 
 footer {
