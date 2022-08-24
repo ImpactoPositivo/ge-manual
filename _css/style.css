@@ -84,35 +84,44 @@ section p {
 }
 
 #detalhe img {
-    width: 30%;
+    width: 40%;
     padding: 15px 0px 10px 40px;
 }
 
-section ol {
+#principal ol {
     padding-left: 45px;
+    font-size: .95em;
 }
 
-section ul {
+#principal ul {
     padding-left: 35px;
+    font-size: .95em;
 }
 
-section ol > li {
+#principal ol > li {
     line-height: 1.5em;
 }
 
-section ul > li {
+#principal ul > li {
     line-height: 1.5em;
 }
 
-section ol > li a {
+#principal ol > li a {
     text-decoration: none;
     color: black;
 }
 
-section ol > li a:hover {
+#principal ol > li a:hover {
     text-decoration: underline;
     color: var(--cor2);
     font-weight: bold;
+}
+
+#principal ul li > p {
+    line-height: 1.5em;
+    font-size: .95em;
+    text-align: justify;
+    padding-left: 0px;
 }
 
 #lado {
@@ -152,7 +161,7 @@ section ol > li a:hover {
 }
 
 footer {
-    background-color: var(--cor2);
+    background-color: var(--cor1);
     color: var(--cor1);
     clear: both;
     height: 100px;
