@@ -162,42 +162,62 @@ section p {
 
 footer {
     background-color: var(--cor1);
-    color: var(--cor1);
+    color: white;
+    width: 100%;
+    min-height: 80px;
     clear: both;
-    height: 100px;
-    margin-top: 5px;
+    display: flex;
 }
 
-#rodape {
-    width: 12%;
-    display: block;
-    float: left;
-    padding: 15px; 
+footer .boxs {
+    width: 400px;
+    min-height: 80px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-footer h1 {
-    font-size: .9em;
-    font-family: var(--fonte1);
-    color: white;
-    padding-top: 10px;
-    text-align: center;
+footer .boxs:nth-child(3) {
+    width: 400px;
 }
 
-footer > p {
+.boxs h1 {
+    font-size: 1em;
+    text-align: right;
+    padding: 10px 20px 10px 0px;
+}
+
+.boxs h2 {
+    font-size: 0.8em;
+}
+
+.boxs p {
+    font-size: 0.8em;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.boxs ul li {
+    list-style: none;
     font-size: .8em;
-    font-family: var(--fonte1);
-    color: white;
-    padding-left: 100px;
+    padding-bottom: 5px;
     text-align: center;
 }
 
-footer a {
-    text-decoration: none;
-    color: white;
+#social-media {
+    display: flex;
+    margin: auto;
+}
+.boxs ul li img {
+    list-style: none;
+    width: 40%;
+    padding: 0px;
+    margin: 0px;
 }
 
-footer a:hover {
-    text-decoration: underline;
-    color: var(--cor1);
-    font-weight: bold;
+.boxs img {
+    width: 40%;
+    margin: auto;
+
 }
