@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Funções</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+
+        <article>
+            <h1>Visão geral</h1>
+            <p>Uma função é um conjunto de permissões usadas para acessar funcionalidades e recursos específicos no Gestor Express. Cada usuário recebe uma função, que determina quais ações esse usuário pode executar no Gestor Express e quais partes da interface ele pode acessar.</p>
+        </article>
+        
+        <article>
+            <h1>Gerenciando funções</h1>
+            <p>Para ver as funções disponíveis, faça login no Gestor Express com um usuário como o "admin" que tenha a permissão PM_USERS em sua função. Em seguida, vá para Admin > Usuarios => Funções e a seguinte lista será exibida:</p>
+
+            <figure>
+
+            </figure>
+
+            <div>
+                <h2>Administrador</h2>
+                <p>A função ADMINISTRADOR foi projetada para administradores de sistema e designers de processos que precisam de acesso a todos os recursos e funcionalidades do Gestor Express. Os usuários atribuídos a essa função podem fazer tudo, inclusive configurar o sistema, criar e editar processos, gerenciar usuários e grupos, gerenciar processos e supervisionar a produtividade com relatórios e painéis.</p>
+            </div>
+            <div>
+                <h2>Supervisor</h2>
+                <p>A função SUPERVISOR é para usuários que precisam gerenciar processos, usuários e grupos e supervisionar a produtividade, mas não precisam projetar processos ou configurar o Gestor Express.</p>
+            </div>
+            <div>
+                <h2>Operador</h2>
+                <p>A função OPERADOR é para usuários normais de produção que precisam apenas fazer login e executar processos.</p>
+                
+                <p><strong>Observação:</strong>Se uma função for definida como <strong>Inativa</strong> e um usuário for atribuído a essa função, o usuário NÃO poderá efetuar login no Gestor Express até que a função seja alterada para <strong>Ativa</strong></p>
+            </div>
+        </article>
+        
+        
+
+
+    </section>
+
+    <aside id="lado">
+        <h1>Conteúdo: </h1>
+        <ol>
+        <li>Visão geral</li>
+        <li>Gerenciando funções</li>
+        <ol type="A">
+        <li>Administrador</li>
+        <li>Supervisor</li>
+        <li>Operador</li>
+        </ol>
+        <li>Gerenciando permissões</li>
+        <ol type="A">
+        <li>PM_ALLCASES</li>
+        <li>PM_CANCELCASE</li>
+        <li>PM_CASES</li>
+        <li>PM_DASHBOARD</li>
+        <li>PM_DELETE_PROCESS_CASES</li>
+        <li>PM_DELETECASE</li>
+        <li>PM_EDITPERSONALINFO</li>
+        <li>PM_EDITPERSONALINFO_CALENDAR</li>
+        <li>PM_FACTORY</li>
+        <li>PM_FOLDER_DELETE</li>
+        <li>PM_FOLDERS_ADD_FILE</li>
+        <li>PM_FOLDERS_ADD_FOLDER</li>
+        <li>PM_FOLDERS_ALL</li>
+        <li>PM_FOLDERS_OWNER</li>
+        <li>PM_LOGIN</li>
+        <li>PM_REASSIGNCASE</li>
+        <li>PM_REASSIGNCASE_SUPERVISOR</li>
+        <li>PM_REST_API_APPLICATIONS</li>
+        <li>PM_SETUP</li>
+        <li>PM_SETUP_ADVANCE</li>
+        <li>PM_SETUP_CALENDAR</li>
+        <li>PM_SETUP_CASES_LIST_CACHE_BUILDER</li>
+        <li>PM_SETUP_CLEAR_CACHE</li>
+        <li>PM_SETUP_CUSTOM_CASES_LIST</li>
+        <li>PM_SETUP_DASHBOARDS</li>
+        <li>PM_SETUP_EMAIL</li>
+        <li>PM_SETUP_ENVIRONMENT</li>
+        <li>PM_SETUP_HEART_BEAT</li>
+        <li>PM_SETUP_LANGUAGE</li>
+        <li>PM_SETUP_LOG_FILES</li>
+        <li>PM_SETUP_LOGIN</li>
+        <li>PM_SETUP_LOGO</li>
+        <li>PM_SETUP_LOGS</li>
+        <li>PM_SETUP_PLUGINS</li>
+        <li>PM_SETUP_PM_TABLES</li>
+        <li>PM_SETUP_PROCESS_CATEGORIES</li>
+        <li>PM_SETUP_SKIN</li>
+        <li>PM_SETUP_USERS_AUTHENTICATION_SOURCES</li>
+        <li>PM_SUPERVISOR</li>
+        <li>PM_TASK_SCHEDULER_ADMIN</li>
+        <li>PM_UNCANCELCASE</li>
+        <li>PM_USERS</li>
+        <li>PM_WEBDAV</li>
+        </ol>
+        <li>Permissões para editar o perfil do usuário</li>
+        <li>Criando e editando funções</li>
+        </ol>
+
+    </aside>
+    <footer>
+        <div class="boxs">
+            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        </div>
+        <div class="boxs">
+            <ul>
+                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
+                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
+                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
+            </ul>            
+        </div>
+        <div class="boxs">
+            <ul id="social-media">
+                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
+                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
+                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
+                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="boxs">
+            <h1>Contate-nos:</h1>
+            <p>+55 (14) 2109-3400</p>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
