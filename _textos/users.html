@@ -21,12 +21,12 @@
     </header>
     <section id="principal">
         <article>
-            <h1>Visão geral</h1>
+            <h1 id="item1">Visão geral</h1>
             <p>Somente as pessoas registradas como usuários têm o direito de acessar o ProcessMaker. Esses usuários podem ser organizados em grupos e departamentos . O tipo de atividades que os usuários podem realizar e a interface que os usuários veem são determinados por suas funções .</p>
         </article>
 
         <article>
-            <h1>A Guia Usuários</h1>
+            <h1 id="item2">A Guia Usuários</h1>
             <p>Para administrar usuários, grupos e departamentos, faça login como "administrador" ou outro usuário que tenha a permissão PM_USERS em sua função. Em seguida, vá para a guia Usuários na barra lateral no menu Admin :</p>
 
             <figure id="detalhe">
@@ -41,7 +41,7 @@
         </article>
 
         <article>
-            <h1>Usuários</h1>
+            <h1 id="item3">Usuários</h1>
             <p>Para ver a lista de usuários registrados no workspace atual, vá para Admin => Usuários => Usuários.</p>
 
             <figure>
@@ -61,172 +61,138 @@
             <p>Para pesquisar usuários, use o campo no canto superior direito da janela Usuários:</p>
 
             <p><strong>Pesquisar:</strong> Para encontrar usuários, insira o texto encontrado no nome completo, nome de usuário ou e-mails dos usuários. Depois de inserir o texto na caixa <strong>Pesquisar</strong>, pressione <strong>Buscar</strong> para filtrar a lista de usuários. Para remover o filtro, exclua o texto e pressione Buscar novamente. Para fazer uma pesquisa de curinga, use "_" (um sublinhado) para representar qualquer caractere único e "%" (um sinal de porcentagem) para representar qualquer número de caracteres, incluindo espaços e zero caracteres. Por exemplo, "an%o" encontraria "J<strong>an</strong>io S<strong>o</strong>uza", "<strong>an</strong>derson@gest<strong>o</strong>rexpress.com.br" e "J<strong>an</strong>ete P<strong>o</strong>ntes". Para pesquisar os caracteres literais "_" e "%", use "\_" e "\%". Observe que a pesquisa não diferencia maiúsculas de minúsculas.</p>
-        </article>
-
-        <article>
-            <h1>Alterando a lista de usuários</h1>
-            <p>Por padrão, os usuários são listados de acordo com a ordem em que são encontrados na tabela do banco de dados; no entanto, a tabela pode ser reordenada por coluna clicando no cabeçalho da coluna. Para classificar a coluna em ordem crescente ou decrescente, clique na seta para baixo à direita do rótulo do cabeçalho e selecione <strong>Ordem Ascendente</strong> ou <strong>Ordem Descendente</strong> no menu suspenso.</p>
-
-            <figure>
-                <img src="../_imagens/guis-usuarios.png" alt="Ordenar compos da tabela usuarios">
-            </figure>
-            <p>Para alterar quais colunas são exibidas na lista Usuário, clique na seta para baixo no cabeçalho de uma coluna e selecione Colunas no menu suspenso. Em seguida, marque ou desmarque as caixas de seleção ao lado das colunas a serem exibidas na lista.</p>
-            <figure>
-                <img src="../_imagens/usuarios-ordenar.png" alt="Ordenar compos da tabela usuarios">
-            </figure>
-        </article>
-
-        <article>
-            <h1>Criando novos usuários</h1>
-            <p>Novos usuários podem ser criados dentro da interface do Gestor Express.</p>
-
-            <p>Para criar um novo usuário dentro da interface do Gestor Express, vá para Admin => Usuários => Usuários e clique no botão Novo na barra de ferramentas.</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-novo.png" alt="Novo Usuário">  
-            </figure>
-            <p>Preencha o seguinte formulário. Todos os campos obrigatórios são identificados por um asterisco (*).</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-formulario.png" alt="Formulário para novo Usuário"> 
-            </figure>
-
-            <h2>Informação pessoal</h2>
-            <p><strong>Nome:</strong> O nome do usuário.</p>
-            <p><strong>Sobrenome:</strong> o sobrenome do usuário.</p>
-            <p><strong>Nome de usuário:</strong> O nome da conta que será fornecido quando o usuário efetuar login no sistema. Os nomes de usuário podem conter letras, números e sublinhados. Os nomes de usuário não diferenciam maiúsculas de minúsculas ao fazer login.</p>
-
-            <p><strong>Observação:</strong> os nomes de usuário podem começar com um número, como "01Joao" .</p>
-            <p>O Gestor Express verificará se o nome de usuário já não está sendo usado por outro usuário:</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-disponivel.png" alt="Nome de usuário Disponível"> 
-            </figure>
-
-            <p>Se o nome de usuário for atribuído a outro usuário, uma mensagem de erro vermelha será exibida:</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-indisponivel.png" alt="Nome de usuário Indisponível"> 
-            </figure>
-            <p><strong>E-mail:</strong> O endereço de e-mail do usuário, que pode ser usado para enviar notificações por e-mail sobre processos.</p>
-            <p><strong>Endereço:</strong></p>
-            <p><strong>Código postal:</strong></p>
-            <p><strong>País:</strong> se for selecionado um país com um conjunto conhecido de locais, duas caixas suspensas extras serão exibidas para Estado ou Região e Local. Para outros países, insira as informações de localização no campo <strong>Endereço</strong>.</p>
-            <p><strong>Telefone:</strong></p>
-            <p><strong>Cargo:</strong></p>
-            <p><strong>Substituído por:</strong> Escolha outro usuário que substituirá o usuário quando seu status mudar para "Inativo" ou "Em Férias" no menu suspenso. Todos os processos atualmente atribuídos ao usuário serão reatribuídos ao usuário substituto. Para obter mais informações, consulte Usando Substituído por abaixo.</p>
-            <p><strong>Calendário:</strong> selecione o calendário do usuário , que determina as horas de trabalho do usuário e calcula a data de vencimento das tarefas.</p>
-            <p><strong>Data de expiração:</strong> a data em que o usuário não poderá mais fazer login no Gestor Express. A data de expiração ajuda a proteger os dados de uma organização impedindo que usuários antigos acessem o Gestor Express.</p>
-            <p><strong>Status:</strong> Se definido como Ativo , o usuário tem permissão de acesso ao Gestor Express. Se definido como Inativo, o usuário terá acesso negado ao login e não será designado para trabalhar em nenhum novo processo, até que o status seja alterado novamente para Ativo. Se definido como "Férias", a conta do usuário ficará inativa e não será atribuída a nenhum novo processo até a próxima vez que o usuário efetuar login no Gestor Express. Após o login, o usuário estará novamente disponível para ser atribuído a novos processos. Observe que apenas um usuário, como o "admin" que tem permissão para alterar o status de um usuário.</p>
-            <p><strong>Função:</strong> Selecione a função do usuário, que determina quais funcionalidades e interfaces o usuário pode acessar no Gestor Express. O Gestor Express fornece as funções padrão OPERATOR , SUPERVISOR e ADMINISTRADOR, mas outras funções podem ser criadas para permissões mais personalizadas.</p>
-            <p><strong>Observação:</strong> o campo Função do Administrador do sistema é definido como SYSTEM ADMINISTRATOR por padrão. Este campo não pode ser alterado; caso contrário, o seguinte alerta será exibido.</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/erro-admin.png" alt="Papel do Admin não pode ser mudado"> 
-            </figure>
-
-            <h2>Mudar senha</h2>
-            <p><strong>Nova Senha:</strong> Uma string de pelo menos 5 caracteres, que pode incluir espaços e símbolos. Se a segunda senha não corresponder à primeira ou as senhas não atenderem aos requisitos definidos, uma mensagem de erro vermelha será exibida:</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/senha-nãoconformidade.png" alt="Senhas não conferem"> 
-            </figure>
-
-            <p>Caso contrário, se ambas as senhas corresponderem e as senhas atenderem aos requisitos:</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/senha-conformidade.png" alt="Senhas em conformidade"> 
-            </figure>
-
-            <p><strong>Confirme Password:</strong> Uma string de pelo menos 5 caracteres, que pode incluir espaços e símbolos. Se a segunda senha não corresponder à primeira ou as senhas não atenderem aos requisitos definidos, uma mensagem de erro vermelha será exibida:</p>
-            
-            <h2>Opções de conta</h2>
-            
-            <p>Para forçar o usuário a alterar sua senha no próximo login, marque a caixa <strong>O usuário deve alterar a senha no próximo login</strong>. Quando o usuário inserir suas credenciais, o Formulário de Alteração de Senha será exibido:</p>
-
-            <figure>
-                <img src="../_imagens/senha-alterar.png" alt="Caixa de alteração de senha"> 
-            </figure>
-
-            <p>Não é necessário fazer nenhuma configuração adicional para forçar os usuários a alterar suas senhas.</p>
-
-            <h2>Perfil</h2>
-
-            <p><strong>Foto:</strong> Uma foto de perfil com no máximo 32 MB pode ser carregada. As extensões .png, .jpg, .gif são suportadas. Clique em para procurar uma foto no computador e enviá-la para o perfil do usuário.</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-foto.png" alt="Foto do Usuário">           
-            </figure>
-            
-            <p>Após preencher as informações do usuário, clique em Salvar para criar a nova conta de usuário.</p>
-        </article>
-
-        <article>
-            <h1>Resumo da conta de usuário</h1>
-            <p>O Console da página Usuário Administrador mostra informações sobre cada usuário quando você clica na opção Resumo. Ele mostrará um resumo das informações do usuário e estatísticas sobre o número de processos em que o usuário participou. Habilite esta opção clicando no nome do usuário:</p>
-
-            <figure id="detalhe">
-                <img src="../_imagens/usuario-funcao-resumo.png" alt="Opção Resumo do Usuário"> 
-            </figure>
-            <p>O Resumo do usuário exibe as seguintes informações:</p>
-
-            <figure>
-                <img src="../_imagens/usuario-resumo.png" alt="Tela de resumo do usuário"> 
-            </figure>
-
-            <ol>
-                <li><strong>Guia Resumo:</strong></li>
-                <ul>
-                    <li><strong>Informações do usuário:</strong> Exibe os nomes do usuário, endereço, números de telefone, etc.</li>
-                    <li><strong>Resumo do Processo:</strong> Exibe informações sobre o status do processo em que o usuário participou.</li>
-                    <li><strong>Foto:</strong> Se uma foto do usuário foi carregada, ela será exibida aqui.</li>
-                </ul>
-                <li><strong>Guia Grupos:</strong> Exibe os grupos aos quais o usuário pertence. Observe que os usuários só podem ser membros de um departamento, mas podem ser membros de vários grupos.</li>
-                <li><strong>Guia Autenticação:</strong> Exibe a fonte de autenticação do usuário.</li>
-            </ol>
-        </article>
-
-        <article>
-            <h1>Personalizando as informações do usuário</h1>
-            <h2>Usando Substituído por</h2>
-            <p>O campo <strong>Substituir por</strong> designa outro usuário, que substituirá o usuário quando seu status mudar para Inativo ou Férias.</p>
-
-            <p>O exemplo a seguir demonstra como <strong>Substituir por</strong> funciona:</p>
-
-            <ul>
-                <li>Crie um processo com pelo menos 2 tarefas.</li>
-                <li>Crie três usuários, por exemplo, "João Silva", "Emerson Silvério" e "Jonny Siqueira". Atribua João e Jonny à primeira e segunda tarefas, respectivamente.</li>
-                <li>Edite o perfil de usuário de João Silva e selecione Jonny Siqueira no campo substituir por. Quando João Silva estiver inativo ou de férias, Jonny Siqueira o substituirá, levando seus processos.</li>
-                <li>Agora comece um processo com Emerson Silvério. Em seguida, altere o status de João Silva para Inativo, portanto, quando um processo for roteado da primeira tarefa para a segunda tarefa, ele será atribuído a João Silva, pois Emerson Silvério agora tem um status Inativo.</li>
-            </ul>
-            <h2>Considerações antes de usar <strong>Substituído por</strong></h2>
-
-            <p>Leve em consideração o seguinte:</p>
-
-            <ul>
-                <li>A função <i>Substituir por</i> não funciona se nenhum usuário estiver selecionado no campo <strong>Substituir por</strong> no perfil do usuário.</li>
-                <li>A funcionalidade de Substituído por não tem efeito em tarefas com as regras de atribuição de <strong>Autoatendimento</strong> ou <strong>Autoatendimento por Valor</strong> configuradas. Nesses tipos de atribuições, nenhum usuário é atribuído à tarefa por padrão.</li>
-                <li>Ao atribuir um grupo a uma tarefa, certifique-se de que os usuários configurados para substituir outros usuários estejam incluídos nesse grupo. Se usuários individuais forem atribuídos a essa tarefa, Substituir por não funcionará.</li>
-            </ul>
-        </article>
-
-        <article>
-            <h1>Editando as informações do usuário</h1>
-            <p>Existem três maneiras de editar as informações de um usuário:</p>
-
-            <ul type="disc">
-                <li>Usando a interface do usuário.</li>
-                <li>Acessando a Opção Resumo.</li>
-                <li>Acessando as Opções do Usuário localizadas no canto superior direito da tela.</li>
-            </ul>
-            <p>Observe que os processos existentes continuarão exibindo as informações antigas. As alterações nas informações do usuário serão refletidas apenas em novos processos ou quando os processos existentes forem roteados para a próxima tarefa após a alteração. Por exemplo, se o administrador alterar o nome do usuário de "joao.silva" para "joaosilva12", a alteração será refletida apenas nos processos criados após a alteração, conforme mostrado na imagem abaixo.</p>
-
-            <figure>
-                <img src="../_imagens/processos-usuario.png" alt="Processos de um usuário"> 
-            </figure>
-
+      
             <div>
-                <h2>Usando a interface do usuário</h2>
+                <h2 id="item3a">Alterando a lista de usuários</h2>
+                <p>Por padrão, os usuários são listados de acordo com a ordem em que são encontrados na tabela do banco de dados; no entanto, a tabela pode ser reordenada por coluna clicando no cabeçalho da coluna. Para classificar a coluna em ordem crescente ou decrescente, clique na seta para baixo à direita do rótulo do cabeçalho e selecione <strong>Ordem Ascendente</strong> ou <strong>Ordem Descendente</strong> no menu suspenso.</p>
+                <figure>
+                    <img src="../_imagens/guis-usuarios.png" alt="Ordenar compos da tabela usuarios">
+                </figure>
+                <p>Para alterar quais colunas são exibidas na lista Usuário, clique na seta para baixo no cabeçalho de uma coluna e selecione Colunas no menu suspenso. Em seguida, marque ou desmarque as caixas de seleção ao lado das colunas a serem exibidas na lista.</p>
+                <figure>
+                    <img src="../_imagens/usuarios-ordenar.png" alt="Ordenar compos da tabela usuarios">
+                </figure>
+            </div>
+            <div>
+                <h2 id="item3b">Criando novos usuários</h2>
+                <p>Novos usuários podem ser criados dentro da interface do Gestor Express.</p>
+                <p>Para criar um novo usuário dentro da interface do Gestor Express, vá para Admin => Usuários => Usuários e clique no botão Novo na barra de ferramentas.</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-novo.png" alt="Novo Usuário">
+                </figure>
+                <p>Preencha o seguinte formulário. Todos os campos obrigatórios são identificados por um asterisco (*).</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-formulario.png" alt="Formulário para novo Usuário">
+                </figure>
+                <h2>Informação pessoal</h2>
+                <p><strong>Nome:</strong> O nome do usuário.</p>
+                <p><strong>Sobrenome:</strong> o sobrenome do usuário.</p>
+                <p><strong>Nome de usuário:</strong> O nome da conta que será fornecido quando o usuário efetuar login no sistema. Os nomes de usuário podem conter letras, números e sublinhados. Os nomes de usuário não diferenciam maiúsculas de minúsculas ao fazer login.</p>
+                <p><strong>Observação:</strong> os nomes de usuário podem começar com um número, como "01Joao" .</p>
+                <p>O Gestor Express verificará se o nome de usuário já não está sendo usado por outro usuário:</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-disponivel.png" alt="Nome de usuário Disponível">
+                </figure>
+                <p>Se o nome de usuário for atribuído a outro usuário, uma mensagem de erro vermelha será exibida:</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-indisponivel.png" alt="Nome de usuário Indisponível">
+                </figure>
+                <p><strong>E-mail:</strong> O endereço de e-mail do usuário, que pode ser usado para enviar notificações por e-mail sobre processos.</p>
+                <p><strong>Endereço:</strong></p>
+                <p><strong>Código postal:</strong></p>
+                <p><strong>País:</strong> se for selecionado um país com um conjunto conhecido de locais, duas caixas suspensas extras serão exibidas para Estado ou Região e Local. Para outros países, insira as informações de localização no campo <strong>Endereço</strong>.</p>
+                <p><strong>Telefone:</strong></p>
+                <p><strong>Cargo:</strong></p>
+                <p><strong>Substituído por:</strong> Escolha outro usuário que substituirá o usuário quando seu status mudar para "Inativo" ou "Em Férias" no menu suspenso. Todos os processos atualmente atribuídos ao usuário serão reatribuídos ao usuário substituto. Para obter mais informações, consulte Usando Substituído por abaixo.</p>
+                <p><strong>Calendário:</strong> selecione o calendário do usuário , que determina as horas de trabalho do usuário e calcula a data de vencimento das tarefas.</p>
+                <p><strong>Data de expiração:</strong> a data em que o usuário não poderá mais fazer login no Gestor Express. A data de expiração ajuda a proteger os dados de uma organização impedindo que usuários antigos acessem o Gestor Express.</p>
+                <p><strong>Status:</strong> Se definido como Ativo , o usuário tem permissão de acesso ao Gestor Express. Se definido como Inativo, o usuário terá acesso negado ao login e não será designado para trabalhar em nenhum novo processo, até que o status seja alterado novamente para Ativo. Se definido como "Férias", a conta do usuário ficará inativa e não será atribuída a nenhum novo processo até a próxima vez que o usuário efetuar login no Gestor Express. Após o login, o usuário estará novamente disponível para ser atribuído a novos processos. Observe que apenas um usuário, como o "admin" que tem permissão para alterar o status de um usuário.</p>
+                <p><strong>Função:</strong> Selecione a função do usuário, que determina quais funcionalidades e interfaces o usuário pode acessar no Gestor Express. O Gestor Express fornece as funções padrão OPERATOR , SUPERVISOR e ADMINISTRADOR, mas outras funções podem ser criadas para permissões mais personalizadas.</p>
+                <p><strong>Observação:</strong> o campo Função do Administrador do sistema é definido como SYSTEM ADMINISTRATOR por padrão. Este campo não pode ser alterado; caso contrário, o seguinte alerta será exibido.</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/erro-admin.png" alt="Papel do Admin não pode ser mudado">
+                </figure>
+                <h2>Mudar senha</h2>
+                <p><strong>Nova Senha:</strong> Uma string de pelo menos 5 caracteres, que pode incluir espaços e símbolos. Se a segunda senha não corresponder à primeira ou as senhas não atenderem aos requisitos definidos, uma mensagem de erro vermelha será exibida:</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/senha-nãoconformidade.png" alt="Senhas não conferem">
+                </figure>
+                <p>Caso contrário, se ambas as senhas corresponderem e as senhas atenderem aos requisitos:</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/senha-conformidade.png" alt="Senhas em conformidade">
+                </figure>
+                <p><strong>Confirme Password:</strong> Uma string de pelo menos 5 caracteres, que pode incluir espaços e símbolos. Se a segunda senha não corresponder à primeira ou as senhas não atenderem aos requisitos definidos, uma mensagem de erro vermelha será exibida:</p>
+                
+                <h2>Opções de conta</h2>
+                
+                <p>Para forçar o usuário a alterar sua senha no próximo login, marque a caixa <strong>O usuário deve alterar a senha no próximo login</strong>. Quando o usuário inserir suas credenciais, o Formulário de Alteração de Senha será exibido:</p>
+                <figure>
+                    <img src="../_imagens/senha-alterar.png" alt="Caixa de alteração de senha">
+                </figure>
+                <p>Não é necessário fazer nenhuma configuração adicional para forçar os usuários a alterar suas senhas.</p>
+                <h2>Perfil</h2>
+                <p><strong>Foto:</strong> Uma foto de perfil com no máximo 32 MB pode ser carregada. As extensões .png, .jpg, .gif são suportadas. Clique em para procurar uma foto no computador e enviá-la para o perfil do usuário.</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-foto.png" alt="Foto do Usuário">
+                </figure>
+                
+                <p>Após preencher as informações do usuário, clique em Salvar para criar a nova conta de usuário.</p>
+            </div>
+            <div>
+                <h2 id="item3c">Resumo da conta de usuário</h2>
+                <p>O Console da página Usuário Administrador mostra informações sobre cada usuário quando você clica na opção Resumo. Ele mostrará um resumo das informações do usuário e estatísticas sobre o número de processos em que o usuário participou. Habilite esta opção clicando no nome do usuário:</p>
+                <figure id="detalhe">
+                    <img src="../_imagens/usuario-funcao-resumo.png" alt="Opção Resumo do Usuário">
+                </figure>
+                <p>O Resumo do usuário exibe as seguintes informações:</p>
+                <figure>
+                    <img src="../_imagens/usuario-resumo.png" alt="Tela de resumo do usuário">
+                </figure>
+                <ol>
+                    <li><strong>Guia Resumo:</strong></li>
+                    <ul>
+                        <li><strong>Informações do usuário:</strong> Exibe os nomes do usuário, endereço, números de telefone, etc.</li>
+                        <li><strong>Resumo do Processo:</strong> Exibe informações sobre o status do processo em que o usuário participou.</li>
+                        <li><strong>Foto:</strong> Se uma foto do usuário foi carregada, ela será exibida aqui.</li>
+                    </ul>
+                    <li><strong>Guia Grupos:</strong> Exibe os grupos aos quais o usuário pertence. Observe que os usuários só podem ser membros de um departamento, mas podem ser membros de vários grupos.</li>
+                    <li><strong>Guia Autenticação:</strong> Exibe a fonte de autenticação do usuário.</li>
+                </ol>
+            </div>
+            <div>
+                <h2 id="#item3d">Personalizando as informações do usuário</h2>
+                <h2 id="#item3di">Usando Substituído por</h2>
+                <p>O campo <strong>Substituir por</strong> designa outro usuário, que substituirá o usuário quando seu status mudar para Inativo ou Férias.</p>
+                <p>O exemplo a seguir demonstra como <strong>Substituir por</strong> funciona:</p>
+                <ul>
+                    <li>Crie um processo com pelo menos 2 tarefas.</li>
+                    <li>Crie três usuários, por exemplo, "João Silva", "Emerson Silvério" e "Jonny Siqueira". Atribua João e Jonny à primeira e segunda tarefas, respectivamente.</li>
+                    <li>Edite o perfil de usuário de João Silva e selecione Jonny Siqueira no campo substituir por. Quando João Silva estiver inativo ou de férias, Jonny Siqueira o substituirá, levando seus processos.</li>
+                    <li>Agora comece um processo com Emerson Silvério. Em seguida, altere o status de João Silva para Inativo, portanto, quando um processo for roteado da primeira tarefa para a segunda tarefa, ele será atribuído a João Silva, pois Emerson Silvério agora tem um status Inativo.</li>
+                </ul>
+                <h2 id="#item3da">Considerações antes de usar <strong>Substituído por</strong></h2>
+                <p>Leve em consideração o seguinte:</p>
+                <ul>
+                    <li>A função <i>Substituir por</i> não funciona se nenhum usuário estiver selecionado no campo <strong>Substituir por</strong> no perfil do usuário.</li>
+                    <li>A funcionalidade de Substituído por não tem efeito em tarefas com as regras de atribuição de <strong>Autoatendimento</strong> ou <strong>Autoatendimento por Valor</strong> configuradas. Nesses tipos de atribuições, nenhum usuário é atribuído à tarefa por padrão.</li>
+                    <li>Ao atribuir um grupo a uma tarefa, certifique-se de que os usuários configurados para substituir outros usuários estejam incluídos nesse grupo. Se usuários individuais forem atribuídos a essa tarefa, Substituir por não funcionará.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 id="#item3e">Editando as informações do usuário</h2>
+                <p>Existem três maneiras de editar as informações de um usuário:</p>
+                <ul type="disc">
+                    <li>Usando a interface do usuário.</li>
+                    <li>Acessando a Opção Resumo.</li>
+                    <li>Acessando as Opções do Usuário localizadas no canto superior direito da tela.</li>
+                </ul>
+                <p>Observe que os processos existentes continuarão exibindo as informações antigas. As alterações nas informações do usuário serão refletidas apenas em novos processos ou quando os processos existentes forem roteados para a próxima tarefa após a alteração. Por exemplo, se o administrador alterar o nome do usuário de "joao.silva" para "joaosilva12", a alteração será refletida apenas nos processos criados após a alteração, conforme mostrado na imagem abaixo.</p>
+                <figure>
+                    <img src="../_imagens/processos-usuario.png" alt="Processos de um usuário">
+                </figure>
+            </div>
+            <div>
+                <h2 id="#item3ei">Usando a interface do usuário</h2>
                 <p>Faça login com um usuário que tenha a permissão PM_USERS em sua função e vá para <strong>Usuários</strong>. Selecione o usuário que será editado e clique em <strong>Editar</strong>. Lembre-se que se nenhum usuário for selecionado, a opção Editar permanecerá desabilitada.</p>
 
                 <figure>
@@ -234,7 +200,7 @@
                 </figure>
             </div>
             <div>
-                <h2>Acessando as opções de resumo</h2>
+                <h2 id="#item3dii">Acessando as opções de resumo</h2>
                 <p>Para editar as informações do usuário, um novo botão <strong>Editar</strong> foi adicionado:</p>
 
                 <figure>
@@ -242,15 +208,15 @@
                 </figure>
             </div>
             <div>
-                <h2>Acessando as opções do usuário</h2>
+                <h2 id="#item3eiii">Acessando as opções do usuário</h2>
                 <p>No canto superior direito da tela, o nome de usuário do usuário atual é mostrado. Ao clicar no nome, o usuário será redirecionado para a seção de informações do usuário. Somente usuários com a permissão ADMINISTRADOR atribuída à sua função podem acessar esta opção no final do formulário:</p>
 
-                <figure>
+                <figure id="detalhe">
                     <img src="../_imagens/tela-canto-editar.png" alt="Edição Opções do Usuário">
                 </figure>
             </div>
             <div>
-                <h2>Excluindo usuários</h2>
+                <h2 id="#item3f">Excluindo usuários</h2>
                 <p>Para excluir a conta de um usuário, três condições devem ser atendidas:</p>
                 <ol>
                     <li>A conta do usuário não pode ser membro de nenhum grupo.</li>
@@ -266,7 +232,7 @@
                 <p>Geralmente, não é recomendado excluir contas de usuários, pois os registros de usuários devem ser mantidos para fins históricos. Em vez disso, é recomendável desativar a conta do usuário alterando seu status de Ativo para Inativo.</p>
             </div>
             <div>
-                <h2>Habilitando/Desabilitando Usuários</h2>
+                <h2 id="#item3g">Habilitando/Desabilitando Usuários</h2>
                 <p>É possível habilitar ou desabilitar um usuário da lista de usuários sem alterar os dados no banco de dados, o que é útil se o usuário não precisar ser excluído.</p>
 
                 <p>Antes de selecionar um usuário da lista, a opção <strong>Status</strong> será exibida como uma opção inativa:</p>
@@ -293,39 +259,32 @@
                     <img src="../_imagens/usuario-habilita.png" alt="Botão de habilitar do Usuario">
                 </figure>
             </div>
+            <div>
+                <h2 id="#item3h">Atribuindo grupos a usuários</h2>
+                <p>É possível atribuir grupos a usuários diretamente da lista de usuários:</p>
+                <figure>
+                    <img src="../_imagens/usuario-atrib-grupo.png" alt="Atribuir Grupo">
+                </figure>
+                <p>Ao escolher um usuário da lista, a opção <strong>Grupos</strong> será habilitada. Clicar em Grupos abrirá uma janela listando o grupo ao qual o usuário específico pertence.</p>
+                <figure>
+                    <img src="../_imagens/usuario-escolher-grupo.png" alt="Tela para escolha de Grupo">
+                </figure>
+                <p>Para atribuir grupos, clique no botão <strong>atribuir grupo</strong> e uma janela dividida será exibida. Na coluna da esquerda serão listados os grupos disponíveis e na coluna da direita serão listados os grupos atribuídos:</p>
+                <figure>
+                    <img src="../_imagens/usuario-atrib-janela.png" alt="Janela para atribuição de Grupo">
+                </figure>
+            </div>
+            <div>
+                <h2 id="#item3i">Atribuindo fontes de autenticação a usuários existentes</h2>
+                <p>A fonte de autenticação pode ser atribuída a partir da lista de usuários. Escolha um usuário da lista e o botão Autenticação será ativado:</p>
+                <figure>
+                    <img src="../_imagens/usuario-autenticacao.png" alt="Botão para autenticação do usuario">
+                </figure>
+                <p>Para obter mais informações sobre esta opção, consulte <a href="#">esta documentação</a>.</p>
+            </div>
         </article>
-
         <article>
-            <h1>Atribuindo grupos a usuários</h1>
-            <p>É possível atribuir grupos a usuários diretamente da lista de usuários:</p>
-
-            <figure>
-                <img src="../_imagens/usuario-atrib-grupo.png" alt="Atribuir Grupo">
-            </figure>
-
-            <p>Ao escolher um usuário da lista, a opção <strong>Grupos</strong> será habilitada. Clicar em Grupos abrirá uma janela listando o grupo ao qual o usuário específico pertence.</p>
-
-            <figure>
-                <img src="../_imagens/usuario-escolher-grupo.png" alt="Tela para escolha de Grupo">
-            </figure>
-
-            <p>Para atribuir grupos, clique no botão <strong>atribuir grupo</strong> e uma janela dividida será exibida. Na coluna da esquerda serão listados os grupos disponíveis e na coluna da direita serão listados os grupos atribuídos:</p>
-
-            <figure>
-                <img src="../_imagens/usuario-atrib-janela.png" alt="Janela para atribuição de Grupo">
-            </figure>
-
-            <h2>Atribuindo fontes de autenticação a usuários existentes</h2>
-            <p>A fonte de autenticação pode ser atribuída a partir da lista de usuários. Escolha um usuário da lista e o botão Autenticação será ativado:</p>
-
-            <figure>
-                <img src="../_imagens/usuario-autenticacao.png" alt="Botão para autenticação do usuario">
-            </figure>
-            <p>Para obter mais informações sobre esta opção, consulte <a href="#">esta documentação</a>.</p>
-        </article>
-
-        <article>
-            <h1>Grupos</h1>
+            <h1 id="#item4">Grupos</h1>
             <p>Os grupos são uma maneira de organizar os usuários e simplificar a atribuição de tarefas a vários usuários. No processo de exemplo de solicitação de compra, a tarefa "Iniciar tarefa" pode ser atribuída ao grupo "Funcionários", que inclui todos na organização. Dessa forma, qualquer pessoa na organização pode iniciar um caso de solicitação de compra. Se a organização tiver dois contadores e ambos estiverem atribuídos à tarefa "Gerar recibo", um grupo "Contadores" poderá ser criado e atribuído à tarefa em vez de atribuir cada contador individualmente. A atribuição de grupos, em vez de usuários individuais, eliminará muitos problemas para os projetistas de processos, pois pode ser difícil lembrar de incluir cada usuário individual ao atribuir tarefas.</p>
 
             <p><strong>Nota:</strong> Leve em consideração que o Gestor Express NÃO suporta subgrupos. Portanto, grupos de usuários não podem ser organizados hierarquicamente e grupos aninhados não podem ser criados.</p>
@@ -333,7 +292,7 @@
             <p>A atribuição de tarefas a grupos em vez de usuários individuais é muito mais flexível, pois cada processo não precisa ser modificado quando as contas de usuário são desativadas ou modificadas. Os grupos podem ser muito convenientes quando há mudanças frequentes de pessoal em uma organização. Se várias tarefas forem atribuídas a um determinado gerente em dezenas de processos, quando esse gerente for transferido, cada tarefa terá que ser reatribuída ao novo gerente individualmente. Por outro lado, se as tarefas forem atribuídas ao grupo "Gerente", a única alteração será a troca de um usuário no grupo.</p>
 
             <div>
-                <h2>Criando grupos</h2>
+                <h2 id="#item4a">Criando grupos</h2>
                 <p>Para ver a lista de grupos, vá para Admin => Usuarios => Grupos.</p>
                 <figure>
                     <img src="../_imagens/grupo-lista.png" alt="Janela com LIsta de Grupo">
@@ -348,7 +307,7 @@
                 </figure>
             </div>
             <div>
-                <h2>Ativar e Desativar Grupos</h2>
+                <h2 id="#item4ai">Ativar e Desativar Grupos</h2>
                 <p>Para editar o nome e o status de um grupo, primeiro selecione o grupo na lista e clique no botão Editar na barra de ferramentas.</p>
 
                 <figure>
@@ -376,7 +335,7 @@
                 </figure>                
             </div>
             <div>
-                <h2>Atribuindo usuários a grupos</h2>
+                <h2 id="#item4b">Atribuindo usuários a grupos</h2>
                 <p>Uma conta de usuário pode pertencer a zero, um ou vários grupos, e os grupos podem ter vários usuários. Em outras palavras, muitos grupos podem ser atribuídos a muitos usuários. A coluna Usuários exibe quantos usuários estão atribuídos a um grupo e a coluna Tarefas mostra a quantas tarefas o grupo foi atribuído.</p>
 
                 <p>Para adicionar um usuário ao grupo, primeiro selecione o grupo na lista. Em seguida, clique no botão <strong>Usuários</strong> no topo da lista. Uma nova janela aparecerá:</p>
@@ -404,15 +363,16 @@
                 <p>Para remover um usuário de um grupo existente, clique no link <i>Remover</i> do grupo selecionado no lado esquerdo do painel e confirme na caixa de pergunta pop-up para remover o usuário.</p>
             </div>
         </article>
-            <h1>Departamentos e Subdepartamentos</h1>
+        <article>
+            <h1 id="#item5">Departamentos e Subdepartamentos</h1>
             <p>Os departamentos são outra maneira de organizar os usuários com base em uma organização hierárquica que determina a maneira e a extensão em que funções e responsabilidades são delegadas, controladas e coordenadas, bem como como as informações fluem entre os níveis de hierarquia em uma empresa. No Gestor Express, os departamentos devem representar as unidades da organização, e os funcionários de cada entidade (que irão atuar nos processos da empresa) devem ser atribuídos a esses departamentos. Criar os departamentos e definir os gerentes (Supervisor) para cada departamento indicará a quem os funcionários devem se reportar ao enviar informações que precisam de revisão ou aprovação de um supervisor de acordo com a organização hierárquica da empresa.</p>
             
             <p>Um subdepartamento no Gestor Express representa uma unidade que depende de outra unidade na estrutura de uma empresa. A criação de subdepartamentos no Gestor Express também oferece aos administradores uma representação gráfica da estrutura da empresa.</p>
             
-            <p>Para gerenciar departamentos e subdepartamentos, faça login no Gestor Express com um usuário, como o "ADMINISTRADOR", que tenha a permissão PM_USERS em sua função . Em seguida, vá para Admin => Usuários => Departamentos para ver uma lista dos departamentos e o número de usuários atribuídos a eles.</p>
+            <p>Para gerenciar departamentos e subdepartamentos, faça login no Gestor Express com um usuário, como o "ADMINISTRADOR", que tenha a permissão PM_USERS em sua função . Em seguida, vá para <strong>Admin => Usuários => Departamentos</strong> para ver uma lista dos departamentos e o número de usuários atribuídos a eles.</p>
 
             <figure>
-
+                <img src="../_imagens/departamentos.png" alt="Relação de Departamentos">
             </figure>
 
             <p>Para departamentos, leve em consideração o seguinte:</p>            
@@ -430,11 +390,11 @@
             </ul>
 
             <figure>
-
+                <img src="../_imagens/departamento-aviso.png" alt="Aviso de sobrecarga de processamento">
             </figure>
             
             <div>
-                <h2>Criando um novo departamento</h2>
+                <h2 id="#item5a">Criando um novo departamento</h2>
                 <p>Para criar um novo departamento, clique no botão <strong>Novo</strong>. Digite o nome do novo departamento e clique em <strong>Salvar</strong>.</p>
 
                 <p>Para criar um <strong>subdepartamento</strong> em um departamento pai, primeiro selecione o departamento pai na lista e clique em <strong>Novo subdepartamento</strong>. Digite o nome do novo subdepartamento e clique em <strong>Salvar</strong>.</p>
@@ -442,11 +402,11 @@
                 <p>O subdepartamento aparecerá na lista, inserido em seu departamento pai:</p>
                 
                 <figure>
-
+                    <img src="../_imagens/departamento-novo.png" alt="Criando novo Departamento">
                 </figure>
             </div>
             <div>
-                <h2>Editando um departamento</h2>
+                <h2 id="#item5b">Editando um departamento</h2>
                 <p>Para editar um departamento:</p>
                 
                 <ul type="disc">
@@ -455,7 +415,7 @@
                 </ul>
 
                 <figure>
-
+                    <img src="../_imagens/departamento-editar.png" alt="Editando um Departamento">
                 </figure>
 
                 <p><strong>Nome do Departamento:</strong> Um rótulo para identificar o nome do departamento.</p>
@@ -465,17 +425,17 @@
                 <p><strong>Gerente:</strong> Este campo de caixa suspensa seleciona um gerente de uma lista de usuários do departamento. O valor padrão é "Sem gerente". Apenas um usuário pode ser designado como gerente.</p>
             </div>
             <div>
-                <h2>Atribuindo usuários a departamentos</h2>
+                <h2 id="#item5c">Atribuindo usuários a departamentos</h2>
                 <p>Para atribuir usuários a um departamento, vá para Admin => Usuários => Departamentos para ver a lista de departamentos. Selecione um departamento e clique em Usuários. A lista de usuários já atribuídos será exibida na janela que se abre:</p>
 
                 <figure>
-
+                    <img src="../_imagens/departamentos-atribuir.png" alt="Atribuindo usuarios em um Departamento">
                 </figure>
 
                 <p>Clique no botão <strong>Atribua um usuário</strong> para adicionar usuários ao departamento. Na janela que se abre, o painel esquerdo tem a lista de usuários disponíveis que ainda não estão atribuídos a nenhum departamento. Os usuários atribuídos ao departamento são listados no painel direito.</p>
 
                 <figure>
-
+                    <img src="../_imagens/departamento-adicionar.png" alt="Adicionando usuarios em um Departamento">
                 </figure>
 
                 <p>Selecione um usuário ou vários usuários na lista de usuários disponíveis e clique em <strong>></strong> para adicioná-los ao departamento. Para adicionar todos os usuários disponíveis ao departamento, clique no botão <strong>>></strong>. Se o departamento não tiver usuários, o primeiro usuário atribuído ao departamento será automaticamente definido como Supervisor do departamento por padrão. Veja a função <i>Reportar a</i>.</p>
@@ -485,33 +445,31 @@
                 <p>Também é possível selecionar usuários e arrastá-los e soltá-los de um painel para outro para adicionar ou remover usuários do departamento.</p>
             </div>
             <div>
-                <h2>Excluindo departamentos</h2>
+                <h2 id="#item5d">Excluindo departamentos</h2>
                 <p>Para excluir um departamento, vá para Admin => Usuários => Departamentos e selecione um departamento na lista e clique em <strong>Excluir</strong>. Na caixa de diálogo de confirmação, clique em Sim para excluir o departamento.</p>
 
                 <figure>
-
+                    <img src="../_imagens/departamento-excluir.png" alt="Excluindo um Departamento">
                 </figure>
 
                 <p><strong>Nota:</strong> Se um departamento tiver subdepartamentos, primeiro exclua os subdepartamentos antes de excluir o departamento.</p>
             </div>
             <div>
-                <h2>Configurando o Gerente do Departamento</h2>
+                <h2 id="#item5e">Configurando o Gerente do Departamento</h2>
                 <p>Para atribuir um usuário como "Gerente" em um departamento ou subdepartamento, primeiro selecione o Departamento (ou subdepartamento) e clique em <strong>Usuários</strong>. Na lista de usuários, selecione um usuário e clique em <strong>Definir Gerente</strong>.</p>
 
                 <p>Para remover um gerente de um departamento, clique em <strong>Sem Gerente</strong>.</p>
 
                 <figure>
-
+                    <img src="../_imagens/departamento-gerente.png" alt="Gerente de um Departamento">
                 </figure>
 
                 <p>Na lista de departamentos, será exibido o nome de usuário do gerente e o número de usuários atribuídos a cada departamento:</p>
 
                 <figure>
-
+                    <img src="../_imagens/departamento-lista.png" alt="Lista de Departamentos">
                 </figure>
             </div>
-        <article>
-
         </article>
     
     </section>
@@ -519,46 +477,46 @@
     <aside id="lado">
         <h2>Conteúdo:</h2>
         <ol>
-            <li>Visão geral</li>
-            <li>A guia Usuários</li>
-            <li>Usuários</li>
+            <li><a href="#item1">Visão geral</a></li>
+            <li><a href="#item2">A guia Usuários</a></li>
+            <li><a href="#item3">Usuários</a></li>
             <ol type="A">
-                <li>Alterando a lista de usuários</li>
-                <li>Criando novos usuários</li>
-                <li>Resumo da conta de usuário</li>
-                <li>Personalizando as informações do usuário</li>
+                <li><a href="#item3a">Alterando a lista de usuários</a></li>
+                <li><a href="#item3b">Criando novos usuários</a></li>
+                <li><a href="#item3c">Resumo da conta de usuário</a></li>
+                <li><a href="#item3d">Personalizando as informações do usuário</a></li>
                 <ol type="i">
-                   <li>Usando Substituído por</li>
+                   <li><a href="#item3di">Usando Substituído por</a></li>
                      <ol type="a">
-                        <li>Considerações antes de usar Substituído por</li> 
+                        <li><a href="#item3da">Considerações antes de usar Substituído por</a></li> 
                     </ol>
                 </ol>
-                <li>Editando as informações do usuário</li>
+                <li><a href="#item3e">Editando as informações do usuário</a></li>
                 <ol type="i">
-                    <li>Usando a interface do usuário</li>
-                    <li>Acessando as opções de resumo</li>
-                    <li>Acessando as opções do usuário</li>
+                    <li><a href="#item3ei">Usando a interface do usuário</a></li>
+                    <li><a href="#item3eii">Acessando as opções de resumo</a></li>
+                    <li><a href="#item3eiii">Acessando as opções do usuário</a></li>
                 </ol>
-                <li>Excluindo usuários</li>
-                <li>Habilitando/Desabilitando Usuários</li>
-                <li>Atribuindo grupos a usuários</li>
-                <li>Atribuindo fontes de autenticação a usuários existentes</li>
+                <li><a href="#item3f">Excluindo usuários</a></li>
+                <li><a href="#item3g">Habilitando/Desabilitando Usuários</a></li>
+                <li><a href="#item3h">Atribuindo grupos a usuários</a></li>
+                <li><a href="#item3i">Atribuindo fontes de autenticação a usuários existentes</a></li>
             </ol>
-            <li>Grupos</li>
+            <li><a href="#item4">Grupos</a></li>
             <ol type="A">
-                <li>Criando grupos</li>
+                <li><a href="#item4a">Criando grupos</a></li>
                 <ol type="i">
-                    <li>Ativar e Desativar Grupos</li>
+                    <li><a href="#item4ai">Ativar e Desativar Grupos</a></li>
                 </ol>
-                <li>Atribuindo usuários a grupos</li>
+                <li><a href="#item4b">Atribuindo usuários a grupos</a></li>
             </ol>
-            <li>Departamentos e Subdepartamentos</li>
+            <li><a href="#item5">Departamentos e Subdepartamentos</a></li>
             <ol type="A">
-                <li>Criando um novo departamento</li>
-                <li>Editando um departamento</li>
-                <li>Atribuindo usuários a departamentos</li>
-                <li>Excluindo departamentos</li>
-                <li>Configurando o Gerente do Departamento</li>
+                <li><a href="#item5a">Criando um novo departamento</a></li>
+                <li><a href="#item5b">Editando um departamento</a></li>
+                <li><a href="#item5c">Atribuindo usuários a departamentos</a></li>
+                <li><a href="#item5d">Excluindo departamentos</a></li>
+                <li><a href="#item5e">Configurando o Gerente do Departamento</a></li>
             </ol>
         </ol>
     </aside>
