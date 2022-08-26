@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Condições</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+                
+        <h1>Visão geral</h1>
+            <p>O Gestor Express usa condições em várias situações diferentes para determinar se a execução acontece ou não. As condições são avaliadas como verdadeiras ou falsas, com base na lógica booleana encontrada no PHP. As condições podem ser definidas para etapas (Formulários, Documentos de entrada, Documentos de saída e gatilhos), Avaliação e gateways paralelos e eventos.</p>
+            
+            <p>Além disso, as condições podem ser criadas para mostrar ou ocultar elementos em um formulário dinâmico usando a lógica booleana do JavaScript.</p>
+        
+        <article>
+            <h1>Entendendo as Condições</h1>
+            <p>As condições no Gestor Express são baseadas na lógica booleana, que é a ideia de que qualquer expressão pode ser avaliada para um valor de Verdadeiro ou Falso. Se a expressão for verdadeira, a execução ocorrerá. Se for falso, nenhuma execução ocorrerá. No Gestor Express, uma condição pode assumir várias formas. Estes são todos os tipos válidos de condições:</p>
+            <table>
+                <thead>
+                    <th>Condição</th><th>Descrição</th></tr>
+                </thead>
+                <tbody>
+                    <td> 3124.5</td><td>Um número de ponto flutuante que é avaliado como verdadeiro</td></tr>
+                    <td> "Olá Mundo!"</td><td>Uma string que é avaliada como verdadeira</td></tr>
+                    <td> false</td><td>O valor booleano de falso</td></tr>
+                    <td> @@TipoContato</td><td>Uma variável de processo</td></tr>
+                    <td> @%Total == 400</td><td>Comparação de igualdade com um inteiro</td></tr>
+                    <td> check === @@TipoPagamento</td><td>Comparação de igualdade entre strings</td></tr>
+                    <td> @@USR_USERNAME != "Supervisor"</td><td>Comparação de não igualdade entre strings</td></tr>
+                    <td> @#VrNotaFiscal > 100.00</td><td>Maior que => Comparação com um número de ponto flutuante</td></tr>
+                    <td>max(@#NotaFiscal, @#TotalConta) < 1000</td><td>Menor que => Comparação com o valor de retorno de uma função</td></tr>
+                    <td> (@#Preco - @#Desconto) * @%Quantidade <= 3000</td><td>Menor que => Comparação com uma operação matemática usando () para priorizar elementos</td></tr>
+                    <td> (@#Valor >= 5000.00 and @@prioridade == "high")</td><td>Duas comparações unidas por AND</td></tr>
+                    <td>((@@contato=="vendas" ou @@contato=="lead") e !(@@prioridade=="high"))</td><td>Lógico OR, AND, NOT usando () para priorizar elementos</td></tr>
+                </tbody>
+            </table>
+            <div>
+                <h2>Variáveis em Condições</h2>
+                <p>As condições podem conter variáveis de sistema ou de processo, que são precedidas por um sinal e, em seguida, outro símbolo que indica como a variável é analisada:@</p>
+                <table id="tab2">
+                    <thead>
+                        <tr><th width= "15%">Tipo de variável</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td width="15%"> @@ nome_variável</td><td>A variável será analisada como uma <strong>string</strong> . Se originalmente outro tipo, ele será convertido em uma string. Então -1, 0 e 12,45 se tornam "-1", "0" e "12,45", respectivamente.</td></tr>
+                        <tr><td> @% nome_variável</td><td>A variável será analisada como um <strong>inteiro</strong> (um número inteiro). Se originalmente outro tipo, ele será convertido em um inteiro. Um número real será convertido em um número inteiro, então 12,45 se tornará 12. Uma string que contém números será convertida em um número inteiro, então "655" e "34,19" se tornarão 655 e 34, respectivamente.</td></tr>
+                        <tr><td> @# nome_variável</td><td>A variável será analisada como tipo <strong>float</strong> (um número real com decimais).</td></tr>
+                        <tr><td> @= nome_variável</td><td>A variável não será alterada e será analisada como seu tipo original.</td></tr>
+                    </tbody>
+                </table>
+                <p>Variáveis de processos são variáveis que contêm informações sobre um processo e são criadas quando um campo em um formulário dinâmico é enviado ou quando definido em um gatilho. Os nomes de variáveis devem começar com uma letra ou underline e se diferenciam entre maiúsculas de minúsculas, portanto @@_myvar, @@myvar, @@MyVar, @@MYVAR e @@myvar2 são cinco variáveis diferentes. Certifique-se de soletrar as variáveis de processo exatamente como seus nomes de campo no Formulário Dinâmico ou como elas foram definidas em um gatilho.</p>
+                <p>As condições NÃO podem conter variáveis PHP locais ou globais que foram definidas em gatilhos, mas podem usar variáveis superglobais do PHP, como $_SERVER ['SERVER_ADDR'] e  $_ENV['PATH'].</p>
+                <p>Se uma condição contiver apenas uma variável (e nada mais), o valor da variável será examinado e avaliado para verdadeira ou falsa. No PHP, um valor só é considerado falso quando é um dos seguintes valores:</p>
+
+                <table id="tab3">
+                    <thead>
+                        <tr><th width="150px">Valor</th><th width="300px">Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td width="150px">FALSE</td><td width="200px">O valor booleano de falso</td></tr>
+                        <tr><td>0</td><td>Um inteiro zero</td></tr>
+                        <tr><td>0.0</td><td>Um zero flutuante</td></tr>
+                        <tr><td>" "</td><td>Uma cadeia vazia</td></td>
+                        <tr><td>"0"</td><td>Uma string com valor zero</th></tr>
+                        <tr><td>array()</td><td>Um array com zero elementos</td></tr>
+                        <tr><td>new StdClass()</td><td>Um objeto com zero variáveis de membro</td></tr>
+                        <tr><td>NULL</td><td>Um valor especial que significa "sem valor"</td></tr>
+                    </tbody>
+                </table>
+                
+
+
+            </div>
+        </article>
+    </section>
+
+    <aside id="lado">
+        <h1>Conteúdo:</h1>
+        <ol>
+            <li>Visão geral</li>
+            <li>Entendendo as Condições</li>
+            <ol>
+                <li>Variáveis em Condições</li>
+                <li>Operadores de comparação em condições</li>
+                <li>Conversão de tipo</li>
+                <li>Matemática em condições</li>
+                <li>Operadores lógicos em condições</li>
+                <li>Strings em Condições</li>
+                <li>Precedência do Operador em Condições</li>
+            </ol>
+            <li>Condições com campos de Formulários</li>
+            <ol>
+                <li>Caixas de texto e caixas de sugestões</li>
+                <li>Áreas de texto</li>
+                <li>Data hora</li>
+                <li>Caixas de seleção</li>
+                <li>Dropdowns e Radiogrupos</li>
+                <li>Grupos de verificação</li>
+                <li>arquivos</li>
+                <li>Grades</li>
+            </ol>
+            <li>Definir condições</li>
+            <ol>
+                <li>Condições para gatilhos</li>
+                <li>Condições nas regras de roteamento</li>
+                <li>Condições para o Gestor Express Mobile</li>
+            </ol>
+            <li>Erros nas Condições</li>
+            <ol>
+                <li>Problemas Comuns de Condição</li>
+            </ol>
+        </ol>
+    </aside>
+
+    
+    <footer>
+        <div class="boxs">
+            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        </div>
+        <div class="boxs">
+            <ul>
+                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
+                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
+                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
+            </ul>            
+        </div>
+        <div class="boxs">
+            <ul id="social-media">
+                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
+                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
+                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
+                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="boxs">
+            <h1>Contate-nos:</h1>
+            <p>+55 (14) 2109-3400</p>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
