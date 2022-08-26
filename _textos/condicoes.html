@@ -81,10 +81,216 @@
                         <tr><td>NULL</td><td>Um valor especial que significa "sem valor"</td></tr>
                     </tbody>
                 </table>
-                
 
-
+                <p>Todos os outros valores em PHP são considerados verdadeiros. Por exemplo, todos esses valores são considerados true:</p>
+                <table id="tab3">
+                    <thead>
+                        <tr><th>Valor</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TRUE</td><td>O valor booleano de verdadeiro</td></tr>
+                        <tr><td>97</td><td>Um número inteiro positivo</td></tr>
+                        <tr><td>-4</td><td>Um número inteiro negativo</td></tr>
+                        <tr><td>100.99</td><td>Uma flutuação positiva</td></tr>
+                        <tr><td>-4.23</td><td>Um flutuador negativo</td></tr>
+                        <tr><td>"uma bela string"</td><td>Uma string não vazia</td></tr>
+                        <tr><td>array("jack", "jill", "hill")</td><td>Uma matriz não vazia</td></tr>
+                    </tbody>
+                </table>
             </div>
+            <div>           
+                <h2>Operadores de comparação em condições</h2>
+                <p>Se uma condição contiver um operador de comparação, como igual, maior ou menor que, os valores à direita e à esquerda do operador serão comparados e avaliados com verdadeiro ou falso. Os seguintes operadores de comparação estão disponíveis em PHP:</p>
+
+                <table id="tab4">
+                    <thead>
+                        <tr><th width="80px">Operador</th><th width="220px">Descrição</th><th width="250px">Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>==</td><td>É igual a</td><td>@@CurrencyType == "dollars"</td></tr>
+                        <tr><td>===</td><td>Igual ao mesmo tipo de variável</td><td>@%Total === 100</td></tr>
+                        <tr><td><></td><td>Não igual</td><td>@@CurrencyType <> "euros"</td></tr>
+                        <tr><td>!=</td><td>Não igual</td><td>@%Total != 0</td></tr>
+                        <tr><td>!==</td><td>Não igual ao mesmo tipo de variável</td><td>@=RunTest !== false</td></tr>
+                        <tr><td><</td><td>Menor que</td><td>@%Total < 1000</td></tr>
+                        <tr><td><=</td><td>Menos que ou igual a</td><td>@#SubTotal <= @#Total</td></tr>
+                        <tr><td>></td><td>Maior que</td><td>@#Balance > 0</td></tr>
+                        <tr><td>>=</td><td>Melhor que ou igual a</td><td>pow(@#Total, 3) >= @#Limit</td></tr>
+                    </tbody>
+                </table>
+                <h2>Conversão de tipo</h2>
+                <p>Geralmente, é uma boa ideia usar o tipo correto de variável ao fazer comparações, portanto, se comparar com uma string, use <strong>@@ nome_variavel</strong>. Se comparar com um inteiro, use <strong>@% nome_variavel</strong>. Se comparar com um número de ponto flutuante, use <strong>@# nome_variavel</strong>. Se comparar com um valor booleano, um array ou um objeto, use <strong>@= nome_variavel</strong>. No entanto, se os tipos não corresponderem, o PHP tentará converter ambos os valores para o mesmo tipo antes de fazer a comparação. Devido à conversão de tipo, as seguintes condições são consideradas <strong>verdadeiras</strong>:</p>   
+
+                <table id="tab2">
+                    <thead>
+                        <tr><th width="100px">Condição verdadeira</th><th width="450px">Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td> "42" == 42</td><td>A string "42" é convertida no inteiro 42, depois comparada.</td></tr>
+                        <tr><td>" 42 "  == 42</td><td>A string " 42 " é convertida no inteiro 42 (os espaços são ignorados) e depois comparado.</td></tr>
+                        <tr><td>"42 sapos" == 42</td><td>A string "42 frogs" é convertida no inteiro 42, depois comparada. Somente strings que começam com números podem ser convertidas em números inteiros ou floats.</td></tr>
+                        <tr><td>42 == 42.0</td><td>O inteiro 42 é convertido no float 42.0, então comparado.</td></tr>
+                        <tr><td>0 == false</td><td>O inteiro 0 é convertido no booleano FALSE, então comparado.</td></tr>
+                        <tr><td>42 == true</td><td>O inteiro 42 é convertido no booleano TRUE, então comparado.</td></tr>
+                        <tr><td> " " == false</td><td>A string vazia "" é convertida no booleano FALSE, então comparada</td></tr>
+                        <tr><td>"Olá" == true</td><td>A string "Olá" é convertida no booleano TRUE, então comparada.</td></tr>
+                    </tbody>
+                </table>
+                <p>Para evitar que a comparação converta tipos de valor, use os operadores <strong>===</strong> e <strong>!==</strong>, que só serão avaliados verdadeiros ao comparar os mesmos tipos de valores, então <strong>"42"==42</strong> é verdadeiro, mas <strong>"42"===42</strong> é falso</p>
+
+                <p>Embora a conversão automática de tipo possa ser útil, lembre-se de que a conversão não arredondará números, nem truncará strings. Aqui estão algumas soluções para problemas comuns em condições:</p>
+
+                <table id="tab2">
+                    <tbody>
+                        <tr>
+                            <th style="width: 100px;">Condição Falsa</th>
+                            <th>Problema</th>
+                            <th>Solução</th>
+                            <th style="width: 180px;">Exemplos</th>
+                        </tr>
+                
+                        <tr>
+                            <td style="vertical-align: middle;"><code>42 == 42.1</code></td>
+                            <td style="vertical-align: middle;">O inteiro 42 é convertido para float 42.0, que não é igual 42.1, então a condição é avaliada como falsa.</td>
+                            <td style="vertical-align: middle;">Use a conversão do tipo (int) ou a análise da variável @% para converter um float em um inteiro.</td>
+                            <td style="vertical-align: middle;"><code>42 == (int) 42.1<br>42 == @%Total</code></td>
+                        </tr>
+                
+                        <tr>
+                            <td style="vertical-align: middle;"><code>42 == (int) 41.999</code></td>
+                            <td style="vertical-align: middle;">Quando o float 41.999é convertido em um inteiro, todos os números decimais são simplesmente descartados e não há arredondamento, então a comparação é <code>42 == 41</code>.</td>
+                            <td style="vertical-align: middle;">Use a função round() do PHP para arredondar para o inteiro mais próximo. Use também as funções ceil() e floor() para arredondar um número para cima ou para baixo.</td>
+                            <td style="vertical-align: middle;"><code>42 == round(41.999)<br>42 == round(@#Total)</code></td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;"><code>5 / 2 == 2.5</code></td>
+                            <td style="vertical-align: middle;">Isto é falso, porque o inteiro 5 é dividido pelo inteiro 2. Como ambos são inteiros, o resultado é o inteiro 2 (o resto é descartado). Em seguida, o inteiro 2 é convertido em float 2.0 para comparar com <code>2.5</code>.</td>
+                            <td style="vertical-align: middle;">Use o tipo (float) ou faça referência à variável como @# para converter um dos números em um float antes de dividir. Isso causará uma divisão de ponto flutuante, para que o restante não seja perdido.</td>
+                            <td style="vertical-align: middle;"><code>5 / (float) 2 == 2.5<br>5 / @#var == 2.5</code></td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;"><code>42.12 == 42.123</code></td>
+                            <td style="vertical-align: middle;">Para que dois floats sejam iguais, seus números decimais também devem ser iguais.</td>
+                            <td style="vertical-align: middle;">Especifique o número de pontos decimais para arredondar antes de comparar.</td>
+                            <td style="vertical-align: middle;"><code>42.12 == round(42.123, 2)<br>42.12 == round(@#Total, 2)</code></td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;"><code>"Hel" == "Hello"</code></td>
+                            <td style="vertical-align: middle;">A condição é falsa, porque as strings precisam ter o mesmo número de caracteres para serem iguais.</td>
+                            <td style="vertical-align: middle;">Use a função substr() do PHP para cortar a string para um número definido de caracteres antes de comparar. Para comparar um número variável de caracteres, use a função strlen(). Para procurar uma string dentro de outra string, use a função strstr().</td>
+                            <td style="vertical-align: middle;"><code>"Oi" == substr("hello", 0, 3)<br>"hel" == substr(@@s, 0, 3)<br>@@s1 == substr(@@s2, 0, strlen(@@s1))<br>strstr(@@s,
+                                "hel")</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;"><code>"hello" == " hello "</code></td>
+                            <td style="vertical-align: middle;">A condição é falsa, porque o PHP não elimina espaços ao comparar strings.</td>
+                            <td style="vertical-align: middle;">Use a função trim() do PHP para eliminar qualquer espaço em branco (incluindo tabulações e retornos) do início ou fim de uma string. Use também ltrim() ou rtrim() para eliminar apenas do início ou do final de uma string.</td>
+                            <td style="vertical-align: middle;"><code>"hello" == trim(" hello ")<br>"hello" == trim(@@Greet)</code></td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;"><code>"HeLlO" == "hello"</code></td>
+                            <td style="vertical-align: middle;">A condição é falsa, porque a comparação de strings diferencia maiúsculas de minúsculas.</td>
+                            <td style="vertical-align: middle;">Use strtoupper() ou strtolower() para converter as strings para o mesmo caso, ou use strcasecmp() ou strncasecmp() para fazer comparações que não diferenciam maiúsculas de minúsculas.</td>
+                            <td style="vertical-align: middle;"><code>strtolower("HeLlo") == "hello"<br>strtoupper(@@s1) == strtoupper(@@s2)<br>!strcasecmp(@@s1, @@s2)</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h2>Matemática em condições</h2>
+                <p>As condições podem usar os operadores matemáticos do PHP, como - (negação), + (adição), - (subtração), * (multiplicação), / (divisão), % (módulo, ou seja, resto da divisão). Ao usar operadores matemáticos, tenha em mente as regras de precedência do operador e lembre-se de usar parênteses para avaliar certos elementos antes de outros elementos na expressão.</p>
+
+                <p>Para fazer operações matemáticas mais avançadas, use as funções matemáticas do PHP, como pow(), max(), min(), sin(), cos(), log(), abs(), etc.</p>
+
+                <h2>Operadores lógicos em condições</h2>
+
+                <p>As condições também podem usar operadores lógicos para unir várias expressões e construir condições complexas.</p>
+
+            <table id="tab2">
+                <thead>
+                    <tr><th width="80px">Operador</th><th width="120px">Exemplo</th><th width="350px">Descrição</th><tr>
+                </thead>
+                <tbody>
+                    <tr><td>e</td><td>(@@a e @@b)</td><td>Verdadeiro se @@a e @@b forem Verdadeiro.</td><tr>
+                    <tr><td>&&</td><td>(@@a && @@b)</td><td>Verdadeiro se @@a e @@b forem Verdadeiro. && é como o operador and, mas tem uma precedência de operador mais alta.</td><tr>
+                    <tr><td>ou</td><td>(@@a ou @@b)</td><td>Verdadeiro se @@a ou @@b for Verdadeiro.</td><tr>
+                    <tr><td>||</td><td>(@@a || @@b)</td><td>Verdadeiro se @@a ou @@b for Verdadeiro. || é como o operador or, mas tem uma precedência de operador mais alta.</td><tr>
+                    <tr><td>xor</td><td>(@@a xor @@b)</td><td>Verdadeiro se @@a ou @@b for Verdadeiro, mas não ambos.</td><tr>
+                    <tr><td>!</td><td>!@@a</td><td>Reverte o resultado, então Verdadeiro se torna falso e falso se torna Verdadeiro.</td><tr>
+                </tbody>
+            </table>
+            <p>Como <strong>true</strong> e <strong>false</strong>, a grafia dos operadores <strong>and</strong>, <strong>or</strong>, <strong>xor</strong> não diferencia maiúsculas de minúsculas, portanto, e também pode ser escrita como <strong>And</strong>, <strong>And</strong>, <strong>AND</strong>, etc</p>.
+
+            <p><font color="red"><strong>Aviso:</strong></font> Se estiver usando os operadores lógicos AND, OR, XOR, &&, || em uma condição, é recomendável colocar a instrução entre parênteses () para garantir que toda a instrução seja avaliada e não apenas a primeira parte da instrução. Também é recomendável usar &&e ||em vez de AND, OR, XOR. Nas versões recentes do Gestor Express, a seguinte condição:</p>
+
+            <p><code>@@myvar != "X" AND @@myvar != "Y"</code></p>
+            <p>é avaliado como:</p>
+            <p><code>@@myvar != "X"</code></p>
+            <p>Para garantir que toda a instrução seja avaliada, coloque-a entre parênteses:</p>
+            <p><code>(@@myvar != "X" AND @@myvar != "Y")</code></p>
+            
+            <h2>Strings em Condições</h2>
+            <p>A maioria dos dados inseridos nos campos dos formulários Dinâmicos são armazenados como <strong>strings</strong>, portanto, é útil saber como lidar com strings no Gestor Express.</p>
+
+            <p>Todas as strings devem ser colocadas entre aspas simples <code>'...'</code> ou aspas duplas <code>"..."</code>.</p>
+
+            <p>Aspas simples tratam a string incluída como texto simples, o que significa que nenhum dos caracteres na string será interpretado como um caractere de escape. Em aspas duplas, as sequências de escape são interpretadas junto com quaisquer variáveis e serão substituídas por seus valores. Por exemplo, entre aspas duplas <code>\t</code> é interpretado como uma guia horizontal.</p>
+
+            <ul>
+                <li><strong>Variáveis em Strings:</strong> Ao contrário das variáveis PHP normais, que podem ser inseridas dentro de strings com aspas duplas, como <code>"Eu digo $olá para você"</code> ou <code>"Dê {$arrayNames['Gerente']} a correspondência"</code>, as variáveis de processos do Gestor Express não podem ser inseridas dentro de strings com aspas duplas, portanto <code>"Eu digo $olá para você"</code> NÃO funcionarão.</li>
+                <li>
+                    <strong>Concatenar strings:</strong> PHP usa o operador ponto <code>"."</code> para concatenar strings. Por exemplo: <code>"Olá" . " " . "World!"</code> interpreta como <strong>"Olá Mundo!"</strong>.
+                    <p>Pessoas acostumadas à outras linguagens normalmente tentam escrever <code>"Olá" + " " + "Mundo!"</code>, mas o PHP usa apenas o operador + para adicionar inteiros e floats, então ele tentará converter cada string em um inteiro ou float e depois adicioná-los.</p>
+                    <p>Se a string começar com um número (como <code>'42 é a resposta'</code> ou <code>" 3.5 patos"</code>), ela será convertida com sucesso em um inteiro ou float. Caso contrário, a string se tornará zero, então <code>"Olá" + " " + "Mundo!"</code> se torna <code>0 + 0 + 0</code>.</p>
+                </li>
+                <li>
+                    <strong>Concatenar strings e variáveis do</strong> Gestor Express: As variáveis do sistema e do processo do Gestor Express podem ser concatenadas. Lembre-se de referenciá-las como <code>@@nome_variavel</code>, para que sejam analisadas como strings:
+                    <code>"Olá " . @@USR_USERNAME</code>
+                    <code>@@Nome . ' ' . @@Sobrenome</code>
+                </li>
+                
+                <li><strong>Comparando Strings</strong>: <code>===</code> Para que a condição seja avaliada corretamente ao comparar strings, deve-se utilizar o operador triplo-igual. O uso de <code>==</code> não é recomendado devido aos resultados imprevisíveis.</li>
+            </ul>
+            <codeblock>@@USUARIO_LOGADO   === "00000000000000000000000000000001"</codeblock>
+
+            <figure>
+
+            </figure>
+
+            <h2>Precedência do Operador em Condições</h2>
+            <p>Uma condição é avaliada de acordo com as regras de precedência de operadores, portanto, determinados operadores serão executados antes de outros operadores.</p>
+
+            <p>Por exemplo, como o Gestor Express sabe se <code>2 + 3 * 4</code> é igual <code>20</code> ou <code>14</code>? Se a adição tem precedência sobre a multiplicação, então primeiro <code>2 + 3 = 5</code>, depois <code>5 * 4 = 20</code>. Se a multiplicação tem precedência, então primeiro <code>3 * 4 = 12</code>, então <code>2 + 12 = 14</code>. Como o Gestor Express usa as regras PHP de precedência de operadores, a multiplicação tem precedência mais alta do que a adição, então o resultado é <code>14</code>.</p>
+
+            <p>Na tabela a seguir, os operadores são ordenados de acordo com sua precedência, com a precedência mais alta na parte superior. Portanto, os parênteses "()" têm a precedência mais alta e as vírgulas "," têm a menor.</p>
+
+            <table id="tab2">
+                <thead>
+                    <tr><th width="150px">Operadores</th><th>Descrição</tr><tr>
+                </thead>
+                <tbody>
+                        <tr><td>( )</td><td>Agrupa elementos para dar a eles a maior precedência.</td><tr>
+                        <tr><td>[ ]</td><td>Acessar um elemento em um array ou um caractere em uma string</td><tr>
+                        <tr><td>++ --</td><td>Operador de incremento ou decremento</td><tr>
+                        <tr><td>#NOME?</td><td>Negação, conversão de tipos como (int), (float), (string), (boolean), etc.</td><tr>
+                        <tr><td>!</td><td>NOT lógico (inverso de verdadeiro ou falso )</td><tr>
+                        <tr><td>* / %</td><td>Multiplicação, divisão, módulo</td><tr>
+                        <tr><td>+ - .</td><td>Adição, subtração, concatenação de strings</td><tr>
+                        <tr><td>< <= > >= <></td><td>Maior que, menor que, diferente de</td><tr>
+                        <tr><td>== != === !==</td><td>Igual, não igual, igual mesmo tipo, não igual mesmo tipo</td><tr>
+                        <tr><td>&&</td><td>E Lógico</td><tr>
+                        <tr><td>||</td><td>OU lógico</td><tr>
+                        <tr><td>? :</td><td>Operador ternário para construir instruções if-then-else</td><tr>
+                        <tr><td>= ^= <<= >>= =></td><td>Operadores de atribuição</td><tr>
+                        <tr><td>e</td><td>E Lógico</td><tr>
+                        <tr><td>xor</td><td>XOR lógico</td><tr>
+                        <tr><td>ou</td><td>OU lógico</td><tr>
+                        <tr><td>,</td><td>Parâmetros separados por vírgulas em chamadas de função e elementos em arrays</td><tr>
+                    </tbody>
+            </table>
+                
+        </div>
         </article>
     </section>
 
@@ -93,7 +299,7 @@
         <ol>
             <li>Visão geral</li>
             <li>Entendendo as Condições</li>
-            <ol>
+            <ol type="A">
                 <li>Variáveis em Condições</li>
                 <li>Operadores de comparação em condições</li>
                 <li>Conversão de tipo</li>
@@ -103,7 +309,7 @@
                 <li>Precedência do Operador em Condições</li>
             </ol>
             <li>Condições com campos de Formulários</li>
-            <ol>
+            <ol type="A">
                 <li>Caixas de texto e caixas de sugestões</li>
                 <li>Áreas de texto</li>
                 <li>Data hora</li>
@@ -114,13 +320,13 @@
                 <li>Grades</li>
             </ol>
             <li>Definir condições</li>
-            <ol>
+            <ol type="A">
                 <li>Condições para gatilhos</li>
                 <li>Condições nas regras de roteamento</li>
                 <li>Condições para o Gestor Express Mobile</li>
             </ol>
             <li>Erros nas Condições</li>
-            <ol>
+            <ol type="A">
                 <li>Problemas Comuns de Condição</li>
             </ol>
         </ol>
