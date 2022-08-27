@@ -47,6 +47,7 @@ div#cabecario h2 {
 
 #principal {
     width: 900px;
+    max-width: 70%;
     float: left;
     background-color: rgb(252, 250, 228);
     margin-top: 5px 0px 5px 0px;
@@ -133,7 +134,7 @@ div#cabecario h2 {
     background-color: #e7eefc;
     font-size: .95em;
     margin: 10px 10px 10px 30px;
-    padding: 2px;
+    padding: 4px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
 }
@@ -141,6 +142,7 @@ div#cabecario h2 {
 table {
     border-collapse: collapse;
     width: 860px;
+    max-width: 95%;
     margin: 10px 5px 10px 30px;
 }
 
@@ -158,10 +160,12 @@ table th,td {
 
 #tab3 {
     width: 450px;
+    max-width: 50%;
 }
 
 #tab4 {
-    width: 550px
+    width: 550px;
+    max-width: 61%;
 }
 
 #tab2 td {
@@ -202,6 +206,7 @@ table th,td {
 
 #lado {
     width: 403px;
+    max-width: 30%;
     float: right;
     background-color: #e7eefc;
     color: var(--cor1);

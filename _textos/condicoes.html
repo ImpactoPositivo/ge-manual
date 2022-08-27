@@ -21,13 +21,13 @@
     </header>
     <section id="principal">
                 
-        <h1>Visão geral</h1>
+        <h1 id="item1">Visão geral</h1>
             <p>O Gestor Express usa condições em várias situações diferentes para determinar se a execução acontece ou não. As condições são avaliadas como verdadeiras ou falsas, com base na lógica booleana encontrada no PHP. As condições podem ser definidas para etapas (Formulários, Documentos de entrada, Documentos de saída e gatilhos), Avaliação e gateways paralelos e eventos.</p>
             
             <p>Além disso, as condições podem ser criadas para mostrar ou ocultar elementos em um formulário dinâmico usando a lógica booleana do JavaScript.</p>
         
         <article>
-            <h1>Entendendo as Condições</h1>
+            <h1 id="item2">Entendendo as Condições</h1>
             <p>As condições no Gestor Express são baseadas na lógica booleana, que é a ideia de que qualquer expressão pode ser avaliada para um valor de Verdadeiro ou Falso. Se a expressão for verdadeira, a execução ocorrerá. Se for falso, nenhuma execução ocorrerá. No Gestor Express, uma condição pode assumir várias formas. Estes são todos os tipos válidos de condições:</p>
             <table>
                 <thead>
@@ -49,7 +49,7 @@
                 </tbody>
             </table>
             <div>
-                <h2>Variáveis em Condições</h2>
+                <h2 id="item2a">Variáveis em Condições</h2>
                 <p>As condições podem conter variáveis de sistema ou de processo, que são precedidas por um sinal e, em seguida, outro símbolo que indica como a variável é analisada:@</p>
                 <table id="tab2">
                     <thead>
@@ -99,7 +99,7 @@
                 </table>
             </div>
             <div>           
-                <h2>Operadores de comparação em condições</h2>
+                <h2 id="item2b">Operadores de comparação em condições</h2>
                 <p>Se uma condição contiver um operador de comparação, como igual, maior ou menor que, os valores à direita e à esquerda do operador serão comparados e avaliados com verdadeiro ou falso. Os seguintes operadores de comparação estão disponíveis em PHP:</p>
 
                 <table id="tab4">
@@ -118,7 +118,7 @@
                         <tr><td>>=</td><td>Melhor que ou igual a</td><td>pow(@#Total, 3) >= @#Limit</td></tr>
                     </tbody>
                 </table>
-                <h2>Conversão de tipo</h2>
+                <h2 id="item2c">Conversão de tipo</h2>
                 <p>Geralmente, é uma boa ideia usar o tipo correto de variável ao fazer comparações, portanto, se comparar com uma string, use <strong>@@ nome_variavel</strong>. Se comparar com um inteiro, use <strong>@% nome_variavel</strong>. Se comparar com um número de ponto flutuante, use <strong>@# nome_variavel</strong>. Se comparar com um valor booleano, um array ou um objeto, use <strong>@= nome_variavel</strong>. No entanto, se os tipos não corresponderem, o PHP tentará converter ambos os valores para o mesmo tipo antes de fazer a comparação. Devido à conversão de tipo, as seguintes condições são consideradas <strong>verdadeiras</strong>:</p>   
 
                 <table id="tab2">
@@ -198,12 +198,12 @@
                 </table>
 
 
-                <h2>Matemática em condições</h2>
+                <h2 id="item2d">Matemática em condições</h2>
                 <p>As condições podem usar os operadores matemáticos do PHP, como - (negação), + (adição), - (subtração), * (multiplicação), / (divisão), % (módulo, ou seja, resto da divisão). Ao usar operadores matemáticos, tenha em mente as regras de precedência do operador e lembre-se de usar parênteses para avaliar certos elementos antes de outros elementos na expressão.</p>
 
                 <p>Para fazer operações matemáticas mais avançadas, use as funções matemáticas do PHP, como pow(), max(), min(), sin(), cos(), log(), abs(), etc.</p>
 
-                <h2>Operadores lógicos em condições</h2>
+                <h2 id="item2e">Operadores lógicos em condições</h2>
 
                 <p>As condições também podem usar operadores lógicos para unir várias expressões e construir condições complexas.</p>
 
@@ -230,7 +230,7 @@
             <p>Para garantir que toda a instrução seja avaliada, coloque-a entre parênteses:</p>
             <p><code>(@@myvar != "X" AND @@myvar != "Y")</code></p>
             
-            <h2>Strings em Condições</h2>
+            <h2 id="item2f">Strings em Condições</h2>
             <p>A maioria dos dados inseridos nos campos dos formulários Dinâmicos são armazenados como <strong>strings</strong>, portanto, é útil saber como lidar com strings no Gestor Express.</p>
 
             <p>Todas as strings devem ser colocadas entre aspas simples <code>'...'</code> ou aspas duplas <code>"..."</code>.</p>
@@ -258,7 +258,7 @@
 
             </figure>
 
-            <h2>Precedência do Operador em Condições</h2>
+            <h2 id="item2g">Precedência do Operador em Condições</h2>
             <p>Uma condição é avaliada de acordo com as regras de precedência de operadores, portanto, determinados operadores serão executados antes de outros operadores.</p>
 
             <p>Por exemplo, como o Gestor Express sabe se <code>2 + 3 * 4</code> é igual <code>20</code> ou <code>14</code>? Se a adição tem precedência sobre a multiplicação, então primeiro <code>2 + 3 = 5</code>, depois <code>5 * 4 = 20</code>. Se a multiplicação tem precedência, então primeiro <code>3 * 4 = 12</code>, então <code>2 + 12 = 14</code>. Como o Gestor Express usa as regras PHP de precedência de operadores, a multiplicação tem precedência mais alta do que a adição, então o resultado é <code>14</code>.</p>
@@ -289,7 +289,77 @@
                         <tr><td>,</td><td>Parâmetros separados por vírgulas em chamadas de função e elementos em arrays</td><tr>
                     </tbody>
             </table>
-                
+
+            <p>Se os operadores tiverem a mesma precedência, eles serão analisados da esquerda para a direita. Por exemplo, na expressão <code>5 - 6 / 2 . " para você!"</code>, a divisão tem a precedência mais alta, então 6/2 acontecerá primeiro. A subtração e a concatenação de strings (que é o operador ".") têm a mesma precedência, portanto, o operador mais à esquerda, que é a subtração, acontecerá primeiro, seguido pela concatenação. Segue a ordem de operação:</p>
+
+            <ul type="disc">
+                <li><code>6 / 2 = 3</code></li>
+                <li><code>5 - 3 = 2</code></li>
+                <li>Inteiro 2 convertido na string "2", então:<code>"2" . " por você"</code> = <code>"2 por você!</code>"</li>
+            </ul>
+
+            <p>Para alterar a ordem das operações, coloque parênteses em torno dos elementos para dar a eles a precedência mais alta. Por exemplo, a expressão <code>@#Preco - @#Desconto * @%Quantitdade</code> não pode ser usada para calcular o preço total, pois o desconto precisa ser subtraído antes de multiplicar pela quantidade. Portanto, os parênteses podem ser usados ​​para primeiro subtrair e depois multiplicar:<code>(@#Preco - @#Desconto) * @%Quantitdade</code></p>
+
+            <p>Os parênteses podem ser aninhados quantas vezes forem necessárias. Por exemplo:<code>((@#Preco - @#Desconto) * @%Quantitdade) * @#Imposto</code></p>
+
+            <p>Os parênteses podem ser úteis quando combinados com "!" (NÃO lógico) para fazer o inverso de uma comparação. Por exemplo, na expressão <code>!(@%Quantia > 1000)</code>, se o valor for maior que 1.000, o resultado verdadeiro será invertido para falso pelo operador "!".</p>
+
+            <p>Na dúvida sobre a precedência, é uma boa ideia usar parênteses, pois torna a precedência explícita e o código é mais fácil de entender.</p>                
+        </div>
+        <div>
+            <h1 id="item3">Condições com campos de Formulários Dinâmicos</h1>
+            <p>Quando um formulário dinâmico é enviado, uma variável de processo é criada para cada um dos campos contidos no formulário dinâmico. Essas variáveis de processo podem ser usadas posteriormente no processo e adicionadas às condições.</p>
+
+            <h2 id="item3a">Caixas de texto e caixas de sugestões</h2>
+            <p>Os valores de caixa de texto e caixa de sugestão são armazenados como strings para que possam ser referenciados em condições como <code>@@nome_campo</code>. Por exemplo, um controle de data e hora chamado "datetime_1" pode ter uma condição para exibir apenas a data atual se o usuário não preencher uma caixa de texto chamada "textVar" e uma caixa de sugestão chamada "suggestVar".</p>
+
+            <codeblock>( <font color="red">vazio</font> ( @@ sugertVar ) e <font color="red">vazio</font> ( @@ textVar ) )</codeblock>
+            <p>Para recriar este exemplo, primeiro crie o Formulário Dinâmico mostrado na imagem abaixo antes de colocar a condição.</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-exemplo.png" alt="Exemplo de condições">
+            </figure>
+
+            <p>Este Formulário Dinâmico contém os seguintes controles:</p>
+
+            <table id="tab4">
+                <thead>
+                    <tr><th width="25%">Tipo de Controle</th><th width="25%">ID</th><th width="25%">Rótulo</th><th width="25%">Nome Variável</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Textbox</td><td>textVar01</td><td>Texto</td><td>textVar1</td></tr>
+                    <tr><td>Suggest Box</td><td>sugestao01</td><td>Sugestão</td><td>sugestaoVar1</td></tr>
+                    <tr><td>Datetime</td><td>datetime01</td><td>Data</td><td>datetimeVar1</td></tr>
+                    <tr><td>Dropdown</td><td>gruposuspenso01</td><td>Grupo</td><td>dropdownVar1</td></tr>
+                </tbody>
+            </table>
+
+            <p>Em seguida, crie um acionador acessando a caixa de ferramentas Objertos do processo. Localize a opção Gatilhos, passe o ponteiro do mouse sobre o sinal de mais (+) e clique no botão <strong>Criar</strong>.</p>
+
+            <figure id="detalhe">
+                <img src="../_imagens/objetos-processo.png" alt="Objetos do Processo">
+            </figure>
+
+            <p>Na janela Criar gatilho personalizado, coloque o código a seguir dentro da caixa Código.</p>
+
+            <codeblock>@@ datetimeVar = getCurrentDate ( ) ;</codeblock>
+
+            <figure>
+                <img src="../_imagens/editar-gatilho.png" alt="Exemplo de Gatilho">
+            </figure>
+
+            <p>Adicione o Formulário Dinâmico e o gatilho como etapas em uma das tarefas clicando com o botão direito do mouse na tarefa e selecionando <strong>Etapas</strong>.</p>
+
+            <figure>
+                <img src="../_imagens/gatilho-etapa.png" alt="Inserindo um atilho em uma tarefa">
+            </figure>
+
+            <p>Arraste e solte o gatilho onde ele precisa ir e clique no botão <strong>Condição</strong> como visto na imagem abaixo.</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-etapa.png" alt="Etapas da Tarefa">
+            </figure>
+
         </div>
         </article>
     </section>
