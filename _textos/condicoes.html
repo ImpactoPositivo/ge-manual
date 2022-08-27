@@ -360,6 +360,67 @@
                 <img src="../_imagens/condicoes-etapa.png" alt="Etapas da Tarefa">
             </figure>
 
+            <p>A janela Condição do Gatilho será exibida onde o código de condição pode ser adicionado.</p>
+
+            <codeblock><font color="green">(</font><font color="red">empty</font><font color="green">(@@</font> sugertVar<font color="green">)</font> and <font color="red">empty</font><font color="green">(@@</font>textVar<font color="green">))</font></codeblock>
+
+            <figure>
+                <img src="../_imagens/condicoes-gatilho.png" alt="Condições do Gatilho">
+            </figure>
+
+            <p>Quando o processo for executado, o gatilho será executado com sucesso, conforme imagem abaixo. Se os campos "Texto" (variável: @@textVar1) e "Sugestão" (variável: @@sugestaoVar1) estiverem vazios, a hora atual será mostrada no campo "Data".</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-teste.png" alt="Testando Condições de Gatilho">
+            </figure>
+
+            <h2 id="item3b">Áreas de texto</h2>
+            <p>Referencie areas de texto como <code><strong>@@ <font color="red">field_name</font></strong></code> em condições. Áreas de texto podem ter várias linhas de entrada; portanto, as condições podem usar a função strlen() para contar o número de caracteres e/ou as funções count() e explode() para encontrar o número de retornos físicos na string. As condições podem também ser:</p>
+
+            <codeblock><font color="red">strlen</font><font color="green">(@@</font>textareaVar1<font color="green">) ></font> <font color="magenta">10</font></codeblock>
+
+            <p>ou</p>
+
+            <codeblock><font color="red">count</font><font color="green">(</font><font color="red">explode</font><font color="green">(</font><font color="blue">"\n"</font><font color="red">, @@</font>textareaVar1<font color="green">)) ></font> <font color="magenta">40</font></codeblock>
+
+            <p>Como exemplo, use a primeira condição como visto na imagem abaixo:</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-gatilho2.png" alt="Condição de Gatilho, 2º exemplo">
+            </figure>
+
+            <p>A condição determina que, se o texto introduzido no controle "textarea_1" (variável: <code>@@textareaVar1</code>) tiver mais de 10 caracteres, o gatilho criado no exemplo Caixas de texto e Caixas de sugestão será acionado. Lembre-se que este gatilho mostra a data atual no controle "datetime_1".</p>
+
+            <codeblock><font color="green">@@</font> datetimeVar <font color="green">=</font> getCurrentDate <font color="green">( ) ;</font></codeblock>
+
+            <p>Se o controle <i>textarea_1</i> tiver menos de 10 caracteres, o controle <i>"datetime_1"</i> não mostrará nada. Observe as imagens abaixo:</p>
+
+            <div id="ladoalado">
+                <figure>
+                    <img src="../_imagens/condicoes-processo24.png" alt="Área e Texto com menos de 10 caracteres">
+                </figure>
+                <figure>
+                    <img src="../_imagens/condicoes-processo25.png" alt="Área e Texto com mais de 10 caracteres">
+                </figure>
+            </div>
+
+            <h2 id="item3c">Data hora</h2>
+
+            <p>As variáveis ​​de data e hora são armazenadas como strings no formato <code>"DD-MM-AAAA HH:MM:SS"</code>, como <code>"01-01-1999 01:01:01"</code> ou <code>"31-12-2010 23:59:59"</code>. Se o campo datetime não incluir as horas, minutos e/ou segundos na propriedade format, essas partes serão definidas como zeros. A variável <code>@@datetime_label</code> manterá o valor da data e hora no formato configurado para o campo.</p>
+
+            <p>Por exemplo, se o formato for definido como "MM/DD/AAAA" para um campo de data e hora associado à variável "startDate", <code>@@startDate</code> poderá conter um valor como <code>"2017-12-28 00:00:00"</code> e <code>@@startDate_label</code> será definido como "28/12/2017". Da mesma forma, se o formato for "DD-MM-AAAA HH:mm", @@startDate poderá ter um valor como <code>"1998-05-25 09:35:00"</code> e <code>@@startDate_label</code> seria <code>"25-05-1998 09:35"</code>.</p>
+
+            <p>Como as datas são armazenadas como strings, elas devem ser acessadas como <code>@@<font color="red"><i>field_name</i></font></code>. Para comparações simples, as datas no formato padrão "AAAA-MM-DD" podem ser comparadas como strings.</p>
+
+            <codeblock>
+                <p><font color="green">@@</font>ReceiveDate<font color="green"> @@</font>DueDate</p>
+                <p><font color="green">@@</font>DueDate <font color="green"><</font> getCurrentDate<font color="green">() .</font>' '<font color="green">.</font> getCurrentTime<font color="green">()</font></p>
+            </codeblock>
+
+            <p>No entanto, comparações avançadas requerem que as datas sejam convertidas em timestamps PHP com a função strtotime() do PHP . Por exemplo, defina essa condição para exibir apenas o Formulário Dinâmico se a data atual não exceder a data de vencimento do caso mais 10 dias.</p>
+
+            <codeblock><font color="red"><strong>strtotime</strong></font><font color="green">(</font><font color="blue">"+10 days"</font><font color="green">,</font> <font color="red"><strong>strtotime</strong></font><font color="green">(@@</font>DueDate<font color="green">)) ></font> <font color="red"><strong>time</strong></font><font color="green">()</font></codeblock>
+
         </div>
         </article>
     </section>
