@@ -421,6 +421,118 @@
 
             <codeblock><font color="red"><strong>strtotime</strong></font><font color="green">(</font><font color="blue">"+10 days"</font><font color="green">,</font> <font color="red"><strong>strtotime</strong></font><font color="green">(@@</font>DueDate<font color="green">)) ></font> <font color="red"><strong>time</strong></font><font color="green">()</font></codeblock>
 
+            <p>Para fazer cálculos entre datas, é aconselhável usar a função DateTime::add.</p>
+
+            <h2 id="item3d">Caixas de seleção</h2>
+
+            <p>Por padrão, os campos de caixa de seleção são armazenados como matrizes com valores de:</p>
+
+            <table id="tab3">
+                <tr><td width="100px">Matriz ( 1 )</td><td width="100px">Se marcado</tr>
+                <tr><td>Matriz ( 0 )</td><td>Se desmarcado</tr>
+            </table>
+               
+            <p>Portanto, uma condição que verifica se um controle chamado "checkboxVar1" foi verificado será semelhante a:</p>
+
+            <codeblock><font color="green">(@@</font>checkboxVar1<font color="green">[</font> <font color="magenta">0</font> <font color="green">] ==></font> <font color="magenta">1</font></codeblock>
+
+            <p>Por exemplo, adicione a condição mostrada acima ao gatilho criado no exemplo Caixas de texto e Caixas de sugestão, para que o gatilho só seja acionado se a caixa de seleção estiver marcada.</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-gatilho-checkbox.png" alt="Condição de Gatilho com Caixa de Seleção">
+            </figure>
+
+            <p>Portanto, ao executar um caso, caso o controle checkbox tenha sido clicado, como pode ser visto na imagem abaixo:</p>
+
+            <figure id="detalhe">
+                <img src="../_imagens/condicoes-controle.png" alt="Caixa de Seleção">
+            </figure>
+
+            <p>A condição acionará o gatilho que define a data atual no controle de data e hora.</p>
+                
+            <figure id="detalhe">
+                <img src="../_imagens/condicoes-data.png" alt="Campo Data no formulário Dinâmico">
+            </figure>
+
+            <h2 id="item3e">Caixas Suspensas e Radiogrupos</h2>
+
+            <p>Esses controles armazenam o valor (não o rótulo) da opção selecionada. Geralmente, caixas suspensas e radiogrupos são acessados como <code>@@field_name</code>, mas se os valores das opções forem inteiros, eles podem ser acessados como <code>@@field_name</code> ou <code>@%field_name</code>. Devido à conversão automática de tipo, <code>@%var == 2</code> ou <code>@@var == 2</code> significam a mesma coisa e ambos funcionariam. Exemplos:</p>
+
+            <codeblock>
+                <p>@@ ContactMethod == 'telefone'</p>
+                <p>@@ ContactMethod != 'fax'</p>
+                <p>@% ExpenseType != 2</p>
+            </codeblock>
+
+            <p>Para verificar o rótulo (não o valor) da opção selecionada em uma caixa suspensa, marque a opção <strong>Salvar rótulo do valor selecionado na variável</strong> ao definir a caixa suspensa. Em seguida, faça referência a ele como <code>@@ field_name _label</code>. Exemplo:</p>
+
+            <codeblock><font color="green">@@</font>TipoDespesa_label <font color="green">!</font>= <font color="blue">"Impostos"</font></codeblock>
+
+            <p>Por exemplo, adicione a seguinte condição a um gatilho em que uma das opções na lista suspensa seja a condição para que o gatilho seja executado.</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-gatilho2.png" alt="Condições de Gatilho">
+            </figure>
+
+            <p>Escolha a opção adicionada ao gatilho.</p>
+
+            <figure>
+                <img src="../_imagens/#" alt="Figura a produzir">
+            </figure>
+
+            <p>E o gatilho, que mostrará a data atual, será executado.</p>
+
+            <figure>
+                <img src="../_imagens/#" alt="Figura a produzir">
+            </figure>
+
+            <h2 id="item3f">Caixa de Seleção</h2>
+
+            <p color="orange">As Caixas de Seleção armazenam os valores das opções selecionadas como uma matriz. Os rótulos das opções selecionadas são armazenados também como uma matriz em uma string JSON em outra variável de processo com o mesmo nome da Caixa de Seleção acrescido da expressão "_label" anexada ao final. Ao contrário das caixas suspensas, que exigem uma opção selecionada, os grupos de verificação permitem que zero, uma ou várias opções sejam selecionadas.</p>
+
+            <p>Por exemplo, um grupo de verificação cuja variável é denominada "OpcaoContato" tem as 4 opções a seguir:</p>
+
+            <figure>
+                <img src="../_imagens/condicoes-grupo-verificacao.png" alt="Caixa de Seleção">
+            </figure>
+
+            <p>Se as opções "Telefone" e "Outro" estiverem selecionadas, a variável <code>@@OpcoesContato</code> terá o seguinte valor:</p>
+
+            <codeblock>array(2, 4)</codeblock>
+
+            <p>E os rótulos das opções selecionadas serão armazenados na variável <code>@@OpcoesContato_label</code>, que é uma string JSON contendo uma matriz dos rótulos selecionados:</p>
+
+            <codeblock>'["Telefone","Outro"]'</codeblock>
+
+            <p>Para lidar com situações em que mais de duas opções podem ser selecionadas, é recomendável procurar um valor no array usando a função in_array().</p>
+
+            <p>Para pesquisar se a opção "Telefone" foi selecionada no checkgroup "OpcoesContato", primeiro é necessário saber seu valor. A opção "Telefone" tem o valor "2", portanto, a condição será:</p>
+
+            <codeblock><font color="red">in_array</font><font color="green">(</font><font color="blue">"2"</font>,<font color="green">@=</font>OpcoesContato<font color="green">))</font></codeblock>
+
+            <p>Para pesquisar se a opção "Telefone" NÃO foi selecionada, use ! (NÃO Lógico):</p>
+
+            <codeblock><font color="green">!</font><font color="red">in_array</font><font color="green">(</font> <font color="blue">"2"</font>,  <font color="green">@=</font>OpcoesContato<font color="green">))</font></codeblock>
+
+            <p>Para pesquisar vários valores, o primeiro parâmetro de in_array() deve ser uma matriz dos valores a serem encontrados:</p>
+
+            <codeblock><font color="red">in_array</font><font color="green">(</font><font color="red">array</font><font color="green">(</font><font color="blue">"1","2"</font><font color="green">)</font>, <font color="green">@=</font>OpcoesContato<font color="green">)</font></codeblock>
+
+            <p>Se o usuário quiser pesquisar se a opção "Fax" foi selecionada usando os rótulos das opções selecionadas, use a função json_decode().</p>
+
+            <codeblock><font color="red">in_array</font><font color="green">(</font><font color="blue">"Fax"</font>,  <font color="red">json_decode</font><font color="green">(@@</font> OpcoesContato_label<font color="green">))</font></codeblock>
+
+            <p>Use count() para contar o número de opções selecionadas. Por exemplo, para verificar se mais de uma opção foi selecionada:</p>
+
+            <codeblock><font color="red">count</font><font color="green">(</font><font color="green">@=</font> OpcoesContato<font color="green">)</font></codeblock>
+
+            <h2 id="item3g">Arquivos</h2>
+
+            <p>Os campos de arquivo armazenam o nome do arquivo carregado como uma string. Por exemplo, a seguinte condição pode ser usada para verificar se um arquivo foi carregado com a função empty() ou se a extensão do arquivo não é do tipo "doc":</p>
+
+
+
+
         </div>
         </article>
     </section>
