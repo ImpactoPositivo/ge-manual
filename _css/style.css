@@ -99,6 +99,20 @@ div#ladoalado {
     padding: 0px 5px 10px 5px;
 }
 
+div#caixa {
+    display: flex;
+    padding: 0px 10px 10px 0px;
+}
+
+#caixa img {
+    width: 320px;
+}
+
+#caixa ul {
+    padding-top: 20px;
+    
+}
+
 #principal ol {
     padding-left: 45px;
     font-size: .95em;
