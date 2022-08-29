@@ -107,6 +107,8 @@ div#ladoalado {
 #principal ul {
     padding-left: 35px;
     font-size: .95em;
+    list-style-position: outside;
+    margin-left: 10px;
 }
 
 #principal ol > li {
@@ -138,6 +140,12 @@ div#ladoalado {
 #principal code {
     background-color: #e7eefc;
     font-size: 1em;
+}
+
+code#sozinho {
+    background-color: #e7eefc;
+    font-size: 1em;
+    margin: 0px 0px 15px 30px;
 }
 
 #principal codeblock {

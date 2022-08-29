@@ -24,16 +24,19 @@
                     <p>Você pode acessar o Gestor Express de diferentes maneiras.</p>
                     <p>Consulte as seções a seguir que discutem diferentes métodos para fazer login no Gestor Express:</p>
                 <article>
-                    <h1>Interface padrão </h1>
+                    <h1 id="item1">Interface padrão </h1>
                         <h2 id="item1a">Acesse o Gestor Express por meio do Endereço IP:</h2>
                             <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Endereço IP:</p>
                             <p>Insira o endereço IP e o número da porta do servidor ou instância que hospeda o Gestor Express em um navegador Web padrão.</p>
-                            <p><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;</strong></p>
+                            <code id="sozinho">
+                                <strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&lt;PORT&gt;</font></strong>
+                            </code>
                             <p>Por exemplo, se estiver executando o Gestor Express no endereço IP 192.168.1.110 da porta 3018 , digite:</p>
-                            <p><strong>http://192.168.1.110:3018</strong></p>
+                            <code id="sozinho"><strong>http://192.168.1.110:3018</strong></code>
                             <p>Se apenas o endereço IP estiver incluído na URL, o navegador da Web redirecionará automaticamente para a tela de logon do Gestor Express em:</p>
-                            <p><strong>http://<IP-ADDRESS>:<PORT>/sys/en/neoclassic/login/login.html</strong></p>
-                            <p>A tela de logon é exibida.</p>
+                            <code id="sozinho">strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&ltPORT&gt;</font>/sys/en/neoclassic/login/login.html</strong></code>
+                                <p>A tela de logon é exibida.</p>
+                       
                         <h2 id="item1b">Acesse o Gestor Express por meio de um subdomínio:</h2>
                             <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Sub Domínio:</p>
                             <p>Insira o do Sub Domínio da instância que hospeda o Gestor Express em um navegador Web padrão.</p>
@@ -90,10 +93,10 @@
                     <h1 id="item3">Altere o destino padrão após o logon</h1>
                     <p>Após o login, os usuários com as funções Operaador e Supervisor são direcionados por padrão ao menu Início para exibir uma tarefas de processos do usuário localizada no endereço:</p>
 
-                    <p><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE&gt;/&lt;SKIN&gt;/cases/main</strong></p>
+                    <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE&gt;/&lt;SKIN&gt;/cases/main</strong></code>
                     <p>Os usuários com a função Administrador ou a permissão PM_FACTORY em sua função são direcionados por padrão ao menu Modelagem após o login, localizado no endereço:</p>
 
-                    <p><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE>/&lt;SKIN&gt;/processes/main</strong></p>
+                    <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE>/&lt;SKIN&gt;/processes/main</strong></code>
 
                     <p>Cada usuário que tem a permissão PM_EDITPERSONALINFO em sua função pode personalizar para onde o Gestor Express direciona o navegador da web após o logon. Após o login, clique no nome de usuário entre parênteses no canto superior direito para ver o perfil do usuário.</p>
 
