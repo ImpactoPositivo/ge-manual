@@ -20,13 +20,13 @@
         </div>
     </header>
     <section id="principal">
-
         <article>
             <h1 id="item1">Visão geral</h1>
             <p>Para começar a usar o Gestor Express, é necessário se familiarizar com os elementos do Mapa de Modelo de Processos e da Modelagem para criar um projeto. Alguns dos principais elementos da modelagem de processos são descritos nesta página.</p>
-
             <p><font color="green">Observação:</font> para evitar problemas de substituição, um recurso está disponível para proibir a abertura de várias instâncias de navegador do Gestor Express. Para obter mais informações, acesse: Arquivo de configuração env.ini: session_block.</p>
+        </article>
 
+        <article>
             <div>
                 <h1 id="item2">Modelagem</h1>
                 <p>No item Modelagem, há uma lista de projetos BPMN existentes e suas características.</p>
@@ -143,188 +143,121 @@
                 <figure>
                 </figure>
                 <p>Após clicar na opção Excluir Casos, uma janela de mensagem é aberta para confirmar quantos casos do processo selecionado serão excluídos.</p>
-                
+            
                 <figure>
                 </figure>
                 <p>Clique em 'Sim' para confirmar a exclusão de todos os casos e a mensagem a seguir mostrará o progresso. Somente os casos pertencentes ao modelo de processo selecionado serão removidos das pastas Caixa de entrada, Rascunho, Pausado, Não atribuído e Participado.</p>
                 <figure id="detalhe">
                 </figure>
             </div>
-
-            <div>
-                <h1 id="item3">O Mapa do Processo</h1>
-                <p>O Mapa do Processo no Gestor Express possui uma interface gráfica de arrastar e soltar, que permite que os elementos sejam facilmente adicionados, excluídos e reorganizados.</p>
-                <p>As principais características da modelagem incluem:</p>
-                <ul type="disc">
-                    <li>A capacidade de selecionar vários elementos ao mesmo tempo no Mapa do Processo e movê-los como um grupo sem alterar a estrutura do processo.</li>
-                    <li>As anotações podem ser conectadas a uma tarefa.</li>
-                    <li>Os processos são salvos automaticamente a cada 15 segundos. Ao ativar a alternância Auto Save, os processos são salvos automaticamente a cada 40 segundos.</li>
-                    <li>As regras de roteamento são operacionalizadas por Gateways BPMN.</li>
-                    <li>Elementos, como tarefas e gateways, são delimitados com pontos amarelos, que podem ser arrastados e soltos em outros elementos para criar conexões.</li>
-                    <li>Os elementos no modelador podem ser movidos usando as teclas <code>left</code>, <code>right</code>, <code>down</code> e <code>up</code> no teclado.</li>
-                    <li>Uma caixa de ferramentas fornece acesso direto a elementos de design como: formulários dinâmicos, documentos de saída, documentos de entrada, gatilhos e conexões de banco de dados.</li>
-                </ul>
-
-                <p>Para criar um modelo de processo, é necessário reconhecer os elementos que compõem o Mapa do Processo:</p>
-
-                <figure>
-
-                </figure>
-
-                <p><font color="green">Nota:</font> Não é recomendado trabalhar no desenho do mesmo processo usando diferentes abas ou janelas do navegador. O Gestor Express não funciona adequadamente em tais circunstâncias.</p>
-
-                <h2 id="item3a">Barra de ferramentas rápida</h2>
-
-                <p>Os designers têm a capacidade de concluir facilmente a próxima etapa da modelagem usando a opção <strong>Barra de ferramentas rápida</strong>. Esta opção mostra os próximos elementos disponíveis para adicionar ao Mapa do Processo.</p>
-
-                <p>Para uma tarefa, os próximos elementos disponíveis podem ser outra tarefa, um evento intermediário, um evento final, um gateway ou um fluxo para outro elemento. Se o elemento puder ser configurado, a opção de configuração também aparecerá na Barra de Ferramentas Rápida do elemento, junto com a opção Excluir.</p>
-
-                <figure id="detalhe">
-
-                </figure>
-
-                <p>Para um gateway, os próximos elementos disponíveis podem ser outro gateway, uma tarefa, um evento final ou um fluxo para outro elemento. As opções de configuração e exclusão também estão disponíveis.</p>
-
-                <figure id="detalhe">
-
-                </figure>
-
-                <p>Ao criar um novo projeto, já existe um evento de início adicionado no Mapa do Processo. Ao clicar no elemento, os próximos elementos disponíveis para o evento inicial serão mostrados. Simplesmente clicando no próximo elemento, o elemento será adicionado ao Mapa do Processo. O fluxo entre os elementos também é adicionado ao usar esta opção.</p>
-
-                <figure>
-
-                </figure>
-
-                <p>Na figura acima, após a adição da tarefa "Solicitar licença", os próximos elementos (a tarefa "Aprovar solicitação de licença", o gateway exclusivo "Aprovado?" e o elemento final "Enviar confirmação") também são adicionados usando a Barra de ferramentas rápida de cada elemento.</p>
-
-                <p>Aviso: A barra de ferramentas rápida de um evento de início mostra um gateway, mas o fluxo do processo não pode iniciar com um gateway, o gateway será adicionado à tela de modelagem, mas não será conectado ao evento de início.</p>
-
-                <h2 id="item3b">Validação de Conexão de Elemento</h2>
-
-                <p>Ao conectar dois elementos no mapa de modelo de processos, o próximo elemento disponível é verde. Enquanto isso, as conexões inválidas entre os elementos ficarão vermelhas.</p>
-
-                <p>Por exemplo, ao conectar um evento de início e uma tarefa já adicionada ao mapa de modelo de processos, o conector entre a tarefa e o evento de início ficará verde para representar sua disponibilidade para conexão:</p>
-
-                <figure>
-
-                </figure>
-
-                <p>Ao fazer uma conexão inválida, como entre um evento inicial e um evento final, o elemento ficará vermelho, indicando que é impossível conectar os dois elementos.</p>
-
-                <figure id="detalhe">
-
-                </figure>
-
-                <h2 id="item3c">Caixas de ferramentas e ferramentas de modelagem</h2>
-                <p>O título do projeto e as principais opções estão localizados na barra de ferramentas superior. Os elementos BPMN 2.0 usados para projetar modelos de processos estão localizados logo abaixo da barra de ferramentas superior. A caixa de ferramentas principal, que contém as opções para gerenciar o modelo de processo, criar variáveis e formulários, está localizada inicialmente no lado direito do Mapa de Modelo do Processo. No entanto, é um menu flutuante que pode ser minimizado ou colocado em outro local do Mapa do Modelo de Processo.</p>
-
-                <figure>
-
-                </figure>
-
-                <p>As principais caixas de ferramentas e ferramentas de modelagem de modelos de processos são:</p>
-
-                <ol>
-                    <li>A barra de ferramentas superior</li>
-                    <li>Caixa de ferramentas de formas</li>
-                    <li>Alternar Salvar Automático</li>
-                    <li>Caixa de ferramentas principal</li>
-                    <li>Menu de contexto do modelo do processo</li>
-                    <li>Menu de Contexto de Elementos</li>
-                </ol>
-
-                <h2 id="item3ci">A barra de ferramentas superior</h2>
-
-                <p>A barra de ferramentas superior exibe o título do projeto e mostra as seguintes opções para modificar o comportamento do Mapa de Modelo do Processo:</p>
-
-                <figure>
-
-                </figure>
-
-                <p><font color="red">Aviso:</font> Na modelagem de processo, quando um elemento do mapa de modelo do processo é excluído e as alterações são salvas, a ação <strong>Desfazer/Refazer NÃO</strong> recupera a configuração do elemento do mapa de modelo do processo (por exemplo, regras de atribuição e etapas de uma tarefa). A ação <strong>Desfazer/Refazer</strong> apenas recupera o ícone do elemento do mapa de modelo do processo sem nenhuma configuração pré-definida.</p>
-
-                <p>Na barra de ferramentas superior, a opção Zoom permite ao usuário ajustar o tamanho do texto e das imagens no Mapa de Modelo do Processo. Para ver como funciona, dê uma olhada na próxima imagem:</p>
-
-                <figure id="detalhe">
-
-                </figure>
-
-                <p>Confira a diferença entre os tamanhos 75% e 150%:</p>
-
-                <p><strong>75% em tamanho</strong></p>
-
-                <figure>
-
-                </figure>
-
-                <p><strong>150% em tamanho</strong></p>
-
-                <figure>
-
-                </figure>
-
-                <p>A barra de ferramentas também tem duas opções para exportar o diagrama e o modelo de processo. A descrição de ambas as opções estão na próxima imagem:</p>
-
-                <figure>
-
-                </figure>
-
-                <p><font color="red">Aviso:</font> Diagramas que incluem objetos de dados (controles de entrada e/ou saída de dados) podem ser corrompidos quando o usuário usa a opção Exportar diagrama.</p>
-
-                <p>As opções <strong>Salvar</strong> e <strong>Salvar como</strong> também podem ser encontradas na barra de ferramentas superior. Quando qualquer um desses botões for clicado, uma mensagem rápida aparecerá na parte superior do modelador indicando que o modelo de processo foi salvo com sucesso. Se ocorreu um erro ou a sessão foi perdida ao salvar o modelo de processo, uma mensagem de erro aparecerá na parte superior da tela de modelagem.</p>
-
-                <figure>
-
-                </figure>
-
-                <p>Clique em Cancelar para descartar todas as alterações. Após clicar em Salvar, o novo modelo de processo estará disponível para ser editado. Ele também será listado entre os demais projetos com o novo título dado.</p>
-
-                <figure id="detalhe">
-
-                </figure>
-
-                <h2 id="item3cii">Caixa de ferramentas de formas</h2>
-                <p>A caixa de ferramentas de formas está localizada abaixo da caixa de ferramentas superior na parte superior da tela de modelagem. Esta caixa de ferramentas inclui elementos de design BPM como: Tarefas, Subprocessos, Gateways, Eventos, Artefatos, entre outros.</p>
-
-                <p>Os elementos incluídos nesta caixa de ferramentas estão descritos na imagem abaixo:</p>
-
-                <figure>
-
-                </figure>
-                
-                <ol>
-                    <li><font color="blue"><strong>Tarefa</strong></font></li>
-                    <li><font color="blue"><strong>Subprocesso</strong></font></li>
-                    <li><font color="blue"><strong>Gateways:</strong></font> inclui os seguintes tipos de gateway: exclusivo, paralelo, inclusivo.</li>
-                    <li><font color="blue"><strong>Eventos:</strong></font> Inclui os seguintes tipos de eventos: um evento de início vazio, um evento de início de temporizador, um evento de temporizador intermediário, um evento de mensagem intermediária, um evento de término vazio e um evento de mensagem de término.</li>
-                    <li><font color="blue"><strong>Elementos de dados:</strong></font> Inclui: objeto de dados e armazenamento de dados.</li>
-                    <li><font color="blue"><strong>Piscinas e raias:</strong></font> Inclui: piscina caixa preta, piscinas e raias.</li>
-                    <li><font color="blue"><strong>Artefatos:</strong></font> Inclui: grupo e anotações.</li>
-                    <li><font color="blue"><strong>Laço:</strong></font> Permite a seleção de vários elementos no desenho para movê-los como um bloco usando as teclas do cursor. Observe que esse controle não funciona com elementos que estão dentro de uma piscina ou raia.</li>
-                </ol>
-
-                <figure>
-
-                </figure>
-
-                <p>Elementos agarrados pelo laço não podem ser apagados todos de uma vez ao pressionar a tecla <code>DEL</code>.</p>
-
-                <p>Observe que, se por algum motivo a janela de modelagem' do processo for fechada enquanto os elementos são movidos com a ferramenta laço, as alterações não serão salvas.</p>
-
-                <h2 id="item3ciii">Caixa de ferramentas principal</h2>
-
-                <p>Esta caixa de ferramentas contém as opções para gerenciar o modelo de processo, criar variáveis, Formulários Dinâmicos, Documentos de Entrada e Saída, Tabelas de Relatórios, conexões de banco de dados, templates, arquivos públicos, tipos de mensagens, gatilhos, permissões, rastreio de processos e supervisores:</p>
-
-                <p>Uma das principais características desta caixa de ferramentas é a capacidade de movê-la para qualquer lugar no Mapa de Processo.</p>
-
-                <p>Esta caixa de ferramentas inclui os seguintes elementos de design de processo:</p>
+        </article>
+
+        <article>
+        <div>
+            <h1 id="item3">O Mapa do Processo</h1>
+            <p>O Mapa do Processo no Gestor Express possui uma interface gráfica de arrastar e soltar, que permite que os elementos sejam facilmente adicionados, excluídos e reorganizados.</p>
+            <p>As principais características da modelagem incluem:</p>
+            <ul type="disc">
+                <li>A capacidade de selecionar vários elementos ao mesmo tempo no Mapa do Processo e movê-los como um grupo sem alterar a estrutura do processo.</li>
+                <li>As anotações podem ser conectadas a uma tarefa.</li>
+                <li>Os processos são salvos automaticamente a cada 15 segundos. Ao ativar a alternância Auto Save, os processos são salvos automaticamente a cada 40 segundos.</li>
+                <li>As regras de roteamento são operacionalizadas por Gateways BPMN.</li>
+                <li>Elementos, como tarefas e gateways, são delimitados com pontos amarelos, que podem ser arrastados e soltos em outros elementos para criar conexões.</li>
+                <li>Os elementos no modelador podem ser movidos usando as teclas <code>left</code>, <code>right</code>, <code>down</code> e <code>up</code> no teclado.</li>
+                <li>Uma caixa de ferramentas fornece acesso direto a elementos de design como: formulários dinâmicos, documentos de saída, documentos de entrada, gatilhos e conexões de banco de dados.</li>
+            </ul>
+            <p>Para criar um modelo de processo, é necessário reconhecer os elementos que compõem o Mapa do Processo:</p>
+            <figure>
+            </figure>
+            <p><font color="green">Nota:</font> Não é recomendado trabalhar no desenho do mesmo processo usando diferentes abas ou janelas do navegador. O Gestor Express não funciona adequadamente em tais circunstâncias.</p>
+            <h2 id="item3a">Barra de ferramentas rápida</h2>
+            <p>Os designers têm a capacidade de concluir facilmente a próxima etapa da modelagem usando a opção <strong>Barra de ferramentas rápida</strong>. Esta opção mostra os próximos elementos disponíveis para adicionar ao Mapa do Processo.</p>
+            <p>Para uma tarefa, os próximos elementos disponíveis podem ser outra tarefa, um evento intermediário, um evento final, um gateway ou um fluxo para outro elemento. Se o elemento puder ser configurado, a opção de configuração também aparecerá na Barra de Ferramentas Rápida do elemento, junto com a opção Excluir.</p>
+            <figure id="detalhe">
+            </figure>
+            <p>Para um gateway, os próximos elementos disponíveis podem ser outro gateway, uma tarefa, um evento final ou um fluxo para outro elemento. As opções de configuração e exclusão também estão disponíveis.</p>
+            <figure id="detalhe">
+            </figure>
+            <p>Ao criar um novo projeto, já existe um evento de início adicionado no Mapa do Processo. Ao clicar no elemento, os próximos elementos disponíveis para o evento inicial serão mostrados. Simplesmente clicando no próximo elemento, o elemento será adicionado ao Mapa do Processo. O fluxo entre os elementos também é adicionado ao usar esta opção.</p>
+            <figure>
+            </figure>
+            <p>Na figura acima, após a adição da tarefa "Solicitar licença", os próximos elementos (a tarefa "Aprovar solicitação de licença", o gateway exclusivo "Aprovado?" e o elemento final "Enviar confirmação") também são adicionados usando a Barra de ferramentas rápida de cada elemento.</p>
+            <p>Aviso: A barra de ferramentas rápida de um evento de início mostra um gateway, mas o fluxo do processo não pode iniciar com um gateway, o gateway será adicionado à tela de modelagem, mas não será conectado ao evento de início.</p>
+            <h2 id="item3b">Validação de Conexão de Elemento</h2>
+            <p>Ao conectar dois elementos no mapa de modelo de processos, o próximo elemento disponível é verde. Enquanto isso, as conexões inválidas entre os elementos ficarão vermelhas.</p>
+            <p>Por exemplo, ao conectar um evento de início e uma tarefa já adicionada ao mapa de modelo de processos, o conector entre a tarefa e o evento de início ficará verde para representar sua disponibilidade para conexão:</p>
+            <figure>
+            </figure>
+            <p>Ao fazer uma conexão inválida, como entre um evento inicial e um evento final, o elemento ficará vermelho, indicando que é impossível conectar os dois elementos.</p>
+            <figure id="detalhe">
+            </figure>
+            <h2 id="item3c">Caixas de ferramentas e ferramentas de modelagem</h2>
+            <p>O título do projeto e as principais opções estão localizados na barra de ferramentas superior. Os elementos BPMN 2.0 usados para projetar modelos de processos estão localizados logo abaixo da barra de ferramentas superior. A caixa de ferramentas principal, que contém as opções para gerenciar o modelo de processo, criar variáveis e formulários, está localizada inicialmente no lado direito do Mapa de Modelo do Processo. No entanto, é um menu flutuante que pode ser minimizado ou colocado em outro local do Mapa do Modelo de Processo.</p>
+            <figure>
+            </figure>
+            <p>As principais caixas de ferramentas e ferramentas de modelagem de modelos de processos são:</p>
+            <ol>
+                <li>A barra de ferramentas superior</li>
+                <li>Caixa de ferramentas de formas</li>
+                <li>Alternar Salvar Automático</li>
+                <li>Caixa de ferramentas principal</li>
+                <li>Menu de contexto do modelo do processo</li>
+                <li>Menu de Contexto de Elementos</li>
+            </ol>
+            <h2 id="item3ci">A barra de ferramentas superior</h2>
+            <p>A barra de ferramentas superior exibe o título do projeto e mostra as seguintes opções para modificar o comportamento do Mapa de Modelo do Processo:</p>
+            <figure>
+            </figure>
+            <p><font color="red">Aviso:</font> Na modelagem de processo, quando um elemento do mapa de modelo do processo é excluído e as alterações são salvas, a ação <strong>Desfazer/Refazer NÃO</strong> recupera a configuração do elemento do mapa de modelo do processo (por exemplo, regras de atribuição e etapas de uma tarefa). A ação <strong>Desfazer/Refazer</strong> apenas recupera o ícone do elemento do mapa de modelo do processo sem nenhuma configuração pré-definida.</p>
+            <p>Na barra de ferramentas superior, a opção Zoom permite ao usuário ajustar o tamanho do texto e das imagens no Mapa de Modelo do Processo. Para ver como funciona, dê uma olhada na próxima imagem:</p>
+            <figure id="detalhe">
+            </figure>
+            <p>Confira a diferença entre os tamanhos 75% e 150%:</p>
+            <p><strong>75% em tamanho</strong></p>
+            <figure>
+            </figure>
+            <p><strong>150% em tamanho</strong></p>
+            <figure>
+            </figure>
+            <p>A barra de ferramentas também tem duas opções para exportar o diagrama e o modelo de processo. A descrição de ambas as opções estão na próxima imagem:</p>
+            <figure>
+            </figure>
+            <p><font color="red">Aviso:</font> Diagramas que incluem objetos de dados (controles de entrada e/ou saída de dados) podem ser corrompidos quando o usuário usa a opção Exportar diagrama.</p>
+            <p>As opções <strong>Salvar</strong> e <strong>Salvar como</strong> também podem ser encontradas na barra de ferramentas superior. Quando qualquer um desses botões for clicado, uma mensagem rápida aparecerá na parte superior do modelador indicando que o modelo de processo foi salvo com sucesso. Se ocorreu um erro ou a sessão foi perdida ao salvar o modelo de processo, uma mensagem de erro aparecerá na parte superior da tela de modelagem.</p>
+            <figure>
+            </figure>
+            <p>Clique em Cancelar para descartar todas as alterações. Após clicar em Salvar, o novo modelo de processo estará disponível para ser editado. Ele também será listado entre os demais projetos com o novo título dado.</p>
+            <figure id="detalhe">
+            </figure>
+            <h2 id="item3cii">Caixa de ferramentas de formas</h2>
+            <p>A caixa de ferramentas de formas está localizada abaixo da caixa de ferramentas superior na parte superior da tela de modelagem. Esta caixa de ferramentas inclui elementos de design BPM como: Tarefas, Subprocessos, Gateways, Eventos, Artefatos, entre outros.</p>
+            <p>Os elementos incluídos nesta caixa de ferramentas estão descritos na imagem abaixo:</p>
+            <figure>
+            </figure>
+
+            <ol>
+                <li><font color="blue"><strong>Tarefa</strong></font></li>
+                <li><font color="blue"><strong>Subprocesso</strong></font></li>
+                <li><font color="blue"><strong>Gateways:</strong></font> inclui os seguintes tipos de gateway: exclusivo, paralelo, inclusivo.</li>
+                <li><font color="blue"><strong>Eventos:</strong></font> Inclui os seguintes tipos de eventos: um evento de início vazio, um evento de início de temporizador, um evento de temporizador intermediário, um evento de mensagem intermediária, um evento de término vazio e um evento de mensagem de término.</li>
+                <li><font color="blue"><strong>Elementos de dados:</strong></font> Inclui: objeto de dados e armazenamento de dados.</li>
+                <li><font color="blue"><strong>Piscinas e raias:</strong></font> Inclui: piscina caixa preta, piscinas e raias.</li>
+                <li><font color="blue"><strong>Artefatos:</strong></font> Inclui: grupo e anotações.</li>
+                <li><font color="blue"><strong>Laço:</strong></font> Permite a seleção de vários elementos no desenho para movê-los como um bloco usando as teclas do cursor. Observe que esse controle não funciona com elementos que estão dentro de uma piscina ou raia.</li>
+            </ol>
+            <figure>
+            </figure>
+            <p>Elementos agarrados pelo laço não podem ser apagados todos de uma vez ao pressionar a tecla <code>DEL</code>.</p>
+            <p>Observe que, se por algum motivo a janela de modelagem' do processo for fechada enquanto os elementos são movidos com a ferramenta laço, as alterações não serão salvas.</p>
+            <h2 id="item3ciii">Caixa de ferramentas principal</h2>
+            <p>Esta caixa de ferramentas contém as opções para gerenciar o modelo de processo, criar variáveis, Formulários Dinâmicos, Documentos de Entrada e Saída, Tabelas de Relatórios, conexões de banco de dados, templates, arquivos públicos, tipos de mensagens, gatilhos, permissões, rastreio de processos e supervisores:</p>
+            <p>Uma das principais características desta caixa de ferramentas é a capacidade de movê-la para qualquer lugar no Mapa de Processo.</p>
+            <p>Esta caixa de ferramentas inclui os seguintes elementos de design de processo:</p>
             </div>
             <div id="caixa">
-
                 <figure id="caixa">
                     <img src="../_imagens/mapa-3ciii.png" alt="Caixa de Ferramentas">
                 </figure>
-
                 <ul>
                     <li><strong>Variáveis:</strong> Crie variáveis de caso para serem usadas em Formulários Dinâmicos, gatilhos e outros objetos onde forem necessários.</li>
                     <li><strong>Tipos de Mensagem:</strong> Crie Tipos de Mensagem para serem enviados junto com Eventos de Mensagem.</li>
@@ -340,9 +273,76 @@
                     <li><strong>Rastreio de Processos:</strong> Gera um PIN que permite que um usuário externo faça login no Gestor Express e analise os avanços de um determinado caso.</li>
                     <li><strong>Supervisores:</strong> Os supervisores de processo são usuários que possuem privilégios especiais para supervisionar e revisar os casos de um projeto específico.</li>
                 </ul>
+        </div>
+        <div>
+            <h2 id="item3civ">Menu de contexto do processo</h2>
+            <figure id="detalhe">
+            </figure>
+            <ul>
+                <li><strong>Editar Processo:</strong> Esta opção permite modificar o nome do processo e sua descrição. Ele também fornece opções para habilitar o modo de depuração e definir um calendário para o processo.</li>
+                <li><strong>Habilitar linhas de grade:</strong> Por padrão, um modelo de processo é criado sem nenhuma linha de grade; escolha esta opção para habilitá-las. A grade permanecerá, após habilitada, em todos os modelos de processos até que seja desabilitada.</li>
+            </ul>
+            <h2 id="item3cv">Menu de Contexto de Elementos</h2>
+            <p>Ao clicar com o botão direito do mouse em um elemento adicionado no mapa do processo, como uma tarefa, um evento, o próprio mapa do processo, etc., um menu é exibido.</p>
+            <h2 id="item3cva">Menu de Contexto da Tarefa</h2>
+            <p>Para editar uma tarefa, clique com o botão direito em uma tarefa para exibir o seguinte menu contextual.</p>
+
+            <figure>
+            
+            </figure>
+            
+            <ul>
+                <li><p><strong>Tipos de tarefa:</strong> selecione o tipo de tarefa para modelar processos que são tecnicamente executáveis.</p>
+                    <p><font color="green">Observação:</font> <strong>NÃO</strong> altere o tipo de tarefa enquanto houver casos em execução ou atribuídos a essa tarefa. Se o tipo de tarefa for alterado, os casos podem se tornar inacessíveis. No entanto, é possível alterar o tipo de tarefa mesmo quando há casos em execução, desde que não haja nenhum caso nessa tarefa específica.</p></li>
+                <li><strong>Tipo de Marcador:</strong> Selecione o tipo de marcador da tarefa.</li>
+                <li><strong>Etapas:</strong> No Gestor Express, uma etapa é uma parte do trabalho que forma uma ação claramente definida dentro de uma tarefa. Selecione esta opção para adicionar uma etapa à tarefa. Consulte a seção Etapas.</li>
+                <li><p><strong>Regras de atribuição:</strong> Selecione esta opção para atribuir a tarefa a usuários, grupos ou usuários ad hoc que terão permissão para acessar e concluir a tarefa. Consulte a seção Regras de atribuição.</p>
+                <p><font color="green">Observação:</font> <strong>NÃO</strong> altere a regra de atribuição de uma tarefa enquanto houver casos em execução ou atribuídos a essa tarefa. Se o tipo da tarefa for alterado, os casos poderão se tornar inacessíveis.</p></li>
+                <li><p><strong>Editar rótulo:</strong> Edite o rótulo da tarefa.</p>
+                <p><font color="green">Nota:</font> Leve em consideração que o nome da tarefa não deve ser alterado quando houver casos em execução ou atribuídos à tarefa. Ao alterar o nome da tarefa, leve em consideração que os casos atribuídos à tarefa não serão atualizados nas listas de casos de usuários que estão trabalhando no caso.</p></li>
+                <li><strong>Excluir:</strong> Selecione esta opção para excluir a tarefa.
+                <p>Observação: NÃO exclua uma tarefa enquanto houver casos em execução ou atribuídos a essa tarefa. Esta ção causa erros e os casos tornam-se inacessíveis. Em vez disso, para excluir uma tarefa no modelo de processo, certifique-se de que nenhum caso esteja em execução ou atribuído à tarefa.</p></li>
+                <li><strong>Propriedades:</strong> Selecione esta opção para definir como uma tarefa deve ser tratada. Por exemplo, atribuição de tarefa, limites de tempo, notificações por email, se é uma tarefa inicial, atribuição ad hoc e a definição de rótulos de caso são exemplos do que pode ser configurado nas propriedades. Veja a seção Propriedades.</li>
+            </ul>
+
+            <h2 id="item3cvb">Menu de contexto do gateway</h2>
+
+            <p>Os gateways têm opções diferentes em seus menus contextuais. Clique com o botão direito do mouse sobre o gateway para ver seu menu contextual:</p>
+
+            <ul>
+                <li><strong>Tipo de Gateway:</strong> Selecione o tipo de gateway: Exclusivo, Inclusivo ou Paralelo.</li>
+                <li><strong>Editar Rótulo:</strong> Edite o rótulo do gateway.</li>
+                <li><strong>Excluir:</strong> Exclua o gateway selecionado.</li>
+                <li><strong>Fluxo padrão:</strong> defina um fluxo padrão quando nenhuma das condições for atendida.</li>
+                <li><strong>Propriedades:</strong> Edite a regra de roteamento do gateway. Os gateways inclusivos e exclusivos têm propriedades que podem ser editadas, mas os gateways paralelos não.</li>
+            </ul>
+
+            <figure id="detalhe">
+
+            </figure>
+
+            <p>Consulte a documentação do Gateway para entender como usá-los.</p>
+
+            <h2 id="item3cvc">Menu de contexto do evento</h2>
+
+            <p>As opções do menu para eventos são diferentes dependendo do tipo de evento. Clique com o botão direito do mouse no evento para exibir o menu de contexto do evento e selecione uma opção.</p>
+
+            <ul>
+                <li><strong>Tipo de Evento:</strong> Selecione o tipo de evento Iniciar, Intermediário ou Final.</li>
+                <li><strong>Editar Rótulo:</strong> Edite o rótulo do evento selecionado.</li>
+                <li><strong>Excluir:</strong> Excluir o evento selecionado.</li>
+            </ul>
+
+            <figure id="detalhe"></figure>
 
 
-            </div>
+            </figure>
+
+            <p>Para obter mais informações sobre as outras opções, consulte a documentação de eventos .</p>
+
+
+        </div>
+
 
         </article>
 
@@ -352,35 +352,35 @@
         <section id="lado">
             <h1>Conteúdo:</h1>
         <ol>
-            <li>Visão geral</li>
-            <li>Projetista</li>
+            <li><a href="#item1">Visão geral</a></li>
+            <li><a href="#item2">Modelagem</a></li>
                 <ol type="A">
-                    <li>Menu do Designer</li>
+                    <li><a href="#item2a">Menu de Modelagem</a></li>
                         <ol type="i">
-                            <li>Criando um novo projeto</li>
-                            <li>Editando um projeto</li>
-                            <li>Mostrando o status do projeto</li>
-                            <li>Excluindo um projeto</li>
-                            <li>Exportando um projeto</li>
-                            <li>Importando um projeto</li>
-                            <li>Excluindo todos os casos de um processo</li>
+                            <li><a href="#item2ai">Criando um novo projeto</a></li>
+                            <li><a href="#item2aii">Editando um projeto</a></li>
+                            <li><a href="#item2aiii">Mostrando o status do projeto</a></li>
+                            <li><a href="#item2aiv">Excluindo um projeto</a></li>
+                            <li><a href="#item2av">Exportando um projeto</a></li>
+                            <li><a href="#item2avi">Importando um projeto</a></li>
+                            <li><a href="#item2avii">Excluindo todos os casos de um processo</a></li>
                         </ol>   
                 </ol>
-            <li>O Mapa do Processo</li>
+            <li><a href="#item3">O Mapa do Processo</a></li>
                 <ol type="A">
-                    <li>Barra de ferramentas rápida</li>
-                    <li>Validação de Conexão de Elemento</li>
-                    <li>Caixas de ferramentas e ferramentas de modelagem</li>
+                    <li><a href="#item3a">Barra de ferramentas rápida</a></li>
+                    <li><a href="#item3b">Validação de Conexão de Elemento</a></li>
+                    <li><a href="#item3c">Caixas de ferramentas e ferramentas de modelagem</a></li>
                     <ol type="i">
-                        <li>A barra de ferramentas superior</li>
-                        <li>Caixa de ferramentas de formas</li>
-                        <li>Caixa de ferramentas principal</li>
-                        <li>Menu de contexto do processo</li>
-                        <li>Menu de Contexto de Elementos</li>
+                        <li><a href="#item3ci">A barra de ferramentas superior</a></li>
+                        <li><a href="#item3cii">Caixa de ferramentas de formas</a></li>
+                        <li><a href="#itemeciii">Caixa de ferramentas principal</a></li>
+                        <li><a href="#item3civ">Menu de contexto do processo</a></li>
+                        <li><a href="#item3cv">Menu de Contexto de Elementos</a></li>
                         <ol type="a">
-                            <li>Menu de Contexto da Tarefa</li>
-                            <li>Menu de contexto do gateway</li>
-                            <li>Menu de contexto do evento</li>
+                            <li><a href="#item3c5a">Menu de Contexto da Tarefa</a></li>
+                            <li><a href="#item3cvb">Menu de contexto do gateway</a></li>
+                            <li><a href="#item3cvc">Menu de contexto do evento</a></li>
                         </ol>
                     </ol>
                 </ol>        

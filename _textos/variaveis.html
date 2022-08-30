@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Variáveis</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+
+            <p>Variáveis de caso são variáveis que são criadas dentro de um modelo de processo e armazenadas exclusivamente para cada caso. Elas são criadas automaticamente quando um novo caso é iniciado e podem ser usados em qualquer um dos objetos em um modelo de processo. As variáveis de caso podem ser definidas na modelagem de processo e podem ser usadas para preencher campos em Formulários Dinâmicos, bem como em documentos de saída, gatilhos e modelos de e-mail.</p>
+        </article>
+
+        <article>
+            <h1 id="item2">Definindo Variáveis</h1>
+
+            <p><font color="red"><strong>Aviso:</strong></font> Antes de criar uma variável, leia as regras na seção Nomeando Variáveis para nomeá-la corretamente.</p>
+
+            <p>Para definir variáveis de caso, abra o projeto onde as variáveis de caso serão utilizadas e, na caixa de ferramentas Objetos do Processo, clique no ícone + ao lado da opção variável.  </p>
+
+            <figure>
+
+            </figure>
+
+            <p>Preencha as informações sobre a nova variável na janela modal que se abre:</p>
+
+            <figure>
+
+            </figure>
+
+            <p><font color="red"><strong>Aviso:</strong></font> O Gestor Express NÃO suporta variáveis criadas com caracteres de árabe, hindi, japonês ou outros idiomas que não usam o alfabeto latino.</p>
+
+            <ol>
+                <li><p><strong>Nome da Variável:</strong> <i>Obrigatório</i>. As variáveis devem ter um nome exclusivo entre 2 e 64 caracteres sem espaços, que o Gestor Express usará para identificar a variável. Os designers do Gestor Express podem usar o nome da variável em campos de Formulário Dinâmico, e-mails, documentos de saída, modelos, código de gatilho, etc. As regras normais de nomenclatura de variáveis PHP se aplicam, portanto, o nome diferencia maiúsculas de minúsculas, deve começar com uma letra ou sublinhado e pode conter apenas caracteres que são letras, números e sublinhados. Símbolos e espaços não são permitidos. Considere o uso de nomes auto descritivos ao definir nomes de variáveis como uma boa prática.</p>
+
+                <p>Todas as variáveis são armazenadas no campo MEDIUMTEXT de wf_.APPLICATION.APP_DATA no banco de dados, que contém no máximo 16.777.213 bytes. O número máximo de caracteres em uma string é determinado pelo tamanho desse campo, mas também pode ser limitado pela propriedade <code>Max. Length</code> dos controles Textbox nos Formulários Dinâmicos e pela configuração post_max_size no arquivo de configuração <code>php.ini</code>.</p>
+
+                <p>Se tentar adicionar uma variável que não possui um nome válido, a seguinte mensagem de erro aparecerá:</p>
+
+                <figure>
+
+                </figure>
+
+                <p><font color="green">Observação:</font> um nome de variável deve corresponder à expressão regular:<code>^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</code></p></li>
+
+                <li><p><strong>Tipo de variável</strong>: <i>Obrigatório</i>. Selecione o tipo de dados da nova variável. Os tipos de dados suportados pelo Gestor Express são:</li>
+                <ul type="disc">
+                    <li><strong>String:</strong> Aceita caracteres de qualquer tipo, incluindo letras, números, símbolos e espaços. As variáveis de string podem ser usadas para preencher campos de texto, áreas de texto, menus suspensos, botões de opção, caixas de sugestão, campos ocultos, controles de mapa geográfico e campos de QR code. Por exemplo, uma variável de string pode ser usada para armazenar uma descrição:
+
+                    <figure>
+
+                    </figure></li>
+
+                    <li><strong>Inteiro:</strong> aceita apenas números inteiros entre -2147483648 e 2147483647. O número inteiro pode ser positivo, negativo ou zero. Não aceita frações. Os inteiros podem ser usados para preencher campos de texto, áreas de texto, listas suspensas, botões de opção, caixas de sugestão e campos ocultos.
+
+                    <figure>
+
+                    </figure></li>
+
+                    <li><strong>Float:</strong> Uma variável de ponto flutuante, que aceita números reais com um ponto decimal, portanto, pode aceitar frações. É um número de ponto flutuante de 4 bytes entre -3,402823466E+38 e 3,402823466E+38. Números com 9 ou mais decimais serão arredondados para o inteiro mais próximo. Por exemplo, se o número 0,999999999 for inserido, ele será arredondado para 1,0000000. Uma variável flutuante pode ser usada por campos de texto, áreas de texto, menus suspensos, botões de opção, caixas de sugestão e campos ocultos.
+
+                    <figure>
+
+                    </figure></li>
+
+                    <li><strong>Boolean:</strong> Aceita apenas valores de VERDADEIRO ou FALSO para representar a lógica booleana. Quaisquer outros valores serão convertidos em VERDADEIRO ou FALSO. Todos os números, exceto 0 (zero) e todas as strings, exceto strings vazias, são consideradas TRUE. Uma variável booleana pode ser usada por caixas de seleção, menus suspensos, campos ocultos e botões de opção que permitem apenas uma escolha binária (como Sim/Não, Ligado/Desligado ou Aprovar/Reprovar).
+                    
+                    <figure>
+
+                    </figure></li>
+
+                    <li><strong>Datetime:</strong> Armazena uma data ou data e hora no formato "<code>YYYY-MM-DD</code>" ou "<code>YYYY-MM-DD HH:MM:SS</code>". Por exemplo, o último segundo do ano de 2015 é: "<code>2015-12-31 23:59:59</code>". Uma variável de data e hora pode ser usada por campos de data e hora e ocultos.
+                      
+                    <figure>
+
+                    </figure></li>
+                  
+                    <li><p><strong>Grade:</strong> Este tipo de variável é usado para armazenar controles de grade em Formulários Dinâmicos. O Gestor Express armazena grades como uma matriz numerada de matrizes associativas, que é o mesmo formato usado ao armazenar os resultados de consultas de banco de dados, para que as grades possam ser preenchidas com uma consulta de banco de dados.</p>
+                                            
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="green">Nota:</font> Este tipo de variável também pode estar relacionada à propriedade Grid Store do subformulário .</p></li>
+
+                    <li><strong>Array:</strong> Este tipo de variável armazena uma coleção de valores. Os valores podem ser de diferentes tipos de dados. As variáveis de matriz só podem ser usadas por controles de grupo de verificação.
+                                        
+                    <figure>
+
+                    </figure></li>
+
+                    <li><p><strong>Arquivo:</strong> Este tipo de variável armazena o(s) arquivo(s) selecionado(s) em um arquivo de controle.</p>
+                                            
+                    <figure>
+
+                    </figure>
+
+                    <p>Um documento de entrada também pode ser associado a uma variável de arquivo. Ao definir um documento de entrada, uma variável de arquivo pode ser selecionada para conter seu conteúdo, de modo que o documento de entrada possa ser acessado por meio de um controle de arquivo em um formulário dinâmico ou como uma variável em um gatilho. Defina o tamanho máximo do arquivo, o caminho de destino e as extensões de arquivo permitidas dos arquivos carregados no documento de entrada. A variável de arquivo pode então ser associada a um documento de entrada existente.</p>
+
+                    <p>Para usar uma variável de arquivo, primeiro crie um documento de entrada. Em seguida, crie a variável de arquivo e associe-a ao documento de entrada existente. Por fim, crie um formulário dinâmico com um controle de arquivo e associe a variável de arquivo a esse controle de arquivo. Quando uma variável de arquivo associada a um documento de entrada é usada em um controle de arquivo, as propriedades no controle serão desabilitadas porque essas propriedades já foram definidas nas propriedades do documento de entrada.</p></li>
+
+                    <li><strong>Arquivo múltiplo:</strong> esse tipo de variável é usado para armazenar vários arquivos selecionados por um controle de upload de vários arquivos e é suportado apenas por esse controle.
+                                        
+                    <figure>
+
+                    </figure></li>
+
+                    <li><p><strong>Object:</strong> Este tipo de variável é usado para armazenar um objeto e é incluído na janela do selecionador de objetos como qualquer outra variável, mas é suportado apenas em gatilhos, templates e condições (como gateways e condições de etapa). NÃO é suportado em Formulários Dinâmicos ou tabelas de relatórios e não pode ser atribuído a nenhum tipo de controle.</p>
+                                            
+                    <figure>
+
+                    </figure>
+
+                    <p>Os dados armazenados neste tipo de variável podem ser usados em triggers subsequentes acessando as propriedades do objeto usando a sintaxe padrão do objeto PHP.</p>
+                                    
+                    <figure>
+
+                    </figure></li>
+                </ul>
+                <li><p><strong>Conexão de banco de dados:</strong> Este campo é definido como "PM Database" por padrão, que é o banco de dados wf_WORKSPACE para o espaço de trabalho atual denominado wf_workflow. Se houver outras conexões de banco de dados no projeto, elas podem ser selecionadas no menu suspenso.</p></li>
+
+                <li><p><strong>SQL:</strong> Uma consulta de banco de dados pode ser usada para definir o valor inicial de uma variável associada a um texto, área de texto ou campo oculto, ou para preencher a lista de opções em caixas suspensas, caixas de sugestões, botões de opção ou grupos de verificação.</p>
+
+                <p>Insira uma instrução SQL <code>SELECT</code> para preencher a variável. Observe que as instruções SELECT são o padrão para controles associados à variável, mas podem ser modificadas na definição de cada controle. NÃO inclua o nome do banco de dados na consulta, pois a consulta será executada na conexão de banco de dados selecionada.</p>
+
+                <p>A consulta SQL é executada quando é exibido um formulário dinâmico que contém um controle associado à variável. Se a consulta SQL contém uma referência a um campo independente (<code>@@<font color="blue">fieldId</font></code> ou <code>@#<font color="blue">fieldId</font></code>), então ela será executada toda vez que o valor do campo independente for alterado pelo usuário.</p>
+
+                <p>Se estiver preenchendo um texto, área de texto ou campo oculto, o controle será definido para o valor do primeiro campo no primeiro registro retornado pela consulta do banco de dados. Se preencher a lista de opções em uma caixa suspensa, caixa de sugestão, botão de opção ou grupo de verificação, o primeiro campo será a chave e o segundo campo será o rótulo de cada opção. Essas opções da consulta SQL serão adicionadas à lista após as opções fixas.</p>
+
+                <codeblock>
+                    <font color="green">Nota:</font> Ao consultar um banco de dados MySQL, lembre-se de que os nomes de tabelas e campos diferenciam maiúsculas de minúsculas em sistemas Linux/UNIX, mas não diferenciam maiúsculas de minúsculas em sistemas Windows (embora isso possa ser alterado com a configuração do sistema lower_case_table_names). Para portabilidade de modelos de processos entre servidores Windows e Linux/UNIX, é recomendável usar nomes de tabelas e campos em MAIÚSCULAS ao consultar os bancos de dados do Gestor Express.</codeblock></li>
+                
+
+                <li><p><strong>Defina os valores de variável aceitos.</strong> Uma lista de opções aceitas pode ser adicionada às variáveis string, integer, float, boolean e array. Essas opções serão exibidas ao usuário quando a variável estiver associada a uma caixa suspensa, botão de opção, caixa de sugestão ou um grupo de verificação em um formulário dinâmico. Se esta opção estiver marcada, uma nova seção será exibida abaixo onde as opções podem ser adicionadas com pares de chave (valor) e rótulo. Essas opções serão adicionadas primeiro à lista, antes de quaisquer opções adicionadas pela consulta SQL. Observe que esta é a lista de opções padrão, que pode ser modificada na definição de cada controle associado à variável.
+                                    
+                    <figure>
+
+                    </figure></li>
+
+                <ol type="a">
+                    <li><strong>Chave.</strong> <i>Requerido</i>. A chave (valor) deve ser exclusiva para cada opção, pois atua como um identificador exclusivo. Não pode conter espaços. Observe que as chaves são armazenadas como strings, portanto, "3.10" não é a mesma chave que "3.1".</li>
+
+                    <li><strong>Rótulo.</strong> O rótulo é o texto exibido aos usuários quando a opção é mostrada em um formulário dinâmico.</li>
+
+                    <li><strong>Criar.</strong> Clique neste botão para adicionar uma nova opção à lista.</li>
+
+                    <li>Lista das opções já adicionadas à variável. Nesta lista, a chave (valor) da opção e seu rótulo são mostrados.
+                    Os valores das variáveis nesta lista podem ser arrastados e soltos para modificar a ordem.
+                    
+                    <figure>
+
+                    </figure></li>
+
+                    <li><strong>Editar.</strong> Clique neste botão para editar a chave ou o valor da opção da variável.</li>
+
+                    <li><strong>Excluir.</strong> Clique neste botão para excluir a opção da variável.</li>
+
+                    <li><strong>Controle de paginação.</strong> Use este controle para navegar pelas páginas de opções. Cada página lista até 5 opções.</li>
+                </ol>
+            </ol>
+            
+            <p>As variáveis booleanas incluem a opção de configurar o rótulo das chaves VERDADEIRO e FALS0. O rótulo de cada uma dessas chaves pode ser configurado. Variáveis booleanas só podem ser usadas com controles de caixa suspensa, botão de opção e caixa de seleção nos Formulários Dinâmicos.</p>
+
+            <p>Após preencher as informações sobre a nova variável, clique em Salvar para adicioná-la à lista de variáveis disponíveis ou em Cancelar para descartar as alterações.</p>
+
+            <codeblock><font color="green">Nota:</font> Todas as variáveis de um caso são armazenadas no campo MEDIUMTEXT do banco de dados <code>wf_<WORKSPACE>.APPLICATION.APP_DATA</code>, que contém no máximo 16.777.213 bytes. O número máximo de caracteres em uma string é determinado pelo tamanho desse campo, mas também pode ser limitado pela propriedade Comprimento máximo dos controles de texto no Formulário Dinâmico e pela configuração post_max_size no arquivo de configuração <code>php.ini</code>.</codeblock>
+            
+            <figure>
+
+            </figure>
+
+            <div>
+                <h2 id="item2a">Variáveis de nomenclatura</h2>
+
+                <p>Antes de criar uma variável, leia as seguintes regras para evitar conflitos posteriormente:</p>
+
+                <ul>
+                    <li>Os nomes das variáveis devem corresponder à expressão regular: ^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*</li>
+                    <li>Nomes de variáveis semelhantes podem ter conflitos ao mover os dados para uma tabela de relatório.</li>
+                    <li>Use sublinhados para palavras com caracteres inteiramente em minúsculas ou maiúsculas, por exemplo: "minha_variavel" ou "MINHA_VARIAVEL_NOME1".</li>
+                    <li>NÃO use maiúsculas e minúsculas ou caracteres '_' para diferenciar variáveis com nomes semelhantes. O Gestor Express exibe uma caixa de dialogo de erro se uma variável como "minha_variavel_nome" já existir e uma nova variável como "minha_variavel__nome", ou "MINHA__VARIAVEL_NOME", ou "MINHA__variavel_Nome, "MINHA_variavel_NOME", "MINHA_VARIAVEL_NOME", etc. estiver sendo criada.
+                        <figure>
+
+                        </figure></li>
+                    <li>NÃO misture maiúsculas e minúsculas com sublinhados, por exemplo, minhaVariavel_nome.</li>
+                    <li>NÃO nomeie uma variável com "_label" no final, pois as variáveis são criadas automaticamente no Gestor Express usando este apêndice em seu nome. Por exemplo, uma variável chamada "MinhaVariavel" também incluirá um "MinhaVariavel_label", que armazena o texto do campo. Para obter mais informações, leia a seção Variáveis _label .</li>
+                </ul>
+            </div>
+            <div>
+                <h2 id="item2b">Variáveis Suportadas</h2>
+
+                <p>Para ver que tipo de variáveis podem ser usadas por quais controles, leia a linha abaixo do campo Tipo de Variável.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A tabela abaixo explica quais variáveis são suportadas por cada controle.</p>
+
+                <table id="controle">
+                    <tr><th width="100px">Tipo</th><th>String</th><th>Inteiro</th><th>Flutuante</th><th>Boleano</th><th>Data hora</th><th>Gride</th><th>Matriz</th><th>Arquivo</th><th>Arquivo múltiplo</th><th>Objeto</th></tr>
+                    <tr><td>Texto</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Área de texto</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Suspenso</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Caixa de seleção</td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Grupo de verificação</td><td></td><td></td><td></td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td></tr>
+                    <tr><td>Rádio</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Data hora</td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Sugestão</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Oculto</td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Arquivo</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td><td></td></tr>
+                    <tr><td>Arquivo múltiplo</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td></tr>
+                    <tr><td>Grid</td><td></td><td></td><td></td><td></td><td></td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Mapa geográfico</td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Código QR</td><td><font color="green">&#10003</font></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                </table>
+
+                <p>Quando uma variável de processo é criada, uma segunda variável com um nome baseado no nome da variável do processo e o sufixo _label é criada automaticamente. Por exemplo, se a nova variável for denominada "fone", a segunda variável será denominada "fone_label".</p>
+
+                <p><font color="red">Atenção:</font> Evite criar variáveis com sufixo "_label" em seu nome, isso pode levar a possíveis conflitos com variáveis criadas pela aplicação Gestor Express.</p>
+
+                <p>Uma variável _label é usada para armazenar o rótulo da variável armazenada na @@variável relacionada a um controle do Formulário Dinâmico. Por exemplo: para uma lista suspensa, o rótulo da opção selecionada é salvo como uma variável com o mesmo nome da variável de processo, atribuída à lista suspensa, mas com um sufixo "_label". Se uma caixa suspensa for denominada "MeuDropdown", o valor da opção selecionada será armazenado na variável de processo <code>@@MeuDropdown</code> e o rótulo da opção selecionada será armazenado na variável <code>@@MeuDropdwon_label</code>.</p>
+
+                <p>No caso de caixas de texto, áreas de texto ou caixas de sugestão, o mesmo valor digitado pelo usuário é armazenado na variável de processo, bem como na variável _label.</p>
+
+                Os valores da variável _label são armazenados no campo w<code>f_<WORKSPACE>.APPLICATION.APP_DATA</code> no banco de dados do Gestor Express.
+            </div>
+        </article>
+        <article>
+            <h1 id="item3">Gerenciando variáveis</h1>
+
+            <p>Para gerenciar a lista de variáveis e criar novas, clique na opção Variáveis na caixa de ferramentas principal.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Uma lista de variáveis aparecerá, juntamente com opções para adicionar novas variáveis e editar ou excluir as variáveis existentes.</p>
+
+            <figure>
+
+            </figure>
+
+            <ul>
+                <li><strong>Nome:</strong> Esta coluna lista o nome das variáveis. Por padrão, as variáveis são listadas por seus nomes em ordem alfabética crescente. Clique no ícone de triângulo para baixo no cabeçalho da coluna para alternar para ordem alfabética decrescente.</li>
+                <li><strong>Tipo:</strong> Esta coluna lista o tipo de dados da variável.</li>
+                <li><strong>Editar:</strong> Clique neste botão para editar o nome da variável ou seu tipo.</li>
+                <li><strong>Excluir:</strong> Clique neste botão para excluir a variável. Quando a mensagem de confirmação aparecer, clique em Sim para excluir a variável. As variáveis ​​que já estão sendo usadas para preencher um campo de um Formulário Dinâmico não podem ser excluídas. Primeiro, eles devem ser removidos do Formulário Dinâmico antes de excluí-los. Observe que o ProcessMaker não verifica se uma variável é usada no código do acionador antes de excluí-la.</li>
+            </ul>
+
+            <p>As variáveis são listadas 10 por vez. Para ver a próxima página, clique em >; e para ver a página anterior, clique em <. Para ver outras páginas de variáveis, clique no número da página no controle de paginação abaixo da lista.</p>
+
+            <p>Para filtrar a lista de variáveis, digite o texto na caixa de pesquisa no canto superior esquerdo. A pesquisa não diferencia maiúsculas de minúsculas nos nomes das variáveis ou em seus tipos.</p>
+        </article>
+        <article>
+            <h1 id="item4">Adicionando variáveis em um Formulário Dinâmico</h1>
+
+            <p>Após a criação das variáveis, elas podem ser associadas a um campo de controle em um Formulário Dinâmico. Para saber como associar variáveis a campos em um formulário dinâmico, leia esta documentação.</p>
+
+            <p><font color="red">Aviso:</font> atribuir a mesma variável a controles diferentes em formulários dinâmicos diferentes pode resultar em comportamentos inesperados. Por exemplo, se uma variável foi atribuída primeiro a um menu suspenso e depois a uma caixa de texto, o rótulo pode mudar, conforme mostrado na imagem abaixo.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>O valor da variável é "BR" e sua variável _label é "Brasil" na lista suspensa de um primeiro formulário dinâmico. Uma vez que o processo é roteado para um segundo Formulário Dinâmico, quando a variável é atribuída a uma caixa de texto, somente o valor da variável ("BR") será exibido na caixa de texto. Uma vez que esta caixa de texto é enviada, a variável _label mudará de "Btrasil" para "BR", pois uma caixa de texto armazena o mesmo valor no valor da variável e seu _label.</p>
+
+            <p>Mesmo que algumas combinações possam parecer seguras, não é recomendado usar a mesma variável com vários tipos de controle.</p>
+        </article>
+        <article>
+            <h1 id="item5">Criando variáveis no construtor de Formulário Dinâmico</h1>
+
+            <p>As variáveis também podem ser criadas dentro do construtor de Formulário Dinâmico. Ao arrastar e soltar um controle, a janela Criar/Selecionar aparecerá automaticamente. Esse recurso foi projetado para configurar a funcionalidade e o comportamento das variáveis.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>A opção Criar variável permite a criação imediata de uma variável. Primeiro, um nome de variável é criado; neste exemplo, a variável será "nome".</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Clique na opção Configurações para exibir mais opções.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>As configurações disponíveis para a criação de variáveis são as seguintes:</p>
+
+            <figure>
+
+            </figure>
+
+            <p>A configuração Tipo é um menu suspenso que permite ao usuário escolher o tipo de variável que será usada. As opções no menu suspenso Tipo dependem do controle escolhido. Se o controle for um controle de texto (como no exemplo abaixo), os tipos de variável disponíveis serão "String", "Float" e "Integer". Tente adicionar um controle Datetime; o único tipo de variável disponível será "datetime".</p>
+
+            <figure id="detalhe">
+
+            </figure>
+
+            <p>A configuração de Conexão de banco de dados exibe as conexões já estabelecidas com um banco de dados ou cria uma nova conexão, caso ainda não tenha sido definida. Leia mais sobre conexão de banco de dados nesta seção</p>
+
+            <figure id="detalhe">
+
+            </figure>
+
+            <p>Uma janela do SQL Editor será aberta onde as consultas podem ser adicionadas.</p>
+            
+            <figure>
+
+            </figure>
+                
+            <p>Por fim, a configuração Opções mostra, edita e/ou adiciona opções ao controle que podem estar relacionadas ou não a uma variável. Verifique esta seção para obter mais informações.</p>
+
+            <figure id="detalhe">
+
+            </figure>
+    
+            <figure>
+
+            </figure>
+
+            <p>Para adicionar uma variável existente ao controle, basta clicar no botão Selecionar variável.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Todas as variáveis do processo serão exibidas e uma delas poderá ser adicionada ao controle.</p>
+
+            <figure>
+
+            </figure>         
+
+        </article>
+
+    </section>
+
+    <aside>
+        <section id="lado">
+
+            <h1>Conteúdo:</h1>
+
+            <ol>
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Definindo Variáveis</a></li>
+                <ol type="A">
+                    <li><a href="#item2a">Variáveis de nomenclatura</a></li>
+                    <li><a href="#item2b">VariáveisSuportadas</a></li>
+                    <li><a href="#item2c">Variáveis _label</a></li>
+                </ol>
+                <li><a href="#item3">Gerenciando variáveis</a></li>
+                <li><a href="#item4">Adicionando variáveis em um Formulário Dinâmico</a></li>
+                <li><a href="#item5">Criando variáveis no construtor de Formulário Dinâmico</a></li>
+            </ol>
+        </section>
+    </aside>
+
+    <footer>
+        <div class="boxs">
+            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        </div>
+        <div class="boxs">
+            <ul>
+                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
+                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
+                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
+            </ul>            
+        </div>
+        <div class="boxs">
+            <ul id="social-media">
+                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
+                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
+                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
+                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="boxs">
+            <h1>Contate-nos:</h1>
+            <p>+55 (14) 2109-3400</p>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

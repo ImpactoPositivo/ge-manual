@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Formulários Dinâmicos</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+    <article>
+        <h1 id="item1">Visão geral</H1>
+
+        <p>O primeiro passo na criação de um modelo de processo é definir suas tarefas. No Gestor Express, uma tarefa é um grupo lógico de etapas sequenciais, compartilhando um objetivo comum. As tarefas podem ser atribuídas a diferentes usuários ou grupos de usuários, para que um processo possa coordenar as atividades de diferentes pessoas ou grupos em uma organização.</p>
+
+        <p><font color="green">Nota:</font> Lembre-se que para que os casos sejam executados no Gestor Express, é obrigatório ter um evento de início atribuído à primeira tarefa, bem como os usuários/grupos que terão a capacidade de trabalhar no processo.</p>
+
+        <h2 id="item1a">Adicionando Tarefas</h2>
+
+        <p>A Barra de Ferramentas Rápida que aparece quando um elemento é selecionado pode ser usada para adicionar de forma conveniente o próximo elemento no modelo, como eventos, gateways, tarefas e subprocessos.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>As tarefas possuem a propriedade de arrastar e soltar, então para adicionar uma nova tarefa arraste o ícone da caixa de ferramentas e, sem soltar o botão do mouse, solte-o no Mapa do Modelo de Processo.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>As tarefas são criadas por padrão com o nome "Tarefa...." iniciando a numeração em 1:</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Para alterar o nome de uma tarefa, clique com o botão direito do mouse na tarefa e selecione a opção "Editar Rótulo":</p>
+        
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Outra opção para alterar o rótulo da tarefa é clicar duas vezes no nome da tarefa para habilitar o modo de edição:</p>
+        
+        <figure id="detalhe">
+
+        </figure>
+
+        <p><font color="green">Nota:</font> Leve em consideração que o nome da tarefa não deve ser alterado quando houver casos em execução ou atribuídos à tarefa. Se precisar alterar o nome da tarefa, leve em consideração que os casos atribuídos à tarefa não serão atualizados em nenhuma lista.</p>
+
+        <h2 id="item1b">Conectando Tarefas</h2>
+
+        <p>Os elementos adicionados no Mapa de Modelo do Processo possuem a Barra de Ferramentas Rápida, que mostra aos projetistas os possíveis próximos elementos a serem adicionados ao desenho. Para conectar uma tarefa a outro elemento basta clicar sobre ela e as seguintes opções serão mostradas.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Uma tarefa pode ser conectada a outra tarefa, a um evento intermediário, a um evento final ou a um gateway. A opção de fluxo permite conectar a tarefa a um elemento já adicionado no mapa do processo, a opção de engrenagem é o atalho para visualizar as propriedades da tarefa e a opção de lixeira é o atalho para remover a tarefa.</p>
+
+        <p>Por exemplo, para conectar a tarefa a outra tarefa, basta clicar na opção tarefa e colocá-la no Mapa de Modelo do Processo.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Caso você já tenha duas tarefas definidas no Modelo de Processo, clique na tarefa e na Barra de Ferramentas Rápida escolha a opção conectar. Clique nele e ele exibirá uma linha que é a conexão entre as tarefas. Se a conexão puder ser feita, o elemento no processo ficará verde. Se não, ele ficará vermelho. Neste exemplo, a conexão entre essas duas tarefas pode ser feita, assim, clique na segunda tarefa para ver e na seta que pode vincular esta tarefa.</p>
+
+        <figure>
+
+        </figure>
+
+        <h1 id="item2">Menu de Contexto da Tarefa</h1>
+
+        <p>O menu de contexto da tarefa é o menu exibido ao clicar com o botão direito do mouse em uma tarefa.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Cada uma dessas opções é descrita nas seções a seguir.</p>
+
+        <h2 id="item2a">Tipos de tarefa</h2>
+
+        <p>Os tipos de tarefas destinam-se a modelar processos que são tecnicamente executáveis. No entanto, apenas as tarefas do tipo Vazia e Script são suportadas pelo Gestor Express. No momento, os demais tipos de tarefas são meramente informativos.</p>
+
+        <p>Para visualizar os tipos de tarefas disponíveis, clique com o botão direito do mouse na tarefa e passe o mouse sobre a opção Tipo de tarefa :</p>
+
+        <p>Observação: NÃO altere o tipo de tarefa enquanto houver casos em execução ou atribuídos a essa tarefa. Se tentar fazer isso, os casos podem se tornar inacessíveis. Em vez disso, é possível alterar o tipo de tarefa no modelo de processo mesmo que haja casos em execução, mas qualquer um deles é atribuído à tarefa.</p>
+
+        <h2 id="item2ai">Tarefa Vazia</h2>
+
+        <p>Uma tarefa vazia é uma ação única que ocorre em um processo de negócios, ou seja, enviar um formulário.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Esse tipo de tarefa é compatível com o Gestor Express e o restante da documentação desta página se baseia principalmente nessa tarefa.</p>
+
+        <h2 id="item2aii">Enviar tarefa</h2>
+
+        <p>Uma tarefa de envio é uma tarefa que envia uma mensagem para outro processo ou raia. A tarefa é concluída assim que a mensagem é enviada.</p>
+      
+        <figure id="detalhe">
+
+        </figure>
+
+        <p><font color="reen"g>Observação:</font> use esse tipo de tarefa apenas para fins de modelagem. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+        <h2 id="item2aiii">Receber Tarefa</h2>
+
+        <p>Uma tarefa de recebimento indica que o processo está contando com uma mensagem recebida de um terceiro. Ao receber uma mensagem, a tarefa foi executada.</p>
+              
+        <figure id="detalhe">
+
+        </figure>
+
+        <p><font color="green">Observação:</font> use esse tipo de tarefa apenas para fins de modelagem. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+
+    </article>
+
+    </section>
+
+    <aside>
+    <section id="lado">
+    <ol>
+        <li> Visão geral</li>
+        <ol type="A">
+            <li> Adicionando Tarefas</li>
+            <li> Conectando Tarefas</li>
+        </ol>
+        <li> Menu de Contexto da Tarefa</li>
+            <ol type="A">
+            <li> Tipos de tarefa</li>
+            <ol type="i">
+                <li>Tarefa vazia</li>
+                <li>Enviar tarefa</li>
+                <li>Receber Tarefa</li>
+                <li>Tarefa do usuário</li>
+                <li>Tarefa de serviço</li>
+                <li>Tarefa de script</li>
+                <li>Tarefa Manual</li>
+                <li>Tarefa de Negócios</li>
+            </ol>
+            <li> Tipo de marcador</li>
+            <ol type="i">
+                <li> Ciclo</li>
+                <li> Paralelo</li>
+                <ol type="a">
+                    <li> Atribuição Paralela</li>
+                    <li> Paralelo: Atribuição Baseada em Valor</li>
+                </ol>
+                <li> Sequencial</li>
+                </ol>
+            <li> Passos</li>
+            <ol type="i">
+                <li> Gerenciando as etapas de uma tarefa</li>
+                <li> Atribuindo gatilhos a uma tarefa</li>
+            </ol>
+            <li> Regras de atribuição</li>
+            <ol type="i">
+                <li> Guia Usuários</li>
+                <ol type="a">
+                    <li> Atribuição Cíclica</li>
+                    <li> Atribuição Manual</li>
+                    <ol type="a">
+                        <li> Atribuição Manual - Problemas Conhecidos</li>
+                    </ol>
+                    <li> Atribuição Baseada em Valor</li>
+                    <li> Relatórios para</li>
+                    <ol type="a">
+                        <li> Casos especiais</li>
+                    </ol>
+                    <li> Self-service</li>
+                    <ol type="a">
+                        <li> Definir limite de tempo para reivindicar um caso</li>
+                    </ol>
+                    <li> Atribuição Baseada em Valor de Autoatendimento</li>
+                </ol>
+                <li> Usuários Ad Hoc</li>
+                <li> Desempenho da janela de atribuição</li>
+            </ol>
+            <li> Editar etiqueta</li>
+            <li> Excluir</li>
+            <li> Propriedades</li>
+            <ol type="i">
+                <li> Definições</li>
+                <li> Rótulos de caso</li>
+                <ol type="a">
+                    <li> Título do caso em tarefas paralelas</li>
+                    <li> Usando variáveis em rótulos de caso</li>
+                </ol>
+                <li> Controle de tempo</li>
+                <li> Notificações</li>
+                <li> Móvel</li>
+            </ol>
+        </ol>    
+        <li> Exemplos</li>
+        <ol type="A">
+            <li> Exemplo de atribuição baseada em valor</li>
+            <li> Exemplo de atribuição baseada em valor de autoatendimento</li>
+            <li> Cancelar a reivindicação de uma tarefa de autoatendimento</li>
+        </ol>
+    </ol>                
+    </section>
+    </aside>
+
+    <footer>
+        <div class="boxs">
+            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        </div>
+        <div class="boxs">
+            <ul>
+                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
+                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
+                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
+            </ul>            
+        </div>
+        <div class="boxs">
+            <ul id="social-media">
+                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
+                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
+                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
+                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="boxs">
+            <h1>Contate-nos:</h1>
+            <p>+55 (14) 2109-3400</p>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
