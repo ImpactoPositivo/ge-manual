@@ -119,7 +119,7 @@
 
         </figure>
 
-        <p><font color="reen"g>Observação:</font> use esse tipo de tarefa apenas para fins de modelagem. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+        <p><font color="green">Observação:</font> use esse tipo de tarefa apenas para fins de modelagem. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
 
         <h2 id="item2aiii">Receber Tarefa</h2>
 
@@ -130,6 +130,179 @@
         </figure>
 
         <p><font color="green">Observação:</font> use esse tipo de tarefa apenas para fins de modelagem. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+        <h2 id="item2aiv">Tarefa do usuário</h2>
+
+        <ul>
+            <li>Uma tarefa típica de "fluxo de trabalho" em que um executor humano executa a tarefa com a ajuda de um software.</li>
+            <li>A tarefa é agendada por meio de um gerenciador de lista de tarefas de algum tipo.</li>
+        </ul>
+
+        <p><strong>Exemplos:</strong></p>
+
+        <ul>
+            <li>A operadora de telemarketing atualiza o registro do cliente.</li>
+            <li>O usuário alterando sua senha.</li>
+        </ul>
+              
+        <figure id="detalhe">
+
+        </figure>
+
+        <p><font color="green">Nota:</font> Use esta tarefa apenas para fins de design. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+        
+        <h2 id="item2av">Tarefa de script</h2>
+
+        <p>Esse tipo de tarefa permite que um gatilho seja executado quando o fluxo chega à tarefa. Algumas das características de uma tarefa de script são as seguintes:</p>
+
+        <ul>
+            <li>As tarefas de script não podem iniciar o fluxo do processo de maneira regular. Como uma tarefa de script não possui usuários atribuídos, o processo não será exibido na opção Novo Processo. No entanto, as tarefas de script podem iniciar o fluxo do processo se o evento de início estiver configurado como uma entrada da web.</li>
+            <li>Quando a tarefa estiver pronta para iniciar, o sistema executará o script.</li>
+            <li>Quando o script for concluído, a tarefa também será concluída.</li>
+        </ul>
+
+        <p>Após adicionar uma tarefa de script ao modelo, configure-a acessando suas propriedades para adicionar o código que será executado.</p>
+              
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Na janela que se abre existem duas formas de adicionar o gatilho que será executado pela tarefa.</p>
+
+        <p>1. Selecionando o gatilho no menu suspenso Título.</p>
+              
+        <figure>
+
+        </figure>
+
+        <p>O código adicionado ao gatilho será mostrado na área de texto Código.</p>
+
+        <p>2. Criando o gatilho diretamente da janela clicando no símbolo de mais (+).</p>
+              
+        <figure>
+
+        </figure>
+
+        <p>Adicione o nome do novo gatilho e o código na área de texto Código.</p>
+
+        <p>Salve a configuração das propriedades da tarefa que irá executar o gatilho ao executar processos.</p>
+
+        <p><font color="green">Nota:</font> As variáveis do sistema que estão disponíveis durante uma tarefa de script são as variáveis que foram definidas durante a tarefa normal anterior no processo, portanto, o valor das variáveis <code>@@USR_USERNAME</code> e <code>@@USER_LOGGED</code> serão definidas para o último usuário que trabalhou no processo. Da mesma forma, <code>@%INDEX</code> será definido o índice de delegação da tarefa normal anterior no processo. Se o índice de delegação da tarefa de script atual for necessário, será <code>@%INDEX + 1</code> se a tarefa de script seguir uma tarefa normal ou <code>@%INDEX + 2</code> para a segunda tarefa de script após uma tarefa normal.</p>
+
+        <h2 id="item2avi">Tarefa Manual</h2>
+
+        <p>Um tipo de tarefa manual é usado sempre que uma parte de um processo precisa ser executada manualmente. Ela pode ser executado sem qualquer ajuda ou aplicativo externo.</p>
+
+        <p><strong>Exemplo:</strong></p>
+
+        <ul>
+            <li>Um técnico de telefonia instalando um telefone no escritório de um cliente.</li>
+            <li>Carregando um caminhão com produto.</li>
+        </ul>
+
+        <figure id="detlhe">
+
+        </figure>
+
+        <p><font color="green">Observação:</font> use esse tipo de tarefa apenas para fins de design. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+        <h2 id="item2avii">Tarefa de Negócios</h2>
+
+        <p>A regra de negócios é um tipo específico que foi adicionado ao BPMN 2.0. As regras de negócios são tipos de serviços mantidos por um grupo de trabalho de negócios, em vez de um grupo administrativo, como o grupo de TI. Esse formato de regra é usada para representar a implementação de uma regra de negócios.</p>
+
+        <figure id="detlhe">
+
+        </figure>
+
+        <p><font color="green">Observação:</font> use esse tipo de tarefa apenas para fins de design. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+        <h2 id="item2b">Tipo de marcador</h2>
+
+        <p>Os <strong>marcadores</strong> são usados para distinguir visualmente as subclasses de objetos de tarefa. Por padrão, nenhum marcador é definido, isso é conhecido como <strong>none</strong>. Além disso, três tipos diferentes de marcadores podem ser definidos, clique com o botão direito na tarefa e selecione "Tipo de Marcador". Em seguida, selecione entre os três:</p>
+
+        <ul>
+            <li>Ciclo</li>
+            <li>Paralelo</li>
+            <li>Sequencial</li>
+        </ul>
+
+        <p>Os marcadores são meramente informativos, em versões futuras serão adicionadas suas respectivas funcionalidades.</p>
+
+        <h2 id="item2bi">Ciclo</h2>
+
+        <p>Uma tarefa de loop será repetida automaticamente muitas vezes até que uma condição definida seja cumprida. Pessoas com experiência em programação reconhecerão este marcador como repita-até (ou while-do)</p>
+
+        <figure id="detlhe">
+
+        </figure>
+
+        <p><font color="green">Nota:</font> Use este tipo de marcador na tarefa apenas para fins de projeto. O Gestor Express gerencia essa tarefa como uma tarefa vazia.</p>
+
+        <h2 id="item2bii">Paralelo</h2>
+
+        <p>Uma tarefa paralela ou tarefa de várias instâncias é uma tarefa que ocorre várias vezes. Por exemplo, se diferentes áreas de uma empresa precisam aprovar e assinar um documento.</p>
+
+        <figure id="detlhe">
+
+        </figure>
+
+        <p>Quando a tarefa for marcada como paralela, a tarefa será roteada em paralelo para todos os usuários/grupos atribuídos na tarefa. O fluxo continua para a próxima tarefa somente depois que todos os usuários atribuídos às instâncias da tarefa concluírem sua execução.</p>
+
+        <p>O marcador paralelo está disponível para os seguintes tipos de tarefas:</p>
+
+        <ul>
+            <li>Vazio</li>
+            <li>Usuário</li>
+            <li>Manual</li>
+        </ul>
+
+        <p>Para esse tipo de tarefa, as regras de atribuição mudam para que as tarefas tenham apenas duas opções para rotear a tarefa "em paralelo": Atribuição paralela e Atribuição baseada em valor. Cada usuário atribuído a uma tarefa paralela trabalha em uma instância diferente da tarefa. Todas as instâncias são criadas de uma vez, para que todos os usuários atribuídos possam trabalhar em suas instâncias da tarefa ao mesmo tempo.</p>
+
+        <h2 id="item2biia">Atribuição Paralela</h2>
+
+        <p>Selecione esta opção para adicionar usuários e/ou grupos à lista de usuários atribuídos. Os usuários desta lista farão a tarefa em "paralelo", o que significa que cada usuário da lista poderá realizar a tarefa ao mesmo tempo.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Ao executar casos, a janela de roteamento mostrará a lista de usuários atribuídos à tarefa.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>O fluxo continuará para os próximos elementos do processo depois que todos os usuários atribuídos à tarefa paralela tiverem roteado o caso.</p>
+
+        <h2 id="item2biib">Paralelo: Atribuição Baseada em Valor</h2>
+        
+        <p>Selecione a opção <strong>Atribuição Baseada em Valor</strong> para permitir uma variável que especifica quais usuários serão atribuídos para trabalhar em instâncias da tarefa paralela. O valor dessa variável é uma matriz dos IDs exclusivos dos usuários a serem atribuídos à tarefa paralela. Esses IDs exclusivos podem ser obtidos das seguintes maneiras:</p>
+
+        <ul>
+            <li>Use a função <code>PMFUserList()</code> em um gatilho, o serviço da web userList() ou o ponto de extremidade GET/users em um script externo.</li>
+            <li>Faça uma pesquisa no campo <code>USERS.USR_UID</code> no banco de dados <code>wf_workflow</code>, que é nomeado por padrão <code>wf_workspace</code>.</li>
+            <li>Execute casos no modo de depuração com tarefas atribuídas aos usuários e copie o valor da variável do sistema <code>USER_LOGGED</code>.</li>
+        </ul>
+
+        <p>O valor desta variável já deve estar definido por um gatilho ou um Formulário Dinâmico que seja executado antes da atribuição na tarefa anterior ou em algum ponto anterior do processo.</p>
+
+        <p><strong>Exemplo:</strong></p>
+
+        <p>Uma variável de matriz é criada no processo denominado "UsuariosAtribuidos". Essa variável é definida na caixa Matriz de usuários para Atribuição, baseada em valor nas Regras de atribuição para a tarefa paralela.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Em seguida, o seguinte gatilho é executado antes da atribuição na tarefa anterior no processo para definir o valor da variável <code>@=assignedUsers</code>:</p>
+
+        <codeblock>
+            <p>//matriz dos IDs exclusivos dos usuários a serem atribuídos a uma tarefa paralela:</p>
+            <p><font color="green">@@</font>assignUsers = <font color="red">array</font><font color="green">(</font></p>
+            <p><font color="blue">"0000000000000000000000000000001"</font> ,  //ID do admin</p>
+            <p><font color="blue">"153839111564b98d5e35983081025138" </font>  //ID de Mary Jones</p>
+            <p>);</p>
+        </codeblock>
 
 
     </article>
@@ -152,7 +325,6 @@
                 <li>Enviar tarefa</li>
                 <li>Receber Tarefa</li>
                 <li>Tarefa do usuário</li>
-                <li>Tarefa de serviço</li>
                 <li>Tarefa de script</li>
                 <li>Tarefa Manual</li>
                 <li>Tarefa de Negócios</li>
