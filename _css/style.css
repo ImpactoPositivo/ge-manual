@@ -143,6 +143,15 @@ div#ladoalado {
     padding-left: 0px;
 }
 
+#principal ul li codeblock{
+    background-color: #e7eefc;
+    font-size: .95em;
+    line-height: .8em;
+    margin: 10px 10px 10px 0px;
+    padding: 5px;
+    border: 1px solid rgb(190, 190, 190);
+}
+
 #principal code {
     background-color: #e7eefc;
     font-size: 1em;
@@ -157,11 +166,17 @@ code#sozinho {
 #principal codeblock {
     background-color: #e7eefc;
     font-size: .95em;
+    line-height: .8em;
     margin: 10px 10px 10px 30px;
-    padding: 2px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
 }
+
+#principal codeblock > p {
+    padding: 0px 0px 0px 10px;
+}
+
+
 
 table {
     border-collapse: collapse;
