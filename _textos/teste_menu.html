@@ -5,15 +5,136 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=3.0">
     <title>Gestor Express - Formulários Dinâmicos</title>
-    <link rel="stylesheet" href="../_css/style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    rel="stylesheet">
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="../_css/estilo.css">
     <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
 </head>
 <body>
-<main>
-    <header>
-        <figure>
-            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
-        </figure>
+    <header>        
+        <div class="btnAbre"><span class="material-icons-outlined">
+            menu_open
+            </span></div>
+            <nav class="menuLateral">
+                <div class="titulo">Tarefas<span class="material-icons-outlined">
+                    close
+                    </span></div>
+                <ul>
+                    <li><a href="#">Visão geral<span class="material-icons-outlined">
+                        chevron_right
+                        </span></a>
+                        <ul class="opcao1">
+                            <li class="1"><a href="#item1a">Adicionando Tarefas</a></li>
+                            <li class="1"><a href="#item1b">Conectando Tarefas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#item2">Menu de Contexto da Tarefa<span class="material-icons-outlined">
+                        chevron_right
+                        </span></a>
+                        <ul class="opcao2">
+                            <li class="2"><a href="#item2a">Tipos de tarefa</a>
+                                <ul >
+                                    <li><a href="#item2ai">Tarefa vazia</a>
+                                        <ul>
+                                            <li><a href="#item2aii">Enviar tarefa</a></li>
+                                            <li><a href="#item2aiii">Receber Tarefa</a></li>
+                                            <li><a href="#item2aiv">Tarefa do usuário</a></li>
+                                            <li><a href="#item2av">Tarefa de script</a></li>
+                                            <li><a href="#item2avi">Tarefa Manual</a></li>
+                                            <li><a href="#item2avii">Tarefa de Negócios</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="2"><a href="#item2b">Tipo de marcador</a>
+                                <ul>
+                                    <li><a href="#item2bi">Ciclo</a></li>
+                                    <li><a href="#item2bii">Paralelo</a>
+                                        <ul>
+                                            <li><a href="#item2biia">Atribuição Paralela</a></li>
+                                            <li><a href="#item2biib">Paralelo: Atribuição Baseada em Valor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#item2bii">Sequencial</a></li>
+                                </ul>
+                            </li>
+                            <li class="2"><a href="#item2c">Etapas</a>
+                                <ul>
+                                    <li><a href="#item2ci">Gerenciando as etapas de uma tarefa</a></li>
+                                    <li><a href="#item2cii">Atribuindo gatilhos a uma tarefa</a></li>
+                                </ul>
+                            </li>
+                            <li class="2"><a href="#item2d">Regras de atribuição</a></li>
+                                <ul>
+                                    <li><a href="#item2di">Guia Usuários</a>
+                                        <ul>
+                                            <li><a href="#item2dia">Atribuição Cíclica</a></li>
+                                            <li><a href="#item2dib">Atribuição Manual</a>
+                                                <ul>
+                                                    <li><a href="#item2diba">Atribuição Manual - Problemas Conhecidos</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#item2dic">Atribuição Baseada em Valor</a></li>
+                                            <li><a href="#item2did">Reportar a</a>
+                                                <ul>
+                                                    <li><a href="#item2dida">Casos especiais</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#item2die">Autoatendimento</a>
+                                                <ul>
+                                                    <li><a href="#item2diea">Definir limite de tempo para reivindicar um caso</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#item2dif">Atribuição Baseada em Valor de Autoatendimento</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>Usuários Ad Hoc</li>
+                                    <li> Desempenho da janela de atribuição</li>
+                                </ul>
+                            </li>
+                            <li class="2"> Editar etiqueta</li>
+                            <li class="2"> Excluir</li>
+                            <li class="2"> Propriedades
+                                <ul>
+                                    <li>Definições</li>
+                                    <li>Rótulos de caso
+                                        <ul>
+                                            <li> Título do caso em tarefas paralelas</li>
+                                            <li> Usando variáveis em rótulos de caso</li>
+                                        </ul>
+                                    </li>
+                                    <li> Controle de tempo</li>
+                                    <li> Notificações</li>
+                                    <li> Móvel</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#item3">Exemplos<span class="material-icons-outlined">
+                        chevron_right
+                        </span></a>
+                        <ul class="opcao3">
+                            <li>Exemplo de atribuição baseada em valor</li>
+                            <li>Exemplo de atribuição baseada em valor de autoatendimento</li>
+                            <li>Cancelar a reivindicação de uma tarefa de autoatendimento</li>
+                        </ul>
+                    </li>
+                </ul>
+                </nav>
+
+            <script type="text/javscript" src="../_js/script.js"></script>
+
         <div id="cabecario">
             <h1>Gestor Express</h1>
             <h2>Gerenciamento de Fluxo de Trabalho</h2>
@@ -862,583 +983,11 @@
         <p><strong>Observação:</strong> Certifique-se de usar UMA variável para cada tarefa definida com este tipo de regra de atribuição, para NÃO substituir o valor da variável.</p>
 
         <p>Esta regra de atribuição também tem a opção de Definir limite de tempo para reivindicar um caso.</p>
-
-        <figure>
-
-        </figure>
         
-        <p>Qualquer variável pode ser usada para atribuição baseada em valor de autoatendimento, mas essa variável deve ser definida por um campo de Formulário Dinâmico em uma tarefa anterior ou por um gatilho que é executado em qualquer ponto antes da atribuição na tarefa anterior. Por exemplo, se a variável usada para atribuição baseada em valor de autoatendimento for denominada <code>@@selfServicePool</code>, ela poderá ser definida das seguintes maneiras:</p>
-
-        <ul>
-            <li>Para um único usuário:
-
-                <codeblock><font color="green">@@</font>selfServicePool = <font color="blue">"24856313956e88484e20548051901710"</font><font>;</font color="green"> //ID único de um usuário</codeblock>
-            </li>
-            <li>Para os membros de um grupo:
-                <codeblock><font color="green">@@</font>selfServicePool = <font color="blue">"75310693956e884c026c941010229288"</font><font>;</font color="green"> //ID único de um grupo</codeblock>
-            </li>
-            <li>Para uma matriz de usuários e/ou grupos:
-                <codeblock><p><font color="green">@@</font>selfServicePool = array<font color="green">(</font></p>
-                    <p><font color="blue">"75310693956e884c026c941010229288"</font><font>;</font color="green"> //ID único de um usuário</p>
-                    <p><font color="blue">"75310693956e884c026c941010229288"</font><font>;</font color="green"> //ID único de um grupo</p>
-                    <p><font color="blue">"75310693956e884c026c941010229288"</font><font>;</font color="green"> //ID único de um usuário</p>
-                        <p><font color="green">@@</font>USER_LOGGED     //ID único de um usuário logado no sistema  </p>
-                <p><font color="green">);</font></p>
-            </li>         
-        </ul>
-
-        <p>Para obter as IDs exclusivas dos usuários, consulte Atribuição baseada em valor acima. Os IDs exclusivos dos grupos podem ser encontrados usando a seguinte consulta SQL para procurá-los no banco de dados <strong>wf_WORKSPACE</strong>:</p>
-
-        <codeblock><p>SELECT GRP_TITLE FROM GROUPWF WHERE GRP_TITLE='GroupName'</p></codeblock>
-
-        <p>Lembre-se de que a variável usada pela atribuição baseada em valor de autoatendimento deve ser definida em algum momento antes da atribuição na tarefa anterior. Por exemplo, se estiver usando a atribuição baseada em valor de autoatendimento na tarefa "Processar reclamação" no processo a seguir, a variável deverá ser definida antes da atribuição ou em algum ponto anterior na tarefa "Inserir reclamação".</p>
-
-        <figure>
-
-        </figure>
-
-        <p>Se a primeira tarefa no processo usar a atribuição baseada em valor de autoatendimento, o Gestor Express ignorará sua variável e atribuirá a primeira tarefa ao usuário que iniciou o caso. Se o caso for criado com PMFNewCase(), PMFNewCaseImpersonate(), serviço web newCase(), serviço web newCaseImpersonate(), terminal POST /cases ou terminal POST /cases/impersonate, ele também ignorará a atribuição baseada em valor de autoatendimento e ser atribuído ao usuário especificado pelo terminal function/web service/REST.</p>
-
-        <p>No entanto, a variável para atribuição baseada em valor de autoatendimento será usada se o processo for usado como um subprocesso em outro processo. A variável precisa ser definida no caso mestre e ser uma das variáveis passadas para o caso do subprocesso.</p>
-
-        <p>O usuário que inicia o caso será atribuído à tarefa inicial no caso, mas se o processo retornar à tarefa inicial, a variável para Atribuição Baseada em Valor de Autoatendimento será usada para quaisquer passagens subsequentes pela tarefa.</p>
-
-        <p>Por exemplo, no processo a seguir, a tarefa "Inserir reclamação" usa a atribuição baseada em valor de autoatendimento. O usuário que iniciar o caso será designado para trabalhar na tarefa "Inserir reclamação" quando o caso for iniciado. No entanto, se o processo fizer um loop e enviar o caso de volta para a tarefa "Inserir reclamação" uma segunda vez, a atribuição baseada em valor de autoatendimento será usada.</p>
-
-        <figure>
-
-        </figure>
-
-        <p>Leve em consideração os seguintes pontos:</p>
-
-        <ul type="disc">
-            <li>Se a regra de atribuição de tarefa atual não for Autoatendimento ou Atribuição Baseada em Valor de Autoatendimento e for atribuída a outro usuário.</li>
-            <li>Se a regra de atribuição de tarefa atual estiver definida como Autoatendimento ou Autoatendimento Baseada em Valor, mas o usuário não puder reivindicar este caso, independentemente de o caso ter sido reivindicado ou não.</li>
-            <li>Se a regra de atribuição de tarefa atual estiver definida como Autoatendimento ou Autoatendimento Baseada em Valor de e o usuário puder reivindicar, mas o caso já tiver sido reivindicado.</li>
-        </ul>
-
-        <p>A seguinte mensagem será exibida:</p>
-
-        <figure>
-            
-        </figure>
-
-        <h2 id="item2dii">Usuários <i>Ad Hoc</i></h2>
-
-        <p>A atribuição <i>ad hoc</i> de usuários/grupos a tarefas torna esses usuários/grupos disponíveis para serem reatribuídos à tarefa, mas esses usuários/grupos não são atribuídos por padrão à tarefa quando ela é iniciada. Um usuário pode atribuir manualmente uma tarefa a um membro de um usuário/grupo <i>ad hoc</i> nas seguintes condições:</p>
-
-        <ul>
-            <li>Ter a permissão PM_REASSIGNCASE em sua função</li>
-            <li>Tenha as permissões de processo para abrir o caso</li>
-            <li>Ter uma permissão de Supervisor de Processo para gerenciar casos</li>
-        </ul>
-
-        <p>A atribuição <i>ad hoc</i> pode ser útil em várias situações. Por exemplo:</p>
-
-        <ul>
-            <li>Existem funcionários temporários ou a tempo parcial que nem sempre estão disponíveis para trabalhar na tarefa, pelo que só devem ser atribuídos à tarefa quando disponíveis. Um gerente ou os usuários normalmente atribuídos podem reatribuir o caso ao funcionário temporário quando estiver no trabalho.</li>
-            <li>A carga de trabalho dos funcionários geralmente muda, portanto, um gerente precisa decidir quais funcionários são mais capazes de lidar com os casos. A tarefa é atribuída ao gerente por padrão e, em seguida, ele analisa a carga de trabalho e reatribui o caso a um dos funcionários que têm atribuição ad hoc à tarefa.</li>
-            <li>Os usuários normalmente atribuídos geralmente lidam com a tarefa, mas pode haver casos especiais que só podem ser tratados por um gerente. Faça uma atribuição <i>ad hoc</i> do gerente à tarefa e conceda a todos os usuários normalmente atribuídos a permissão PM_REASSSIGNCASE. Quando surge um caso especial, eles podem reatribuir o caso ao gerente para tratá-lo.</li>
-        </ul>
-
-        <p>A atribuição <i>ad hoc</i> também pode ser usada para revisão automática da tarefa por outro usuário após ela ter sido concluída pelo usuário normalmente atribuído.</p>
-
-        <p>Para atribuir usuários <i>ad hoc</i>, execute as seguintes etapas:</p>
-
-        <ol>
-            <li>Na guia <strong>Modelagem</strong>, clique duas vezes no processo.</li>
-            <li>Selecione a tarefa que você deseja atribuir a usuários/grupos <i>ad hoc</i> clicando com o botão direito do mouse na tarefa e selecione <strong>Regras de atribuição</strong>.</li>
-            <li>Alterne para a guia <strong>Usuários Ad Hoc</strong> e atribua os usuários.</li>
-        </ol>
-
-        <figure>
-
-        </figure>
-
-        <p>Leve em consideração que quando os usuários são atribuídos nesta janela, não é necessário ter nenhuma configuração adicional para definir os usuários <i>Ad hoc</i>.</p>
-
-        <p>Para reatribuir uma tarefa em que a atribuição <i>ad hoc</i> foi definida, siga estas etapas:</p>
-
-        <ul>
-            <li>Vá para Ações => Reatribuir.
-                <figure>
-                    
-                </figure>
-            </li>
-            <li>Escolha um usuário da lista.</li>
-            <li>No campo Motivo para reatribuir este caso, forneça um motivo para a reatribuição.</li>
-            <li>Clique em Reatribuir.
-                <figure>
-
-                </figure>
-            </li>
-        </ul>
-
-        <p>Uma mensagem de confirmação é exibida.</p>
-
-        <figure id="detalhe">
-
-        </figure>
-
-        <p>Depois que o usuário normalmente atribuído concluir a tarefa, o caso será reatribuído automaticamente a um dos usuários <i>Ad hoc</i> para revisar as etapas da tarefa e verificar se ela foi feita corretamente.</p>
-
-        <h2 id="item2diii">Desempenho da janela de atribuição</h2>
-
-        <p>Por fim, leve em consideração que todos os usuários e grupos criados no Gestor Express são mostrados na lista de usuários e nas abas <i>ad hoc</i>. Além disso, observe que a janela "Regras de atribuição" possui uma nova interface aprimorada com um novo recurso de paginação. A paginação suporta uma grande quantidade de usuários na interface permitindo a navegação pelos Usuários/Grupos/Departamentos já adicionados. Cada página lista até 8 Usuários/Grupos/Departamentos. A lista de oito pode ser passada da "Lista de usuários disponíveis" para a "Lista de usuários atribuídos". Este tipo de gerenciamento melhora o desempenho das listagens quando há uma grande quantidade de usuários/grupos (como 40.000) no Gestor Express.</p>
-
-        <figure>
-
-        </figure>
-
-        <h2 id="item2e">Editar etiqueta</h2>
-
-        <p>É possível editar o rótulo de uma tarefa. Selecione a opção "Editar etiqueta" no menu de contexto da tarefa</p>
-
-        <figure id="detalhe">
-
-        </figure>
-
-        <p>O rótulo será editável, então altere-o e pressione Enter para aplicar as alterações:</p>
-
-        <figure id="detalhe">
-
-        </figure>
-
-        <p>Uma etiqueta também pode ser editada clicando duas vezes em seu nome.</p>
-
-        <p><font color="green">Observação:</font>eve em consideração que o nome da tarefa não deve ser alterado quando houver casos sendo executados nesta tarefa. Se precisar alterar o nome da tarefa, leve em consideração que os casos que já foram iniciados no processo não atualizarão o nome da tarefa nas listas.</p>
-
-        <h2 id="item2f">Excluir</h2>
-
-        <p>Para excluir uma tarefa ou subprocesso, clique com o botão direito sobre ela e selecione <strong>Excluir</strong> no menu de contexto da tarefa. O botão "Del" no teclado também pode ser usado para removê-lo.</p>
-
-        <figure id="detalhe">
-
-        </figure>
-
-        <p>Antes que uma tarefa possa ser excluída, todos os usuários ou grupos atribuídos à tarefa devem ser removidos da tarefa. A tarefa também não pode ser excluída se houver casos ativos, pausados ou cancelados nessa tarefa.</p>
-
-        <figure>
-
-        </figure>
-
-        <p>Quaisquer casos ativos ou pausados devem ser concluídos antes de excluir a tarefa. Se os casos foram cancelados na tarefa, a única maneira de excluir a tarefa é ir primeiro ao menu Modelagem e selecionar o modelo de processo na lista. Em seguida, clique no botão Excluir casos para eliminar todos os casos desse modelo de processo no banco de dados.</p>
-
-        <figure>
-
-        </figure>
-
-        <p>Se precisar manter os casos existentes, outra opção é exportar o processo e reimportá-lo como um novo processo, para que não haja casos existentes e a tarefa possa ser excluída.</p>
-
-        <h2 id="item2g">Propriedades</h2>
-
-        <p>As propriedades da tarefa devem ser a primeira opção a ser configurada. Na janela modal que se abre, existem várias opções para configurar a tarefa e dar-lhe maior funcionalidade e controle. Selecione e preencha as opções que melhor se adequam à definição da tarefa.</p>
-
-        <h2 id="item2gi">Definições</h2>
-
-        <figure>
-
-        </figure>
-
-        <ul>
-            <li><strong>UID.</strong> Um número hexadecimal de 32 que identifica exclusivamente a tarefa. O UID não pode ser editado.</li>
-            <li><strong>Rótulo.</strong> Campo obrigatório. O título ou rótulo de uma tarefa, que é exibido no Mapa do Processo. Recomenda-se usar combinações verbo-substantivo no rótulo, como "Processo de reivindicação" ou "Revisar inscrição".</li>
-            <li><strong>Descrição.</strong> Dê uma breve descrição da tarefa. Recomenda-se descrever qual trabalho é feito e quem será designado para esse trabalho.</li>
-            <li><strong>Variável para prioridade de caso.</strong> Uma variável ou inteiro fixo que determina a prioridade de uma tarefa. A prioridade de um caso pode estar entre 1 e 5:
-                <ul>
-                    <li><strong>5</strong> - Muito alto</li>
-                    <li><strong>4</strong> - Alto</li>
-                    <li><strong>3</strong> - Normal</li>
-                    <li><strong>2</strong> - Baixo</li>
-                    <li><strong>1</strong> - Muito Baixo</li>
-                </ul>
-            </li>
-        </ul>
-
-        <p>Use o botão @@ para selecionar variáveis de caso ou de sistema. Por padrão, a prioridade dos casos é determinada por uma variável de sistema chamada <code>@@SYS_CASE_PRIORITY</code>, que tem um valor padrão de 3 (prioridade normal), mas esse valor pode ser alterado definindo o valor de <code>@@SYS_CASE_PRIORITY</code> em um gatilho (ou em um campo de Formulário Dinâmico chamado "SYS_CASE_PRIORITY"). No entanto, a prioridade de caso pode ser determinada por uma variável de caso personalizada. Por exemplo, a variável case <code>@@approvalTaskPriority</code> pode ser usada e seu valor pode ser definido em um gatilho que examina os dados do caso e determina o valor apropriado. Da mesma forma, seu valor pode ser definido em uma caixa suspensa do Formulário Dinâmico chamada "Variável para Priodirdade no Processo", que permite ao usuário selecionar a prioridade apropriada.</p>
-
-        <p>A prioridade de uma tarefa é exibida na coluna Prioridade na caixa de entrada e nas pastas de rascunho e na opção Revisar no menu Supervisor de processo.</p>
-
-        <figure>
-
-        </figure>
-
-        <p>Os usuários podem classificar seus casos por prioridade clicando na pequena seta na coluna Prioridade e clicando na opção crescente ou decrescente. Por exemplo, selecione a opção <strong>Classificar decrescente</strong> para que os casos de prioridade 1 apareçam no topo da lista e os casos de prioridade 5 apareçam na parte inferior.</p>
-
-        <figure id="detalhe">
-
-        </figure>
-
-        <p><strong>Modelo de tela de roteamento.</strong> Os desenheistas de processo podem personalizar o modelo de tela que é mostrado ao usuário ao concluir uma tarefa e encaminhar para a próxima tarefa ou subprocesso no processo. Cada tarefa pode ter seu próprio modelo de tela de roteamento.</p>
-        
-        <h2 id="item2gii">Rótulos de caso</h2>
-
-        <p>Os rótulos de caso são usados para fornecer uma referência clara e descritiva para um caso. Eles são usados para fornecer um título e uma descrição para casos por encadeamento, para que possam ser facilmente identificados em uma lista de casos. Variáveis de sistema e caso podem ser inseridas dentro desses rótulos para personalizar as informações. Os usuários podem pesquisar casos específicos usando os títulos dos casos. As descrições dos casos são exibidas no "Resumo do caso".</p>
-
-        <p><font color="green">Observação:</font> não é recomendado alterar o rótulo do caso porque após o roteamento, o caso tem um arquivo <code>del_index</code>.</p>
-
-        <figure>
-
-        </figure>
-
-        <ul>
-            <li>
-                <strong>Título.</strong> Por padrão, o título do caso é o número do caso, como <code>#45</code>. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o botão [ @@ ] para ver quais variáveis estão disponíveis e insira-as no título.
-                <p>O título do caso pode ser modificado em cada tarefa, pois este é um título exclusivo para todo o caso.</p>
-            </li>
-            <li><strong>Descrição.</strong> Nesse campo, as descrições podem ser atribuídas ao caso e podem ser tão descritivas quanto necessário. Use o botão [ @@ ] para visualizar a lista de variáveis disponíveis e insira-as na descrição.</li>
-        </ul>
-
-        <p>Use o <strong>título do segmento de caso</strong> para registrar um rótulo de caso por segmento em um caso. Por exemplo, se você configurar três tarefas diferentes usando roteamento paralelo, você definirá três tópicos em um processo. Como resultado, cada encadeamento pode ter seu próprio rótulo de caso, conforme exibido no exemplo a seguir.</p>
-
-        <figure>
-
-        </figure>
-
-
-        <p>É altamente recomendável evitar a inserção de longas sequências de texto na coluna Título do Tópico do Caso. A finalidade dos rótulos de caso é fornecer uma referência clara e descritiva para um caso. Use rótulos de caso para fazer referência e identificar seu caso e status no fluxo de trabalho do processo como uma boa prática, conforme exibido no exemplo a seguir.</p>
-
-        <figure>
-
-        </figure>
-
-        <p><font color="green">Observação:</font> Normalmente, o registro de longas sequências de texto não é tratado corretamente em nenhum aplicativo da Web ou aplicativo móvel. É uma boa prática usar "..." para retomar o texto e definir um valor de largura máxima para a coluna.</p>
-
-        <p>Tanto o título quanto a descrição do caso podem ser visualizados dentro do resumo de um caso:</p>
-
-        <figure>
-
-        </figure>
-
-        <h2 id="item2giia">Título do caso em tarefas paralelas</h2>
-
-        <p>Um modelador de processo, com permissões adequadas, pode alterar o Título do Caso em tarefas paralelas. O uso de títulos de casos fortalece a diferenciação de vários segmentos em uma lista de casos ao usar gateways paralelos. Considere que se o título do caso não estiver definido, ele exibirá o título do caso da tarefa anterior. Os títulos de casos também são exibidos em uma lista de casos para pesquisar casos facilmente. Para obter mais informações sobre como definir os títulos do caso, consulte a seção acima.</p>
-
-        <p>Os exemplos abaixo mostram como os títulos de caso funcionam quando definidos ou não:</p>
-        
-        <p><font color="green">Observação:</font> para obter mais informações sobre como verificar os detalhes do caso, siga este link.</p>
-
-        <ul>
-            <li>
-                No gráfico a seguir, a <strong>Tarefa 2.1</strong> tem seu próprio título de caso oposto ao da <strong>Tarefa 3.1</strong>, que a <strong>Tarefa 1</strong> herda seu título de caso.
-                <figure>
-            
-                </figure>
-            </li>
-            <li>O título do caso herda do título anterior, mesmo quando foi definido anteriormente em muitas tarefas antes da atual.</li>
-            <li>
-                No gráfico a seguir, o título da <strong>Tarefa 2.2</strong> é o <strong>Título B</strong> porque esse foi o título definido na tarefa anterior do encadeamento. Enquanto o <strong>Título A</strong> da <strong>Tarefa 1</strong> herda o título da <strong>Tarefa 3.2</strong>.
-                <figure>
-            
-                </figure>
-            </li>
-            <li>
-                O título do último encadeamento fechado será usado se o título do caso após um gateway convergente não for definido. No gráfico abaixo, o título da <strong>Tarefa 4</strong> é o <strong>Título B</strong> (o mesmo que a <strong>Tarefa 2.2</strong>) porque a <strong>Tarefa 2.2</strong> foi o último segmento concluído. No entanto, o título da <strong>Tarefa 4</strong> pode ter sido o <strong>Título C</strong> se a <strong>Tarefa 3.2</strong> tivesse sido concluída após a <strong>Tarefa 2.2</strong>. A melhor prática para evitar esse comportamento é definir o título na <strong>Tarefa 4</strong>.
-                <figure>
-            
-                </figure>
-            </li>
-            <li>
-                Recomenda-se definir o título quando houver vários fluxos de entrada. O gráfico abaixo descreve como o título da <strong>Tarefa 2</strong> foi inicialmente chamado de <strong>Título A</strong>, depois mudou para <strong>Título B</strong> quando o fluxo voltou da <strong>Tarefa 3</strong> para a <strong>Tarefa 2</strong>.
-                <figure>
-                
-                </figure>
-            </li>    
-        </ul>
-
-        <h2 id="item2giib">Usando variáveis em rótulos de caso</h2>
-
-        <p>Se a variável for referenciada como <code>@@variable</code>, seu valor será colocado entre aspas duplas e quaisquer aspas simples e duplas serão escapadas com barras invertidas, quando inseridas no título do caso e na descrição do caso. Por exemplo, se o título do caso for: <code>Last Name: @@lname</code> e o valor de for <code>@@lname</code> é <code>O'brien'</code>, o título do caso será:<code>Last Name: "O\'brien"</code></p>
-
-        <p>Se a variável for referenciada como <code>@#variable</code>seu valor será inserido sem nenhuma alteração no título do caso e na descrição do caso. Por exemplo, se o título do caso for: <code>Last Name: @#lname</code> e o valor de <code>@#lname</code> for <code>O'brien</code> o título do caso será:<code>Last Name: O'brien</code></p>
-
-        <p>Lembre-se de que as variáveis associadas às caixas de seleção, caixas suspensas e caixas de sugestão têm o valor da opção selecionada armazenado em <code>@#variable@</code> e o rótulo da opção selecionada armazenado em <code>@variable_label</code>. Por exemplo, para exibir o rótulo da opção selecionada na variável "clientType", o título do caso seria <code>@#clientType_label</code>.</p>
-
-        <p>Alguns tipos de variáveis, como arrays (usados por controles de grupo de verificação), grades e arquivos, podem não ser convertidos facilmente em strings que podem ser inseridas em rótulos de casos. Se for necessário incluir esses tipos de variáveis em um rótulo de caso, é recomendável usar um gatilho executado previamente que transforma o valor dessas variáveis em variáveis string que podem ser inseridas no rótulo do caso.</p>
-
-        <p>Por exemplo, o código de gatilho a seguir executado na tarefa anterior obteria o nome do arquivo carregado em um controle de arquivo associado à variável <code>@@contractFile</code> e o colocaria na variável <code>@@contractFilename</code>.</p>
-
-        <codeblock>
-            <p><font color="green">@@</font>contractFilename <font color="green">=</font> ''<font color="green">;</font></p>
-            <p>if <font color="green">(</font><font color="red">isset</font><font color="green">(@@</font>contractFile_label) e <font color="green">!</font><font color=red>empty</font><font color="green">(@@</font>contractFile_label<font color="green">)) {</font></p>
-            <p><font color="blue">$aFile</font> = <font color="red">json_decodefont</font><font color="green">(@@</font>contractFile_label<font color="green">);</font></p>
-                <p>if <font color="green">(</font><font color="red">count</font>(<font color="blue">$aFile</font><font color="green">))</font></p>
-                    <p><font color="green">@@</font>contractFilename <font color="green">=</font><font color="blue">$aFile</font><font color="green">[</font><font color="magenta">0</font><font color="green">];</font></p>
-            <p><font color="green">}</font></p>
-        </codeblock>
-
-
-        <p>Então, a variável <code>@#contractFilename</code> pode ter um valor como "<code>signedContract_2016-10.pdf</code>" que pode ser inserido em um título de caso.</p>
-
-        <p>Da mesma forma, o seguinte gatilho obtém uma lista das opções selecionadas em um grupo de verificação associado à variável <code>@@selectCountries</code> e coloca os rótulos na variável <code>@@selectCountriesNames</code>:</p>
-
-        <codeblock>
-            <p>@@ selectCountriesNames = '' ;</p>
-            <p>if (isset(@@ electCountries_label) e !empty(@@selectCountries_label)) {</p>
-                <p>$aCountries = json_decode (@@selectCountries_label);</p>
-                <p>foreach ($aCountry as $country) {</p>
-                    <p>@@selectCountriesNames .= (empty(@@selectCountriesNames) ? '' : ', ' ) . $país ;</p>
-                <p>}</p>
-            <p>}</p>
-        </codeblock>
-
-        Então, a @#selectCountriesNamesvariável pode ter um valor como " Argentina, Holland, Gambia" que pode ser inserido em uma descrição de caso.
-
-        Controle de tempo
-        Esta propriedade é usada para definir a data de vencimento de uma tarefa. A tarefa deve ser concluída dentro de um determinado período de tempo, que pode ser definido de acordo com um número de dias úteis ou dias em um calendário personalizado.
-
-
-
-        Existem cinco opções para definir:
-
-        Permitir controle de tempo definido pelo usuário: Esta opção permite que o usuário atribuído à tarefa anterior no processo defina manualmente o horário agendado para a próxima tarefa quando um caso é roteado. Se esta opção estiver marcada, quando o caso estiver prestes a ser encaminhado para a próxima tarefa, os seguintes campos serão exibidos:
-
-
-
-        Duração da tarefa: Um número inteiro que define a duração da tarefa um número inteiro. Números negativos e decimais não são permitidos.
-
-        Unidade de tempo: A unidade de tempo, que pode ser horas ou dias .
-
-        Conta os dias por: A duração da tarefa, que pode ser contada em dias úteis (segunda a sexta-feira) ou dias corridos .
-
-        Calendário: Selecione um calendário no qual a duração da tarefa será baseada. Se nenhum calendário personalizado tiver sido criado, o calendário "Padrão" será selecionado automaticamente; caso contrário, selecione um da lista.
-
-        Se o tempo definido para concluir uma tarefa já tiver passado, o tempo será exibido em vermelho na coluna "Data de vencimento" na lista de casos encontrados em HOME > Caixa de entrada , o que significa que o caso precisa ser tratado imediatamente. Se o usuário ainda tiver tempo para concluir a tarefa, a data de vencimento será exibida em verde .
-
-
-
-        O controle de tempo do Gestor Express lida com o controle de tempo entre usuários que têm diferentes fusos horários definidos em seus parâmetros de usuário, calculando as horas de disponibilidade com base em um calendário personalizado, se houver um.
-
-        O Gestor Express segue estas etapas no cenário descrito:
-
-        Obtenha a data de delegação mais recente (do servidor)
-
-        Converter a data da delegação para o próximo fuso horário do usuário
-
-        Calcular a base de data de vencimento no calendário padrão
-
-        Converter para data de vencimento para fuso horário UTC
-
-        A data de vencimento é calculada com base no fuso horário pertencente ao usuário que está roteando o caso para a próxima tarefa.
-
-        Notificações
-        Essa propriedade de tarefa é usada para enviar uma notificação por email para o próximo usuário atribuído no caso. Certifique-se de que o Gestor Express esteja configurado para usar um servidor de e-mail .
-
-        Para ver as opções de notificação em uma tarefa, siga as próximas etapas:
-
-        1. Faça login no Gestor Express com a permissão PM_FACTORY .
-
-        2. Vá para a guia Designer .
-
-        3. Crie ou simplesmente edite um processo.
-
-        4. No Mapa do Processo , clique com o botão direito do mouse em uma tarefa.
-
-        5. As propriedades da tarefa são exibidas. No menu suspenso, selecione a opção Propriedades .
-
-        6. A janela Propriedades da Atividade é exibida. Clique na opção Notificações .
-
-        7. As opções de notificação são exibidas no lado direito.
-
-
-
-        Para obter mais informações sobre as opções de notificação, consulte Notificações .
-
-        Móvel
-        As propriedades móveis permitem que o usuário configure uma tarefa para uso offline .
-
-        atributo offline
-
-        Ativa esta tarefa para uso offline: Ativa ou desativa uma tarefa para uso offline. Se marcada, uma caixa de seleção é exibida para configurar o comportamento da tarefa quando estiver online novamente.
-        atributo offline dois
-
-        Encaminhar caso quando estiver online novamente: Se marcado, roteia o caso quando estiver online novamente, caso contrário, o caso deve ser roteado manualmente.
-        Exemplos
-        Exemplo de atribuição baseada em valor
-        Este exemplo mostra como usar a atribuição baseada em valor cuja variável é definida pelo gatilho que procura os IDs exclusivos do usuário com base no nome de usuário. Começando com um processo chamado "Regras de atribuição" e terá um Evento Inicial, duas tarefas e um Evento Final, no qual ambas as tarefas terão regras de atribuição e etapas diferentes a serem seguidas.
-
-
-
-        Para esta atribuição baseada em valores, crie duas variáveis. A primeira variável com o nome "Amount" será escolhida no Dynaform mais precisamente em uma Textbox "Amount". A segunda variável é "NextUser" que será usada em um código de gatilho.
-
-
-
-        Em seguida, crie um formulário dinâmico com o nome "Valor", que terá apenas um controle Textbox e um botão para enviar o valor inserido. Este texto será preenchido com um número, se for igual ou maior que 1000 escolherá o usuário "Rose Poe" e se for menor que 1000 escolherá o usuário "Gabriela Calderón".
-
-
-
-        Agora para o trigger, é necessário código de programação para escolha do usuário. O próximo código pode ser usado para este exemplo:
-
-        if ( @ #Valor < 1000)
-        $NextUsername = 'gabriela' ; //o gerente local
-        else
-            $NextUsername = 'rpoe' ; //o gerente regional
-        
-        //procure o UID para o $NextUsername no banco de dados MySQL do Gestor Express:
-        $query  = executeQuery ( "selecione USR_UID de USERS onde USR_USERNAME=' $NextUsername '" ) ;
-        @@ NextUser = $query [ 1 ] [ 'USR_UID' ] ;
-        Usamos a variável recém criada no final do código, @@NextUser é o valor no qual o processo está se baseando.
-
-
-
-        Agora, adicione todos os Dynaforms, etapas e regras necessárias para que este exemplo funcione. Primeiro, clique com o botão direito do mouse em "Task 1" > "Steps" e arraste e solte o Dynaform "Amount". Adicione também o gatilho para obter as informações do usuário, salve e saia. Clique com o botão direito do mouse em "Tarefa 1" > "Regras de Atribuição", pois a primeira tarefa deixará para uma regra de "Atribuição Cíclica".
-
-
-
-        Para "Tarefa 2", clique com o botão direito sobre ela e selecione simplesmente "Regras de atribuição". Aqui o método de atribuição de caso é "Atribuição Baseada em Valor" um novo campo chamado "Variável para Atribuição Baseada em Valor" aparecerá onde a variável "@@NextUser" deve ser adicionada, clique no botão "Salvar" para armazenar todas as alterações.
-
-
-
-        Execute o caso indo em "Início" > "Novo Caso", clique duas vezes no processo "Baseado em Valor". O primeiro Dynaform aparecerá, preencha o valor com 1100, envie e a pessoa designada para a próxima tarefa será "Rose Poe", isso prova que o gatilho está funcionando corretamente.
-
-
-
-        Se o valor for inferior a 1000, como por exemplo 700, a pessoa designada para a segunda tarefa é "Gabriela Calderón".
-
-
-
-        Exemplo de atribuição baseada em valor de autoatendimento
-        Para testar a atribuição baseada em valor de autoatendimento, crie um novo processo com um evento inicial, duas tarefas e um evento final.
-
-
-
-        Agora, crie duas variáveis: string do tipo "dropdown" e string do tipo "Groups" também. Ambas as variáveis funcionarão com o processo para chamar todos os Grupos armazenados no Gestor Express.
-
-
-
-        Crie um formulário dinâmico que terá um controle suspenso e um botão de envio. Além disso, este Dynaform terá uma sentença SQL que analisará os grupos armazenados no armazenamento de dados do Gestor Express:
-
-        SELECT GRP_UID , GRP_TITLE FROM GROUPWF ;
-
-
-        Agora, atribua as etapas e regras para ambas as tarefas. Clique com o botão direito do mouse na primeira tarefa e selecione "Passos" e adicione o Dynaform criado antes chamado "Grupos", lembre-se que isso será preenchido pelos grupos armazenados do Gestor Express. O usuário escolherá um para os grupos e, portanto, como o caso será desatribuído, os funcionários dentro do grupo poderão optar por trabalhar no caso ou não. Também em "Tarefa 1" clique com o botão direito sobre ela e selecione "Regras de Atribuição", para esta tarefa selecione uma "Atribuição Cíclica".
-
-
-
-        Agora, para "Task 2" selecione "Assignment Rules" e neste caso o método será "Self Service Valued Based Assignment" e a variável será @@Groups . Isso chamará os grupos e as pessoas atribuídas a esse grupo específico.
-
-
-
-        A cada configuração feita é hora de testá-la, vá em "Home" > "New Case" e dê um duplo clique em "Self Service Valued Based". Quando for iniciado, o menu suspenso mostrará todos os grupos no armazenamento do Gestor Express. Para este exemplo, escolha o grupo "Finance" que possui apenas um usuário e que é "John Doe" e depois envie-o. Como visto na imagem abaixo, a segunda tarefa não está atribuída.
-
-
-
-        Para verificar se isso está realmente funcionando, saia e faça login como o funcionário "Finance" John. Uma vez dentro, verifique a caixa de entrada Não atribuído e o caso recém-iniciado aparecerá lá. Se o grupo tivesse mais usuários, qualquer um deles poderia entrar e reivindicar este caso para trabalhar nele. Para este exemplo, clique duas vezes no caso para reivindicá-lo. A próxima janela é apenas uma janela de processo final, mas em outros casos quando o processo é maior o John teria que fazer a próxima tarefa ou isso dependerá da regra de atribuição fornecida em um processo.
-
-
-
-        Cancelar a reivindicação de uma tarefa de autoatendimento
-        Depois que um usuário reivindica um caso com uma tarefa de autoatendimento, não há função integrada no Gestor Express para cancelar a reivindicação desse caso e permitir que outro usuário reivindique o caso. No entanto, é possível cancelar a reivindicação de um caso adicionando um loop em torno do qual o roteamento de volta para a mesma tarefa de autoatendimento.
-
-        Para permitir que os usuários cancelem a reivindicação de um caso, primeiro crie uma variável de string chamada unclaimCase. Em seguida, adicione um gateway exclusivo após a tarefa de autoatendimento que tenha um caminho que roteie de volta para a tarefa de autoatendimento.
-
-
-        Nas Propriedades do gateway exclusivo, adicione condições para controlar o roteamento. Se a @@unclaimCasevariável for igual 'yes'a , o processo retornará à tarefa de autoatendimento; caso contrário, ele será encaminhado para a próxima tarefa no processo.
-
-
-        Em seguida, adicione um botão de envio a um formulário dinâmico na tarefa de autoatendimento, que possui o ID unclaimCase. Leve em consideração que o controle de botão não é usado como variável. Este controle de botão está associado a um controle oculto para funcionar corretamente conforme descrito no JavaScript abaixo.
-
-
-        Em seguida, adicione o seguinte código JavaScript ao Formulário Dinâmico para definir o valor da @@unclaimCasevariável para 'yes'quando o botão Unclaim Case for clicado:
-
-        $ ( "#unclaimCasebtn" ) . encontre ( "botão" ) . clique ( function ( ) {
-            $ ( "#unclaimCase" ) . setValue ( "yes" ) ;
-            $ ( "#1711683455e78eb2cce3f49029501488" ) . submit ( ) ;
-        } ) ;
-        Quando a tarefa Process Claim for concluída, o caso será roteado de volta para a mesma tarefa e todos os usuários no pool de atribuições da tarefa estarão disponíveis para reivindicar o caso. Se precisar que o caso seja imediatamente não reivindicado, crie o seguinte gatilho que usa a função PMFDerivateCase() para rotear imediatamente o caso para o gateway exclusivo, que é definido para disparar após o Formulário Dinâmico contendo o botão Unclaim Case :
-
-        PMFDerivateCase ( @@ APPLICATION , @% INDEX ) ;
-        Defina o gatilho acima para disparar após o Formulário Dinâmico que contém o botão Unclaim Case .
-
 
     </article>
 
     </section>
-
-   
-
-    <aside>
-    <section id="lado">
-    <ol>
-        <li><a href="#item1">Visão geral</a></li>
-        <ol type="A">
-            <li><a href="#item1a">Adicionando Tarefas</a></li>
-            <li><a href="#item1b">Conectando Tarefas</a></li>
-        </ol>
-        <li><a href="#item2">Menu de Contexto da Tarefa</a></li>
-            <ol type="A">
-            <li><a href="#item2a">Tipos de tarefa</a></li>
-            <ol type="i">
-                <li><a href="#item2ai">Tarefa vazia</a></li>
-                <li><a href="#item2aii">Enviar tarefa</a></li>
-                <li>R<a href="#item2aiii">eceber Tarefa</a></li>
-                <li><a href="#item2aiv">Tarefa do usuário</a></li>
-                <li><a href="#item2av">Tarefa de script</a></li>
-                <li><a href="#item2avi">Tarefa Manual</a></li>
-                <li><a href="#item2avii">Tarefa de Negócios</a></li>
-            </ol>
-            <li><a href="#item2b">Tipo de marcador</a></li>
-            <ol type="i">
-                <li><a href="#item2bi">Ciclo</a></li>
-                <li><a href="#item2bii">Paralelo</a></li>
-                <ol type="a">
-                    <li><a href="#item2biia">Atribuição Paralela</a></li>
-                    <li><a href="#item2biib">Paralelo: Atribuição Baseada em Valor</a></li>
-                </ol>
-                <li><a href="#item2bii">Sequencial</a></li>
-                </ol>
-            <li><a href="#item2c">Etapas</a></li>
-            <ol type="i">
-                <li><a href="#item2ci">Gerenciando as etapas de uma tarefa</a></li>
-                <li><a href="#item2cii">Atribuindo gatilhos a uma tarefa</a></li>
-            </ol>
-            <li><a href="#item2d">Regras de atribuição</a></li>
-            <ol type="i">
-                <li><a href="#item2di">Guia Usuários</a></li>
-                <ol type="a">
-                    <li><a href="#item2dia">Atribuição Cíclica</a></li>
-                    <li><a href="#item2dib">Atribuição Manual</a></li>
-                    <ol type="a">
-                        <li><a href="#item2diba">Atribuição Manual - Problemas Conhecidos</a></li>
-                    </ol>
-                    <li><a href="#item2dic">Atribuição Baseada em Valor</a></li>
-                    <li><a href="#item2did">Reportar a</a></li>
-                    <ol type="a">
-                        <li><a href="#item2dida">Casos especiais</a></li>
-                    </ol>
-                    <li><a href="#item2die">Autoatendimento</a></li>
-                    <ol type="a">
-                        <li><a href="#item2diea">Definir limite de tempo para reivindicar um caso</a></li>
-                    </ol>
-                    <li><a href="#item2dif">Atribuição Baseada em Valor de Autoatendimento</a></li>
-                </ol>
-                <li>Usuários Ad Hoc</li>
-                <li> Desempenho da janela de atribuição</li>
-            </ol>
-            <li> Editar etiqueta</li>
-            <li> Excluir</li>
-            <li> Propriedades</li>
-            <ol type="i">
-                <li> Definições</li>
-                <li> Rótulos de caso</li>
-                <ol type="a">
-                    <li> Título do caso em tarefas paralelas</li>
-                    <li> Usando variáveis em rótulos de caso</li>
-                </ol>
-                <li> Controle de tempo</li>
-                <li> Notificações</li>
-                <li> Móvel</li>
-            </ol>
-        </ol>    
-        <li> Exemplos</li>
-        <ol type="A">
-            <li> Exemplo de atribuição baseada em valor</li>
-            <li> Exemplo de atribuição baseada em valor de autoatendimento</li>
-            <li> Cancelar a reivindicação de uma tarefa de autoatendimento</li>
-        </ol>
-    </ol>                
-    </section>
-    </aside>
 
     <footer>
         <div class="boxs">
@@ -1464,6 +1013,5 @@
             <p>+55 (14) 2109-3400</p>
         </div>
     </footer>
-</main>
 </body>
 </html>

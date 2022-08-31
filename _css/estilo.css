@@ -15,7 +15,7 @@
 }
 
 
-main {
+body {
     font-family: var(--fonte1);
     color: black;   
 }
@@ -23,6 +23,87 @@ main {
 header img#logo {
     width: 20%;
     padding: 20px 0px 20px 10px; 
+}
+
+.btnAbre {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.btnAbre span {
+    font-size: 3em;
+}
+
+.menuLateral.mostra {
+    left: 0px;
+}
+
+.menuLateral {
+    width: 450px;
+    height: 100%;
+    position: fixed;
+    background-color: #cbdbfc;
+    padding: 20px;
+    margin: 5px 0px 5px 0px;
+    left: -500px;
+}
+
+.menuLateral .titulo {
+    color: var(--cor1);
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--cor1);
+}
+
+.menuLateral ul {
+    list-style: none;
+
+}
+
+.menuLateral ul > li {
+    line-height: 30px;
+}
+
+.menuLateral ul li a{
+    text-decoration: none;
+    color: var(--cor1);
+    font-size: 1em;
+    padding-left: -30px;
+    margin-left: -20px;
+}
+
+.menuLateral ul li a:hover {
+    font-weight: bolder;
+    color: var(--cor2);
+    text-decoration: underline;
+}
+
+.menuLateral ul ul li a {
+    text-decoration: none;
+    color: var(--cor1);
+    font-size: .9em;
+}
+
+.menuLateral ul ul {
+    display: none;
+}
+
+.menuLateral ul .opcao1.mostra {
+    display: block;
+}
+
+.menuLateral ul .opcao2.mostra {
+    display: block;
+}
+
+.menuLateral ul li .material-icons {
+    font-family: 'Material Icons';
+    line-height: 1;
 }
 
 header div#cabecario {
@@ -33,24 +114,23 @@ header div#cabecario {
 div#cabecario h1 {
     font-family: var(--fonte1);
     font-size: 1,5em;
-    padding-left: 10px;
+    text-align: center;
     padding-top: 20px;
 }
 
 div#cabecario h2 {
     font-family: var(--fonte1);
     font-size: 1em;
+    text-align: center;
     color: rgb(233, 233, 233);
-    padding-left: 10px;
     padding-bottom: 20px;
 }
 
 #principal {
     width: 900px;
     max-width: 70%;
-    float: left;
     background-color: rgb(252, 250, 228);
-    margin-top: 5px 0px 5px 0px;
+    margin-top: 5px auto;
 }
 
 #principal h1 {
@@ -168,7 +248,6 @@ code#sozinho {
     font-size: .95em;
     line-height: .8em;
     margin: 10px 10px 10px 30px;
-    padding: 5px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
 }
@@ -279,17 +358,9 @@ div#caixa {
     padding-bottom: 12px;
 }
 
-#lado {
-    width: 403px;
-    max-width: 30%;
-    float: right;
-    background-color: #e7eefc;
-    color: var(--cor1);
-    padding: 20px;
-    margin: 5px 0px 5px 0px;
-}
 
-#lado h1 {
+
+.menuLateral h1 {
     font-family: var(--fonte1);
     color: var(--cor1);
     font-size: 1,2em;
@@ -297,28 +368,28 @@ div#caixa {
     font-weight: bolder;
 }
 
-#lado ol {
+.menuLateral ol {
     padding-left: 15px;
 }
 
-#lado ul {
+.menuLateral ul {
     padding-left: 25px;
 }
 
-#lado ol > li {
+.menuLateral ol > li {
     line-height: 1.5em;
 }
 
-#lado ul > li {
+.menuLateral ul > li {
     line-height: 1.5em;
 }
 
-#lado ol > li a {
+.menuLateral ol > li a {
     text-decoration: none;
     color: black;
 }
 
-#lado ol > li a:hover {
+.menuLateral ol > li a:hover {
     text-decoration: underline;
     color: var(--cor1);
     font-weight: bold;
@@ -334,8 +405,7 @@ footer {
 }
 
 footer .boxs {
-    width: 25%;
-    max-width: 400px;
+    width: 400px;
     min-height: 80px;
     padding: 10px;
     display: flex;
@@ -344,8 +414,7 @@ footer .boxs {
 }
 
 footer .boxs:nth-child(3) {
-    width: 25%;
-    max-width: 400px;
+    width: 400px;
 }
 
 .boxs h1 {
