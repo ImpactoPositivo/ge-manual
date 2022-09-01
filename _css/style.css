@@ -325,65 +325,136 @@ div#caixa {
 }
 
 footer {
-    background-color: var(--cor1);
-    color: white;
-    width: 100%;
-    min-height: 80px;
+    background-color: #1D438A;
+    padding: 50px 0;
     clear: both;
-    display: flex;
+        
 }
 
-footer .boxs {
-    width: 25%;
-    max-width: 400px;
-    min-height: 80px;
-    padding: 10px;
+.container-footer {
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+
+.row-footer {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    width: 22%;
+    padding: 0 15px;
+}
+
+.footer-col img{
+    width: 60%;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.footer-col p{
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+    color: white;
+    font-weight: 300;
+    position: relative;
+}
+
+.foot-col ul{
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin: 10px 0;
+    list-style: none;
+}
+
+.footer-col ul li a {
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #00BFB2;
+    padding-left: 10px;
+}
+
+.footer-col .medias-sociais {
+    margin-top: 30px;
+}
+
+.footer-col .medias-sociais a {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    transition: all0.5s ease;
 }
 
-footer .boxs:nth-child(3) {
-    width: 25%;
-    max-width: 400px;
+.footer-col .medias-sociais a i{
+    font-size: 20px;
 }
 
-.boxs h1 {
-    font-size: 1em;
-    text-align: right;
-    padding: 10px 20px 10px 0px;
+.footer-col .medias-sociais a:hover {
+    background-color: var(--cor2);
 }
 
-.boxs h2 {
-    font-size: 0.8em;
+.footer-col .form-sub input{
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    background-color: #1D438A;
 }
 
-.boxs p {
-    font-size: 0.8em;
-    text-align: right;
-    padding-right: 20px;
+.footer-col .form-sub input::placeholder{
+    color: white;    
 }
 
-.boxs ul li {
-    list-style: none;
-    font-size: .8em;
-    padding-bottom: 5px;
-    text-align: center;
+.footer-col .form-sub button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: white;
 }
 
-#social-media {
-    display: flex;
-    margin: auto;
+@media (max-width: 800px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
 }
-.boxs ul li img {
-    list-style: none;
-    width: 40%;
-    padding: 0px;
-    margin: 0px;
-}
-
-.boxs img {
-    width: 40%;
-    margin: auto;
-
+    
+@media (max-width: 600px){
+    .footer-col{
+        width: 100%;
+    }
 }

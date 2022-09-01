@@ -14,70 +14,76 @@
     margin: 0px;
 }
 
-
-a {
-    color: #1D438A;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-a:hover {
-    opacity: 0.7;
-}
-
-.logo {
-    width: 20%;
-    padding: 20px 0px 20px 10px;
-}
-
-nav {
-    display: flex;
-    font-family: var(--fonte1);
-}
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    position: absolute;
-    top: 20vh;
-    left: 0;
-    width: 25vw;
-    height: 100vh;
-    background: #e7eefc;
-    flex-direction: column;
-    transform: translateX(-100%);
-
-}
-
-.nav-list.active {
-    transform: translateX(0);
-}
-
-
-.mobile-menu {
-    cursor: pointer;
-    display: block;
-}
-
-.mobile-menu div {
-    width: 32px;
-    height: 2px;
-    margin: 8px;
-    background: #e7eefc;
-}
-
-
-
 body {
     font-family: var(--fonte1);
     color: black;  
     overflow-x: hidden; 
 }
 
-header img#logo {
+ul {
+    list-style: none;
+}
+
+.logo {
     width: 20%;
     padding: 20px 0px 20px 10px; 
 }
+
+#check {
+    display: none;
+}
+
+.btnAbre {
+    position: absolute;
+    display: block;
+    font-family: 'Material Icons';
+    font-size: 2em;
+    color: white;
+    top: 130px;
+    left: 20px;
+    cursor: pointer;
+}
+
+nav {
+    background-color: #e7eefc;
+    width: 450px;
+    height: 100%;
+    position: absolute;
+    left: -500px;
+}
+
+nav h1 {
+    background-color: #e7fcfa;
+    font-size: 2em;
+    color: #1D438A;
+    padding: 5px 20px;
+    border-bottom: 1px solid var(--cor2);
+}
+
+input[type="checkbox"]:checked ~nav {
+    transform: translateX(500px);
+}
+
+nav ul li {
+    padding: 3px 20px;
+    display: block;
+}
+
+.nav-list a {
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    display: block;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #00BFB2;
+}
+
+
+
+
+
 
 header div#cabecario {
     background-color:#00BFB2;
@@ -103,7 +109,7 @@ div#cabecario h2 {
     width: 900px;
     max-width: 70%;
     background-color: rgb(252, 250, 228);
-    margin: auto;
+    margin-left: 450px;
 }
 
 #principal h1 {
@@ -371,61 +377,87 @@ div#caixa {
 footer {
     background-color: var(--cor1);
     color: white;
-    width: 100%;
-    min-height: 80px;
-    clear: both;
+    padding: 50px 0px;
+}
+
+#impacto {
+    width: 140px;
+}
+
+.container-footer {
+    max-width: 1400px;
+    padding: 0px 4%;
+    margin: auto;
+}
+
+.row-footer {
     display: flex;
+    flex-wrap: wrap;
 }
 
-footer .boxs {
-    width: 400px;
-    min-height: 80px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.col-footer {
+    width: 25%;
+    padding: 0 15px;
 }
 
-footer .boxs:nth-child(3) {
-    width: 400px;
+.col-footer h4 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    position: relative;
+    text-transform: uppercase;
 }
 
-.boxs h1 {
+.col-footer ul {
+    list-style: none;
+}
+
+.col-footer ul li {
     font-size: 1em;
-    text-align: right;
-    padding: 10px 20px 10px 0px;
+    color: white;
+    margin: 10px 0;
 }
 
-.boxs h2 {
-    font-size: 0.8em;
+.col-footer li a {
+    font-size: 1em;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
 }
 
-.boxs p {
-    font-size: 0.8em;
-    text-align: right;
-    padding-right: 20px;
+.col-footer li a:hover {
+    color: #00BFB2;
+    padding-left: 10px;
 }
 
-.boxs ul li {
-    list-style: none;
-    font-size: .8em;
-    padding-bottom: 5px;
-    text-align: center;
+.col-footer .medias-sociais {
+    margin-top: 30px;
 }
 
-#social-media {
-    display: flex;
-    margin: auto;
-}
-.boxs ul li img {
-    list-style: none;
-    width: 40%;
-    padding: 0px;
-    margin: 0px;
+.col-footer .medias-sociais a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    transition: all 0.5s ease;
 }
 
-.boxs img {
-    width: 40%;
-    margin: auto;
-
+.col-footer .medias-sociais a i {
+    font-size: 20px;
 }
+
+
+.col-footer .medias-sociais a:hover {
+    color: #00BFB2;
+    background-color: white;
+}
+
+

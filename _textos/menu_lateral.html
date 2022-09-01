@@ -12,45 +12,34 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
     rel="stylesheet">
 
-    <script
-        src="https://code.jquery.com/jquery-3.6.1.js"
-        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-        crossorigin="anonymous">
-    </script>
-
-    <link rel="stylesheet" href="../_css/estilo.css">
+    <link rel="stylesheet" href="../_css/estilo2.css">
     <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
 </head>
 <body>
-
     <header>
         <figure>
-            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            <a href="../index.html"><img class="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>  
         </figure>
         <div id="cabecario">
             <h1>Gestor Express</h1>
             <h2>Gerenciamento de Fluxo de Trabalho</h2>
         </div>
-        
-        <div class="btnAbre"><span class="material-icons-outlined">
-            menu_open
-            </span></div>
-        <nav class="menuLateral">
-            <div class="titulo">Tarefas<span class="material-icons-outlined">
-                <span class="btnFecha">close</span>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <div class="btnAbre"><span class="material-icons-outlined">
+                menu_open
                 </span></div>
-            <ul>
-                <li><a href="#">Visão geral<span class="material-icons-outlined">
-                    chevron_right
-                    </span></a>
+        </label>
+        <nav>
+            <h1>Tarefas</h1>
+           <ul class="nav-list">
+                <li><a href="#">Visão geral</a>
                     <ul class="opcao1">
                         <li class="1"><a href="#item1a">Adicionando Tarefas</a></li>
                         <li class="1"><a href="#item1b">Conectando Tarefas</a></li>
                     </ul>
                 </li>
-                <li><a href="#item2">Menu de Contexto da Tarefa<span class="material-icons-outlined">
-                    chevron_right
-                    </span></a>
+                <li><a href="#item2">Menu de Contexto da Tarefa</a>
                     <ul class="opcao2">
                         <li class="2"><a href="#item2a">Tipos de tarefa</a>
                             <ul >
@@ -141,7 +130,7 @@
                 </li>
             </ul>
         </nav>
-            <script type="text/javscript" src="../_js/script.js"></script>
+        <script type="text/javscript" src="../_js/mobile-navbar.js"></script>
     </header>
 
     <section id="principal">
@@ -994,28 +983,60 @@
     </section>
 
     <footer>
-        <div class="boxs">
-            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
+        <div class="cantainer-footer">
+            <div class="row-footer">
+
+                <div class="col-footer">
+                <ul>
+                    <li>Um produto com o selo:</li>
+                    <li><img id="impacto" src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo"></li>
+                </ul>
+
+                </div>
+
+                <div class="col-footer">
+                    <h4>Endereço:</h4>
+                    <ul>
+                        <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
+                        <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
+                        <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
+                    </ul> 
+                </div>
+                <div class="medias-sociais">
+                        <h4>Mídias Sociais</h4>
+                        <a href="#"><i class="fa fa-website"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>    
+
+                <div class="col-footer">
+
+                        <h4>Contate-nos:</h4>
+                        <h4>+55 (14) 2109-3400</h4>
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" placeholder="Digite o seu e-mail" required>
+                                <button>Subscrever</button>
+                            </form>
+                        </div>
+
+                </div>
+            </div>
         </div>
+
+
         <div class="boxs">
-            <ul>
-                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
-                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
-                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
-            </ul>            
         </div>
+
+        <div class="boxs">           
+        </div>
+
         <div class="boxs">
-            <ul id="social-media">
-                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
-                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
-                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
-                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
-            </ul>
         </div>
+
         <div class="boxs">
-            <h1>Contate-nos:</h1>
-            <p>+55 (14) 2109-3400</p>
-        </div>
+       </div>
     </footer>
 </body>
 </html>

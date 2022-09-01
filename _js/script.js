@@ -9,3 +9,7 @@ $('.opcao2').click(function(){
 $('.btnAbre').click(function(){
     $('.menuLateral').toggleClass('mostra');
 });
+
+$('.btnFecha').click(function(){
+    $('.menuLateral').toggleClass('mostra');
+});
