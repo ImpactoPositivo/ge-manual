@@ -1182,175 +1182,244 @@
             <p>}</p>
         </codeblock>
 
-        Então, a @#selectCountriesNamesvariável pode ter um valor como " Argentina, Holland, Gambia" que pode ser inserido em uma descrição de caso.
+        <p>Então, a variável <code>@#selectCountriesNames</code> pode ter um valor como "<code>Argentina, Holanda, Portugal</code>" que pode ser inserido em uma descrição de caso.</p>
 
-        Controle de tempo
-        Esta propriedade é usada para definir a data de vencimento de uma tarefa. A tarefa deve ser concluída dentro de um determinado período de tempo, que pode ser definido de acordo com um número de dias úteis ou dias em um calendário personalizado.
+        <h2 id="item2giii">Controle de tempo</h2>
 
+        <p>Esta propriedade é usada para definir a data de vencimento de uma tarefa. A tarefa deve ser concluída dentro de um determinado período de tempo, que pode ser definido de acordo com um número de dias úteis ou dias em um calendário personalizado.</p>
+        
+        <figure>
 
+        </figure>
 
-        Existem cinco opções para definir:
+        <p>Existem cinco opções para definir:</p>
 
-        Permitir controle de tempo definido pelo usuário: Esta opção permite que o usuário atribuído à tarefa anterior no processo defina manualmente o horário agendado para a próxima tarefa quando um caso é roteado. Se esta opção estiver marcada, quando o caso estiver prestes a ser encaminhado para a próxima tarefa, os seguintes campos serão exibidos:
+        <ul>
+            <li>
+                <strong>Permitir controle de tempo definido pelo usuário:</strong> Esta opção permite que o usuário atribuído à tarefa anterior no processo defina manualmente o horário agendado para a próxima tarefa quando um caso é roteado. Se esta opção estiver marcada, quando o caso estiver prestes a ser encaminhado para a próxima tarefa, os seguintes campos serão exibidos:
+            
+                <figure>
+                </figure>
+            </li>
+            <li><strong>Duração da tarefa:</strong> Um número inteiro que define a duração da tarefa um número inteiro. Números negativos e decimais não são permitidos.</li>
+            <li><strong>Unidade de tempo:</strong> A unidade de tempo, que pode ser horas ou dias.</li>
+            <li><strong>Conta os dias por:</strong> A duração da tarefa, que pode ser contada em dias úteis (segunda a sexta-feira) ou dias corridos.</li>
+            <li><strong>Calendário:</strong>ione um calendário no qual a duração da tarefa será baseada. Se nenhum calendário personalizado tiver sido criado, o calendário "Padrão" será selecionado automaticamente; caso contrário, selecione um da lista.</li>
+        </ul>
 
+        <p>Se o tempo definido para concluir uma tarefa já tiver passado, o tempo será exibido em vermelho na coluna "Data de vencimento" na lista de casos encontrados em <strong>Inicio => Caixa de entrada</strong>, o que significa que o caso precisa ser tratado imediatamente. Se o usuário ainda tiver tempo para concluir a tarefa, a data de vencimento será exibida em verde.</p>
 
+        <figure>
 
-        Duração da tarefa: Um número inteiro que define a duração da tarefa um número inteiro. Números negativos e decimais não são permitidos.
+        </figure>
 
-        Unidade de tempo: A unidade de tempo, que pode ser horas ou dias .
+        <p>O controle de tempo do Gestor Express lida com o controle de tempo entre usuários que têm diferentes fusos horários definidos em seus parâmetros de usuário, calculando as horas de disponibilidade com base em um calendário personalizado, se houver um.</p>
 
-        Conta os dias por: A duração da tarefa, que pode ser contada em dias úteis (segunda a sexta-feira) ou dias corridos .
+        <p>O Gestor Express segue estas etapas no cenário descrito:</p>
 
-        Calendário: Selecione um calendário no qual a duração da tarefa será baseada. Se nenhum calendário personalizado tiver sido criado, o calendário "Padrão" será selecionado automaticamente; caso contrário, selecione um da lista.
+        <ul>
+            <li>Obtenher a data de delegação mais recente (do servidor)</li>
+            <li>Converter a data da delegação para o próximo fuso horário do usuário</li>
+            <li>Calcular a base de data de vencimento no calendário padrão</li>
+            <li>Converter para data de vencimento para fuso horário UTC</li>
+        </ul>
 
-        Se o tempo definido para concluir uma tarefa já tiver passado, o tempo será exibido em vermelho na coluna "Data de vencimento" na lista de casos encontrados em HOME > Caixa de entrada , o que significa que o caso precisa ser tratado imediatamente. Se o usuário ainda tiver tempo para concluir a tarefa, a data de vencimento será exibida em verde .
+        <p>A data de vencimento é calculada com base no fuso horário pertencente ao usuário que está roteando o caso para a próxima tarefa.</p>
 
+        <h2 id="item2giv">Notificações</h2>
 
+        <p>Essa propriedade de tarefa é usada para enviar uma notificação por email para o próximo usuário atribuído no caso. Certifique-se de que o Gestor Express esteja configurado para usar um servidor de e-mail.</p>
 
-        O controle de tempo do Gestor Express lida com o controle de tempo entre usuários que têm diferentes fusos horários definidos em seus parâmetros de usuário, calculando as horas de disponibilidade com base em um calendário personalizado, se houver um.
+        <p>Para ver as opções de notificação em uma tarefa, siga as próximas etapas:</p>
 
-        O Gestor Express segue estas etapas no cenário descrito:
+        <ol>
+            <li>Faça login no Gestor Express com a permissão PM_FACTORY.</li>
+            <li>Vá para a guia Modelagem.</li>
+            <li>Crie ou simplesmente edite um processo.</li>
+            <li>No Mapa do Processo, clique com o botão direito do mouse em uma tarefa.</li>
+            <li>As propriedades da tarefa são exibidas. No menu suspenso, selecione a opção Propriedades.</li>
+            <li>A janela Propriedades da Atividade é exibida. Clique na opção Notificações .</li>
+            <li>As opções de notificação são exibidas no lado direito.</li>
+        </ol>
 
-        Obtenha a data de delegação mais recente (do servidor)
+        <figure>
 
-        Converter a data da delegação para o próximo fuso horário do usuário
+        </figure>
 
-        Calcular a base de data de vencimento no calendário padrão
+        <p>Para obter mais informações sobre as opções de notificação, consulte Notificações.</p>
 
-        Converter para data de vencimento para fuso horário UTC
+        <h2 id="item2gv">Móvel</h2>
 
-        A data de vencimento é calculada com base no fuso horário pertencente ao usuário que está roteando o caso para a próxima tarefa.
+        <p>As propriedades móveis permitem que o usuário configure uma tarefa para uso offline.</p>
 
-        Notificações
-        Essa propriedade de tarefa é usada para enviar uma notificação por email para o próximo usuário atribuído no caso. Certifique-se de que o Gestor Express esteja configurado para usar um servidor de e-mail .
+        <figure>
 
-        Para ver as opções de notificação em uma tarefa, siga as próximas etapas:
-
-        1. Faça login no Gestor Express com a permissão PM_FACTORY .
-
-        2. Vá para a guia Designer .
-
-        3. Crie ou simplesmente edite um processo.
-
-        4. No Mapa do Processo , clique com o botão direito do mouse em uma tarefa.
-
-        5. As propriedades da tarefa são exibidas. No menu suspenso, selecione a opção Propriedades .
-
-        6. A janela Propriedades da Atividade é exibida. Clique na opção Notificações .
-
-        7. As opções de notificação são exibidas no lado direito.
-
-
-
-        Para obter mais informações sobre as opções de notificação, consulte Notificações .
-
-        Móvel
-        As propriedades móveis permitem que o usuário configure uma tarefa para uso offline .
+        </figure>
 
         atributo offline
 
-        Ativa esta tarefa para uso offline: Ativa ou desativa uma tarefa para uso offline. Se marcada, uma caixa de seleção é exibida para configurar o comportamento da tarefa quando estiver online novamente.
-        atributo offline dois
-
-        Encaminhar caso quando estiver online novamente: Se marcado, roteia o caso quando estiver online novamente, caso contrário, o caso deve ser roteado manualmente.
-        Exemplos
-        Exemplo de atribuição baseada em valor
-        Este exemplo mostra como usar a atribuição baseada em valor cuja variável é definida pelo gatilho que procura os IDs exclusivos do usuário com base no nome de usuário. Começando com um processo chamado "Regras de atribuição" e terá um Evento Inicial, duas tarefas e um Evento Final, no qual ambas as tarefas terão regras de atribuição e etapas diferentes a serem seguidas.
-
-
-
-        Para esta atribuição baseada em valores, crie duas variáveis. A primeira variável com o nome "Amount" será escolhida no Dynaform mais precisamente em uma Textbox "Amount". A segunda variável é "NextUser" que será usada em um código de gatilho.
+        <ul>
+            <li>
+                <strong>Ativa esta tarefa para uso offline:</strong> Ativa ou desativa uma tarefa para uso offline. Se marcada, uma caixa de seleção é exibida para configurar o comportamento da tarefa quando estiver online novamente.
+                <figure>
+            
+                </figure>
+            </li>
+            <li><strong>Encaminhar caso quando estiver online novamente:</strong> Se marcado, roteia o caso quando estiver online novamente, caso contrário, o caso deve ser roteado manualmente.</li>
+        </ul>
 
 
+        <h1 id="item3">Exemplos</h1>
 
-        Em seguida, crie um formulário dinâmico com o nome "Valor", que terá apenas um controle Textbox e um botão para enviar o valor inserido. Este texto será preenchido com um número, se for igual ou maior que 1000 escolherá o usuário "Rose Poe" e se for menor que 1000 escolherá o usuário "Gabriela Calderón".
+        <h2 id="item3a">Exemplo de atribuição baseada em valor</h2>
+
+        <p>Este exemplo mostra como usar a atribuição baseada em valor cuja variável é definida pelo gatilho que procura os IDs exclusivos do usuário com base no nome de usuário. Começando com um processo chamado "Regras de atribuição" e terá um Evento Inicial, duas tarefas e um Evento Final, no qual ambas as tarefas terão regras de atribuição e etapas diferentes a serem seguidas.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Para esta atribuição baseada em valores, crie duas variáveis. A primeira variável com o nome "Valor" será escolhida no Formulário Dinâmico, mais precisamente em uma Textbox "Quantia". A segunda variável é "ProximoUser" que será usada em um código de gatilho.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Em seguida, crie um formulário dinâmico com o nome "Valor", que terá apenas um controle Textbox e um botão para enviar o valor inserido. Este texto será preenchido com um número, se for igual ou maior que 1000 escolherá a usuária "Rose Sá" e se for menor que 1000 escolherá a usuária "Gabriela Calderón".</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Agora para o gatilho, é necessário código de programação para escolha do usuário. O código abaixo pode ser usado para este exemplo:</p>
+
+        <codeblock>
+            if <font color="green">(@</font>#Valor < 1000)
+            $NextUsername = 'gabriela'; //Gerente local
+            else
+                $NextUsername = 'rsa'; //Gerente regional
+            
+            //procure o UID para o $NextUsername no banco de dados MySQL do Gestor Express:
+            $query  = executeQuery(<font color="blue">"selecione USR_UID de USERS onde USR_USERNAME='</font>$NextUsername'");
+            <font color="green">@@</font>NextUser = $query<font color="green">[</font><font color="magenta">1</font><font color="green">][</font>'USR_UID'<font color="green">];</font>
+        </codeblock>
+
+        <p>Usamos a variável recém criada no final do código. @@NextUser é o valor no qual o processo está se baseando.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Agora, adicione todos os Formulários Dinâmicos, etapas e regras necessárias para que este exemplo funcione. Primeiro, clique com o botão direito do mouse em "Tarefa 1" => "Etapas" e arraste e solte o Formulário Dinâmico "Valor". Adicione também o gatilho para obter as informações do usuário, salve e saia. Clique com o botão direito do mouse em "Tarefa 1" > "Regras de Atribuição", pois a primeira tarefa deixará para uma regra de "Atribuição Cíclica".</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Para "Tarefa 2", clique com o botão direito sobre ela e selecione simplesmente "Regras de atribuição". Aqui o método de atribuição de caso é "Atribuição Baseada em Valor" um novo campo chamado "Variável para Atribuição Baseada em Valor" aparecerá onde a variável "@@NextUser" deve ser adicionada, clique no botão "Salvar" para armazenar todas as alterações.</p>
+
+        <figure>
+
+        </figure>
+
+        Execute o caso indo em "Início" => "Novo Caso", clique duas vezes no processo "Baseado em Valor". O primeiro Formulário Dinâmico aparecerá, preencha o valor com 1100, envie-o. A pessoa designada para a próxima tarefa será "Rose Sá", isso prova que o gatilho está funcionando corretamente.
+
+        <figure>
+
+        </figure>
+
+        <p>Se o valor for inferior a 1000, como por exemplo 700, a pessoa designada para a segunda tarefa é "Gabriela Calderón".</p>
+
+        <figure>
+
+        </figure>
+    </article>
+
+    <article>
+
+        <h2 id="item3b">Exemplo de atribuição baseada em valor de autoatendimento</h2>
+
+        <p>Para testar a atribuição baseada em valor de autoatendimento, crie um novo processo com um evento inicial, duas tarefas e um evento final.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Agora, crie duas variáveis: string do tipo "dropdown" e string do tipo "Groups" também. Ambas as variáveis funcionarão com o processo para chamar todos os Grupos armazenados no Gestor Express.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Crie um Formulário Dinâmico que terá um controle suspenso e um botão de envio. Além disso, este Formulário Dinâmico terá uma sentença SQL que analisará os grupos salvos no armazenamento de dados do Gestor Express:</p>
+
+        <codeblock>SELECT GRP_UID , GRP_TITLE FROM GROUPWF ;</codeblock>
+
+        <figure>
+
+        </figure>
+
+        <p>Agora, atribua as etapas e regras para ambas as tarefas. Clique com o botão direito do mouse na primeira tarefa e selecione "Etapas" e adicione o Formulário Dinâmico criado antes chamado "Grupos", lembre-se que isso será preenchido pelos grupos armazenados do Gestor Express. O usuário escolherá um para os grupos e, portanto, como o caso será desatribuído, os funcionários dentro do grupo poderão optar por trabalhar no caso ou não. Também em "Tarefa 1" clique com o botão direito sobre ela e selecione "Regras de Atribuição", para esta tarefa selecione uma "Atribuição Cíclica".</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Agora, para "Tarefas 2" selecione "Regas de Atribuição" e neste caso o método será "Atribuição baseada em valor de autoatendimento" e a variável será <strong>@@Groups</strong>. Isso chamará os grupos e as pessoas atribuídas a esse grupo específico.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>A cada configuração feita é hora de testá-la, vá em "Início" => "Novo Caso" e dê um duplo clique em "Autoatendimento baseado em valor". Quando for iniciado, o menu suspenso mostrará todos os grupos no armazenamento do Gestor Express. Para este exemplo, escolha o grupo "Finanças" que possui apenas um usuário e que é "João Silveira" e depois envie-o. Como visto na imagem abaixo, a segunda tarefa não está atribuída.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Para verificar se essa atribuição está realmente funcionando, saia e faça login como o funcionário de  Finanças" João. Uma vez logado, verifique a caixa de entrada Não atribuído e o caso recém-iniciado aparecerá lá. Se o grupo tivesse mais usuários, qualquer um deles poderia entrar e reivindicar este caso para trabalhar nele. Para este exemplo, clique duas vezes no caso para reivindicá-lo. A próxima janela é apenas uma janela de processo final, mas em outros casos quando o processo é maior o João teria que fazer a próxima tarefa ou isso dependerá da regra de atribuição fornecida em um processo.</p>
+
+        <figure>
+
+        </figure>
+
+        <h2 id="item3c">Cancelar a reivindicação de uma tarefa de autoatendimento</h2>
+
+        <p>Depois que um usuário reivindica um caso com uma tarefa de autoatendimento, não há função integrada no Gestor Express para cancelar a reivindicação desse caso e permitir que outro usuário reivindique o caso. No entanto, é possível cancelar a reivindicação de um caso adicionando um loop em torno do qual o roteamento volta para a mesma tarefa de autoatendimento.</p>
+
+        <p>Para permitir que os usuários cancelem a reivindicação de um caso, primeiro crie uma variável de string chamada DevolverCaso. Em seguida, adicione um gateway exclusivo após a tarefa de autoatendimento que tenha um caminho que roteie de volta para a tarefa de autoatendimento.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Nas <strong>Propriedades</strong> do gateway exclusivo, adicione condições para controlar o roteamento. Se a variável @@DevolverCaso for igual 'sim', o processo retornará à tarefa de autoatendimento; caso contrário, ele será encaminhado para a próxima tarefa no processo.</p>
+
+        <figure>
+
+        </figure>
+
+        <p>Em seguida, adicione um botão de envio a um formulário dinâmico na tarefa de autoatendimento, que possui o ID DevolverCaso. Leve em consideração que o controle de botão não é usado como variável. Este controle de botão está associado a um controle oculto para funcionar corretamente conforme descrito no JavaScript abaixo.</p>
+
+        <figure id="detalhe">
+
+        </figure>
+
+        <p>Em seguida, adicione o seguinte código JavaScript ao Formulário Dinâmico para definir o valor da variável @@devolverCaso para 'sim', quando o botão Devolver Case for clicado:</p>
+
+        <codeblock>
+            <p>$<font color="green">(</font><font color="blue">"#unclaimCasebtn"</font><font color="green">)</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"botão"</font><font color="green">)</font>.<font color="darkred">click</font><font color="green">(</font><strong>function</strong><font color="green">(){</font></p>
+                <p>$<font color="green">(</font><font color="blue">"#devolverCaso"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">"sim"</font><font color="green">);</font></p>
+                <p>$ <font color="green">(</font><font color="blue">"#1711683455e78eb2cce3f49029501488"</font><font color="green">)</font>.<font color="darkred">submit</font><font color="green">();</font></p>
+            <p><font color="green">});</font></p>
+        </codeblock>
 
 
+        <p>Quando a tarefa Processo de Devolução for concluída, o caso será roteado de volta para a mesma tarefa e todos os usuários no pool de atribuições da tarefa estarão disponíveis para reivindicar o caso. Se precisar que o caso seja imediatamente não reivindicado, crie o seguinte gatilho que usa a função PMFDerivarCaso() para rotear imediatamente o caso para o gateway exclusivo, que é definido para disparar após o Formulário Dinâmico contendo o botão Devolver Caso:</p>
 
-        Agora para o trigger, é necessário código de programação para escolha do usuário. O próximo código pode ser usado para este exemplo:
+        <codeblock>PMFDerivarCaso<font color="green">(@@</font>APPLICATION, @%INDEX<font color="green">);</font></codeblock>
 
-        if ( @ #Valor < 1000)
-        $NextUsername = 'gabriela' ; //o gerente local
-        else
-            $NextUsername = 'rpoe' ; //o gerente regional
-        
-        //procure o UID para o $NextUsername no banco de dados MySQL do Gestor Express:
-        $query  = executeQuery ( "selecione USR_UID de USERS onde USR_USERNAME=' $NextUsername '" ) ;
-        @@ NextUser = $query [ 1 ] [ 'USR_UID' ] ;
-        Usamos a variável recém criada no final do código, @@NextUser é o valor no qual o processo está se baseando.
-
-
-
-        Agora, adicione todos os Dynaforms, etapas e regras necessárias para que este exemplo funcione. Primeiro, clique com o botão direito do mouse em "Task 1" > "Steps" e arraste e solte o Dynaform "Amount". Adicione também o gatilho para obter as informações do usuário, salve e saia. Clique com o botão direito do mouse em "Tarefa 1" > "Regras de Atribuição", pois a primeira tarefa deixará para uma regra de "Atribuição Cíclica".
-
-
-
-        Para "Tarefa 2", clique com o botão direito sobre ela e selecione simplesmente "Regras de atribuição". Aqui o método de atribuição de caso é "Atribuição Baseada em Valor" um novo campo chamado "Variável para Atribuição Baseada em Valor" aparecerá onde a variável "@@NextUser" deve ser adicionada, clique no botão "Salvar" para armazenar todas as alterações.
-
-
-
-        Execute o caso indo em "Início" > "Novo Caso", clique duas vezes no processo "Baseado em Valor". O primeiro Dynaform aparecerá, preencha o valor com 1100, envie e a pessoa designada para a próxima tarefa será "Rose Poe", isso prova que o gatilho está funcionando corretamente.
-
-
-
-        Se o valor for inferior a 1000, como por exemplo 700, a pessoa designada para a segunda tarefa é "Gabriela Calderón".
-
-
-
-        Exemplo de atribuição baseada em valor de autoatendimento
-        Para testar a atribuição baseada em valor de autoatendimento, crie um novo processo com um evento inicial, duas tarefas e um evento final.
-
-
-
-        Agora, crie duas variáveis: string do tipo "dropdown" e string do tipo "Groups" também. Ambas as variáveis funcionarão com o processo para chamar todos os Grupos armazenados no Gestor Express.
-
-
-
-        Crie um formulário dinâmico que terá um controle suspenso e um botão de envio. Além disso, este Dynaform terá uma sentença SQL que analisará os grupos armazenados no armazenamento de dados do Gestor Express:
-
-        SELECT GRP_UID , GRP_TITLE FROM GROUPWF ;
-
-
-        Agora, atribua as etapas e regras para ambas as tarefas. Clique com o botão direito do mouse na primeira tarefa e selecione "Passos" e adicione o Dynaform criado antes chamado "Grupos", lembre-se que isso será preenchido pelos grupos armazenados do Gestor Express. O usuário escolherá um para os grupos e, portanto, como o caso será desatribuído, os funcionários dentro do grupo poderão optar por trabalhar no caso ou não. Também em "Tarefa 1" clique com o botão direito sobre ela e selecione "Regras de Atribuição", para esta tarefa selecione uma "Atribuição Cíclica".
-
-
-
-        Agora, para "Task 2" selecione "Assignment Rules" e neste caso o método será "Self Service Valued Based Assignment" e a variável será @@Groups . Isso chamará os grupos e as pessoas atribuídas a esse grupo específico.
-
-
-
-        A cada configuração feita é hora de testá-la, vá em "Home" > "New Case" e dê um duplo clique em "Self Service Valued Based". Quando for iniciado, o menu suspenso mostrará todos os grupos no armazenamento do Gestor Express. Para este exemplo, escolha o grupo "Finance" que possui apenas um usuário e que é "John Doe" e depois envie-o. Como visto na imagem abaixo, a segunda tarefa não está atribuída.
-
-
-
-        Para verificar se isso está realmente funcionando, saia e faça login como o funcionário "Finance" John. Uma vez dentro, verifique a caixa de entrada Não atribuído e o caso recém-iniciado aparecerá lá. Se o grupo tivesse mais usuários, qualquer um deles poderia entrar e reivindicar este caso para trabalhar nele. Para este exemplo, clique duas vezes no caso para reivindicá-lo. A próxima janela é apenas uma janela de processo final, mas em outros casos quando o processo é maior o John teria que fazer a próxima tarefa ou isso dependerá da regra de atribuição fornecida em um processo.
-
-
-
-        Cancelar a reivindicação de uma tarefa de autoatendimento
-        Depois que um usuário reivindica um caso com uma tarefa de autoatendimento, não há função integrada no Gestor Express para cancelar a reivindicação desse caso e permitir que outro usuário reivindique o caso. No entanto, é possível cancelar a reivindicação de um caso adicionando um loop em torno do qual o roteamento de volta para a mesma tarefa de autoatendimento.
-
-        Para permitir que os usuários cancelem a reivindicação de um caso, primeiro crie uma variável de string chamada unclaimCase. Em seguida, adicione um gateway exclusivo após a tarefa de autoatendimento que tenha um caminho que roteie de volta para a tarefa de autoatendimento.
-
-
-        Nas Propriedades do gateway exclusivo, adicione condições para controlar o roteamento. Se a @@unclaimCasevariável for igual 'yes'a , o processo retornará à tarefa de autoatendimento; caso contrário, ele será encaminhado para a próxima tarefa no processo.
-
-
-        Em seguida, adicione um botão de envio a um formulário dinâmico na tarefa de autoatendimento, que possui o ID unclaimCase. Leve em consideração que o controle de botão não é usado como variável. Este controle de botão está associado a um controle oculto para funcionar corretamente conforme descrito no JavaScript abaixo.
-
-
-        Em seguida, adicione o seguinte código JavaScript ao Formulário Dinâmico para definir o valor da @@unclaimCasevariável para 'yes'quando o botão Unclaim Case for clicado:
-
-        $ ( "#unclaimCasebtn" ) . encontre ( "botão" ) . clique ( function ( ) {
-            $ ( "#unclaimCase" ) . setValue ( "yes" ) ;
-            $ ( "#1711683455e78eb2cce3f49029501488" ) . submit ( ) ;
-        } ) ;
-        Quando a tarefa Process Claim for concluída, o caso será roteado de volta para a mesma tarefa e todos os usuários no pool de atribuições da tarefa estarão disponíveis para reivindicar o caso. Se precisar que o caso seja imediatamente não reivindicado, crie o seguinte gatilho que usa a função PMFDerivateCase() para rotear imediatamente o caso para o gateway exclusivo, que é definido para disparar após o Formulário Dinâmico contendo o botão Unclaim Case :
-
-        PMFDerivateCase ( @@ APPLICATION , @% INDEX ) ;
-        Defina o gatilho acima para disparar após o Formulário Dinâmico que contém o botão Unclaim Case .
-
-
+        <p>Defina o gatilho acima para disparar após o Formulário Dinâmico que contém o botão Devolver Caso.</p>
     </article>
 
     </section>
@@ -1412,56 +1481,82 @@
                     </ol>
                     <li><a href="#item2dif">Atribuição Baseada em Valor de Autoatendimento</a></li>
                 </ol>
-                <li>Usuários Ad Hoc</li>
-                <li> Desempenho da janela de atribuição</li>
+                <li><a href="#item2dii">Usuários Ad Hoc</a></li>
+                <li><a href="#item2diii">Desempenho da janela de atribuição</a></li>
             </ol>
-            <li> Editar etiqueta</li>
-            <li> Excluir</li>
-            <li> Propriedades</li>
+            <li><a href="#item2e">Editar etiqueta</a></li>
+            <li><a href="#item2f">Excluir</a></li>
+            <li><a href="#item2g">Propriedades</a></li>
             <ol type="i">
-                <li> Definições</li>
-                <li> Rótulos de caso</li>
+                <li><a href="#item2gi">Definições</a></li>
+                <li><a href="#item2gii">Rótulos de caso</a></li>
                 <ol type="a">
-                    <li> Título do caso em tarefas paralelas</li>
-                    <li> Usando variáveis em rótulos de caso</li>
+                    <li><a href="#item2giia">Título do caso em tarefas paralelas</a></li>
+                    <li><a href="#item2giib">Usando variáveis em rótulos de caso</a></li>
                 </ol>
-                <li> Controle de tempo</li>
-                <li> Notificações</li>
-                <li> Móvel</li>
+                <li><a href="#item2giii">Controle de tempo</a></li>
+                <li><a href="#item2giv">Notificações</a></li>
+                <li><a href="#item2gv">Móvel</a></li>
             </ol>
         </ol>    
-        <li> Exemplos</li>
+        <li><a href="#item3">Exemplos</a></li>
         <ol type="A">
-            <li> Exemplo de atribuição baseada em valor</li>
-            <li> Exemplo de atribuição baseada em valor de autoatendimento</li>
-            <li> Cancelar a reivindicação de uma tarefa de autoatendimento</li>
+            <li><a href="#item3a">Exemplo de atribuição baseada em valor</a></li>
+            <li><a href="#item3b">Exemplo de atribuição baseada em valor de autoatendimento</a></li>
+            <li><a href="#item3c">Cancelar a reivindicação de uma tarefa de autoatendimento</a></li>
         </ol>
     </ol>                
     </section>
     </aside>
 
     <footer>
-        <div class="boxs">
-            <img src="../_imagens/impacto-logo-branco.png" alt="Logotipo da Impacto Positivo">
-        </div>
-        <div class="boxs">
-            <ul>
-                <li>Impacto Positivo Comércio e Serv de Informática Ltda.</li>
-                <li>Avenida Nações Unidas, 17-17, Conjunto 306/307,</li>
-                <li>Vila Santo Antônio, 17015-903, Bauru, SP</li>
-            </ul>            
-        </div>
-        <div class="boxs">
-            <ul id="social-media">
-                <li id="website"><a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a></li>
-                <li id="Facebook"><a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a></li>
-                <li id="Linkedin"><a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a></li>
-                <li id="youtube"><a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank"><img src="../_imagens/youtube.png" alt="YouTube"></a></li>
-            </ul>
-        </div>
-        <div class="boxs">
-            <h1>Contate-nos:</h1>
-            <p>+55 (14) 2109-3400</p>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
         </div>
     </footer>
 </main>
