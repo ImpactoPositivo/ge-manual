@@ -5,6 +5,7 @@
 :root {
     --cor1: #1D438A;
     --cor2: #00BFB2;
+    --cor3: rgb(237, 252, 174);
 
     --fonte1: sans-serif;
 }
@@ -154,7 +155,7 @@ div#ladoalado {
 
 #principal code {
     background-color: #e7eefc;
-    font-size: 1em;
+    font-size: 1.4em;
 }
 
 code#sozinho {
@@ -166,7 +167,7 @@ code#sozinho {
 #principal codeblock {
     background-color: #e7eefc;
     font-size: .95em;
-    line-height: .8em;
+    line-height: 1.5em;
     margin: 10px 10px 10px 30px;
     padding: 5px;
     border: 1px solid rgb(190, 190, 190);

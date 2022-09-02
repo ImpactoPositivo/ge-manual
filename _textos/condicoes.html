@@ -530,10 +530,194 @@
 
             <p>Os campos de arquivo armazenam o nome do arquivo carregado como uma string. Por exemplo, a seguinte condição pode ser usada para verificar se um arquivo foi carregado com a função empty() ou se a extensão do arquivo não é do tipo "doc":</p>
 
+            <codeblock><font color="red">empty</font><font color="green">(@@</font>InvoiceFile) ou <font color="red">pathinfo</font><font color="green">(@@</font>InvoiceFile, PATHINFO_EXTENSION<font color="green">) !=</font><font color="blue"> "doc"</font></codeblock>
+
+            
+            <p>Se a condição vista na imagem abaixo for adicionada a um gatilho usando a função empty().</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Se o controle de arquivo estiver vazio, o gatilho será acionado e a data atual será mostrada no controle de data e hora, conforme mostrado na imagem abaixo.</p>
+
+            <figure>
+
+            </figure>
+
+            <h2 id="item3h">Grids</h2>
+
+            <p>Uma grid é armazenada em uma variável de caso' como um conjunto de matrizes associativas, portanto, deve ser referenciada como <strong>@=field_name</strong>, onde o nome do campo do objeto de grade em um formulário mestre é usado. A contagem de objetos no array começa a partir do número 1 (não 0 como um array normal). Cada linha é armazenada como uma matriz associativa onde os nomes dos campos da grid são as chaves e os dados inseridos são os valores.</p>
+
+            <p>Verifique quantas linhas estão em uma grade usando a função count(). Por exemplo, para verificar se a grade "Produtos" tem mais de 3 linhas:</p>
+
+            <codeblock><font color="red">count</font><font color="green">(@=</font>Produtos<font color="green">) ></font> <font color="magenta">3</font></codeblock>
+
+            <p>Não é uma boa ideia fazer referência a uma linha de grid específica em uma condição, porque um erro será gerado se a linha não existir. Em vez disso, envolva a condição dentro de um operador ternário, que primeiro verifica se a linha existe.</p>
+
+            <p>Por exemplo, para verificar se o campo Preço na primeira linha da grid Produtos é maior que 100, primeiro verifique se a linha existe com a função count(). Se existir, verifique o valor do primeiro campo Preço; caso contrário, retorne falso.</p>
+
+            <codeblock><font color="red">count</font><font color="green">(@=</font>Produtos<font color="green">) ></font> <font color="magenta">1</font> ? <font color="green">@=</font>Produtos<font color="green">[</font>1<font color="green">][</font><font color="blue">'Preço'</font><font color="green">] ></font> <font color="magenta">100</font> <font color="green">: false</font></codeblock>
+
+            <p>Se não tiver certeza se o formulário de grade foi enviado, é uma boa ideia primeiro verificar se a variável de caso de grid existe com isset().</p>
+                
+            <p>Por exemplo, para verificar se a caixa de seleção Importada Sim/Não na primeira linha da grade Produtos está marcada como "Sim" (que tem o valor 1):</p>
+
+            <codeblock><font color="red">isset</font><font color="green">(@=</font>Produtos) e <font color="red">count</font><font color="green">(@=</font>Produtos<font color="green">) >=</font><font color="magenta">1</font> e <font color="green">@=</font>Produtos<font color="green">[</font><font color="magenta">1</font><font color="green">][</font>imported<font color="green">] ==</font> <font color="magenta">1</font></codeblock>
+
+            <p>A primeira condição verifica se a grade existe, depois verifica se há pelo menos uma linha na grade e finalmente verifica se a opção "Sim" foi selecionada na caixa Sim/Não (Sim é 1, Não é 0).</p>
+
+            <p>Para verificar se algum dos campos Preço em alguma das linhas é maior que 100, é recomendável disparar um gatilho antes da condição que passe por todas as linhas da grade e atribua o valor de retorno a uma variável de caso que possa ser verificada na condição. Por exemplo, use o seguinte gatilho:</p>
+
+            <codeblock>
+                <p><font color="green">@=</font>Over100 <font color="green">= false;</font></p>
+                <p><font color="rgb(237, 252, 174)">foreach</font> <font color="green">(@=</font>Produtos as <font color="darkblue">$row</font><font color="green">) {</font></p>
+                <p><font color="rgb(237, 252, 174)">if</font> <font color="reen"g>(</font><font color="darkblue">$row</font><font color="reen"g>[</font><font color="blue">'Preço'</font><font color="green">] ></font> 100<font color="reen"g>)</font></p>
+                    <p><font color="green">@=</font>Over100 = <font color="green">true;</font></p>
+                <p><font color="green">}</font></p>
+            </codeblock>
 
 
+            <p>Então use a seguinte condição:</p>
 
+            <codeblock><font color="green">@=</font>Over100</codeblock>
         </div>
+        </article>
+          
+        <article>
+        <h1 id="item4">Definir condições</h1>
+
+            <p>As condições podem ser definidas para vários elementos diferentes no Gestor Express.</p>
+            
+            <h2 id="item4a">Condições para gatilhos</h2>
+
+            <p>Definir uma condição para um gatilho é semelhante a definir condições para outros tipos de etapas. Primeiro, atribua o gatilho para disparar em um ponto específico de uma tarefa. Em seguida, clique com o botão direito do mouse na tarefa no mapa do processo e selecione a opção <strong>Etapas</strong> no menu suspenso.</p>
+
+            <figure id="detalhe">
+
+            </figure>
+                       
+            <p>Quando a janela Etapas para a tarefa for aberta, adicione um gatilho como uma etapa. Em seguida, clique no botão <strong>Condição</strong>.</p>
+            
+            <figure>
+
+            </figure>            
+            
+            <p>Ao abrir a janela Condição de Gatilho, há uma seção onde pode ser adicionada uma condição para a execução do trigger. Esta condição funcionará como um IF para a execução do gatilho. Observe que as variáveis de caso e de sistema podem ser adicionadas clicando no botão @@.</p>
+            
+            <figure>
+
+            </figure>
+            
+            <p>Após clicar no botão @@, a janela Variáveis de Processo será exibida, onde as variáveis de caso e de sistema podem ser encontradas e adicionadas à condição.</p>
+            
+            <figure>
+
+            </figure>
+            
+            <p>Depois que uma condição for adicionada ao gatilho, o botão Condição terá um asterisco próximo a ele, informando ao usuário que o gatilho tem uma condição que precisa ser atendida antes de ser acionado.</p>
+
+            <figure>
+
+            </figure>            
+                     
+            <h2 id="item4b">Condições nas regras de roteamento</h2>
+
+            <p>As regras de roteamento podem usar condições para decidir quais caminhos seguir em um processo.</p>
+            
+            <p>Uma condição pode ser definida para cada caminho. Se a condição for avaliada como verdadeira, a próxima tarefa nesse caminho será executada. Se falsa, a próxima tarefa (e quaisquer tarefas subsequentes no mesmo caminho) não serão executadas. Se a condição em uma regra de roteamento for deixada em branco, a condição será avaliada como verdadeira e a próxima tarefa no caminho será executada.</p>
+            
+            <p>Adicione uma condição a um gateway clicando com o botão direito do mouse e selecionando a opção <strong>Propriedades</strong>.</p>
+
+            <figure id="detalhe">
+
+            </figure>
+                        
+            <p>Uma nova janela será aberta onde as condições das regras de roteamento do gateway podem ser definidas.</p>
+            
+            <figure>
+
+            </figure>
+            
+            <p>Defina as condições para a regra de roteamento na seção Condição. Certifique-se de que pelo menos uma das condições será avaliada como verdadeira, caso contrário, um erro será lançado e o processo será interrompido nesse ponto. Lembre-se também que as regras de roteamento de um gateway podem ser priorizadas, leia esta documentação para mais informações.</p>           
+            
+            <figure>
+
+            </figure>
+
+            <h2 id="item4c">Condições para o Gestor Express Mobile</h2>
+
+            <p>Para restringir a execução de gatilhos ou etapas de acordo com o ambiente em que o caso está sendo executado, é possível definir as seguintes condições.</p>
+
+            <p>Para restringir um acionador ou etapa para funcionar apenas com o Gestor Express Mobile, atribua a seguinte condição:</p>
+            
+            <codeblock>$_SERVER<font color="green">[</font><font color="blue">'HTTP_USER_AGENT'</font><font color="green">] ==</font> <font color="blue">'formslider-ios'</font> <font color="green">||</font> $_SERVER<font color="green">[</font><font color="blue">'HTTP_USER_AGENT'</font><font color="green">] ==</font> <font color="blue">'formslider-android'</font></codeblock>
+
+            <figure>
+
+            </figure>
+                        
+            <p>Para restringir um gatilho ou etapa para funcionar apenas com a versão para desktop do Gestor Express, atribua a seguinte condição:</p>
+            
+            <codeblock>$_SERVER<font color="green">[</font><font color="blue">'HTTP_USER_AGENT'</font><font color="green">] !=</font> <font color="blue">'formslider-ios'</font>  <font color="green">&&</font> $_SERVER<font color="green">[</font><font color="blue">'HTTP_USER_AGENT'</font><font color="green">] !=</font> <font color="blue">'formslider-android'</font></codeblock>
+
+            <figure>
+
+            </figure>
+
+        </article>
+
+        <article>               
+            
+            <h1 id="item5">Erros nas Condições</h1>
+
+            <p>Pode ser difícil depurar problemas em condições, portanto, é recomendável executar casos com o Depurador ativado. À medida que um caso avança, examine os valores do caso e das variáveis do sistema usadas nas condições e verifique se as condições estão testando os valores corretos.</p>
+            
+            <p>Se houver um erro de sintaxe em uma condição, uma mensagem de erro aparecerá para indicar o problema durante a execução de casos.</p>
+
+            <figure>
+
+            </figure>
+                                    
+            <p>Se o Gestor Express encontrar uma variável de caso que não existe ou ainda não foi definida no processo ao avaliar uma condição, ele não fornece nenhuma indicação do problema. Em vez disso, ele insere um valor de "" (uma string vazia) no lugar da variável e avalia a expressão. Esse tipo de problema pode ser muito difícil de depurar, porque o caso continua a ser executado sem fornecer qualquer indicação de problema.</p>
+            
+            <p>Se todas as condições de um gateway exclusivo ou inclusivo forem avaliadas como falsas e não houver fluxo padrão disponível, o processo será interrompido e a seguinte mensagem de erro será exibida:</p>
+
+            <figure>
+
+            </figure>
+                                    
+            <p>Corrija as condições para que pelo menos uma delas sempre seja avaliada como verdadeira.</p>
+
+            <h2 id="item5a">Problemas Comuns de Condição</h2>
+
+            <p>Estes são alguns problemas comuns ao projetar condições:</p>
+            
+            <ul>
+                <li>Nomes de variáveis com erros ortográficos. Lembre-se de que os nomes das variáveis diferenciam maiúsculas de minúsculas e devem ser escritos exatamente como definidos (nos nomes dos campos em Formulários Dinâmicos ou como variáveis de maiúsculas e minúsculas em gatilhos).</li>
+                <li>Usando uma variável de caso em uma condição antes que ela tenha sido criada no processo. Não use uma variável de caso em uma condição se ela for criada posteriormente em um campo de Formulário Dinâmico ou em um gatilho.</li>
+                <li>Usando uma variável de caso de um campo de Formulário Dinâmico cujos dados podem não ter sido enviados em uma condição. Por padrão, clicar no link <strong>Próxima etapa</strong> em um formulário dinâmico não salvará os dados, portanto, nenhuma variável de caso será criada para cada campo do formulário dinâmico. Para corrigir esse problema, defina a propriedade <strong>Link da próxima etapa</strong> do Formulário Dinâmico para a opção "Salvar e continuar", para que os dados sejam salvos automaticamente quando o usuário clicar no link da próxima etapa. Se for necessário dar ao usuário a opção de salvar ou não os dados do Formulário Dinâmico, então dispare um gatilho APÓS o Formulário Dinâmico que criará variáveis de caso para cada um dos campos que são usados nas condições subsequentes. O código do gatilho seria:</li>
+            </ul>
+
+            <codeblock>
+                <p>if <font color="green">(!</font><font color="darkred">isset</font><font color=green>(@@</font>Field1<font color="green">))</font></p>
+                    <p><font color=green>(@@</font>Field1 <font color="green">=</font> <font color="blue">""</font><font color="green">;</font></p>
+                <p>if <font color="green">(!</font><font color="darkred">isset</font><font color=green>(@@</font>Field2))</p>
+                    <p><font color=green>(@@</font>Field2 <font color="green">=</font> <font color="blue">""</font><font color="green">;</font></p>
+            </codeblock>
+
+
+            <p>Ao comparar strings, lembre-se de usar o mesmo caso e o mesmo espaçamento. "HeLlO" não é igual "hello", e " hello " não é igual "hello". Ao comparar o texto inserido pelo usuário, é uma boa ideia eliminar os espaços ao redor com o comando trim() e converter todas as entradas em maiúsculas ou minúsculas com strtoupper() ou strtolower(). Por exemplo:</p>
+
+            <codeblock><font color="darkred">trim</font><font color="green">(</font><font color="darkred">strtoupper</font><font color="green">(@@</font>Department<font color=green>)) ==</font> <font color="blue">"FINANCAS"</font></codeblock>
+
+            <p>Se estiver pesquisando no texto inserido pelo usuário, considere usar preg_match(). Por exemplo:</p>
+            
+            <codeblock><font color="darkred">preg_match</font><font color="green">(</font><font color="blue">"/financas/i"</font><font color="green">@@</font>Department<font color="green">)</font></codeblock>
+
+
+            <p>No PHP, = é usado para atribuição, enquanto == ou === é usado para igualdade. A condição @%TipoDespesa = 3 sempre será avaliada como verdadeira, porque o inteiro 3 está sendo ATRIBUÍDO à variável, ao invéz de testar a igualdade. Em vez disso, use a condição @%TipoDespesa == 3 para verificar se @%TipoDespesa é igual ao inteiro 3.</p>
+
         </article>
     </section>
 
@@ -551,9 +735,9 @@
                 <li><a href="#item2f">Strings em Condições</a></li>
                 <li><a href="#item2g">Precedência do Operador em Condições</a></li>
             </ol>
-            <li><a href="item3">Condições com campos de Formulários</a></li>
+            <li><a href="#item3">Condições com campos de Formulários</a></li>
             <ol type="A">
-                <li><a href="item3a">Caixas de texto e caixas de sugestões</a></li>
+                <li><a href="#item3a">Caixas de texto e caixas de sugestões</a></li>
                 <li><a href="#item3b">Áreas de texto</a></li>
                 <li><a href="#item3c">Data hora</a></li>
                 <li><a href="#item3d">Caixas de seleção</a></li>
