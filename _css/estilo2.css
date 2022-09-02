@@ -375,18 +375,15 @@ div#caixa {
 }
 
 footer {
-    background-color: var(--cor1);
-    color: white;
-    padding: 50px 0px;
-}
-
-#impacto {
-    width: 140px;
+    background-color: #1D438A;
+    padding: 50px 0;
+    clear: both;
+        
 }
 
 .container-footer {
     max-width: 1400px;
-    padding: 0px 4%;
+    padding: 0 4%;
     margin: auto;
 }
 
@@ -395,48 +392,62 @@ footer {
     flex-wrap: wrap;
 }
 
-.col-footer {
-    width: 25%;
+.footer-col {
+    width: 22%;
     padding: 0 15px;
 }
 
-.col-footer h4 {
+.footer-col img{
+    width: 60%;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: white;
     margin-bottom: 20px;
     font-weight: 500;
     position: relative;
     text-transform: uppercase;
 }
 
-.col-footer ul {
+.footer-col p{
+    font-size: 14px;
+    text-align: left;
+    line-height: 20px;
+    color: white;
+    font-weight: 300;
+    position: relative;
+}
+
+.foot-col ul{
     list-style: none;
 }
 
-.col-footer ul li {
-    font-size: 1em;
-    color: white;
+.footer-col ul li {
     margin: 10px 0;
+    list-style: none;
 }
 
-.col-footer li a {
-    font-size: 1em;
+.footer-col ul li a {
+    font-size: 14px;
+    text-decoration: none;
     text-transform: capitalize;
     color: white;
-    text-decoration: none;
     font-weight: 300;
     display: block;
     transition: all 0.3s ease;
 }
 
-.col-footer li a:hover {
+.footer-col ul li a:hover {
     color: #00BFB2;
     padding-left: 10px;
 }
 
-.col-footer .medias-sociais {
+.footer-col .medias-sociais {
     margin-top: 30px;
 }
 
-.col-footer .medias-sociais a {
+.footer-col .medias-sociais a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -447,17 +458,53 @@ footer {
     border-radius: 50%;
     color: white;
     border: 1px solid white;
-    transition: all 0.5s ease;
+    transition: all0.5s ease;
 }
 
-.col-footer .medias-sociais a i {
+.footer-col .medias-sociais a i{
     font-size: 20px;
 }
 
+.footer-col .medias-sociais a:hover {
+    background-color: var(--cor2);
+}
 
-.col-footer .medias-sociais a:hover {
-    color: #00BFB2;
+.footer-col .form-sub input{
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid white;
+    color: white;
+    background-color: #1D438A;
+}
+
+.footer-col .form-sub input::placeholder{
+    color: white;    
+}
+
+.footer-col .form-sub button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
     background-color: white;
 }
 
-
+@media (max-width: 800px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+    
+@media (max-width: 600px){
+    .footer-col{
+        width: 100%;
+    }
+}
