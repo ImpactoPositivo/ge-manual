@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Formulários Dinâmicos</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+
+            <p>Os tipos de mensagens introduzem um novo conceito de manipulação de um conjunto de campos de mensagens que serão usados para enviar "mensagens" entre dois processos. Os campos de mensagem introduzem um novo tipo de dado que contém informações que um processo envia a outro por meio de elementos de evento de mensagem. Os eventos de mensagem que usam os tipos de mensagem e que são suportados pelo sistema Gestor Express são os seguintes:</p>
+
+            <ul>
+                <li>
+                    Enviar eventos de mensagem
+                    <ul type="disc">
+                        <li>Enviar evento intermediário de mensagem</li>
+                        <li>Enviar evento de término de mensagem</li>
+                    </ul>
+                </li>
+                <li>
+                    Receber eventos de mensagem
+                    <ul type="disc">
+                        <li>Receber evento de início de mensagem</li>
+                        <li>Receber Evento Intermediário de Mensagem</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h1 id="item3">Criando tipos de mensagem</h1>
+            
+            <p>Crie um novo "Tipo de Mensagem" com um conjunto de variáveis abrindo o processo no qual a conexão será utilizada. Em seguida, vá para o lado direito da tela onde a Caixa de ferramentas principal está localizada. Passe o cursor sobre o ícone de mais na opção "Tipos de mensagens" da Caixa de ferramentas principal, para exibir o botão "Criar" à esquerda.</p>
+
+            <figure>
+
+            </figure>
+
+            <figure>
+
+            </figure>
+
+            <p>O primeiro campo obrigatório é "Nome", o que significa adicionar um nome para identificar o "Tipo de Mensagem" que está sendo criado.</p>
+
+            <p>O próximo campo, também obrigatório, é "Nome do campo da mensagem". Nesse campo específico, insira um nome exclusivo para identificar a variável. O nome deve ser um nome de variável PHP válido, que começa com uma letra ou sublinhado, seguido por qualquer número de letras, números ou sublinhados. Espaços, símbolos e letras internacionais com valor superior a 255 não são permitidos. Em seguida, clique em "Criar" e a nova variável será adicionada à lista de variáveis "Tipo de Mensagem". Crie quantas novas variáveis forem necessárias.</p>
+
+            <p><font color="green">Observação:</font> O Tipo de Mensagem não permite configurar variáveis de Arquivo Múltiplo. Caso contrário, as APIs Variable Rest exibem valores diferentes.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Após a criação das variáveis necessárias, clique no botão "Salvar" para salvar as alterações e continuar ou "Cancelar" para descartar todas as alterações.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>Se uma variável precisar ser editada, entre na janela "Tipo de Mensagem" e clique em "Editar". Imediatamente após clicar em "Editar" a variável reaparecerá na parte "Nome do Campo da Mensagem" da janela e a variável poderá ter seu nome alterado.</p>
+
+            <figure>
+
+            </figure>
+
+            <p>As variáveis também podem ser excluídas clicando no botão "Excluir". Ao clicar aparecerá uma mensagem solicitando confirmação para apagar a variável.</p>
+
+            <figure>
+
+            </figure>
+
+        </article>
+
+    </section>
+
+    <aside>
+        <section id="lado">
+            <h1>Tipos de Mensagens</h1>
+            <h2>Conteúdo:</h2>           
+            <ol>
+                <li>Visão geral</li>
+                <li>Criando tipos de mensagem</li>
+            </ol>
+        </section>
+    </aside>
+
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

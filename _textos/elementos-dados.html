@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Formulários Dinâmicos</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+
+            <p>Elementos de dados são usados para inserir dados em um processo ou dados de saída de um processo. No BPMN, os dados podem ser modelados por vários tipos de elementos de dados, como objetos de dados, entradas de dados, saídas de dados e armazenamentos de dados. Os dados também podem ser gerenciados pelo estado do objeto, como instanciado, concluído, excluído, etc. Por exemplo, no processo Relatório de Despesas, um recibo carregado como um arquivo de Documento de Entrada é um objeto de dados de entrada e uma fatura gerada como um Documento de Saída é um objeto de dados de saída. Os dados gerados a partir de Formulário Dinâmicos e variáveis são salvos em uma tabela de relatório e representados como um armazenamento de dados no mapa do processo.</p>
+
+            <p>Os elementos de dados são encontrados na caixa de ferramentas de formas:</p>
+
+            <figure>
+                <img src="../_imagens/elementos-dados-11.png" alt="Barra de Ferramentas">
+            </figure>
+
+            <h1 id="item2">Objeto de dados</h1>
+
+            <p>Um objeto de dados representa informações que fluem pelo processo, como documentos comerciais, e-mails ou cartas. É representado pelo seguinte elemento:</p>
+
+            <figure id="pequena">
+                <img src="../_imagens/elementos-dados-12.png" alt="Icone Elemento de Dados">
+            </figure>
+
+            <p>Por padrão, o rótulo do elemento será "<code>Objeto de Dados#...</code>". Clique duas vezes no ícone para editar o rótulo.</p>
+
+            <figure id="detalhe">
+                <img src="../_imagens/elementos-dados-13.png" alt="Rotulo de Elemento de Dados">
+            </figure>
+
+            Exemplo:
+
+            <figure>
+                <img src="../_imagens/elementos-dados-14.png" alt="Exemplo de Objetos de Dados">
+            </figure>
+
+            <h1 id="item3">Tipos de dados</h1>
+
+            <p>Altere o tipo de objeto de dados para "Entrada", "Saída" ou "Vazio" no menu de contexto do elemento de objeto de dados:</p>
+
+            <figure id="detalhe">
+                <img src="../_imagens/elementos-dados-31.png" alt="Contexto do Elemento">
+            </figure>
+
+            <ul>
+                <li><strong>Entrada:</strong> Selecione este tipo de objeto de dados para indicar que a entrada será de um aplicativo externo.</li>
+                <li><strong>Saída:</strong> Selecione este tipo de objeto de dados se os dados do processo forem usados para gerar um documento que será exportado do Gestor Express.</li>
+                <li><strong>Vazio:</strong> Selecione este tipo de objeto de dados se os dados não forem de entrada ou saída.</li>
+            </ul>
+
+            <p>Exemplo:</p>
+
+            <figure>
+                <img src="../_imagens/elementos-dados-32.png" alt="Exemplo de Documento de entrada">
+            </figure>
+
+            <h2 id="item3a">Banco de dados</h2>
+
+            <p>Um armazenamento de dados é um local onde o processo pode ler ou gravar dados, por exemplo, um banco de dados ou uma pasta de arquivos. Ele existe independente do tempo de vida da instância do processo.</p>
+
+            <p>É representado pelo seguinte elemento:</p>
+
+            <figure id="detalhe">
+
+            </figure>
+
+            <p>Por padrão, o rótulo do elemento será "<code>Armazenamento de Dados #...</code>". Clique duas vezes no ícone para editar o rótulo.</p>
+
+            <figure id="detalhe">
+
+            </figure>
+
+            <p>Exemplo:</p>
+
+            <figure>
+
+
+            </figure>
+        </article>
+
+    </section>
+
+    <aside>
+        <section id="lado">
+            <h1>Conteúdo:</h1>
+            <ol>
+                <li>Visão geral</li>
+                <li>Objeto de dados</li>
+                <li>Tipos de dados
+                    <ol type="A">
+                        <li>Banco de dados</li>
+                    </ol>
+            </li>
+            </ol>
+        </section>
+    </aside>
+
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

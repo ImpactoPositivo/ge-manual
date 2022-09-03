@@ -90,6 +90,11 @@ div#cabecario h2 {
     padding: 15px 0px 10px 40px;
 }
 
+#pequena img {
+    width: 5vw;
+    padding: 15px 0px 10px 40px;
+}
+
 div#ladoalado {
     display: flex;
     padding: 15px 10px 10px 30px;
