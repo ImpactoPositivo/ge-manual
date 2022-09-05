@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor Express - Formulários Dinâmicos</title>
-    <link rel="stylesheet" href="../_css/footer.css">
+    <title>Gestor Express - Elementos</title>
+    <link rel="stylesheet" href="../_css/style.css">
     <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <header id="header">
+    <main>
+        <header>
             <figure>
                 <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
             </figure>
-            <div class="cabecario">
+            <div id="cabecario">
                 <h1>Gestor Express</h1>
                 <h2>Gerenciamento de Fluxo de Trabalho</h2>
             </div>
         </header>
-        <div id="sidebar">
+        <aside id="lado">
             <h1>Eventos</h1>
             <h2>Conteúdo</h2>
             <ol>
@@ -56,7 +56,7 @@
                                 <a href="#item4c">Evento de Início: temporizador</a>
                                     <ol type="I">
                                         <li><a href="#item4ci">Configuração</a></li>
-                                        <li><a href="#item4cii">Iniciar evento do temporizador - casos em execução</a></li>
+                                        <li><a href="#item4cii">Iniciar evento com temporizador - casos em execução</a></li>
                                     </ol>
                             </li>
                             <li><a href="#item4d"> Evento de Início: condicional</a></li>
@@ -118,8 +118,8 @@
                 <li><a href="#item7">Exemplo de eventos</a></li>
                 <li><a href="#item8">Solução de problemas de eventos</a></li>
             </ol>
-        </div>
-        <div id="content">
+        </aside>
+        <section id="principal">
             <article>
                 <h1 id="item1">Visão geral</h1>
 
@@ -352,7 +352,7 @@
 
                 </figure>
 
-                A seção Conteúdo da mensagem será exibida. Selecione a variável no campo Armazenar valor em clicando no botão <strong>@@</strong> ou digitando o nome da variável com o prefixo @@ e clique em <strong>Salvar</strong>.
+                <p>A seção Conteúdo da mensagem será exibida. Selecione a variável no campo Armazenar valor em clicando no botão <strong>@@</strong> ou digitando o nome da variável com o prefixo @@ e clique em <strong>Salvar</strong>.</p>
 
                 <figure>
 
@@ -389,126 +389,175 @@
 
                 <p><strong>Linux:</strong></p>
 
-                <code><diretório de instalação>/Gestor Express/workflow/engine/bin/messageeventcron.php</code>
+                <code id="sozinho"><pasta de instalacao></pasta>/Gestor Express/workflow/engine/bin/messageeventcron.php</code>
 
                 <p><strong>Janelas:</strong></p>
 
-                <code><diretório de instalação>/Gestor Express\workflow\engine\bin\messageeventcron.php</code>
+                <code id="sozinho"><pasta de instalacao>/Gestor Express\workflow\engine\bin\messageeventcron.php</code>
 
                 <p>Para iniciar os casos pendentes do evento de início Receive Message, abra um terminal, vá até a localização do arquivo e execute o seguinte comando:</p>
 
-                php -f mensagemeventcron.php
-                Para obter mais informações, consulte Executando Scripts Cron.
+                <codeblock>php -f mensagemeventcron.php</codeblock>
 
-                Por exemplo, no projeto a seguir, após executar a Tarefa 1 do primeiro processo, o evento intermediário Enviar Mensagem enviará uma mensagem ao evento inicial Receber Mensagem para iniciar o segundo processo na Tarefa 3.
+                <p>Para obter mais informações, consulte Executando Scripts Cron.</p>
+
+                <p>Por exemplo, no projeto a seguir, após executar a Tarefa 1 do primeiro processo, o evento intermediário Enviar Mensagem enviará uma mensagem ao evento inicial Receber Mensagem para iniciar o segundo processo na Tarefa 3.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Lembre-se de que ambos os eventos devem ter o mesmo valor de correlação. Neste exemplo, o valor de correlação é definido como ID = "12345678910" em ambos os eventos.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Inicie um caso do primeiro processo. Após a Tarefa 1, o evento intermediário de envio de mensagem enviará a mensagem MessageA para o evento de início Receber Mensagem no segundo processo para iniciar um novo caso do segundo processo.</p>
+
+                <p>Para iniciar o caso do segundo processo, execute o script <strong>messageeventcron.php</strong>. Uma mensagem semelhante à abaixo será exibida:</p>
+
+                <codeblock>
+                <p># php -f messageeventcron.php Área de
+                    trabalho de processamento: workflow322</p> 
+                +-------------------------------------- ----------+ | Mensagem-Eventos (não lidos): 1/1 [||||||||||||||||||||||||||||||||||||||| |||||||||| Total de eventos de mensagens não lidos: 1 | Total de casos iniciados: 1 | Total de casos continuados: 0 | Total de eventos de mensagens pendentes: 0 +------------------------------------------ ------+ Concluído 1 workspaces processados Concluído!</codeblock>
+
+                <p>Para trabalhar com o caso pendente, vá para a caixa de entrada do Gestor Express e abra o caso.</p>
+
+                <p><font color="green">Observação:</font> O processo fornecido neste exemplo é apresentado apenas para explicar como o evento funciona ao executar casos. Para um exemplo do mundo real, veja o exemplo no final desta página.</p>
+
+                <h2 id="item4c">Evento de Início: temporizador</h2>
+
+                <p>O vento de Início: temporizador inicia automaticamente novos casos em horários especificados. Esses casos podem ser programados para serem iniciados de hora em hora, diariamente, semanalmente ou mensalmente, ou apenas uma vez.</p>
+
+                <p>Para adicionar um evento de início de temporizador ao modelo, arraste e solte um evento de início de temporizador da caixa de ferramentas Formas:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Se já houver um evento de início no processo, clique com o botão direito do mouse no evento e selecione Iniciar Tipo de Evento no menu de contexto e selecione a opção Temporizador.</p>
+
+                <p>Um processo contendo um evento de início com temporizador deve ter pelo menos uma tarefa. A primeira tarefa após um evento de início com temporizador precisa ser atribuída a pelo menos um usuário. Os eventos de início com temporizador não funcionam corretamente se a tarefa inicial for uma tarefa de script.</p>
+
+                <p>No processo a seguir, o evento de início com temporizador iniciará automaticamente os casos na tarefa "Auditoria Mensal de Compras" quando o evento for executado pelo script timereventcron.php.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para iniciar manualmente os casos deste processo usando a interface gráfica do Gestor Express, um evento de início normal pode ser adicionado à primeira tarefa, além do evento de início com temporizador. Qualquer usuário atribuído à tarefa "Auditoria de compras mensais" pode efetuar login no Gestor Express e iniciar um caso manualmente.</p>
+
+                <p><font color="green">Observação:</font> A primeira tarefa em um caso iniciado com um evento de início com temporizador terá um índice de delegação de 2, pois o evento é considerado a primeira etapa da tarefa.</p>
+
+                <h2 id="item4ci">Configuração</h2>
+
+                <p><font color="green">Observação:</font> Os horários devem estar no horário UTC quando o servidor estiver no horário UTC.</p>
+
+                <p>Para configurar um evento de início com temporizador, clique com o botão direito do mouse no evento e selecione <strong>Propriedades</strong> no menu de contexto.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A seguinte janela será exibida:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Selecione com que frequência o caso será iniciado:</p>
+
+                <ul>
+                    <li>
+                        <strong>Por hora:</strong> Um caso será criado a cada hora. Insira os minutos da hora em que um novo caso será iniciado. Por exemplo, 20significa que um novo caso será iniciado vinte minutos após cada hora do dia. Defina também a <strong>Data</strong> de início quando novos casos começarão a ser criados. Se novos casos deixarem de ser criados após uma data especificada, insira a <strong>Data de término</strong> opcional.
+                        <figure>
+                    
+                        </figure>
+                    </li>
+                    <li>
+                        <strong>Diariamente:</strong> Um novo caso será iniciado automaticamente diariamente.
+                    
+                            <figure>
+                    
+                            </figure>
+                    
+                        <p>Onde:</p>
+                    
+                        <ul type="disc">
+                            <li><strong>Data de início:</strong> Selecione a data em que novos casos começarão a ser criados.</li>
+                            <li><strong>Data de término:</strong> selecione uma data em que novos casos deixarão de ser criados. Se nenhuma data for selecionada, novos casos serão criados para sempre.</li>
+                            <li><strong>Hora:</strong> Selecione a hora em que o novo caso será iniciado.</li>
+                            <li><strong>Minuto:</strong> Selecione o minuto da hora em que o novo caso será iniciado.</li>
+                            <li><strong>Selecione o(s) dia(s) da semana:</strong> Selecione os dias da semana em que novos casos serão iniciados automaticamente.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Mensalmente:</strong> Um novo caso será iniciado automaticamente mensalmente.
+                            <figure>
+                    
+                            </figure>
+                        <p>Onde:</p>
+                        <ul type="disc">
+                            <li><strong>Data de início:</strong> Selecione a data em que um novo caso será agendado para iniciar todo mês.</li>
+                            <li><strong>Data de término:</strong> Selecione a data em que os casos deixarão de ser agendados. Se nenhuma data for selecionada, os casos continuarão sendo agendados para sempre.</li>
+                            <li><strong>Dia:</strong> Selecione o dia em que o caso será iniciado. Os dias são representados em números onde 1 corresponde a segunda-feira.</li>
+                            <li><strong>Hora:</strong> Selecione a hora em que o caso será iniciado.</li>
+                            <li><strong>Minuto:</strong> Selecione o minuto em que o caso será iniciado.</li>
+                            <li><strong>Do(s) mês(es):</strong> Selecione em quais meses os casos serão iniciados automaticamente.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Uma data/hora:</strong> Ao configurar as horas em "Uma data/hora", a hora pode ser definida no fuso horário do usuário.
+                        <figure>
+                        </figure>
+                        <p>Clique dentro do campo <strong>Data e hora</strong> e o seguinte calendário será exibido:</p>
+                        <figure>
+                    
+                        </figure>
+                        <p>Escolha a data e hora específicas em que o caso será iniciado.</p>
+                    </li>
+                    <li>
+                        <strong>A cada:</strong> Um caso será criado automaticamente A CADA hora. Além disso, é possível configurar a hora, minutos e segundos usando pontos decimais, ou seja, quando o minuto é definido, o formato na caixa Minuto é 00.00, e se for necessário definir segundos, basta digitar 20.01 na caixa Minuto durante vinte minutos e um segundo, etc.
+                            <figure>
+                    
+                            </figure>
+                    </li>
+                </ul>
 
 
+                <h2 id="item4cii">Iniciar evento com temporizador - casos em execução</h2>
 
-                Lembre-se de que ambos os eventos devem ter o mesmo valor de correlação. Neste exemplo, o valor de correlação é definido como ID = "12345678910" em ambos os eventos.
+                <p>Ao executar casos de processos que possuem o Evento de Início com Temporizador configurado para iniciar o processo, é necessário executar o script timereventcron.php no servidor Gestor Express para iniciar quaisquer casos pendentes do evento. Este arquivo está localizado em:</p>
 
+                <p><strong>Linux:</strong></p>
 
+                <code id="sozinho"><diretório de instalação> /Gestor Express/workflow/engine/bin/timereventcron.php</code>
 
-                Inicie um caso do primeiro processo. Após a Tarefa 1, o evento intermediário de envio de mensagem enviará a mensagem MessageA para o evento de início Receber Mensagem no segundo processo para iniciar um novo caso do segundo processo.
+                <p><strong>Janelas:</strong></p>
 
-                Para iniciar o caso do segundo processo, execute o script messageeventcron.php. Uma mensagem semelhante à abaixo será exibida:
+                <code id="sozinho"><diretório de instalação> \Gestor Express\workflow\engine\bin\timereventcron.php</code>
 
-                # php -f messageeventcron.php Área de
-                trabalho de processamento: workflow322 
-                +-------------------------------------- ----------+ | Mensagem-Eventos (não lidos): 1/1 [||||||||||||||||||||||||||||||||||||||| |||||||||| Total de eventos de mensagens não lidos: 1 | Total de casos iniciados: 1 | Total de casos continuados: 0 | Total de eventos de mensagens pendentes: 0 +------------------------------------------ ------+ Concluído 1 workspaces processados Concluído!
-                Para trabalhar com o caso pendente, vá para a caixa de entrada do Gestor Express e abra o caso.
+                <p>Para iniciar casos pendentes que começam com um evento de Início com Temporizador, abra um terminal, vá até o local do arquivo e execute o seguinte comando:</p>
 
-                Observação: O processo fornecido neste exemplo é apresentado apenas para explicar como o evento funciona ao executar casos. Para um exemplo do mundo real, veja o exemplo no final desta página.
+                <codeblock>php -f timereventcron.php</codeblock>
 
-                Iniciar evento: temporizador
-                O evento Timer start inicia automaticamente novos casos em horários especificados. Esses casos podem ser programados para serem iniciados de hora em hora, diariamente, semanalmente ou mensalmente, ou apenas uma vez.
+                <p>Para obter mais informações, consulte Executando Scripts Cron.</p>
 
-                Para adicionar um evento de início de temporizador ao design, arraste e solte um evento de início de temporizador da caixa de ferramentas Formas:
+                <p><font color="green">Observação:</font> Os eventos continuarão somente após a execução do script timereventcron.php, mesmo que estejam atrasados.</p>
 
+                <p>A mensagem mostrada no terminal será semelhante à imagem a seguir:</p>
 
+                <codeblock>
+                    <p>[worker@centos bin]# php -f timereventcron.php +wworkflow</p>
+                        <p><font color="green">Processando área de trabalho: workflow</font></p>
+                    
+                    +------------------------------ ------------------+ | > Criando o novo caso... | - OK caso #20 foi criado | > Encaminhando o caso # 20... | -OK +---------------------------------------------------------- -+ | Nenhum registro existente para continuar um caso, na data "2017-09-14 18:36:54 (UTC +04:00)" +------ ----------------------------+ Concluído 1 espaços de trabalho processados Concluído!
+                </codeblock>
 
-                Se já houver um evento de início no processo, clique com o botão direito do mouse no evento e selecione Iniciar Tipo de Evento no menu de contexto e selecione a opção Temporizador.
+                <p>O novo caso deve aparecer na caixa de entrada do usuário no Gestor Express na segunda tarefa do processo.</p>
 
-                Um processo contendo um evento de início de timer deve ter pelo menos uma tarefa. A primeira tarefa após um evento de início do Timer precisa ser atribuída a pelo menos um usuário. Os eventos de início do temporizador não funcionam corretamente se a tarefa inicial for uma tarefa de script.
-
-                No processo a seguir, o evento Timer start iniciará automaticamente os casos na tarefa "Audit Monthly Purchases" quando o evento for executado pelo script timereventcron.php.
-
-
-
-                Para iniciar manualmente os casos deste processo usando a interface gráfica do Gestor Express, um evento de início normal pode ser adicionado à primeira tarefa, além do evento de início do Timer. Qualquer usuário atribuído à tarefa "Auditoria de compras mensais" pode efetuar login no Gestor Express e iniciar um caso manualmente.
-
-                Observação: A primeira tarefa em um caso iniciado com um evento Timer start terá um índice de delegação de 2, pois o evento é considerado a primeira etapa da tarefa.
-
-                Configuração
-                Observação: Os horários devem estar no horário UTC quando o servidor estiver no horário UTC.
-
-                Para configurar um evento de início do Timer, clique com o botão direito do mouse no evento e selecione Propriedades no menu de contexto.
-
-
-
-                A seguinte janela será exibida:
-
-
-
-                Selecione com que frequência o caso será iniciado:
-
-                Por hora: Um caso será criado a cada hora. Insira os minutos da hora em que um novo caso será iniciado. Por exemplo, 20significa que um novo caso será iniciado vinte minutos após cada hora do dia. Defina também a Data de início quando novos casos começarão a ser criados. Se novos casos deixarem de ser criados após uma data especificada, insira a Data de término opcional.
-
-
-                Diariamente: Um novo caso será iniciado automaticamente diariamente.
-
-
-                Onde:
-
-                Data de início: Selecione a data em que novos casos começarão a ser criados.
-                Data de término: selecione uma data em que novos casos deixarão de ser criados. Se nenhuma data for selecionada, novos casos serão criados para sempre.
-                Hora: Selecione a hora em que o novo caso será iniciado.
-                Minuto: Selecione o minuto da hora em que o novo caso será iniciado.
-                Selecione o(s) dia(s) da semana: Selecione os dias da semana em que novos casos serão iniciados automaticamente.
-                Mensalmente: Um novo caso será iniciado automaticamente mensalmente.
-
-
-                Onde:
-
-                Data de início: Selecione a data em que um novo caso será agendado para iniciar todo mês.
-                Data de término: Selecione a data em que os casos deixarão de ser agendados. Se nenhuma data for selecionada, os casos continuarão sendo agendados para sempre.
-                Dia: Selecione o dia em que o caso será iniciado. Os dias são representados em números onde 1 corresponde a segunda-feira.
-                Hora: Selecione a hora em que o caso será iniciado.
-                Minuto: Selecione o minuto em que o caso será iniciado.
-                Do(s) mês(es): Selecione em quais meses os casos serão iniciados automaticamente.
-                Uma data/hora: Ao configurar as horas em "Uma data/hora", a hora pode ser definida no fuso horário do usuário.
-
-
-                Clique dentro do campo Data e hora e o seguinte calendário será exibido:
-
-
-
-                Escolha a data e hora específicas em que o caso será iniciado.
-
-                A cada: Um caso será criado automaticamente A CADA hora. Além disso, é possível configurar a hora, minutos e segundos usando pontos decimais, ou seja, quando o minuto é definido, o formato na caixa Minuto é 00.00, e se for necessário definir segundos, basta digitar 20.01 na caixa Minuto durante vinte minutos e um segundo, etc.
-
-
-                Iniciar evento do temporizador - casos em execução
-                Ao executar casos de processos que possuem o evento Timer start configurado para iniciar o processo, é necessário executar o script timereventcron.php no servidor Gestor Express para iniciar quaisquer casos pendentes do evento. Este arquivo está localizado em:
-
-                Linux:
-                <diretório de instalação> /Gestor Express/workflow/engine/bin/timereventcron.php
-                Janelas:
-                <diretório de instalação> \Gestor Express\workflow\engine\bin\timereventcron.php
-                Para iniciar casos pendentes que começam com um evento Timer start, abra um terminal, vá até o local do arquivo e execute o seguinte comando:
-
-                php -f timereventcron.php
-                Para obter mais informações, consulte Executando Scripts Cron.
-
-                Observação: Os eventos continuarão somente após a execução do script timereventcron.php, mesmo que estejam atrasados.
-
-                A mensagem mostrada no terminal será semelhante à imagem a seguir:
-
-                [worker@centos bin]# php -f timereventcron.php +wworkflow
-                Processando área de trabalho: workflow 
-                +------------------------------ ------------------+ | > Criando o novo caso... | - OK caso #20 foi criado | > Encaminhando o caso # 20... | -OK +---------------------------------------------------------- -+ | Nenhum registro existente para continuar um caso, na data "2017-09-14 18:36:54 (UTC +04:00)" +------ ----------------------------+ Concluído 1 espaços de trabalho processados Concluído!
-                O novo caso deve aparecer na caixa de entrada do usuário no Gestor Express na segunda tarefa do processo.
-
-                Observação: certifique-se de que o fuso horário do Gestor Express seja igual ao date.timezone definido no arquivo php.ini do servidor. Consulte Solução de problemas de eventos abaixo.
+                <p><font color="green">Observação:</font> certifique-se de que o fuso horário do Gestor Express seja igual ao date.timezone definido no arquivo php.ini do servidor. Consulte Solução de problemas de eventos abaixo.</p>
 
                 Evento de início: condicional
                 O evento de início condicional não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design. O processo e a tarefa relacionados a este evento de início não serão listados na pasta Novo Caso.
@@ -948,69 +997,58 @@
                 Se ocorrer um erro durante a execução de um dos scripts cron, ele será registrado no arquivo shared/log/cronError.log, que é criado na primeira vez que ocorre um erro.
 
             </article>
-
-
-        </div>
-        <div id="navigation">
-            <div class="btnAction">
-                <div class="topo">
-                    <a href="#item1"><i class="fa-sharp fa-solid fa-arrow-up"></i></a>
-                </div>
-                <div class="home">
-                    <a href="../index.html"><i class="fa-sharp fa-solid fa-house"></i></a> 
+    
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+    
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+    
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+    
+                    </div> 
+                    <!--end footer-col-->
                 </div>
             </div>
-        </div>
-    <footer>
-        <div class="container-footer">
-            <div class="row-footer">
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Selo de Qualidade</h4>
-
-                    <figure>
-                        <img src="../_imagens/impacto-logo-branco.png" alt="">
-                    </figure>
-
-                </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Endereço</h4>
-                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
-                    <p>Avenida Nações Unidas, 17-17</p>
-                    <p>Vila Santo Antônio</p>
-                    <p>17015-903, Bauru, SP</p>
-                </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Mídias Sociais</h4>
-                    <div class="medias-sociais">
-                        <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>
-                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Subescreva-se</h4>
-                    <!-- form sub -->             
-                    <div class="form-sub">
-                        <form>
-                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
-                            <button>Subescrever</button>
-                        </form>
-                    </div>
-                    <!-- form sub -->        
-
-                </div> 
-                <!--end footer-col-->
-            </div>
-        </div>
-    </footer>
-</main>
-</body>
-</html>
+        </footer>
+        </main>
+    </body>
+    </html>

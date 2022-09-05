@@ -171,7 +171,7 @@ div#ladoalado {
 code#sozinho {
     background-color: #e7eefc;
     font-size: 1em;
-    margin: 0px 0px 15px 30px;
+    margin:0px 0px 15px 30px;
 }
 
 #principal codeblock {
@@ -303,10 +303,16 @@ div#caixa {
 
 #lado h1 {
     font-family: var(--fonte1);
-    color: var(--cor1);
-    font-size: 1,2em;
+    text-transform: uppercase;
+    font-size: 1.2em;
     padding-bottom: 10px;
     font-weight: bolder;
+}
+
+#lado h2 {
+    font-family: var(--fonte1);
+    font-size: 1em;
+    padding-bottom: 10px;
 }
 
 #lado ol {
