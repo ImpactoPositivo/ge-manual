@@ -7,6 +7,9 @@
     <title>Gestor Express - Conecte-se</title>
     <link rel="stylesheet" href="../_css/style.css">
     <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <main>
@@ -19,174 +22,180 @@
             <h2>Gerenciamento de Fluxo de Trabalho</h2>
         </div>
     </header>
-            <section id="principal">
-                <h1 id="item1">Conecte-se ao Gestor Express</h1>
-                    <p>Você pode acessar o Gestor Express de diferentes maneiras.</p>
-                    <p>Consulte as seções a seguir que discutem diferentes métodos para fazer login no Gestor Express:</p>
-                <article>
-                    <h1 id="item1">Interface padrão </h1>
-                        <h2 id="item1a">Acesse o Gestor Express por meio do Endereço IP:</h2>
-                            <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Endereço IP:</p>
-                            <p>Insira o endereço IP e o número da porta do servidor ou instância que hospeda o Gestor Express em um navegador Web padrão.</p>
-                            <code id="sozinho">
-                                <strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&lt;PORT&gt;</font></strong>
-                            </code>
-                            <p>Por exemplo, se estiver executando o Gestor Express no endereço IP 192.168.1.110 da porta 3018 , digite:</p>
-                            <code id="sozinho"><strong>http://192.168.1.110:3018</strong></code>
-                            <p>Se apenas o endereço IP estiver incluído na URL, o navegador da Web redirecionará automaticamente para a tela de logon do Gestor Express em:</p>
-                            <code id="sozinho">strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&ltPORT&gt;</font>/sys/en/neoclassic/login/login.html</strong></code>
-                                <p>A tela de logon é exibida.</p>
-                       
-                        <h2 id="item1b">Acesse o Gestor Express por meio de um subdomínio:</h2>
-                            <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Sub Domínio:</p>
-                            <p>Insira o do Sub Domínio da instância que hospeda o Gestor Express em um navegador Web padrão.</p>
-                            <p><strong>http://subdominio.gestorexpress.com.br</strong></p>
-                            <p>Por exemplo, se o nome fantasia de sua empresa for SkyLab S.A, e atribuirmos um subdominio com o nome de sua organização, digite:</p>
-                            <p><strong>http://skylab.gestorexpress.com.br</strong></p>
-                            <p>Com esse endereço digitado na URL de um navegador web qualquer, o navegador te redirecionará automaticamente para a tela de logon do Gestor Express em:</p>
-                            <p>http://skylab.gestorexpress.com.br/sys/en/neoclassic/login/login.html</p>
-                            <p>A tela de logon é exibida.</p>
-                            <figure>
-                                <img src="../_imagens/tela-inicial.png" alt="Tela de Login do Gestor Express">
-                            </figure>
-                </article>
-
-                <article>
-                    <h1 id="item2">Defina as configurações de logon</h1>
-                    <div>
-                        <h2 id="item2a">Acesse a tela de configurações de logon</h2>
-                        <p>Para acessar as configurações de logon, vá para ADMIN => Configurações => Login . A tela Configurações de login é exibida.</p>
-                        <figure>
-                            <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
-                        </figure>
-                    </div>
-                    <div>
-                        <h2 id="item2b">Definir o idioma padrão na tela de logon</h2>
-                        <p>Use a opção Idioma padrão para selecionar o idioma padrão exibido na tela de logon. O Gestor Express está disponível por padrão apenas em inglês, mas arquivos de tradução para idiomas adicionais podem ser instalados. Essa configuração deve ser definida para cada área de trabalho.</p>
-                        <p>Para definir o idioma padrão exibido na tela de logon de um espaço de trabalho, siga estas etapas:</p>
-                        <ol>
-                            <li>Acesse as configurações de Login.</li>
-                        
-                            <li>Faça uma das seguintes opções:</li>
-                            <ul>
-                                <li>Selecione o idioma padrão para esse espaço de trabalho na lista suspensa Idioma padrão .</li>
-                        
-                                <li>Selecione Usar o idioma da URL para permitir que a configuração de idioma na URL de logon especifique a configuração de idioma padrão. Por exemplo, o URL de logon contém “en” para o idioma inglês ou “es” para o idioma espanhol.</li>
-                            </ul>
-                        
-                            <li>Clique em Salvar configurações.</li>
-                        </ol>
-                        <figure>
-                            <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
-                        </figure>
-                    </div>
-                    <div>
-                        <h2 id="item2c">Ativar recuperação de senha</h2>
-                        <p>Ao habilitar esta opção, se um usuário esquecer a senha para fazer logon no Gestor Express, um link será exibido na tela de logon para enviar uma nova senha gerada aleatoriamente para a conta de e-mail desse usuário. Essa senha aleatória permite que o usuário crie uma nova senha.</p>
-                        <p>Para permitir que os usuários obtenham novas senhas, marque a opção <strong>Ativar Recuperação de Senha</strong> e clique em <strong>Salvar configurações</strong> .</p>
-                        <figure>
-                            <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
-                        </figure>
-                    </div>
-                </article>
-                <article>
-                    <h1 id="item3">Altere o destino padrão após o logon</h1>
-                    <p>Após o login, os usuários com as funções Operaador e Supervisor são direcionados por padrão ao menu Início para exibir uma tarefas de processos do usuário localizada no endereço:</p>
-
-                    <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE&gt;/&lt;SKIN&gt;/cases/main</strong></code>
-                    <p>Os usuários com a função Administrador ou a permissão PM_FACTORY em sua função são direcionados por padrão ao menu Modelagem após o login, localizado no endereço:</p>
-
-                    <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE>/&lt;SKIN&gt;/processes/main</strong></code>
-
-                    <p>Cada usuário que tem a permissão PM_EDITPERSONALINFO em sua função pode personalizar para onde o Gestor Express direciona o navegador da web após o logon. Após o login, clique no nome de usuário entre parênteses no canto superior direito para ver o perfil do usuário.</p>
-
-                    <figure id="detalhe">
-                            <img src="../_imagens/tela-canto-superior.png" alt="Editar perfil do Gestor Express">
+    <section id="principal">
+        <h1 id="item1">Conecte-se ao Gestor Express</h1>
+            <p>Você pode acessar o Gestor Express de diferentes maneiras.</p>
+            <p>Consulte as seções a seguir que discutem diferentes métodos para fazer login no Gestor Express:</p>
+        <article>
+            <h1 id="item1">Interface padrão </h1>
+                <h2 id="item1a">Acesse o Gestor Express por meio do Endereço IP:</h2>
+                    <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Endereço IP:</p>
+                    <p>Insira o endereço IP e o número da porta do servidor ou instância que hospeda o Gestor Express em um navegador Web padrão.</p>
+                    <code id="sozinho">
+                        <strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&lt;PORT&gt;</font></strong>
+                    </code>
+                    <p>Por exemplo, se estiver executando o Gestor Express no endereço IP 192.168.1.110 da porta 3018 , digite:</p>
+                    <code id="sozinho"><strong>http://192.168.1.110:3018</strong></code>
+                    <p>Se apenas o endereço IP estiver incluído na URL, o navegador da Web redirecionará automaticamente para a tela de logon do Gestor Express em:</p>
+                    <code id="sozinho">strong>http://<font color="blue">&lt;IP-ADDRESS&gt;:&ltPORT&gt;</font>/sys/en/neoclassic/login/login.html</strong></code>
+                        <p>A tela de logon é exibida.</p>
+                
+                <h2 id="item1b">Acesse o Gestor Express por meio de um subdomínio:</h2>
+                    <p>Siga estas diretrizes para fazer logon no Gestor Express por meio do Sub Domínio:</p>
+                    <p>Insira o do Sub Domínio da instância que hospeda o Gestor Express em um navegador Web padrão.</p>
+                    <p><strong>http://subdominio.gestorexpress.com.br</strong></p>
+                    <p>Por exemplo, se o nome fantasia de sua empresa for SkyLab S.A, e atribuirmos um subdominio com o nome de sua organização, digite:</p>
+                    <p><strong>http://skylab.gestorexpress.com.br</strong></p>
+                    <p>Com esse endereço digitado na URL de um navegador web qualquer, o navegador te redirecionará automaticamente para a tela de logon do Gestor Express em:</p>
+                    <p>http://skylab.gestorexpress.com.br/sys/en/neoclassic/login/login.html</p>
+                    <p>A tela de logon é exibida.</p>
+                    <figure>
+                        <img src="../_imagens/tela-inicial.png" alt="Tela de Login do Gestor Express">
                     </figure>
+        </article>
 
-                    <p>Em seguida, clique em Editar no canto inferior direito para alterar esse perfil.</p>
+        <article>
+            <h1 id="item2">Defina as configurações de logon</h1>
+            <div>
+                <h2 id="item2a">Acesse a tela de configurações de logon</h2>
+                <p>Para acessar as configurações de logon, vá para ADMIN => Configurações => Login . A tela Configurações de login é exibida.</p>
+                <figure>
+                    <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
+                </figure>
+            </div>
+            <div>
+                <h2 id="item2b">Definir o idioma padrão na tela de logon</h2>
+                <p>Use a opção Idioma padrão para selecionar o idioma padrão exibido na tela de logon. O Gestor Express está disponível por padrão apenas em inglês, mas arquivos de tradução para idiomas adicionais podem ser instalados. Essa configuração deve ser definida para cada área de trabalho.</p>
+                <p>Para definir o idioma padrão exibido na tela de logon de um espaço de trabalho, siga estas etapas:</p>
+                <ol>
+                    <li>Acesse as configurações de Login.</li>
+                
+                    <li>Faça uma das seguintes opções:</li>
+                    <ul>
+                        <li>Selecione o idioma padrão para esse espaço de trabalho na lista suspensa Idioma padrão .</li>
+                
+                        <li>Selecione Usar o idioma da URL para permitir que a configuração de idioma na URL de logon especifique a configuração de idioma padrão. Por exemplo, o URL de logon contém “en” para o idioma inglês ou “es” para o idioma espanhol.</li>
+                    </ul>
+                
+                    <li>Clique em Salvar configurações.</li>
+                </ol>
+                <figure>
+                    <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
+                </figure>
+            </div>
+            <div>
+                <h2 id="item2c">Ativar recuperação de senha</h2>
+                <p>Ao habilitar esta opção, se um usuário esquecer a senha para fazer logon no Gestor Express, um link será exibido na tela de logon para enviar uma nova senha gerada aleatoriamente para a conta de e-mail desse usuário. Essa senha aleatória permite que o usuário crie uma nova senha.</p>
+                <p>Para permitir que os usuários obtenham novas senhas, marque a opção <strong>Ativar Recuperação de Senha</strong> e clique em <strong>Salvar configurações</strong> .</p>
+                <figure>
+                    <img src="../_imagens/tela-logon.png" alt="Tela de Login do Gestor Express">
+                </figure>
+            </div>
+        </article>
+        <article>
+            <h1 id="item3">Altere o destino padrão após o logon</h1>
+            <p>Após o login, os usuários com as funções Operaador e Supervisor são direcionados por padrão ao menu Início para exibir uma tarefas de processos do usuário localizada no endereço:</p>
+
+            <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE&gt;/&lt;SKIN&gt;/cases/main</strong></code>
+            <p>Os usuários com a função Administrador ou a permissão PM_FACTORY em sua função são direcionados por padrão ao menu Modelagem após o login, localizado no endereço:</p>
+
+            <code id="sozinho"><strong>http://&lt;IP-ADDRESS&gt;:&lt;PORT&gt;/sys&lt;WORKSPACE&gt;/&lt;LANGUAGE>/&lt;SKIN&gt;/processes/main</strong></code>
+
+            <p>Cada usuário que tem a permissão PM_EDITPERSONALINFO em sua função pode personalizar para onde o Gestor Express direciona o navegador da web após o logon. Após o login, clique no nome de usuário entre parênteses no canto superior direito para ver o perfil do usuário.</p>
+
+            <figure id="detalhe">
+                    <img src="../_imagens/tela-canto-superior.png" alt="Editar perfil do Gestor Express">
+            </figure>
+
+            <p>Em seguida, clique em Editar no canto inferior direito para alterar esse perfil.</p>
+
+            <figure>
+                <img src="../_imagens/tela-preferencias.png" alt="Editar perfil do Gestor Express">
+            </figure>
+
+            <p>Na seção Preferências, selecione qual menu deve ser o menu padrão na caixa suspensa <strong>Opção padrão do menu principal</strong>. No menu <strong>Início</strong>, a lista de casos na Caixa de entrada é exibida por padrão. Para alterar qual opção é selecionada por padrão na barra lateral Casos, selecione na caixa suspensa <strong>Opção de Menu de Processos Padrão</strong>.</p>
+        </article>
+        <figure>
+            <img src="../_imagens/tela-inicio.png" alt="Editar perfil do Gestor Express">
+        </figure>
+</section>
+
+<aside id="lado">
+          <ol>
+            <li><a href="#item1">Entrar</a></li>
+                <ol type="A">
+                    <li><a href="#item1a">Faça logon no Gestor Express por meio de um Endereço IP</a></li>
+                    <li><a href="#item1b">Faça logon no Gestor Express por meio de um subdominio</a></li>
+                </ol>
+            <li><a href="#item2">Defina as configurações de logon</a></li>
+                <ol type="A">
+                    <li><a href="#item2a">Acesse a tela de configurações de login</a></li>
+                    <li><a href="#item2b">Definir o idioma padrão na tela de logon</a></li>
+                    <li><a href="#item2c">Ativar recuperação de senha</a></li>
+                </ol>
+            <li><a href="#item3">Altere o destino padrão após o logon</a></li>
+            <li> <a href="../index.html">Voltar</a></li>
+        </ol>
+    </aside>
+    <div class="btnAction">
+        <div class="topo">
+            <a href="#item1"><i class="fa-sharp fa-solid fa-arrow-up"></i></a>
+        </div>
+        <div class="home">
+            <a href="../index.html"><i class="fa-sharp fa-solid fa-house"></i></a> 
+        </div>
+    </div>
+</main>
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
 
                     <figure>
-                        <img src="../_imagens/tela-preferencias.png" alt="Editar perfil do Gestor Express">
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
                     </figure>
 
-                    <p>Na seção Preferências, selecione qual menu deve ser o menu padrão na caixa suspensa <strong>Opção padrão do menu principal</strong>. No menu <strong>Início</strong>, a lista de casos na Caixa de entrada é exibida por padrão. Para alterar qual opção é selecionada por padrão na barra lateral Casos, selecione na caixa suspensa <strong>Opção de Menu de Processos Padrão</strong>.</p>
-                </article>
-                <figure>
-                    <img src="../_imagens/tela-inicio.png" alt="Editar perfil do Gestor Express">
-                </figure>
-        </section>
-
-        <aside>
-            <section id="lado">
-                <ol>
-                    <li><a href="#item1">Entrar</a></li>
-                        <ol type="A">
-                            <li><a href="#item1a">Faça logon no Gestor Express por meio de um Endereço IP</a></li>
-                            <li><a href="#item1b">Faça logon no Gestor Express por meio de um subdominio</a></li>
-                        </ol>
-                    <li><a href="#item2">Defina as configurações de logon</a></li>
-                        <ol type="A">
-                            <li><a href="item2a">Acesse a tela de configurações de login</a></li>
-                            <li><a href="item2b">Definir o idioma padrão na tela de logon</a></li>
-                            <li><a href="item2c">Ativar recuperação de senha</a></li>
-                        </ol>
-                    <li><a href="item3">Altere o destino padrão após o logon</a></li>
-                    <li> <a href="../index.html">Voltar</a></li>
-                </ol>
-            </section>
-        </aside>
-
-        <footer>
-            <div class="container-footer">
-                <div class="row-footer">
-                    <!-- footer col -->
-                    <div class="footer-col">
-                        <h4>Selo de Qualidade</h4>
-    
-                        <figure>
-                            <img src="../_imagens/impacto-logo-branco.png" alt="">
-                        </figure>
-    
-                    </div>
-                    <!--end footer-col-->
-                    <!-- footer col -->
-                    <div class="footer-col">
-                        <h4>Endereço</h4>
-                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
-                        <p>Avenida Nações Unidas, 17-17</p>
-                        <p>Vila Santo Antônio</p>
-                        <p>17015-903, Bauru, SP</p>
-                    </div>
-                    <!--end footer-col-->
-                    <!-- footer col -->
-                    <div class="footer-col">
-                        <h4>Mídias Sociais</h4>
-                        <div class="medias-sociais">
-                            <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
-                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
-                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
-                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
-                        </div>
-                    </div>
-                    <!--end footer-col-->
-                    <!-- footer col -->
-                    <div class="footer-col">
-                        <h4>Subescreva-se</h4>
-                        <!-- form sub -->             
-                        <div class="form-sub">
-                            <form>
-                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
-                                <button>Subescrever</button>
-                            </form>
-                        </div>
-                        <!-- form sub -->        
-    
-                    </div> 
-                    <!--end footer-col-->
                 </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
             </div>
-        </footer>
-</main>
+        </div>
+    </footer>
+
 </body>
 </html>
