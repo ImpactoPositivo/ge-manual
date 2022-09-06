@@ -91,7 +91,7 @@
                                         <li><a href="#item5bii">Evento Intermediário: Temporizador</a>
                                                 <ol type="a">
                                                     <li><a href="#item5biia">Configuração</a></li>
-                                                    <li><a href="#item5biib">Temporizador intermediário: casos em execução</a></li>
+                                                    <li><a href="#item5biib">Evento Intermediário com Temporizador: casos em execução</a></li>
                                                 </ol>
                                         </li>
                                         <li><a href="#item5biii">Evento intermediário: condicional</a></li>
@@ -559,442 +559,685 @@
 
                 <p><font color="green">Observação:</font> certifique-se de que o fuso horário do Gestor Express seja igual ao date.timezone definido no arquivo php.ini do servidor. Consulte Solução de problemas de eventos abaixo.</p>
 
-                Evento de início: condicional
-                O evento de início condicional não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design. O processo e a tarefa relacionados a este evento de início não serão listados na pasta Novo Caso.
+                <h2 id="item4d">Evento de início: condicional</h2>
 
+                <p>O evento de início condicional não é compatível com o Gestor Express, use-o apenas para fins de modelagem. O processo e a tarefa relacionados a este evento de início não serão listados na pasta Novo Caso.</p>
 
+                <figure>
 
-                Use este evento para projetar um início de processo que dependa da avaliação de uma condição ou regra. Esta condição deve ser independente do(s) processo(s). O processo será iniciado se e somente se a avaliação da referida condição for TRUE.
+                </figure>
 
-                Iniciar evento: sinal
-                O evento Signal start não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design. O processo e a tarefa relacionados a este evento de início não serão listados na pasta Novo Caso.
+                <p>Use este evento para projetar um início de processo que dependa da avaliação de uma condição ou regra. Esta condição deve ser independente do(s) processo(s). O processo será iniciado se e somente se a avaliação da referida condição for <strong>VERDADEIRA</strong>.</p>
 
+                <h2 id="item4e">Evento de Início: sinal</h2>
 
+                <p>O Evento de Início: sinal não é compatível com o Gestor Express, use-o apenas para fins de modelagem. O processo e a tarefa relacionados a este evento de início não serão listados na pasta Novo Caso.</p>
 
-                Use este evento de início para projetar um processo que inicia quando um sinal é recebido de outro processo. Este evento é diferente de um evento de início de mensagem de recebimento porque este último precisa de um destinatário específico, enquanto um evento de início de sinal pode ser acionado por qualquer pessoa que receba a mensagem e atue sobre ela, o que significa que possui vários destinatários.
+                <figure>
 
-                Eventos intermediários
-                Um evento intermediário representa um ponto no tempo em que alguma matéria ocorre dentro de um processo que está sendo executado, ou seja, um intervalo entre o início de um processo individual e seu término. Assim, um evento intermediário em si não inicia ou encerra um processo. Eventos intermediários avaliam condições ou situações que causam eventos, ou preenchem condições que iniciam outro processo. Em outras palavras, eventos intermediários têm características de eventos de captura e lançamento e são representados por um círculo de borda dupla. Veja os dois tipos de eventos intermediários:
+                </figure>
 
-                Eventos de arremesso
-                E- mail (captura de eventos)
-                Enviar mensagem
-                Eventos de captura
-                Temporizador (arremesso de eventos)
-                Receber mensagem
-                Evento de arremesso intermediário
-                Eventos de arremesso intermediário são representados por um círculo duplo com um envelope escuro dentro dele. Ele está localizado na caixa de ferramentas de formas como um evento de e-mail intermediário.
+                <p>Use este evento de início para projetar um processo que inicia quando um sinal é recebido de outro processo. Este evento é diferente de um evento de início por recebimento de mensagem porque este último precisa de um destinatário específico, enquanto um evento de início de sinal pode ser acionado por qualquer pessoa que receba a mensagem e atue sobre ela, o que significa que possui vários destinatários.</p>
 
+            </article>
+            <article>
 
+                <h1 id="item5">Eventos intermediários</h1>
 
-                Durante a execução de um processo, diferentes eventos, como mensagens, podem ser lançados usando este evento. Eventos de lançamento intermediários são capturados por eventos de captura, mas são processados de forma assíncrona. Isso significa que o processo que contém o evento intermediário de lançamento não é marcado como concluído até que a mensagem seja "capturada" por outro processo.
+                <p>Um evento intermediário representa um ponto no tempo em que alguma matéria ocorre dentro de um processo que está sendo executado, ou seja, um intervalo entre o início de um processo individual e seu término. Assim, um evento intermediário em si não inicia ou encerra um processo. Eventos intermediários avaliam condições ou situações que causam eventos, ou preenchem condições que iniciam outro processo. Em outras palavras, eventos intermediários têm características de eventos de captura e lançamento e são representados por um círculo de borda dupla. Veja os dois tipos de eventos intermediários:</p>
 
-                Dentro do Mapa de Processos é possível adicionar os seguintes eventos de lançamento intermediários:
+                <ul>
+                    <li>Eventos de arremesso
+                        <ul>
+                            <li>,E-mail (captura de eventos)</li>
+                            <li>Enviar mensagem</li>
+                        </ul>
+                    </li>
+                    <li>Eventos de captura
+                        <li>Temporizador (arremesso de eventos)</li>
+                        <li>Receber mensagem</li>
+                    </li>
+                </ul>
 
-                Mensagem de e-mail
-                Enviar mensagem
-                Sinal
-                Evento intermediário: mensagem de e-mail
-                Edição Disponível: Disponível apenas na Enterprise Edition.
 
-                Use este evento para enviar uma notificação durante a execução de um processo. Para adicionar um evento de mensagem de e-mail, arraste e solte o evento intermediário diretamente da barra de ferramentas de formas e conecte-o aos outros elementos do processo, ou adicione um evento intermediário da opção Barra de ferramentas rápida de um elemento e altere seu tipo para "Mensagem de e-mail " no menu de contexto do evento. Clique com o botão direito do mouse no evento, selecione a opção Propriedades e configure o evento na seguinte janela:
+                <h2 id="item5a">Evento intermediário de envio </h2>
 
+                <p>Eventos intermediários de envio são representados por um círculo duplo com um envelope escuro dentro dele. Ele está localizado na caixa de ferramentas de formas como um evento de e-mail intermediário.</p>
 
+                <figure>
 
-                Onde:
+                </figure>
 
-                De: Campo obrigatório. Selecione o endereço de e-mail de onde o e-mail será enviado. A partir do Gestor Express 3.3.0, a lista suspensa lista a conta de e - mail padrão e o e- mail do remetente de todas as contas configuradas nos servidores de e-mail do espaço de trabalho. Caso contrário, o valor da conta do remetente substituirá o e-mail do remetente se estiver vazio quando o mecanismo de e-mail for SMTP (PHP Mailer) ou "Mail (PHP)" substitui o e-mail do remetente quando o mecanismo de e-mail for Mail (PHP). Consulte esta documentação para saber mais sobre E-mail do Remetente, Conta do Remetente, SMTP e Correio.
-                Observação: Nas configurações do servidor de e-mail, você deve inserir a Conta do Remetente, opcionalmente o E- mail do Remetente e o Nome do Remetente. Em seguida, os campos De e Responder a no cabeçalho do e-mail são exibidos da seguinte forma:
+                <p>Durante a execução de um processo, diferentes eventos, como mensagens, podem ser enviadas usando este evento. >Eventos Intermediários de envio são capturados por eventos de captura, mas são processados de forma assíncrona. Isso significa que o processo que contém o evento intermediário de envio não é marcado como concluído até que a mensagem seja "capturada" por outro processo.</p>
 
-                Se o E- mail do Remetente e o Nome do Remetente estiverem preenchidos:
-                De: Responder a:SenderName <SenderAccount>
-                SenderName <SenderE-mail>
-                Se o E- mail do Remetente e o Nome do Remetente estiverem vazios:
-                De: Responder a:SenderAccount
-                SenderAccount
-                Se o E- mail do Remetente estiver vazio e o Nome do Remetente estiver preenchido:
-                De: Responder a:SenderName <SenderAccount>
-                SenderName <SenderAccount>
-                Se o E- mail do Remetente estiver preenchido e o Nome do Remetente estiver vazio:
-                De: Responder a:SenderAccount
-                SenderE-mail
-                Para: Para adicionar um endereço de e-mail a este campo, ele deve ser uma string ou uma variável @@ de processo (que pode especificar um grupo de endereços de e-mail). É necessário pelo menos um endereço de e-mail. Use vírgulas para separar mais de um endereço de e-mail.
-                A partir do Gestor Express 3.5.0, para selecionar dinamicamente uma variável, está disponível um modal igual ao do Subject.
+                <p>Dentro do Mapa de Processos é possível adicionar os seguintes Eventos Intermediários de envio:</p>
 
+                <ul>
+                    <li>Mensagem de e-mail</li>
+                    <li>Enviar mensagem</li>
+                    <li>Sinal</li>
+                </ul>
 
-                Assunto: Não obrigatório. O assunto do e-mail. Pode conter até 255 caracteres.
-                Conteúdo: Campo obrigatório. O corpo do e-mail que contém os detalhes do e-mail. Pressione CTRL + @ para exibir a lista de variáveis disponíveis no processo. Para saber mais sobre esse editor, consulte esta documentação.
-                Cancelar: Cancela a configuração do e-mail. Todas as alterações serão perdidas.
-                Salvar: Salva as alterações do e-mail. Observe que o e-mail não é enviado com esta ação. O e-mail é enviado quando o caso é executado.
-                Ao executar casos, este evento não necessita de nenhuma configuração adicional ou da execução de nenhum cron no Gestor Express. Ele envia o e-mail automaticamente quando esse evento é alcançado dentro do fluxo.
+                <h2 id="item5ai">Evento intermediário: mensagem de e-mail</h2>
+    
+                <p>Use este evento para enviar uma notificação durante a execução de um processo. Para adicionar um evento de mensagem de email, arraste e solte o evento intermediário diretamente da barra de ferramentas de formas e conecte-o aos outros elementos do processo, ou adicione um evento intermediário da opção Barra de ferramentas rápida de um elemento e altere seu tipo para "Mensagem de email " no menu de contexto do evento. Clique com o botão direito do mouse no evento, selecione a opção Propriedades e configure o evento na seguinte janela:</p>
 
-                Mensagem de e-mail: problemas conhecidos
-                Leve em consideração os seguintes problemas conhecidos:
+                <figure>
 
-                Se um design de processo contiver um evento de e-mail intermediário após um gateway paralelo (como mostrado na imagem abaixo), um erro poderá ser exibido aleatoriamente quando o segundo caso for executado.
+                </figure>
 
+                <p>Onde:</p>
 
+                <ul>
+                    <li>
+                        <strong>De :</strong> Campo obrigatório. Selecione o endereço de e-mail de onde o e-mail será enviado. A lista suspensa lista a conta de <strong>e-mail padrão</strong> e o <strong>e-mail do remetente</strong> de todas as contas configuradas nos servidores de e-mail do espaço de trabalho. Caso contrário, o valor da conta do remetente substituirá o e-mail do remetente se estiver vazio quando o mecanismo de e-mail for SMTP (PHP Mailer) ou "Mail (PHP)" substitui o e-mail do remetente quando o mecanismo de e-mail for Mail (PHP). Consulte esta documentação para saber mais sobre E-mail do Remetente, Conta do Remetente, SMTP e Correio.
+                        <p><font color="green">Observação:</font>g> Nas configurações do servidor de e-mail, você deve inserir a Conta do Remetente, opcionalmente o ,E-mail do Remetente e o Nome do Remetente. Em seguida, os campos De e Responder a no cabeçalho do e-mail são exibidos da seguinte forma:</p>
+                        <ul type="disc">
+                            <li>
+                                Se o <strong>E-mail do Remetente</strong> e o <strong>Nome do Remetente</strong> estiverem preenchidos:
+                                <strong>De: Responder a</strong>:<code>SenderName <SenderAccount></code>
+                                <code>SenderName <SenderEmail></code>
+                            </li>
+                            <li>
+                                Se o <strong>E-mail do Remetente</strong> e o <strong>Nome do Remetente</strong> estiverem vazios:
+                                <strong>De: Responder a</strong>:<code>SenderAccount</code>
+                                <code>SenderAccount</code>
+                            </li>
+                            <li>
+                                Se o ,<strong>E-mail do Remetente</strong> estiver vazio e o <strong>Nome do Remetente</strong> estiver preenchido:
+                                <strong>De: Responder a</strong>:<code>SenderName <SenderAccount></code>
+                                <code>SenderName <SenderAccount></code>
+                            </li>
+                            <li>
+                                Se o ,<strong>E-mail do Remetente</strong> estiver preenchido e o <strong>Nome do Remetente</strong> estiver vazio:
+                                <strong>De: Responder a</strong>:<code>SenderAccount</code>
+                                <code>SenderEmail</code>
+                            </li>
+                        </ul>
+                    </li>
+                        <li><strong>Para:</strong> Para adicionar um endereço de e-mail a este campo, ele deve ser uma string ou uma variável @@ de processo (que pode especificar um grupo de endereços de e-mail). É necessário pelo menos um endereço de e-mail. Use vírgulas para separar mais de um endereço de e-mail.                
 
-                Este é um problema conhecido que foi corrigido em versões posteriores.
+                        <figure>
 
-                Há uma limitação ao usar o Evento de E-mail Intermediário após um Evento de Temporizador Intermediário; o processo NÃO funcionará corretamente em projetos como:
+                        </figure>
 
+                        <li><strong>Assunto:</strong> Não obrigatório . O assunto do e-mail. Pode conter até 255 caracteres.</li>
+                        <li><strong>Conteúdo:</strong> Campo obrigatório . O corpo do email que contém os detalhes do email. Pressione CTRL + @ para exibir a lista de variáveis ​​disponíveis no processo. Para saber mais sobre esse editor, consulte esta documentação .</li>
+                        <li><strong>Cancelar:</strong> Cancela a configuração do e-mail. Todas as alterações serão perdidas.</li>
+                        <li><strong>Salvar: </strong>Salva as alterações do e-mail. Observe que o e-mail não é enviado com esta ação. O e-mail é enviado quando o caso é executado.</li>
+                    </li>
+                </ul>
+                <p>Ao executar casos, este evento não necessita de nenhuma configuração adicional ou da execução de nenhum cron no ProcessMaker. Ele envia o e-mail automaticamente quando esse evento é alcançado dentro do fluxo.</p>
 
+                <h2 id="item5aia">Mensagem de e-mail: problemas conhecidos</h2>
 
-                Solução alternativa: para corrigir essa limitação, o Evento de e-mail intermediário pode ser substituído por uma tarefa de script, que pode enviar o e-mail usando um gatilho.
+                <p>Leve em consideração os seguintes problemas conhecidos:</p>
 
+                <ul>
+                    <li>
+                        Se um modelo de processo contiver um evento de e-mail intermediário após um gateway paralelo (como mostrado na imagem abaixo), um erro poderá ser exibido aleatoriamente quando o segundo caso for executado.
+                        <figure>
+                        </figure>
+                        <p>Este é um problema conhecido que foi corrigido em versões posteriores.</p>
+                    </li>
+                    <li>
+                        Há uma limitação ao usar o Evento de E-mail Intermediário após um Evento de Temporizador Intermediário; o processo NÃO funcionará corretamente em projetos como:
+                    </li>
+                </ul>
 
+                <figure>
 
-                Observe que se o Evento de E-mail Intermediário for executado antes do Evento de Temporizador Intermediário, o processo funcionará corretamente.
+                </figure>
 
+                <p><strong>Solução alternativa:</strong> para corrigir essa limitação, o Evento de e-mail intermediário pode ser substituído por uma tarefa de script, que pode enviar o e-mail usando um gatilho.</p>
 
+                <figure>
 
-                Evento Intermediário: Enviar Mensagem
-                Use o evento intermediário Enviar Mensagem para enviar uma mensagem durante a execução do processo para outro processo que aguarda a mensagem. O mecanismo do Gestor Express captura essa mensagem usando um evento intermediário Receber Mensagem ou um evento inicial Receber Mensagem.
+                </figure>
 
-                Esses eventos devem ser configurados em processos separados apresentados em diferentes pools no Mapa de Processos.
+                <p>Observe que se o <strong>Evento de E-mail Intermediário</strong> for executado antes do Evento de Temporizador Intermediário, o processo funcionará corretamente.</p>
 
+                <figure>
 
+                </figure>
 
-                A mensagem deve ser criada previamente utilizando a opção Tipos de Mensagem, e suas propriedades já configuradas.
+                <h2 id="item5aii">Evento Intermediário: Enviar Mensagem</h2>
 
+                <p>Use o evento intermediário Enviar Mensagem para enviar uma mensagem durante a execução do processo para outro processo que aguarda a mensagem. O sistema do Gestor Express captura essa mensagem usando um evento intermediário Receber Mensagem ou um evento inicial Receber Mensagem.</p>
 
+                <p>Esses eventos devem ser configurados em processos separados apresentados em diferentes pools no Mapa de Processos.</p>
 
-                A janela modal aberta tem as seguintes características:
+                <figure>
 
+                </figure>
 
+                <p>A mensagem deve ser criada previamente utilizando a opção Tipos de Mensagem, e suas propriedades já configuradas.</p>
 
-                Título do caso: Disponível a partir do Gestor Express 3.6.0. O título do caso é o número do caso, como #45visível na lista de casos. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o [ @@ ]botão para ver quais variáveis estão disponíveis e insira-as no título.
-                Tipo de mensagem: Selecione o tipo de mensagem no menu suspenso que será relacionado ao evento de envio de mensagem. O tipo de mensagem selecionado neste campo definirá as variáveis enviadas ao outro processo. O evento que receberá a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração.
-                Nome: Esta coluna exibe o nome do campo de mensagem utilizado para armazenar o valor da mensagem que será enviada ao outro processo. Leve em consideração que esses valores não são variáveis utilizadas pelo processo dentro de seus formulários, triggers ou documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.
-                Obter Valor de: Nesta coluna, defina as variáveis utilizadas no processo onde os valores são obtidos e utilizados pela mensagem que será enviada ao outro processo.
-                Valor de Correlação: Defina o ID exclusivo que conectará os dois eventos: o evento intermediário de envio de mensagem e o evento intermediário de recebimento de mensagem ou evento de início de mensagem.
-                Este valor deve ser o mesmo em ambos os eventos. O valor de correlação deve ser um valor fixo, como ID = "123" (por exemplo), ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como @@USER_LOGGED (no caso dos processos são atribuídos ao mesmo usuário).
-                Essa definição cria a variável case que pode ser usada dentro do processo. Processos ou variáveis de sistema criados anteriormente não podem ser utilizados neste tipo de processo, pois este evento inicia o fluxo do processo, e essas variáveis ainda não possuem um valor definido.
+                <figure>
 
+                </figure>
 
-                Enviar mensagem: casos em execução
-                Como o evento intermediário Send Message só envia mensagens para outros eventos, o fluxo no processo continua normalmente após esse evento ter enviado a mensagem. Para saber como continuar os processos que "capturam" a mensagem após o envio da mensagem, leia sobre a captura de eventos na seção Casos em execução.
+                <p>A janela modal aberta tem as seguintes características:</p>
 
-                Observação: para ver um exemplo de como executar um caso que contém esse evento, consulte o exemplo no final da página.
+                <figure>
 
-                Evento intermediário de sinal
-                Use este elemento para enviar uma notificação de um processo para outro. Como esse evento não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design.
+                </figure>
 
+                <ul>
+                    <li><strong>Tipo de mensagem:</strong> Selecione o tipo de mensagem no menu suspenso que será relacionado ao evento de envio de mensagem. O tipo de mensagem selecionado neste campo definirá as variáveis enviadas ao outro processo. O evento que receberá a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração.</li>
+                    <li><strong>Nome:</strong> Esta coluna exibe o nome do campo de mensagem utilizado para armazenar o valor da mensagem que será enviada ao outro processo. Leve em consideração que esses valores não são variáveis utilizadas pelo processo dentro de seus formulários, triggers ou documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.</li>
+                    <li><strong>Obter Valor de:</strong> Nesta coluna, defina as variáveis utilizadas no processo onde os valores são obtidos e utilizados pela mensagem que será enviada ao outro processo.</li>
+                    
+                    <li><strong>Valor de Correlação:</strong> Defina o ID exclusivo que conectará os dois eventos: o evento intermediário de envio de mensagem e o evento intermediário de recebimento de mensagem ou evento de início de mensagem.</li>
+                </ul>
 
+                <p>Este valor <strong>deve ser o mesmo em ambos os eventos</strong>. O valor de correlação deve ser um <strong>valor fixo</strong>, como ID = "123" (por exemplo), ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como @@USER_LOGGED (no caso dos processos são atribuídos ao mesmo usuário).</p>
 
-                Eventos de captura intermediários
-                Esses eventos são representados pelo evento de timer na caixa de ferramentas de formas.
+                <p>Essa definição cria a variável de caso que pode ser usada dentro do processo. Processos ou variáveis de sistema criados anteriormente não podem ser utilizados neste tipo de processo, pois este evento inicia o fluxo do processo e essas variáveis ainda não possuem um valor definido.</p>
 
+                <figure>
 
+                </figure>
 
-                Para adicionar um evento de captura intermediário ao desenho no Mapa de Processo, é necessário arrastá-lo e soltá-lo da caixa de ferramentas de formas, pois ele não está disponível na Barra de Ferramentas Rápida.
+                <h2 id="item5aiia">Enviar mensagem: casos em execução</h2>
 
+                <p>Como o evento intermediário Send Message só envia mensagens para outros eventos, o fluxo no processo continua normalmente após esse evento ter enviado a mensagem. Para saber como continuar os processos que "capturam" a mensagem após o envio da mensagem, leia sobre a captura de eventos na seção Casos em execução.</p>
 
+                <p><font color="green">Observação:</font> para ver um exemplo de como executar um caso que contém esse evento, consulte o exemplo no final da página.</p>
 
-                O processo aguarda um evento, por exemplo, uma mensagem, e continua quando o evento é "capturado". Um evento de Temporizador Intermediário não pode ser lançado, ele só pode ser capturado, pois o tempo é independente do processo de envio.
+                <h2 id="item5aiii">Evento intermediário de sinal</h2>
 
-                Dentro do Mapa de Processos é possível adicionar os seguintes eventos intermediários. No entanto, leve em consideração que o mecanismo Gestor Express suporta apenas a mensagem de recebimento e os eventos de timer na execução de um processo, embora o restante dos eventos intermediários de mensagem de recebimento também estejam disponíveis para design.
+                <p>Use este elemento para enviar uma notificação de um processo para outro. Como esse evento não é compatível com o Gestor Express, use-o apenas para fins de modelagem.</p>
 
-                Receber mensagem
-                Cronômetro
-                Condicional
-                Sinal
+                <figure>
 
+                </figure>
 
-                Evento Intermediário: Receber Mensagem
-                O evento Receber Mensagem é representado pelo ícone do evento Temporizador Intermediário na caixa de ferramentas de formas. Para adicioná-lo ao design do processo, primeiro arraste e solte um evento Intermediate Timer. Em seguida, clique com o botão direito do mouse em seu ícone e selecione a opção Receber mensagem no menu Tipo de evento intermediário. Observe que o ícone do elemento de evento será alterado.
+                <h2 id="item5b">Eventos de captura intermediários</h2>
 
+                <p>Esses eventos são representados pelo evento com temporizador na caixa de ferramentas de formas.</p>
 
+                <figure>
 
-                Use esse tipo de evento intermediário dentro do design do processo para receber uma mensagem enviada de outro processo. Este elemento é usado para pausar o fluxo do processo até que a mensagem chegue. Dentro do mecanismo do Gestor Express, este evento recebe mensagens do evento intermediário Send Message e do evento final Send Message.
+                </figure>
 
+                <p>Para adicionar um evento de captura intermediário ao modelo no Mapa de Processo, é necessário arrastá-lo e soltá-lo da caixa de ferramentas de formas, pois ele não está disponível na Barra de Ferramentas Rápida.</p>
 
+                <figure>
 
-                Lembre-se que de acordo com as regras do BPMN 2.0, as mensagens só podem ser enviadas entre dois processos diferentes que, no Gestor Express, são representados por dois pools diferentes (para ver um exemplo veja o exemplo no final desta página). Para criar um relacionamento entre dois processos, ambos devem ser configurados corretamente.
+                </figure>
 
-                Configurando o Evento de Mensagem de Recebimento
-                Leve em consideração que para trabalhar com eventos de Recebimento de Mensagem, as mensagens recebidas devem ter sido criadas com a opção Tipos de Mensagem e as propriedades do evento devem estar configuradas corretamente.
+                <p>O processo aguarda um evento, por exemplo, uma mensagem, e continua quando o evento é "capturado". Um evento de Temporizador Intermediário não pode ser enviado, ele só pode ser capturado, pois o tempo é independente do processo de envio.</p>
 
+                <p>Dentro do Mapa de Processos é possível adicionar os seguintes eventos intermediários. No entanto, leve em consideração que o Gestor Express suporta apenas a mensagem de recebimento e os eventos com temporizador na execução de um processo, embora o restante dos eventos intermediários de mensagem de recebimento também estejam disponíveis para modelagem.</p>
 
+                <ul>
+                    <li>Receber mensagem</li>
+                    <li>Temporizador</li>
+                    <li>Condicional</li>
+                    <li>Sinal</li>
+                </ul>
 
-                A configuração do evento é feita dentro da janela modal, que possui as seguintes características:
+                <h2 id="item5bi">Evento Intermediário: Receber Mensagem</h2>
 
+                <p>O Evento Receber Mensagem é representado pelo ícone doEevento Intermediário com Temporizador, na caixa de ferramentas de formas. Para adicioná-lo ao modelo do processo, primeiro arraste e solte um evento Intermediate com Temporizador. Em seguida, clique com o botão direito do mouse em seu ícone e selecione a opção <strong>Receber Mensagem</strong> no menu Tipo de Evento Intermediário. Observe que o ícone do elemento de evento será alterado.</p>
 
+                <figure>
 
-                Título do caso: Disponível a partir do Gestor Express 3.6.0. O título do caso é o número do caso, como #45visível na lista de casos. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o [ @@ ]botão para ver quais variáveis estão disponíveis e insira-as no título.
-                Tipo de Mensagem: Selecione o Tipo de Mensagem relacionado a este evento intermediário no menu suspenso. O tipo de mensagem selecionado neste campo definirá as variáveis de entrada necessárias para continuar o fluxo do processo. O evento que envia a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração. Quando a mensagem do primeiro processo chegar a este evento, ele lançará o valor das variáveis para o evento intermediário de recebimento. O segundo processo usará as variáveis para continuar o caso.
-                Armazenar Valor em: Nesta coluna, defina o valor das variáveis de processo que receberão a mensagem do outro processo. Cada variável na mensagem pode ser atribuída a uma variável correlativa existente no processo. Para correlacionar essas variáveis, clique em Editar e a seção de conteúdo da mensagem é exibida:
+                </figure>
 
+                <p>Use esse tipo de evento intermediário dentro do modelo do processo para receber uma mensagem enviada de outro processo. Este elemento é usado para pausar o fluxo do processo até que a mensagem chegue. Dentro do Gestor Express, este evento recebe mensagens do evento intermediário Enviar Mensagem e do Evento Final Enviar Mensagem.</p>
 
-                Selecione a variável onde o valor está armazenado no outro processo usando o @@botão ou digitando o nome do processo com o prefixo @@.
+                <figure>
 
-                Name Value: Esta coluna exibe o nome da variável usada para armazenar o valor da mensagem enviada do outro processo. Observe que esses valores não são variáveis usadas pelo primeiro processo dentro de seus formulários, gatilhos ou documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.
-                Valor de Correlação: O valor de correlação define o ID exclusivo que conectará os dois eventos: o evento de envio de mensagem e o evento de recebimento de mensagem.
-                Este valor deve ser o mesmo em ambos os eventos. O valor de correlação deve ser um valor fixo, como id = 62521362355f06c223f95d8008656248por exemplo, ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como @@USER_LOGGED(no caso de os processos serem atribuídos ao mesmo usuário).
-                Processos ou variáveis de sistema criados anteriormente não podem ser utilizados neste tipo de processo, pois este evento inicia o fluxo do processo, e essas variáveis ainda não possuem um valor definido.
+                </figure>
 
+                <p>Lembre-se que de acordo com as regras do BPMN 2.0, as mensagens só podem ser enviadas entre dois processos diferentes que, no Gestor Express, são representados por dois pools diferentes (para ver um exemplo veja o exemplo no final desta página). Para criar um relacionamento entre dois processos, ambos devem ser configurados corretamente.</p>
 
-                Receber mensagem: casos em execução
-                Ao executar casos de processos que possuem eventos intermediários de Receber Mensagem configurados para continuar o fluxo de um segundo processo, é necessário executar o script messageeventcron.php no servidor Gestor Express para continuar os casos pendentes do evento. Este arquivo está localizado em:
+                <h2 id="item5bia">Configurando o Evento de Receber Mensagem</h2>
 
-                Linux:
-                <diretório de instalação> /Gestor Express/workflow/engine/bin/messageeventcron.php
-                Janelas:
-                <diretório de instalação> \Gestor Express\workflow\engine\bin\messageeventcron.php
-                Para continuar os casos pendentes deste evento abra um terminal, vá até a localização do arquivo e execute o seguinte comando:
+                <p>Leve em consideração que para trabalhar com eventos de Recebimento de Mensagem, as mensagens recebidas devem ter sido criadas com a opção Tipos de Mensagem e as propriedades do evento devem estar configuradas corretamente.</p>
 
-                php -f mensagemeventcron.php
-                Para obter mais informações, consulte Executando Scripts Cron.
+                <figure>
 
-                Observação: para ver um exemplo de como executar um caso contendo esse tipo de evento, consulte o exemplo no final desta página.
+                </figure>
 
-                Evento Intermediário: Temporizador
-                O evento de timer intermediário causa um atraso no fluxo de um processo, dependendo do tempo definido em sua configuração. O evento de temporizador intermediário é um evento de "captura", pois é necessário aguardar um tempo especificado para ser acionado e continuar o fluxo. Por exemplo, se um usuário não pagar uma conta em 30 dias, um evento intermediário de timer será acionado e enviará uma notificação assim que o período de 30 dias for atingido.
+                <p>A configuração do evento é feita dentro da janela modal, que possui as seguintes características:</p>
 
-                Para adicionar um evento de temporizador intermediário, arraste e solte o evento no Mapa do Processo e conecte-o às tarefas relacionadas no processo. Veja o exemplo de fluxo de trabalho abaixo para ter uma ideia de como funciona um evento de timer intermediário:
+                <figure>
 
+                </figure>
 
+                <ul>
+                    <li><strong>Título do caso:</strong> O título do caso é o número do caso, como <code>#45</code>, visível na lista de casos. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o botão <code>[@@]</code> para ver quais variáveis estão disponíveis e insira-as no título.</li>
+                    <li><strong>Tipo de Mensagem:</strong> Selecione o Tipo de Mensagem relacionado a este evento intermediário no menu suspenso. O tipo de mensagem selecionado neste campo definirá as variáveis de entrada necessárias para continuar o fluxo do processo. O evento que envia a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração. Quando a mensagem do primeiro processo chegar a este evento, ele lançará o valor das variáveis para o evento intermediário de recebimento. O segundo processo usará as variáveis para continuar o caso.</li>
+                    <li><strong>Armazenar Valor em:</strong> Nesta coluna, defina o valor das variáveis de processo que receberão a mensagem do outro processo. Cada variável na mensagem pode ser atribuída a uma variável correlativa existente no processo. Para correlacionar essas variáveis, clique em Editar e a seção de conteúdo da mensagem é exibida:</li>
+                </ul>
 
-                Configuração
-                Observação: Os horários devem estar no horário UTC quando o servidor estiver no horário UTC.
+                <figure>
 
-                Clique com o botão direito do mouse no evento e a janela de configuração será aberta.
+                </figure>
 
+                <p>Selecione a variável onde o valor está armazenado no outro processo usando o  botão <code>@@</code> ou digitando o nome do processo com o prefixo @@.</p>
 
+                <ul>
+                    <li><strong>Valor do Nome:</strong> Esta coluna exibe o nome da variável usada para armazenar o valor da mensagem enviada do outro processo. Observe que esses valores não são variáveis usadas pelo primeiro processo dentro de seus formulários, gatilhos ou documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.</li>
+                    <li><strong>Valor de Correlação:</strong> O valor de correlação define o ID exclusivo que conectará os dois eventos: o evento de envio de mensagem e o evento de recebimento de mensagem.</li>
+                </ul>
 
-                Onde:
+                <p>Este valor <strong>deve ser o mesmo em ambos os eventos</strong>. O valor de correlação deve ser um <strong>valor fixo</strong>, como <code>id = 62521362355f06c223f95d8008656248</code>, por exemplo, ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como <code>@@USER_LOGGED</code> (no caso de os processos serem atribuídos ao mesmo usuário).</p>
 
-                Título do caso: Disponível a partir do Gestor Express 3.6.0. O título do caso é o número do caso, como #45visível na lista de casos. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o [ @@ ]botão para ver quais variáveis estão disponíveis e insira-as no título.
-                Aguardar: Selecione o número de minutos, horas ou dias que o fluxo deve aguardar. Pelo menos um desses campos deve ser selecionado (minuto, hora ou dia). O status de espera começa quando o fluxo chega ao evento do temporizador intermediário.
-                Aguardar até a data/hora específica: selecione uma data e hora específicas que o fluxo deve aguardar.
+                <p>Processos ou variáveis de sistema criados anteriormente não podem ser utilizados neste tipo de processo, pois, este evento inicia o fluxo do processo e essas variáveis ainda não possuem um valor definido.</p>
 
+                <figure>
 
-                Temporizador intermediário: casos em execução
-                Ao executar casos que utilizam este evento para continuar o fluxo do processo, é necessário executar o script timereventcron.php no servidor Gestor Express para continuar os casos pendentes que contenham este evento. Este arquivo está localizado em:
+                </figure>
 
-                Linux:
-                <diretório de instalação> /Gestor Express/workflow/engine/bin/timereventcron.php
-                Janelas:
-                <diretório de instalação> \Gestor Express\workflow\engine\bin\timereventcron.php
-                Para continuar os casos pendentes, vá até o local do arquivo e execute o seguinte comando:
+                <h2 id="item5b">Receber mensagem: casos em execução</h2>
+                
+                <p>Ao executar casos de processos que possuem eventos intermediários de Receber Mensagem configurados para continuar o fluxo de um segundo processo, é necessário executar o script messageeventcron.php no servidor Gestor Express para continuar os casos pendentes do evento. Este arquivo está localizado em:</p>
 
-                php -f timereventcron.php
-                Para obter mais informações, consulte Executando Scripts Cron.
+                <p><strong>Linux:</strong></p>
 
-                Nota 1: Os eventos continuarão somente após a execução do script timereventcron.php mesmo que os casos estejam atrasados.
+                <p><i><diretório de instalação>/Gestor Express/workflow/engine/bin/messageeventcron.php</i></p>
+               
+                <p><strong>Windows:</strong></p>
 
-                Nota 2: Certifique-se de que o fuso horário do Gestor Express seja igual ao date.timezone definido no arquivo php.ini do servidor. Consulte Solução de problemas de eventos abaixo.
+                <p><i><diretório de instalação>\Gestor Express\workflow\engine\bin\messageeventcron.php</i></p>
 
-                Evento intermediário: condicional
-                Use este evento para indicar um ponto no processo onde uma condição será avaliada. Se a condição for avaliada como TRUE, o fluxo continuará. Se for avaliado como FALSE, o caso será interrompido.
+                <p>Para continuar os casos pendentes deste evento abra um terminal, vá até a localização do arquivo e execute o seguinte comando:</p>
 
-                Os eventos intermediários condicionais ainda não são suportados pelo mecanismo Gestor Express, portanto, eles são usados atualmente apenas para fins de design.
+                <codeblock>php -f mensagemeventcron.php</codeblock>
 
+                <p>Para obter mais informações, consulte Executando Scripts Cron.</p>
 
+                <p><font color="green">Observação:</font> para ver um exemplo de como executar um caso contendo esse tipo de evento, consulte o exemplo no final desta página.</p>
 
-                Evento Intermediário: Sinal
-                Use este evento para enviar uma notificação de um processo para outro. Este evento ainda não é compatível com o mecanismo Gestor Express, portanto, use-o apenas para fins de design.
+                <h2 id="item5bii">Evento Intermediário: Temporizador</h2>
 
+                <p>O Evento Intermediário com Temporizador causa um atraso no fluxo de um processo, dependendo do tempo definido em sua configuração. O Evento Intermediário com Temporizador é um evento de "captura", pois é necessário aguardar um tempo especificado para ser acionado e continuar o fluxo. Por exemplo, se um usuário não pagar uma conta em 30 dias, um evento intermediário de timer será acionado e enviará uma notificação assim que o período de 30 dias for atingido.</p>
 
+                <p>Para adicionar um Evento Intermediário com Temporizador, arraste e solte o evento no Mapa do Processo e conecte-o às tarefas relacionadas no processo. Veja o exemplo de fluxo de trabalho abaixo para ter uma ideia de como funciona um Evento Intermediário com Temporizador:</p>
 
-                Eventos finais
-                Este evento encerra o processo, então o caso termina e seu status é definido como "concluído". Se o caso tiver vários caminhos paralelos, todos os caminhos no caso serão encerrados. Recomenda-se colocar o evento final na parte inferior do Mapa do Processo se estiver usando um design de cima para baixo ou no lado direito do Mapa do Processo se estiver usando um design da esquerda para a direita.
+                <figure>
 
+                </figure>
 
+                <h2 id="item5biia">Configuração</h2>
 
-                Dentro do Mapa de Processos é possível adicionar os seguintes eventos intermediários Receber Mensagem:
+                <p><font color="green">Observação:</font> Os horários devem estar no horário UTC quando o servidor estiver no horário UTC.</p>
 
-                Vazio (nenhum)
-                Mensagem de e-mail
-                Mensagem
-                Erro
-                Sinal
-                Terminar
-                Leve em consideração que o mecanismo do Gestor Express suporta apenas eventos finais vazios (nenhum). Os outros eventos finais foram adicionados apenas para fins de design. Para selecionar o tipo de evento final dentro do desenho, clique com o botão direito do mouse no evento final e selecione Tipo de evento final.
+                <p>Clique com o botão direito do mouse no evento e a janela de configuração será aberta.</p>
 
+                <figure>
 
+                </figure>
 
-                Evento Final: Vazio (Nenhum)
-                Um processo pode conter vários eventos finais. Por exemplo, no processo de manutenção de equipamentos a seguir, o processo termina quando a verificação do equipamento conclui que o equipamento está OK ou quando um novo equipamento é comprado. Se o equipamento for recondicionado, o processo entrará em loop para verificar novamente o equipamento.
+                <p>Onde:</p>
 
+                <ul>
+                    <li><strong>Título do caso:</strong> Disponível a partir do Gestor Express 3.6.0. O título do caso é o número do caso, como #45visível na lista de casos. Neste campo podem ser atribuídos títulos aos casos, assim como podem ser inseridas variáveis dentro do título. Use o [ @@ ]botão para ver quais variáveis estão disponíveis e insira-as no título.</li>
+                    <li><strong>Aguardar:</strong> Selecione o número de minutos, horas ou dias que o fluxo deve aguardar. Pelo menos um desses campos deve ser selecionado (minuto, hora ou dia). O status de espera começa quando o fluxo chega ao evento do temporizador intermediário.</li>
+                    <li><strong>Aguardar até a data/hora específica:</strong> selecione uma data e hora específicas que o fluxo deve aguardar.</li>
+                </ul>
 
+                <figure>
 
-                Evento final: mensagem
-                O evento Message end finaliza o processo e envia uma mensagem para o evento inicial Receive Message e para o evento intermediário Receive Message. É representado por um círculo com uma borda em negrito ao redor de um envelope vermelho.
+                </figure>
 
+                <h2 id="item5biib">Evento Intermediário com Temporizador: casos em execução</h2>
 
+                <p>Ao executar casos que utilizam este evento para continuar o fluxo do processo, é necessário executar o script <strong>timereventcron.php</strong> no servidor Gestor Express para continuar os casos pendentes que contenham este evento. Este arquivo está localizado em:</p>
 
-                Um processo pode conter vários eventos finais e eventos de mensagem. Por exemplo, o processo a seguir é usado para decidir se deve produzir um novo produto. Se o novo produto for produzido, uma brochura é criada e o processo termina quando a brochura é enviada por e-mail. Se o produto não for produzido, o processo termina imediatamente sem produzir um folheto.
+                <p><strong>Linux:</strong></p>
 
+                <p><i><diretório de instalação> /Gestor Express/workflow/engine/bin/timereventcron.php</i></p>
+                
+                <p><strong>Windows:</strong></p>
+                
+                <p><i><diretório de instalação> \Gestor Express\workflow\engine\bin\timereventcron.php</i></p>
 
+                <p>Para continuar os casos pendentes, vá até o local do arquivo e execute o seguinte comando:</p>
+                <p>Para obter mais informações, consulte Executando Scripts com temporizador.</p>
 
-                Configuração
-                Para trabalhar com eventos de fim de mensagem, as mensagens enviadas já devem ter sido criadas com a opção Tipos de Mensagem. Para configurar um evento final, clique com o botão direito do mouse no evento e selecione Propriedades no menu de contexto.
+                <codeblock>php -f timereventcron.php</codeblock>
 
 
+                <p><font color="green">Observação 1:</font> Os eventos continuarão <strong>somente após</strong> a execução do script <strong>timereventcron.php</strong> mesmo que os casos estejam atrasados.</p>
 
-                A caixa de diálogo que se abre tem as seguintes características:
+                <p><font color="green">Observação 2:</font> Certifique-se de que o fuso horário do Gestor Express seja igual ao date.timezone definido no arquivo <strong>php.ini</strong> do servidor. Consulte Solução de problemas de eventos abaixo.</p>
 
+                <h2 id="item5biii">Evento intermediário: condicional</h2>
 
+                <p>Use este evento para indicar um ponto no processo onde uma condição será avaliada. Se a condição for avaliada como <code>VERDADEIRA</code> continuará. Se for avaliado como <code>FALSA</code>, o caso será interrompido.</p>
 
-                Tipo de Mensagem: Selecione o Tipo de Mensagem no menu suspenso. O tipo de mensagem selecionado neste campo definirá as variáveis enviadas ao outro processo. O evento que receberá a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração.
-                Nome: Esta coluna mostra o nome da variável utilizada para armazenar o valor da mensagem enviada do outro processo. Leve em consideração que esses valores não são variáveis usadas pelo primeiro processo dentro de seus formulários, triggers, documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.
-                Obter valor de: Nesta coluna, defina as variáveis utilizadas no processo onde os valores serão obtidos e utilizados pela mensagem que será enviada ao outro processo.
+                <p>Os eventos intermediários condicionais ainda não são suportados pelo Gestor Express, portanto, eles são usados atualmente apenas para fins de modelagem.</p>
 
+                <figure>
 
-                Valor de Correlação: O valor de correlação define o ID exclusivo que relacionará os dois eventos: o evento de envio de mensagem e o evento de recebimento de mensagem.
-                Este valor deve ser o mesmo em ambos os eventos. O valor de correlação deve ser um valor fixo, como IUD = 98765433(por exemplo), ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como @@USER_LOGGED(no caso de os processos serem atribuídos ao mesmo usuário). As variáveis de processo ou sistema criadas anteriormente não podem ser utilizadas neste tipo de processo, pois este evento inicia o fluxo do processo, e essas variáveis ainda não possuem um valor definido.
+                </figure>
 
+                <h2 id="item5biv">Evento Intermediário: Sinal</h2>
 
-                Casos em execução
-                Como esse evento só envia mensagens para outros eventos, o fluxo no processo termina após esse evento ter enviado a mensagem. Para saber como continuar os outros processos configurados para receber a mensagem, consulte a seção Casos em execução.
+                <p>Use este evento para enviar uma notificação de um processo para outro. Este evento ainda não é compatível com o Gestor Express, portanto, use-o apenas para fins de modelagem.</p>
 
-                Observação: Para ver um exemplo de como executar um caso deste evento, acesse o exemplo no final da página.
+                <figure>
 
-                Evento final: mensagem de e-mail
-                Edição Disponível: Disponível apenas na Edição Enterprise.
+                </figure>
 
-                Um evento de término de mensagem de e-mail envia uma notificação assim que o fluxo termina. Para adicionar um evento de término de mensagem de e-mail, arraste e solte o ícone End E-mail Message da caixa de ferramentas de formas e conecte-o às tarefas relacionadas. Clique com o botão direito do mouse na tarefa e selecione Propriedades. A seguinte interface aparecerá:
+                <h1 id="item6">Eventos finais</h1>
 
+                <p>Este evento encerra o processo, então o caso termina e seu status é definido como "concluído". Se o caso tiver vários caminhos paralelos, todos os caminhos no caso serão encerrados. Recomenda-se colocar o evento final na parte inferior do Mapa do Processo se estiver usando uma modelagem de cima para baixo ou no lado direito do Mapa do Processo se estiver usando uma modelagem da esquerda para a direita.</p>
 
+                <figure>
 
-                Onde:
+                </figure>
 
-                De: Campo obrigatório. A partir do Gestor Express 3.3.0, a lista suspensa lista a conta de e - mail padrão e o e- mail do remetente de todas as contas configuradas nos servidores de e-mail do espaço de trabalho. Caso contrário, o valor da conta do remetente substituirá o e-mail do remetente se estiver vazio quando o mecanismo de e-mail for SMTP (PHP Mailer) ou "Mail (PHP)" substitui o e-mail do remetente quando o mecanismo de e-mail for Mail (PHP). Consulte esta documentação para saber mais sobre E-mail do Remetente, Conta do Remetente, SMTP e Correio.
-                Observação: Nas configurações do servidor de e-mail, você deve inserir a Conta do Remetente, opcionalmente o E- mail do Remetente e o Nome do Remetente. Em seguida, o De e Responder para no cabeçalho do e-mail é o seguinte:
+                <p>Dentro do Mapa de Processos é possível adicionar os seguintes eventos intermediários Receber Mensagem:</p>
 
-                Se o E- mail do Remetente e o Nome do Remetente estiverem preenchidos:
-                De: Responder a:SenderName <SenderAccount>
-                SenderName <SenderE-mail>
-                Se o E- mail do Remetente e o Nome do Remetente estiverem vazios:
-                De: Responder a:SenderAccount
-                SenderAccount
-                Se o E- mail do Remetente estiver vazio e o Nome do Remetente estiver preenchido:
-                De: Responder a:SenderName <SenderAccount>
-                SenderName <SenderAccount>
-                Se o E- mail do Remetente estiver preenchido e o Nome do Remetente estiver vazio:
-                De: Responder a:SenderAccount
-                SenderE-mail
-                Para: Para adicionar um endereço de e-mail a este campo, ele deve ser uma string ou uma variável @@ de processo (que pode especificar um grupo de endereços de e-mail). É necessário pelo menos um endereço de e-mail. Use vírgulas para separar mais de um endereço de e-mail.
-                A partir do Gestor Express 3.5.0, para selecionar dinamicamente uma variável, está disponível um modal igual ao do Subject.
+                <ul>
+                    <li>Vazio (nenhum)</li>
+                    <li>Mensagem de e-mail</li>
+                    <li>Mensagem</li>
+                    <li>Erro</li>
+                    <li>Sinal</li>
+                    <li>Terminar</li>
+                </ul>
 
+                <p>Leve em consideração que o sistema do Gestor Express suporta apenas eventos finais vazios (nenhum). Os outros eventos finais foram adicionados apenas para fins de modelagem. Para selecionar o tipo de evento final dentro do modelo, clique com o botão direito do mouse no evento final e selecione Tipo de evento final.</p>
 
-                Assunto: Opcional. O assunto do e-mail.
-                Conteúdo: Campo obrigatório. O corpo do e-mail que contém os detalhes do e-mail. Pressione CTRL + @ para exibir a lista de variáveis disponíveis no processo.
-                Cancelar: Cancela a configuração do e-mail. Todas as alterações serão perdidas.
-                Salvar: Salva as alterações do e-mail. Observe que o e-mail não é enviado com esta ação. O e-mail é enviado quando o caso é executado.
-                Observação: use este elemento para enviar e-mails e encerrar o fluxo do processo em vez de usar dois elementos diferentes, um para enviar um e-mail e outro para encerrar o fluxo (que atualmente não é suportado pelo mecanismo).
+                <figure>
 
-                Evento final: erro
-                Use um evento de término de erro no design do processo para indicar que durante o fluxo do processo pode haver um erro que pode afetar a execução normal do fluxo e gerar uma exceção. Este elemento indicará que o fim do processo naquele ponto é devido a uma exceção e capturado por aquele evento.
+                </figure>
 
-                Como esse evento não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design.
+                <h2 id="item6a">Evento Final: Vazio (Nenhum)</h2>
 
+                <p>Um processo pode conter vários eventos finais. Por exemplo, no processo de manutenção de equipamentos a seguir, o processo termina quando a verificação do equipamento conclui que o equipamento está OK ou quando um novo equipamento é comprado. Se o equipamento for recondicionado, o processo entrará em loop para verificar novamente o equipamento.</p>
 
+                <figure>
 
-                Evento Final: Sinal
-                Use este evento final no projeto do processo para indicar que um sinal será transmitido quando o final do processo for alcançado. O sinal enviado pelo processo pode ser recebido por qualquer outro processo que precise desse sinal para acionar um evento. Como esse evento não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design.
+                </figure>
 
+                <h2 id="item6b">Evento final: mensagem</h2>
 
+                <p>O Evento final Mensagem finaliza o processo e envia uma mensagem para o evento inicial Recebe Mensagem e para o evento intermediário Recebe Mensagem. Ele é representado por um círculo com uma borda em negrito ao redor de um envelope vermelho.</p>
 
-                Evento Final: Terminar
-                Use este evento no desenho do processo se houver tarefas paralelas executadas ao mesmo tempo, e a conclusão de uma delas for suficiente para encerrar todo o fluxo do processo. Assim, este evento encerrará imediatamente todos os fluxos do processo. Como esse evento não é compatível com o mecanismo Gestor Express, use-o apenas para fins de design.
+                <figure>
 
+                </figure>
 
+                <p>Um processo pode conter vários eventos finais e eventos de mensagem. Por exemplo, o processo a seguir é usado para decidir se deve produzir um novo produto. Se o novo produto for produzido, uma brochura é criada e o processo termina quando a brochura é enviada por e-mail. Se o produto não for produzido, o processo termina imediatamente sem produzir um folheto.</p>
 
-                Exemplo de eventos
-                Vamos pegar o seguinte design, por exemplo, onde o primeiro processo inicia um caso com a tarefa "Negociar contrato" dentro do pool "Empresa contratante". Em seguida, ele envia uma mensagem por meio de um evento intermediário de envio de mensagem que aciona o segundo processo dentro do pool "Auditor Externo". Como você pode ver no design, quando o segundo processo atinge o evento intermediário de envio de mensagem, ele lança uma mensagem que retorna ao primeiro evento do primeiro processo, que permaneceu pausado aguardando essa mensagem antes de continuar sua execução.
+                <figure>
 
+                </figure>
 
+                <h2 id="item6bi">Configuração</h2>
 
-                Os tipos de mensagem criados para esses processos são os seguintes:
+                <p>Para trabalhar com eventos finais com mensagem, as mensagens enviadas já devem ter sido criadas com a opção Tipos de Mensagem. Para configurar um evento final, clique com o botão direito do mouse no evento e selecione Propriedades no menu de contexto.</p>
 
-                O tipo de mensagem "ContractMessage" para o evento intermediário de mensagem de envio "Enviar contrato" e o evento de início de mensagem de recebimento "Receber contrato".
+                <figure>
 
+                </figure>
 
+                <p>A caixa de diálogo que se abre tem as seguintes características:</p>
 
-                O tipo de mensagem "MessageVerifiedContract" para o evento de fim de mensagem de envio "Enviar contrato verificado" e o evento intermediário de mensagem de recebimento "Receber contrato verificado".
+                <figure>
 
+                </figure>
 
+                <ul>
+                    <li><strong>Tipo de Mensagem:</strong> Selecione o Tipo de Mensagem no menu suspenso. O tipo de mensagem selecionado neste campo definirá as variáveis enviadas ao outro processo. O evento que receberá a mensagem deve ter o mesmo tipo de mensagem definido dentro de sua configuração.</li>
+                    <li><strong>Nome:</strong> Esta coluna mostra o nome da variável utilizada para armazenar o valor da mensagem enviada do outro processo. Leve em consideração que esses valores não são variáveis usadas pelo primeiro processo dentro de seus formulários, triggers, documentos de entrada ou saída. Essas variáveis são utilizadas exclusivamente pela mensagem entre os eventos.</li>
+                    <li>
+                        <strong>Obter valor de:</strong> Nesta coluna, defina as variáveis utilizadas no processo onde os valores serão obtidos e utilizados pela mensagem que será enviada ao outro processo.
+                        <figure>
+                        </figure>
+                    </li>
+                    <li><strong>Valor de Correlação:</strong> O valor de correlação define o ID exclusivo que relacionará os dois eventos: o evento de envio de mensagem e o evento de recebimento de mensagem.</li>
+                </ul>
 
-                Cada tarefa no exemplo tem suas próprias etapas (Formulário Dinâmicos, gatilhos, documentos de saída e entrada) atribuídas aos usuários finais para trabalhar durante a execução do processo. Como este exemplo pretende mostrar como os eventos funcionam, as etapas das tarefas não serão mostradas na explicação.
+                
+                <p>Este valor <strong>deve ser o mesmo em ambos os eventos</strong>. O valor de correlação deve ser um <strong>valor fixo</strong>, como <code>IUD = 98765433</code> (por exemplo), ou uma variável imutável usada no projeto cujo valor não muda para ambos os processos, como <code>@@USER_LOGGED</code> (no caso de os processos serem atribuídos ao mesmo usuário). As variáveis de processo ou sistema criadas anteriormente não podem ser utilizadas neste tipo de processo, pois este evento inicia o fluxo do processo, e essas variáveis ainda não possuem um valor definido.</p>
 
-                A configuração do evento intermediário de envio de mensagem "Send Contract" é a seguinte:
+                <figure>
 
+                </figure>
 
+                <h2 id="item6bii">Casos em execução</h2>
 
-                A configuração do evento de início de mensagem de recebimento "Receive Contract" é a seguinte:
+                <p>Como esse evento só envia mensagens para outros eventos, o fluxo no processo termina após esse evento ter enviado a mensagem. Para saber como continuar os outros processos configurados para receber a mensagem, consulte a seção Casos em execução.</p>
 
+                <p><font color="green">Observação:</font> Para ver um exemplo de como executar um caso deste evento, acesse o exemplo no final da página.</p>
 
+                <h2 id="item6c">Evento final: mensagem de e-mail</h2>
+          
+                <p>Um Evento final de mensagem de e-mail envia uma notificação assim que o fluxo termina. Para adicionar um evento de término de mensagem de e-mail, arraste e solte o ícone End E-mail Message da caixa de ferramentas de formas e conecte-o às tarefas relacionadas. Clique com o botão direito do mouse na tarefa e selecione <strong>Propriedades</strong>. A seguinte interface aparecerá:</p>
 
-                O tipo de mensagem utilizado é "ContractMessage", que armazenará valores de uma das etapas da primeira tarefa no primeiro processo no pool "Empresa Contratante". O evento "Enviar Contrato" enviará os valores dessas variáveis através da mensagem para o outro processo do pool "Auditor Externo" e será recebido pelo evento "Receber Contrato", que atribuirá os valores enviados na mensagem ao seu próprias variáveis usadas no processo e iniciarão o processo.
+                <figure>
 
-                A configuração do evento final "Enviar Contrato Verificado" no pool Auditor Externo, que enviará as informações ao departamento Jurídico e Contábil antes da assinatura do contrato, é a seguinte:
+                </figure>
 
+                <p>Onde:</p>
 
+                <ul>
+                    <li>
+                        <strong>De:</strong> Campo obrigatório. A lista suspensa lista a conta de <strong>e-mail padrão</strong> e o, <strong>e-mail do remetente</strong> de todas as contas configuradas nos servidores de e-mail do espaço de trabalho. Caso contrário, o valor da <strong>conta do remetente</strong> substituirá o e-mail do remetente se estiver vazio quando o mecanismo de e-mail for SMTP (PHP Mailer) ou "Mail (PHP)" substitui o e-mail do remetente quando o mecanismo de e-mail for Mail (PHP). Consulte esta documentação para saber mais sobre E-mail do Remetente, Conta do Remetente, SMTP e Correio.
+                        <p><font color="green">Observação:</font> Nas configurações do servidor de e-mail, você deve inserir a <strong>Conta do Remetente</strong>, opcionalmente o <strong>E-mail do Remetente</strong> e o <strong>Nome do Remetente</strong>. Em seguida, o <strong>De:</strong> e <strong>Responder para:</strong> no cabeçalho do e-mail é o seguinte:</p>
+                        <ul type="disc">
+                            <li>Se o <strong>E-mail do Remetente</strong> e o <strong>Nome do Remetente</strong> estiverem preenchidos:
+                                <br><strong>De: Responder a:</strong><code>SenderName <SenderAccount></code>
+                                    <br><code>SenderName <SenderE-mail></code>
+                            </li>
+                            <li>
+                                Se o <strong>E-mail do Remetente</strong> e o <strong>Nome do Remetente</strong> estiverem vazios:
+                                <br><strong>De: Responder a:</strong><code>SenderAccount</code>
+                                <br><code>SenderAccount</code>
+                            </li>
+                            <li>
+                                Se o <strong>E-mail do Remetente</strong> estiver vazio e o <strong>Nome do Remetente</strong> estiver preenchido:
+                                <br><strong>De: Responder a:</strong><code>SenderName <SenderAccount></code>
+                                <br><code>SenderName <SenderAccount></code>
+                            </li>
+                            <li>
+                                Se o <strong>E-mail do Remetente</strong> estiver preenchido e o <strong>Nome do Remetente</strong> estiver vazio:
+                                <br><strong>De: Responder a:</strong><code>SenderAccount</code>
+                                <br><code>SenderE-mail</code>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Para:</strong> Para adicionar um endereço de e-mail a este campo, ele deve ser uma string ou uma variável @@ de processo (que pode especificar um grupo de endereços de e-mail). É necessário pelo menos um endereço de e-mail. Use vírgulas para separar mais de um endereço de e-mail.</li>
+                </ul>
 
-                A configuração do evento de captura "Receber Contrato Verificado", que receberá a mensagem do segundo processo para dar continuidade ao processo de contratação, é a seguinte:
 
+                <p>Para selecionar dinamicamente uma variável, está disponível um modal igual ao do campo Assunto.</p>
 
+                <figure>
 
-                Agora, vamos executar um caso do processo. Leve em consideração que este exemplo tem como objetivo apenas mostrar como os eventos funcionam entre dois processos. Para iniciar o processo vá para Home > Novo Caso > Processo de Contratação (Processo de Negociação)
+                </figure>
 
 
+                <ul>
+                    <li><strong>Assunto:</strong> Opcional. O assunto do e-mail.</li>
+                    <li><strong>Conteúdo:</strong> Campo obrigatório. O corpo do e-mail que contém os detalhes do e-mail. Pressione CTRL + @ para exibir a lista de variáveis disponíveis no processo.</li>
+                    <li><strong>Cancelar:</strong> Cancela a configuração do e-mail. Todas as alterações serão perdidas.</li>
+                    <li><strong>Salvar:</strong> Salva as alterações do e-mail. Observe que o e-mail não é enviado com esta ação. O e-mail é enviado quando o caso é executado.</li>
+                </ul>
 
-                Os passos da primeira tarefa "Negociar Contrato" serão executados, então o evento de envio de mensagem "Enviar Contrato" enviará a mensagem "ContractMessage" para o segundo processo no pool "Auditor Externo" para iniciar um novo caso. Em seguida, o fluxo irá para o evento intermediário "Receber Contrato Verificado", que pausará o caso até que uma mensagem seja enviada do segundo processo. Este evento mostrará a seguinte mensagem para indicar que:
+                <p><font color="green">Observação:</font> use este elemento para enviar e-mails e encerrar o fluxo do processo em vez de usar dois elementos diferentes, um para enviar um e-mail e outro para encerrar o fluxo (que atualmente não é suportado pelo sistema).</p>
 
+                <h2 id="item6d">Evento final: erro</h2>
 
+                <p>Use um Evento final de erro no modelo do processo para indicar que durante o fluxo do processo pode haver um erro que pode afetar a execução normal do fluxo e gerar uma exceção. Este elemento indicará que o fim do processo naquele ponto é devido a uma exceção e capturado por aquele evento.</p>
 
-                Após clicar em Continuar, a tarefa "Autorizar Contrato" não será exibida na caixa de entrada do endereço de e-mail atribuído até que o messageeventcronarquivo seja executado e as mensagens recebidas pelos eventos.
+                <p>Como esse evento não é compatível com o sistema Gestor Express, use-o apenas para fins de modelagem.</p>
 
-                No segundo processo, o evento de início de mensagem "Receive Contract" irá capturar a mensagem do evento "Send Contract" e iniciar um novo caso deste processo após a execução do cron. Vamos executar o cron.
+                <figure>
+                    
+                </figure>
 
+                <h2 id="item6e">Evento Final: Sinal</h2>
 
+                <p>Use este evento final no modelo do processo para indicar que um sinal será transmitido quando o final do processo for alcançado. O sinal enviado pelo processo pode ser recebido por qualquer outro processo que precise desse sinal para acionar um evento. Como esse evento não é compatível com o sistema Gestor Express, use-o apenas para fins de modelagem.</p>
 
-                Agora, a pessoa designada para a primeira tarefa receberá o caso em sua caixa de entrada.
+                <figure>
+                    
+                </figure>
 
+                <h2 id="item6f">Evento Final: Terminar</h2>
 
+                <p>Use este evento no modelo do processo se houver tarefas paralelas executadas ao mesmo tempo e a conclusão de uma delas for suficiente para encerrar todo o fluxo do processo. Assim, este evento encerrará imediatamente todos os fluxos do processo. Como esse evento não é compatível com o sistema Gestor Express, use-o apenas para fins de modelagem.</p>
 
-                Para continuar todo o "Processo de Contratação", o segundo processo deve ser concluído até que o evento final "Enviar Contrato Verificado" seja atingido e envie uma mensagem para o evento "Receber Contrato Verificado" para continuar a execução do primeiro processo. Após o término do segundo processo, o cron deve ser executado novamente:
+                <figure>
+                    
+                </figure>
 
+            </article>
 
+            <article>              
 
-                A mensagem no console Total cases continued: 1 indica que o caso agora está listado na caixa de entrada do usuário atribuído à tarefa "Autorizar contrato":
+                <h2 id="item7">Exemplo de eventos</h2>
 
+                <p>Vamos pegar o seguinte modelo, por exemplo, onde o primeiro processo inicia um caso com a tarefa "Negociar contrato" dentro do pool "Empresa contratante". Em seguida, ele envia uma mensagem por meio de um evento intermediário de envio de mensagem que aciona o segundo processo dentro do pool "Auditor Externo". Como você pode ver no modelo, quando o segundo processo atinge o evento intermediário de envio de mensagem, ele envia uma mensagem que retorna ao primeiro evento do primeiro processo, que permaneceu pausado aguardando essa mensagem antes de continuar sua execução.</p>
 
+                <figure>
+                    
+                </figure>
 
-                A partir daí, o caso deve simplesmente continuar a execução do restante das tarefas no primeiro processo até que o evento de término vazio seja alcançado.
+                <p>Os tipos de mensagem criados para esses processos são os seguintes:</p>
 
-                Solução de problemas de eventos
-                Para eventos de mensagem, o tipo de mensagem em ambos os processos deve ser o mesmo. Casos de processos cujos eventos não estejam configurados corretamente não podem ser recuperados.
+                <ul>
+                    <li>
+                        O tipo de mensagem "ContratoMenssagem" para o evento intermediário de mensagem de envio "Enviar contrato" e o evento de início de mensagem de recebimento "Receber contrato".
+                        <figure>
+                    
+                        </figure>
+                    </li>
+                    <li>
+                        O tipo de mensagem "MenssagemVerificada" para o evento de fim de mensagem de envio "Enviar contrato verificado" e o evento intermediário de mensagem de recebimento "Receber contrato verificado".
+                        <figure>
+                    
+                        </figure>
+                    </li>
+                </ul>
 
-                Para eventos que não foram configurados corretamente, a mensagem mostrada para esses casos ao executar o messageeventcronarquivo é a seguinte:
+                <p>Cada tarefa no exemplo tem suas próprias etapas (Formulário Dinâmicos, gatilhos, documentos de saída e entrada) atribuídas aos usuários finais para trabalhar durante a execução do processo. Como este exemplo pretende mostrar como os eventos funcionam, as etapas das tarefas não serão mostradas na explicação.</p>
 
+                <p>A configuração do evento intermediário de envio de mensagem "Enviar Contrato" é a seguinte:</p>
 
+                <figure>
+                    
+                </figure>
 
-                Para que os eventos do temporizador de início e do temporizador intermediário funcionem corretamente, o fuso horário deve ser o mesmo em todos os três locais:
+                <p>A configuração do evento de início de mensagem de recebimento "Receber Contrato" é a seguinte:</p>
 
-                A date.timezone configuração no arquivo php.ini no servidor Gestor Express.
-                O fuso horário encontrado em Admin > Configurações > Sistema no Gestor Express (ou time_zoneno arquivo env.ini no servidor Gestor Express).
-                O fuso horário do servidor Gestor Express.
-                Observação: O fuso horário em máquinas Linux/UNIX pode ser encontrado com o datecomando:
-                $ data 
-                qua 12 de outubro 16:49:26 BOT 2016
+                <figure>
+                    
+                </figure>
 
-                Se os fusos horários forem diferentes, os eventos de temporizador de início não iniciarão novos casos e os casos com eventos de temporizador intermediários não avançarão.
+                <p>O tipo de mensagem utilizado é "ContratoMenssagem", que armazenará valores de uma das etapas da primeira tarefa no primeiro processo no pool "Empresa Contratante". O evento "Enviar Contrato" enviará os valores dessas variáveis através da mensagem para o outro processo do pool "Auditor Externo" e será recebido pelo evento "Receber Contrato", que atribuirá os valores enviados na mensagem ao seu próprias variáveis usadas no processo e iniciarão o processo.</p>
 
-                Por exemplo, se estiver usando Eastern Standard Time nos EUA, defina o arquivo php.ini no servidor Gestor Express para usar a seguinte configuração:
+                <p>A configuração do evento final "Enviar Contrato Verificado" no pool Auditor Externo, que enviará as informações ao departamento Jurídico e Contábil antes da assinatura do contrato, é a seguinte:</p>
 
-                [Data]; Define o fuso horário padrão usado pelas funções de data; http://php.net/date.timezone
-                date.timezone = America/New_York
-                Veja esta lista de fusos horários disponíveis. Após alterar o arquivo php.ini, reinicie o servidor Apache para que a nova configuração tenha efeito.
-                Em seguida, faça login com um usuário, como "admin", que tenha a permissão PM_SETUP_ADVANCE em sua função e vá para Admin > Configurações > Sistema. Defina o fuso horário para America/New_York.
+                <figure>
+                    
+                </figure>
 
+                <p>A configuração do evento de captura "Receber Contrato Verificado", que receberá a mensagem do segundo processo para dar continuidade ao processo de contratação, é a seguinte:</p>
 
-                Para evitar o uso da interface gráfica para definir o fuso horário do Gestor Express, o fuso horário também pode ser definido no arquivo de configuração env.ini, que é criado automaticamente quando um usuário clica em Salvar na página Admin > Configurações > Sistema. Esse arquivo env.ini também pode ser criado manualmente para definir o fuso horário. Quando o script timereventcron.php for executado, ele usará o fuso horário definido no arquivo env.ini para processar os eventos do temporizador nos casos pendentes.
+                <figure>
+                    
+                </figure>
 
-                Se ocorrer um erro durante a execução de um dos scripts cron, ele será registrado no arquivo shared/log/cronError.log, que é criado na primeira vez que ocorre um erro.
+                <p>Agora, vamos executar um caso do processo. Leve em consideração que este exemplo tem como objetivo apenas mostrar como os eventos funcionam entre dois processos. Para iniciar o processo vá para <strong>Início => Novo Caso => Processo de Contratação (Processo de Negociação)</strong></p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>Os passos da primeira tarefa "Negociar Contrato" serão executados, então o evento de envio de mensagem "Enviar Contrato" enviará a mensagem "ContratoMenssagem" para o segundo processo no pool "Auditor Externo" para iniciar um novo caso. Em seguida, o fluxo irá para o evento intermediário "Receber Contrato Verificado", que pausará o caso até que uma mensagem seja enviada do segundo processo. Este evento mostrará a seguinte mensagem para indicar que:</p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>Após clicar em Continuar, a tarefa "Autorizar Contrato" não será exibida na caixa de entrada do endereço de e-mail atribuído até que o arquivo <code>messageeventcron</code> seja executado e as mensagens recebidas pelos eventos.</p>
+
+                <p>No segundo processo, o evento de início de mensagem "Receber Contrato" irá capturar a mensagem do evento "Enviar Contrato" e iniciar um novo caso deste processo após a execução do cron. Vamos executar a temporização.</p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>Agora, a pessoa designada para a primeira tarefa receberá o caso em sua caixa de entrada.</p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>Para continuar todo o "Processo de Contratação", o segundo processo deve ser concluído até que o evento final "Enviar Contrato Verificado" seja atingido e envie uma mensagem para o evento "Receber Contrato Verificado" para continuar a execução do primeiro processo. Após o término do segundo processo, o cron deve ser executado novamente:</p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>A mensagem no console Total cases continued: 1 indica que o caso agora está listado na caixa de entrada do usuário atribuído à tarefa "Autorizar contrato":</p>
+
+                <figure>
+                    
+                </figure>
+
+                <p>A partir daí, o caso deve simplesmente continuar a execução do restante das tarefas no primeiro processo até que o evento de término vazio seja alcançado.</p>
+
+            </article>
+
+            <article>
+
+                <h1 id="item8">Solução de problemas de eventos</h1>
+
+                <p>Para eventos de mensagem, o tipo de mensagem em ambos os processos deve ser o mesmo. Casos de processos cujos eventos não estejam configurados corretamente não podem ser recuperados.</p>
+
+                <p>Para eventos que não foram configurados corretamente, a mensagem mostrada para esses casos ao executar oarquivo  <code>messageeventcron</code> é a seguinte:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para que os eventos do temporizador de início e do temporizador intermediário funcionem corretamente, o fuso horário deve ser o mesmo em todos os três locais:</p>
+
+                <ol>
+                    <li>A configuração <de>date.timezone</de> php.ini no servidor Gestor Express.</li>
+                    <li>O fuso horário encontrado em <strong>Admin => Configurações => Sistema</strong> no Gestor Express (ou <code>time_zone</code> no arquivo env.ini no servidor Gestor Express).</li>
+                    <li>O fuso horário do servidor Gestor Express.</li>
+                </ol>
+                
+                <p><font color="green">Observação:</font> O fuso horário em máquinas Linux/UNIX pode ser encontrado com o comando <code>date</code>:</p>
+
+                <codeblock>
+                    <p>$ data </p>
+                    <p>qua 12 de outubro 16:49:26 BOT 2016</p>
+                </codeblock>
+
+                <p>Se os fusos horários forem diferentes, os eventos de temporizador de início não iniciarão novos casos e os casos com eventos de temporizador intermediários não avançarão.</p>
+
+                <p>Por exemplo, se estiver usando Eastern Standard Time nos EUA, defina o arquivo php.ini no servidor Gestor Express para usar a seguinte configuração:</p>
+
+                <codeblock>
+                    <p>[Data]; Define o fuso horário padrão usado pelas funções de data; http://php.net/date.timezone</p>
+                    <p><strong>date.timezone = America/New_York</strong></p>
+                </codeblock>
+
+                <p>Veja esta lista de fusos horários disponíveis. Após alterar o arquivo <strong>php.ini</strong>, reinicie o servidor Apache para que a nova configuração tenha efeito.</p>
+
+                <p>Em seguida, faça login com um usuário, como "admin", que tenha a permissão PM_SETUP_ADVANCE em sua função e vá para <strong>Admin => Configurações => Sistema</strong>. Defina o <strong>fuso horário</strong> para <code>America/New_York</code>.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para evitar o uso da interface gráfica para definir o fuso horário do Gestor Express, o fuso horário também pode ser definido no arquivo de configuração env.ini, que é criado automaticamente quando um usuário clica em <strong>Salvar</strong> na página <strong>Admin => Configurações => Sistema</strong>. Esse arquivo <strong>env.ini</strong> também pode ser criado manualmente para definir o fuso horário. Quando o script <strong>timereventcron.php</strong> for executado, ele usará o fuso horário definido no arquivo <strong>env.ini</strong> para processar os eventos do temporizador nos casos pendentes.</p>
+
+                <p>Se ocorrer um erro durante a execução de um dos scripts cron, ele será registrado no arquivo shared/log/cronError.log, que é criado na primeira vez que ocorre um erro.</p>
 
             </article>
     
