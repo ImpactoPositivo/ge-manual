@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Piscinas e Raias</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+
+ <aside>
+        <section id="lado">
+            <h1>Piscinas e raias</h1>
+            <h2>Conteúdo:</h2>
+            <ol>
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Entendendo piscinas e raias</a>
+                    <ol type="A">
+                        <li><a href="#item2a">Piscinas</a></li>
+                        <li><a href="#item2b">Raias</a></li>
+                        <li><a href="#item2c">Fluxos de mensagens entre piscinas</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item3">Piscinas de Caixa Preta</a></li>
+            </ol>
+        </section>
+    </aside>
+
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+            <p>Um pool é usado para delimitar um processo separado, que geralmente vem de uma organização diferente. Todos os tipos de fluxos podem conectar processos normais a subprocessos, mas processos em conjuntos separados podem se comunicar apenas por meio de fluxos de mensagens.</p>
+            
+            <h1 id="item2">Entendendo piscinas e raias</h1>
+            <p>Um pool é um limite organizacional que engloba todos os elementos de um único processo. Um pool é usado para delimitar o processo de uma organização e criar comunicação com os processos de outras organizações. Ao contrário dos fluxos de sequência normais dentro do Gestor Express, que são mostrados como linhas pretas sólidas, os fluxos de mensagens entre os pools são mostrados como linhas pretas tracejadas.</p>
+            <p>Existem dois tipos de piscinas. Um pool normal (também conhecido como pool de caixa branca) exibe seus detalhes internos, de modo que é possível criar conexões diretamente com os objetos dentro do pool. Em contraste, um pool de caixa preta oculta todos os seus detalhes internos, portanto, não é possível visualizar os eventos, tarefas, gateways etc. que constituem o processo dentro de um pool de caixa preta. Somente as conexões de e para um pool de caixa preta podem ser visualizadas.</p>
+            <p>Dentro de uma piscina normal, os elementos em um processo podem ser divididos usando linhas horizontais ou verticais, que são chamadas de raias, ou mais simplesmente, raias. Na maioria dos casos, essas raias são usadas para separar as tarefas atribuídas a diferentes usuários ou grupos, como gerenciamento, vendas, contabilidade, etc., mas as raias podem ser usadas para qualquer tipo de agrupamento, como tempo, localização geográfica, organização hierárquica, etc</p>
+
+            <h2 id="item2a">Piscinas</h2>
+            <p>Para adicionar um pool ao design do processo, arraste e solte o símbolo do pool da caixa de ferramentas de formas no mapa do designer.</p>
+            <p>O novo pool será automaticamente denominado "Pool 1" quando adicionado ao Mapa do Processo.</p>
+            <p>Os pools têm uma ordem crescente, portanto, ao adicionar um novo pool, ele começará com "Pool 1", em seguida será "Pool 2", depois "Pool 3" e assim por diante.</p>
+            <p>Para alterar o nome do pool, clique duas vezes em seu nome para ativar o modo de edição.</p>
+            <p>Para adicionar elementos ao pool, como atividades, eventos e gateways, mova os elementos existentes para o pool ou arraste novos elementos da caixa de ferramentas Formas e solte-os dentro do pool.</p>
+            <p>Lembre-se que a partir da versão 3.0.1, os elementos são facilmente adicionados usando a Barra de Ferramentas Rápida.</p>
+            <p>Elementos que não fazem parte da caixa da piscina são sobrepostos pela piscina e seus elementos, mesmo que pareçam fazer parte dos elementos da caixa da piscina. Quando uma caixa de pool é movida, ela se move junto com seus elementos, mas os elementos que não fazem parte da caixa de pool não se movem.</p>
+            <p>Observação: para adicionar um processo existente a um pool, NÃO crie um novo pool sobre o processo. Em vez disso, crie o novo pool em uma área em branco no designer e redimensione-o para que seja grande o suficiente para abranger todo o processo. Em seguida, selecione todo o processo com a ferramenta seletora de grupo e arraste-o para o pool.</p>
+            <p>Para mover um pool, clique nele para que as caixas verdes apareçam em suas bordas, depois arraste e solte-o em um novo local no mapa do designer.</p>
+            <p>Para redimensionar um pool, clique nele para que as caixas verdes apareçam em suas bordas. Em seguida, clique em uma das caixas verdes e arraste-a para redimensionar a caixa.</p>
+            <p>Para excluir um pool, clique nele para que as caixas verdes apareçam em suas bordas. Em seguida, pressione a tecla Delete no teclado. Todos os elementos dentro do pool também serão excluídos.</p>
+            <p>Outra maneira de excluir o pool é clicar nele e o ícone da lixeira aparecerá (disponível a partir da versão 3.0.1)</p>
+
+            <h2 id="item2b">Raias</h2>
+            <p>As raias são usadas para dividir uma piscina em seções. Eles podem ser usados para indicar diferentes departamentos ou escritórios, regiões geográficas, diferenças conceituais, etc.</p>
+            <p>Para adicionar uma raia a uma piscina, arraste uma piscina da caixa de ferramentas de formas e solte-a dentro de uma piscina existente.</p>
+            <p>A nova raia aparecerá na piscina, adicionando um rótulo no lado esquerdo da piscina.</p>
+            <p>Atualmente, há uma inconveniência ao criar pools que impede que elementos existentes em um pool (como eventos, atividades e gateways) sejam editados após a adição de uma raia. Quando isso acontecer, uma mensagem de erro rápida aparecerá. Portanto, é recomendável primeiro adicionar as raias a uma piscina e adicionar os elementos posteriormente.</p>
+            <p>Para adicionar seções adicionais à piscina, arraste mais raias da caixa de ferramentas Formas e solte-as na piscina.</p>
+            <p>As raias podem ser renomeadas e elementos adicionais podem ser adicionados às raias.</p>
+            <p>Cada raia pode ser redimensionada clicando nela para fazer com que caixas verdes apareçam nas bordas inferior e direita. Em seguida, arraste e solte a caixa verde em um novo local para redimensionar a raia.</p>
+            <p>Para redimensionar ou mover a piscina inteira após adicionar raias, clique no lado esquerdo da piscina onde seu nome está localizado para fazer com que caixas verdes apareçam ao redor de toda a piscina. Em seguida, arraste e solte uma das caixas verdes para redimensioná-la. Para movê-lo, clique para baixo dentro da piscina e arraste e solte-o em um novo local.</p>
+            <p>Para excluir uma raia e todos os novos elementos que foram adicionados dentro dela, clique na raia para que uma caixa verde apareça em suas bordas e, em seguida, pressione a tecla Delete no teclado.</p>
+            <p>Uma raia também pode ser apagada clicando com o botão direito nela e selecionando Excluir. A raia desaparecerá imediatamente.</p>
+
+            <h2 id="item2c">Fluxos de mensagens entre piscinas (pools)</h2>
+            <p>De acordo com o padrão BPMN 2.0, cada pool deve conter um processo separado, com eventos de início e término e um fluxo ininterrupto do início ao fim. Para se comunicar entre processos em conjuntos separados, os fluxos de mensagens podem passar entre os processos, mas os fluxos de sequência não podem passar entre os conjuntos. Os fluxos de sequência são representados por linhas sólidas, enquanto os fluxos de mensagens são representados por linhas tracejadas.</p>
+            <p>Para enviar uma mensagem entre pools, clique em um elemento dentro do primeiro pool e, quando a Barra de Ferramentas Rápida aparecer, use uma seta de conexão para arrastar uma linha do primeiro pool para o segundo pool.</p>
+            <p>Observe que o fluxo é indicado com uma linha tracejada, o que significa que é um fluxo de mensagens, em vez de um fluxo de sequência.</p>
+
+            <h1 id="item3">Piscinas de Caixa Preta</h1>
+            <p>Observação: leve em consideração que o Gestor Express 3.0 em diante implementou Black Box Pools no designer de processo, mas esses pools ainda não foram implementados no mecanismo de processo. Portanto, os Black Box Pools devem ser usados apenas para fins de design. Por favor, fique atento a lançamentos futuros.</p>
+            <p>Adicione um Black Box Pool arrastando e soltando seu símbolo da caixa de ferramentas Shapes no mapa do processo.</p>
+            <p>Adicione um rótulo a um pool de caixa preta clicando duas vezes no pool e inserindo o texto do rótulo.</p>
+            <p>Para mover uma piscina, clique uma vez na piscina, de modo que fique delimitada por quadrados verdes. Em seguida, arraste e solte-o em um novo local. Observe que nenhum outro elemento pode ser colocado dentro de um pool de caixa preta, portanto, não é uma boa ideia colocá-lo em cima de qualquer elemento existente no mapa do processo. Para redimensionar uma piscina, use os quadrados verdes nas laterais para ajustar a piscina ao tamanho necessário.</p>
+            <p>No momento, soltar elementos em um Black Box Pool não será eficaz, portanto, é aconselhável não adicionar nenhum elemento e usá-los apenas para fins ilustrativos.</p>
+            <p>Para excluir um pool, pressione a tecla Delete no teclado quando um pool estiver delimitado por quadrados verdes. Um Black Box Pool também pode ser apagado clicando nele e usando a Barra de Ferramentas Rápida.</p>
+
+        </article>
+
+    </section>
+
+   
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

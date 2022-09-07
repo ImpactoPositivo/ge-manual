@@ -10,163 +10,161 @@
     <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<main>
-    <header>
-        <figure>
-            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
-        </figure>
-        <div id="cabecario">
-            <h1>Gestor Express</h1>
-            <h2>Gerenciamento de Fluxo de Trabalho</h2>
-        </div>
-    </header>
-    <section id="principal">
-
-        <article>
-            <h1>Visão geral</h1>
-            <p>Uma função é um conjunto de permissões usadas para acessar funcionalidades e recursos específicos no Gestor Express. Cada usuário recebe uma função, que determina quais ações esse usuário pode executar no Gestor Express e quais partes da interface ele pode acessar.</p>
-        </article>
-        
-        <article>
-            <h1>Gerenciando funções</h1>
-            <p>Para ver as funções disponíveis, faça login no Gestor Express com um usuário como o "admin" que tenha a permissão USERS em sua função. Em seguida, vá para Admin > Usuarios => Funções e a seguinte lista será exibida:</p>
-
+    <main>
+        <header>
             <figure>
-
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
             </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
 
-            <div>
-                <h2>Administrador</h2>
-                <p>A função ADMINISTRADOR foi projetada para administradores de sistema e designers de processos que precisam de acesso a todos os recursos e funcionalidades do Gestor Express. Os usuários atribuídos a essa função podem fazer tudo, inclusive configurar o sistema, criar e editar processos, gerenciar usuários e grupos, gerenciar processos e supervisionar a produtividade com relatórios e painéis.</p>
-            </div>
-            <div>
-                <h2>Supervisor</h2>
-                <p>A função SUPERVISOR é para usuários que precisam gerenciar processos, usuários e grupos e supervisionar a produtividade, mas não precisam projetar processos ou configurar o Gestor Express.</p>
-            </div>
-            <div>
-                <h2>Operador</h2>
-                <p>A função OPERADOR é para usuários normais de produção que precisam apenas fazer login e executar processos.</p>
-                
-                <p><strong>Observação:</strong>Se uma função for definida como <strong>Inativa</strong> e um usuário for atribuído a essa função, o usuário NÃO poderá efetuar login no Gestor Express até que a função seja alterada para <strong>Ativa</strong></p>
-            </div>
-        </article>
-        
+        <aside id="lado">
+            <h1>Funções </h1>
+            <h2>Conteúdo:</h2>
+            <ol>
+                <li>Visão geral</li>
+                <li>Gerenciando funções</li>
+                <ol type="A">
+                    <li>Administrador</li>
+                    <li>Supervisor</li>
+                    <li>Operador</li>
+                </ol>
+                <li>Gerenciando permissões</li>
+                <ol type="A">
+                    <li>ALLCASES</li>
+                    <li>CANCELCASE</li>
+                    <li>CASES</li>
+                    <li>DASHBOARD</li>
+                    <li>DELETE_PROCESS_CASES</li>
+                    <li>DELETECASE</li>
+                    <li>EDITPERSONALINFO</li>
+                    <li>EDITPERSONALINFO_CALENDAR</li>
+                    <li>FACTORY</li>
+                    <li>FOLDER_DELETE</li>
+                    <li>FOLDERS_ADD_FILE</li>
+                    <li>FOLDERS_ADD_FOLDER</li>
+                    <li>FOLDERS_ALL</li>
+                    <li>FOLDERS_OWNER</li>
+                    <li>LOGIN</li>
+                    <li>REASSIGNCASE</li>
+                    <li>REASSIGNCASE_SUPERVISOR</li>
+                    <li>REST_API_APPLICATIONS</li>
+                    <li>SETUP</li>
+                    <li>SETUP_ADVANCE</li>
+                    <li>SETUP_CALENDAR</li>
+                    <li>SETUP_CASES_LIST_CACHE_BUILDER</li>
+                    <li>SETUP_CLEAR_CACHE</li>
+                    <li>SETUP_CUSTOM_CASES_LIST</li>
+                    <li>SETUP_DASHBOARDS</li>
+                    <li>SETUP_EMAIL</li>
+                    <li>SETUP_ENVIRONMENT</li>
+                    <li>SETUP_HEART_BEAT</li>
+                    <li>SETUP_LANGUAGE</li>
+                    <li>SETUP_LOG_FILES</li>
+                    <li>SETUP_LOGIN</li>
+                    <li>SETUP_LOGO</li>
+                    <li>SETUP_LOGS</li>
+                    <li>SETUP_PLUGINS</li>
+                    <li>SETUP_TABLES</li>
+                    <li>SETUP_PROCESS_CATEGORIES</li>
+                    <li>SETUP_SKIN</li>
+                    <li>SETUP_USERS_AUTHENTICATION_SOURCES</li>
+                    <li>SUPERVISOR</li>
+                    <li>TASK_SCHEDULER_ADMIN</li>
+                    <li>UNCANCELCASE</li>
+                    <li>USERS</li>
+                    <li>WEBDAV</li>
+                </ol>
+                <li>Permissões para editar o perfil do usuário</li>
+                <li>Criando e editando funções</li>
+            </ol>
+        </aside>
+
+        <section id="principal">
+
+            <article>
+                <h1>Visão geral</h1>
+                <p>Uma função é um conjunto de permissões usadas para acessar funcionalidades e recursos específicos no Gestor Express. Cada usuário recebe uma função, que determina quais ações esse usuário pode executar no Gestor Express e quais partes da interface ele pode acessar.</p>
+            </article>
+            
+            <article>
+                <h1>Gerenciando funções</h1>
+                <p>Para ver as funções disponíveis, faça login no Gestor Express com um usuário como o "admin" que tenha a permissão USERS em sua função. Em seguida, vá para Admin > Usuarios => Funções e a seguinte lista será exibida:</p>
+
+                <figure>
+
+                </figure>
+
+                <div>
+                    <h2>Administrador</h2>
+                    <p>A função ADMINISTRADOR foi projetada para administradores de sistema e designers de processos que precisam de acesso a todos os recursos e funcionalidades do Gestor Express. Os usuários atribuídos a essa função podem fazer tudo, inclusive configurar o sistema, criar e editar processos, gerenciar usuários e grupos, gerenciar processos e supervisionar a produtividade com relatórios e painéis.</p>
+                </div>
+                <div>
+                    <h2>Supervisor</h2>
+                    <p>A função SUPERVISOR é para usuários que precisam gerenciar processos, usuários e grupos e supervisionar a produtividade, mas não precisam projetar processos ou configurar o Gestor Express.</p>
+                </div>
+                <div>
+                    <h2>Operador</h2>
+                    <p>A função OPERADOR é para usuários normais de produção que precisam apenas fazer login e executar processos.</p>
                     
-
-
-    </section>
-
-    <aside id="lado">
-        <h1>Conteúdo: </h1>
-        <ol>
-        <li>Visão geral</li>
-        <li>Gerenciando funções</li>
-        <ol type="A">
-        <li>Administrador</li>
-        <li>Supervisor</li>
-        <li>Operador</li>
-        </ol>
-        <li>Gerenciando permissões</li>
-        <ol type="A">
-        <li>ALLCASES</li>
-        <li>CANCELCASE</li>
-        <li>CASES</li>
-        <li>DASHBOARD</li>
-        <li>DELETE_PROCESS_CASES</li>
-        <li>DELETECASE</li>
-        <li>EDITPERSONALINFO</li>
-        <li>EDITPERSONALINFO_CALENDAR</li>
-        <li>FACTORY</li>
-        <li>FOLDER_DELETE</li>
-        <li>FOLDERS_ADD_FILE</li>
-        <li>FOLDERS_ADD_FOLDER</li>
-        <li>FOLDERS_ALL</li>
-        <li>FOLDERS_OWNER</li>
-        <li>LOGIN</li>
-        <li>REASSIGNCASE</li>
-        <li>REASSIGNCASE_SUPERVISOR</li>
-        <li>REST_API_APPLICATIONS</li>
-        <li>SETUP</li>
-        <li>SETUP_ADVANCE</li>
-        <li>SETUP_CALENDAR</li>
-        <li>SETUP_CASES_LIST_CACHE_BUILDER</li>
-        <li>SETUP_CLEAR_CACHE</li>
-        <li>SETUP_CUSTOM_CASES_LIST</li>
-        <li>SETUP_DASHBOARDS</li>
-        <li>SETUP_EMAIL</li>
-        <li>SETUP_ENVIRONMENT</li>
-        <li>SETUP_HEART_BEAT</li>
-        <li>SETUP_LANGUAGE</li>
-        <li>SETUP_LOG_FILES</li>
-        <li>SETUP_LOGIN</li>
-        <li>SETUP_LOGO</li>
-        <li>SETUP_LOGS</li>
-        <li>SETUP_PLUGINS</li>
-        <li>SETUP_TABLES</li>
-        <li>SETUP_PROCESS_CATEGORIES</li>
-        <li>SETUP_SKIN</li>
-        <li>SETUP_USERS_AUTHENTICATION_SOURCES</li>
-        <li>SUPERVISOR</li>
-        <li>TASK_SCHEDULER_ADMIN</li>
-        <li>UNCANCELCASE</li>
-        <li>USERS</li>
-        <li>WEBDAV</li>
-        </ol>
-        <li>Permissões para editar o perfil do usuário</li>
-        <li>Criando e editando funções</li>
-        </ol>
-
-    </aside>
-    <footer>
-        <div class="container-footer">
-            <div class="row-footer">
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Selo de Qualidade</h4>
-
-                    <figure>
-                        <img src="../_imagens/impacto-logo-branco.png" alt="">
-                    </figure>
-
+                    <p><strong>Observação:</strong>Se uma função for definida como <strong>Inativa</strong> e um usuário for atribuído a essa função, o usuário NÃO poderá efetuar login no Gestor Express até que a função seja alterada para <strong>Ativa</strong></p>
                 </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Endereço</h4>
-                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
-                    <p>Avenida Nações Unidas, 17-17</p>
-                    <p>Vila Santo Antônio</p>
-                    <p>17015-903, Bauru, SP</p>
-                </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Mídias Sociais</h4>
-                    <div class="medias-sociais">
-                        <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
-                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
-                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
-                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+            </article>    
+        </section>
+    
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
                     </div>
-                </div>
-                <!--end footer-col-->
-                <!-- footer col -->
-                <div class="footer-col">
-                    <h4>Subescreva-se</h4>
-                    <!-- form sub -->             
-                    <div class="form-sub">
-                        <form>
-                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
-                            <button>Subescrever</button>
-                        </form>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
                     </div>
-                    <!-- form sub -->        
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><img src="../_imagens/website.png" alt="Website"></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><img src="../_imagens/facebook.png" alt="Facebook"></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><img src="../_imagens/linkedin.png" alt="Linkedin"></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><img src="../_imagens/youtube.png" alt="YouTube"></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
 
-                </div> 
-                <!--end footer-col-->
+                    </div> 
+                    <!--end footer-col-->
+                </div>
             </div>
-        </div>
-    </footer>
-</main>
+        </footer>
+    </main>
 </body>
 </html>

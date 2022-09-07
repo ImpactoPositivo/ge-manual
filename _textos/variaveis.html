@@ -20,8 +20,28 @@
             <h2>Gerenciamento de Fluxo de Trabalho</h2>
         </div>
     </header>
-    <section id="principal">
 
+    <aside>
+        <section id="lado">
+
+            <h1>Conteúdo:</h1>
+
+            <ol>
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Definindo Variáveis</a></li>
+                <ol type="A">
+                    <li><a href="#item2a">Variáveis de nomenclatura</a></li>
+                    <li><a href="#item2b">VariáveisSuportadas</a></li>
+                    <li><a href="#item2c">Variáveis _label</a></li>
+                </ol>
+                <li><a href="#item3">Gerenciando variáveis</a></li>
+                <li><a href="#item4">Adicionando variáveis em um Formulário Dinâmico</a></li>
+                <li><a href="#item5">Criando variáveis no construtor de Formulário Dinâmico</a></li>
+            </ol>
+        </section>
+    </aside>
+
+    <section id="principal">
         <article>
             <h1 id="item1">Visão geral</h1>
 
@@ -240,7 +260,7 @@
 
                 <p>No caso de caixas de texto, áreas de texto ou caixas de sugestão, o mesmo valor digitado pelo usuário é armazenado na variável de processo, bem como na variável _label.</p>
 
-                Os valores da variável _label são armazenados no campo w<code>f_<WORKSPACE>.APPLICATION.APP_DATA</code> no banco de dados do Gestor Express.
+                <p>Os valores da variável _label são armazenados no campo <code>wf_<WORKSPACE>.APPLICATION.APP_DATA</code> no banco de dados do Gestor Express.</p>
             </div>
         </article>
         <article>
@@ -354,26 +374,6 @@
         </article>
 
     </section>
-
-    <aside>
-        <section id="lado">
-
-            <h1>Conteúdo:</h1>
-
-            <ol>
-                <li><a href="#item1">Visão geral</a></li>
-                <li><a href="#item2">Definindo Variáveis</a></li>
-                <ol type="A">
-                    <li><a href="#item2a">Variáveis de nomenclatura</a></li>
-                    <li><a href="#item2b">VariáveisSuportadas</a></li>
-                    <li><a href="#item2c">Variáveis _label</a></li>
-                </ol>
-                <li><a href="#item3">Gerenciando variáveis</a></li>
-                <li><a href="#item4">Adicionando variáveis em um Formulário Dinâmico</a></li>
-                <li><a href="#item5">Criando variáveis no construtor de Formulário Dinâmico</a></li>
-            </ol>
-        </section>
-    </aside>
 
     <footer>
         <div class="container-footer">
