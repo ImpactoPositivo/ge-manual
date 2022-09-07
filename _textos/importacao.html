@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Importação e exportação</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Importação e exportação de modelos</h1>
+                <h2>Conteúdo</h2>
+                
+                <ol>
+                    <li>Visão geral</li>
+                    <li>Exportando um projeto
+                        <ol type="A">
+                            <li>Exportar um processo do mapa de processos</li>
+                        </ol>
+                    </li>
+                    <li>Importando um projeto
+                        <ol type="A">
+                            <li>Importando processos com eventos de e-mail</li>
+                            <li>Importando um projeto existente dentro do Gestor Express
+                                <ol type="i">
+                                    <li>Criar um processo completamente novo sem alterar o processo atual</li>
+                                    <li>Atualize o processo atual, substituindo todas as tarefas e etapas</li>
+                                </ol>
+                            </li>
+                            <li>Importar processos com grupos existentes
+                                <ol type="i">
+                                    <li>Renomeie os grupos importados</li>
+                                    <li>Mesclar os grupos importados com os grupos locais pré-existentes</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Importando e exportando um modelo de processo</li>
+                    <li>Como usar um modelo de processo importado</li>
+                    <li>Exportar Tabelas PM e Tabelas de Relatórios</li>
+                    <li>Importar Tabelas PM e Tabelas de Relatórios</li>
+                </ol>
+            </section>
+        </aside>
+        
+        <section id="principal">
+
+            <article>
+                <h1>Visão geral</h1>
+                <p>Projetos e processos podem ser importados e exportados de uma instalação do Gestor Express para outra. Esses procedimentos apenas importam ou exportam a definição do processo, que inclui Formulário Dinâmicos, Documentos de Entrada, Documentos de Saída, Gatilhos e contas de grupo. No entanto, eles não importam ou exportam contas de usuário, funções, em nenhum caso (se você precisar de informações adicionais sobre a transferência de instalações do Gestor Express visite o backup e restauração do Gestor Express), regras de atribuição, supervisores de processo, Tabelas e Tabelas de relatórios (Tabelas GE e As Tabelas de Relatórios possuem interface própria para exportá-las e depois importá-las novamente).</p>
+
+                <p>Além disso, também é possível exportar processos para arquivos.bpmn que posteriormente podem ser abertos em outras ferramentas BPMN. Além disso, dentro do Gestor Express, a opção Importar da modelagem permite importar arquivos .bpmn que contenham diagramas de projetos BPMN criados dentro de ferramentas externas.</p>
+
+                <p>Exportando um projeto</p>
+                <p>Aviso: evite incluir o caractere de barra (/) no nome do modelo de processo porque a exportação do processo pode falhar. Este é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
+                
+                <p>Exporte um processo seguindo as próximas etapas:</p>
+                <p>Vá para a guia Designer e selecione o processo a ser exportado. Após selecioná-lo, o botão Exportar será habilitado na barra de ferramentas. Clique nele para exportar o processo.</p>
+                <p>O processo exportado será baixado automaticamente para o computador do usuário. Normalmente, o arquivo baixado estará localizado na pasta Downloads, a menos que o usuário tenha personalizado os downloads do navegador.</p>
+                <p>Um processo também pode ser exportado clicando com o botão direito do mouse sobre o processo e selecionando a opção Exportar como visto na imagem abaixo.</p>
+                <p>Exportar um processo do mapa de processos</p>
+                <p>Também é possível exportar um processo do Mapa de Processos seguindo os passos a seguir:</p>
+                <p>Abra um processo clicando duas vezes nele para exibi-lo no Mapa do Processo (Um projeto também pode ser aberto clicando na opção Editar).</p>
+                <p>Uma vez aberto o Mapa de Processos, selecione a opção "Exportar Processo" da barra de ferramentas Superior.</p>
+                <p>O download de um arquivo.pmx será iniciado automaticamente. Salve o arquivo após o término do download. O arquivo.pmx exportado pode então ser importado para outra instalação/espaço de trabalho do Gestor Express. Leve em consideração que todos os arquivos exportados contêm a definição XML do processo que inclui o seguinte:</p>
+                <ul>
+                    <li>Variáveis</li>
+                    <li>Tipos de mensagem</li>
+                    <li>Formulário Dinâmicos</li>
+                    <li>Documentos de entrada</li>
+                    <li>Documento de saída</li>
+                    <li>Gatilhos</li>
+                    <li>Conexões de banco de dados</li>
+                    <li>Modelos</li>
+                    <li>Arquivos públicos</li>
+                    <li>Permissões</li>
+                    <li>Rastreador de Caso</li>
+                    <li>Supervisores (eles são preservados desde que sejam Grupos de Supervisores)</li>
+                    <li>Grupos atribuídos e sua definição na guia admin. Os membros dos grupos não são exportados. Os usuários devem ser atribuídos assim que o processo for importado</li>
+                </ul>
+                <p>Leve em consideração que os elementos não listados não serão exportados. Por exemplo, os usuários atribuídos não podem ser exportados e, como mencionado anteriormente, as tabelas de relatórios têm sua própria interface para importar/exportar tabelas, de modo que não são incluídas no arquivo.pmx. Para exportar um diagrama de processo ( arquivos.bpmn ), revise a seção Importando e exportando um diagrama de processo.</p>
+                <p>Observação: para exportar apenas determinados elementos do processo, revise o recurso corporativo do Promotion Manager.</p>
+                <p>Importando um projeto</p>
+                <p>Primeiro, considere o seguinte:</p>
+                <p>Os arquivos pertencentes ao antigo designer do Gestor Express têm a.pmextensão, enquanto os arquivos do novo designer BPMN têm a.pmxextensão.</p>
+                <p>Os processos do novo designer BPMN (.pmxarquivos) não podem ser importados para versões mais antigas do Gestor Express, anteriores à versão 3.0.</p>
+                <p>Use a mesma opção para importar arquivos.pm,.pmx, ou.bpmndentro do Gestor Express 3.0.</p>
+                <p>Para importar um processo do Gestor Express siga os seguintes passos:</p>
+                <p>Nota: Ao importar um processo que não existe em um ambiente, a data de criação do novo processo muda para a data atual.</p>
+                <p>Na guia Designer, selecione o botão Importar.</p>
+                <p>Uma nova janela dentro do Designer será aberta onde o arquivo a ser carregado deve ser selecionado. Clique no ícone do arquivo para abrir o navegador de arquivos.</p>
+                <p>Selecione o arquivo.pmx a ser importado. O arquivo pode ser encontrado na pasta Downloads (a menos que esteja configurado para ser armazenado em uma pasta diferente). Uma vez que o arquivo é selecionado clique no botão Abrir como visto na imagem abaixo.</p>
+                <p>O arquivo de nome será mostrado na janela Processo de Importação, mas ainda não foi importado. Lembre-se que o arquivo que está sendo carregado deve ter extensão.pmx ou.bpmn (somente para diagramas), caso contrário será exibida uma mensagem de erro e o arquivo não será carregado. Se a extensão estiver correta, clique no botão Upload para importar o processo.</p>
+                <p>Uma vez que o arquivo é carregado, ele abre automaticamente o processo no Mapa do Processo. Por fim, todos os arquivos importados são mostrados na lista de projetos ou no Designer. Agora, esse processo pode ser trabalhado alterando ou apagando qualquer um de seus elementos.</p>
+                <p>Os elementos que serão importados junto com o diagrama de processos são variáveis, Formulário Dinâmicos, documentos de entrada, documentos de saída, triggers, templates e grupos (sem usuários). As Tabelas PM utilizadas no processo, usuários e supervisores de processo não serão importadas. Portanto, é recomendável criar um backup desses elementos ao exportar um processo. Tenha atenção especial quando o processo tiver tabelas de relatórios e tabelas PM. Lembre-se que eles possuem uma interface própria para importação e exportação de tabelas, localizada em ADMIN > Configurações > Tabelas PM. Para saber como exportar e importar tabelas PM e tabelas de relatórios, leia esta seção e a seção a seguir.</p>
+                <p>Ao importar um processo para outra instalação/espaço de trabalho do Gestor Express, é possível alterar o UID do processo ou manter o UID como está. Então haverá duas opções que são:</p>
+                <p>Nota: Leve em consideração que esta nova janela que pergunta se deseja criar um novo UID de processo ou manter o UID de processo aparece sempre que um processo é importado. Como os processos devem ter um nome e UID exclusivos, use esta janela para manter melhor os processos.</p>
+                <p>Criar um novo UID para este processo: Cria um novo UID para que os processos sejam diferenciados. Este novo UID será aleatório e terá 32 caracteres, que todos os UIDs devem ter.</p>
+                <p>Manter UID do processo importado: Mantém o UID atual do processo que está sendo importado para a instalação/espaço de trabalho.</p>
+                <p>Nota: Os processos são únicos, são identificados por UID e nome.</p>
+                <p>Importando processos com eventos de e-mail</p>
+                <p>Ao importar processos que contêm eventos de email, como eventos de email intermediários ou eventos de email final para uma nova instalação/espaço de trabalho, a referência ao servidor de email original é substituída pelo servidor de email padrão da nova instalação/espaço de trabalho em que o processo está sendo importado.</p>
+                <p>Isso significa que não é necessário configurar nenhum evento de e-mail novamente. Caso a nova instalação/espaço de trabalho não tenha um servidor de e-mail configurado, a referência ao servidor de e-mail não será configurada.</p>
+                <p>Importando um projeto existente dentro do Gestor Express</p>
+                <p>Ao importar um processo para outra instalação/espaço de trabalho existe a possibilidade de já existir um processo com o mesmo nome em sua definição. Quando isso acontecer, uma nova janela aparecerá onde as duas opções a seguir precisam ser consideradas:</p>
+                <p>Crie um processo completamente novo sem alterar o processo atual.</p>
+                <p>Atualize o processo atual, substituindo todas as tarefas e etapas.</p>
+                <p>Ambas as opções serão explicadas nas seções adiante.</p>
+                <p>Nota: Ao importar um processo que já existe em um ambiente, o processo mantém a data de criação do processo do ambiente.</p>
+                <p>Criar um processo completamente novo sem alterar o processo atual</p>
+                <p>Esta é a primeira opção na janela que é mostrada:</p>
+                <p>Esta opção cria um processo completamente novo com diferentes UIDs para Formulário Dinâmicos, documentos de entrada, documentos de saída, etc. A atribuição de grupo a tarefas também será importada (somente os nomes do grupo; se o nome do grupo não existir no ele é criado em ADMIN > Usuários > Grupos ). Infelizmente, as informações que serão perdidas e precisarão ser recriadas são as tabelas de relatórios, tabelas PM e atribuições de usuários.</p>
+                <p>Quando esta opção for selecionada, um novo processo será criado e aberto no Mapa de Processos. O nome do novo processo tem o formato "Cópia de - Nome_do_processo - Data, Hora"</p>
+                <p>Atualize o processo atual, substituindo todas as tarefas e etapas</p>
+                <p>Esta opção significa sobrescrever completamente o processo existente. Todas as tarefas, Formulário Dinâmicos, documentos de entrada e documentos de saída terão os UID's do processo importado. Essa opção é útil se estiver desenvolvendo uma nova versão de um processo em um servidor de desenvolvimento e, em seguida, precisar substituir o processo atual sendo usado em um servidor de produção. O nome do processo importado terá o mesmo formato do caso anterior.</p>
+                <p>Algumas precauções precisam ser tomadas ao substituir processos que possuem casos ativos. Se o processo existente contiver tarefas com casos ativos (em andamento), o processo NÃO poderá ser atualizado com um processo que não contenha essas tarefas e a seguinte mensagem será exibida:</p>
+                <p>Se for necessário manter um registro histórico de casos anteriores, não há garantia de que os registros estarão acessíveis no processo atualizado.</p>
+                <p>Importar processos com grupos existentes</p>
+                <p>Aparecerá uma nova janela que inclui as duas opções a seguir, que precisam ser consideradas:</p>
+                <p>Renomeie os grupos importados</p>
+                <p>Mesclar os grupos importados, com os grupos locais pré-existentes (nenhuma alteração será feita nos grupos locais)</p>
+                <p>Renomeie os grupos importados</p>
+                <p>Para esta opção, a seguinte janela será mostrada ao usuário:</p>
+                <p>Esta opção permite ao usuário renomear os grupos que estão sendo importados. Por exemplo, se houver um grupo chamado "TestGroup" então selecionando a primeira opção, como visto na imagem acima, um novo grupo será criado com o nome de "TestGroup1".</p>
+                <p>Mesclar os grupos importados com os grupos locais pré-existentes</p>
+                <p>Esta opção é mostrada quando o processo possui um grupo atribuído a alguma das tarefas com o mesmo nome de um dos grupos já criados no Gestor Express.</p>
+                <p>Se o usuário escolher esta opção, ele mesclará os grupos e manterá o nome do grupo. Por exemplo, se houver um grupo chamado "Funcionários" e o processo que deseja ser importado também tiver um grupo "Funcionários", ele mesclará os grupos. Leve em consideração que os grupos podem ser importados ou mesclados, mas os usuários dentro dos grupos não são importados, portanto, eles devem ser reatribuídos manualmente. A partir da versão 3.0.1.8, observe que os grupos que estão sendo mesclados serão listados na opção Mesclar, para que o usuário saiba quais grupos estão sendo mesclados.</p>
+                <p>Importando e exportando um diagrama de processo</p>
+                <p>Um diagrama de processo pode ser exportado como um arquivo BPMN e pode ser importado para um aplicativo BPMN externo que suporte esse formato.</p>
+                <p>Da mesma forma, diagramas BPMN criados em diferentes aplicativos BPMN podem ser exportados e importados para o Gestor Express, desde que o arquivo tenha uma extensão.bpmn e atenda aos padrões BPMN. Os diagramas exportarão os seguintes elementos:</p>
+                <p>Entradas</p>
+                <p>Piscinas</p>
+                <p>Pistas</p>
+                <p>Tarefas</p>
+                <p>Comente</p>
+                <p>Observe que a configuração da tarefa NÃO será incluída.</p>
+                <p>Aviso: Diagramas que incluem objetos de dados (controles de entrada e/ou saída de dados) podem ser corrompidos quando o usuário usa a opção Exportar diagrama. Este é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
+                <p>Para exportar um diagrama no formato BPMN do Gestor Express prossiga para as próximas etapas:</p>
+                <p>Selecione um processo do designer e clique duas vezes nele. Um processo também pode ser aberto clicando na opção Editar na barra de ferramentas superior.</p>
+                <p>Uma vez que o processo é aberto no Mapa do Processo, selecione a opção Exportar Diagrama.</p>
+                <p>O diagrama será baixado para o computador local com a extensão.bpmn</p>
+                <p>A extensão.bpmn permite ao usuário importar o diagrama para uma instalação/espaço de trabalho diferente. Para fazer isso, clique no botão Importar no designer (em uma instalação/espaço de trabalho diferente do Gestor Express).</p>
+                <p>Clique no botão Upload para fazer upload do arquivo para a instalação/espaço de trabalho do Gestor Express.</p>
+                <p>O diagrama será aberto no Mapa de Processos conforme a imagem abaixo.</p>
+                <p>Observe que se já existir um processo com o mesmo nome, será exibida uma mensagem perguntando ao usuário se deseja substituir o processo.</p>
+                <p>Se a opção Substituir estiver selecionada, o diagrama importado substituirá todo o conteúdo do processo existente. Isso significa que qualquer formulário dinâmico, documento de entrada, documento de saída, gatilho, mensagem, tabela de relatório, conexão de banco de dados, variável ou supervisor será excluído, mesmo que o diagrama seja igual ao importado.</p>
+                <p>Como usar um processo importado</p>
+                <p>Antes de usar um processo importado, atribua usuários a cada tarefa. Lembre-se de que as contas de usuário não são importadas com um processo, portanto, é necessário criar contas de usuário válidas. Clique com o botão direito do mouse em cada tarefa no mapa do processo para atribuir esses usuários.</p>
+                <p>Em alguns processos, um grupo de usuários já está atribuído a uma tarefa. Nesse caso, você precisará atribuir seus próprios usuários a esse grupo. Na guia usuários, crie contas de usuário e atribua-as aos grupos apropriados. Depois que os usuários válidos forem adicionados às tarefas ou grupos, um processo poderá ser executado. Faça login como o usuário atribuído à primeira tarefa e inicie um caso. Em seguida, faça login com as contas de usuário atribuídas às tarefas subsequentes e continue a executar o processo do lado do usuário.</p>
+                <p>Na lista abaixo, encontre elementos e configurações do Gestor Express que são importados com sucesso quando um processo está sendo movido de um espaço de trabalho/instalação para outro:</p>
+                <p>Elementos importados:</p>
+                <p>Formulário Dinâmicos</p>
+                <p>Documentos de entrada</p>
+                <p>Documentos de saída</p>
+                <p>Gatilhos</p>
+                <p>Atribuição de grupo em cada tarefa</p>
+                <p>Conexões de banco de dados</p>
+                <p>Configuração do cronograma de casos</p>
+                <p>Configuração do evento</p>
+                <p>Configuração da tarefa</p>
+                <p>Modelos de e-mail</p>
+                <p>Elementos não importados:</p>
+                <p>Usuários</p>
+                <p>Permissões de processo</p>
+                <p>Supervisores de Processo</p>
+                <p>Categoria de Processo</p>
+                <p>Tabelas PM (Precisam ser exportadas e importadas separadamente)</p>
+                <p>Estrutura do departamento</p>
+                <p>Atribuição do usuário em cada tarefa</p>
+                <p>Exportar Tabelas PM e Tabelas de Relatórios</p>
+                <p>Para exportar uma tabela PM ou uma tabela de relatórios de dentro de uma instalação/espaço de trabalho do Gestor Express, consulte a seção exportar tabelas PM e tabelas de relatórios do wiki.</p>
+                <p>Importar Tabelas PM e Tabelas de Relatórios</p>
+                <p>Para importar uma tabela PM ou uma tabela de relatórios de dentro da interface do Gestor Express, consulte a seção importar tabelas PM e tabelas de relatórios do wiki.</p>
+
+            </article>
+
+        </section>
+
+
+
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
