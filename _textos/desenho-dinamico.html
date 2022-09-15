@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Desenho com HTML Responsivo</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Desenho com HTML Responsivo</h1>
+                <h2>Conteúdo</h2>        
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li>
+                        <a href="#item2">Características da Ferramenta de Desenho</a>
+                        <ol type="A">
+                            <li><a href="#item2a">Título do Formulário Dinâmico</a></li>
+                            <li><a href="#item2b">Contêiner Principal</a></li>
+                            <li><a href="#item2c">Propriedades</a></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="#item3">Adicionando um controle a um Formulário Dinâmico</a>
+                        <ol type="i"><li><a href="#item3i">Excluindo um controle</a></li></ol>
+                    </li>
+                    <li><a href="#item4">Relacionando uma variável com um controle</a></li>
+                    <li>
+                        <a href="#item5">Menu Formulário Dinâmico</a>
+                        <ol type="A">
+                            <li><a href="#item5a">Salvar</a></li>
+                            <li><a href="#item5b">Exportar</a></li>
+                            <li><a href="#item5c">Importar</a></li>
+                            <li><a href="#item5d">Visualizar</a></li>
+                            <li><a href="#item5e">Limpar formulário</a></li>
+                            <li><a href="#item5f">Linguagem</a></li>
+                            <li><a href="#item5g">Fechar</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+
+                <p>A ferramenta de desenho de formulários responsivo/HTML5 do Gestor Express fornece uma funcionalidade de arrastar e soltar com várias colunas baseada em jQuery, CSS3 e HTML5, na qual os formulários podem ocupar até doze colunas em cada linha, operar facilmente os controles e criar formulários poderosos muito mais rápido, Além disso, os formulários também possuem suporte para bibliotecas externas que, dependendo das características do desenho, dão funcionalidade e comportamento extras aos controles dentro dos formulários. Além disso, usando as propriedades dos controles do Formulário Dinâmico, os desenhistas podem adicionar mapas, vídeos, imagens, arquivos, QR Codes, etc. simplesmente configurando as propriedades dos controles ou adicionando código HTML/HTML5 dentro das propriedades do painel de controle.</p>
+
+                <p>Além disso, os formulários criados dentro da Ferramenta de Desenho têm o suporte multilíngue que dá aos desenhistas a capacidade de baixar um arquivo <code>.po</code> com os rótulos usados dentro do formulário, fazer as traduções correspondentes para qualquer idioma e usar depois dentro do mesmo formulário sem ter que criar um novo.</p>
+
+                <p>A Ferramenta de Desenho pode usar variáveis globais, criadas no processo de construção de formulários. Além disso, é possível criar essas variáveis dentro das propriedades do controle, utilizando a propriedade Variável. O Gestor Express criou uma interface que permite aos usuários definir essas variáveis, adicionar opções e definir o tipo de dados.</p>
+
+                <p>A Ferramenta de Desenho do Formulário Dinâmico responsivo vem com os seguintes controles que podem estar diretamente relacionados às variáveis criadas no projeto:</p>
+
+                <ul>
+                    <li>Texto</li>
+                    <li>Área de texto</li>
+                    <li>Suspenso</li>
+                    <li>Caixa de seleção</li>
+                    <li>Grupo de verificação</li>
+                    <li>Rádio</li>
+                    <li>Data hora</li>
+                    <li>Sugerir</li>
+                    <li>Ocultar</li>
+                    <li>Arquivo<font color="red">**</font></li>
+                    <li>Carregar arquivo<font color="red">***</font></li>
+                    <li>Rede</li>
+                    <li>Subformulário<font color="red">**</font></li>
+                    <li>Mapa geográfico<font color="red">*</font></li>
+                    <li>Código QR<font color="red">*</font></li>
+                </ul>
+
+                
+                    <ul id="asterisco">
+                        <li><font color="red">*</font>   Controles móveis.</li>
+                        <li><font color="red">**</font>  Esses controles podem estar relacionados a variáveis</li>
+                        <li><font color="red">***</font> Esses controles são suportados no Gestor Express Mobile.</li>
+                    </ul>
+                
+                <p>Além disso, Ferramenta de Desenho do Formulário Dinâmico responsivo também contém os controles que não precisam de nenhuma variável relacionada:</p>
+
+                <ul>
+                    <li>Título</li>
+                    <li>Legenda</li>
+                    <li>Rótulo</li>
+                    <li>Link</li>
+                    <li>Imagem</li>
+                    <li>Enviar</li>
+                    <li>Botão</li>
+                    <li>Painel</li>
+                    <li>Forma</li>
+                    <li>Fileira</li>
+                    <li>Assinatura<font color="red">*</font></li>
+                    <li>Imagem<font color="red">*</font></li>
+                    <li>Áudio<font color="red">*</font></li>
+                    <li>Vídeo<font color="red">*</font></li>
+                </ul>
+                <ul id="asterisco">
+                    <li><font color="red">*</font> Controles móveis</li>
+                </ul>
+
+                <p>Cada controle disponível tem propriedades diferentes que dão ao formulário uma funcionalidade principal e permitem que os usuários definam o escopo do controle. A funcionalidade desses controles e suas propriedades são explicadas na documentação correspondente. Além disso, a opção "Visualizar" (renderizar) funciona com bootstrap que é baseado em CSS3 e mediaQuery. Esta opção permite visualizar graficamente o desenho final do formulário, pois este será mostrado ao usuário final ao executar um caso. A interface do usuário é "responsiva", o que significa que ela se ajustará automaticamente a diferentes tamanhos de tela, como desktop, tablets e smartphones.</p>
+
+                <p>O designer HTML5/responsivo não inclui os seguintes recursos:</p>
+
+                <ul>
+                    <li><strong>Editor de XML:</strong> Ao contrário do designer antigo usado nas versões 2.5.xe anteriores, o editor de XML não está incluído no novo designer de formulários porque é baseado em json, além disso, esse designer de formulários é HTML5/Responsive e seu código é gerado automaticamente.</li>
+                    <li><strong>Editor de HTML</strong></li>
+                    <li><strong>Editor de condições</strong></li>
+                    <li><strong>Imprimir formulário dinâmico</strong></li>
+                    <li><strong>Modificações baseadas em temas</strong></li>
+                </ul>
+
+
+                <h1 id="item2">Características da Ferramenta de Desenho</h1>
+
+                <p><font color="green">Observação:</font> O nova Ferramenta de Desenho de Formulário Dinâmico usa variáveis globais para criar campos. Verifique esta documentação para saber como criar e gerenciar variáveis globais.</p>
+
+                <p>Para acessar a Ferramenta de Desenho, primeiro crie um Formulário Dinâmico HTML5/Responsivo. Após salvá-lo, selecione a opção "Editar" que abrirá o Formulário Dinâmico dentro do nova Ferramenta de Desenho responsivo. Ao abrir o Formulário Dinâmico pela primeira vez, a Ferramenta de Desenho se parece com a figura a seguir:</p>
+                <figure>
+
+                </figure>
+
+                <h2 id="item2a">Título Formulário Dinâmico</h2>
+
+                <p>O título de um Formulário Dinâmico é o nome com o qual foi criado e é mostrado no canto superior esquerdo da janela. Para alterar o título do Formulário Dinâmico clique na tela cinza claro do container principal e digite o novo nome dentro do campo "Nome" nas propriedades do Formulário.</p>
+
+                <h2 id="item2b">Contêiner Principal</h2>
+
+                <p>O container principal é o painel onde o conteúdo do formulário é construído. O referido contêiner é montado pelo formulário e pelas linhas que podem ocupar de uma a doze colunas juntamente com os controles relacionados a cada uma dessas colunas.</p>
+
+                <p>O gerenciamento do container é intuitivo para qualquer usuário que possa utilizá-lo facilmente. Os elementos (controles) são facilmente adicionados e movidos dentro do desenho arrastando e soltando-os em qualquer posição necessária.</p>
+
+                <h2 id="item2b">Propriedades</h2>
+
+                <p>Na tela do formulário, cada uma das linhas adicionadas e todos os controles possuem propriedades que permitem aos desenhistas dar maior funcionalidade a cada um desses elementos. Por exemplo, se um arquivo .pdf deve ser anexado ao formulário, os desenhistas têm a capacidade de habilitar a propriedade de extensões de arquivo para que a validação do arquivo seja feita antes de ser anexado ao campo.</p>
+
+                <p>O painel de propriedades está localizado na parte inferior esquerda da Ferramenta de Desenho. Ele também é exibido sempre que um elemento dentro do contêiner principal é selecionado.</p>
+
+                <p>Para editar as propriedades do Formulário Dinâmico, clique na borda cinza ao redor do formulário e suas propriedades serão exibidas na barra lateral:</p>
+
+                    <figure>
+
+                    </figure>
+
+                <h1 id="item3">Adicionando um controle a um formulário dinâmico</h1>
+
+            <p>Para adicionar um controle à Ferramenta de Desenho do Formulário Dinâmico, siga as etapas descritas abaixo.</p>
+
+                <p><strong>Etapa 1.</strong> Vá para o painel esquerdo, para a lista de controles, e selecione um dos controles a serem adicionados ao formulário.</p>
+                    <figure>
+
+                    </figure>
+                <p><strong>Etapa 2.</strong> Pegue o controle com o mouse e arraste-o para uma linha dentro do formulário. As células disponíveis da linha serão destacadas em cinza mais escuro. Na figura abaixo, o controle é o primeiro a ser adicionado ao formulário.</p>
+                    <figure>
+
+                    </figure>
+                <p><strong>Passo 3.</strong> Solte o controle dentro da célula e outra linha será adicionada abaixo.</p>
+                    <figure>
+
+                    </figure>
+
+                <p>Para reorganizar as linhas com os controles já adicionados no designer, clique no espaço em branco da linha:</p>
+
+                <p>Aponte o cursor do mouse sobre a opção, clique sobre ela, segure-a sem soltar o botão do mouse e mova-a para sua nova posição. Observe que ao mover o controle entre as linhas, novas células são habilitadas (na figura abaixo a nova linha foi habilitada, destacada com a cor de fundo cinza escuro).</p>
+
+                <p>Finalmente, solte o controle em sua nova posição.</p>
+
+                <p><font color="green">Observação:</font> Para mover apenas o controle de uma linha para outra, basta arrastá-lo e soltá-lo em sua nova posição. Leve em consideração que a linha para onde o controle será  movido já deve estar incluída no desenho.</p>
+
+                <h2 id="item3i">Excluindo um controle</h2>
+
+                <p>Para excluir um controle do Formulário, clique nele e o botão 'X' aparecerá no canto superior direito do controle:</p>
+
+                <p>Clique neste botão e o controle será excluído da linha. Para excluir toda a visualização da linha, clique no espaço em branco da linha e a opção 'X' será habilitada.</p>
+
+                <p>Clique nele e a linha será excluída do desenhodo formulário.</p>
+
+                <h1 id="item4">Relacionando uma variável com um controle</h1>
+
+                <p>Para relacionar uma variável com um controle adicionado no Formulário Dinâmico, vá até a propriedade "Variável" do controle.</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Clique no ícone <code>...</code> e uma janela com as variáveis disponíveis para o controle será exibida.</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Selecione a variável da lista e a janela será fechada. A variável, o tipo de dados e o id do controle serão relacionados à variável selecionada.</p>
+
+                <p>Também existe a opção de criar diretamente a variável desta janela clicando na opção "Criar" e a janela onde as variáveis são criadas será aberta. Verifique esta seção para aprender como criar variáveis.</p>
+
+                <p>Para desvincular a variável do controle clique na opção 'X' ao lado direito do nome da variável. Para alterar a variável relacionada ao controle clique no nome da variável e a janela com a lista de variáveis será exibida novamente.</p>
+
+                <p>Para saber mais sobre a "Variável", "Tipo de Dados", "Id", e todas as propriedades dos controles disponíveis na Ferramenta de Desenho consulte esta documentação</p>
+
+                <h1 id="item5">Menu Formulário Dinâmico</h1>
+
+                <p>As ações disponíveis para trabalhar com a Ferramenta de Desenho Formulário Dinâmico estão localizadas no canto superior direito da Ferramenta de Desenho.</p>
+
+                <Figure>
+                
+                </Figure>
+
+                <p>Cada uma dessas opções e suas funcionalidades são explicadas a seguir.</p>
+
+                <h2 id="item5a">Salvar</h2>
+
+                    <p>Clique neste botão para salvar as alterações feitas no Formulário Dinâmico pela Ferramenta de Desenho. Leve em consideração que a Ferramenta de Desenho salva automaticamente as alterações feitas no modelo de formulário ao visualizar o Formulário Dinâmico em "Visualizar". Após salvar o formulário, uma mensagem flash é mostrada na parte superior da janela indicando que o Formulário Dinâmico foi salvo com sucesso.</p>
+
+                <h2 id="item5b">Exportar</h2>
+
+                    <p>Esta opção baixa o formato json do Formulário Dinâmico em um arquivo <code>.json</code> que contém toda a definição do formulário. Para saber mais sobre dê uma olhada na documentação desse tópico.</p>
+
+                <h2 id="item5c">Importar</h2>
+
+                    <p>Essa opção importa e substitui o modelo atual do Formulário Dinâmico pela definição de um arquivo <code>.json</code> que contém a definição de um Formulário Dinâmico exportado. Clique nesta opção e se houver controles adicionados no modelo, uma caixa de mensagem será aberta:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Clique em "Não" para fechar a caixa de mensagem e retornar a ferramenta de Desenho. Clique em "Sim" para fechar a caixa de mensagem e selecione o arquivo <code>.json</code> que substituirá o desenho atual pela definição do Formulário Dinâmico dentro dele. Se não houver elementos adicionados no modelo, a janela "selecionar" será aberta para selecionar o arquivo e fazer upload do conteúdo.</p>
+
+                    <p>Leve em consideração que as alterações feitas dentro da Ferramenta de Desenho não podem ser desfeitas, portanto tome cuidado ao substituir todo o modelo de uma Formulário Dinâmico. Para saber mais sobre a importação de Formulários Dinâmicos dê uma olhada nea documentação do tópico</p>
+
+                <h2 id="item5d">Visualizar</h2>
+
+                    <p><font color="green">Observação:</font> Leve em consideração que a Ferramenta de Desenho de Formulário Dinâmico não executa consultas SQL ou JavaScript. Para pré-visualizar esse tipo de comportamento, use a opção Visuzalizar (renderizar).</p>
+
+                    <p>Clique nesta opção para renderizar o desenho e ver como o Formulário Dinâmico aparecerá para o usuário final ao executar casos. As seguintes ações podem ser testadas neste modo:</p>
+
+                    <ul type="disc">
+                        <li>Os campos obrigatórios.</li>
+                        <li>Campos de data e hora</li>
+                        <li>Execução de JavaScript</li>
+                        <li>Exibições de desktop, tablet, smartphone.</li>
+                    </ul>
+
+                    <p>O Formulário Dinâmico é renderizado por padrão dentro da opção "Desktop":</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>Clique em "Tablet" para ver como ficará dentro desses dispositivos:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Clique em "Smartphone" para ver como ficará dentro desses dispositivos:</p>
+    
+                    <figure>
+
+                    </figure>
+            
+                    <p>Para voltar a editar o Formulário Dinâmico, clique no ícone X localizado no canto superior direito da Visualização.</p>
+
+                    <p><font color="green">Observação:</font> Leve em consideração que a visualização de Tablets e Smartphones não é a mesma visualização final que o formulário terá se estiver usando o aplicativo Gestor Express Mobile, pois este último utiliza webkits específicos para renderizar os controles do formulário o que o faz funcionar diferente das tecnologias utilizadas na edição web. Por exemplo, se estiver usando o aplicativo da Web, o formulário mostrado acima será semelhante a:</p>
+
+                        <figure>
+
+                        </figure>
+
+                <h2 id="item5e">Limpar formulário</h2>
+
+                    <p>Clique nesta opção para esvaziar o container principal e deixe-o em branco para começar a adicionar novos controles. Uma caixa de mensagem é aberta para confirmar que o formulário será esvaziado.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Selecione "Aceitar" para esvaziar o contêiner ou selecione "Cancelar" para fechar a mensagem e retornar à Ferramenta de Desenho. Para fechar a caixa de mensagem e retornar à Ferramenta de Desenho, clique no x que está no canto superior direito da janela.</p>
+
+                <h2 id="item5f">idioma</h2>
+
+                    <p>Conforme explicado na seção " Visão geral " deste documento, o designer do Gestor Express tem a capacidade de gerar um arquivo <code>.po</code> que contém os rótulos definidos nos elementos do Formulário Dinâmico no idioma padrão (geralmente portugês) e permite criar novos arquivos <code>.po</code> com as traduções em tantos idiomas quanto forem necessários. Os arquivos de tradução podem ser carregados posteriormente no Formulário Dinâmico e usados apenas configurando a propriedade idioma do formulário</p>
+
+                    <p>Para saber mais sobre como baixar, gerar o arquivo de tradução, fazer upload e definir os arquivos de tradução consulte a documentação do suporte multilíngue.</p>
+
+                <h2 id="item5g">Fechar</h2>
+
+                    <p>Se as alterações feitas dentro da Ferramenta de Desenho foram salvas, ele apenas a fechará. Se as alterações não tiverem sido salvas, uma caixa de mensagem será aberta. Clique em "Salvar" para salvar as alterações e fechar a Ferramenta de Desenho ou clique em "Não Salvar" para descartar as alterações recentes e fechar a Ferramenta de Desenho. Para fechar a caixa de mensagem e retornar à Ferramenta de Desenho, clique no x que está no canto superior direito da janela.</p>
+                
+            </article>
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

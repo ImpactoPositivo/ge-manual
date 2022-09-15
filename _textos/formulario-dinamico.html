@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Formulários Dinâmicos</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Formulários Dinâmicos</h1>
+                <h2>Conteúdo</h2>                
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Criando formulários dinâmicos</a></li>
+                    <li><a href="#item3">HTML5/formulários Dinâmicos Responsivos</a></li> 
+                    <li><a href="#item4">Gerenciamento de Formulários Dinâmicos</a></li>
+                </ol>
+            </section>
+        </aside>
+        
+        <section id="principal">
+
+            <article>
+                <h1 id="item1">Visão geral</h1>
+                    <p>Um Formulário Dinâmico, é uma interface intuitiva de arrastar e soltar usada para projetar formulários eletrônicos para os usuários finais preencherem. Um Formulário Dinâmico funciona como uma tela onde vários controles, como botões, caixas de texto, menus suspensos, etc., podem ser facilmente colocados para criar um formulário atraente e legível que pode ser salvo, duplicado ou impresso com o clique de um botão.</P>
+                    <p>Esta página fornece informações sobre como criar, editar e excluir um Formulário Dinâmico, bem como informações sobre como um Formulário Dinâmico responsivo será exibido em três dispositivos diferentes.</P>
+                    <h1 id="item2">Criando formulários dinâmicos</h1>
+                    <p>Para criar um novo Formulário Dinâmico, vá para a opção <strong>Formulário Dinâmicos</strong> no menu Objetos do Processo na aba Modelagem. Mantenha o ponteiro do mouse sobre o ícone de mais (+) e clique em <strong>Criar</strong>:</P>
+                        <figure>
+
+                        </figure>
+                    <p>Uma janela modal será exibida contendo as opções para criar um Formulário Dinâmico do zero.</P>
+                        <figure>
+
+                        </figure>
+                    <ol>
+                        <li>
+                            <strong>Título:</strong> (Campo obrigatório). Insira o título do Formulário Dinâmico neste campo. Quanto mais descritivo for o título, mais fácil será entender do que se trata. O título do Formulário Dinâmico deve ser único (significa que dois ou mais Formulários Dinâmicos não podem ter o mesmo título no mesmo projeto).
+                                <figure>
+                                </figure>
+                            <p><font color="green">Observação:</font> Leve em consideração que é possível criar Formulário Dinâmicos utilizando apenas um caractere em seu título.</P>
+                        </li>
+                        <li>
+                            <strong>Descrição:</strong> Insira uma descrição para o Formulário Dinâmico. A descrição não será vista por usuários comuns de produção que executam casos, portanto, complete a descrição para os desenhistas de processo que possam precisar editar o Formulário Dinâmico posteriormente. Como a descrição não quebra a linha automaticamente, use a tecla "Enter".
+                                <figure>
+                                </figure>
+                        </li>
+                        <li>
+                            <strong>Cancelar:</strong> Cancela a criação do Formulário Dinâmico e fecha a janela modal. Também pergunta ao usuário se deseja cancelar e descartar todas as alterações feitas.
+                                <figure>
+                                </figure>
+                        </li>
+                        <li>
+                            <strong>Salvar e Abrir:</strong> Salva a configuração feita sobre o novo Formulário Dinâmico e abre o editor HTML5/Responsive Formulário Dinâmicos.
+                                <figure>
+                            
+                                </figure>
+                        </li>
+                        <li>
+                            <strong>Salvar:</strong> Salva a configuração feita sobre o novo Formulário Dinâmico. Lembre-se que é obrigatório o preenchimento de todos os campos obrigatórios, caso contrário a configuração não será salva e os campos obrigatórios que não foram preenchidos serão destacados em vermelho. Quando a configuração do novo Formulário Dinâmico é salva, uma mensagem flash aparece na parte superior da janela indicando que o novo Formulário Dinâmico foi salvo com sucesso.
+                                <figure>
+                            
+                                </figure>
+                        </li>
+                    </ol>
+
+                <h1 id="item3">HTML5/Formulário Dinâmicos Responsivos</h1>
+                    <p>O Gestor Express aprimorou a ferramenta de desenho do Formulário Dinâmicos, tornando-o muito mais fácil de usar. Essa ferramenta oferece aos usuários uma interface para criar um Formulário Dinâmico de 12 colunas que também cumpre a promessa HTML5 "gravar somente uma vez, executar em qualquer lugar". Esses Formulários Dinâmicos se ajustam automaticamente em diferentes tamanhos de tela, como desktops, tablets e telas de dispositivos móveis. Além disso, essa ferramenta de desenho é baseada em variáveis, o que significa que as variáveis já são criadas em uma interface separada e prontas para uso dentro de Formulários Dinâmicos responsivos.</P>
+
+                    <p><font color="green">Observação:</font> É possível criar variáveis da ferramenta de desenho de Formulários Dinâmicos utilizando a propriedade Variavel nos controles da aba modelagem.</P>
+
+                    <p>O menu modelagem também tem a opção <strong>Visualizar</strong> que exibe a visualização de como o Formulário Dinâmico será exibido ao executar casos. Aqui o desenhista de processo pode experimentar o formulário para ver como os objetos no formulário aparecerão e como eles serão preenchidos com valores. O modo de visualização pode ter pequenas diferenças de quando é executado em um caso, especialmente se ele usa campos que dependem de valores inseridos em formulários dinâmicos anteriores ou variáveis de caso definidas em gatilhos anteriores.</P>
+
+                <h2>Visualização da área de trabalho:</h2>
+                        <figure>
+
+                        </figure>
+
+                <p>É assim que o Formulário Dinâmico realmente fica na área de trabalho quando um caso está em execução.</P>
+                        <figure>
+
+                        </figure>
+
+                <h2>Visualização do tablet:</h2>
+
+                <p><font color="green">Observação:</font> Leve em consideração que a visualização mostrada no navegador web é diferente do Aplicativo Gestor Express Mobile para Android e IOS que tem a apresentação dos controles modificada, devido a problemas de compatibilidade com webkits e usabilidade em espaço reduzido.</P>
+                    <figure>
+
+                    </figure>
+                <p>É assim que o Formulário Dinâmico em execução se parece em um Tablet real.</P>
+                    <figure>
+
+                    </figure>
+                <p><font color="green">Observação:</font> Leve em consideração que em um Tablet não é possível criar Formulário Dinâmicos. Eles são renderizados apenas ao usar o aplicativo.</P>
+
+                <h2>Visualização de smartphone</h2>
+
+                <p><font color="green">Observação:</font> Leve em consideração que a visualização mostrada no navegador da web é diferente do aplicativo Gestor Express Mobile para Android e IOS que renderiza os controles Formulário Dinâmico modificados devido a problemas de compatibilidade com webkits e usabilidade em um espaço reduzido.</P>
+                    <figure>
+
+                    </figure>
+                <p>É assim que fica no smartphone real.</P>
+                    <figure>
+
+                    </figure>
+                <p><font color="green">Observação:</font> Leve em consideração que em Smartphones não é possível criar Formulário Dinâmicos. Eles são renderizados apenas ao usar o aplicativo.</P>
+
+                <p>Nenhum desses Formulário Dinâmicos precisa ser reconstruído, depois de criados dentro do designer, eles se ajustarão automaticamente para serem exibidos em desktops, tablets e smartphones.</P>
+
+                <p>Para saber mais sobre a ferramenta de desenho para Formulários Dinâmicos responsivos, visite esta página.</P>
+
+                <h1 id="item4">Gerenciamento do Formulário Dinâmico</h1>
+
+                <p>Para ver a lista de Formulário Dinâmicos criados dentro de um projeto, clique em "Formulário Dinâmicos":</P>
+                    <figure>
+
+                    </figure>
+                <p>Veja a lista de Formulário Dinâmicos com suas respectivas opções:</P>
+                    <figure>
+
+                    </figure>
+
+                <ol>
+                    <li><strong>Pesquisar:</strong>esquisa o texto introduzido na lista Formulário Dinâmicos. Todas as coincidências nos títulos das Formulário Dinâmicos serão filtradas à medida que o texto for inserido.</li>
+                    <li><strong>Criar:</strong> Abre a janela Creation Blank Formulário Dinâmico para criar um novo Formulário Dinâmico. É possível criar Formulário Dinâmicos usando esta opção ou esta opção.</li>
+
+                    <li><strong>Mostrar ID:</strong> Exibe o ID exclusivo do Formulário Dinâmico selecionado.</li>
+
+                    <li><strong>Título:</strong> Mostra o título de cada Formulário Dinâmico. A lista mostra apenas os primeiros 10 elementos antes de criar uma nova página na janela. A lista é classificada em ordem crescente. Para alterar a ordem da lista para ordem crescente, clique no triângulo para baixo no rótulo da coluna.</li>
+
+                    <li><strong>Editar:</strong> Abre o editor Formulário Dinâmico.</li>
+
+                    <li>
+                        <strong>Excluir:</strong> Exclui o formulário dinâmico. Uma janela de confirmação será exibida:
+                        <figure>
+                        </figure>
+                        <p>Clique em <strong>Sim</strong> para excluir o formulário dinâmico ou clique em <strong>Não</strong> para fechar a janela sem excluir o formulário. Quando um Formulário Dinâmico é excluído, uma mensagem flash é exibida na parte superior da janela indicando que o Formulário Dinâmico foi excluído com sucesso.</P>
+                        <p>Não é possível excluir um formulário dinâmico que foi atribuído a uma tarefa, se for o caso, uma mensagem de aviso será exibida.</P>
+                        <figure>
+                        </figure>
+                        <p>Ele mostrará quantas dependências o Formulário Dinâmico possui. As possíveis dependências de um Formulário Dinâmico são: tarefas, supervisores, permissõess e Rastreador de Casos. Certifique-se de que o Formulário Dinâmico não tenha dependências antes de excluí-lo.</P>
+                    </li>
+                    <li><strong>Paginação:</strong> Quando mais de 10 Formulários Dinâmicos são listados, uma nova página é criada. Para navegar pelas páginas use as opções > ou < ou clique sobre o número da página para procurar um Formulário Dinâmico.</li>
+                </ol>
+                    
+            </article>
+
+        </section>
+
+
+
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
