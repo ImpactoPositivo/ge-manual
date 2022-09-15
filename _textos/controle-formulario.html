@@ -28,40 +28,40 @@
                 <h2>Conteúdo</h2>
         
                 <ol>
-                    <li>Visão geral</li>
-                    <li>Controles Gerais</li>
-                    <li>Controles da Web
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Controles Gerais</a></li>
+                    <li><a href="#item3">Controles da Web</a>
                         <ol type="A">
-                            <li>Outros controles</li>
+                            <li><a href="#item3a">Outros controles</a></li>
                         </ol>
                     </li>
-                    <li>Gerenciamento de variáveis dentro de formulários
+                    <li><a href="#item4">Gerenciamento de variáveis dentro de formulários</a>
                         <ol type="A">
-                            <li>Variáveis permitidas para cada controle</li>
-                            <li>Valor Nulo</li>
-                            <li>Valor padrão
+                            <li><a href="#item4a">Variáveis permitidas para cada controle</a></li>
+                            <li><a href="#item4b">Valor Nulo</a></li>
+                            <li><a href="#item4c">Valor padrão</a>
                                 <ol type="i">
-                                    <li>Valor padrão em campos com valores de domínio</li>
-                                    <li>Valor padrão para sugestões</li>
-                                    <li>Valor padrão em campos de valor único</li>
-                                    <li>Definindo vários valores padrão</li>
-                                    <li>Campos que devem selecionar um valor inicial</li>
+                                    <li><a href="#item4ci">Valor padrão em campos com valores de domínio</a></li>
+                                    <li><a href="#item4cii">Valor padrão para sugestões</a></li>
+                                    <li><a href="#item4ciii">Valor padrão em campos de valor único</a></li>
+                                    <li><a href="#item4civ">Definindo vários valores padrão</a></li>
+                                    <li><a href="#item4cv">Campos que devem selecionar um valor inicial</a></li>
                                 </ol>
                             </li>
-                            <li>Formato SQL
+                            <li><a href="#item4d">Formato SQL</a>
                                 <ol type="i">
-                                    <li>Instrução SQL que retorna valores e texto</li>
-                                    <li>Instrução SQL que retorna um valor</li>
+                                    <li><a href="#item4di">Instrução SQL que retorna valores e texto</a></li>
+                                    <li><a href="#item4dii">Instrução SQL que retorna um valor</a></li>
                                 </ol>
                             </li>
-                            <li>SQL e opções em controles
+                            <li><a href="#item4e">SQL e opções em controles</a>
                                 <ol type="i">
-                                    <li>SQL e opções que definem o domínio de opções</li>
-                                    <li>Propriedade SQL em controles escalares</li>
-                                    <li>Campos sem SQL e propriedades de opções</li>
+                                    <li><a href="#item4ei">SQL e opções que definem o domínio de opções</a></li>
+                                    <li><a href="#item4eii">Propriedade SQL em controles escalares</a></li>
+                                    <li><a href="#item4eiii">Campos sem SQL e propriedadee de opções</a></li>
                                 </ol>
                             </li>
-                            <li>Variáveis Duplicadas em Formulários Dinâmicos</li>
+                            <li><a href="#item4f">Variáveis Duplicadas em Formulários Dinâmicos</a></li>
                         </ol>
                     </li>
                 </ol>
@@ -69,150 +69,272 @@
         </aside>
         <section id="principal">
             <article>
-                <h1>Visão geral</h1>
+                <h1 id="item1">Visão geral</h1>
                     <p>Os usuários finais interagem com um formulário por meio dos controles disponíveis nele. Os controles do designer Formulário Dinâmico responsivo HTML5 usam variáveis globais criadas dentro do projeto para interagir com elementos do projeto quando os dados necessários devem ser inseridos por um usuário por meio de um formulário. O Gestor Express criou uma interface que permite aos usuários definir essas variáveis, adicionar opções e definir o tipo de dados.</p>
-                    <p>Controles Gerais</p>
-                    <p>Quando um novo formulário é criado, o contêiner onde todos os controles serão adicionados (formulário) e o contêiner onde cada controle específico será adicionado também (linha) têm suas próprias funcionalidades e propriedades específicas dentro deles.</p>
-                    <li>Forma</li>
-                    <li>Fileira</li>
-                    <p>Controles da Web</p>
-                    <p>O designer Formulário Dinâmico responsivo vem com os seguintes controles que estão diretamente relacionados às variáveis criadas no projeto:</p>
-                    <li>Caixa de texto e área de texto</li>
-                    <li>Data hora</li>
-                    <li>Suspenso</li>
-                    <li>Caixa de seleção e grupo de seleção</li>
-                    <li>Rádio (grupo)</li>
-                    <li>Sugerir</li>
-                    <li>Ocultar</li>
-                    <p>Os seguintes controles que estavam disponíveis nas versões anteriores do Gestor Express não estão disponíveis na versão 3:</p>
-                    <li>Caixa de listagem</li>
-                    <li>Sim não</li>
-                    <li>Percentagem</li>
-                    <li>Moeda</li>
-                    <p>Se precisar gerenciar os controles acima, leve em consideração que as propriedades dos novos controles substituem a funcionalidade da maioria deles simplesmente configurando o comportamento dos controles.</p>
-                    <p>Outros controles</p>
-                    <p>Esses controles estão disponíveis dentro do designer e dão mais funcionalidades aos formulários como gerenciamento de documentos, links, imagens, adição de código HTML extra, etc. Esses controles não estão diretamente relacionados a uma variável do projeto. Esses controles são adicionados diretamente ao projeto e cada um deles pode ser configurado usando suas propriedades. Os controles disponíveis desta seção são:</p>
-                    <li>Título</li>
-                    <li>Legenda</li>
-                    <li>Comentário/Etiqueta *</li>
-                    <li>Link</li>
-                    <li>Imagem</li>
-                    <li>Arquivo</li>
-                    <li>Enviar</li>
-                    <li>Botão</li>
-                    <li>Rede</li>
-                    <li>Subformulário</li>
-                    <li>Painel</li>
-                    <li>Carregador de vários arquivos</li>
-                    <p>* A partir da versão 3.0.1 este controle mudou seu nome de "Comment" para "Label".</p>
-                    <p>Gerenciamento de variáveis dentro de formulários</p>
-                    <p>Leve em consideração as seguintes considerações ao trabalhar com variáveis relacionadas a controles dentro do designer Formulário Dinâmico.</p>
-                    <p>Variáveis permitidas para cada controle</p>
-                    <p>Cada um dos controles disponíveis tem propriedades diferentes que dão ao controle uma funcionalidade principal e permitem que os usuários definam o escopo do controle. A explicação dessas propriedades e suas características estão nas seções a seguir. A tabela abaixo detalha os controles disponíveis para cada tipo de dados:</p>
-                    <p>*Versão disponível: Os controles de checkboxes foram divididos em dois: "Checkboxes" e "Checkgroups". Dê uma olhada na documentação deles para saber mais sobre isso.</p>
-                    <p>Valor Nulo</p>
-                    <p>A seguir estão as condições usadas para trabalhar com nullvalores no Formulário Dinâmicos</p>
-                    <li>Campos de Formulário Dinâmicos relacionados a variáveis possuem um nullvalor inicialmente (o valor nulo é interpretado como "valor ausente").</li>
-                    <li>Se o campo (renderizado) não for alterado pelo usuário em um Formulário Dinâmico em nenhum momento, o valor continuará sendo null.</li>
-                    <li>Uma string vazia é diferente do nullvalor. Se o usuário limpar o conteúdo de um campo, a string vazia é usada como valor válido (significa que o valor salvo será a string vazia).</li>
-                    <li>Leve em consideração que as variáveis armazenam valores nulos, portanto, os campos Report Tables e Tabelas GE também devem suportar valores nulos</li>
-                    <p>Valor padrão</p>
-                    <p>A seguir estão as condições usadas para trabalhar com valores padrão no Formulário Dinâmicos</p>
-                    <li>O valor padrão em um campo de um formulário dinâmico é definido como o valor recuperado do campo (quando é renderizado) se ele não contiver nenhum valor anterior.</li>
-                    <li>O valor padrão é definido como o valor recuperado do campo somente se seu valor for null(não o valor definido pelo usuário, mesmo que esse valor seja uma string vazia).</li>
-                    <li>O valor padrão substitui as propriedades "SQL" e "Opções". Esta é a ordem em que os valores são salvos (mostrado por prioridade):</li>
-                    <li>Primeiro valor SQL //prioridade menor</li>
-                    <li>Valor da primeira opção</li>
-                    <li>Valor padrão //prioridade máxima</li>
-                    <li>Se o valor padrão for definido, ele substituirá as opções ou valores SQL. Se o valor padrão não for definido, o primeiro valor na propriedade Opções substituirá o valor definido pelo SQL.</li>
-                    <p>Valor padrão em campos com valores de domínio</p>
-                    <p>O valor padrão deve ser definido dentro do domínio de valores recuperados pela consulta SQL ou definido nas Opções da variável do campo. A seguir estão os campos em que esta consideração deve ser levada em consideração:</p>
-                    <li>Suspenso</li>
-                    <li>Grupo de verificação</li>
-                    <li>Grupo de rádio</li>
-                    <p>Esses campos procurarão o valor definido como padrão nos dados retornados pela consulta SQL ou pelas opções definidas para o controle. Se o valor for encontrado nos dados recuperados, o valor padrão será definido como o valor padrão. Se o valor padrão não for encontrado nesses domínios, o valor padrão não será salvo nos dados do controle.</p>
-                    <p>Valor padrão para sugestões</p>
-                    <p>No caso do campo de sugestão, o comportamento do valor padrão é diferente. O valor padrão pode estar fora do domínio definido no domínio (SQL e opções). Não é necessário que o valor padrão faça parte do domínio.</p>
-                    <p>O valor padrão será exibido na área de texto do controle de sugestão e armazenado na variável. Nesse caso, o valor e o texto exibidos são os mesmos.</p>
-                    <p>Valor padrão em campos de valor único</p>
-                    <p>Nos demais controles que não definem um domínio de opções, basta definir o valor padrão nas propriedades do controle.</p>
-                    <p>Definindo vários valores padrão</p>
-                    <p>Os grupos de verificação permitem que zero, uma ou várias opções sejam selecionadas por padrão. Para selecionar várias opções, separe os valores das opções selecionadas com tubos verticais ( |). Lembre-se de usar os valores das opções, e não os rótulos, que é o texto exibido ao usuário. Por exemplo, se desejar selecionar apenas o Canadá em um grupo de verificação de países, insira CAa propriedade de valor padrão. Para selecionar Bolívia, Argentina e Estados Unidos por padrão, insira BO|AR|USa propriedade de valor padrão.</p>
-                    <p>Campos que devem selecionar um valor inicial</p>
-                    <p>Os campos que definem um domínio de opções definem um grupo de valores possíveis.</p>
-                    <p>Somente o controle suspenso sempre seleciona um valor quando é renderizado pela primeira vez. Para definir um valor vazio ou nulo, crie uma opção sem valor e adicione qualquer descrição como “--Selecione uma opção--”.</p>
-                    <p>Nota: A partir da versão 3.0.1.5 foi adicionada a propriedade Placeholder neste controle no qual é possível definir um valor vazio.</p>
-                    <p>Se a lista suspensa for obrigatória e o valor retornado for nulo, a validação retornará false e não será possível ir para a próxima etapa. O formulário pedirá para selecionar um valor na lista suspensa.</p>
-                    <p>Formato SQL</p>
-                    <p>A propriedade SQL é usada em muitos controles no Formulário Dinâmico. Leve em consideração as seguintes condições para definir as instruções SQL. Para obter mais informações sobre a propriedade SQL, consulte Propriedades do controle Formulário Dinâmico - SQL.</p>
-                    <p>Instrução SQL que retorna valores e texto</p>
-                    <p>As seguintes regras devem ser aplicadas aos controles:</p>
-                    <li>Suspenso</li>
-                    <li>Grupo de verificação</li>
-                    <li>Grupo de rádio</li>
-                    <li>Sugerir</li>
-                    <p>A seguinte sintaxe deve ser usada na propriedade SQL:</p>
-                    <p>SELECT [coluna de valor], [coluna de texto] FROM [nome da tabela] WHERE [qualquer condição]</p>
-                    <p>Onde:</p>
-                    <p>Coluna de valor: É o identificador da opção.</p>
-                    <p>Nota: Os identificadores suportam apenas texto de uma palavra e caracteres como.e @. Os seguintes caracteres não são suportados quando estão entre palavras: ', |. `,  (espaço), ", !e ^(por exemplo: A^A). Além disso, o Gestor Express Formulário Dinâmico Designer não oferece suporte a consultas SQL com o *identificador. Usar o *identificador é considerado uma prática ruim porque gera problemas de desempenho.</p>
-                    <p>Coluna de texto: É o texto que é exibido no controle.</p>
-                    <p>Nome da tabela: O nome da tabela no banco de dados.</p>
-                    <p>condição: Qualquer condição para a consulta SQL</p>
-                    <p>Instrução SQL que retorna um valor</p>
-                    <p>As seguintes regras devem ser aplicadas aos controles:</p>
-                    <li>Caixa de texto</li>
-                    <li>Área de texto</li>
-                    <li>Ocultar</li>
-                    <p>A seguinte sintaxe deve ser usada na propriedade SQL:</p>
-                    <p>SELECT [coluna de valor] FROM [nome da tabela] WHERE [qualquer condição]</p>
-                    <p>Onde:</p>
-                    <p>Coluna de valor: O valor deve ser sempre o primeiro campo da consulta. É o identificador da opção.</p>
-                    <p>Nota: O identificador * não é suportado em consultas SQL.</p>
-                    <p>Nome da tabela: O nome da tabela no banco de dados.</p>
-                    <p>condição: Qualquer condição para a consulta SQL.</p>
-                    <p>SQL e opções em controles</p>
-                    <p>Existem dois grupos de controles que usam as propriedades SQL e Options de maneira diferente. Ambos são explicados abaixo</p>
-                    <p>SQL e opções que definem o domínio de opções</p>
-                    <p>Os valores retornados pela consulta SQL e as propriedades Options constituem os valores de domínio do campo. Os valores válidos para o controle são apenas os definidos no domínio. Os seguintes controles podem conter e usar a propriedade SQL e a propriedade Options como valores de domínio:</p>
-                    <p>Suspenso</p>
-                    <p>Grupo de verificação</p>
-                    <p>Grupo de rádio</p>
-                    <p>Sugerir</p>
-                    <p>Nota: O identificador * não é suportado em consultas SQL.</p>
-                    <p>Propriedade SQL em controles escalares</p>
-                    <p>A propriedade SQL também pode ser usada como um valor escalar em um controle. Se houver mais de um valor como resultado da execução da consulta SQL, apenas o primeiro valor será utilizado para definir o valor de controle.</p>
-                    <p>Os seguintes controles podem conter e usar a propriedade SQL como valor escalar:</p>
-                    <li>Caixa de texto</li>
-                    <li>TextArea</li>
-                    <li>Escondido</li>
-                    <p>Considere as regras definidas na seção “Valor padrão” para definir qual valor é definido quando o SQL e o Valor padrão são definidos. Observe que esses controles não possuem a propriedade Options.</p>
-                    <p>Nota: O identificador * não é suportado em consultas SQL.</p>
-                    <p>Campos sem SQL e propriedades de opções</p>
-                    <p>Os campos a seguir não incluem as propriedades SQL e opções:</p>
-                    <li>Título</li>
-                    <li>Legenda</li>
-                    <li>Etiqueta</li>
-                    <li>Caixa de seleção</li>
-                    <li>Data hora</li>
-                    <li>Link</li>
-                    <li>Imagem</li>
-                    <li>Arquivo</li>
-                    <li>Carregador de vários arquivos</li>
-                    <li>Enviar</li>
-                    <li>Botão</li>
-                    <li>Rede</li>
-                    <li>Painel</li>
-                    <li>Subformulário</li>
-                    <p>Variáveis Duplicadas em Formulário Dinâmicos</p>
-                    <p>Dentro de um Formulário Dinâmico é recomendado definir apenas uma instância de uma variável. No entanto, é possível definir dois campos usando a mesma variável nas seguintes situações:</p>
-                    <p>A mesma variável é atribuída em dois ou mais subformulários no design do formulário (significa que os subformulários adicionados usaram a mesma variável em seus controles). Lembre-se de que um formulário só pode ser usado uma vez como subformulário em um formulário, mas um formulário pode ter mais de um subformulário em seu design.</p>
-                    <p>O design do subformulário é modificado depois que o subformulário foi atribuído a vários formulários. E uma variável é duplicada em qualquer uma das formas principais.</p>
-                    <p>O designer deseja duplicar o uso da variável em duas seções do formulário e exibir ou ocultar um dos campos associados dependendo do design. Nesse caso, o designer Formulário Dinâmico vai alertar o arquiteto que uma variável está sendo utilizada em dois ou mais campos, mas o arquiteto deve definir se o campo referente à mesma variável é possível.</p>
-                    <p>Ao executar casos, se uma variável for usada em dois ou mais controles, o controle no qual o valor da variável é definido no final será salvo como o valor da variável. A definição da ordem dos controles é de cima para baixo e da esquerda para a direita (observe que isso depende do navegador). Para evitar esses problemas é recomendado não duplicar variáveis.</p>
-                    <p>Para saber mais sobre restrições de variáveis, consulte as melhores práticas de nomenclatura de variáveis.</p>
-
                     
+                    <h1 id="item2">Controles Gerais</h1>
+
+                        <p>Quando um novo formulário é criado, o contêiner onde todos os controles serão adicionados (formulário) e o contêiner onde cada controle específico será adicionado também (linha) têm suas próprias funcionalidades e propriedades específicas dentro deles.</p>
+                        <ul>
+                            <li>Formulário</li>
+                            <li>Linha</li>
+                        </ul>
+                        
+                    <h1 id="item3">Controles da Web</h1>
+
+                        <p>O designer Formulário Dinâmico responsivo vem com os seguintes controles que estão diretamente relacionados às variáveis criadas no projeto:</p>
+                        <ul>
+                            <li>Caixa de texto e área de texto</li>
+                            <li>Data hora</li>
+                            <li>Suspenso</li>
+                            <li>Caixa de seleção e grupo de seleção</li>
+                            <li>Rádio (grupo)</li>
+                            <li>Sugerir</li>
+                            <li>Oculto</li>
+                        </ul>
+                        <p>Os seguintes controles que estavam disponíveis nas versões anteriores do Gestor Express não estão disponíveis na versão 3:</p>
+                        <ul>
+                            <li>Caixa de listagem</li>
+                            <li>Sim/Não</li>
+                            <li>Percentagem</li>
+                            <li>Moeda</li>
+                        </ul>
+                        <p>Se precisar gerenciar os controles acima, leve em consideração que as propriedades dos novos controles substituem a funcionalidade da maioria deles simplesmente configurando o comportamento dos controles.</p>
+
+                    <h2 id="item3a">Outros controles</h2>
+
+                        <p>Esses controles estão disponíveis dentro da Ferramente de Desenho e dão mais funcionalidades aos formulários como gerenciamento de documentos, links, imagens, adição de código HTML extra, etc. Esses controles não estão diretamente relacionados a uma variável do projeto. Esses controles são adicionados diretamente ao projeto e cada um deles pode ser configurado usando suas propriedades. Os controles disponíveis desta seção são:</p>
+
+                        <ul>
+                            <li>Título</li>
+                            <li>Legenda</li>
+                            <li>Rótulo</li>
+                            <li>Link</li>
+                            <li>Imagem</li>
+                            <li>Arquivo</li>
+                            <li>Enviar</li>
+                            <li>Botão</li>
+                            <li>Grid</li>
+                            <li>Subformulário</li>
+                            <li>Painel</li>
+                            <li>Carregador de vários arquivos</li>
+                        </ul>
+
+                    <h1 id="item4">Gerenciamento de variáveis dentro de formulários</h1>
+
+                        <p>Leve em consideração as seguintes considerações ao trabalhar com variáveis relacionadas a controles dentro da Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                        <h2 id="item4a">Variáveis permitidas para cada controle</h2>
+                        
+                        <p>Cada um dos controles disponíveis tem propriedades diferentes que dão ao controle uma funcionalidade principal e permitem que os usuários definam o escopo do controle. A explicação dessas propriedades e suas características estão nas seções a seguir. A tabela abaixo detalha os controles disponíveis para cada tipo de dados:</p>
+
+                        <table>
+                            <thead>
+                                <tr><th width="150px">Controle/Tipo de Dado</th><th>String</th><th>Inteiro</th><th>Flutuante</th><th>Boleano</th><th>Data Hora</th><th>Grid</th><th>Matriz</th><th>Arquivo**</th><th width="130px">Múiltiplos arquivos</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Texto</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Área de Texto</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Caixa suspensa</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Caixa de Seleção</td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Caixa de Verificação</td><td></td><td></td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td></tr>
+                                <tr><td>Radio (grupo)</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Sugerir</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Data Hora</td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Oculto</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td></tr>
+                                <tr><td>Grid</td><td></td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td></tr>
+                                <tr><td>Arquivo</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>X</td><td></td></tr>
+                                <tr><td>Múltiplos uplouds</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>X</td></tr>
+                            </tbody>
+                        </table>
+                            
+
+                        <p>*Versão disponível: Os controles de checkboxes foram divididos em dois: "Caixa de Verificação" e "Grupo de Verificação". Dê uma olhada na documentação deles para saber mais sobre isso.</p>
+
+                    <h2 id="item4b">Valor Nulo</h2>
+
+                        <p>A seguir estão as condições usadas para trabalhar com valores <code>null</code>lário Dinâmicos</p>
+
+                        <ul>
+                            <li>Campos de Formulário Dinâmicos relacionados a variáveis possuem inicialmente um valor <code>null</code> (o valor nulo é interpretado como "valor ausente").</li>
+                            <li>Se o campo (renderizado) não for alterado pelo usuário em um Formulário Dinâmico em nenhum momento, o valor continuará sendo <code>null</code>.</li>
+                            <li>Uma string vazia é diferente do valor <code>null</code>. Se o usuário limpar o conteúdo de um campo, a string vazia é usada como valor válido (significa que o valor salvo será a string vazia).</li>
+                            <li>Leve em consideração que as variáveis armazenam valores nulos, portanto, os campos Tabelas de Relatórios e Tabelas GE também devem suportar valores nulos</li>
+                        </ul>
+
+                    <h2 id="item4c">Valor padrão</h2>
+
+                        <p>A seguir estão as condições usadas para trabalhar com valores padrão no Formulário Dinâmicos</p>
+
+                        <ul>
+                            <li>O valor padrão em um campo de um formulário dinâmico é definido como o valor recuperado do campo (quando é renderizado) se ele não contiver nenhum valor anterior.</li>
+                            <li>O valor padrão é definido como o valor recuperado do campo somente se seu valor for <code>null</code>(não o valor definido pelo usuário, mesmo que esse valor seja uma string vazia).</li>
+                            <li>O valor padrão substitui as propriedades "SQL" e "Opções". Esta é a ordem em que os valores são salvos (mostrado por prioridade):
+                                <ul type="disc">
+                                    <li>Primeiro valor SQL//prioridade menor</li>
+                                    <li>Valor da primeira opção</li>
+                                    <li>Valor padrão//prioridade máxima</li>
+                                </ul>
+                            </li>
+                            <li>Se o valor padrão for definido, ele substituirá as opções ou valores SQL. Se o valor padrão não for definido, o primeiro valor na propriedade <strong>Opções</strong> substituirá o valor definido pelo SQL.</li>
+                        </ul>
+
+                    <h2 id="item4ci">Valor padrão em campos com valores de domínio</h2>
+
+                        <p>O valor padrão deve ser definido dentro do domínio de valores recuperados pela consulta SQL ou definido nas Opções da variável do campo. A seguir estão os campos em que esta consideração deve ser levada em conta:</p>
+
+                        <ul>
+                            <li>Suspenso</li>
+                            <li>Grupo de verificação</li>
+                            <li>Grupo de rádio</li>
+                        </ul>
+
+                        <p>Esses campos procurarão o valor definido como padrão nos dados retornados pela consulta SQL ou pelas opções definidas para o controle. Se o valor for encontrado nos dados recuperados, o valor padrão será definido como o valor por padrão. Se o valor padrão não for encontrado nesses domínios, o valor padrão não será salvo nos dados do controle.</p>
+
+                    <h2 id="item4cii">Valor padrão para sugestões</h2>
+
+                        <p>No caso do campo de sugestão, o comportamento do valor padrão é diferente. O valor padrão pode estar fora do domínio definido no domínio (SQL e opções). Não é necessário que o valor padrão faça parte do domínio.</p>
+
+                        <p>O valor padrão será exibido na área de texto do controle de sugestão e armazenado na variável. Nesse caso, o valor e o texto exibidos são os mesmos.</p>
+
+                    <h2 id="item4ciii">Valor padrão em campos de valor único</h2>
+
+                        <p>Nos demais controles que não definem um domínio de opções, basta definir o valor padrão nas propriedades do controle.</p>
+
+                    <h2 id="item4civ">Definindo vários valores padrão</h2>
+
+                        <p>Os grupos de verificação permitem zero, uma ou várias opções sejam selecionadas por padrão. Para selecionar várias opções, separe os valores das opções selecionadas com brras verticais (<code>|</code>). Lembre-se de usar os valores das opções, e não os rótulos, que é o texto exibido ao usuário. Por exemplo, se desejar selecionar apenas o Canadá em um grupo de verificação de países, insira <code>CA</code> na propriedade de valor padrão. Para selecionar Bolívia, Argentina e Estados Unidos por padrão, insira <code>BO|AR|US</code> na propriedade de valor padrão.</p>
+                    
+                    <h2 id="item4cv">Campos que devem selecionar um valor inicial</h2>
+
+                        <p>Os campos que definem um domínio de opções definem um grupo de valores possíveis.</p>
+
+                        <p>Somente o controle suspenso sempre seleciona um valor quando é renderizado pela primeira vez. Para definir um valor vazio ou nulo, crie uma opção sem valor e adicione qualquer descrição como “--Selecione uma opção--”.</p>
+
+                        <p><font color="green">Observação:</font> Foi adicionada a propriedade <strong>Placeholder</strong> neste controle no qual é possível definir um valor vazio.</p>
+
+                        <p>Se a lista suspensa for obrigatória e o valor retornado for nulo, a validação retornará falsa e não será possível ir para a próxima etapa. O formulário pedirá para selecionar um valor na lista suspensa.</p>
+
+                    <h2 id="item4d">Formato SQL</h2>
+
+                    <p>A propriedade SQL é usada em muitos controles no Formulário Dinâmico. Leve em consideração as seguintes condições para definir as instruções SQL. Para obter mais informações sobre a propriedade SQL, consulte Propriedades do controle Formulário Dinâmico - SQL.</p>
+
+                    <h2 id="item4di">Instrução SQL que retorna valores e texto</h2>
+
+                        <p>As seguintes regras devem ser aplicadas aos controles:</p>
+                        
+                        <ul>
+                            <li>Caixas Suspensa</li>
+                            <li>Grupo de verificação</li>
+                            <li>Grupo de rádio</li>
+                            <li>Sugestão</li>
+                        </ul>
+                        
+                        <p>A seguinte sintaxe deve ser usada na propriedade SQL:</p>
+
+                        <codeblock>SELECT [coluna de valor], [coluna de texto] FROM [nome da tabela] WHERE [qualquer condição]</codeblock>
+                        
+                        <p>Onde:</p>
+
+                        <ul>
+                            <li><strong>Coluna de valor:</strong> É o identificador da opção.</li>
+                            <p><font color="green">Observação:</font> Os identificadores suportam apenas texto de uma palavra e caracteres como <code>.</code> e <code>@</code>. Os seguintes caracteres não são suportados quando estão entre palavras: <code>'</code>, <code>|</code>. <code>`</code>, <code>&nbsp</code>(espaço), <code>"</code>, <code>!</code> e <code>^</code> (por exemplo: A^A). Além disso, a Ferramenta de Desenho do Formulário Dinâmico do Gestor Express não oferece suporte a consultas SQL com o identificador <code>*</code>. Usar o identificador <code>*</code> é considerado uma prática ruim porque gera problemas de desempenho.</p>
+                            <li><strong>Coluna de texto:</strong> É o texto que é exibido no controle.</li>
+                            <li><strong>Nome da tabela:</strong> O nome da tabela no banco de dados.</li>
+                            <li><strong>condição:</strong> Qualquer condição para a consulta SQL</li>
+                        </ul>
+
+                    <h2 id="item4dii">Instrução SQL que retorna um valor</h2>
+
+                        <p>As seguintes regras devem ser aplicadas aos controles:</p>
+
+                        <ul>
+                            <li>Caixa de texto</li>
+                            <li>Área de texto</li>
+                            <li>Ocultar</li>
+                        </ul>
+
+                        <p>A seguinte sintaxe deve ser usada na propriedade SQL:</p>
+
+                        <codeblock>SELECT [coluna de valor] FROM [nome da tabela] WHERE [qualquer condição]</codeblock>
+
+                        <p>Onde:</p>
+
+                        <ul>
+                            <li><strong>Coluna de valor:</strong> O valor deve ser sempre o primeiro campo da consulta. É o identificador da opção.</li>
+                            <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+                            <li><strong>Nome da tabela:</strong> O nome da tabela no banco de dados.</li>
+                            <li><strong>condição:</strong> Qualquer condição para a consulta SQL.</li>
+                    </ul>
+
+                    <h2 id="item4e">SQL e opções em controles</h2>
+
+                        <p>Existem dois grupos de controles que usam as propriedades SQL e Options de maneira diferente. Ambos são explicados abaixo</p>
+
+                    <h2 id="item4ei">SQL e opções que definem o domínio de opções</h2>
+
+                        <p>Os valores retornados pela consulta SQL e as propriedades Options constituem os valores de domínio do campo. Os valores válidos para o controle são apenas os definidos no domínio. Os seguintes controles podem conter e usar a propriedade SQL e a propriedade Options como valores de domínio:</p>
+
+                        <ul>
+                            <li>Suspenso</li>
+                            <li>Grupo de verificação</li>
+                            <li>Grupo de rádio</li>
+                            <li>Sugestão</li>
+                        </ul>
+
+                        <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+                    
+                    <h2 id="item4eii">Propriedade SQL em controles escalares</h2>
+
+                        <p>A propriedade SQL também pode ser usada como um valor escalar em um controle. Se houver mais de um valor como resultado da execução da consulta SQL, apenas o primeiro valor será utilizado para definir o valor de controle.</p>
+
+                        <p>Os seguintes controles podem conter e usar a propriedade SQL como valor escalar:</p>
+
+                        <ul>
+                            <li>Caixa de texto</li>
+                            <li>Area de Texto</li>
+                            <li>Oculto</li>
+                        </ul>
+
+                        <p>Considere as regras definidas na seção “Valor padrão” para determinar qual valor é definido quando o SQL e o Valor padrão são definidos. Observe que esses controles não possuem a propriedade Options.</p>
+
+                        <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                    <h2 id="item4eiii">Campos sem SQL e propriedades de opções</h2>
+
+                    <p>Os campos a seguir não incluem as propriedades SQL e opções:</p>
+
+                    <ul>
+                        <li>Título</li>
+                        <li>Legenda</li>
+                        <li>Rótulo</li>
+                        <li>Caixa de seleção</li>
+                        <li>Data hora</li>
+                        <li>Link</li>
+                        <li>Imagem</li>
+                        <li>Arquivo</li>
+                        <li>Carregador de vários arquivos</li>
+                        <li>Enviar</li>
+                        <li>Botão</li>
+                        <li>Grid</li>
+                        <li>Painel</li>
+                        <li>Subformulário</li>
+                    </ul>
+
+                    <h2 id="item4f">Variáveis Duplicadas em Formulários Dinâmicos</h2>
+
+                    <p>Dentro de um Formulário Dinâmico é recomendado definir apenas uma instância de uma variável. No entanto, é possível definir dois campos usando a mesma variável nas seguintes situações:</p>
+
+                    <ul>
+                        <li>A mesma variável é atribuída em dois ou mais subformulários na Ferramenta de Desenho do formulário (significa que os subformulários adicionados usaram a mesma variável em seus controles). Lembre-se de que um formulário só pode ser usado uma vez como subformulário em um formulário, mas um formulário pode ter mais de um subformulário em seu modelo.</li>
+                        <li>O modelo do subformulário é modificado depois que o subformulário foi atribuído a vários formulários. E uma variável é duplicada em qualquer uma das formas principais.</li>
+                    </ul>
+
+                    <p>O desenhista deseja duplicar o uso da variável em duas seções do formulário e exibir ou ocultar um dos campos associados dependendo do modelo. Nesse caso, a Ferramenta de Desenho do Formulário Dinâmico vai alertar o desenhista que uma variável está sendo utilizada em dois ou mais campos, mas o desenhista deve definir se o campo referente à mesma variável é possível.</p>
+
+                    <p>Ao executar casos, se uma variável for usada em dois ou mais controles, o controle no qual o valor da variável é definido no final será salvo como o valor da variável. A definição da ordem dos controles é de cima para baixo e da esquerda para a direita (observe que isso depende do navegador). Para evitar esses problemas é recomendado não duplicar variáveis.</p>
+
+                    <p>Para saber mais sobre restrições de variáveis, consulte as melhores práticas de nomenclatura de variáveis.</p>
             </article>
         </section>
         <footer>
