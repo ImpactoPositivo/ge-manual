@@ -35,7 +35,7 @@
                             <li><a href="#item2b">Propriedades de controle de texto</a>
                                 <ol type="i">
                                     <li><a href="#item2bi">Transformar texto em</a></li>
-                                    <li><a href="#item2bii">Máx. Comprimento</a></li>
+                                    <li><a href="#item2bii">Comprimento Máximo</a></li>
                                     <li><a href="#item2biii">Fórmula</a></li>
                                     <li><a href="#item2biv">Validar</a></li>                    
                                     <ol type="a">
@@ -178,55 +178,137 @@
                     </table>
                         
                 
-                <p><font color="red">Transformar texto em</font></p>
+                <h2 id="item2bi">Transformar texto em</h2>
 
-                    <p>Esta opção transforma qualquer texto inserido automaticamente em UPPER CASE, lower case, Capitalize phrase(a primeira letra é alterada para maiúscula) ou Title Case(a primeira letra de cada palavra é alterada para maiúscula). Selecione o tipo de transformação dentro das propriedades do controle.</p>
+                    <p>Esta opção transforma qualquer texto inserido automaticamente em <code>CAIXA ALTA</code>, <code>caixa baixa</code>, <code>Maíuscula na frase</code>(a primeira letra é alterada para maiúscula) ou <code>Título de Caso</code>a primeira letra de cada palavra é alterada para maiúscula). Selecione o tipo de transformação dentro das propriedades do controle.</p>
+
+                    <figure>
+
+                    </figure>
+
                     <p>As alterações serão mostradas quando o formulário for renderizado dentro da visualização ou ao executar um caso. Por exemplo:</p>
+
                     <p>Texto original.</p>
-                    <p>Transformado em UPPERcaixa.</p>
-                    <p>Transformado em lowercaixa.</p>
-                    <p>Leve em consideração que deixando como "none", o texto não terá nenhuma transformação e será salvo da mesma forma que o usuário final o inseriu.</p>
-                    <p>Máx. Comprimento</p>
-                    <p>Esta propriedade define o número máximo de caracteres que podem ser inseridos em um campo de controle de texto. Esta propriedade também é uma validação feita sobre estes campos, mas se uma expressão regular foi definida dentro da propriedade "Validate", esta validação será verificada antes do Max. Comprimento.</p>
+           
+                    <figure>
+
+                    </figure>
+         
+                    <p>Transformado em <code>CAIXA ALTA</code>.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Transformado em <code>caixa baixa</code>.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Leve em consideração que deixando como "nenhum", o texto não terá nenhuma transformação e será salvo da mesma forma que o usuário final o inseriu.</p>
+
+                <h2 id="item2bii">Comprimento Máximo</h2>
+
+                    <p>Esta propriedade define o número máximo de caracteres que podem ser inseridos em um campo de controle de texto. Esta propriedade também é uma validação feita sobre estes campos, mas se uma expressão regular foi definida dentro da propriedade "Validar", esta validação será verificada antes do Comprimento Máximo.</p>
+
+                    <figure>
+
+                    </figure>
+
                     <p>Teoricamente, a definição da propriedade permite que um máximo de 9.999.999.999 caracteres sejam inseridos no campo, mas o navegador da Web provavelmente não terá memória suficiente para lidar com essa quantidade de entrada. Além disso, o Gestor Express só pode armazenar até 16 MB de dados sobre um caso, que seriam 16.777.216 caracteres (supondo que não haja caracteres internacionais que precisem de mais de 8 bits). Em uma nota prática, é melhor usar Área de Textos e objetos de arquivo para armazenar grandes quantidades de dados, pois eles são armazenados separadamente no banco de dados e não retardam o processamento do Gestor Express, nem estão sujeitos às mesmas limitações de espaço que as caixas de texto.</p>
+                   
                     <p>Por exemplo, se o comprimento máximo for definido como 100 e o tamanho for ultrapassado, a seguinte mensagem será exibida:</p>
-                    <p>Nota: Para esta propriedade leve em consideração que um espaço em branco " " também é considerado um caractere.</p>
-                    <p>Fórmula</p>
-                    <p>Nota: Regras ou máscaras de validação podem ser usadas nos campos de texto envolvidos em operações matemáticas para restringir a entrada de dados.</p>
-                    <p>Esta propriedade permite que fórmulas matemáticas sejam utilizadas com base nos campos do Formulário Dinâmico. As operações matemáticas suportadas são adição, subtração, multiplicação e divisão. As fórmulas também podem usar (...)(parênteses) para agrupar operações. Os campos usados em uma fórmula já devem existir no Formulário Dinâmico. A fórmula deve ser colocada no campo onde será exibido o resultado.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="green">Observação:</font> Para esta propriedade leve em consideração que um espaço em branco " " também é considerado um caractere.</p>
+
+                <h2 id="item2biii">Fórmula</h2>
+
+                    <p><font color="green">Observação:</font> Regras ou máscaras de validação podem ser usadas nos campos de texto envolvidos em operações matemáticas para restringir a entrada de dados.</p>
+
+                    <p>Esta propriedade permite que fórmulas matemáticas sejam utilizadas com base nos campos do Formulário Dinâmico. As operações matemáticas suportadas são adição, subtração, multiplicação e divisão. As fórmulas também podem usar <code>(...)</code>(parênteses) para agrupar operações. Os campos usados em uma fórmula já devem existir no Formulário Dinâmico. A fórmula deve ser colocada no campo onde será exibido o resultado.</p>
+
                     <p>Clique no botão "Editar" na propriedade "Fórmula" do controle de texto:</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Neste exemplo, o campo "Resultado" mostrará o resultado da multiplicação entre "Valor 1" e "Valor 2". No entanto, leve em consideração que a fórmula deve ser feita usando o ID desses controles de texto, então a fórmula a ser inserida seria:</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Ao executar um caso, os campos que configuraram uma fórmula são desabilitados para entrada de texto. Os resultados das operações matemáticas são mostrados à medida que os valores são inseridos nos campos incluídos na fórmula.</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>As fórmulas podem consistir nos IDs dos campos de texto, números e os seguintes operadores matemáticos:</p>
-                    <p>OperadorExemplo</p>
-                    <p>+salesPrice + tax</p>
-                    <p>-salesPrice - discount</p>
-                    <p>*salesPrice * quantity</p>
-                    <p>*pounds / 2.2046226</p>
-                    <p>(...)(currentSales - previousSales) / previousSales</p>
+
+                    <table>
+                        <thead>
+                            <tr><th>Operador</th><th>Descrição</th><th>Exemplo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>+</code></td><td>Adição</td><td><code>precoVenda + taxas</code></td></tr>
+                            <tr><td><code>-</code></td><td>Subtração</td><td><code>precoVenda - disconto</code></td></tr>
+                            <tr><td><code>*</code></td><td>Multiplicação</td><td><code>precoVenda * quantidade</code></td></tr>
+                            <tr><td><code>/</code></td><td>Divisão</td><td><code>pounds/2.2046226</code></td></tr>
+                            <tr><td><code>(...)</code></td><td>Agrupamento</td><td><code>(vendasAtuais - vendasPrevias)/ vendasPrevias</code></td></tr>
+                        </tbody>
+                    </table>
+                  
                     <p>A multiplicação e a divisão têm maior precedência do que a adição e a subtração. Na seguinte fórmula:</p>
-                    <p>preço - desconto * taxRate</p>
-                    <p>Primeiro, o discounté multiplicado por taxRate, então o resultado é subtraído de price. Parênteses podem ser usados para alterar a ordem das operações matemáticas:</p>
-                    <p>(preço - desconto) * taxRate</p>
-                    <p>Agora, o discounté subtraído do price, então o resultado é multiplicado pelo taxRate.</p>
+                    
+                    <codeblock>preço - desconto * perTaxa</codeblock>
+                    
+                    <p>Primeiro, o <code>desconto</code> é multiplicado por <code>perTaxa</code>, então o resultado é subtraído de <code>preco</code>. Parênteses podem ser usados para alterar a ordem das operações matemáticas:</p>
+                    
+                    <codeblock>(preço - desconto) * perTaxa</codeblock>
+                    
+                    <p>Agora, o <code>desconto</code> é subtraído do <code>preço</code>, então o resultado é multiplicado pelo <code>perTaxa</code>.</p>
+
                     <p>Os resultados do cálculo são exibidos no campo que contém a fórmula no momento em que o usuário altera o valor de um dos campos utilizados na fórmula. Se o usuário inserir um valor em um campo que não pode ser interpretado como um número, o campo que contém a fórmula ficará em branco (ou seja, definido como uma string vazia). Para forçar o usuário a inserir apenas números válidos nos campos, é recomendável usar uma máscara ou definir a propriedade validate para aceitar apenas números:</p>
-                    <p>Apenas números inteiros:^\d+$</p>
-                    <p>Apenas números inteiros positivos ou negativos:^[\-+]?\d+$</p>
-                    <p>Números inteiros ou decimais:^[\-+]?\d*\.?\d*$</p>
-                    <p>Número com até dois dígitos decimais:^[\-+]?\d*(\.\d{0,2})?$</p>
-                    <p>Número com exatamente dois dígitos decimais:^[\-+]?\d*\.\d{2}$</p>
-                    <p>Nota: Para que as fórmulas funcionem corretamente, os números inseridos pelo usuário nos campos NÃO devem ter separador de milhar e devem usar.(ponto) como separador decimal, como: 1234567.89</p>
-                    <p>Se precisar usar números como 123,456,789.01(vírgula como separador de milhar), 123 456 789.01(espaço como separador de milhares) ou 123.456.789,01(ponto como separador de milhares e vírgula como separador decimal) e, em seguida, adicione JavaScript personalizado que usa control.setOnchange() para fazer o cálculo.</p>
-                    <p>As fórmulas também podem ser usadas em campos de texto encontrados em grades. As fórmulas nas grades podem conter apenas os IDs de outros campos na mesma linha da grade, portanto, não é possível fazer referência a campos fora da grade ou campos em outras linhas da grade. Se precisar fazer cálculos com base em campos fora da grade, é recomendável adicionar código JavaScript que usa o formulário.setOnchange() para definir um manipulador de eventos que calcula a fórmula quando um valor na grade é alterado.</p>
-                    <p>Validar</p>
+
+                    <ul>
+                        <li>Apenas números inteiros:<code>^\d+$</code></li>
+                        <li>Apenas números inteiros positivos ou negativos:<code>^[\-+]?\d+$</code></li>
+                        <li>Números inteiros ou decimais:<code>^[\-+]?\d*\.?\d*$</code></li>
+                        <li>Número com até dois dígitos decimais:<code>^[\-+]?\d*(\.\d{0,2})?$</code></li>
+                        <li>Número com exatamente dois dígitos decimais:<code>^[\-+]?\d*\.\d{2}$</code>
+                    </ul>
+
+                    <p><font color="green">Observação:</font> Para que as fórmulas funcionem corretamente, os números inseridos pelo usuário nos campos NÃO devem ter separador de milhar e devem usar <code>.</code>(ponto) como separador decimal, como: 1234567.89</p>
+
+                    <p>Se precisar usar números como <code>123,456,789.01</code>(vírgula como separador de milhar), <a href="">123 456 789.01</a>(espaço como separador de milhares) ou <code>123.456.789,01</code>(ponto como separador de milhares e vírgula como separador decimal) e, em seguida, adicione JavaScript personalizado que usa <font color="1d438a">control.setOnchange()</font> para fazer o cálculo.</p>
+
+                    <p>As fórmulas também podem ser usadas em campos de texto encontrados em grades. As fórmulas nas grades podem conter apenas os IDs de outros campos na mesma linha da grade, portanto, não é possível fazer referência a campos fora da grade ou campos em outras linhas da grade. Se precisar fazer cálculos com base em campos fora da grade, é recomendável adicionar código <font color="1d438a">JavaScript que usa o formulário .setOnchange(</font>) para definir um manipulador de eventos que calcula a fórmula quando um valor na grade é alterado.</p>
+                
+                <h2 id="item2biv">Validar</h2>
+
                     <p>Esta propriedade permite que seja inserida uma expressão regular que verifica se o usuário inseriu uma entrada válida na caixa de texto. Se a entrada corresponder à expressão regular, o usuário poderá sair do campo, mas se a entrada não corresponder, a mensagem do campo será destacada em vermelho e o texto na propriedade Mensagem de erro de validação será exibido. O usuário não terá permissão para sair do campo até que sua entrada seja alterada para corresponder à expressão regular.</p>
-                    <p>Sintaxe de Expressão Regular</p>
-                    <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade validate para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
-                    <p>Correspondência de sequências de caracteres</p>
-                    <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão regular. Por exemplo, uma propriedade validate de thaceitaria qualquer entrada que contenha as letras th, como thumb, e. No entanto, ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.somethingSmithTom Thumb</p>
-                    <p>Início do texto:^</p>
-                    <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por ^. Por exemplo, uma propriedade validate de ^Smaceitaria Smithe Smothers, mas não aceitaria ou porque não ocorre no início do texto.John SmithSSSSmeeegol!Sm</p>
-                    <p>Fim do texto:$</p>
+
+                    <p><strong>Sintaxe de Expressão Regular</strong></p>
+
+                    <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade <strong>validar</strong> para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
+
+                    <p><strong>Correspondência de sequências de caracteres</strong></p>
+
+                    <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão normal. Por exemplo, uma propriedade validar de <code>cr</code> aceitaria qualquer entrada que contenha as letras <code>cr</code>, como <code>lu<strong>cr</strong>o</code>, <code><strong>cr</strong>édito</code> e <code>So<strong>cr</strong>ates</code>. No entanto, <code>José <strong>Cr</strong>uz</code> ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.</p>
+
+                    <p><strong>Início do texto:^</strong></p>
+
+                    <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por <code>^</code>. Por exemplo, uma propriedade validae de <code>^Cr</code> aceitaria <code><strong>Cr</strong>uz</code> e <code><strong>Cr</strong>ivelli</code>, mas não aceitaria <code>João <strong>Cr</strong>uz</code> ou <code>ola<strong>Cr</strong>ude</code> porque não ocorre no início do texto.</p>
+
+                    <p><strong>Fim do texto:$</strong></p>
+                    
                     <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione $após a sequência de caracteres para corresponder. Por exemplo, uma propriedade validate de 2X$aceitaria e, mas não aceitaria ou porque não é encontrada no final do texto.Size 2X42X2X largerUA2XFR2X</p>
                     <p>Para corresponder ao texto completo, use ambos ^antes da sequência de caracteres para corresponder e $no final da sequência de caracteres. Por exemplo, ^yes$só permitiria que o usuário entrasse yesno campo. Não corresponderia   yesou Tell me yes.</p>
                     <p>Caracteres de escape:\</p>
