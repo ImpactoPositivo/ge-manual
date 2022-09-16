@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Caixa de Texto e Área de Texto</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Caixa de Texto e Área de Texto</h1>
+                <h2>Conteúdo</h2>
+        
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Controle de Caixa de Texto</a>
+                        <ol type="A">
+                            <li><a href="#item2a">Gerenciando Caixas de Texto</a></li>
+                            <li><a href="#item2b">Propriedades de controle de texto</a>
+                                <ol type="i">
+                                    <li><a href="#item2bi">Transformar texto em</a></li>
+                                    <li><a href="#item2bii">Máx. Comprimento</a></li>
+                                    <li><a href="#item2biii">Fórmula</a></li>
+                                    <li><a href="#item2biv">Validar</a></li>                    
+                                    <ol type="a">
+                                        <li><a href="#item2biva">Sintaxe de Expressão Regular</a></li>
+                                        <li><a href="#item2bivb">Exemplo de expressões regulares</a></li>
+                                    </ol>
+                                    <a href="#item2bv"><li>Mensagem de erro de validação</li></a>
+                                </ol>
+                            </li>
+                            <li><a href="#item2c">Exemplo de controle de texto</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item3">Controle de Área de Texto</a>
+                        <ol type="A">
+                            <li><a href="#item3a">Gerenciando Áreas de Texto</a></li>
+                            <li><a href="#item3b">Propriedades do controle Área de Texto</a>
+                                <ol type="i">
+                                    <li><a href="#item3bi">Linhas</a></li>
+                                </ol>
+                            </li>    
+                            <li><a href="#item3c">Exemplo de controle de Área de Texto</a></li>
+                            <li><a href="#item3d">Limitação técnica quanto ao uso do controle Área de Texto</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item4">JavaScript em Caixas de Texto e Áreas de Texto</a>
+                        <ol type="A">
+                            <li><a href="#item4a">Métodos JavaScript</a></li>
+                            <li><a href="#item4b">Manipulador de eventos de alteração personalizada</a></li>
+                            <li><a href="#item4c">Filtrando chaves com JavaScript</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+
+                    <p>O Gestor Express oferece dois tipos diferentes de controles para inserir texto diretamente em um formulário. Estes são os controles Caixa de Texto e Área de Texto.</p>
+
+                <h1 id="item2">Controle de caixa de texto</h1>
+                    <p>Esse controle adiciona um campo de caixa de texto onde os usuários podem inserir texto digitando ou colando. Para adicionar esse controle à Ferramenta de Desenho do Formulário Dinâmico, arraste o ícone abaixo do painel Controles da Web à esquerda para uma das linhas no modelo do Formulário Dinâmico.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Quando adicionado ao modelo do Formulário Dinâmico, um controle de texto tem a seguinte aparência:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p><font color="green">Observação:</font> devido a problemas do Mozilla Firefox, a partir do Mozilla Firefox 64.0.2, a Ferramenta de Desenho do Formulário Dinâmico não pôde exibir corretamente o controle Caixa de Texto horizontalmente em seu rótulo.</p>
+
+                    <p>Ao executar um caso ou na visualização de um Formulário Dinâmico, os controles de texto têm a seguinte aparência:</p>
+
+                    <figure>
+
+                    </figure>
+
+                <h2 id="item2a">Gerenciando Caixas de Texto</h2>
+
+                    <p>Após adicionar uma caixa de texto ao modelo de Formulário Dinâmico, é possível personalizar sua funcionalidade e comportamento, utilizando o painel de propriedades. Clique no controle para exibir suas propriedades no painel à esquerda da Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo:</strong> definido por padrão como "<code>text</code>". Esta definição não pode ser modificada.</li>
+                        <li><strong>id:</strong> Definido por padrão como <code>textVar00X</code>, onde "X" representa a numeração correspondente do controle no modelo. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</li>
+                        <li><strong>rótulo:</strong> Definido por padrão como "<code>text_X</code>" onde "X" representa a numeração correspondente do controle no modelo. Esta numeração começa em 1.</li>
+                        <li><strong>Transformar texto para:</strong> Definido por padrão como o "<code>nenhum</code>" que significa que o texto será salvo da maneira que o usuário final o inserir.</li>
+                        <li><strong>Comprimento Máximo:</strong> Definido por padrão com o número 1000 que será o número máximo de caracteres que um usuário poderá inserir na caixa de texto.</li>
+                        <li><strong>modo de exibição:</strong> definido por padrão como "<code>mestre</code>". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</li>
+                        <li><strong>Conexão de banco de dados:</strong> definido por padrão como "<code>PM Database</code>". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express) esta propriedade herda a definição da variável relacionada no controle.</li>
+                    </ul>
+
+                <h2 id="item2b">Propriedades de controle de texto</h2>
+
+                    <p>Nesta seção as propriedades serão amplamente explicadas uma a uma, para que você tenha uma melhor compreensão de cada uma delas. As propriedades relacionadas a este controle são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="150px">Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td>text(somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique nas reticências ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.
+                            Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
+                            <ul>
+                            <li>Float</li>
+                            <li>Inteiro</li>
+                            <li>String</li>
+                            </ul></td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>ID</td><td>[Requeridos]
+                            Controle e identificador exclusivo HTML.</td></tr>
+                            <tr><td>Rótulo</td><td>Nesta propriedade defina o rótulo para dar um nome ao controle.</td></tr>
+                            <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.
+                            Para saber mais sobre valores padrão, valores nulos e algumas outras considerações sobre essa propriedade, consulte esta documentação.</td></tr>
+                            <tr><td>Espaço reservado</td><td>Defina o texto que será mostrado como ajuda para preencher os campos dentro do controle.</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando a caixa de texto é renderizada. É mostrado quando o ponteiro do mouse passa sobre o ícone de ponto de interrogação (?).</td></tr>
+                            <tr><td>Requeridos</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que uma opção deve ser selecionada obrigatoriamente no controle. Quando um campo obrigatório não estiver preenchido com nenhum valor, não será possível ir para a próxima etapa.</td></tr>
+                            <tr><td>Transformar texto para</td><td><ul>
+                            <li>Nenhum</li>
+                            <li>minúscula</li>
+                            <li>MAIÚSCULAS</li>
+                            <li>Letra maiuscula na frase</li>
+                            <li>Título do Caso</li>
+                            </ul></td></tr>
+                            <tr><td>Validar</td><td>Usa padrão para validar o campo (regex).</td></tr>
+                            <tr><td>Mensagem de erro de validação</td><td>Exibe esta mensagem se a validação falhar.</td></tr>
+                            <tr><td>Máx. Comprimento</td><td>Defina nesta propriedade o comprimento máximo de texto permitido</td></tr>
+                            <tr><td>Fórmula</td><td>Use esta propriedade para criar um valor calculado com base nas operações definidas na fórmula.
+                            Vários campos no formulário podem ser usados na expressão. Operações aritméticas são suportadas.</td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requeridos]<br><br>
+                            Modo de exibição:
+                            <ul>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (formulário/grade)</li>
+                                <li><strong>editar:</strong> o campo é habilitado para edição ao ser renderizado.</li>
+                                <li><strong>visualizar:</strong> o campo só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</li>
+                                <li><strong>desabilitado:</strong> o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Conexão de banco de dados</td><td>Para um controle de caixa de texto, caso precise armazenar um valor recuperado de um banco de dados, selecione no menu suspenso desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso) .</td></tr>
+                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle de caixa de texto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados.
+                            <font color="green">Observação:</font> A propriedade SQL não pode repovoar o campo se as variáveis já estiverem preenchidas. A propriedade pode ser preenchida novamente se o campo for dependente de outro campo.
+                            De acordo com sua versão do ProcessMaker, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
+                            <ul>
+                            <li>SQL nas versões 3.2 a 3.4.</li>
+                            <li>SQL na versão 3.5.</li>
+                            </ul></td></tr>
+                            <tr><td>Opções</td><td>Defina nesta propriedade as opções que serão utilizadas para definir o valor utilizado no campo.
+                            <font color="green">Observação:</font> Esta propriedade não está mais disponível na versão 3.0.1.5 e posterior.</td></tr>
+                        </tbody>
+                    </table>
+                        
+                
+                <p><font color="red">Transformar texto em</font></p>
+
+                    <p>Esta opção transforma qualquer texto inserido automaticamente em UPPER CASE, lower case, Capitalize phrase(a primeira letra é alterada para maiúscula) ou Title Case(a primeira letra de cada palavra é alterada para maiúscula). Selecione o tipo de transformação dentro das propriedades do controle.</p>
+                    <p>As alterações serão mostradas quando o formulário for renderizado dentro da visualização ou ao executar um caso. Por exemplo:</p>
+                    <p>Texto original.</p>
+                    <p>Transformado em UPPERcaixa.</p>
+                    <p>Transformado em lowercaixa.</p>
+                    <p>Leve em consideração que deixando como "none", o texto não terá nenhuma transformação e será salvo da mesma forma que o usuário final o inseriu.</p>
+                    <p>Máx. Comprimento</p>
+                    <p>Esta propriedade define o número máximo de caracteres que podem ser inseridos em um campo de controle de texto. Esta propriedade também é uma validação feita sobre estes campos, mas se uma expressão regular foi definida dentro da propriedade "Validate", esta validação será verificada antes do Max. Comprimento.</p>
+                    <p>Teoricamente, a definição da propriedade permite que um máximo de 9.999.999.999 caracteres sejam inseridos no campo, mas o navegador da Web provavelmente não terá memória suficiente para lidar com essa quantidade de entrada. Além disso, o Gestor Express só pode armazenar até 16 MB de dados sobre um caso, que seriam 16.777.216 caracteres (supondo que não haja caracteres internacionais que precisem de mais de 8 bits). Em uma nota prática, é melhor usar Área de Textos e objetos de arquivo para armazenar grandes quantidades de dados, pois eles são armazenados separadamente no banco de dados e não retardam o processamento do Gestor Express, nem estão sujeitos às mesmas limitações de espaço que as caixas de texto.</p>
+                    <p>Por exemplo, se o comprimento máximo for definido como 100 e o tamanho for ultrapassado, a seguinte mensagem será exibida:</p>
+                    <p>Nota: Para esta propriedade leve em consideração que um espaço em branco " " também é considerado um caractere.</p>
+                    <p>Fórmula</p>
+                    <p>Nota: Regras ou máscaras de validação podem ser usadas nos campos de texto envolvidos em operações matemáticas para restringir a entrada de dados.</p>
+                    <p>Esta propriedade permite que fórmulas matemáticas sejam utilizadas com base nos campos do Formulário Dinâmico. As operações matemáticas suportadas são adição, subtração, multiplicação e divisão. As fórmulas também podem usar (...)(parênteses) para agrupar operações. Os campos usados em uma fórmula já devem existir no Formulário Dinâmico. A fórmula deve ser colocada no campo onde será exibido o resultado.</p>
+                    <p>Clique no botão "Editar" na propriedade "Fórmula" do controle de texto:</p>
+                    <p>Neste exemplo, o campo "Resultado" mostrará o resultado da multiplicação entre "Valor 1" e "Valor 2". No entanto, leve em consideração que a fórmula deve ser feita usando o ID desses controles de texto, então a fórmula a ser inserida seria:</p>
+                    <p>Ao executar um caso, os campos que configuraram uma fórmula são desabilitados para entrada de texto. Os resultados das operações matemáticas são mostrados à medida que os valores são inseridos nos campos incluídos na fórmula.</p>
+                    <p>As fórmulas podem consistir nos IDs dos campos de texto, números e os seguintes operadores matemáticos:</p>
+                    <p>OperadorExemplo</p>
+                    <p>+salesPrice + tax</p>
+                    <p>-salesPrice - discount</p>
+                    <p>*salesPrice * quantity</p>
+                    <p>*pounds / 2.2046226</p>
+                    <p>(...)(currentSales - previousSales) / previousSales</p>
+                    <p>A multiplicação e a divisão têm maior precedência do que a adição e a subtração. Na seguinte fórmula:</p>
+                    <p>preço - desconto * taxRate</p>
+                    <p>Primeiro, o discounté multiplicado por taxRate, então o resultado é subtraído de price. Parênteses podem ser usados para alterar a ordem das operações matemáticas:</p>
+                    <p>(preço - desconto) * taxRate</p>
+                    <p>Agora, o discounté subtraído do price, então o resultado é multiplicado pelo taxRate.</p>
+                    <p>Os resultados do cálculo são exibidos no campo que contém a fórmula no momento em que o usuário altera o valor de um dos campos utilizados na fórmula. Se o usuário inserir um valor em um campo que não pode ser interpretado como um número, o campo que contém a fórmula ficará em branco (ou seja, definido como uma string vazia). Para forçar o usuário a inserir apenas números válidos nos campos, é recomendável usar uma máscara ou definir a propriedade validate para aceitar apenas números:</p>
+                    <p>Apenas números inteiros:^\d+$</p>
+                    <p>Apenas números inteiros positivos ou negativos:^[\-+]?\d+$</p>
+                    <p>Números inteiros ou decimais:^[\-+]?\d*\.?\d*$</p>
+                    <p>Número com até dois dígitos decimais:^[\-+]?\d*(\.\d{0,2})?$</p>
+                    <p>Número com exatamente dois dígitos decimais:^[\-+]?\d*\.\d{2}$</p>
+                    <p>Nota: Para que as fórmulas funcionem corretamente, os números inseridos pelo usuário nos campos NÃO devem ter separador de milhar e devem usar.(ponto) como separador decimal, como: 1234567.89</p>
+                    <p>Se precisar usar números como 123,456,789.01(vírgula como separador de milhar), 123 456 789.01(espaço como separador de milhares) ou 123.456.789,01(ponto como separador de milhares e vírgula como separador decimal) e, em seguida, adicione JavaScript personalizado que usa control.setOnchange() para fazer o cálculo.</p>
+                    <p>As fórmulas também podem ser usadas em campos de texto encontrados em grades. As fórmulas nas grades podem conter apenas os IDs de outros campos na mesma linha da grade, portanto, não é possível fazer referência a campos fora da grade ou campos em outras linhas da grade. Se precisar fazer cálculos com base em campos fora da grade, é recomendável adicionar código JavaScript que usa o formulário.setOnchange() para definir um manipulador de eventos que calcula a fórmula quando um valor na grade é alterado.</p>
+                    <p>Validar</p>
+                    <p>Esta propriedade permite que seja inserida uma expressão regular que verifica se o usuário inseriu uma entrada válida na caixa de texto. Se a entrada corresponder à expressão regular, o usuário poderá sair do campo, mas se a entrada não corresponder, a mensagem do campo será destacada em vermelho e o texto na propriedade Mensagem de erro de validação será exibido. O usuário não terá permissão para sair do campo até que sua entrada seja alterada para corresponder à expressão regular.</p>
+                    <p>Sintaxe de Expressão Regular</p>
+                    <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade validate para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
+                    <p>Correspondência de sequências de caracteres</p>
+                    <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão regular. Por exemplo, uma propriedade validate de thaceitaria qualquer entrada que contenha as letras th, como thumb, e. No entanto, ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.somethingSmithTom Thumb</p>
+                    <p>Início do texto:^</p>
+                    <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por ^. Por exemplo, uma propriedade validate de ^Smaceitaria Smithe Smothers, mas não aceitaria ou porque não ocorre no início do texto.John SmithSSSSmeeegol!Sm</p>
+                    <p>Fim do texto:$</p>
+                    <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione $após a sequência de caracteres para corresponder. Por exemplo, uma propriedade validate de 2X$aceitaria e, mas não aceitaria ou porque não é encontrada no final do texto.Size 2X42X2X largerUA2XFR2X</p>
+                    <p>Para corresponder ao texto completo, use ambos ^antes da sequência de caracteres para corresponder e $no final da sequência de caracteres. Por exemplo, ^yes$só permitiria que o usuário entrasse yesno campo. Não corresponderia   yesou Tell me yes.</p>
+                    <p>Caracteres de escape:\</p>
+                    <p>Se estiver procurando por um texto que contenha ^ou $qualquer um dos outros caracteres especiais usados por expressões regulares, coloque uma \(barra invertida) na frente deles, que escapará deles para que sejam tratados como literais. Por exemplo, a expressão regular \$10aceitaria o texto the price is $10.99. Na expressão regular ^4\^3, a string de caracteres 4^3deve ocorrer no início do texto.</p>
+                    <p>Qualquer caractere:.</p>
+                    <p>Use um.(ponto) para corresponder a qualquer caractere, exceto uma nova linha. Por exemplo, UX..0correspondências e. Se precisar pesquisar por um ponto, escape-o com um precedente (barra invertida). Por exemplo, corresponderia e. UX500-200Serial YUX_R034-200MUX %0\0\.00.045%230.00</p>
+                    <p>Conjunto de caracteres:[xyz]</p>
+                    <p>Para corresponder a qualquer caractere em um conjunto de caracteres, coloque os caracteres dentro [](colchetes). Por exemplo, corresponderia c[oal]a e, mas não corresponderia a, porque não está no conjunto de caracteres. copcatblood clotcrewr</p>
+                    <p>Também não corresponderá cLopporque o conjunto de caracteres diferencia maiúsculas de minúsculas. Para não diferenciar maiúsculas de minúsculas, use [cC][oalOAL], para que corresponda a Cop, cAtou CLEAN.</p>
+                    <p>Para corresponder a um intervalo de caracteres, use -para especificar qualquer caractere entre dois caracteres. Por exemplo, use [ad-fm]para corresponder aos caracteres a, d, eou. A expressão regular corresponde a qualquer letra minúscula ou maiúscula ou a qualquer número. As letras que não estão no conjunto de caracteres ASCII não são incluídas no intervalo, portanto, lembre-se de incluí-las se os usuários estiverem trabalhando com idiomas que tenham outras letras. Por exemplo, inclui todas as letras em espanhol.fm[a-zA-Z0-9][a-z][a-záéíóúüñA-ZÁÉÍÓÚÜÑ]</p>
+                    <p>Dentro [](os colchetes), todos os caracteres como $*.?()são tratados como literais e não têm um significado especial. Para incluir -, [, ]ou \no conjunto de caracteres, escape-os com um precedente \(barra invertida). Por exemplo, [!@#$%*(){}\[\]_\-+=/\\|<>~]inclui a maioria dos símbolos padrão.</p>
+                    <p>Conjunto de caracteres negado:[^xyz]</p>
+                    <p>Para corresponder a qualquer caractere que não esteja em um conjunto de caracteres, coloque os caracteres dentro [^ ](colchete aberto, acento circunflexo, colchete fechado). Por exemplo, g[^aeiou]match gseguido por qualquer caractere que não seja uma vogal, como growe. bog!</p>
+                    <p>Ocorre 0 ou 1 vezes:?</p>
+                    <p>Se a expressão anterior não puder ocorrer ou ocorrer uma vez, coloque um ?(ponto de interrogação) depois dela. Por exemplo, tr?eecorresponde a tee-shirte. Se colocado após um conjunto de caracteres, qualquer um dos caracteres no conjunto pode ocorrer zero ou uma vez. Por exemplo, correspondências e.oak treec[rl]?awbear clawsticks in my crawcrow's cawing</p>
+                    <p>Ocorre 0, 1 ou mais vezes:*</p>
+                    <p>Se a expressão anterior puder ser zerada, uma ou mais vezes, coloque um *(asterisco) depois dela. Por exemplo, me*tcorrespondências e. Se colocado após um conjunto de caracteres, qualquer um dos caracteres no conjunto pode ocorrer zero, uma ou mais vezes. Por exemplo, correspondências e.metmeetingmt Everest\$[0-9]*$0price: $2346give me $ now</p>
+                    <p>Ocorre 1 ou mais vezes:+</p>
+                    <p>Se a expressão anterior puder ocorrer uma ou mais vezes, coloque um +(sinal de mais) depois dela. Por exemplo, me+tcorresponde a mete meeting, mas não corresponde mt Everestporque o etem que ocorrer pelo menos uma vez entre me t. Da mesma forma, \$[0-9]+corresponde $0e, mas não corresponde porque deve haver pelo menos um número após o cifrão.price: $2346give me $ now</p>
+                    <p>Ocorre um número fixo de vezes:{n}</p>
+                    <p>Se a expressão anterior ocorrer um número fixo de vezes, especifique o número dentro {}(chaves). Por exemplo, bo{2}gcorresponderia a boogyman, mas não bogeymanporque o precisa ocorrer duas vezes seguidas. A expressão regular ^[0-9]{4}$só aceitaria um inteiro positivo com 4 dígitos, como 2406ou 0987. Da mesma forma, ^[-+]?[0-9]{4}\.[0-9]{2}$só aceitaria números positivos ou negativos com 4 dígitos e 2 dígitos decimais, como 2324.99ou -0876.08.</p>
+                    <p>Ocorre um intervalo de vezes:{n, m}</p>
+                    <p>Se a expressão anterior ocorrer entre n e m número de vezes, especifique o intervalo inferior e o intervalo superior dentro {}(chaves). Por exemplo, bo{2,4}gcorresponderia a boogymane, mas não e não. A expressão regular só aceitaria um número inteiro positivo entre 1 e 3 dígitos, como, ou. Da mesma forma, só aceitaria números positivos ou negativos com entre 1 e 4 dígitos e entre 1 e 3 dígitos decimais, como ou.It's a booooger!wet bogfour boooooooogies!^[0-9]{1,3}$387097^[-+]?[0-9]{1,4}\.?[0-9]{0,3}$4.999-0876</p>
+                    <p>A faixa inferior ou a faixa superior não precisa ser especificada. Por exemplo, ^[0-9]{2,}$aceitaria quaisquer inteiros positivos com 2 ou mais dígitos. Da mesma forma, ^[0-9]{,5}$aceitaria qualquer número inteiro positivo com 5 ou menos dígitos.</p>
+                    <p>Agrupamento:(xyz)</p>
+                    <p>Para agrupar uma sequência de caracteres, coloque-os ()entre parênteses. O agrupamento pode ser especialmente útil quando combinado com ?, *, +ou {}. Por exemplo, R(IP)*corresponderia a, e. A expressão regular corresponderia a e, mas não corresponderia porque não ocorre duas vezes seguidas.GRIPRIPIPIPIPIPPPPTurn Right(99)+23499378.999992392399</p>
+                    <p>Ou:x|y</p>
+                    <p>Para corresponder a uma ou outra expressão, separe-as por |(uma barra vertical). Por exemplo, cat|dogcorrespondências e. Não há limite para o número de strings alternativas de caracteres que podem ser correspondidas, então muitos tipos de animais de estimação podem ser combinados com. Se as strings alternativas forem encontradas em uma string maior de caracteres, coloque as strings alternativas entre parênteses. Por exemplo, corresponderia e.I love catsbad doggie!cat|dog|fish|bunny|snake|ferret()bad (check|contract)s?It's a bad checkbad contracts kill business</p>
+                    <p>Limite de palavra:\b</p>
+                    <p>para pesquisar um limite de palavra, use \b. Uma palavra consiste apenas em letras, números e sublinhados [a-zA-Z0-9_]. Quando uma palavra está ao lado de qualquer outro caractere ou no final ou no início do texto, ela é considerada um limite de palavra. As linhas verticais azuis no texto a seguir são consideradas limites de palavras: | Pode | ' | t | | dizer | " | Olá |," | pode | | você | ?</p>
+                    <p>Os limites das palavras podem ser úteis ao pesquisar palavras separadas. Por exemplo, uma pesquisa por catcorresponderia a cattle, caterpillere, mas corresponderia apenas ao texto que contém a palavra separada "gato", como e. Uma pesquisa mais flexível para "gato" permitiria que a palavra fosse maiúscula ou pluralizada:hellcat\bcat\bGive me the cat.cat\b[Cc][aA][aT][sS]?\b</p>
+                    <p>Nota: As palavras não incluem letras não ASCII, como ü, é, ou ñ, portanto, não é muito útil ao lidar com outros idiomas além do inglês. Uma boa maneira de contornar esse problema é usar um conjunto de caracteres para o idioma. Por exemplo, pesquisaria a palavra separada gato no idioma espanhol.φあ(^|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])gato($|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])</p>
+                    <p>Sem limite de palavra:\B</p>
+                    <p>Para procurar uma string que não ocorra próximo a um limite de palavra, use \B(observe o B maiúsculo). Por exemplo, \Bmancorresponderia a e, mas não corresponderia a e.cattlemanhumanehelp the manmanhole</p>
+                    <p>Os limites das palavras podem ser úteis ao pesquisar palavras separadas. Por exemplo, uma pesquisa por catcorresponderia a cattle, caterpillere, mas corresponderia apenas ao texto que contém a palavra separada "gato", como e. Uma pesquisa mais flexível para "gato" permitiria que a palavra fosse maiúscula ou pluralizada:hellcat\bcat\bGive me the cat.cat's gut\b[Cc][aA][aT][sS]?\b</p>
+                    <p>Não ganancioso:?</p>
+                    <p>muitas vezes é útil usar expressões como.*que corresponde a qualquer número de caracteres ou [a-zA-Z]*que corresponde a qualquer número de letras, mas essas expressões não funcionam corretamente se for necessário pesquisar o texto que segue depois. Por exemplo, serial.*UX48não corresponderia serial RX-UX48, pois.*continuaria correspondendo a todos os caracteres até o final do texto, que nunca veria a UX48parte. Isso se chama ser ganancioso. Para dizer à expressão regular para não ser gananciosa e verificar se o texto que está sendo consumido.*corresponde ao que segue depois, adicione ?(um ponto de interrogação). A expressão regular serial.*?UX48é capaz de corresponder serial RX-UX48conforme o esperado.</p>
+                    <p>Obtenha mais informações</p>
+                    <p>Esta é apenas uma breve introdução às expressões regulares e há mais caracteres especiais que podem ser usados. Para saber mais, consulte a documentação sobre RegExp do JavaScript e leia este tutorial sobre expressões regulares.</p>
+                    <p>Exemplo de expressões regulares</p>
+                    <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade validate. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
+                    <p>Abre-se uma janela com os exemplos de expressões regulares que podem ser utilizadas nesta propriedade. Para usar qualquer um deles basta clicar na opção necessária.</p>
+                    <p>A expressão regular selecionada será inserida no valor da propriedade onde poderão ser feitas as edições correspondentes para personalizar a validação.</p>
+                    <p>Como na imagem acima, a expressão regular utilizada para validar um endereço de e-mail fornecido pela opção de ajuda desta propriedade é a seguinte:</p>
+                    <p>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}$</p>
+                    <p>Essa expressão regular verifica se a primeira seção do endereço de e-mail contém letras maiúsculas ou minúsculas e/ou números de 0 a 9 na expressão [a-zA-Z0-9]. Em seguida, a expressão verifica se o endereço de e-mail é seguido de um caractere especial opcionalmente e, novamente, letras e/ou números após ele na expressão.?[a-zA-Z0-9]. Como essa validação é feita para um endereço de e-mail, a validação também verifica se o endereço contém o caractere "@" seguido novamente por caracteres que contêm letras e/ou números, um ponto e depois mais letras e/ou números.</p>
+                    <p>Se estiver usando a validação mostrada anteriormente, ao renderizar o formulário a validação será mostrada conforme a imagem abaixo ao inserir um endereço de e-mail válido.</p>
+                    <p>Para um endereço de e-mail inválido, o aviso será mostrado quando o evento OnChange() for acionado.</p>
+                    <p>Mensagem de erro de validação</p>
+                    <p>Esta propriedade está relacionada à propriedade Validate e simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "False".</p>
+                    <p>Para o exemplo de validação do endereço de e-mail, vamos definir a mensagem de erro vista na imagem a seguir:</p>
+                    <p>Ao renderizar o formulário e inserir um endereço de e-mail inválido, a mensagem será exibida:</p>
+                    <p>Exemplo de controle de texto</p>
+                    <p>Para este exemplo, arraste e solte um controle "Texto" do painel esquerdo na tela do Formulário Dinâmico.</p>
+                    <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Crie ou selecione uma nova variável e clique no botão "Salvar" para adicionar esta variável ao controle.</p>
+                    <p>Agora, vá para as propriedades do controle clicando em qualquer espaço vazio do controle e suas propriedades serão exibidas no painel esquerdo. Observe que a variável "name" foi criada e já está adicionada.</p>
+                    <p>A próxima propriedade é a propriedade "valor padrão" que definirá um valor predefinido para o campo, caso não contenha nenhum. Quando/se um valor padrão for definido, esta propriedade substituirá as propriedades "SQL" e "Opções". Por exemplo, se o valor for "Sr." como no exemplo abaixo, o usuário pode optar por apagar o "Sr." valor ou simplesmente continuar depois disso e adicionar o seguinte: "Sr. Donahue".</p>
+                    <p>A propriedade "placeholder" mostrará ajuda para preencher um campo. Por exemplo, adicione "Sr. Senhorita. Senhora." na propriedade placeholder e ao executar um caso, o valor adicionado ao controle será visto de maneira somente leitura.</p>
+                    <p>Clique na caixa de seleção "obrigatório" para adicionar mais funcionalidades ao controle. Esta propriedade adicionará um asterisco vermelho significando que se o campo não for preenchido será mostrada uma mensagem de erro como na imagem abaixo:</p>
+                    <p>Agora, a propriedade "texto se transforma em" transformará o texto em todas as letras minúsculas, maiúsculas, maiúsculas de frase ou maiúsculas. Para este exemplo, escolha MAIÚSCULAS. Ao executar um caso, o campo capitalizará qualquer coisa escrita nele. Observe as imagens abaixo.</p>
+                    <p>As propriedades "validação" e "mensagem de erro de validação" funcionam com expressões regulares para validar o que está escrito no controle. Por exemplo, se o controle solicita um endereço de email, a validação pode verificar se o email escrito é válido ou não. E a propriedade "mensagem de erro de validação" pode ser alterada para: "Digite um endereço de email válido".</p>
+                    <p>Portanto, ao executar um caso o controle "texto" terá uma validação envolvida. Por exemplo, se o email adicionado tiver um espaço: "test @Gestor Express.com" aparecerá um erro de validação conforme mostrado na imagem abaixo.</p>
+                    <p>Agora, a propriedade "max length" controlará o comprimento máximo de um texto adicionado. Por padrão, o "comprimento máximo" é definido como 1000, mas se for alterado, por exemplo, para 10, não deve permitir que um usuário escreva mais de 10 caracteres.</p>
+                    <p>A propriedade "fórmula" permite adicionar uma fórmula como visto na seção Fórmula deste documento.</p>
+                    <p>A propriedade "modo de exibição" apresentará as seguintes alterações quando suas diferentes opções forem alteradas.</p>
+                    <p>As propriedades "DB Connection" e "sql" permitem conectar o Gestor Express com um banco de dados e, portanto, armazenar todos os dados. A propriedade "Conexão Db" mostra o nome da conexão com o banco de dados do Gestor Express ("Banco de Dados PM") ou com uma conexão existente dentro do processo com um banco de dados externo. Clique nas reticências... na propriedade "sql" para abrir o "Sql Editor" e adicionar o código. Para este exemplo, o controle "texto" atuará como um campo dependente, dependendo do "País" e "Subdivisão" e o controle de texto mostrará a localização exata.</p>
+                    <p>Por exemplo, se o país for "Estados Unidos", então a subdivisão for "Nebraska" então automaticamente a "Localização" mudará para a primeira cidade em Nebraska que é Alliance (AIA), Nebraska como visto na imagem abaixo.</p>
+                    <p>Nota: Este é um exemplo com um controle de texto, mas esse código funcionará melhor com um controle como o menu suspenso, pois o controle seria preenchido com mais opções.</p>
+                    <p>Controle de área de texto</p>
+                    <p>Um controle Área de Texto permite que mais de uma linha de texto seja inserida em um campo. As linhas de texto que são mais largas que a largura da área de texto serão automaticamente quebradas. Áreas de texto com 3 linhas ou mais exibirão uma barra de rolagem vertical.</p>
+                    <p>Depois de adicionar um controle Área de Texto no designer, ele se parecerá com a seguinte imagem:</p>
+                    <p>Ao executar um caso, os controles Área de Texto se parecem com a imagem abaixo:</p>
+                    <p>Embora este controle exiba uma barra de rolagem vertical se mais de três linhas forem inseridas, a caixa de entrada pode ser expandida de acordo com a necessidade. Para fazer isso, basta clicar no canto inferior direito da caixa de entrada do controle Área de Texto e sem soltar o botão do mouse, amplie ou reduza até o tamanho desejado.</p>
+                    <p>Nota: Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft, para obter mais informações, visite: esta página.</p>
+                    <p>Gerenciando áreas de texto</p>
+                    <p>Após adicionar um controle Área de Texto ao designer, é possível customizar sua funcionalidade e comportamento, utilizando o painel de propriedades.</p>
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+                    <p>tipo Definido por padrão como " Área de Texto". Esta definição não pode ser modificada.</p>
+                    <p>id Definido por padrão como Área de Texto000000000Xonde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</p>
+                    <p>label Definido por padrão como " Área de Texto_X" onde "X" representa a numeração correspondente do controle no desenho. Esta numeração começa em 1.</p>
+                    <p>modo de exibição Definido por padrão como " parent". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</p>
+                    <p>Conexão de banco de dados Definido por padrão como " PM Database". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express workflow) esta propriedade herda a definição da variável relacionada no controle.</p>
+                    <p>rows Definido por padrão como 5. Este é o número de linhas de texto que serão mostradas inicialmente antes que uma rolagem apareça no lado direito do controle.</p>
+                    <p>Propriedades do controle Área de Texto</p>
+                    <p>As propriedades relacionadas a este controle são as seguintes:</p>
+                    <p>Propriedade</p>
+                    <p>Modelo</p>
+                    <p>Variável</p>
+                    <p>Clique na opção... para selecionar a variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.</p>
+                    <p>Somente variáveis dos seguintes tipos de dados podem ser selecionadas:</p>
+                    <p>flutuador</p>
+                    <p>inteiro</p>
+                    <p>corda</p>
+                    <p>Tipo de dados variável</p>
+                    <p>EU IRIA</p>
+                    <p>[Requeridos]</p>
+                    <p>Controle e identificador exclusivo HTML.</p>
+                    <p>Etiqueta</p>
+                    <p>Valor padrão</p>
+                    <p>Valor definido por padrão quando o valor recuperado é nulo.</p>
+                    <p>Para saber mais sobre valores padrão, valores nulos e algumas outras considerações sobre essa propriedade, consulte esta documentação.</p>
+                    <p>Espaço reservado</p>
+                    <p>Dica</p>
+                    <p>Requeridos</p>
+                    <p>Validar</p>
+                    <p>Mensagem de erro de validação</p>
+                    <p>Modo de exibição</p>
+                    <p>[Requeridos]</p>
+                    <p>O modo de exibição para o controle pode ser:</p>
+                    <p>pai: herda o modo de exibição definido no contêiner pai (form/grade)</p>
+                    <p>edit: o campo é habilitado para edição ao ser renderizado.</p>
+                    <p>view: o campo só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</p>
+                    <p>desabilitado: o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</p>
+                    <p>Conexão de banco de dados</p>
+                    <p>SQL</p>
+                    <p>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle de área de texto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados.</p>
+                    <p>Nota: A propriedade SQL não pode repovoar o campo se as variáveis já estiverem preenchidas. A propriedade pode ser preenchida novamente se o campo for dependente de outro campo.</p>
+                    <p>De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:</p>
+                    <p>SQL nas versões 3.2 a 3.4.</p>
+                    <p>SQL na versão 3.5.</p>
+                    <p>Opções</p>
+                    <p>Nota: Esta propriedade não está mais disponível na versão 3.0.1.5 e posterior.</p>
+                    <p>Linhas</p>
+                    <p>Linhas</p>
+                    <p>Versão disponível: Gestor Express 3.0.1.5 e posterior</p>
+                    <p>Esta propriedade define o número de linhas que a área de texto terá/mostrar antes de adicionar uma rolagem no lado direito da caixa de entrada. Esta propriedade não pode ser testada dentro do designer, é necessário renderizar o formulário seja no Preview ou ao executar cases. Por exemplo, se definir esta propriedade com "10" no designer.</p>
+                    <p>Após renderizar o formulário em "Preview", primeiro adicione dez linhas à área de texto e depois mais dez linhas para ver como a propriedade funciona.</p>
+                    <p>Quando há mais de 10 linhas, uma rolagem é mostrada no lado direito:</p>
+                    <p>Nota: Esta propriedade não tem nenhum efeito dentro de grades devido à quantidade de controles que as grades manipulam ao mesmo tempo, e a aparência da grade mudaria drasticamente. Dentro das grades, apenas uma linha é mostrada por vez.</p>
+                    <p>Exemplo de controle de área de texto</p>
+                    <p>Para este exemplo, adicione um controle "Área de Texto" arrastando e soltando-o na tela Formulário Dinâmico.</p>
+                    <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Para este exemplo, crie uma variável chamada "address" e na seção "Settings" adicione qualquer configuração extra necessária para esta variável. Após finalizar, clique no botão "Salvar" para adicionar a nova variável criada ao controle.</p>
+                    <p>Agora que a variável foi adicionada, clique em qualquer espaço vazio do controle "Área de Texto" e suas propriedades serão exibidas no painel esquerdo. Observe que as propriedades "variable", "variable data type" e "id" foram alteradas porque a variável foi criada antes.</p>
+                    <p>A propriedade "valor padrão" pode ser alterada para "Ave, Rd, St, Blvd." Lembre-se de que ter um valor padrão significa que ele substituirá as propriedades "SQL" e "Opções".</p>
+                    <p>A propriedade "placeholder" adicionará um texto específico dentro do controle que desaparecerá assim que o usuário começar a introduzir texto no controle. Observe as imagens abaixo.</p>
+                    <p>Agora a propriedade "dica" mostrará ajuda com um ícone de informações (i) ao lado. Passe o ponteiro do mouse sobre o ícone para mostrar o que foi escrito como uma dica para este campo.</p>
+                    <p>A caixa de seleção da propriedade "obrigatória" valida se há texto dentro do controle. Torna o campo obrigatório para que o usuário tenha que preenchê-lo obrigatoriamente com texto. Uma mensagem de erro aparecerá se não tiver sido preenchido.</p>
+                    <p>As propriedades "validation" e "validation error message" trabalham juntas para usar um padrão e validar o texto escrito no controle. Muitas validações complicadas podem ser usadas, por exemplo, use a validação para um endereço de e-mail: ^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9] +.[a-zA-Z0-9]{2,4}$. Mas para este caso use uma validação simples para um endereço residencial que é: [a-zA-Z0-9], então ao executar um caso ele validará o texto escrito dentro do controle como visto na imagem abaixo.</p>
+                    <p>A propriedade "DB Connection" é utilizada para selecionar entre a lista de conexões de banco de dados definidas nos objetos do processo. Para a propriedade "sql" o exemplo será diferente usando um campo dependente. Para este exemplo, adicione um controle "texto" e um controle "Área de Texto" (que usará uma consulta sql). O primeiro controle será denominado "Nome do projeto" e terá uma variável denominada "projectName" para que o controle "Área de Texto" possa ser preenchido com as informações necessárias no primeiro controle. Clique nas reticências SQL... no controle "Área de Texto" para abrir a janela "SQL Editor" e adicione o seguinte código:</p>
+                    <p>SELECT PRJ_UID FROM BPMN_PROJECT</p>
+                    <p>WHERE PRJ_NAME = "@#projectName"</p>
+                    <p>Quando o código for adicionado clique no botão "Salvar" e uma parte do código aparecerá na propriedade "sql" o que significa que o código foi salvo corretamente. Ao executar um caso, adicionaremos o nome de um projeto no controle "texto" e obteremos uma longa linha de números no controle "Área de Texto", que é o UID desse projeto específico no controle "Área de Texto".</p>
+                    <p>Por ser um controle "Área de Texto" ele tem a propriedade de se expandir para ajustar com o texto. Expanda-o clicando no canto inferior direito, conforme mostrado na imagem abaixo</p>
+                    <p>Nota: Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft, para obter mais informações, visite: esta página.</p>
+                    <p>A propriedade final para este controle é "rows", este é o número de linhas de texto que serão mostradas inicialmente. O número padrão de linhas é 5, mas para este exemplo foi alterado para 10, conforme visto na imagem abaixo.</p>
+                    <p>Limitação técnica quanto ao uso do controle Área de Texto</p>
+                    <p>Ao trabalhar na edição de texto para um acionador nos controles Área de Texto configurando o Modo de exibição no modo " disabled" ou " view", você exibe o conteúdo do texto de acordo com a seguinte configuração:</p>
+                    <p>desativado: a marcação HTML não é reconhecida, portanto, qualquer expressão escrita mantém seu texto original.</p>
+                    <p>modo de visualização: a marcação HTML é reconhecida, então a notação HTML padrão é aplicada no texto.</p>
+                    <p>A Área TextControl configurada não pode ser exibida da mesma forma dada a natureza de como o processo de renderização é aplicado em cada uma dessas configurações.</p>
+                    <p>JavaScript em caixas de texto e áreas de texto</p>
+                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+                    <p>Caixas de Texto e áreas de texto no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
+                    <p>Texto: O texto exibido dentro do campo.</p>
+                    <p>Valor: O valor armazenado para o campo. Para caixas de texto e áreas de texto, o texto e o valor são os mesmos.</p>
+                    <p>Métodos JavaScript</p>
+                    <p>Alguns dos métodos JavaScript para manipular caixas de texto e áreas de texto incluem:</p>
+                    <p>Método</p>
+                    <p>jQuery("#fieldID"). getControl()</p>
+                    <p>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com$("#id")</p>
+                    <p>jQuery("#fieldID"). disableValidation()</p>
+                    <p>jQuery("#fieldID"). enableValidation()</p>
+                    <p>jQuery("#fieldID"). getValue()</p>
+                    <p>jQuery("#fieldID"). getText()</p>
+                    <p>jQuery("#fieldID"). getLabel()</p>
+                    <p>jQuery("#fieldID"). setValue("novo valor")</p>
+                    <p>jQuery("#fieldID"). setText("novoTexto")</p>
+                    <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
+                    <p>jQuery("#fieldID"). setOnchange(</p>
+                    <p>function(newVal, oldVal){...})</p>
+                    <p>newVal: O novo valor que acabou de ser definido no campo.</p>
+                    <p>oldVal: O valor antigo que foi alterado.</p>
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                    <p>Manipulador de eventos de alteração personalizada</p>
+                    <p>Para executar o código personalizado depois que o usuário terminar de inserir um novo valor em uma caixa de texto ou área de texto, um manipulador de eventos pode ser atribuído ao evento de alteração do campo.</p>
+                    <p>Por exemplo, o código a seguir é usado para verificar a entrada em uma caixa de texto com o ID "productCode". Quando o foco sai do campo, o código remove automaticamente quaisquer espaços e converte a entrada em maiúsculas. Em seguida, verifica se o usuário digitou um número de série válido no formato "S[0-9][0-9][XYT][0-9]", como "S38X7" ou "S08T2". Se for um código de série válido, ele define o valor modificado na caixa de texto. Caso contrário, exibe uma mensagem de alerta, informando ao usuário que o número de série é inválido.</p>
+                    <p>$ ("#productCode"). getControl (). change (function (e) {</p>
+                    <p>  val = this. value. trim () ;  // remove os espaços iniciais e finais</p>
+                    <p>  val = val. toUpperCase () ;</p>
+                    <p>  re = /^S[0-9][0-9][XYT] [0-9]$/ ;</p>
+                    <p>  if (val. match (re)) {</p>
+                    <p>     //configura o valor transformado no campo "serial":</p>
+                    <p>     $ ("#productCode"). setValue (val) ;</p>
+                    <p>  }</p>
+                    <p>  else {</p>
+                    <p>     alert (this. value + " é inválido. \n Use números de série como 'S[0-9][0-9][XYT][0-9]'.") ;</p>
+                    <p>  }</p>
+                    <p>}) ;</p>
+                    <p>Filtrando chaves com JavaScript</p>
+                    <p>A propriedade validate pode ser útil para verificar a entrada em um campo, mas só acontece durante um evento de alteração quando o foco sai do campo. Para evitar que o usuário insira uma entrada inválida em um campo, pode ser útil filtrar pressionamentos de tecla para caracteres inválidos retornando falseno manipulador de eventos para os eventos keydown, keypress ou keyup.</p>
+                    <p>Por exemplo, o seguinte manipulador de eventos keydown só permite que caracteres usados em números sejam inseridos em uma caixa de texto com o ID "amount":</p>
+                    <p>$ ("#quantia"). getControl (). keydown (function (e) {</p>
+                    <p>   var key = e. keyCode ;    </p>
+                    <p>   if ((key <= 46 && key != 16) ||   //permite teclas de controle, mas não SHIFT                </p>
+                    <p>      (key >= 48 && key <= 57)  | |   //números 0-9</p>
+                    <p>      (chave >= 96 &&chave <= 105) ||          // teclado numérico 0-9 == 107 || //teclado numérico +        tecla == 109 || // teclado numérico -        tecla (menos) == 110 || //teclado numérico. (ponto)        chave == 173 || //- (traço no Mozilla)        key == 189 || //- (traço no IE)        key == 190) //. (ponto) return true ; senão retorna false ; }</p>
+                    <p>) ;</p>
+                    <p>Este código examina o event.keyCodepara ver qual tecla foi pressionada, mas diferentes navegadores da Web podem usar códigos de tecla diferentes. Para obter os diferentes códigos de chave, consulte esta lista ou vá para http://keycode.info/ e pressione uma tecla para verificar seu código de chave.</p>
+                    <p>É claro que este código não verifica se um número válido foi inserido, então é possível inserir bobagens como 98-2..-873no campo. A única solução é adicionar código adicional ao manipulador de eventos keydown para verificar entradas inválidas, mas em muitos casos é muito mais fácil usar uma expressão regular na propriedade validate do campo ou escrever um changemanipulador de eventos personalizado para lidar com entradas inválidas.</p>
+                                       
+            </article>
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
