@@ -126,8 +126,8 @@
                             <tr><th width="150px">Propriedade</th><th>Descrição</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>Modelo</td><td>text(somente leitura)</td></tr>
-                            <tr><td>Variável</td><td>Clique nas reticências ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.
+                            <tr><td>Modelo</td><td><code>text</code>(somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique nas reticências ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br><br>
                             Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
                             <ul>
                             <li>Float</li>
@@ -135,11 +135,11 @@
                             <li>String</li>
                             </ul></td></tr>
                             <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
-                            <tr><td>ID</td><td>[Requeridos]
+                            <tr><td>ID</td><td>[Requeridos]<br><br>
                             Controle e identificador exclusivo HTML.</td></tr>
                             <tr><td>Rótulo</td><td>Nesta propriedade defina o rótulo para dar um nome ao controle.</td></tr>
                             <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.
-                            Para saber mais sobre valores padrão, valores nulos e algumas outras considerações sobre essa propriedade, consulte esta documentação.</td></tr>
+                            <br>Para saber mais sobre valores padrão, valores nulos e algumas outras considerações sobre essa propriedade, consulte esta documentação.</td></tr>
                             <tr><td>Espaço reservado</td><td>Defina o texto que será mostrado como ajuda para preencher os campos dentro do controle.</td></tr>
                             <tr><td>Dica</td><td>Usado para mostrar ajuda quando a caixa de texto é renderizada. É mostrado quando o ponteiro do mouse passa sobre o ícone de ponto de interrogação (?).</td></tr>
                             <tr><td>Requeridos</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que uma opção deve ser selecionada obrigatoriamente no controle. Quando um campo obrigatório não estiver preenchido com nenhum valor, não será possível ir para a próxima etapa.</td></tr>
@@ -153,7 +153,7 @@
                             <tr><td>Validar</td><td>Usa padrão para validar o campo (regex).</td></tr>
                             <tr><td>Mensagem de erro de validação</td><td>Exibe esta mensagem se a validação falhar.</td></tr>
                             <tr><td>Máx. Comprimento</td><td>Defina nesta propriedade o comprimento máximo de texto permitido</td></tr>
-                            <tr><td>Fórmula</td><td>Use esta propriedade para criar um valor calculado com base nas operações definidas na fórmula.
+                            <tr><td>Fórmula</td><td>Use esta propriedade para criar um valor calculado com base nas operações definidas na fórmula.<br><br>
                             Vários campos no formulário podem ser usados na expressão. Operações aritméticas são suportadas.</td></tr>
                             <tr><td>Modo de exibição</td><td>[Requeridos]<br><br>
                             Modo de exibição:
@@ -164,16 +164,14 @@
                                 <li><strong>desabilitado:</strong> o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</li>
                             </ul>
                             </td></tr>
-                            <tr><td>Conexão de banco de dados</td><td>Para um controle de caixa de texto, caso precise armazenar um valor recuperado de um banco de dados, selecione no menu suspenso desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso) .</td></tr>
-                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle de caixa de texto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados.
-                            <font color="green">Observação:</font> A propriedade SQL não pode repovoar o campo se as variáveis já estiverem preenchidas. A propriedade pode ser preenchida novamente se o campo for dependente de outro campo.
+                            <tr><td>Conexão de banco de dados</td><td>Para um controle de caixa de texto, caso precise armazenar um valor recuperado de um banco de dados, selecione no menu suspenso desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso).</td></tr>
+                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle de caixa de texto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados.<br><br>
+                            <font color="green">Observação:</font> A propriedade SQL não pode repovoar o campo se as variáveis já estiverem preenchidas. A propriedade pode ser preenchida novamente se o campo for dependente de outro campo.<br><br>
                             De acordo com sua versão do ProcessMaker, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
                             <ul>
                             <li>SQL nas versões 3.2 a 3.4.</li>
                             <li>SQL na versão 3.5.</li>
                             </ul></td></tr>
-                            <tr><td>Opções</td><td>Defina nesta propriedade as opções que serão utilizadas para definir o valor utilizado no campo.
-                            <font color="green">Observação:</font> Esta propriedade não está mais disponível na versão 3.0.1.5 e posterior.</td></tr>
                         </tbody>
                     </table>
                         
@@ -303,24 +301,36 @@
 
                     <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão normal. Por exemplo, uma propriedade validar de <code>cr</code> aceitaria qualquer entrada que contenha as letras <code>cr</code>, como <code>lu<strong>cr</strong>o</code>, <code><strong>cr</strong>édito</code> e <code>So<strong>cr</strong>ates</code>. No entanto, <code>José <strong>Cr</strong>uz</code> ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.</p>
 
-                    <p><strong>Início do texto:^</strong></p>
+                    <p><strong>Início do texto:<code>^</code></strong></p>
 
                     <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por <code>^</code>. Por exemplo, uma propriedade validae de <code>^Cr</code> aceitaria <code><strong>Cr</strong>uz</code> e <code><strong>Cr</strong>ivelli</code>, mas não aceitaria <code>João <strong>Cr</strong>uz</code> ou <code>ola<strong>Cr</strong>ude</code> porque não ocorre no início do texto.</p>
 
-                    <p><strong>Fim do texto:$</strong></p>
+                    <p><strong>Fim do texto:<code>$</code></strong></p>
                     
-                    <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione $após a sequência de caracteres para corresponder. Por exemplo, uma propriedade validate de 2X$aceitaria e, mas não aceitaria ou porque não é encontrada no final do texto.Size 2X42X2X largerUA2XFR2X</p>
-                    <p>Para corresponder ao texto completo, use ambos ^antes da sequência de caracteres para corresponder e $no final da sequência de caracteres. Por exemplo, ^yes$só permitiria que o usuário entrasse yesno campo. Não corresponderia   yesou Tell me yes.</p>
-                    <p>Caracteres de escape:\</p>
-                    <p>Se estiver procurando por um texto que contenha ^ou $qualquer um dos outros caracteres especiais usados por expressões regulares, coloque uma \(barra invertida) na frente deles, que escapará deles para que sejam tratados como literais. Por exemplo, a expressão regular \$10aceitaria o texto the price is $10.99. Na expressão regular ^4\^3, a string de caracteres 4^3deve ocorrer no início do texto.</p>
-                    <p>Qualquer caractere:.</p>
-                    <p>Use um.(ponto) para corresponder a qualquer caractere, exceto uma nova linha. Por exemplo, UX..0correspondências e. Se precisar pesquisar por um ponto, escape-o com um precedente (barra invertida). Por exemplo, corresponderia e. UX500-200Serial YUX_R034-200MUX %0\0\.00.045%230.00</p>
-                    <p>Conjunto de caracteres:[xyz]</p>
-                    <p>Para corresponder a qualquer caractere em um conjunto de caracteres, coloque os caracteres dentro [](colchetes). Por exemplo, corresponderia c[oal]a e, mas não corresponderia a, porque não está no conjunto de caracteres. copcatblood clotcrewr</p>
-                    <p>Também não corresponderá cLopporque o conjunto de caracteres diferencia maiúsculas de minúsculas. Para não diferenciar maiúsculas de minúsculas, use [cC][oalOAL], para que corresponda a Cop, cAtou CLEAN.</p>
-                    <p>Para corresponder a um intervalo de caracteres, use -para especificar qualquer caractere entre dois caracteres. Por exemplo, use [ad-fm]para corresponder aos caracteres a, d, eou. A expressão regular corresponde a qualquer letra minúscula ou maiúscula ou a qualquer número. As letras que não estão no conjunto de caracteres ASCII não são incluídas no intervalo, portanto, lembre-se de incluí-las se os usuários estiverem trabalhando com idiomas que tenham outras letras. Por exemplo, inclui todas as letras em espanhol.fm[a-zA-Z0-9][a-z][a-záéíóúüñA-ZÁÉÍÓÚÜÑ]</p>
-                    <p>Dentro [](os colchetes), todos os caracteres como $*.?()são tratados como literais e não têm um significado especial. Para incluir -, [, ]ou \no conjunto de caracteres, escape-os com um precedente \(barra invertida). Por exemplo, [!@#$%*(){}\[\]_\-+=/\\|<>~]inclui a maioria dos símbolos padrão.</p>
-                    <p>Conjunto de caracteres negado:[^xyz]</p>
+                    <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione <code>$</code> após a sequência de caracteres para corresponder. Por exemplo, uma propriedade Validar de <code>2X$</code> aceitaria <code>Tamanho 2X</code> e <code>42X</code>, mas não aceitaria <code><strong>2X</strong> larger</code> ou <code>UA<strong>2X</strong></code> porque <code>2X</code> não é encontrada no final do texto.</p>
+
+                    <p>Para corresponder ao texto completo, use ambos <code>^</code> antes da sequência de caracteres para corresponder e <code>$</code> no final da sequência de caracteres. Por exemplo, <code>^sim$</code> só permitiria que o usuário entrasse sim no campo. Não corresponderia <code>&nbsp&nbspsim</code> ou <code>Diga me sim</code>.</p>
+
+                    <p><strong>Caracteres de escape:<code>\</code></strong></p>
+
+                    <p>Se estiver procurando por um texto que contenha <code>^</code> ou <code>$</code> qualquer um dos outros caracteres especiais usados por expressões regulares, coloque uma <code>\</code> (barra invertida) na frente deles, que permitirá que eles sejam tratados como literais. Por exemplo, a expressão regular <code>\</code> aceitaria o texto <code>O preço é $10.99</code>. Na expressão regular <code>^4\^3</code>, a string de caracteres <code>4^3</code> deve ocorrer no início do texto.</p>
+
+                    <p><strong>Qualquer caractere:<code>.</code></strong></p>
+
+                    <p>Use um <code>.</code>(ponto) para corresponder a qualquer caractere, exceto uma nova linha. Por exemplo, <code>UX..0</code> valida <code>UX500-200</code>, <code>Serial YUX_R034-200</code> e <code>MUX %0</code>. Se precisar pesquisar por um ponto, contorne-o com uma <code>\</code>(barra invertida) inserida antes. Por exemplo <code>\0\.0</code>, corresponderia a <code>0.045%</code> e <code>230.00</code>.</p>
+
+                    <p><strong>Conjunto de caracteres:<code>[xyz]</code></strong></p>
+
+                    <p>Para corresponder a qualquer caractere em um conjunto de caracteres, coloque os caracteres dentro de <code>[]</code>(colchetes). Por exemplo <code>d[arz]</code>, corresponderia a <code><strong>da</strong>do</code>, <code><strong>dr</strong>eno</code> e <code>doca <strong>de</strong>z</code>, mas não corresponderia a <code>durval</code>, porque <code>u</code> não está no conjunto de caracteres.</p>
+
+                    <p>Também não corresponderá <code>dEz</code> porque o conjunto de caracteres diferencia maiúsculas de minúsculas. Para não diferenciar maiúsculas de minúsculas, use <code>[dD][arzARZ]</code>, para que corresponda a <code>Dreno</code>, <code>dAnou-se</code> ou <code>DURO</code>.</p>
+
+                    <p>Para corresponder a um intervalo de caracteres, use <code>-</code> para especificar qualquer caractere entre dois caracteres. Por exemplo, use <code>[ad-fm]</code>ara corresponder aos caracteres <code></code>, <code>d</code>, <code>f</code> ou <code>m</code>. A expressão regular <code>[a-zA-Z0-9]</code> corresponde a qualquer letra minúscula ou maiúscula ou a qualquer número. As letras que não estão no conjunto de caracteres ASCII não são incluídas no intervalo <code>[a-z]</code>, portanto, lembre-se de incluí-las se os usuários estiverem trabalhando com idiomas que tenham outras letras. Por exemplo <code>[a-záéíóúüñA-ZÁÉÍÓÚÜÑ]</code>, inclui todas as letras em espanhol.</p>
+
+                    <p>Dentro de <code>[]</code>(colchetes), todos os caracteres como <code>$*.?()</code> são tratados como literais e não têm um significado especial. Para incluir <code>-</code> , <code>[</code>, <code>]</code> ou <code>\</code> no conjunto de caracteres, lebere-os com uma <code>\</code>(barra invertida) inserida antes. Por exemplo, <code>[!@#$%*(){}\[\]_\-+=/\|<>~]</code> inclui a maioria dos símbolos padrão.</p>
+
+                    <p><strong>Conjunto de caracteres negado:<code>[^xyz]</code></strong></p>
+
                     <p>Para corresponder a qualquer caractere que não esteja em um conjunto de caracteres, coloque os caracteres dentro [^ ](colchete aberto, acento circunflexo, colchete fechado). Por exemplo, g[^aeiou]match gseguido por qualquer caractere que não seja uma vogal, como growe. bog!</p>
                     <p>Ocorre 0 ou 1 vezes:?</p>
                     <p>Se a expressão anterior não puder ocorrer ou ocorrer uma vez, coloque um ?(ponto de interrogação) depois dela. Por exemplo, tr?eecorresponde a tee-shirte. Se colocado após um conjunto de caracteres, qualquer um dos caracteres no conjunto pode ocorrer zero ou uma vez. Por exemplo, correspondências e.oak treec[rl]?awbear clawsticks in my crawcrow's cawing</p>
