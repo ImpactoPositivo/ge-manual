@@ -286,14 +286,14 @@ table th,td {
     border: 1px solid rgb(189, 186, 186);  
 }
 
-#controle td {
-    text-align: center;
-    font-weight: bolder;
+.vertical th {
+    writing-mode: vertical-rl;
+
 }
 
-#controle th {
-    width: 35px;
+.vertical th, td {
     text-align: center;
+    font-size: .8rem;
 }
 
 #ladoalado img {
