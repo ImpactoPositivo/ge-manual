@@ -21,6 +21,7 @@ main {
     font-family: var(--fonte1);
     color: black;   
     position: relative;
+    width: 100vw;
 }
 
 header {
@@ -32,19 +33,19 @@ header img#logo {
     padding: 20px 0px 20px 10px; 
 }
 
-header div#cabecario {
+#cabecario {
     background-color:#00BFB2;
-    color: white
+    color: white    
 }
 
-div#cabecario h1 {
+#cabecario h1 {
     font-family: var(--fonte1);
     font-size: 1,5rem;
     padding-left: 10px;
     padding-top: 20px;
 }
 
-div#cabecario h2 {
+#cabecario h2 {
     font-family: var(--fonte1);
     font-size: 1rem;
     color: rgb(233, 233, 233);
@@ -201,11 +202,12 @@ table {
     margin: 10px 5px 10px 30px;
 }
 
-.table th {
+table th {
     background-color: var(--cor1);
     color: white;
     font-size: .8rem;
     text-align: center;
+    padding: 5px 2px 5px 2px;
 }
 
 .textbox td {
@@ -226,66 +228,81 @@ table {
     text-align: left;
 }
 
-.textbox table ul li p {
-    color:red;
+.textbox li strong{
+    color:black;
     font-size: .8rem;
     text-align: left;
-    padding: 0px;
 }
 
 
-#tab3 {
+.tab2 {
+    width: 60vw;
+    margin: 10px 5px 10px 30px; 
+}
+
+.tab2 th {
+    background-color:  rgb(233, 233, 233);
+    color: black;
+    border: 1px solid rgb(189, 186, 186);  
+}
+
+.tab2 td {
+    background-color:  rgb(252, 250, 228);
+    color: black;
+    border: 1px solid rgb(189, 186, 186);
+    text-align: justify;
+    padding: 3px 10px;
+}
+
+
+.tab3 {
     width: 450px;
     max-width: 50%;
 }
 
-#tab4 {
+.tab3 th {
+    background-color:  rgb(233, 233, 233);
+    color: black;
+    border: 1px solid rgb(189, 186, 186);  
+}
+
+.tab3 td {
+    background-color:  rgb(252, 250, 228);
+    color: black;
+    border: 1px solid rgb(189, 186, 186);
+    text-align: justify;
+    padding: 3px 10px;
+}
+
+.tab4 {
     width: 550px;
     max-width: 61%;
 }
 
-#tab2 td {
-    background-color:  rgb(252, 250, 228);
-    color: black;
-    border: 1px solid rgb(189, 186, 186);
-}
-
-#tab3 td {
-    background-color:  rgb(252, 250, 228);
-    color: black;
-    border: 1px solid rgb(189, 186, 186);
-}
-
-#tab4 td {
-    background-color:  rgb(252, 250, 228);
-    color: black;
-    border: 1px solid rgb(189, 186, 186);
-}
-
-#tab2 th {
+.tab4 th {
     background-color:  rgb(233, 233, 233);
     color: black;
     border: 1px solid rgb(189, 186, 186);  
 }
 
-#tab3 th {
-    background-color:  rgb(233, 233, 233);
+.tab4 td {
+    background-color:  rgb(252, 250, 228);
     color: black;
-    border: 1px solid rgb(189, 186, 186);  
+    border: 1px solid rgb(189, 186, 186);
+    text-align: justify;
+    padding: 3px 10px;
 }
 
-#tab4 th {
-    background-color:  rgb(233, 233, 233);
-    color: black;
-    border: 1px solid rgb(189, 186, 186);  
+.vertical {
+    border-collapse: collapse;
 }
 
 .vertical th {
-    writing-mode: vertical-rl;
-
+    writing-mode: vertical-rl;    
 }
 
 .vertical th, td {
+    border: 1px solid rgb(189, 186, 186);
     text-align: center;
     font-size: .8rem;
 }
@@ -427,8 +444,6 @@ div#caixa {
         width: 100vw;
         position: relative;
         float: none;
-        padding-left: 5px;
-        margin: 0px auto;
    } 
 }
 

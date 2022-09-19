@@ -293,7 +293,7 @@
 
                     <p>Esta propriedade permite que seja inserida uma expressão regular que verifica se o usuário inseriu uma entrada válida na caixa de texto. Se a entrada corresponder à expressão regular, o usuário poderá sair do campo, mas se a entrada não corresponder, a mensagem do campo será destacada em vermelho e o texto na propriedade Mensagem de erro de validação será exibido. O usuário não terá permissão para sair do campo até que sua entrada seja alterada para corresponder à expressão regular.</p>
 
-                    <p><strong>Sintaxe de Expressão Regular</strong></p>
+                <h2 id="item2biva">Sintaxe de Expressão Regular</h2>
 
                     <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade <strong>validar</strong> para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
 
@@ -383,7 +383,7 @@
 
                     <p>Esta é apenas uma breve introdução às expressões regulares e há mais caracteres especiais que podem ser usados. Para saber mais, consulte a documentação sobre RegExp do JavaScript e leia este tutorial sobre expressões regulares.</p>
 
-                    <p>Exemplo de expressões regulares</p>
+                <h2 id="item2bivb">Exemplo de expressões regulares</h2>
 
                     <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade <strong>validar</strong>. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
 
@@ -421,7 +421,7 @@
                             
                     </figure>
 
-                    <p><strong>Mensagem de erro de validação</strong></p>
+                <h2 id="item2bv">Mensagem de erro de validação</h2>
                     
                     <p>Esta propriedade está relacionada à propriedade Validare simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "Falso".</p>
 
@@ -437,77 +437,156 @@
                             
                     </figure>
                     
-                    <p><strong>Exemplo de controle de texto</strong></p>
+                <h2 id="item2c">Exemplo de controle de texto</h2>
                     
-                    <p>Para este exemplo, arraste e solte um controle "Texto" do painel esquerdo na tela do Formulário Dinâmico.</p>
-                    
-                    <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Crie ou selecione uma nova variável e clique no botão "Salvar" para adicionar esta variável ao controle.</p>
-                    
-                    <p>Agora, vá para as propriedades do controle clicando em qualquer espaço vazio do controle e suas propriedades serão exibidas no painel esquerdo. Observe que a variável "name" foi criada e já está adicionada.</p>
-                    
-                    <p>A próxima propriedade é a propriedade "valor padrão" que definirá um valor predefinido para o campo, caso não contenha nenhum. Quando/se um valor padrão for definido, esta propriedade substituirá as propriedades "SQL" e "Opções". Por exemplo, se o valor for "Sr." como no exemplo abaixo, o usuário pode optar por apagar o "Sr." valor ou simplesmente continuar depois disso e adicionar o seguinte: "Sr. Donahue".</p>
-                    
-                    <p>A propriedade "placeholder" mostrará ajuda para preencher um campo. Por exemplo, adicione "Sr. Senhorita. Senhora." na propriedade placeholder e ao executar um caso, o valor adicionado ao controle será visto de maneira somente leitura.</p>
-                    
-                    <p>Clique na caixa de seleção "obrigatório" para adicionar mais funcionalidades ao controle. Esta propriedade adicionará um asterisco vermelho significando que se o campo não for preenchido será mostrada uma mensagem de erro como na imagem abaixo:</p>
-                    
-                    <p>Agora, a propriedade "texto se transforma em" transformará o texto em todas as letras minúsculas, maiúsculas, maiúsculas de frase ou maiúsculas. Para este exemplo, escolha MAIÚSCULAS. Ao executar um caso, o campo capitalizará qualquer coisa escrita nele. Observe as imagens abaixo.</p>
+                    <p>Para este exemplo, arraste e solte um controle "Caixa de Texto" do painel esquerdo na tela do Formulário Dinâmico.</p>
 
+                        <figure>
+                            
+                        </figure>
+                        
+                    <p>Imediatamente após adicionar o controle, a janela <font color="blue">Criar variável</font> aparecerá. Crie ou selecione uma nova variável e clique no botão "Salvar" para adicionar esta variável ao controle.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                                    
+                    <p>Agora, vá para as propriedades do controle, clicando em qualquer espaço vazio do controle e suas propriedades serão exibidas no painel esquerdo. Observe que a variável "nome" foi criada e já está adicionada.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                                    
+                    <p>A próxima propriedade é a propriedade "valor padrão" que configurará um valor predefinido para o campo, caso não contenha nenhum. Quando/se um valor padrão for definido, esta propriedade substituirá as propriedades "SQL" e "Opções". Por exemplo, se o valor for "Sr." como no exemplo abaixo, o usuário pode optar por apagar o valor "Sr." ou simplesmente continuar depois disso e adicionar o seguinte: "Sr. Marcos Oliveira".</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                                    
+                    <p>A propriedade "informativo" mostrará ajuda para preencher um campo. Por exemplo, adicione "Sr. Senhorita. Senhora." na propriedade informativo e ao executar um caso, o valor adicionado ao controle será visto somente de modo leitura.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                                    
+                    <p>Clique na caixa de seleção "obrigatório" para adicionar mais funcionalidades ao controle. Esta propriedade adicionará um asterisco vermelho significando que, se o campo não for preenchido, será mostrada uma mensagem de erro como na imagem abaixo:</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                                    
+                    <p>Agora, a propriedade "texto se transforma em" transformará o texto em todas as letras caixa baixa, caixa alta, maiúsculas maiúsculas na primeira letra da frase. Para este exemplo, escolha MAIÚSCULAS. Ao executar um caso, o campo transformará em CAIXA ALTA qualquer coisa escrita nele. Observe as imagens abaixo.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                
                     <p>As propriedades "validação" e "mensagem de erro de validação" funcionam com expressões regulares para validar o que está escrito no controle. Por exemplo, se o controle solicita um endereço de email, a validação pode verificar se o email escrito é válido ou não. E a propriedade "mensagem de erro de validação" pode ser alterada para: "Digite um endereço de email válido".</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                
+                    <p>Portanto, ao executar um caso o controle "Caixa de texto" terá uma validação envolvida. Por exemplo, se o email adicionado tiver um espaço: "teste @gestorexpress.com.br" aparecerá um erro de validação conforme mostrado na imagem abaixo.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
-                    <p>Portanto, ao executar um caso o controle "texto" terá uma validação envolvida. Por exemplo, se o email adicionado tiver um espaço: "test @Gestor Express.com" aparecerá um erro de validação conforme mostrado na imagem abaixo.</p>
+                    <p>Agora, a propriedade "cumprimento máximo" controlará o comprimento máximo de um texto adicionado. Por padrão, o "comprimento máximo" é definido como 1000, mas se for alterado, por exemplo, para 10, não deve permitir que um usuário escreva mais de 10 caracteres.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
-                    <p>Agora, a propriedade "max length" controlará o comprimento máximo de um texto adicionado. Por padrão, o "comprimento máximo" é definido como 1000, mas se for alterado, por exemplo, para 10, não deve permitir que um usuário escreva mais de 10 caracteres.</p>
-                    <p>A propriedade "fórmula" permite adicionar uma fórmula como visto na seção Fórmula deste documento.</p>
+                    <p>A propriedade "fórmula" permite adicionar uma fórmula como visto na seção <a href="#item2biii" target="_blank">Fórmula</a> deste documento.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
                     <p>A propriedade "modo de exibição" apresentará as seguintes alterações quando suas diferentes opções forem alteradas.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
-                    <p>As propriedades "DB Connection" e "sql" permitem conectar o Gestor Express com um banco de dados e, portanto, armazenar todos os dados. A propriedade "Conexão Db" mostra o nome da conexão com o banco de dados do Gestor Express ("Banco de Dados PM") ou com uma conexão existente dentro do processo com um banco de dados externo. Clique nas reticências... na propriedade "sql" para abrir o "Sql Editor" e adicionar o código. Para este exemplo, o controle "texto" atuará como um campo dependente, dependendo do "País" e "Subdivisão" e o controle de texto mostrará a localização exata.</p>
+                    <p>As propriedades "Conexão com BD" e "SQL" permitem conectar o Gestor Express com um banco de dados e, portanto, armazenar todos os dados. A propriedade "Conexão com BD" mostra o nome da conexão com o banco de dados do Gestor Express ("Banco de Dados GE") ou com uma conexão existente dentro do processo com um banco de dados externo. Clique nas reticências... na propriedade "SQL" para abrir o "Editor SQL" e adicionar o código. Para este exemplo, o controle "Caixa de texto" atuará como um campo dependente, dependendo do "País" e "Subdivisão" e o controle de texto mostrará a localização exata.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
-                    <p>Por exemplo, se o país for "Estados Unidos", então a subdivisão for "Nebraska" então automaticamente a "Localização" mudará para a primeira cidade em Nebraska que é Alliance (AIA), Nebraska como visto na imagem abaixo.</p>
+                    <p>Por exemplo, se o país for "Brasil" e o estado for "São Paulo" então automaticamente a "Localização" mudará para a primeira cidade em São Paulo que é Adamantina, São Paulo como visto na imagem abaixo.</p>
+                                        
+                    <figure>
+                            
+                    </figure>
 
-                    <p>Nota: Este é um exemplo com um controle de texto, mas esse código funcionará melhor com um controle como o menu suspenso, pois o controle seria preenchido com mais opções.</p>
-                    <p>Controle de área de texto</p>
+                    <p><font color="green">Observação:</font> Este é um exemplo com um controle de texto, mas esse código funcionará melhor com um controle como o menu suspenso, pois o controle seria preenchido com mais opções.</p>
+
+                <h1 id="item3">Controle de área de texto</h1>
 
                     <p>Um controle Área de Texto permite que mais de uma linha de texto seja inserida em um campo. As linhas de texto que são mais largas que a largura da área de texto serão automaticamente quebradas. Áreas de texto com 3 linhas ou mais exibirão uma barra de rolagem vertical.</p>
-                    <p>Depois de adicionar um controle Área de Texto no designer, ele se parecerá com a seguinte imagem:</p>
+                        
+                        <figure>
+
+                        </figure>
+                        
+                    <p>Depois de adicionar um controle Área de Texto na Ferramenta de Desenho, ele se parecerá com a seguinte imagem:</p>
+                            
+                        <figure>
+
+                        </figure>
+                    
                     <p>Ao executar um caso, os controles Área de Texto se parecem com a imagem abaixo:</p>
+                                            
+                    <figure>
+
+                    </figure>
+                
                     <p>Embora este controle exiba uma barra de rolagem vertical se mais de três linhas forem inseridas, a caixa de entrada pode ser expandida de acordo com a necessidade. Para fazer isso, basta clicar no canto inferior direito da caixa de entrada do controle Área de Texto e sem soltar o botão do mouse, amplie ou reduza até o tamanho desejado.</p>
+                                            
+                    <figure>
 
-                    <p>Nota: Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft, para obter mais informações, visite: esta página.</p>
+                    </figure>
+                
+                    <p><font color="green">Observação:</font> Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft.</p>
 
-                    <p>Gerenciando áreas de texto</p>
+                <h1 id="item3a">Gerenciando áreas de texto</h1>
 
-                    <p>Após adicionar um controle Área de Texto ao designer, é possível customizar sua funcionalidade e comportamento, utilizando o painel de propriedades.</p>
+                    <p>Após adicionar um controle Área de Texto à Ferramenta de Desenho, é possível customizar sua funcionalidade e comportamento, utilizando o painel de propriedades.</p>
+                                            
+                    <figure>
 
+                    </figure>
+                
                     <p>As propriedades definidas por padrão são as seguintes:</p>
 
-                    <p>tipo Definido por padrão como " Área de Texto". Esta definição não pode ser modificada.</p>
+                    <ul>
+                        <li><strong>tipo:</strong> Definido por padrão como "textarea". Esta definição não pode ser modificada.</li>
+                        <li><strong>id:</strong> Definido por padrão como textareaVar00X, onde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</li>
+                        <li><strong>rótulo:</strong> Definido por padrão como "textarea_X" onde "X" representa a numeração correspondente do controle no modelo. Esta numeração começa em 1.</li>
+                        <li><strong>modo de exibição:</strong> Definido por padrão como "mestre". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</li>
+                        
+                        <li><strong>Conexão DB:</strong> Definido por padrão como " PM Database". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express workflow) esta propriedade herda a definição da variável relacionada no controle.</li>
+                        <li><strong>linhas:</strong> Definido por padrão como 5. Este é o número de linhas de texto que serão mostradas inicialmente antes que uma rolagem apareça no lado direito do controle.</li>
+                    </ul>
 
-                    <p>id Definido por padrão como Área de Texto000000000Xonde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</p>
-
-                    <p>label Definido por padrão como " Área de Texto_X" onde "X" representa a numeração correspondente do controle no desenho. Esta numeração começa em 1.</p>
-
-                    <p>modo de exibição Definido por padrão como " parent". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</p>
-                    
-                    <p>Conexão de banco de dados Definido por padrão como " PM Database". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express workflow) esta propriedade herda a definição da variável relacionada no controle.</p>
-
-                    <p>rows Definido por padrão como 5. Este é o número de linhas de texto que serão mostradas inicialmente antes que uma rolagem apareça no lado direito do controle.</p>
-
-                    <h2 id='item3b'>Propriedades do controle Área de Texto</h2>
+                <h2 id='item3b'>Propriedades do controle Área de Texto</h2>
 
                     <p>As propriedades relacionadas a este controle são as seguintes:</p>
 
                     <table class="textbox">
                         <thead>
-                            <tr><th width="150px">Propriedade</th><th>Descrição</th></tr>
+                            <tr><th width="20%">Propriedade</th><th>Descrição</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Modelo</td><td><code>text</code>(somente leitura)</td></tr>
                             <tr><td>Variável</td><td>Clique nas reticências ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br><br>
                             Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
                             <ul>
-                            <li>Float</li>
+                            <li>Flutuante</li>
                             <li>Inteiro</li>
                             <li>String</li>
                             </ul></td></tr>
@@ -553,59 +632,167 @@
                     </table>
 
 
-                    <p>Linhas</p>
-                    <p>Linhas</p>
-                    <p>Versão disponível: Gestor Express 3.0.1.5 e posterior</p>
-                    <p>Esta propriedade define o número de linhas que a área de texto terá/mostrar antes de adicionar uma rolagem no lado direito da caixa de entrada. Esta propriedade não pode ser testada dentro do designer, é necessário renderizar o formulário seja no Preview ou ao executar cases. Por exemplo, se definir esta propriedade com "10" no designer.</p>
-                    <p>Após renderizar o formulário em "Preview", primeiro adicione dez linhas à área de texto e depois mais dez linhas para ver como a propriedade funciona.</p>
+                <h2 id="item3bi">Linhas</h2>
+
+                    <p>Esta propriedade define o número de linhas que a área de texto terá/mostrará antes de adicionar uma rolagem no lado direito da caixa de entrada. Esta propriedade não pode ser testada dentro da Ferramenta de Desenho, é necessário renderizar o formulário seja no Visualizar ou ao executar cases. Por exemplo, se definir esta propriedade com "10" na Ferramenta de Desenho.</p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>Após renderizar o formulário em "Visualizar", primeiro adicione dez linhas à área de texto e depois mais dez linhas para ver como a propriedade funciona.</p>
+                     
+                    <figure>
+
+                    </figure>
+               
                     <p>Quando há mais de 10 linhas, uma rolagem é mostrada no lado direito:</p>
-                    <p>Nota: Esta propriedade não tem nenhum efeito dentro de grades devido à quantidade de controles que as grades manipulam ao mesmo tempo, e a aparência da grade mudaria drasticamente. Dentro das grades, apenas uma linha é mostrada por vez.</p>
-                    <p>Exemplo de controle de área de texto</p>
+                                        
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="green">Observação:</font> Esta propriedade não tem nenhum efeito dentro de grids devido à quantidade de controles que as grids manipulam ao mesmo tempo e ao fato de que a aparência da grid mudaria drasticamente. Dentro das grides, apenas uma linha é mostrada por vez.</p>
+
+                <h2 id="item3c">Exemplo de controle de Área de Texto</h2>
+
                     <p>Para este exemplo, adicione um controle "Área de Texto" arrastando e soltando-o na tela Formulário Dinâmico.</p>
-                    <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Para este exemplo, crie uma variável chamada "address" e na seção "Settings" adicione qualquer configuração extra necessária para esta variável. Após finalizar, clique no botão "Salvar" para adicionar a nova variável criada ao controle.</p>
-                    <p>Agora que a variável foi adicionada, clique em qualquer espaço vazio do controle "Área de Texto" e suas propriedades serão exibidas no painel esquerdo. Observe que as propriedades "variable", "variable data type" e "id" foram alteradas porque a variável foi criada antes.</p>
-                    <p>A propriedade "valor padrão" pode ser alterada para "Ave, Rd, St, Blvd." Lembre-se de que ter um valor padrão significa que ele substituirá as propriedades "SQL" e "Opções".</p>
-                    <p>A propriedade "placeholder" adicionará um texto específico dentro do controle que desaparecerá assim que o usuário começar a introduzir texto no controle. Observe as imagens abaixo.</p>
+                                        
+                    <figure>
+
+                    </figure>
+
+                    <p>Imediatamente após adicionar o controle, a janela "Criar/Selecionar variável" aparecerá. Para este exemplo, crie uma variável chamada "endereco" e na seção "Config" adicione qualquer configuração extra necessária para esta variável. Após finalizar, clique no botão "Gravar" para adicionar a nova variável criada ao controle.</p>
+                                        
+                    <figure>
+
+                    </figure>
+
+                    <p>Agora que a variável foi adicionada, clique em qualquer espaço vazio do controle "Área de Texto" e suas propriedades serão exibidas no painel esquerdo. Observe que as propriedades "variável", "Tipo de dados variável" e "id" foram alteradas porque a variável foi criada antes.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>A propriedade "valor padrão" pode ser alterada para "Av., Rua, Praça, Estada" Lembre-se de que ter um valor padrão significa que ele substituirá as propriedades "SQL" e "Opções".</p>
+                                        
+                    <figure>
+
+                    </figure>
+
+                    <p>A propriedade "informativo" adicionará um texto específico dentro do controle que desaparecerá assim que o usuário começar a introduzir texto no controle. Observe as imagens abaixo.</p>
+                                          
+                    <figure>
+
+                    </figure>                
+
                     <p>Agora a propriedade "dica" mostrará ajuda com um ícone de informações (i) ao lado. Passe o ponteiro do mouse sobre o ícone para mostrar o que foi escrito como uma dica para este campo.</p>
+                                                            
+                    <figure>
+
+                    </figure>
+
                     <p>A caixa de seleção da propriedade "obrigatória" valida se há texto dentro do controle. Torna o campo obrigatório para que o usuário tenha que preenchê-lo obrigatoriamente com texto. Uma mensagem de erro aparecerá se não tiver sido preenchido.</p>
-                    <p>As propriedades "validation" e "validation error message" trabalham juntas para usar um padrão e validar o texto escrito no controle. Muitas validações complicadas podem ser usadas, por exemplo, use a validação para um endereço de e-mail: ^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9] +.[a-zA-Z0-9]{2,4}$. Mas para este caso use uma validação simples para um endereço residencial que é: [a-zA-Z0-9], então ao executar um caso ele validará o texto escrito dentro do controle como visto na imagem abaixo.</p>
-                    <p>A propriedade "DB Connection" é utilizada para selecionar entre a lista de conexões de banco de dados definidas nos objetos do processo. Para a propriedade "sql" o exemplo será diferente usando um campo dependente. Para este exemplo, adicione um controle "texto" e um controle "Área de Texto" (que usará uma consulta sql). O primeiro controle será denominado "Nome do projeto" e terá uma variável denominada "projectName" para que o controle "Área de Texto" possa ser preenchido com as informações necessárias no primeiro controle. Clique nas reticências SQL... no controle "Área de Texto" para abrir a janela "SQL Editor" e adicione o seguinte código:</p>
-                    <p>SELECT PRJ_UID FROM BPMN_PROJECT</p>
-                    <p>WHERE PRJ_NAME = "@#projectName"</p>
-                    <p>Quando o código for adicionado clique no botão "Salvar" e uma parte do código aparecerá na propriedade "sql" o que significa que o código foi salvo corretamente. Ao executar um caso, adicionaremos o nome de um projeto no controle "texto" e obteremos uma longa linha de números no controle "Área de Texto", que é o UID desse projeto específico no controle "Área de Texto".</p>
+                                                            
+                    <figure>
+
+                    </figure>
+
+                    <p>As propriedades "validar" e "Mensagem de Erro de Validação" trabalham juntas para usar um padrão e validar o texto escrito no controle. Muitas validações complicadas podem ser usadas, por exemplo, use a validação para um endereço de e-mail: <strong>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9] +.[a-zA-Z0-9]{2,4}$</strong>. Mas para este caso use uma validação simples para um endereço residencial que é: <strong>[a-zA-Z0-9]</strong>, então ao executar um caso ele validará o texto escrito dentro do controle como visto na imagem abaixo.</p>
+                                                            
+                    <figure>
+
+                    </figure>
+
+                    <p>A propriedade "Conexão DB" é utilizada para selecionar entre a lista de conexões de banco de dados definidas nos objetos do processo. Para a propriedade "sql" o exemplo será diferente usando um campo dependente. Para este exemplo, adicione um controle "Caixa de texto" e um controle "Área de Texto" (que usará uma consulta sql). O primeiro controle será denominado "nomeProjeto" e terá uma variável denominada "nomeProjeto001" para que o controle "Área de Texto" possa ser preenchido com as informações necessárias no primeiro controle. Clique nas reticências SQL... no controle "Área de Texto" para abrir a janela "Editor SQL" e adicione o seguinte código:</p>
+
+                    <codeblock>
+                        <p>SELECT PRJ_UID FROM BPMN_PROJECT</p>
+                        <p>WHERE PRJ_NAME = "@#projectName"</p>
+                    </codeblock>
+
+                    <p>Quando o código for adicionado clique no botão "Gravar" e uma parte do código aparecerá na propriedade "sql" o que significa que o código foi salvo corretamente. Ao executar um caso, adicionaremos o nome de um projeto no controle "Caixa de Texto" e obteremos uma longa linha de números no controle "Área de Texto", que é o UID desse projeto específico no controle "Área de Texto".</p>
+
+                        <figure>
+                            
+                        </figure>
+
                     <p>Por ser um controle "Área de Texto" ele tem a propriedade de se expandir para ajustar com o texto. Expanda-o clicando no canto inferior direito, conforme mostrado na imagem abaixo</p>
-                    <p>Nota: Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft, para obter mais informações, visite: esta página.</p>
-                    <p>A propriedade final para este controle é "rows", este é o número de linhas de texto que serão mostradas inicialmente. O número padrão de linhas é 5, mas para este exemplo foi alterado para 10, conforme visto na imagem abaixo.</p>
-                    <p>Limitação técnica quanto ao uso do controle Área de Texto</p>
-                    <p>Ao trabalhar na edição de texto para um acionador nos controles Área de Texto configurando o Modo de exibição no modo " disabled" ou " view", você exibe o conteúdo do texto de acordo com a seguinte configuração:</p>
-                    <p>desativado: a marcação HTML não é reconhecida, portanto, qualquer expressão escrita mantém seu texto original.</p>
-                    <p>modo de visualização: a marcação HTML é reconhecida, então a notação HTML padrão é aplicada no texto.</p>
-                    <p>A Área TextControl configurada não pode ser exibida da mesma forma dada a natureza de como o processo de renderização é aplicado em cada uma dessas configurações.</p>
-                    <p>JavaScript em caixas de texto e áreas de texto</p>
-                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
-                    <p>Caixas de Texto e áreas de texto no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
-                    <p>Texto: O texto exibido dentro do campo.</p>
-                    <p>Valor: O valor armazenado para o campo. Para caixas de texto e áreas de texto, o texto e o valor são os mesmos.</p>
-                    <p>Métodos JavaScript</p>
+
+                    <p><font color="green">Observação:</font> Os navegadores Internet Explorer 11 e Microsoft Edge não suportam a propriedade de expansão do controle "Área de Texto". Este é um problema conhecido por parte dos navegadores da Microsoft.</p>
+ 
+                    <figure>
+                            
+                    </figure>
+              
+                    <p>A propriedade final para este controle é "linhas", este é o número de linhas de texto que serão mostradas inicialmente. O número padrão de linhas é 5, mas para este exemplo foi alterado para 10, conforme visto na imagem abaixo.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                <h2 id="item3d">Limitação técnica quanto ao uso do controle Área de Texto</h2>
+
+                    <p>Ao trabalhar na edição de texto para um gatilho nos controles Área de Texto configurando o Modo de exibição no modo "desativado" ou "Visualização", você exibe o conteúdo do texto de acordo com a seguinte configuração:</p>
+
+                    <ul>
+                        <li><strong>desativado:</strong> a marcação HTML não é reconhecida, portanto, qualquer expressão escrita mantém seu texto original.</li>
+                        <li><strong>modo de visualização:</strong> a marcação HTML é reconhecida, então a notação HTML padrão é aplicada no texto.</li>
+                    </ul>
+
+                    <p>A Área Controle de Texto configurada não pode ser exibida da mesma forma, dada a natureza de como o processo de renderização é aplicado em cada uma dessas configurações.</p>
+
+                <h1 id="item4">JavaScript em caixas de texto e áreas de texto</h1>
+
+                    <p>Para saber como gerenciar campos de Formulário Dinâmico usando JavaScript, consulte <font color="blue">JavaScript em Formulários Dinâmicos</font>.</p>
+
+                    <p>Caixas de Texto e áreas de texto no Gestor Express têm os seguintes componentes de campo:</p>
+
+                    <ul>
+                        <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</li>
+                        <li><strong>Texto:</strong> O texto exibido dentro do campo.</li>
+                        <li><strong>Valor:</strong> O valor armazenado para o campo. Para caixas de texto e áreas de texto, o texto e o valor são os mesmos.</li>
+                    </ul>
+
+                        <figure>
+
+                        </figure>
+
+                <h2 id="item4a">Métodos JavaScript</h2>
+
                     <p>Alguns dos métodos JavaScript para manipular caixas de texto e áreas de texto incluem:</p>
-                    <p>Método</p>
-                    <p>jQuery("#fieldID"). getControl()</p>
-                    <p>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com$("#id")</p>
-                    <p>jQuery("#fieldID"). disableValidation()</p>
-                    <p>jQuery("#fieldID"). enableValidation()</p>
-                    <p>jQuery("#fieldID"). getValue()</p>
-                    <p>jQuery("#fieldID"). getText()</p>
-                    <p>jQuery("#fieldID"). getLabel()</p>
-                    <p>jQuery("#fieldID"). setValue("novo valor")</p>
-                    <p>jQuery("#fieldID"). setText("novoTexto")</p>
-                    <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
-                    <p>jQuery("#fieldID"). setOnchange(</p>
-                    <p>function(newVal, oldVal){...})</p>
-                    <p>newVal: O novo valor que acabou de ser definido no campo.</p>
-                    <p>oldVal: O valor antigo que foi alterado.</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th>Método</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID") . getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com$("#id")</td></tr>
+                            <tr><td>jQuery("#fieldID") . disableValidation()</td><td>Desabilite a validação do campo, para que não verifique a expressão regular na propriedade validate e se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID") . enableValidation()</td><td>Habilite a validação do campo, assim verificará a expressão regular na propriedade validate e se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID") . getValue()</td><td>Retorna o valor do campo, que é o que é armazenado pelo campo. Observe que getValue()e getText() retornam a mesma coisa em caixas de texto e áreas de texto.</td></tr>
+                            <tr><td>jQuery("#fieldID") . getText()</td><td>Retorna o texto do campo, que é o que é exibido no campo. Observe que getValue()e getText() retornam a mesma coisa em caixas de texto e áreas de texto.</td></tr>
+                            <tr><td>jQuery("#fieldID") . getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID") . setValue("novo valor")</td><td>Define um novo valor no campo, que é o que está armazenado no campo.</td></tr>
+                            <tr><td>jQuery("#fieldID") . setText("novoTexto")</td><td>define um novo texto no campo, que é o que é exibido para o usuário. Observe que para caixas de texto e áreas de texto, setText()é o mesmo que setValue().</td></tr>
+                            <tr><td>jQuery("#fieldID") . setLabel("novoEtiqueta")</td><td>Altere o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>"jQuery(""#fieldID"") . setOnchange(
+                            function(newVal, oldVal){...})"</td><td>"Defina um manipulador de eventos de alteração , que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros:
+                            
+                            <ul>
+                                <li>newVal: O novo valor que acabou de ser definido no campo.</li>
+                                <li>oldVal: O valor antigo que foi alterado."</li>
+                            </ul>
+                        </td></tr>
+                        </tbody>
+                    </table>	
+                                        
+
+
                     <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
-                    <p>Manipulador de eventos de alteração personalizada</p>
+                    
+                    <h2 id="item4b">Manipulador de eventos de alteração personalizada</h2>
+
                     <p>Para executar o código personalizado depois que o usuário terminar de inserir um novo valor em uma caixa de texto ou área de texto, um manipulador de eventos pode ser atribuído ao evento de alteração do campo.</p>
                     <p>Por exemplo, o código a seguir é usado para verificar a entrada em uma caixa de texto com o ID "productCode". Quando o foco sai do campo, o código remove automaticamente quaisquer espaços e converte a entrada em maiúsculas. Em seguida, verifica se o usuário digitou um número de série válido no formato "S[0-9][0-9][XYT][0-9]", como "S38X7" ou "S08T2". Se for um código de série válido, ele define o valor modificado na caixa de texto. Caso contrário, exibe uma mensagem de alerta, informando ao usuário que o número de série é inválido.</p>
                     <p>$ ("#productCode"). getControl (). change (function (e) {</p>
