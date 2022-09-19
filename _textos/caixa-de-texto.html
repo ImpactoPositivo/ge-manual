@@ -130,7 +130,7 @@
                             <tr><td>Variável</td><td>Clique nas reticências ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br><br>
                             Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
                             <ul>
-                            <li>Float</li>
+                            <li>Flutuantet</li>
                             <li>Inteiro</li>
                             <li>String</li>
                             </ul></td></tr>
@@ -341,72 +341,103 @@
 
                     <p>Se a expressão anterior puder ser zerada, uma ou mais vezes, coloque um <code>*</code>(asterisco) depois dela. Por exemplo, mal*a corresponde com <code><strong>mala</strong></code>, <code><strong>malha</strong></code> e <code><strong>ma</strong> São Luis</code>. Se colocado após um conjunto de caracteres, qualquer um dos caracteres no conjunto pode ocorrer zero, uma ou mais vezes. Por exemplo, <code>$[0-9]*</code> corresponde com <code><strong>$0</strong></code>, <code>preço: $2346</code> e <code>de me <strong>$</strong> agora</code>.</p>
 
-                    <p>Ocorre 1 ou mais vezes:<code>+</code></p>
+                    <p><strong>Ocorre 1 ou mais vezes:<code>+</code></strong></p>
 
-                    <p>Se a expressão anterior puder ocorrer uma ou mais vezes, coloque um +(sinal de mais) depois dela. Por exemplo, me+tcorresponde a mete meeting, mas não corresponde mt Everestporque o etem que ocorrer pelo menos uma vez entre me t. Da mesma forma, \$[0-9]+corresponde $0e, mas não corresponde porque deve haver pelo menos um número após o cifrão.price: $2346give me $ now</p>
+                    <p>Se a expressão anterior puder ocorrer uma ou mais vezes, coloque um <code>+</code>(sinal de mais) depois dela. Por exemplo, <code>me+t</code> corresponde a <code><strong>met</strong></code> e <code><strong>meet</strong>ing</code>, mas não corresponde <code><strong>mt</strong> Everest</code> porque o <code>e</code> tem que ocorrer pelo menos uma vez entre <code>m</code> e <code>t</code>. Da mesma forma, <code>$[0-9]+</code> corresponde a <code><strong>$0</strong></code> e <code>preço: <strong>$2346</strong></code>, mas não corresponde a <code>dê me <strong>$</strong> agora</code> porque deve haver pelo menos um número após o cifrão.</p>
 
-                    <p>Ocorre um número fixo de vezes:{n}</p>
+                    <p><strong>Ocorre um número fixo de vezes:<code>{n}</code></strong></p>
 
-                    <p>Se a expressão anterior ocorrer um número fixo de vezes, especifique o número dentro {}(chaves). Por exemplo, bo{2}gcorresponderia a boogyman, mas não bogeymanporque o precisa ocorrer duas vezes seguidas. A expressão regular ^[0-9]{4}$só aceitaria um inteiro positivo com 4 dígitos, como 2406ou 0987. Da mesma forma, ^[-+]?[0-9]{4}\.[0-9]{2}$só aceitaria números positivos ou negativos com 4 dígitos e 2 dígitos decimais, como 2324.99ou -0876.08.</p>
+                    <p>Se a expressão anterior ocorrer um número fixo de vezes, especifique o número dentro <code>{}</code>(chaves). Por exemplo, <code>bo{2}g</code> corresponderia a <code>boogyman</code>, mas não a <code>bogeyman</code> porque o "o" precisa ocorrer duas vezes seguidas. A expressão regular <code>^[0-9]{4}$</code> só aceitaria um inteiro positivo com 4 dígitos, como <code>2406</code> ou <code>0987</code>. Da mesma forma, <code>^[-+]?[0-9]{4}\.[0-9]{2}$</code> só aceitaria números positivos ou negativos com 4 dígitos e 2 dígitos decimais, como <code>2324.99</code> ou <code>-0876.08</code>.</p>
 
-                    <p>Ocorre um intervalo de vezes:{n, m}</p>
+                    <p><strong>Ocorre um intervalo de vezes:<code>{n, m}</code></strong></p>
 
-                    <p>Se a expressão anterior ocorrer entre n e m número de vezes, especifique o intervalo inferior e o intervalo superior dentro {}(chaves). Por exemplo, bo{2,4}gcorresponderia a boogymane, mas não e não. A expressão regular só aceitaria um número inteiro positivo entre 1 e 3 dígitos, como, ou. Da mesma forma, só aceitaria números positivos ou negativos com entre 1 e 4 dígitos e entre 1 e 3 dígitos decimais, como ou.It's a booooger!wet bogfour boooooooogies!^[0-9]{1,3}$387097^[-+]?[0-9]{1,4}\.?[0-9]{0,3}$4.999-0876</p>
+                    <p>Se a expressão anterior ocorrer entre n e m número de vezes, especifique o intervalo inferior e o intervalo superior dentro <code>{}</code>(chaves). Por exemplo, <code>bo{2,4}g</code> corresponderia a <code><strong>boog</strong>ymane</code> e <code>It's a <code>boooog</code>er!</code>, mas não a <code>wet bog</code> ou <code>four boooooooogies!</code>. A expressão regular <code>^[0-9]{1,3}$</code> só aceitaria um número inteiro positivo entre 1 e 3 dígitos como <code>3</code>, <code>87</code> ou <code>97</code>. Da mesma forma <code>^[-+]?[0-9]{1,4}\.?[0-9]{0,3}$</code> só aceitaria números positivos ou negativos com entre 1 e 4 dígitos e entre 1 e 3 dígitos decimais, como <code>4.999</code> ou <code>-0876</code>.</p>
 
-                    <p>A faixa inferior ou a faixa superior não precisa ser especificada. Por exemplo, ^[0-9]{2,}$aceitaria quaisquer inteiros positivos com 2 ou mais dígitos. Da mesma forma, ^[0-9]{,5}$aceitaria qualquer número inteiro positivo com 5 ou menos dígitos.</p>
-                    <p>Agrupamento:(xyz)</p>
+                    <p>A faixa inferior ou a faixa superior não precisa ser especificada. Por exemplo, <code>^[0-9]{2,}$</code> aceitaria quaisquer inteiros positivos com 2 ou mais dígitos. Da mesma forma, <code>^[0-9]{,5}$</code> aceitaria qualquer número inteiro positivo com 5 ou menos dígitos.</p>
 
-                    <p>Para agrupar uma sequência de caracteres, coloque-os ()entre parênteses. O agrupamento pode ser especialmente útil quando combinado com ?, *, +ou {}. Por exemplo, R(IP)*corresponderia a, e. A expressão regular corresponderia a e, mas não corresponderia porque não ocorre duas vezes seguidas.GRIPRIPIPIPIPIPPPPTurn Right(99)+23499378.999992392399</p>
+                    <p><strong>Agrupamento:<code>(xyz)</code></strong></p>
 
-                    <p>Ou:x|y</p>
+                    <p>Para agrupar uma sequência de caracteres, coloque-os <code>()</code> entre parênteses. O agrupamento pode ser especialmente útil quando combinado com <code>?</code>, <code>*</code>, <code>+</code> ou <code>{}</code> Por exemplo, R(IP)* corresponderia a <code>GRIP</code>, <code>RIPIPIPIPIPPPP</code> e <code>Turn Right</code>. A expressão regular <code>(99)+</code> corresponderia a <code>234993</code> e <code>78.99999</code>, mas não corresponderia <code>239239</code> porque o <code>9</code> não ocorre duas vezes seguidas.</p>
 
-                    <p>Para corresponder a uma ou outra expressão, separe-as por |(uma barra vertical). Por exemplo, cat|dogcorrespondências e. Não há limite para o número de strings alternativas de caracteres que podem ser correspondidas, então muitos tipos de animais de estimação podem ser combinados com. Se as strings alternativas forem encontradas em uma string maior de caracteres, coloque as strings alternativas entre parênteses. Por exemplo, corresponderia e.I love catsbad doggie!cat|dog|fish|bunny|snake|ferret()bad (check|contract)s?It's a bad checkbad contracts kill business</p>
+                    <p><strong>Ou:<code>x|y</code></strong></p>
 
-                    <p>Limite de palavra:\b</p>
+                    <p>Para corresponder a uma ou outra expressão, separe-as por <code>|</code> (uma barra vertical). Por exemplo, cat|dog corresponderia a <code>love cats</code> e <code>bad doggie!</code>. Não há limite para o número de strings alternativas de caracteres que podem ser correspondidas, então muitos tipos de animais de estimação podem ser combinados com <code>cat|dog|fish|bunny|snake|ferret</code>. Se as strings alternativas forem encontradas em uma string maior de caracteres, coloque as strings alternativas entre parênteses. Por exemplo <code>bad (check|contract)s?</code>, corresponderia <code>It's a <strong>bad check</strong></code> e <code><strong>bad contracts</strong> kill business</code>.</p>
 
-                    <p>para pesquisar um limite de palavra, use \b. Uma palavra consiste apenas em letras, números e sublinhados [a-zA-Z0-9_]. Quando uma palavra está ao lado de qualquer outro caractere ou no final ou no início do texto, ela é considerada um limite de palavra. As linhas verticais azuis no texto a seguir são consideradas limites de palavras: | Pode | ' | t | | dizer | " | Olá |," | pode | | você | ?</p>
+                    <p><strong>Limite de palavra:<code>\b</code></strong></p>
 
-                    <p>Os limites das palavras podem ser úteis ao pesquisar palavras separadas. Por exemplo, uma pesquisa por catcorresponderia a cattle, caterpillere, mas corresponderia apenas ao texto que contém a palavra separada "gato", como e. Uma pesquisa mais flexível para "gato" permitiria que a palavra fosse maiúscula ou pluralizada:hellcat\bcat\bGive me the cat.cat\b[Cc][aA][aT][sS]?\b</p>
-                    <p>Nota: As palavras não incluem letras não ASCII, como ü, é, ou ñ, portanto, não é muito útil ao lidar com outros idiomas além do inglês. Uma boa maneira de contornar esse problema é usar um conjunto de caracteres para o idioma. Por exemplo, pesquisaria a palavra separada gato no idioma espanhol.φあ(^|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])gato($|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])</p>
+                    <p>Para pesquisar um limite de palavra, use <code>\b</code>. Uma palavra consiste apenas em letras, números e sublinhados <code>[a-zA-Z0-9_]</code>. Quando uma palavra está ao lado de qualquer outro caractere ou no final ou no início do texto, ela é considerada um limite de palavra. As linhas verticais azuis no texto a seguir são consideradas limites de palavras: <code><font color="blue">|</font>Posso<font color="blue">|</font> <font color="blue">|</font>dizer<font color="blue">|</font> "<font color="blue">|</font>Olá<font color="blue">|</font>," <font color="blue">|</font>você<font color="blue">|</font> <font color="blue">|</font>também<font color="blue">|</font> <font color="blue">|</font>poderia<font color="blue">|</font></code>?</p>
 
-                    <p>Sem limite de palavra:\B</p>
+                    <p>Os limites das palavras podem ser úteis ao pesquisar palavras separadas. Por exemplo, uma pesquisa por <code>cat</code> corresponderia a <code>cattle</code>, <code>caterpillere</code> e <code>hellcat</code>, mas <code>cat\b</code> corresponderia apenas ao texto que contém a palavra separada "cat", como <code>Give me the cat</code>. Uma pesquisa mais flexível para "cat" permitiria que a palavra fosse maiúscula ou pluralizada:<code>\b[Cc][aA][aT][sS]?\b</code></p>
 
-                    <p>Para procurar uma string que não ocorra próximo a um limite de palavra, use \B(observe o B maiúsculo). Por exemplo, \Bmancorresponderia a e, mas não corresponderia a e.cattlemanhumanehelp the manmanhole</p>
+                    <p><font color="green">Observação:</font> As palavras não incluem caracteres não ASCII, como ü, é, ou ñ, portanto, não é muito útil ao lidar com outros idiomas além do inglês. Uma boa maneira de contornar esse problema é usar um conjunto de caracteres para o idioma. Por exemplo <code>(^|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])gato($|[^a-záéíóúüñA-ZÁÉÍÓÚÜÑ])</code>, pesquisaria a palavra separada "gato" em português.</p>
 
-                    <p>Os limites das palavras podem ser úteis ao pesquisar palavras separadas. Por exemplo, uma pesquisa por catcorresponderia a cattle, caterpillere, mas corresponderia apenas ao texto que contém a palavra separada "gato", como e. Uma pesquisa mais flexível para "gato" permitiria que a palavra fosse maiúscula ou pluralizada:hellcat\bcat\bGive me the cat.cat's gut\b[Cc][aA][aT][sS]?\b</p>
+                    <p><strong>Fora do limite de palavra:<code>\B</code></strong></p>
 
-                    <p>Não ganancioso:?</p>
+                    <p>Para procurar uma string que não ocorra próximo a um limite de palavra, use <code>\B</code> (observe o B maiúsculo). Por exemplo, <code>\Bman</code> corresponderia a <code>cattleman</code> e <code>humane</code>, mas não corresponderia a <code>help the man</code> e <code>manhole</code>.</p>
 
-                    <p>muitas vezes é útil usar expressões como.*que corresponde a qualquer número de caracteres ou [a-zA-Z]*que corresponde a qualquer número de letras, mas essas expressões não funcionam corretamente se for necessário pesquisar o texto que segue depois. Por exemplo, serial.*UX48não corresponderia serial RX-UX48, pois.*continuaria correspondendo a todos os caracteres até o final do texto, que nunca veria a UX48parte. Isso se chama ser ganancioso. Para dizer à expressão regular para não ser gananciosa e verificar se o texto que está sendo consumido.*corresponde ao que segue depois, adicione ?(um ponto de interrogação). A expressão regular serial.*?UX48é capaz de corresponder serial RX-UX48conforme o esperado.</p>
+                    <p><strong>Quantificador non-greedy ou lento:<code>?</code></strong></p>
 
-                    <p>Obtenha mais informações</p>
+                    <p>Muitas vezes é útil usar expressões como <code>.*</code> que corresponde a qualquer número de caracteres ou <code>[a-zA-Z]*</code> que corresponde a qualquer número de letras. Essas expressões, entretanto, não funcionam corretamente se for necessário pesquisar o texto que segue depois. Por exemplo, <code>serial.*UX48</code> não corresponderia <code>serial RX-UX48</code>, porque <code>.*</code> continuaria considerando todos os caracteres até o final do texto e nunca veria a expressão <code>UX48</code>. Isso se chama ser ganancioso. Para dizer à expressão regular para não ser gananciosa e verificar se o texto que está sendo engolido <code>.*</code> corresponde ao que segue depois, adicione <code>?</code>(um ponto de interrogação). A expressão regular <code>serial.*?UX48</code> é capaz de corresponder com <code>serial RX-UX48</code>, conforme o esperado.</p>
+
+                    <p><strong>Obtenha mais informações</strong></p>
 
                     <p>Esta é apenas uma breve introdução às expressões regulares e há mais caracteres especiais que podem ser usados. Para saber mais, consulte a documentação sobre RegExp do JavaScript e leia este tutorial sobre expressões regulares.</p>
 
                     <p>Exemplo de expressões regulares</p>
 
-                    <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade validate. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
+                    <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade <strong>validar</strong>. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
+
+                        <figure>
+                            
+                        </figure>
 
                     <p>Abre-se uma janela com os exemplos de expressões regulares que podem ser utilizadas nesta propriedade. Para usar qualquer um deles basta clicar na opção necessária.</p>
 
+                        <figure>
+                            
+                        </figure>
+
                     <p>A expressão regular selecionada será inserida no valor da propriedade onde poderão ser feitas as edições correspondentes para personalizar a validação.</p>
+
+                    <figure>
+                            
+                    </figure>
 
                     <p>Como na imagem acima, a expressão regular utilizada para validar um endereço de e-mail fornecido pela opção de ajuda desta propriedade é a seguinte:</p>
 
-                    <p>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}$</p>
+                    <codeblock>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}$</codeblock>
                     
-                    <p>Essa expressão regular verifica se a primeira seção do endereço de e-mail contém letras maiúsculas ou minúsculas e/ou números de 0 a 9 na expressão [a-zA-Z0-9]. Em seguida, a expressão verifica se o endereço de e-mail é seguido de um caractere especial opcionalmente e, novamente, letras e/ou números após ele na expressão.?[a-zA-Z0-9]. Como essa validação é feita para um endereço de e-mail, a validação também verifica se o endereço contém o caractere "@" seguido novamente por caracteres que contêm letras e/ou números, um ponto e depois mais letras e/ou números.</p>
+                    <p>Essa expressão regular verifica se a primeira seção do endereço de e-mail contém letras maiúsculas ou minúsculas e/ou números de 0 a 9 na expressão <code>[a-zA-Z0-9]</code>. Em seguida, a expressão verifica se o endereço de e-mail é seguido de um caractere especial opcionalmente e, novamente, letras e/ou números após ele na expressão <code>.?[a-zA-Z0-9]</code>. Como essa validação é feita para um endereço de e-mail, a validação também verifica se o endereço contém o caractere "@" seguido novamente por caracteres que contêm letras e/ou números, um ponto e depois mais letras e/ou números.</p>
                     
                     <p>Se estiver usando a validação mostrada anteriormente, ao renderizar o formulário a validação será mostrada conforme a imagem abaixo ao inserir um endereço de e-mail válido.</p>
+
+                    <figure>
+                            
+                    </figure>
+
                     <p>Para um endereço de e-mail inválido, o aviso será mostrado quando o evento OnChange() for acionado.</p>
                     
-                    <p>Mensagem de erro de validação</p>
+                    <figure>
+                            
+                    </figure>
+
+                    <p><strong>Mensagem de erro de validação</strong></p>
                     
-                    <p>Esta propriedade está relacionada à propriedade Validate e simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "False".</p>
+                    <p>Esta propriedade está relacionada à propriedade Validare simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "Falso".</p>
+
                     <p>Para o exemplo de validação do endereço de e-mail, vamos definir a mensagem de erro vista na imagem a seguir:</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
                     <p>Ao renderizar o formulário e inserir um endereço de e-mail inválido, a mensagem será exibida:</p>
                     
-                    <p>Exemplo de controle de texto</p>
+                    <figure>
+                            
+                    </figure>
+                    
+                    <p><strong>Exemplo de controle de texto</strong></p>
                     
                     <p>Para este exemplo, arraste e solte um controle "Texto" do painel esquerdo na tela do Formulário Dinâmico.</p>
                     
