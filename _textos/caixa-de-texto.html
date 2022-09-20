@@ -37,7 +37,7 @@
                                     <li><a href="#item2bi">Transformar texto em</a></li>
                                     <li><a href="#item2bii">Comprimento Máximo</a></li>
                                     <li><a href="#item2biii">Fórmula</a></li>
-                                    <li><a href="#item2biv">Validar</a></li>                    
+                                    <li><a href="#item2biv">Validação</a></li>                    
                                     <ol type="a">
                                         <li><a href="#item2biva">Sintaxe de Expressão Regular</a></li>
                                         <li><a href="#item2bivb">Exemplo de expressões regulares</a></li>
@@ -150,7 +150,7 @@
                             <li>Letra maiuscula na frase</li>
                             <li>Título do Caso</li>
                             </ul></td></tr>
-                            <tr><td>Validar</td><td>Usa padrão para validar o campo (regex).</td></tr>
+                            <tr><td>Validação</td><td>Usa padrão para validar o campo (regex).</td></tr>
                             <tr><td>Mensagem de erro de validação</td><td>Exibe esta mensagem se a validação falhar.</td></tr>
                             <tr><td>Máx. Comprimento</td><td>Defina nesta propriedade o comprimento máximo de texto permitido</td></tr>
                             <tr><td>Fórmula</td><td>Use esta propriedade para criar um valor calculado com base nas operações definidas na fórmula.<br><br>
@@ -208,7 +208,7 @@
 
                 <h2 id="item2bii">Comprimento Máximo</h2>
 
-                    <p>Esta propriedade define o número máximo de caracteres que podem ser inseridos em um campo de controle de texto. Esta propriedade também é uma validação feita sobre estes campos, mas se uma expressão regular foi definida dentro da propriedade "Validar", esta validação será verificada antes do Comprimento Máximo.</p>
+                    <p>Esta propriedade define o número máximo de caracteres que podem ser inseridos em um campo de controle de texto. Esta propriedade também é uma validação feita sobre estes campos, mas se uma expressão regular foi definida dentro da propriedade "Validação", esta validação será verificada antes do Comprimento Máximo.</p>
 
                     <figure>
 
@@ -289,25 +289,25 @@
 
                     <p>As fórmulas também podem ser usadas em campos de texto encontrados em grades. As fórmulas nas grades podem conter apenas os IDs de outros campos na mesma linha da grade, portanto, não é possível fazer referência a campos fora da grade ou campos em outras linhas da grade. Se precisar fazer cálculos com base em campos fora da grade, é recomendável adicionar código <font color="1d438a">JavaScript que usa o formulário .setOnchange(</font>) para definir um manipulador de eventos que calcula a fórmula quando um valor na grade é alterado.</p>
                 
-                <h2 id="item2biv">Validar</h2>
+                <h2 id="item2biv">Validação</h2>
 
                     <p>Esta propriedade permite que seja inserida uma expressão regular que verifica se o usuário inseriu uma entrada válida na caixa de texto. Se a entrada corresponder à expressão regular, o usuário poderá sair do campo, mas se a entrada não corresponder, a mensagem do campo será destacada em vermelho e o texto na propriedade Mensagem de erro de validação será exibido. O usuário não terá permissão para sair do campo até que sua entrada seja alterada para corresponder à expressão regular.</p>
 
                 <h2 id="item2biva">Sintaxe de Expressão Regular</h2>
 
-                    <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade <strong>validar</strong> para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
+                    <p>Esta é uma breve introdução às expressões regulares que podem ser usadas na propriedade <strong>validação</strong> para verificar se o usuário inseriu uma entrada válida em uma caixa de texto.</p>
 
                     <p><strong>validação de sequências de caracteres</strong></p>
 
-                    <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão normal. Por exemplo, uma propriedade validar de <code>cr</code> aceitaria qualquer entrada que contenha as letras <code>cr</code>, como <code>lu<strong>cr</strong>o</code>, <code><strong>cr</strong>édito</code> e <code>So<strong>cr</strong>ates</code>. No entanto, <code>José <strong>Cr</strong>uz</code> ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.</p>
+                    <p>Para corresponder a qualquer sequência de caracteres, use-os na expressão normal. Por exemplo, uma propriedade validação de <code>cr</code> aceitaria qualquer entrada que contenha as letras <code>cr</code>, como <code>lu<strong>cr</strong>o</code>, <code><strong>cr</strong>édito</code> e <code>So<strong>cr</strong>ates</code>. No entanto, <code>José <strong>Cr</strong>uz</code> ele não aceitaria porque as expressões regulares diferenciam maiúsculas de minúsculas.</p>
 
                     <p><strong>Início do texto:<code>^</code></strong></p>
 
-                    <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por <code>^</code>. Por exemplo, uma propriedade Validar de <code>^Cr</code> aceitaria <code><strong>Cr</strong>uz</code> e <code><strong>Cr</strong>ivelli</code>, mas não aceitaria <code>João <strong>Cr</strong>uz</code> ou <code>ola<strong>Cr</strong>ude</code> porque "Cr" não ocorre no início do texto.</p>
+                    <p>Observe que a expressão regular pode ocorrer em qualquer lugar do texto. Para especificar que a expressão regular deve ocorrer no início do texto, preceda-a por <code>^</code>. Por exemplo, uma propriedade Validação de <code>^Cr</code> aceitaria <code><strong>Cr</strong>uz</code> e <code><strong>Cr</strong>ivelli</code>, mas não aceitaria <code>João <strong>Cr</strong>uz</code> ou <code>ola<strong>Cr</strong>ude</code> porque "Cr" não ocorre no início do texto.</p>
 
                     <p><strong>Fim do texto:<code>$</code></strong></p>
                     
-                    <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione <code>$</code> após a sequência de caracteres para corresponder. Por exemplo, uma propriedade Validar de <code>2X$</code> aceitaria <code>Tamanho 2X</code> e <code>42X</code>, mas não aceitaria <code><strong>2X</strong> larger</code> ou <code>UA<strong>2X</strong></code> porque <code>2X</code> não é encontrada no final do texto.</p>
+                    <p>Da mesma forma, para especificar que a expressão regular deve ocorrer no final do texto, adicione <code>$</code> após a sequência de caracteres para corresponder. Por exemplo, uma propriedade Validação de <code>2X$</code> aceitaria <code>Tamanho 2X</code> e <code>42X</code>, mas não aceitaria <code><strong>2X</strong> larger</code> ou <code>UA<strong>2X</strong></code> porque <code>2X</code> não é encontrada no final do texto.</p>
 
                     <p>Para validar o texto completo, use ambos <code>^</code> antes da sequência de caracteres para corresponder e <code>$</code> no final da sequência de caracteres. Por exemplo, <code>^sim$</code> só permitiria que o usuário entrasse com o texto "sim" no campo. Não corresponderia <code>&nbsp&nbspsim</code> ou <code>Diga me sim</code>.</p>
 
@@ -385,7 +385,7 @@
 
                 <h2 id="item2bivb">Exemplo de expressões regulares</h2>
 
-                    <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade <strong>validar</strong>. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
+                    <p>O Gestor Express fornece alguns exemplos de expressões regulares que podem ser inseridas na propriedade <strong>validação</strong>. Para ver a lista de exemplos, clique no botão Ajuda. Em seguida, clique em um dos exemplos da lista para inseri-lo e depois personalizá-lo para atender às suas necessidades.</p>
 
                         <figure>
                             
@@ -423,7 +423,7 @@
 
                 <h2 id="item2bv">Mensagem de erro de validação</h2>
                     
-                    <p>Esta propriedade está relacionada à propriedade Validare simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "Falso".</p>
+                    <p>Esta propriedade está relacionada à propriedade Validaçãoe simplesmente configura a mensagem de erro mostrada caso a avaliação para o campo seja "Falso".</p>
 
                     <p>Para o exemplo de validação do endereço de e-mail, vamos definir a mensagem de erro vista na imagem a seguir:</p>
                     
@@ -606,7 +606,7 @@
                             <li>Letra maiuscula no início da frase</li>
                             <li>Título do Caso</li>
                             </ul></td></tr>
-                            <tr><td>Validar</td><td>Usa padrão para validar o campo (regex).</td></tr>
+                            <tr><td>Validação</td><td>Usa padrão para validar o campo (regex).</td></tr>
                             <tr><td>Mensagem de erro de validação</td><td>Exibe esta mensagem se a validação falhar.</td></tr>
                             <tr><td>Máx. Comprimento</td><td>Defina nesta propriedade o comprimento máximo de texto permitido</td></tr>
                             <tr><td>Fórmula</td><td>Use esta propriedade para criar um valor calculado com base nas operações definidas na fórmula.<br><br>
@@ -698,7 +698,7 @@
 
                     </figure>
 
-                    <p>As propriedades "validar" e "Mensagem de Erro de Validação" trabalham juntas para usar um padrão e validar o texto escrito no controle. Muitas validações complicadas podem ser usadas, por exemplo, use a validação para um endereço de e-mail: <strong>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9] +.[a-zA-Z0-9]{2,4}$</strong>. Mas para este caso use uma validação simples para um endereço residencial que é: <strong>[a-zA-Z0-9]</strong>, então ao executar um caso ele validará o texto escrito dentro do controle como visto na imagem abaixo.</p>
+                    <p>As propriedades "validação" e "Mensagem de Erro de Validação" trabalham juntas para usar um padrão e validar o texto escrito no controle. Muitas validações complicadas podem ser usadas, por exemplo, use a validação para um endereço de e-mail: <strong>^[a-zA-Z0-9]+.?[a-zA-Z0-9]+@[a-zA-Z0-9] +.[a-zA-Z0-9]{2,4}$</strong>. Mas para este caso use uma validação simples para um endereço residencial que é: <strong>[a-zA-Z0-9]</strong>, então ao executar um caso ele validará o texto escrito dentro do controle como visto na imagem abaixo.</p>
                                                             
                     <figure>
 
@@ -767,21 +767,21 @@
                             <tr><th>Método</th><th>Descrição</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>jQuery("#fieldID") . getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com$("#id")</td></tr>
-                            <tr><td>jQuery("#fieldID") . disableValidation()</td><td>Desabilite a validação do campo, para que não verifique a expressão regular na propriedade validate e se o campo é obrigatório quando o formulário for enviado.</td></tr>
-                            <tr><td>jQuery("#fieldID") . enableValidation()</td><td>Habilite a validação do campo, assim verificará a expressão regular na propriedade validate e se o campo é obrigatório quando o formulário for enviado.</td></tr>
-                            <tr><td>jQuery("#fieldID") . getValue()</td><td>Retorna o valor do campo, que é o que é armazenado pelo campo. Observe que getValue()e getText() retornam a mesma coisa em caixas de texto e áreas de texto.</td></tr>
+                            <tr><td>jQuery("#fieldID") . getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com <code>$("#id")</code></td></tr>
+                            <tr><td>jQuery("#fieldID") . disableValidation()</td><td>Desabilite a validação do campo, para que não verifique a expressão regular na propriedade <strong>validação</strong> e se o campo é <strong>obrigatório</strong> quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID") . enableValidation()</td><td>Habilite a validação do campo, assim verificará a expressão regular na propriedade <strong>validação</strong> e se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID") . getValue()</td><td>Retorna o valor do campo, ou seja, o que é armazenado pelo campo. Observe que <code>getValue()</code> e getText() retornam a mesma coisa em caixas de texto e áreas de texto.</td></tr>
                             <tr><td>jQuery("#fieldID") . getText()</td><td>Retorna o texto do campo, que é o que é exibido no campo. Observe que getValue()e getText() retornam a mesma coisa em caixas de texto e áreas de texto.</td></tr>
                             <tr><td>jQuery("#fieldID") . getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
                             <tr><td>jQuery("#fieldID") . setValue("novo valor")</td><td>Define um novo valor no campo, que é o que está armazenado no campo.</td></tr>
-                            <tr><td>jQuery("#fieldID") . setText("novoTexto")</td><td>define um novo texto no campo, que é o que é exibido para o usuário. Observe que para caixas de texto e áreas de texto, setText()é o mesmo que setValue().</td></tr>
-                            <tr><td>jQuery("#fieldID") . setLabel("novoEtiqueta")</td><td>Altere o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID") . setText("novoTexto")</td><td>Define um novo texto no campo, que é o que é exibido para o usuário. Observe que para caixas de texto e áreas de texto, <code>setText()</code> é o mesmo que <code>setValue()</code>.</td></tr>
+                            <tr><td>jQuery("#fieldID") . setLabel("novoEtiqueta")</td><td>Altera o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
                             <tr><td>"jQuery(""#fieldID"") . setOnchange(
-                            function(newVal, oldVal){...})"</td><td>"Defina um manipulador de eventos de alteração , que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros:
+                            function(newVal, oldVal){...})"</td><td>"Define um gerenciador de eventos de alteração , que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros:
                             
                             <ul>
-                                <li>newVal: O novo valor que acabou de ser definido no campo.</li>
-                                <li>oldVal: O valor antigo que foi alterado."</li>
+                                <li><strong>newVal:</strong> O novo valor que acabou de ser definido no campo.</li>
+                                <li><strong>oldVal:</strong> O valor antigo que foi alterado.</li>
                             </ul>
                         </td></tr>
                         </tbody>
@@ -791,33 +791,55 @@
 
                     <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
                     
-                    <h2 id="item4b">Manipulador de eventos de alteração personalizada</h2>
+                    <h2 id="item4b">Gerenciador de eventos de alteração personalizada</h2>
 
-                    <p>Para executar o código personalizado depois que o usuário terminar de inserir um novo valor em uma caixa de texto ou área de texto, um manipulador de eventos pode ser atribuído ao evento de alteração do campo.</p>
-                    <p>Por exemplo, o código a seguir é usado para verificar a entrada em uma caixa de texto com o ID "productCode". Quando o foco sai do campo, o código remove automaticamente quaisquer espaços e converte a entrada em maiúsculas. Em seguida, verifica se o usuário digitou um número de série válido no formato "S[0-9][0-9][XYT][0-9]", como "S38X7" ou "S08T2". Se for um código de série válido, ele define o valor modificado na caixa de texto. Caso contrário, exibe uma mensagem de alerta, informando ao usuário que o número de série é inválido.</p>
-                    <p>$ ("#productCode"). getControl (). change (function (e) {</p>
-                    <p>  val = this. value. trim () ;  // remove os espaços iniciais e finais</p>
-                    <p>  val = val. toUpperCase () ;</p>
-                    <p>  re = /^S[0-9][0-9][XYT] [0-9]$/ ;</p>
-                    <p>  if (val. match (re)) {</p>
-                    <p>     //configura o valor transformado no campo "serial":</p>
-                    <p>     $ ("#productCode"). setValue (val) ;</p>
-                    <p>  }</p>
-                    <p>  else {</p>
-                    <p>     alert (this. value + " é inválido. \n Use números de série como 'S[0-9][0-9][XYT][0-9]'.") ;</p>
-                    <p>  }</p>
-                    <p>}) ;</p>
-                    <p>Filtrando chaves com JavaScript</p>
-                    <p>A propriedade validate pode ser útil para verificar a entrada em um campo, mas só acontece durante um evento de alteração quando o foco sai do campo. Para evitar que o usuário insira uma entrada inválida em um campo, pode ser útil filtrar pressionamentos de tecla para caracteres inválidos retornando falseno manipulador de eventos para os eventos keydown, keypress ou keyup.</p>
-                    <p>Por exemplo, o seguinte manipulador de eventos keydown só permite que caracteres usados em números sejam inseridos em uma caixa de texto com o ID "amount":</p>
-                    <p>$ ("#quantia"). getControl (). keydown (function (e) {</p>
-                    <p>   var key = e. keyCode ;    </p>
-                    <p>   if ((key <= 46 && key != 16) ||   //permite teclas de controle, mas não SHIFT                </p>
-                    <p>      (key >= 48 && key <= 57)  | |   //números 0-9</p>
-                    <p>      (chave >= 96 &&chave <= 105) ||          // teclado numérico 0-9 == 107 || //teclado numérico +        tecla == 109 || // teclado numérico -        tecla (menos) == 110 || //teclado numérico. (ponto)        chave == 173 || //- (traço no Mozilla)        key == 189 || //- (traço no IE)        key == 190) //. (ponto) return true ; senão retorna false ; }</p>
-                    <p>) ;</p>
-                    <p>Este código examina o event.keyCodepara ver qual tecla foi pressionada, mas diferentes navegadores da Web podem usar códigos de tecla diferentes. Para obter os diferentes códigos de chave, consulte esta lista ou vá para http://keycode.info/ e pressione uma tecla para verificar seu código de chave.</p>
-                    <p>É claro que este código não verifica se um número válido foi inserido, então é possível inserir bobagens como 98-2..-873no campo. A única solução é adicionar código adicional ao manipulador de eventos keydown para verificar entradas inválidas, mas em muitos casos é muito mais fácil usar uma expressão regular na propriedade validate do campo ou escrever um changemanipulador de eventos personalizado para lidar com entradas inválidas.</p>
+                    <p>Para executar o código personalizado depois que o usuário terminar de inserir um novo valor em uma caixa de texto ou área de texto, um gerenciador de eventos pode ser atribuído ao evento de alteração do campo.</p>
+
+                    <p>Por exemplo, o código a seguir é usado para verificar a entrada em uma caixa de texto com o ID "produtoCode". Quando o foco sai do campo, o código remove automaticamente quaisquer espaços e converte a entrada em maiúsculas. Em seguida, verifica se o usuário digitou um número de série válido no formato <code>"S[0-9][0-9][XYT][0-9]"</code>, como "S38X7" ou "S08T2". Se for um código de série válido, ele define o valor modificado na caixa de texto. Caso contrário, exibe uma mensagem de alerta, informando ao usuário que o número de série é inválido.</p>
+
+                    <codeblock>
+                        <p>$ (<font color="blue">"#produtoCode"</font>). getControl().change( function(e) {</p>
+                        <p>&nbsp &nbsp  val <font color="green">=</font> this.value.trim<font color="green">();  // remove os espaços iniciais e finais</font></p>
+                        <p>&nbsp &nbsp  val <font color="green">=</font> val.toUpperCase<font color="green">();</font></p>
+                        <p>&nbsp &nbsp  re <font color="green">= /^S[0-9][0-9][XYT] [0-9]$/;</font></p> <br>
+                        <p>&nbsp &nbsp  if <font color="green">(</font>val.match<font>(</font color="green">re<font>)) {</font></p>
+                        <p>&nbsp &nbsp <font color="green">//configura o valor transformado no campo "serial":</font></p>
+                        <p>&nbsp &nbsp $<font color="green">(</font><font color="blue">"#produtoCode"</font><font color="green">)</font>.setValue<font color="green">(</font>val<font color="green">);</font></p>
+                        <p>  <font color="green">}</font></p>
+                        <p>  else <font color="green">{</font></p>
+                        <p>&nbsp &nbsp alert<font color="green">(</font>this.value <font color="green">+</font> <font color="blue">" é inválido. \n Use números de série como 'S[0-9][0-9][XYT][0-9]'."</font>);</p>
+                        <p>&nbsp <font color="green">}</font></p>
+                        <p><font color="green">});</font></p>
+                    </codeblock>
+
+
+                <h2 id="item4c">Filtrando chaves com JavaScript</h2>
+
+                    <p>A propriedade <a href="#item2biv" target="_blank">validação</a> pode ser útil para verificar a entrada em um campo, mas só acontece durante um evento de alteração quando o foco sai do campo. Para evitar que o usuário insira uma entrada inválida em um campo, pode ser útil filtrar pressionamentos de tecla para caracteres inválidos retornando falso no gerenciador de eventos para os eventos keydown, keypress ou keyup.</p>
+
+                    <p>Por exemplo, o seguinte gerenciador de eventos keydown só permite que caracteres usados em números sejam inseridos em uma caixa de texto com o ID "quantia":</p>
+
+                    <codeblock>
+                        <p>$ <font color="green">(</font><font color="blue">"#quantia"</font><font>)</font>. getControl<font color="green">()</font>.keydown<font color="green">(</font> function<font>(</font>e<font color="green">) {</font></p>
+                        <p>&nbsp &nbsp var key <font color="green">=</font> e.keyCode<font>;</font></p>
+                        <p>&nbsp &nbsp if <font color="green">((</font>key <font color="green"><=</font> <font color=red>46</font> <font color="green">&&</font> key <font color="green">!=</font> <font color=red>16</font>) <font color="green">||&nbsp &nbsp &nbsp &nbsp   //permite teclas de controle, mas não SHIFT</font></p>
+                        <p>&nbsp &nbsp &nbsp &nbsp <font color="green">(</font>key <font color="green">>=</font> <font color=red>48</font> <font color="green">&&</font> key <font color="green"><=</font> <font color=red>57</font><font color="green">)  ||&nbsp &nbsp &nbsp &nbsp //números 0-9</font></p>
+                        <p>&nbsp &nbsp &nbsp &nbsp <font color="green">(</font>key <font color="green">>=</font> <font color="red">96</font> <font color="green">&&</font> key <font color="green"><=</font> <font color=red>105</font><font color="green">) ||&nbsp &nbsp &nbsp // teclado numérico 0-9</font></p>
+                           <p>&nbsp &nbsp &nbsp &nbsp key<font color="green">==</font> <font color=red>107</font color="green">&nbsp &nbsp &nbsp<font color="green">||&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //teclado numérico +</font></p>        
+                           <p>&nbsp &nbsp &nbsp &nbsp key <font color="green">==</font> <font color=red>109</font>&nbsp &nbsp <font color="green">||&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp // teclado numérico - (menos)</font></p> 
+                           <p>&nbsp &nbsp &nbsp &nbsp key <font color="green">==</font> <font color=red>110</font>&nbsp &nbsp &nbsp<font color="green">||&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //teclado numérico . (periodo)</font></p>
+                           <p>&nbsp &nbsp &nbsp &nbsp key <font color="green">==</font> <font color=red>173</font>&nbsp &nbsp &nbsp<font color="green">||&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //- (barra no Mozilla)</font></p>
+                           <p>&nbsp &nbsp &nbsp &nbsp key <font color="green">==</font> <font color=red>189</font>&nbsp &nbsp &nbsp<font color="green">||&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp //- (barra no IE)</font></p>        
+                           <p>&nbsp &nbsp &nbsp &nbsp key <font color="green">==</font> <font color=red>190</font>)&nbsp &nbsp &nbsp &nbsp <font color="green">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp//. (periodo)</font></p> 
+                           <p>&nbsp &nbsp &nbsp return true<font color="green">;</font></p>
+                        <p>&nbsp &nbsp else</p>
+                        <p>&nbsp &nbsp &nbsp return false<font color="green">;</font></p>
+                        <p><font color="green">} );</font></p>
+                    </codeblock>
+
+                    <p>Este código examina o <code>event.keyCode</code> para ver qual tecla foi pressionada, mas diferentes navegadores da Web podem usar códigos de tecla diferentes. Para obter os diferentes códigos de tecla, consulte esta lista ou vá para <a href="http://keycode.info/" target="_blank">http://keycode.info/</a> e pressione uma tecla para verificar seu código de chave.</p>
+
+                    <p>É claro que este código não verifica se um número válido foi inserido, então é possível cometer erros como <code>98-2..-873</code> no campo. A única solução é adicionar código adicional ao gerenciador de eventos keydown para verificar entradas inválidas, mas em muitos casos é muito mais fácil usar uma expressão regular na propriedade validação do campo ou escrever um gerenciador de eventos de alteração personalizado para lidar com entradas inválidas.</p>
                                        
             </article>
         </section>

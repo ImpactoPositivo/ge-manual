@@ -204,6 +204,7 @@ table {
 
 table th {
     background-color: var(--cor1);
+    border: 1px solid var(--cor1);  
     color: white;
     font-size: .8rem;
     text-align: center;
@@ -222,18 +223,13 @@ table th {
 
 }
 
-.textbox li {
-    color:black;
-    font-size: .8rem;
-    text-align: left;
-}
-
 .textbox li strong{
-    color:black;
     font-size: .8rem;
-    text-align: left;
 }
 
+.textbox strong{
+    font-size: .8rem;
+}
 
 .tab2 {
     width: 60vw;
