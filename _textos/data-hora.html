@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Gateway</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+                <h1>Controle de data e hora</h1>
+                <h2>Conteúdo</h2>
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Gerenciando um controle de data e hora</a></li>
+                    <li><a href="#item3">Propriedades do controle de data e hora</a>
+                        <ol type="A">
+                            <li><a href="#item3a">Formato</a>
+                                <ol type="i">
+                                    <li><a href="#item3ai">Sobre hh:mm</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#item3b">Data mínima</a></li>
+                            <li><a href="#item3c">Data máxima</a></li>
+                            <li><a href="#item3d">Data de seleção inicial</a></li>
+                            <li><a href="#item3e">Data padrão</a></li>
+                            <li><a href="#item3f">Modo de visualização do selecionador de data</a></li>
+                            <li>M<a href="#item3g">ostrar botão Limpar</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item4">Exemplo de controle de data e hora</a></li>
+                    <li><a href="#item5">JavaScript em controles de data e hora</a>
+                        <ol type="A">
+                            <li><a href="#item5a">Métodos JavaScript</a></li>
+                            <li><a href="#item5b">Obtendo datas</a></li>
+                            <li><a href="#item5c">Definir datas e horas</a></li>
+                            <li><a href="#item5d">Comparando Datas e Horas em JavaScript</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item6">Acessando Datas e Horas com PHP</a>
+                        <ol type="A">
+                            <li><a href="#item6a">Comparando Datas e Horas com PHP</a></li>
+                            <li><a href="#item6b">Convertendo Datas e Horas em Timestamps</a></li>
+                            <li><a href="#item6c">Extraindo informações de data e hora</a></li>
+                            <li><a href="#item6d">Convertendo de Timestamps para Datas e Horas</a></li>
+                            <li><a href="#item6e">Formatação de data e hora em inglês</a></li>
+                            <li><a href="#item6f">Formatação de data e hora em outros idiomas</a></li>
+                            <li><a href="#item6g">Datas e Horas dinâmicos usando variáveis</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+
+                    <p>Nos Formulários Dinâmicos do Gestor Express os controles Data e Hora permitem que o usuário final adicione datas a um Formulário Dinâmico por meio de um calendário interativo.</p>
+
+                    <p>Clicar em um campo de controle Data e Hora abre um pop-up de calendário onde os usuários podem facilmente selecionar e inserir uma data. Isso ajuda a padronizar os formatos de data e evita erros comuns.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>Os Formulários Dinâmicos no Gestor Express usam a biblioteca Bootstrap 3 Datepicker para construir seu controle Data e Hora. Esta biblioteca baseia seu formato na biblioteca Moment.js, uma poderosa biblioteca JavaScript que gerencia datas e formatos. As seções a seguir abordarão como definir as propriedades do controle Data e Hora para saber mais sobre como ele funciona.</p>
+
+                    <p>Depois de adicionar um controle de data e hora à Ferramenta de Desenho do Formulário Dinâmico, ele se parece com a imagem abaixo:</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>Ao executar um caso com este controle, o pop-up do seletor de data estará disponível:</p>
+ 
+                    <figure>
+
+                    </figure>
+                   
+                    <p><font color="red">Problema conhecido:</font> Leve em consideração que quando não há espaço suficiente para a exibição do calendário, o calendário será exibido cortado.</p>
+
+                <h1 id="item2">Gerenciando um controle de data e hora</h1>
+
+                    <p>Depois de adicionar um controle de data e hora à Ferramenta de Desenho do Formulário Dinâmico, é possível personalizar sua funcionalidade e comportamento usando o painel de propriedades.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo:</strong> definido por padrão como "<code>datetime</code>". Esta definição não pode ser modificada.</li>
+
+                        <li><strong>id:</strong> Definido por padrão como <code>datetimeVar00X</code>, onde "X" representa o número correspondente do controle no desenho. Por exemplo, se o controle Data e Hora fosse o primeiro controle Data e Hora a ser adicionado ao Formulário Dinâmico, X seria 1, se fosse o segundo controle Data e Hora a ser adicionado ao Formulário Dinâmico, X seria 2 e assim por diante. Depois que uma variável é relacionada a esse controle, o ID muda para o nome da variável; no entanto, é possível definir um novo ID para o controle usando JavaScript.</li>
+
+                        <li><strong>rótulo:</strong> Definido por padrão como "<code>datetime_1</code>", onde "X" representa o número correspondente do controle no desenho. Esta numeração começa em 1.</li>
+
+                        <li><strong>modo de exibição:</strong> Definido por padrão como "mestre". Consulte esta documentação para obter mais informações sobre os modos disponíveis para esse controle.</li>
+
+                        <li><strong>formatar:</strong> Definido por padrão como " YYYY-MM-DD", que representa o formato de data "Ano-Mês-Dia". Leia a explicação desta propriedade abaixo para saber como configurar o formato.</li>
+
+                        <li><strong>data de seleção inicial:</strong> Defina o valor do campo e do seletor de data quando o seletor de data for aberto. Esta propriedade é definida como "falso" por padrão. Para obter mais informações, consulte esta seção.</li>
+
+                        <li><strong>modo de visualização:</strong> Definido por padrão como "dias" para mostrar um calendário do mês em que o selecionador de data é aberto.</li>
+
+                        <li><strong>mostrar botão limpar:</strong> Definido por padrão como "esconder" para ocultar o ícone de lixo no seletor de data ao trabalhar com o campo no Formulário Dinâmico. Para mais informações, leia a explicação desta propriedade abaixo.</li>
+                    </ul>
+                    
+                    <h1 id="item3">Propriedades do controle de data e hora</h1>
+
+                    <p>As propriedades relacionadas a este controle da web são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="18%">Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>datetime</code> (somente leitura)</td></tr>
+                            
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Confira esta seção para saber mais sobre como relacionar uma variável a um controle.<br>                            
+                            Somente variáveis com os seguintes tipos de dados podem ser selecionadas:
+                            <ul>
+                                <li>data e hora</li>
+                            </ul></td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            
+                            <tr><td>ID</td><td>[Requeridos]<BR>Identificador exclusivo de campo e HTML.</td></tr>
+                            
+                            <tr><td>Rótulo</td><td>Defina o rótulo do controle exibido no Formulário Dinâmico nesta propriedade.</td></tr>
+                            
+                            <tr><td>Informativo</td><td>Defina o texto nesta propriedade que será mostrado em cinza no Formulário Dinâmico para ajudar o usuário a preencher o campo.</td></tr>
+                            
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando a caixa de texto é renderizada. É mostrado quando o ponteiro do mouse está sobre o ícone ?.</td></tr>
+                            
+                            <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório. Quando um campo obrigatório não é preenchido com nenhum valor, não é possível passar para a próxima etapa.</td></tr>
+                            
+                            <tr><td>Modo de exibição</td><td>"[Requeridos]<br>Modo de exibição:
+                            <ul>
+                                <li><strong>mestre:</strong> Herda o modo de exibição definido no contêiner mestre (formuláriograde)</li>
+                                <li><strong>editar:</strong> O campo pode ser editado pelo usuário final quando renderizado no Formulário Dinâmico.</li>
+                                <li><strong>view:</strong> O campo só pode ser visualizado pelo usuário final quando renderizado no Formulário Dinâmico.</li>
+                                <li><strong>desabilitado:</strong> O campo é exibido em cinza para indicar que o controle está no modo desabilitado e não pode ser editado.</li>
+                            </ul></td></tr>
+
+                            <tr><td>Formatar</td><td>[Obrigatório]<br> Define o formato de exibição da data, como "DD-MM-AAAA". Quando o usuário final passa o mouse sobre o ícone ?, quando o Formulário Dinâmico é renderizado, o formato de data e hora definido é mostrado para ajudar o usuário a preencher o campo."</td></tr>
+                            
+                            <tr><td>Data mínima</td><td>Define a data válida mais antiga que estará disponível no seletor de datas quando o formulário for renderizado. A propriedade pode ser definida nas propriedades do controle (usando o seletor de datas) ou usando uma variável para definir o valor <code>@@MinDate</code>.</td></tr>
+                            
+                            <tr><td>Data máxima</td><td>Define a última data válida que estará disponível no selecionador de datas quando o formulário for renderizado. A propriedade pode ser definida nas propriedades do controle (usando o seletor de datas) ou usando uma variável para definir o valor <code>@@MaxDate</code>.</td></tr>
+                            
+                            <tr><td>Data de seleção inicial</td><td>Quando esta propriedade é configurada como "verdadeiro", ela configura a data e hora atuais no selecionador de data.</td></tr>
+
+                            <tr><td>Data padrão</td><td>"Define a data padrão mostrada no campo quando o Formulário Dinâmico é renderizado.<br>                            
+                            Para saber mais sobre como funcionam as datas padrão, leia esta documentação"</td></tr>
+                            <tr><td>Modo de visualização</td><td>"O valor padrão desta propriedade é "dias", mas pode ser alterado para "anos" ou "meses". Alterar essa propriedade altera a forma como o calendário é exibido no seletor de data.<br>                                                         
+                            <font color="green">Observação:</font> Para limitar o selecionador a selecionar determinados incrementos de tempo, por exemplo, o ano e o mês, use o formato: MM/AAAA"</td></tr>
+                            <tr><td>Mostrar botão Limpar</td><td>Padrão: falso. Mostra ou oculta o botão Limpar no ícone de barra de ferramentas. O valor padrão desta propriedade é "falso", que ocultará o botão Limpar. Clicar no botão Limpar definirá o calendário como nulo.</td></tr>
+                        </tbody>
+                    </table>
+                        
+
+
+                <h2 id="item3a">Formato</h2>
+
+                    <p>Esta propriedade permite que a data e hora selecionadas como entrada sejam formatadas. Se o desenhista usa bootstrap, esta é uma opção mais robusta. Leve em consideração os seguintes nomes e convenções usados para definir o formato.</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="10%"></th><th width="5%">Token</th><th width="15%">Exemplo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Mês</td><td>M</td><td>1 2 ... 11 12</td></tr>
+                            <tr><td></td><td>Sem</td><td>1º 2º ... 11º 12º</td></tr>
+                            <tr><td></td><td>MM</td><td>01 02 ... 11 12</td></tr>
+                            <tr><td></td><td>MMM</td><td>Jan Fev ... Nov Dez</td></tr>
+                            <tr><td></td><td>MMMM</td><td>Janeiro Fevereiro ... Novembro Dezembro</td></tr>
+                            <tr><td>Trimestre</td><td>Q</td><td>1 2 3 4</td></tr>
+                            <tr><td>Dia do mês</td><td>D</td><td>1 2 ... 30 31</td></tr>
+                            <tr><td></td><td>Faça</td><td>1º 2º ... 30º 31º</td></tr>
+                            <tr><td></td><td>DD</td><td>01 02 ... 30 31</td></tr>
+                            <tr><td>Dia do ano</td><td>DDD</td><td>1 2 ... 364 365</td></tr>
+                            <tr><td></td><td>DDDo</td><td>1º 2º ... 364º 365º</td></tr>
+                            <tr><td></td><td>DDDD</td><td>001 002 ... 364 365</td></tr>
+                            <tr><td>Dia da semana</td><td>d</td><td>0 1 ... 5 6</td></tr>
+                            <tr><td></td><td>fazer</td><td>0º 1º ... 5º 6º</td></tr>
+                            <tr><td></td><td>dd</td><td>Su Mo ... Fr Sa</td></tr>
+                            <tr><td></td><td>ddd</td><td>Dom Seg ... Sex Sáb</td></tr>
+                            <tr><td></td><td>dddd</td><td>Domingo Segunda... Sexta Sábado</td></tr>
+                            <tr><td>Dia da semana (localidade)</td><td>e</td><td>0 1 ... 5 6</td></tr>
+                            <tr><td>Dia da semana (ISO)</td><td>E</td><td>1 2 ... 6 7</td></tr>
+                            <tr><td>Semana do ano</td><td>w</td><td>1 2 ... 52 53</td></tr>
+                            <tr><td></td><td>wo</td><td>1º 2º ... 52º 53º</td></tr>
+                            <tr><td></td><td>ww</td><td>01 02 ... 52 53</td></tr>
+                            <tr><td>Semana do ano (ISO)</td><td>W</td><td>1 2 ... 52 53</td></tr>
+                            <tr><td></td><td>Wo</td><td>1º 2º ... 52º 53º</td></tr>
+                            <tr><td></td><td>WW</td><td>01 02 ... 52 53</td></tr>
+                            <tr><td>Ano</td><td>AA</td><td>70 71 ... 29 30</td></tr>
+                            <tr><td></td><td>AAAA</td><td>1970 1971 ... 2029 2030</td></tr>
+                            <tr><td>Ano da semana</td><td>gg</td><td>70 71 ... 29 30</td></tr>
+                            <tr><td></td><td>gggg</td><td>1970 1971 ... 2029 2030</td></tr>
+                            <tr><td>Ano Semanal (ISO)</td><td>GG</td><td>70 71 ... 29 30</td></tr>
+                            <tr><td></td><td>GGGG</td><td>1970 1971 ... 2029 2030</td></tr>
+                            <tr><td>AM/PM</td><td>A</td><td>AM PM</td></tr>
+                            <tr><td></td><td>a</td><td>am pm</td></tr>
+                            <tr><td>Hora</td><td>H</td><td>0 1 ... 22 23</td></tr>
+                            <tr><td></td><td>HH</td><td>00 01 ... 22 23</td></tr>
+                            <tr><td></td><td>h</td><td>1 2 ... 11 12</td></tr>
+                            <tr><td></td><td>hh</td><td>01 02 ... 11 12</td></tr>
+                            <tr><td>Minuto</td><td>m</td><td>0 1 ... 58 59</td></tr>
+                            <tr><td></td><td>mm</td><td>00 01 ... 58 59</td></tr>
+                            <tr><td>Segundo</td><td>s</td><td>0 1 ... 58 59</td></tr>
+                            <tr><td></td><td>ss</td><td>00 01 ... 58 59</td></tr>
+                            <tr><td>Fração de segundo</td><td>S</td><td>0 1 ... 8 9</td></tr>
+                            <tr><td></td><td>SS</td><td>0 1 ... 98 99</td></tr>
+                            <tr><td></td><td>SSS</td><td>0 1 ... 998 999</td></tr>
+                            <tr><td>Timestamp Unix</td><td>X</td><td>1360013296</td></tr>
+                            <tr><td>Timestamp Unix em milissegundos</td><td>x</td><td>1,36001E+12</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p><font color="green">Observação:</font> Nome e formato retirados de [1]</p>
+
+                    <p>Por exemplo, se o formato a seguir for definido com esta convenção:</p>
+
+                    <codeblock>dddd, MMMM Do YYYY, h:mm:ss a</codeblock>
+
+                    <p>Ao escolher uma data do selecionador de data,a entrada para o campo será a seguinte.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p><font color="green">Observação:</font> Se o usuário precisar editar as horas e os minutos em um controle de data e hora, inclua horas e minutos no formato. Por exemplo, um formato de <code>DD-MM-YYYY hh:mm A</code> permitirá ao usuário editar diretamente a hora no campo Data e Hora.</p>
+
+                    <p>Além disso, um ícone será adicionado na parte inferior da caixa de diálogo do seletor de data se o formato incluir horas, minutos, segundos ou AM/PM. Clicar nele mudará a caixa de diálogo para selecionar as unidades de tempo no formato:</p>
+
+                        <figure>
+
+                        </figure>
+
+                <p>Sobre hh:mm</p>
+                
+                    <p>Se o formato a seguir for definido nesta propriedade:</p>
+                    <p>hh:mm</p>
+                    <p>Observe que o seletor de horas NÃO pode diferenciar entre "am" e "pm" por si só. Portanto, se o usuário selecionar 17:00 com esta configuração, será escrito como 05:00 devido ao formato do hhtoken. Para evitar ambiguidade e diferenciar entre "am" e "pm", adicione a definição de meridiano:</p>
+                    <p>hh:mm A</p>
+                    <p><font color="green">Observação:</font> os controles de data e hora permitem que o usuário selecione as horas e os minutos na caixa de diálogo do seletor de data se a propriedade de formato do controle contiver horas e minutos. No entanto, pode ser mais conveniente simplesmente criar uma caixa de texto normal onde o usuário possa inserir o valor de data e hora. Para fazer isso, defina sua propriedade validate para:</p>
+                    <p>^(19[0-9]{2}|20[0-9]{2})-(1[0-2]|0[1-9])-(0[1-9]|[12][0-9]|3[01])( [0-5][0-9]:[0-5][0-9]){0,1}$</p>
+                    <p>A partir do Gestor Express 3.5.2 , devido à biblioteca Date não fornecer controle total sobre o formato hh:mm, para exibir corretamente o seletor de data com o 12hformato, defina a propriedade de formato adicionando um espaço antes hh:mmde. Também permite exibir valores de controle Data e Hora com um espaço anterior.</p>
+                    <p>Data mínima</p>
+                    <p>Esta propriedade impede que os usuários façam seleções de data/hora antes da data definida nesta propriedade. Por padrão, esta propriedade não está definida, portanto, nenhuma restrição é feita às datas selecionadas. Selecione a data mínima do calendário mostrado clicando no ícone do calendário no lado direito da caixa do imóvel.</p>
+                    <p>Por exemplo, quando a data mínima é definida como 03/12/2015:</p>
+                    <p>Conforme mostra a imagem, as datas anteriores a "03/12/2015" não estão habilitadas e não é possível pular para fevereiro. Se tentado, o cursor do mouse mostra um sinal de proibido.</p>
+                    <p>Data máxima</p>
+                    <p>Esta propriedade impede que os usuários façam seleções de data/hora após a data definida nesta propriedade. Por padrão, esta propriedade não está definida, portanto, nenhuma restrição é feita às datas selecionadas. Selecione a data máxima do calendário mostrado clicando no ícone do calendário no lado direito da caixa do imóvel.</p>
+                    <p>Por exemplo, quando a data máxima é definida para 17/03/2015:</p>
+                    <p>Conforme mostrado na imagem, as datas posteriores a "17/03/2015" não estão habilitadas e não é possível para os próximos meses. Se tentado, o cursor do mouse mostra um sinal de proibido.</p>
+                    <p>Data de seleção inicial</p>
+                    <p>A propriedade Data de Seleção Inicial define a data/hora padrão no campo de controle e o selecionador de data. Esta propriedade é definida como "false" por padrão.</p>
+                    <p>As outras opções nesta propriedade são as seguintes:</p>
+                    <p>False: O valor do campo e do seletor de data permanecerá vazio após a abertura do seletor de data.</p>
+                    <p>Verdadeiro: A data e hora atuais serão definidas no seletor de data e no campo quando o seletor de data for aberto. Por exemplo, 28-04-2017 11:26</p>
+                    <p>Ano: O ano da data atual será definido. O dia e o mês serão definidos como "01" e a hora como "00:00". Por exemplo, 01-01-2017 00:00.</p>
+                    <p>Mês: O ano e o mês da data atual serão definidos. O dia será definido como "01" e a hora como "00:00". Por exemplo, 01-04-2017 00:00</p>
+                    <p>Dia: O ano, mês e dia da data atual serão definidos. A hora será definida como "00:00". Por exemplo, 28-04-2017 00:00</p>
+                    <p>Hora: O ano, mês, dia e hora da data e hora atual serão definidos com os minutos como "00". Por exemplo, 28-04-2017 11:00</p>
+                    <p>Minuto: O ano, mês, dia, hora e minuto da data e hora atual serão definidos. Por exemplo, 28-04-2017 11:26</p>
+                    <p>Observe que é necessário configurar o formato para mostrar horas e minutos no campo Data e Hora e no selecionador de data.</p>
+                    <p>Data padrão</p>
+                    <p>Essa propriedade define a data e hora padrão ao usar o seletor de data.</p>
+                    <p>Esta propriedade não é configurada por padrão. Para definir uma data padrão, insira-a manualmente (atenção ao formato) ou, para evitar erros, clique no calendário à direita da caixa do campo de controle e selecione a data padrão no seletor de data e hora.</p>
+                    <p>Modo de visualização do selecionador de data</p>
+                    <p>Esta propriedade define a visualização padrão do calendário exibido quando o seletor é mostrado. Os valores possíveis deste controle estão descritos abaixo.</p>
+                    <p> Dias  Mostra os dias do mês no calendário do selecionador de datas.</p>
+                    <p> Meses  Mostra os meses do ano no calendário do selecionador de datas.</p>
+                    <p> Anos  Mostra os anos no calendário do selecionador de datas.</p>
+                    <p>Essa propriedade é definida como "Dias" por padrão.</p>
+                    <p>Mostrar botão Limpar</p>
+                    <p>Esta propriedade mostra o botão Limpar na barra de ferramentas do ícone (representado por um ícone de lixeira). Quando este botão é clicado, o campo de data e hora e o valor do selecionador de data são limpos.</p>
+                    <p>Exemplo de controle de data e hora</p>
+                    <p>Para este exemplo, adicione um controle Data e Hora ao Formulário Dinâmico simplesmente arrastando e soltando-o no designer a partir do menu Web Control localizado no painel esquerdo.</p>
+                    <p>Após adicionar o aviso de controle, a janela Criar variável aparecerá imediatamente, onde uma variável para o controle poderá ser criada. Crie uma variável chamada "date1" e clique no botão Salvar para armazenar a variável no controle.</p>
+                    <p>Após a variável ter sido criada e adicionada, clique em qualquer espaço vazio no controle no Formulário Dinâmico para exibir suas propriedades no painel esquerdo. Observe que a variável, o tipo de dados da variável e as propriedades id são definidas para os valores da variável.</p>
+                    <p>Para dar ao controle um nome próprio em vez de "Data e Hora_1", altere a propriedade do rótulo para "Current Date" como visto na imagem abaixo.</p>
+                    <p>Em seguida está a propriedade placeholder, que adiciona texto ao controle usado para ajudar o usuário a preencher o campo. Adicione o seguinte texto à propriedade: "Adicionar a data atual". A imagem abaixo mostra que o texto será exibido no campo de controle em cinza até que um valor seja adicionado.</p>
+                    <p>A propriedade hint é usada para mostrar um texto útil sobre o campo adicionando um ícone "i" no canto direito do controle. O texto de exemplo para esta propriedade pode ser o seguinte: "Selecione a data atual". Como visto na imagem abaixo, ao executar um caso haverá um ícone "i" ao lado do controle. Passe o ponteiro do mouse sobre o "i" para exibir a dica adicionada.</p>
+                    <p>A próxima propriedade é a propriedade necessária, que adiciona um asterisco ao rótulo para indicar que o campo é obrigatório. Ao executar um caso, uma mensagem de erro será exibida se o campo for deixado em branco.</p>
+                    <p>A propriedade do modo de exibição tem várias opções, que são explicadas abaixo:</p>
+                    <p>O campo a seguir é a propriedade de formato, que define o formato de exibição da data. Ele está configurado para mostrar o ano, o mês e o dia por padrão, mas existem várias outras opções que podem ser usadas. Passe o mouse sobre o ícone de ponto de interrogação para saber mais sobre a propriedade de formato ou leia mais nesta página. Tente adicionar o seguinte texto à propriedade de formato: "dddd, MMMM Do YYYY, h:mm:ssa"; isso mostrará o dia da semana e o mês atual, data e hora. Observe os resultados na imagem abaixo.</p>
+                    <p>Em seguida, a propriedade min date define a data mais antiga que pode ser selecionada no calendário do datepicker. Essa propriedade pode ser definida clicando no calendário e escolhendo a data válida mais antiga que pode ser escolhida ao executar um caso. Por exemplo, se o primeiro dia de novembro for escolhido como a primeira data válida, todas as datas anteriores a 1º de novembro serão desabilitadas no seletor de datas quando o caso estiver sendo executado. Como pode ser visto na imagem abaixo, a seta para voltar ao mês anterior está desabilitada.</p>
+                    <p>A propriedade max date é semelhante à propriedade min date, mas define a última data válida que pode ser escolhida. Por exemplo, escolha o último dia de novembro como a última data válida e todas as datas posteriores a 30 de novembro serão desabilitadas, assim como a seta para ir para o próximo mês.</p>
+                    <p>Seguindo em frente, a propriedade de data de seleção inicial define a data que é exibida inicialmente no datepicker. Essa propriedade é definida como "true" por padrão, o que exibe a data atual no calendário do selecionador de data quando ele é aberto pela primeira vez. Saiba mais sobre como usar essa propriedade clicando no ícone de ponto de interrogação.</p>
+                    <p>A primeira opção na propriedade de data de seleção inicial é escolher a opção "ano", que mostrará o primeiro dia do ano atual conforme observado na imagem abaixo.</p>
+                    <p>A segunda opção na propriedade de data de seleção inicial é a opção "mês", que mostrará o primeiro dia do mês atual.</p>
+                    <p>A terceira opção na propriedade de data de seleção inicial é a opção "dia", que mostra o dia atual como visto na imagem abaixo.</p>
+                    <p>Nota: No momento, as opções "hora" e "minuto" não funcionam corretamente, mas serão corrigidas em versões futuras.</p>
+                    <p>Depois disso vem a propriedade de valor padrão, que define a data padrão mostrada no campo. Clique no pequeno ícone de calendário na propriedade para escolher uma data padrão. A data escolhida será mostrada no campo automaticamente ao executar um caso, conforme observado na imagem abaixo.</p>
+                    <p>A propriedade do modo de exibição do seletor de data define a exibição padrão do calendário do seletor de data e pode ser configurada para mostrar dias, meses ou anos. Tente escolher cada opção uma por uma para ver como o modo de exibição muda. O modo de visualização padrão é definido como "dias" e é mostrado na imagem abaixo.</p>
+                    <p>Defina o modo de visualização do selecionador de data para "meses" e observe os resultados na imagem abaixo.</p>
+                    <p>Em seguida, altere para "anos" e observe as alterações feitas no controle.</p>
+                    <p>A propriedade final no controle Data e Hora é a propriedade do botão show clear. Esta propriedade tem duas opções, que são:</p>
+                    <p>Mostrar: mostra o botão Limpar, que se parece com uma pequena lata de lixo, no seletor de datas. Clicar no botão Limpar limpará o valor do campo.</p>
+                    <p>Ocultar: não mostrará o botão Limpar no calendário do seletor de data.</p>
+                    <p>JavaScript em controles de data e hora</p>
+                    <p>Para saber como manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+                    <p>Os controles de data e hora no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                    <p>Rótulo: O texto exibido acima ou à esquerda do campo em um formulário dinâmico renderizado para identificá-lo ao usuário.</p>
+                    <p>Texto: A data e hora exibida para o usuário, conforme configurado pela propriedade de formato.</p>
+                    <p>Valor: O valor armazenado do campo no formato padrão "AAAA-MM-DD" para datas e formato "AAAA-MM-DD hh:mm:ss" para datas e horas. Exemplos: "2010-01-01", "1999-07-25 04:01:01", "2015-12-31 23:59:59"</p>
+                    <p>Métodos JavaScript</p>
+                    <p>Alguns dos métodos JavaScript para manipular controles Data e Hora incluem:</p>
+                    <p>Método</p>
+                    <p>jQuery("#fieldID"). getControl()</p>
+                    <p>Use esta função para obter o campo de entrada do controle em vez de seu DIV, que é obtido com$("#id")</p>
+                    <p>jQuery("#fieldID"). disableValidation()</p>
+                    <p>jQuery("#fieldID"). enableValidation()</p>
+                    <p>jQuery("#fieldID"). getValue()</p>
+                    <p>jQuery("#fieldID"). getText()</p>
+                    <p>jQuery("#fieldID"). getLabel()</p>
+                    <p>jQuery("#fieldID"). setValue("novo valor")</p>
+                    <p>jQuery("#fieldID"). setText("novoTexto")</p>
+                    <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
+                    <p>jQuery("#fieldID"). setOnchange(</p>
+                    <p>function(newVal, oldVal){...})</p>
+                    <p>newVal: O novo valor que acabou de ser definido no campo.</p>
+                    <p>oldVal: O valor antigo, que foi alterado.</p>
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                    <p>Obtendo datas</p>
+                    <p>O valor dos controles Data e Hora é armazenado como uma string no formato "YYYY-MM-DD HH:mm:ss", como "1999-12-31 23:59:59"ou "2017-01-15 08:25:03". Use o método getValue() para obter o valor de um controle Data e Hora. O valor sempre usa o mesmo formato.</p>
+                    <p>Em contraste, o método getText() retornará a data formatada exibida ao usuário. O que é exibido no campo de controle Data e Hora é definido por sua propriedade de formato. Por exemplo, um Data e Hora usando o formato "MM/DD/YY" pode ter um valor de "2017-08-26 00:00:00" e exibir o texto "08/26/17".</p>
+                    <p>Se as horas, minutos e/ou segundos não estiverem incluídos na propriedade de formato de data e hora , eles serão automaticamente definidos como zeros. Por exemplo, um Data e Hora com o formato "DM-YYYY h:m a" pode ter o valor "1980-07-04 16:15:00" e exibir o texto "4-7-1980 4:15 pm". Observe que os segundos são definidos como "00" porque não estão incluídos no formato. Por exemplo, para obter o valor e o texto exibido de um controle Data e Hora cujo ID é "dueDate":</p>
+                    <p>var devidoValue = $ ( "#dueDate" ). getValue ( ) ;</p>
+                    <p>var dueText = $ ( "#dueDate" ). getText ( ) ;</p>
+                    <p>Definir datas e horas</p>
+                    <p>O método setValue() é usado para definir uma data e hora. Certifique-se de que a data e hora esteja no "YYYY-MM-DD HH:mm:ss"formato. As horas, minutos e segundos são opcionais e serão definidos como 00padrão se não forem incluídos. Por exemplo, para definir os valores dos controles Data e Hora que possuem os IDs "startDate", "endDate" e "pauseDate":</p>
+                    <p>$ ( "#datainicial" ). setValue ( "2017-06-23" ) ;</p>
+                    <p>$ ( "#endDate" ). setValue ( "2017-11-01 17:30" ) ;</p>
+                    <p>$ ( "#pauseDate" ). setValue ( "2017-10-25 08:15:50" ) ;</p>
+                    <p>O método setText() também pode ser usado para definir o valor de um controle Data e Hora. O novo Data e Hora deve estar no "YYYY-MM-DD HH:mm:ss"formato padrão ou no formato personalizado definido pela propriedade de formato do controle.</p>
+                    <p>Comparando Data e Horas em JavaScript</p>
+                    <p>Para manipular datas em JavaScript, as strings de data e hora precisam ser convertidas em Dateobjetos. Para facilitar isso, o Gestor Express integrou a biblioteca JavaScript moment.js.</p>
+                    <p>moment.js simplifica a manipulação relacionada a data e hora e é compatível com Gestor Express Desktop, Gestor Express Mobile para iOS e Gestor Express Mobile para Android. Leia a documentação oficial do moment.js para saber mais sobre as funções desta biblioteca.</p>
+                    <p>Exemplo - Tempo entre a data atual e a data selecionada</p>
+                    <p>O código abaixo recupera o tempo decorrido entre a data atual e a data selecionada pelo usuário.</p>
+                    <p>function checkTime ( ) {</p>
+                    <p>        var startDt = $ ( '#Data e HoraVar' ). getValue ( ) ;</p>
+                    <p>        var resto = momento ( startDt ). a partir de agora ( ) ;</p>
+                    <p>        $ ( "#textVar" ). setValue ( resto ) ;</p>
+                    <p>} ;</p>
+                    <p>$ ( '#button0000000004' ). clique ( checkTime ) ;</p>
+                    <p>Exemplo - Comparando duas datas:</p>
+                    <p>O exemplo a seguir compara duas instâncias de Data e Hora e retorna uma mensagem de alerta que indica se a primeira data é anterior, igual ou posterior à segunda data.</p>
+                    <p>function comparandoDates ( ) {</p>
+                    <p>   var startDt = $ ( '#Data e HoraVar' ). getValue ( ) ;</p>
+                    <p>   var endDt = $ ( '#Data e HoraVar2' ). getValue ( ) ;</p>
+                    <p>   if ( moment ( startDt ). isBefore ( endDt ) ) {</p>
+                    <p>       alert ( '1ª data é anterior à 2ª data.' ) ;</p>
+                    <p>   }</p>
+                    <p>   senão se( momento ( startDt ). isAfter ( endDt ) ) {</p>
+                    <p>       alert ( '2ª data é anterior à 1ª data.' ) ;</p>
+                    <p>   }</p>
+                    <p>   else if ( momento ( startDt ). isSame ( endDt ) ) {    </p>
+                    <p>       alert ( 'Ambas as datas são iguais.' ) ;</p>
+                    <p>   }</p>
+                    <p>}</p>
+                    <p>$ ( '#button0000000001' ). clique ( comparandoDatas ) ;</p>
+                    <p>O código a seguir faz a mesma coisa usando Datee.getTime()para manipular as datas e converter strings de data em objetos Date. No entanto, leve em consideração que o exemplo abaixo não funciona com o Gestor Express Mobile para iOS , pois o Safari não reconhece o formato ISO retornado pelo método.getValue().</p>
+                    <p>Exemplo:</p>
+                    <p>function comparandoDates ( ) {</p>
+                    <p>   var startDt = $ ( '#Data e HoraVar' ). getValue ( ) ;</p>
+                    <p>   var endDt = $ ( '#Data e HoraVar2' ). getValue ( ) ;</p>
+                    <p>   var newstartDt = startDt. substituir ( // g , ' T' ) ;</p>
+                    <p>   var newendDt = endDt. substituir ( / / g, 'T' ) ;</p>
+                    <p>   if ( new Date ( newstartDt ). getTime ( ) < new Date ( newendDt ). getTime ( ) ) {</p>
+                    <p>      alert ( 'A primeira data é anterior à 2ª data.' ) ;</p>
+                    <p>   }</p>
+                    <p>   else if ( new Date ( newstartDt ). getTime ( ) > new Date ( newendDt ).getTime ( ) ) {</p>
+                    <p>      alert ( '2ª data é anterior à 1ª data.' ) ;</p>
+                    <p>   }   </p>
+                    <p>   else if ( new Date ( newstartDt ). getTime ( ) == new Date ( newendDt ). getTime ( ) ) {</p>
+                    <p>       alert ( 'Ambas as datas são iguais.' ) ;</p>
+                    <p>   }</p>
+                    <p>}</p>
+                    <p>$ ( '#button0000000001' ). clique (comparandoDatas ) ;</p>
+                    <p>Acessando Data e Horas com PHP</p>
+                    <p>Quando um formulário dinâmico é enviado, seus Data e Horas serão armazenados como strings nas variáveis case associadas, que podem ser manipuladas com código PHP em um gatilho. Por exemplo, se um Data e Hora Formulário Dinâmico estiver associado à orderDatevariável, ele poderá ser acessado em um gatilho como a variável case @@orderDate. Se um gatilho definir a variável case @@orderDateantecipadamente, o controle Data e Hora associado a essa variável exibirá seu valor quando o Formulário Dinâmico for exibido.</p>
+                    <p>Por exemplo, para definir o valor de um controle Data e Hora associado à orderDatevariável para a data atual, crie um gatilho que seja acionado antes do Formulário Dinâmico e use a função getCurrentDate() do Gestor Express para definir a data:</p>
+                    <p>@@ orderDate = getCurrentDate ( ) ;</p>
+                    <p>Da mesma forma, o valor inserido em um campo de dados do Formulário Dinâmico pode ser lido em um gatilho acionado após o envio do Formulário Dinâmico:</p>
+                    <p>$x = @@ orderDate ;</p>
+                    <p>Além de getCurrentDate() , o Gestor Express fornece a função personalizada getCurrentTime() para retornar a hora atual como uma string. Se a opção for selecionada para usar também a hora (HH:mm:ss) em um campo de data, uma data e sua hora podem ser definidas concatenando as strings retornadas pelas duas funções:</p>
+                    <p>@@ orderDate = getCurrentDate ( ). " ". getCurrentTime ( ) ;</p>
+                    <p>O valor de um Data e Hora é armazenado como uma string na variável case associada do controle no "YYYY-MM-DD HH:mm:ss"formato padrão, como "2017-01-25 23:59:59". Se a propriedade de formato do controle Data e Hora não contiver horas, minutos e/ou segundos, esses elementos serão definidos como 00, como "2017-01-25 00:00:00". Este é o mesmo formato usado pelo banco de dados MySQL para armazenar datas.</p>
+                    <p>Comparando Data e Horas com PHP</p>
+                    <p>Se estiver fazendo comparações simples de Data e Horas, como testar se uma data é anterior , posterior ou igual a outra data, as duas datas podem ser comparadas como strings. Por exemplo:</p>
+                    <p>if ( @@ DueDate < @@ StartDate ou @@ DueDate >= "2010-12-31" ) {</p>
+                    <p>    ...</p>
+                    <p>}</p>
+                    <p>Convertendo Data e Horas em Timestamps</p>
+                    <p>Para fazer operações mais avançadas com Data e Horas, é necessário primeiro converter os Data e Horas em um timestamp PHP, que é o número de segundos entre o Data e Hora atual e 1 de janeiro de 1970 00:00:00 GMT. Use a função PHP strtotime() para converter um Data e Hora de uma string para um timestamp. Por exemplo, para converter @@orderDate em um carimbo de data/hora:</p>
+                    <p>$x = strtotime ( @@ orderDate ) ;</p>
+                    <p>A função strtotime() pode converter qualquer data armazenada para o formato padrão " AAAA-MM-DD ". Se estiver trabalhando com outros tipos de strings de data, reordene a string de data para um dos formatos abaixo com os quais strtotime() funciona:</p>
+                    <p>Formato</p>
+                    <p>AAAA Mês DD</p>
+                    <p>DD Mês AAAA</p>
+                    <p>Mês DD, AAAA</p>
+                    <p>Seg DD, AAAA</p>
+                    <p>MM/DD/AAAA</p>
+                    <p>MM/DD/AA</p>
+                    <p>AAAA/MM/DD</p>
+                    <p>DD-MM-AAAA</p>
+                    <p>AA-MM-DD</p>
+                    <p>AAAA-MM-DD</p>
+                    <p>Se separar os elementos com um "/" (barra), strtotime() espera uma data no estilo inglês, enquanto um "-" (hífen) indica uma data no estilo internacional. strtotime() também aceita datas relativas, significando o tempo decorrido entre a hora selecionada e a hora atual. strtotime() aceita números positivos ou negativos seguidos pela unidade de tempo ( segundos , minutos , horas , dias , semanas , meses , anos ):</p>
+                    <p>$x = strtotime ( "+3 horas" ) ;</p>
+                    <p>$x = strtotime ( "-15 semanas" ) ;</p>
+                    <p>$x = strtotime ( "+1 semana 2 dias 4 horas 2 segundos" ) ;</p>
+                    <p>Se a data deve ser relativa a uma hora diferente da atual, forneça um carimbo de data/hora como o segundo parâmetro:</p>
+                    <p>$x = strtotime ( "+36 dias 7 horas" , strtotime ( "2005-12-31" ) ) ;</p>
+                    <p>Depois de converter em carimbos de data/hora, as datas podem ser comparadas.</p>
+                    <p>Exemplo - Cobrar 15% a mais por qualquer entrega após a data de vencimento</p>
+                    <p>Se estiver projetando um processo que cobra 15% a mais por qualquer entrega após a data de vencimento, use strtotime() para converter a data de entrega e a data de vencimento em timestamps e verifique se a data de entrega é posterior à data de vencimento:</p>
+                    <p>if ( strtotime ( @@ deliveryDate ) > strtotime ( @@ dueDate ) ) {</p>
+                    <p>    @% charge = @% charge + @% charge * 0.15 ;</p>
+                    <p>}</p>
+                    <p>Este código acionador enviará uma mensagem somente se a data de vencimento for hoje:</p>
+                    <p>if ( strtotime ( @@ dueDate ) == strtotime ( getCurrentDate ( ) ) {</p>
+                    <p>    PMFSendMessage ( @@ APPLICATION , "boss@acme.com" , "lazyemployee@acme.com" , "" , "" ,</p>
+                    <p>    "Entregue HOJE! !!" , "duetodaymessage.html" ) ;</p>
+                    <p>}</p>
+                    <p>Exemplo - Calcular a diferença entre duas datas em dias</p>
+                    <p>Os carimbos de data/hora estão em segundos, portanto, subtrair um carimbo de data/hora de outro produzirá a diferença em segundos. Para obter a diferença em dias, divida por 24 horas vezes 60 minutos vezes 60 segundos: O exemplo a seguir compara dois Data e Horas e retorna o número de dias entre eles. Depois disso, ele insere ambos os Data e Horas e o resultado em uma tabela PM chamada "PMT_MY_TABLE" usando a função executeQuery().</p>
+                    <p>$days = ($timestamp1 - $timestamp2) / (24*60*60)</p>
+                    <p>if ( isset ( @@ date1 ) e ! empty ( @ @ date1 ) e isset ( @@ date2 ) e ! empty ( @@ date2 ) ) {</p>
+                    <p>    $ date1 = strtotime ( @@ date1 ) ;</p>
+                    <p>    $data2 = strtotime ( @@ data2 ) ;</p>
+                    <p>    $dias = ( $data2 - $data1 ) / (24 * 60 * 60 ) ;</p>
+                    <p>    $sql = "INSERIR EM PMT_MY_TABLE (DATE1, DATE2, DAYS_DIFFERENCE) VALUES (' $date1 ', ' $date2 ', $days )" ;</p>
+                    <p>    executeQuery ( $sql ) ;</p>
+                    <p>}</p>
+                    <p>Para arredondar o número de dias, a função round() pode ser usada.</p>
+                    <p>    $dias = rodada ( $dias ) ;</p>
+                    <p>Para calcular o número de dias sem considerar a hora, a hora pode ser removida dos Data e Horas com a função substr().</p>
+                    <p>if ( isset ( @@ date1 ) e ! empty ( @@ date1 ) e isset ( @@ date2 ) e ! empty ( @@ date2 ) ) {</p>
+                    <p>    $ date1 = strtotime ( substr ( @ @ date1 , 0 , 10 ) ) ) ;</p>
+                    <p>    $data2 = strtotime ( substr ( @@ date2 , 0, 10 ) ) ;</p>
+                    <p>    $dias = ( int ) ( ( $data2 - $data1 ) / ( 24 * 60 * 60 ) ) ;</p>
+                    <p>}</p>
+                    <p>Exemplo - Calcular a diferença entre o primeiro dia do ano e o dia atual</p>
+                    <p>O exemplo de código a seguir calcula o número de dias que se passaram desde o primeiro dia do ano atual até o dia atual:</p>
+                    <p>$hoje = strtotime ( data ( "Ymd" ) ) ;</p>
+                    <p>$newYear = strtotime ( date ( "Y-01-01" ) ) ;</p>
+                    <p>$dias = ( $hoje - $novoAno ) / ( 24 * 60 * 60 ) ;</p>
+                    <p>Exemplo - Calcular a diferença entre o dia atual e uma data e hora</p>
+                    <p>O exemplo de código a seguir calcula a diferença entre o dia atual e um Data e Hora selecionado pelo usuário, em dias, horas, minutos e segundos.</p>
+                    <p>if ( isset ( @@ dueDate ) e ! empty ( @ @ dueDate ) ) {</p>
+                    <p>    $dueDate = strtotime ( @@ dueDate ) ;</p>
+                    <p>    $presente = strtotime ( "agora" ) ; //data e hora atuais</p>
+                    <p>    $vencido = $dueDate - $presente ;</p>
+                    <p>    $dias = ( int ) ( $ em atraso / ( 24 * 60 * 60) ) ;</p>
+                    <p>    $restante = $ % vencido ( 24 * 60 * 60 ) ; $horas = ( int ) ( $restante / ( 60 * 60 ) ) ; $restante = $resto % ( 60 * 60 ) ; $minutos = ( int ) ( $restante / 60 ) ; $ segundos = $ restante</p>
+                    <p>    % 60 ;</p>
+                    <p>    @@ timeOverdue = vazio ( $days ) ? '': $ dias. 'dias' ;</p>
+                    <p>    @@ timeOverdue.= ( vazio ( @@ timeOverdue ) ? '': ' ' ). " $horas: $minutos: $segundos " ;</p>
+                    <p>}</p>
+                    <p>Extraindo informações de data e hora</p>
+                    <p>A função getdate() do PHP é útil para extrair informações específicas de um timestamp. getdate() retorna um array associativo com o número de "segundos", "minutos", "horas", "mday" (dia do mês), "wday" (dia da semana), "mon" (mês), "ano" e "dia" (dia do ano), além de uma representação textual do "dia da semana" e do "mês". Por exemplo, para enviar uma mensagem se a data de vencimento for no mês atual:</p>
+                    <p>$due = getdate ( strtotime ( @@ dueDate ) ) ;</p>
+                    <p>$atual = getdata ( ) ;</p>
+                    <p>if ( $due [ "mon" ] == $current [ "mon" ] ) {</p>
+                    <p>   PMFSendMessage ( @@ APPLICATION , "boss@acme.com" , "employee@acme.com" , "" , "" ,</p>
+                    <p>       "Entregar este mês" , "duethismonthmessage.html" ) ;</p>
+                    <p>Convertendo de Timestamps para Data e Horas</p>
+                    <p>Depois de converter para um timestamp, use a função date() do PHP para converter um timestamp de volta para uma string, que pode ser exibida em um controle Formulário Dinâmico Data e Hora ou inserido em um documento de saída ou modelo de e-mail. Para converter um carimbo de data/hora para o formato "AAAA-MM-DD" ou "AAAA-MM-DD HH:mm:ss" usado pelo Gestor Express em controles de data e hora e no banco de dados MySQL, use:</p>
+                    <p>date('Ymd', $timestamp)</p>
+                    <p>ou</p>
+                    <p>date('Ymd H:i:s', $timestamp)</p>
+                    <p>Por exemplo, para adicionar 10 dias à data de vencimento a ser exibida em um Formulário Dinâmico subsequente:</p>
+                    <p>$due = strtotime ( @@ dueDate ) ;</p>
+                    <p>$duePlusTen = strtotime ( "+10 dias" , $due ) ;</p>
+                    <p>@@ dueDate = date ( "Ymd" , $duePlusTen ) ;</p>
+                    <p>Formatação de data e hora em inglês</p>
+                    <p>date() também pode ser usado para criar representações de texto de data e hora. Por exemplo, para criar um Data e Hora em um formato como "terça-feira, 15 de março de 2010":</p>
+                    <p>@@ textualDueDate = date ( "l, F j, Y" , $duePlusTen ) ;</p>
+                    <p>Formatação de data e hora em outros idiomas</p>
+                    <p>Para criar uma representação de texto de uma data em um idioma diferente do inglês, use a função strftime(). Ele irá formatar a data e hora no idioma da localidade onde o servidor Gestor Express está localizado. Para especificar uma localidade diferente, como "pt" (português), "pt_BR" (português do Brasil) ou "pt_BR@UTF-8" (português do Brasil no conjunto de caracteres UTF-8), use setlocale() do PHP. Por exemplo, para gerar a data de hoje em espanhol:</p>
+                    <p>setlocale ( "LC_TIME" , "es" ) ;</p>
+                    <p>@@ textualDueDate = strftime ( "%A, %e %B %Y" , time ( ) ) ;</p>
+                    <p>Para definir a localidade para o idioma do usuário atual do Gestor Express:</p>
+                    <p>setlocale ( "LC_TIME" , @@ LANG ) ;</p>
+                    <p>Observe que a localidade selecionada também deve ser instalada no servidor Gestor Express.</p>
+                    <p>Para adicionar localidades no Debian/Ubuntu , use o comando como root:</p>
+                    <p>dpkg-reconfigure locale</p>
+                    <p>No Red Hat/CentOS/Fedora , vá para Sistema > Adicionar/Remover Pacotes. No Gerenciador de Pacotes , vá para a guia Procurar e selecione Idiomas. Em seguida, clique no idioma desejado e instale-o.</p>
+                    <p>Se vários idiomas estiverem instalados no Microsoft Windows, use setlocale() para selecionar o idioma. Consulte esta lista de localidades da Microsoft com suporte.</p>
+                    <p>Data e Horas dinâmicos usando variáveis</p>
+                    <p>As propriedades de data padrão , data mínima e data máxima usadas por um controle Data e Hora podem ser definidas dinamicamente usando variáveis case. As propriedades do controle Data e Hora serão definidas pelas variáveis (desde que essas variáveis sejam definidas em um trigger anterior ou em campos em um Formulário Dinâmico anterior). As variáveis devem usar o formato "YYYY-MM-DD"ou "YYYY-MM-DD HH:MM:SS", como "1999-01-01"ou "2016-12-31 23:59:59".</p>
+                    <p>Exemplo - Configurando o controle para a data e hora atual:</p>
+                    <p>Um controle Data e Hora cuja variável é denominada "currentDate" precisa ser definida para o Data e Hora atual. Primeiro, crie um gatilho definido para disparar antes do Formulário Dinâmico que usa as funções getCurrentDate() e getCurrentTime() para definir a data e hora atual no YYYY-MM-DD HH:MM:SSformato:</p>
+                    <p>@@ currentDate = getCurrentDate ( ). ' '. getCurrentTime ( ) ;</p>
+                    <p>Quando o Formulário Dinâmico for carregado, o controle Data e Hora associado à @@currentDatevariável será preenchido automaticamente com o Data e Hora atual. Se o usuário não puder alterar o valor do campo Data e Hora, defina sua propriedade mode como disabled.</p>
+                    <p>Exemplo - Definir três datas relativas</p>
+                    <p>Neste exemplo, as @@minDatevariáveis e são definidas nas @@maxDatepropriedades min date , max date e default date , respectivamente.@@defaultDate</p>
+                    <p>O gatilho a seguir, que é executado antes do Formulário Dinâmico, define as três variáveis. Se o usuário definir a @@dueDatevariável em um Formulário Dinâmico anterior, o gatilho definirá min date para o primeiro dia do mês do @@dueDate, max date para o último dia do mês do @dueDate e a data padrão para o meio de o mês do vencimento. Se nenhum valor foi selecionado para @@dueDate, o gatilho definirá as três variáveis para o primeiro dia, último dia e dia do meio do próximo mês, respectivamente:</p>
+                    <p>if ( ! isset ( @@ dueDate ) ou vazio ( @@ dueDate ) ) {</p>
+                    <p>   @@ minDate = date ( 'Ym-01' , strtotime ( '+1 mês' ) ) ) ;</p>
+                    <p>   @@ maxDate = date ( 'Ymt' , strtotime ( '+1 mês' ) ) ;</p>
+                    <p>   @@ defaultDate = data ( 'Ym-15' , strtotime ('+1 mês' ) ) ;</p>
+                    <p>}</p>
+                    <p>else {</p>
+                    <p>   @@ minDate = date ( 'Ym-01' , strtotime ( @@ dueDate ) ) ;</p>
+                    <p>   @@ maxDate = date ( 'Ymt' , strtotime ( @@ dueDate ) ) ;</p>
+                    <p>   @@ defaultDate = date ( 'Ym-15' , strtotime ( @@ dueDate ) ) ;</p>
+                    <p>}</p>
+
+            </article>
+        </section>
+
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

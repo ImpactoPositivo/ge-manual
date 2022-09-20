@@ -354,7 +354,7 @@
             <p>Quando um formulário dinâmico é enviado, uma variável de processo é criada para cada um dos campos contidos no formulário dinâmico. Essas variáveis de processo podem ser usadas posteriormente no processo e adicionadas às condições.</p>
 
             <h2 id="item3a">Caixas de texto e caixas de sugestões</h2>
-            <p>Os valores de caixa de texto e caixa de sugestão são armazenados como strings para que possam ser referenciados em condições como <code>@@nome_campo</code>. Por exemplo, um controle de data e hora chamado "datetime_1" pode ter uma condição para exibir apenas a data atual se o usuário não preencher uma caixa de texto chamada "textVar" e uma caixa de sugestão chamada "suggestVar".</p>
+            <p>Os valores de caixa de texto e caixa de sugestão são armazenados como strings para que possam ser referenciados em condições como <code>@@nome_campo</code>. Por exemplo, um controle de data e hora chamado "Data e Hora_1" pode ter uma condição para exibir apenas a data atual se o usuário não preencher uma caixa de texto chamada "textVar" e uma caixa de sugestão chamada "suggestVar".</p>
 
             <codeblock>( <font color="red">vazio</font> ( @@ sugertVar ) e <font color="red">vazio</font> ( @@ textVar ) )</codeblock>
             <p>Para recriar este exemplo, primeiro crie o Formulário Dinâmico mostrado na imagem abaixo antes de colocar a condição.</p>
@@ -372,7 +372,7 @@
                 <tbody>
                     <tr><td>Textbox</td><td>textVar01</td><td>Texto</td><td>textVar1</td></tr>
                     <tr><td>Suggest Box</td><td>sugestao01</td><td>Sugestão</td><td>sugestaoVar1</td></tr>
-                    <tr><td>Datetime</td><td>datetime01</td><td>Data</td><td>datetimeVar1</td></tr>
+                    <tr><td>Data e Hora</td><td>Data e Hora01</td><td>Data</td><td>Data e HoraVar1</td></tr>
                     <tr><td>Dropdown</td><td>gruposuspenso01</td><td>Grupo</td><td>dropdownVar1</td></tr>
                 </tbody>
             </table>
@@ -385,7 +385,7 @@
 
             <p>Na janela Criar gatilho personalizado, coloque o código a seguir dentro da caixa Código.</p>
 
-            <codeblock>@@ datetimeVar = getCurrentDate ( ) ;</codeblock>
+            <codeblock>@@ Data e HoraVar = getCurrentDate ( ) ;</codeblock>
 
             <figure>
                 <img src="../_imagens/editar-gatilho.png" alt="Exemplo de Gatilho">
@@ -432,11 +432,11 @@
                 <img src="../_imagens/condicoes-gatilho2.png" alt="Condição de Gatilho, 2º exemplo">
             </figure>
 
-            <p>A condição determina que, se o texto introduzido no controle "textarea_1" (variável: <code>@@textareaVar1</code>) tiver mais de 10 caracteres, o gatilho criado no exemplo Caixas de texto e Caixas de sugestão será acionado. Lembre-se que este gatilho mostra a data atual no controle "datetime_1".</p>
+            <p>A condição determina que, se o texto introduzido no controle "textarea_1" (variável: <code>@@textareaVar1</code>) tiver mais de 10 caracteres, o gatilho criado no exemplo Caixas de texto e Caixas de sugestão será acionado. Lembre-se que este gatilho mostra a data atual no controle "Data e Hora_1".</p>
 
-            <codeblock><font color="green">@@</font> datetimeVar <font color="green">=</font> getCurrentDate <font color="green">( ) ;</font></codeblock>
+            <codeblock><font color="green">@@</font> Data e HoraVar <font color="green">=</font> getCurrentDate <font color="green">( ) ;</font></codeblock>
 
-            <p>Se o controle <i>textarea_1</i> tiver menos de 10 caracteres, o controle <i>"datetime_1"</i> não mostrará nada. Observe as imagens abaixo:</p>
+            <p>Se o controle <i>textarea_1</i> tiver menos de 10 caracteres, o controle <i>"Data e Hora_1"</i> não mostrará nada. Observe as imagens abaixo:</p>
 
             <div id="ladoalado">
                 <figure>
@@ -449,7 +449,7 @@
 
             <h2 id="item3c">Data hora</h2>
 
-            <p>As variáveis ​​de data e hora são armazenadas como strings no formato <code>"DD-MM-AAAA HH:MM:SS"</code>, como <code>"01-01-1999 01:01:01"</code> ou <code>"31-12-2010 23:59:59"</code>. Se o campo datetime não incluir as horas, minutos e/ou segundos na propriedade format, essas partes serão definidas como zeros. A variável <code>@@datetime_label</code> manterá o valor da data e hora no formato configurado para o campo.</p>
+            <p>As variáveis ​​de data e hora são armazenadas como strings no formato <code>"DD-MM-AAAA HH:MM:SS"</code>, como <code>"01-01-1999 01:01:01"</code> ou <code>"31-12-2010 23:59:59"</code>. Se o campo Data e Hora não incluir as horas, minutos e/ou segundos na propriedade format, essas partes serão definidas como zeros. A variável <code>@@Data e Hora_label</code> manterá o valor da data e hora no formato configurado para o campo.</p>
 
             <p>Por exemplo, se o formato for definido como "MM/DD/AAAA" para um campo de data e hora associado à variável "startDate", <code>@@startDate</code> poderá conter um valor como <code>"2017-12-28 00:00:00"</code> e <code>@@startDate_label</code> será definido como "28/12/2017". Da mesma forma, se o formato for "DD-MM-AAAA HH:mm", @@startDate poderá ter um valor como <code>"1998-05-25 09:35:00"</code> e <code>@@startDate_label</code> seria <code>"25-05-1998 09:35"</code>.</p>
 
@@ -464,7 +464,7 @@
 
             <codeblock><font color="red"><strong>strtotime</strong></font><font color="green">(</font><font color="blue">"+10 days"</font><font color="green">,</font> <font color="red"><strong>strtotime</strong></font><font color="green">(@@</font>DueDate<font color="green">)) ></font> <font color="red"><strong>time</strong></font><font color="green">()</font></codeblock>
 
-            <p>Para fazer cálculos entre datas, é aconselhável usar a função DateTime::add.</p>
+            <p>Para fazer cálculos entre datas, é aconselhável usar a função Data e Hora::add.</p>
 
             <h2 id="item3d">Caixas de seleção</h2>
 
