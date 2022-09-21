@@ -181,25 +181,21 @@ code#sozinho {
     margin:0px 0px 15px 30px;
 }
 
-#principal codeblock {
+codeblock {
     background-color: #e7eefc;
+    font-family: var(--fonte1);
     font-size: .95rem;
-    line-height: 1.5rem;
-    margin: 10px 10px 10px 30px;
+    margin: 5px 5px 5px 30px;
     padding: 5px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
-}
-
-#principal codeblock > p {
-    padding: 0px 0px 0px 10px;
 }
 
 .textbox {
     border-collapse: collapse;
     width: 90vw;
     max-width: 860px;
-    margin: 10px 5px 10px 30px;
+    margin: 5px 10px 10px 30px;
 }
 
 .textbox th {
@@ -214,7 +210,8 @@ code#sozinho {
 .textbox td {
     border: 1px solid var(--cor1);   
     padding: 5px 5px;
-    font-size: .8rem;
+    font-family: var(--fonte1);
+    font-size: .95rem;
     text-align: justify;
 }
 
@@ -231,7 +228,8 @@ code#sozinho {
 }
 
 .tab2 {
-    width: 60vw;
+    width: 60%;
+    max-width: 500px;
     margin: 10px 5px 10px 30px;
     border-collapse: collapse;
 }
@@ -247,14 +245,18 @@ code#sozinho {
     background-color:  rgb(252, 250, 228);
     color: black;
     border: 1px solid rgb(189, 186, 186);
+    font-family: var(--fonte1);
+    font-size: .95rem;
     text-align: justify;
     padding: 2px 5px;
 }
 
 
 .tab3 {
-    width: 450px;
-    max-width: 50%;
+    width: 50%;
+    max-width: 450px;
+    margin: 10px 5px 10px 30px;
+    border-collapse: collapse;
 }
 
 .tab3 th {
@@ -268,8 +270,10 @@ code#sozinho {
     background-color:  rgb(252, 250, 228);
     color: black;
     border: 1px solid rgb(189, 186, 186);
+    font-family: var(--fonte1);
+    font-size: .95rem;
     text-align: justify;
-    padding: 2px 5px;
+    padding: 5px 5px;
 }
 
 .tab4 {

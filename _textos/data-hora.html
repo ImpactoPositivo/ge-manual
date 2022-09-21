@@ -621,119 +621,213 @@
                         <p>$<font color="green">(</font><font color="blue">'#button0000000004'</font><font color="green">)</font>.click<font color="green">(</font>checkTime<font color="green">);</font></p>
                     </codeblock>
 
+                        <figure>
+                            
+                        </figure>
 
                     <p><strong>Exemplo-Comparando duas datas:</strong></p>
 
                     <p>O exemplo a seguir compara duas instâncias de Data e Hora e retorna uma mensagem de alerta que indica se a primeira data é anterior, igual ou posterior à segunda data.</p>
 
                     <codeblock>
-                        <p>function comparandoDatas(){</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp var startDt = $('#datetimeVar').getValue();</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp var endDt = $('#datetimeVar2').getValue();</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if (moment(startDt).isBefore(endDt)){</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert('1ª Data é anterior à 2ª data.');</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp else if(moment(startDt).isAfter(endDt)){</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert('2ª data é anterior à 1ª data.');</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp else if(moment(startDt).isSame(endDt)){</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert('Ambas as datas são iguais.');</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
-                        <p>}</p>
-                        <p>$('#button0000000001').click(comparandoDatas);</p>
+                        <p><strong>function</strong> comparandoDatas<font color="green">(){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>var</strong> startDt <font color="green">=</font> $<font color="green">(</font><font color="blue">'#datetimeVar'</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>var</strong> endDt <font color="green">=</font> $<font color="green">(</font><font color="blue">'#datetimeVar2'</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>if</strong> <font color="green">(</font>moment(startDt<font color="green">)</font>.<font color="darkred">isBefore</font><font color="green">(</font>endDt<font color="green">)){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'1ª Data é anterior à 2ª data.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>else if</strong><font color="green">(</font>moment<font color="green">(</font>startDt<font color="green">)</font>.<font color="darkred">isAfter</font><font color="green">(</font>endDt<font color="green">)){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'2ª data é anterior à 1ª data.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>else if</strong><font color="green">(</font>moment<font color="green">(</font>startDt<font color="green">)</font>.<font color="darkred">isSame</font><font color="green">(</font>endDt<font color="green">)){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'Ambas as datas são iguais.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                        <p>$<font color="green">(</font><font color="blue">'#button0000000001'</font><font color="green">)</font>.click<font color="green">(</font>comparandoDatas<font color="green">);</font></p>
+                    </codeblock>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>O código a seguir faz a mesma coisa usando Date e .getTime() para manipular as datas e converter strings de data em objetos Date. No entanto, leve em consideração que o exemplo abaixo não funciona com o Gestor Express Mobile para iOS, pois o Safari não reconhece o formato ISO retornado pelo método .getValue().</p>
+
+                    <p><strong>Exemplo:</strong></p>
+
+                    <codeblock>
+                        <p><strong>function</strong> comparandoDatas() {</p>
+                        <p>&nbsp&nbsp&nbsp <strong>var</strong> startDt <font color="green">=</font> $<font color="green">(</font><font color="blue">'#datetkmeVar'</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>var</strong> endDt <font color="green">=</font> $<font color="green">(</font><font color="blue">'#datetkmeVar2'</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>var</strong> newstartDt <font color="green">=</font> startDt.<font color="darkred">replace</font><font color="green">(/ /</font>g<font color="green">,</font>' T'<font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>var</strong> newendDt <font color="green">=</font> endDt.<font color="darkred">replace</font><font color="green">(/ /</font>g<font color="green">,</font>'T'<font color="green">);</font></p>
+                        <font color="darkred">
+                            <p>&nbsp&nbsp&nbsp <strong>if</strong> <font color="green">(</font><strong>new</strong> Date(newstartDt<font color="green">)</font>.getTime<font color="green">() <</font> <strong>new</strong> Date<font color="green">(</font>newendDt<font color="green">)</font>.getTime<font color="green">()){</font></p>
+                        </font>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'A primeira data é anterior à 2ª data.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>else if</strong> <font color="green">(</font><strong>new</strong> Date(newstartDt<font color="green">)</font>.<font color="darkred">getTime</font><font color="green">() ></font> <strong>new</strong> Date<font color="green">(</font>newendDt<font color="green">)</font>.<font color="darkred">getTime</font><font color="green">()){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'2ª data é anterior à 1ª data.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp else if <font color="green">(</font>new Date<font color="green">(</font>newstartDt<font color="green">)</font>.g<font color="darkred">etTime</font><font color="green">() ==</font> new Date<font color="green">(</font>newendDt<font color="green">)</font>.<font color="darkred">getTime</font><font color="green">()){</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">'Ambas as datas são iguais.'</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp<font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                        <p>$<font color="green">(</font><font color="blue">'#button0000000001'</font><font color="green">)</font>.<font color="darkred">click</font><font color="green">(</font>comparandoDatas<font color="green">);</font></p>
                     </codeblock>
 
 
 
-                    <p>O código a seguir faz a mesma coisa usando Datee.getTime()para manipular as datas e converter strings de data em objetos Date. No entanto, leve em consideração que o exemplo abaixo não funciona com o Gestor Express Mobile para iOS , pois o Safari não reconhece o formato ISO retornado pelo método.getValue().</p>
-                    <p>Exemplo:</p>
-                    <p>function comparandoDates ( ) {</p>
-                    <p>   var startDt = $ ( '#Data e HoraVar' ). getValue ( ) ;</p>
-                    <p>   var endDt = $ ( '#Data e HoraVar2' ). getValue ( ) ;</p>
-                    <p>   var newstartDt = startDt. substituir ( // g , ' T' ) ;</p>
-                    <p>   var newendDt = endDt. substituir ( / / g, 'T' ) ;</p>
-                    <p>   if ( new Date ( newstartDt ). getTime ( ) < new Date ( newendDt ). getTime ( ) ) {</p>
-                    <p>      alert ( 'A primeira data é anterior à 2ª data.' ) ;</p>
-                    <p>   }</p>
-                    <p>   else if ( new Date ( newstartDt ). getTime ( ) > new Date ( newendDt ).getTime ( ) ) {</p>
-                    <p>      alert ( '2ª data é anterior à 1ª data.' ) ;</p>
-                    <p>   }   </p>
-                    <p>   else if ( new Date ( newstartDt ). getTime ( ) == new Date ( newendDt ). getTime ( ) ) {</p>
-                    <p>       alert ( 'Ambas as datas são iguais.' ) ;</p>
-                    <p>   }</p>
-                    <p>}</p>
-                    <p>$ ( '#button0000000001' ). clique (comparandoDatas ) ;</p>
-                    <p>Acessando Data e Horas com PHP</p>
-                    <p>Quando um formulário dinâmico é enviado, seus Data e Horas serão armazenados como strings nas variáveis case associadas, que podem ser manipuladas com código PHP em um gatilho. Por exemplo, se um Data e Hora Formulário Dinâmico estiver associado à orderDatevariável, ele poderá ser acessado em um gatilho como a variável case @@orderDate. Se um gatilho definir a variável case @@orderDateantecipadamente, o controle Data e Hora associado a essa variável exibirá seu valor quando o Formulário Dinâmico for exibido.</p>
-                    <p>Por exemplo, para definir o valor de um controle Data e Hora associado à orderDatevariável para a data atual, crie um gatilho que seja acionado antes do Formulário Dinâmico e use a função getCurrentDate() do Gestor Express para definir a data:</p>
-                    <p>@@ orderDate = getCurrentDate ( ) ;</p>
+                <h1 id="item6">Acessando Data e Horas com PHP</h1>
+
+                    <p>Quando um formulário dinâmico é enviado, suas Data e Horas serão armazenadas como strings nas variáveis associadas ao case, que podem ser manipuladas com código PHP em um gatilho. Por exemplo, se uma Data e Hora de um Formulário Dinâmico estiver associado à variável <code>orderDate</code>, ele poderá ser acessado em um gatilho como a variável de caso <code>@@orderDate</code>. Se um gatilho definir a variável de caso <code>@@orderDate</code> antecipadamente, o controle Data e Hora associado a essa variável exibirá seu valor quando o Formulário Dinâmico for exibido.</p>
+
+                    <p>Por exemplo, para definir o valor de um controle Data e Hora associado à variável <code>orderDate</code> para a data atual, crie um gatilho que seja acionado antes do Formulário Dinâmico e use a função getCurrentDate() do Gestor Express para definir a data:</p>
+
+                    <codeblock>
+                        <font color="green">@@</font>orderDate <font color="green">=</font> getCurrentDate<font color="green">();</font>
+                    </codeblock>
+
                     <p>Da mesma forma, o valor inserido em um campo de dados do Formulário Dinâmico pode ser lido em um gatilho acionado após o envio do Formulário Dinâmico:</p>
-                    <p>$x = @@ orderDate ;</p>
-                    <p>Além de getCurrentDate() , o Gestor Express fornece a função personalizada getCurrentTime() para retornar a hora atual como uma string. Se a opção for selecionada para usar também a hora (HH:mm:ss) em um campo de data, uma data e sua hora podem ser definidas concatenando as strings retornadas pelas duas funções:</p>
-                    <p>@@ orderDate = getCurrentDate ( ). " ". getCurrentTime ( ) ;</p>
-                    <p>O valor de um Data e Hora é armazenado como uma string na variável case associada do controle no "YYYY-MM-DD HH:mm:ss"formato padrão, como "2017-01-25 23:59:59". Se a propriedade de formato do controle Data e Hora não contiver horas, minutos e/ou segundos, esses elementos serão definidos como 00, como "2017-01-25 00:00:00". Este é o mesmo formato usado pelo banco de dados MySQL para armazenar datas.</p>
-                    <p>Comparando Data e Horas com PHP</p>
+
+                    <codeblock>
+                        <font color="lue"b>$x</font> <font color="green">= @@</font> orderDate <font color="green">;</font>
+                    </codeblock>
+
+                    <p>Além de getCurrentDate(), o Gestor Express fornece a função personalizada getCurrentTime() para retornar a hora atual como uma string. Se a opção for selecionada para usar também a hora (HH:mm:ss) em um campo de data, uma data e sua hora podem ser definidas concatenando as strings retornadas pelas duas funções:</p>
+
+                   
+                    <codeblock>
+                        <font color="green">@@</font>orderDate <font color="green">=</font> getCurrentDate<font color="green">()</font>. " ". getCurrentTime<font color="green">();</font>
+                    </codeblock>
+
+                    <p>O valor de um Data e Hora é armazenado como uma string na variável de caso associada do controle no formato padrão <code>"YYYY-MM-DD HH:mm:ss"</code>, como "2017-01-25 23:59:59". Se a propriedade de formato do controle Data e Hora não contiver horas, minutos e/ou segundos, esses elementos serão definidos como <code>00</code>, como "2017-01-25 00:00:00". Este é o mesmo formato usado pelo banco de dados MySQL para armazenar datas e horas.</p>
+
+                <h2 id="item6a">Comparando Data e Horas com PHP</h2>
+
                     <p>Se estiver fazendo comparações simples de Data e Horas, como testar se uma data é anterior , posterior ou igual a outra data, as duas datas podem ser comparadas como strings. Por exemplo:</p>
-                    <p>if ( @@ DueDate < @@ StartDate ou @@ DueDate >= "2010-12-31" ) {</p>
-                    <p>    ...</p>
-                    <p>}</p>
-                    <p>Convertendo Data e Horas em Timestamps</p>
-                    <p>Para fazer operações mais avançadas com Data e Horas, é necessário primeiro converter os Data e Horas em um timestamp PHP, que é o número de segundos entre o Data e Hora atual e 1 de janeiro de 1970 00:00:00 GMT. Use a função PHP strtotime() para converter um Data e Hora de uma string para um timestamp. Por exemplo, para converter @@orderDate em um carimbo de data/hora:</p>
-                    <p>$x = strtotime ( @@ orderDate ) ;</p>
-                    <p>A função strtotime() pode converter qualquer data armazenada para o formato padrão " AAAA-MM-DD ". Se estiver trabalhando com outros tipos de strings de data, reordene a string de data para um dos formatos abaixo com os quais strtotime() funciona:</p>
-                    <p>Formato</p>
-                    <p>AAAA Mês DD</p>
-                    <p>DD Mês AAAA</p>
-                    <p>Mês DD, AAAA</p>
-                    <p>Seg DD, AAAA</p>
-                    <p>MM/DD/AAAA</p>
-                    <p>MM/DD/AA</p>
-                    <p>AAAA/MM/DD</p>
-                    <p>DD-MM-AAAA</p>
-                    <p>AA-MM-DD</p>
-                    <p>AAAA-MM-DD</p>
-                    <p>Se separar os elementos com um "/" (barra), strtotime() espera uma data no estilo inglês, enquanto um "-" (hífen) indica uma data no estilo internacional. strtotime() também aceita datas relativas, significando o tempo decorrido entre a hora selecionada e a hora atual. strtotime() aceita números positivos ou negativos seguidos pela unidade de tempo ( segundos , minutos , horas , dias , semanas , meses , anos ):</p>
-                    <p>$x = strtotime ( "+3 horas" ) ;</p>
-                    <p>$x = strtotime ( "-15 semanas" ) ;</p>
-                    <p>$x = strtotime ( "+1 semana 2 dias 4 horas 2 segundos" ) ;</p>
+
+                    <codeblock>
+                        <p>if <font color="green">(@@</font>DueDate <font color="green">< @@</font>StartDate ou <font color="green">@@</font>DueDate <font color="green">>=</font> <font color="blue">"2010-12-31"</font><font color="green">) {</font></p>
+                        <p>   <font color="green"> ...</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+
+                <h2 id="item6a">Convertendo Data e Horas em Timestamps</h2>
+
+                    <p>Para fazer operações mais avançadas com Data e Horas, é necessário primeiro converter as Data e Horas em um timestamp PHP, que é o número de segundos entre o Data e Hora atual e 1 de janeiro de 1970 00:00:00 GMT. Use a função PHP strtotime() para converter um Data e Hora de uma string para um timestamp. Por exemplo, para converter <code>@@orderDate</code> em timestamp:</p>
+
+                    <codeblock><font color="blue">$x</font> = <font color="darkred">strtotime</font><font color="green">(@@</font>orderDate<font color="green">);</font></codeblock>
+
+                    <p>A função <code>strtotime()</code> pode converter qualquer data armazenada para o formato padrão <code>"AAAA-MM-DD"</code>. Se estiver trabalhando com outros tipos de strings de data, reordene a string de data para um dos formatos abaixo com os quais <code>strtotime()</code> funciona:</p>
+
+                  
+                    <table class="tab3">									
+                        <thead>								
+                            <tr>	<th>	Formato	</th>	<th>	Exemplo de	strtotime() </th>	</tr>
+                        </thead>								
+                        <tbody>								
+                            <tr>	<td>	YYYY Mês DD	</td>	<td>	strtotime("2000 Março 15")	</td>	</tr>
+                            <tr>	<td>	DD Mês YYYY	</td>	<td>	strtotime("15 Março 2000")	</td>	</tr>
+                            <tr>	<td>	Mês DD, YYYY	</td>	<td>	strtotime("Março 15, 2000")	</td>	</tr>
+                            <tr>	<td>	Seg DD, YYYY	</td>	<td>	strtotime("Mar 15, 2000")	</td>	</tr>
+                            <tr>	<td>	MM/DD/YYYY	</td>	<td>	strtotime("03/15/2000")	</td>	</tr>
+                            <tr>	<td>	MM/DD/YY	</td>	<td>	strtotime("03/15/00")	</td>	</tr>
+                            <tr>	<td>	YYYY/MM/DD	</td>	<td>	strtotime("2000/03/15")	</td>	</tr>
+                            <tr>	<td>	DD-MM-YYYY	</td>	<td>	strtotime("15-03-2000")	</td>	</tr>
+                            <tr>	<td>	YY-MM-DD	</td>	<td>	strtotime("00-03-15")	</td>	</tr>
+                            <tr>	<td>	YYYY-MM-DD	</td>	<td>	strtotime("2000-03-15")	</td>	</tr>
+                        </tbody>								
+                    </table>									
+                    
+                    <p>Se separar os elementos com uma "/" (barra), <code>strtotime()</code> espera uma data no estilo inglês, enquanto um "-" (hífen) indica uma data no estilo internacional. <code>strtotime()</code> também aceita datas relativas, significando o tempo decorrido entre a hora selecionada e a hora atual. <code>strtotime()</code> aceita números positivos ou negativos seguidos pela unidade de tempo (segundos, minutos, horas, dias, semanas, meses, anos ):</p>
+
+                    <codeblock>
+                        <p><font color="darkblue">$x</font> = <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">"+3 horas"</font><font color="green">);</font></p>
+                        <p><font color="darkblue">$x</font> = <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">"-15 semanas"</font><font color="green">);</font></p>
+                        <p><font color="darkblue">$x</font> = <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">"+1 semana 2 dias 4 horas 2 segundos"</font><font color="green">);</font></p>
+                    </codeblock>
+
                     <p>Se a data deve ser relativa a uma hora diferente da atual, forneça um carimbo de data/hora como o segundo parâmetro:</p>
-                    <p>$x = strtotime ( "+36 dias 7 horas" , strtotime ( "2005-12-31" ) ) ;</p>
-                    <p>Depois de converter em carimbos de data/hora, as datas podem ser comparadas.</p>
-                    <p>Exemplo - Cobrar 15% a mais por qualquer entrega após a data de vencimento</p>
+
+                    <codeblock>
+                        <font color="darkblue">$x</font> <font color="green">=</font> <font color="green">strtotime</font><font color="green">(</font><font color="blue">"+36 dias 7 horas"</font><font color="green">,</font> <font color="green">strtotime</font>(<font color="blue">"2005-12-31"</font><font color="green">));</font>
+                    </codeblock>
+              
+                    <p>Depois de converter em timestamps, as datas podem ser comparadas.</p>
+
+                    <p><strong>Exemplo - Cobrar 15% a mais por qualquer entrega após a data de vencimento</strong></p>
+
                     <p>Se estiver projetando um processo que cobra 15% a mais por qualquer entrega após a data de vencimento, use strtotime() para converter a data de entrega e a data de vencimento em timestamps e verifique se a data de entrega é posterior à data de vencimento:</p>
-                    <p>if ( strtotime ( @@ deliveryDate ) > strtotime ( @@ dueDate ) ) {</p>
-                    <p>    @% charge = @% charge + @% charge * 0.15 ;</p>
-                    <p>}</p>
-                    <p>Este código acionador enviará uma mensagem somente se a data de vencimento for hoje:</p>
-                    <p>if ( strtotime ( @@ dueDate ) == strtotime ( getCurrentDate ( ) ) {</p>
-                    <p>    PMFSendMessage ( @@ APPLICATION , "boss@acme.com" , "lazyemployee@acme.com" , "" , "" ,</p>
-                    <p>    "Entregue HOJE! !!" , "duetodaymessage.html" ) ;</p>
-                    <p>}</p>
-                    <p>Exemplo - Calcular a diferença entre duas datas em dias</p>
-                    <p>Os carimbos de data/hora estão em segundos, portanto, subtrair um carimbo de data/hora de outro produzirá a diferença em segundos. Para obter a diferença em dias, divida por 24 horas vezes 60 minutos vezes 60 segundos: O exemplo a seguir compara dois Data e Horas e retorna o número de dias entre eles. Depois disso, ele insere ambos os Data e Horas e o resultado em uma tabela PM chamada "PMT_MY_TABLE" usando a função executeQuery().</p>
-                    <p>$days = ($timestamp1 - $timestamp2) / (24*60*60)</p>
-                    <p>if ( isset ( @@ date1 ) e ! empty ( @ @ date1 ) e isset ( @@ date2 ) e ! empty ( @@ date2 ) ) {</p>
-                    <p>    $ date1 = strtotime ( @@ date1 ) ;</p>
-                    <p>    $data2 = strtotime ( @@ data2 ) ;</p>
-                    <p>    $dias = ( $data2 - $data1 ) / (24 * 60 * 60 ) ;</p>
-                    <p>    $sql = "INSERIR EM PMT_MY_TABLE (DATE1, DATE2, DAYS_DIFFERENCE) VALUES (' $date1 ', ' $date2 ', $days )" ;</p>
-                    <p>    executeQuery ( $sql ) ;</p>
-                    <p>}</p>
+
+                    <codeblock>
+                        <p><font color="darkblue">if</font> <font color="green">(</font>strtotime<font color="green">(@@</font>deliveryDate<font color="green">) ></font> strtotime<font color="green">(@@</font>dueDate<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="green">@%</font>charge <font color="green">= @%</font>charge <font color="green">+ @%</font>charge <font color="green">*</font> <font color="red">0.15</font><font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+                    
+                    <p>Este código de gatilho enviará uma mensagem somente se a data de vencimento for hoje:</p>
+
+                    <codeblock>
+                        <p>if <font color="green">(</font>strtotime<font color="green">(@@</font>dueDate<font color="green">) ==</font> strtotime<font color="green">(</font>getCurrentDate<font color="green">()) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp PMFSendMessage<font color="green">(@@</font>APPLICATION <font color="green">,</font> <font color="blue">"boss@acme.com"</font><font color="green">,</font> <font color="blue">"lazyemployee@acme.com"</font><font color="green">,</font> <font color="blue">"&nbsp"</font><font color="green">,</font color="blue"> "&nbsp"<font color="green">,</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="blue">"Entregue HOJE!!!", "duetodaymessage.html"</font><font color="green">);</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+              
+                    <p><strong>Exemplo - Calcular a diferença entre duas datas em dias</strong></p>
+
+                    <p>Os Timestamps estão em segundos, portanto, subtrair um Timestamp de outro produzirá a diferença em segundos. Para obter a diferença em dias, divida por 24 horas vezes 60 minutos vezes 60 segundos:</p>
+
+                    <code id="sozinho">
+                        <font color="blue">$days</font> <font color="green">= (</font><font color="blue">$timestamp1</font> <font color="green">-</font> <font color="blue">$timestamp2</font><font color="green">) / (</font><font color="magenta"m>24</font><font color="green">*</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green">)</font>
+                    </code>
+                        
+                    <p>O exemplo a seguir compara duas Data e Horas e retorna o número de dias entre eles. Depois disso, ele insere ambos as Data e Horas e o resultado em uma tabela PM chamada "PMT_MY_TABLE" usando a função executeQuery().</p>
+
+
+                    <codeblock>
+                        <p>if <font color="green">(</font><font color="darkred">isset</font><font color="green">(@@</font>date1<font color="green">)</font> e !<font color="darkred">empty</font><font color="green">(@@</font>date1<font color="green">)</font> e <font color="darkred">isset</font><font color="green">(@@</font>date2<font color="green">)</font> e !<font color="darkred">empty</font><font color="green">(@@</font>date2<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$date1</font> <font color="green">=</font> <font color="darkred">strtotime</font><font color="green">(@@</font>date1<font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$date2</font> <font color="green">=</font> <font color="darkred">strtotime</font><font color="green">(@@</font>data2<font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$days</font> <font color="green">= (</font><font color="darkblue">$data2 - $data1</font><font color="green">) / (</font>24<font color="green">*</font>60<font color="green">*</font>60<font color="green">);</font></p>
+                        <br>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  <font color="darkblue">$sql</font> <font color="green">=</font> <font color="blue">"INSERIR EM PMT_MY_TABLE (DATA1, DATA2, DIFERENCA_DIAS) VALORES</font> ('$date1', '$date2',$days)"<font color="green">;</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp executeQuery<font color="green">(</font><font color="blue">$sql</font><font color="green">) ;</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
                     <p>Para arredondar o número de dias, a função round() pode ser usada.</p>
-                    <p>    $dias = rodada ( $dias ) ;</p>
+
+                    <codeblock>
+                        <font color="darkblue">$days</font> <font color="green">=</font> <font color="darkred">round</font><font color="green">(</font><font color="darkblue">$days</font><font color="green">);</font>
+                    </codeblock>
+
                     <p>Para calcular o número de dias sem considerar a hora, a hora pode ser removida dos Data e Horas com a função substr().</p>
-                    <p>if ( isset ( @@ date1 ) e ! empty ( @@ date1 ) e isset ( @@ date2 ) e ! empty ( @@ date2 ) ) {</p>
-                    <p>    $ date1 = strtotime ( substr ( @ @ date1 , 0 , 10 ) ) ) ;</p>
-                    <p>    $data2 = strtotime ( substr ( @@ date2 , 0, 10 ) ) ;</p>
-                    <p>    $dias = ( int ) ( ( $data2 - $data1 ) / ( 24 * 60 * 60 ) ) ;</p>
-                    <p>}</p>
-                    <p>Exemplo - Calcular a diferença entre o primeiro dia do ano e o dia atual</p>
+
+                    <codeblock>
+                        <p>if <font color="green">(</font><font color="darkred">isset</font><font color="green">(@@</font>date1<font color="green">)</font> and <font color="green">!</font><font color="darkred">empty</font><font color="green">(@@</font>date1<font color="green">)</font> and <font color="darkred">isset</font><font color="green">(@@</font>date2<font color="green">)</font> and !<font color="darkred">empty</font><font color="green">(@@</font>date2<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$date1</font> <font color="green">=</font> <font color="darkred">strtotime</font> <font color="green">(</font> <font color="darkred">substr</font><font color="green">(@@</font>date1 <font color="green">,</font> <font color="magenta">0</font>, <font color="magenta">10</font><font color="green">) );</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$data2</font> <font color="green">=</font> <font color="darkred">strtotime</font> <font color="green">(</font> <font color="darkred">substr</font><font color="green">(@@</font>date2 <font color="green">,</font> <font color="magenta">0</font>, <font color="magenta">10</font><font color="green">) );</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$dias</font> <font color="green">= (</font>int<font color="green">) ((</font><font color="darkblue">$data2</font> <font color="green">-</font> <font color="darkblue">$data1</font><font color="green">) / (</font><font color="magenta">24</font><font color="green">*</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green"> ));</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+
+                    <p><strong>Exemplo - Calcular a diferença entre o primeiro dia do ano e o dia atual</strong></p>
+                    
                     <p>O exemplo de código a seguir calcula o número de dias que se passaram desde o primeiro dia do ano atual até o dia atual:</p>
-                    <p>$hoje = strtotime ( data ( "Ymd" ) ) ;</p>
-                    <p>$newYear = strtotime ( date ( "Y-01-01" ) ) ;</p>
-                    <p>$dias = ( $hoje - $novoAno ) / ( 24 * 60 * 60 ) ;</p>
-                    <p>Exemplo - Calcular a diferença entre o dia atual e uma data e hora</p>
+                    
+                    <codeblock>
+                        <p><font color="darkblue">$today</font> <font color="green">=</font> <font color="darkred">strtotime</font><font color="green">(</font><font color="darkred">date</font><font color="green">(</font><font color="blue">"Y-m-d"</font><font color="green">));</font></p>
+                        <p><font color="darkblue">$newYear</font> <font color="green">=</font> <font color="darkred">strtotime</font>(<font color="darkred">date</font><font color="green">(</font><font color="blue">"Y-01-01"</font><font color="green">));</font></p>
+                        <p><font color="darkblue">$days</font> <font color="green">=</font> (<font color="darkblue">$today</font> <font color="green">-</font> <font color="darkblue">$newYear</font><font color="green">) / (</font><font color="magenta">24</font><font color="green">*</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green">);</font></p>
+                    </codeblock>
+                    
+                    <p><strong>Exemplo - Calcular a diferença entre o dia atual e uma data e hora</strong></p>
+
                     <p>O exemplo de código a seguir calcula a diferença entre o dia atual e um Data e Hora selecionado pelo usuário, em dias, horas, minutos e segundos.</p>
+
                     <p>if ( isset ( @@ dueDate ) e ! empty ( @ @ dueDate ) ) {</p>
                     <p>    $dueDate = strtotime ( @@ dueDate ) ;</p>
                     <p>    $presente = strtotime ( "agora" ) ; //data e hora atuais</p>
@@ -744,6 +838,7 @@
                     <p>    @@ timeOverdue = vazio ( $days ) ? '': $ dias. 'dias' ;</p>
                     <p>    @@ timeOverdue.= ( vazio ( @@ timeOverdue ) ? '': ' ' ). " $horas: $minutos: $segundos " ;</p>
                     <p>}</p>
+
                     <p>Extraindo informações de data e hora</p>
                     <p>A função getdate() do PHP é útil para extrair informações específicas de um timestamp. getdate() retorna um array associativo com o número de "segundos", "minutos", "horas", "mday" (dia do mês), "wday" (dia da semana), "mon" (mês), "ano" e "dia" (dia do ano), além de uma representação textual do "dia da semana" e do "mês". Por exemplo, para enviar uma mensagem se a data de vencimento for no mês atual:</p>
                     <p>$due = getdate ( strtotime ( @@ dueDate ) ) ;</p>
