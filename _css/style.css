@@ -195,35 +195,34 @@ code#sozinho {
     padding: 0px 0px 0px 10px;
 }
 
-table {
+.textbox {
     border-collapse: collapse;
     width: 90vw;
     max-width: 860px;
     margin: 10px 5px 10px 30px;
 }
 
-table th {
+.textbox th {
     background-color: var(--cor1);
     border: 1px solid var(--cor1);  
     color: white;
     font-size: .8rem;
     text-align: center;
-    padding: 5px 2px 5px 2px;
+    padding: 5px 5px;
 }
 
 .textbox td {
     border: 1px solid var(--cor1);   
-    padding: 5px 2px 5px 2px;
+    padding: 5px 5px;
     font-size: .8rem;
     text-align: justify;
 }
 
 .textbox ul {
-    padding: 5px 2px;
-
+    padding: 0px; 
 }
 
-.textbox li strong{
+.textbox li {
     font-size: .8rem;
 }
 
@@ -233,13 +232,15 @@ table th {
 
 .tab2 {
     width: 60vw;
-    margin: 10px 5px 10px 30px; 
+    margin: 10px 5px 10px 30px;
+    border-collapse: collapse;
 }
 
 .tab2 th {
     background-color:  rgb(233, 233, 233);
     color: black;
     border: 1px solid rgb(189, 186, 186);  
+    padding: 2px 5px;
 }
 
 .tab2 td {
@@ -247,7 +248,7 @@ table th {
     color: black;
     border: 1px solid rgb(189, 186, 186);
     text-align: justify;
-    padding: 3px 10px;
+    padding: 2px 5px;
 }
 
 
@@ -259,7 +260,8 @@ table th {
 .tab3 th {
     background-color:  rgb(233, 233, 233);
     color: black;
-    border: 1px solid rgb(189, 186, 186);  
+    border: 1px solid rgb(189, 186, 186);
+    padding: 2px 5px;  
 }
 
 .tab3 td {
@@ -267,7 +269,7 @@ table th {
     color: black;
     border: 1px solid rgb(189, 186, 186);
     text-align: justify;
-    padding: 3px 10px;
+    padding: 2px 5px;
 }
 
 .tab4 {
@@ -278,7 +280,8 @@ table th {
 .tab4 th {
     background-color:  rgb(233, 233, 233);
     color: black;
-    border: 1px solid rgb(189, 186, 186);  
+    border: 1px solid rgb(189, 186, 186);
+    padding: 2px 5px;  
 }
 
 .tab4 td {
@@ -286,7 +289,7 @@ table th {
     color: black;
     border: 1px solid rgb(189, 186, 186);
     text-align: justify;
-    padding: 3px 10px;
+    padding: 2px 5px;
 }
 
 .vertical {
