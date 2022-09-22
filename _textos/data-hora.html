@@ -828,66 +828,124 @@
 
                     <p>O exemplo de código a seguir calcula a diferença entre o dia atual e um Data e Hora selecionado pelo usuário, em dias, horas, minutos e segundos.</p>
 
-                    <p>if ( isset ( @@ dueDate ) e ! empty ( @ @ dueDate ) ) {</p>
-                    <p>    $dueDate = strtotime ( @@ dueDate ) ;</p>
-                    <p>    $presente = strtotime ( "agora" ) ; //data e hora atuais</p>
-                    <p>    $vencido = $dueDate - $presente ;</p>
-                    <p>    $dias = ( int ) ( $ em atraso / ( 24 * 60 * 60) ) ;</p>
-                    <p>    $restante = $ % vencido ( 24 * 60 * 60 ) ; $horas = ( int ) ( $restante / ( 60 * 60 ) ) ; $restante = $resto % ( 60 * 60 ) ; $minutos = ( int ) ( $restante / 60 ) ; $ segundos = $ restante</p>
-                    <p>    % 60 ;</p>
-                    <p>    @@ timeOverdue = vazio ( $days ) ? '': $ dias. 'dias' ;</p>
-                    <p>    @@ timeOverdue.= ( vazio ( @@ timeOverdue ) ? '': ' ' ). " $horas: $minutos: $segundos " ;</p>
-                    <p>}</p>
+                    <codeblock>
+                        <p>if <font color="green">(</font><font color="darkred">isset</font><font color="green">(@@</font>dueDate<font color="green">)</font> and <font color="green">!</font><font color="darkred">empty</font><font color="green">(@@</font>dueDate<font color="green">)) {</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$dueDate</font> <font color="green">=</font> <font color="darkred">strtotime</font><font color="green">(@@</font>dueDate<font color="green">);</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$present</font> <font color="green">=</font> <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">"now"</font><font color="green">);</font> //present date and time</p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$overdue</font> <font color="green">=</font> <font color="darkblue">$dueDate</font> <font color="green">-</font> <font color="darkblue">$present</font>;</p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$days</font> <font color="green">= (</font>int<font color="green">) (</font><font color="darkblue">$overdue</font> <font color="green">/ (</font><font color="magenta">24</font><font color="green">*</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$remainder</font> <font color="green">=</font> <font color="darkblue">$overdue</font> <font color="green">% (</font><font color="magenta">24</font><font color="green">*</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green">);</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$hours</font> <font color="green">= (</font>int<font color="green">) (</font><font color="darkblue">$remainder</font> <font color="green">/ (</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font><font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$remainder</font> <font color="green">=</font> $<font color="darkblue">remainder</font> <font color="green">% (</font><font color="magenta">60</font><font color="green">*</font><font color="magenta">60</font>);</p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$minutes</font> <font color="green">= (</font>int<font color="green">) (</font><font color="darkblue">$remainder</font> <font color="green">/</font> <font color="magenta">60</font><font color="green">);</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$seconds</font> <font color="green">=</font> <font color="darkblue">$remainder</font> <font color="green">%</font> <font color="magenta">60</font><font color="green">;</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="green">@@</font>timeOverdue <font color="green">=</font> <font color="darkred">empty</font><font color="green">(</font><font color="darkblue">$days</font><font color="green">)</font> ?&nbsp <font color="blue">'&nbsp'</font> <font color="green">:</font> <font color="darkblue">$days</font> <font color="green">.</font><font color="blue">' days'</font><font color="green">;</font></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp <font color="green">@@</font>timeOverdue <font color="green">.= (</font><font color="darkred">empty</font><font color="green">(@@</font>timeOverdue<font color="green">)</font> ?&nbsp <font color="blue">'&nbsp'</font> <font color="green">:</font> <font color="blue">'&nbsp&nbsp&nbsp&nbsp '</font><font color="green">) .</font> "<font color="steelblue">$hours:$minutes:$seconds</font>"<font color="green">;</font></p>
+                            <p><font color="green">}</font></p>
+                    </codeblock>
 
-                    <p>Extraindo informações de data e hora</p>
-                    <p>A função getdate() do PHP é útil para extrair informações específicas de um timestamp. getdate() retorna um array associativo com o número de "segundos", "minutos", "horas", "mday" (dia do mês), "wday" (dia da semana), "mon" (mês), "ano" e "dia" (dia do ano), além de uma representação textual do "dia da semana" e do "mês". Por exemplo, para enviar uma mensagem se a data de vencimento for no mês atual:</p>
-                    <p>$due = getdate ( strtotime ( @@ dueDate ) ) ;</p>
-                    <p>$atual = getdata ( ) ;</p>
-                    <p>if ( $due [ "mon" ] == $current [ "mon" ] ) {</p>
-                    <p>   PMFSendMessage ( @@ APPLICATION , "boss@acme.com" , "employee@acme.com" , "" , "" ,</p>
-                    <p>       "Entregar este mês" , "duethismonthmessage.html" ) ;</p>
-                    <p>Convertendo de Timestamps para Data e Horas</p>
-                    <p>Depois de converter para um timestamp, use a função date() do PHP para converter um timestamp de volta para uma string, que pode ser exibida em um controle Formulário Dinâmico Data e Hora ou inserido em um documento de saída ou modelo de e-mail. Para converter um carimbo de data/hora para o formato "AAAA-MM-DD" ou "AAAA-MM-DD HH:mm:ss" usado pelo Gestor Express em controles de data e hora e no banco de dados MySQL, use:</p>
-                    <p>date('Ymd', $timestamp)</p>
+                <h2 id="item6c">Extraindo informações de data e hora</h2>
+
+                    <p>A função getdate() do PHP é útil para extrair informações específicas de um timestamp. Getdate() retorna um array associativo com o número de "segundos", "minutos", "horas", "mday" (dia do mês), "wday" (dia da semana), "mon" (mês), "year" e "yday" (dia do ano), além de uma representação textual do "dia da semana" e do "mês". Por exemplo, para enviar uma mensagem se a data de vencimento for no mês atual:</p>
+
+                    <codeblock>
+                        <p><font color="darkblue">$due</font> <font color="green">=</font> <font color="darkred">getdate</font><font color="green">(</font><font color="darkred">strtotime</font><font color="green">(@@</font>dueDate<font color="green">));</font></p>
+                        <p><font color="darkblue">$current</font> <font color="green">=</font> <font color="darkred">getdate</font><font color="green">();</font></p>
+                        <font color="green">
+                            <p><font color="olive">if</font> <font color="green">(</font><font color="darkblue">$due</font><font color="green">[</font><font color="blue">"mon"</font><font color="green">] ==</font> $current<font color="green">[</font><font color="blue">"mon"</font><font color="green">]) {</font></p>
+                        </font>
+                        <p>&nbsp&nbsp&nbsp PMFSendMessage<font color="green">(@@</font>APPLICATION<font color="green">,</font> <font color="blue">"chefe@acme.com,br"</font><font color="green">,</font> <font color="blue">"colaborador@acme.com.br"</font><font color="green">,</font> <font color="blue">"&nbsp"</font><font color="green">,</font> <font color="blue">"&nbsp"</font><font color="green">,</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="blue">"Entregar este mês"</font><font color="green">,</font> <font color="blue">"mensagemvencimentodestemês.html"</font><font color="green">);</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+
+                <h2 id="item6d">Convertendo de Timestamps para Data e Horas</h2>
+
+                    <p>Depois de converter para um timestamp, use a função date() do PHP para converter um timestamp de volta para uma string, que pode ser exibida em um controle Data e Hora do Formulário Dinâmico  ou inserido em um documento de saída ou modelo de e-mail. Para converter um timestamp para o formato "AAAA-MM-DD" ou "AAAA-MM-DD HH:mm:ss" usado pelo Gestor Express em controles de data e hora e no banco de dados MySQL, use:</p>
+
+                    <p><strong>date('Ymd', $timestamp)</strong></p>
                     <p>ou</p>
-                    <p>date('Ymd H:i:s', $timestamp)</p>
+                    <p><strong>date('Ymd H:i:s', $timestamp)</strong></p>
+
                     <p>Por exemplo, para adicionar 10 dias à data de vencimento a ser exibida em um Formulário Dinâmico subsequente:</p>
-                    <p>$due = strtotime ( @@ dueDate ) ;</p>
-                    <p>$duePlusTen = strtotime ( "+10 dias" , $due ) ;</p>
-                    <p>@@ dueDate = date ( "Ymd" , $duePlusTen ) ;</p>
-                    <p>Formatação de data e hora em inglês</p>
-                    <p>date() também pode ser usado para criar representações de texto de data e hora. Por exemplo, para criar um Data e Hora em um formato como "terça-feira, 15 de março de 2010":</p>
-                    <p>@@ textualDueDate = date ( "l, F j, Y" , $duePlusTen ) ;</p>
-                    <p>Formatação de data e hora em outros idiomas</p>
+
+                    <codeblock>
+                        <p><font color="darkblue">$due</font> <font color="green">=</font> strtotime<font color="green">(@@</font>dueDate<font color="green">);</font></p>
+                        <p><font color="darkblue">$duePlusTen</font> <font color="green">=</font> strtotime<font color="green">(</font><font color="blue">"+10 days"</font><font color="green">,</font> <font color="darkblue">$due</font><font color="green">);</font></p>
+                        <p><font color="green">@@</font>dueDate <font color="green">=</font> date<font color="green">(</font><font color="blue">"Y-m-d"</font><font color="green">,</font> <font color="darkblue">$duePlusTen</font><font color="green">);</font></p>
+                    </codeblock>
+
+
+                <h2 id="item6e">Formatação de data e hora em inglês</h2>
+
+                    <p>A função Date() também pode ser usada para criar representações de texto de data e hora. Por exemplo, para criar um Data e Hora em um formato como "terça-feira, 15 de março de 2010":</p>
+
+                    <codeblock>
+                        <font color="green">@@</font>textualDueDate = <font color="darkred">date</font><font color="green">(</font><font color="blue">"l, F j, Y"</font> <font color="green">,</font> <font color="darkblue"d>$duePlusTen</font><font color="green">);</font>
+                    </codeblock>
+
+                <h2 id="item6f">Formatação de data e hora em outros idiomas</h2>
+
                     <p>Para criar uma representação de texto de uma data em um idioma diferente do inglês, use a função strftime(). Ele irá formatar a data e hora no idioma da localidade onde o servidor Gestor Express está localizado. Para especificar uma localidade diferente, como "pt" (português), "pt_BR" (português do Brasil) ou "pt_BR@UTF-8" (português do Brasil no conjunto de caracteres UTF-8), use setlocale() do PHP. Por exemplo, para gerar a data de hoje em espanhol:</p>
-                    <p>setlocale ( "LC_TIME" , "es" ) ;</p>
-                    <p>@@ textualDueDate = strftime ( "%A, %e %B %Y" , time ( ) ) ;</p>
+
+                    <codeblock>
+                        <p><font color="darkred">setlocale</font><font color="green">(</font><font color="blue">"LC_TIME"</font> <font color="green">,</font> <font color="blue">"es"</font><font color="green">);</font></p>
+                        <p><font color="green">@@</font>textualDueDate <font color="green">=</font> <font color="darkred">strftime</font><font color="green">(</font><font color="blue">"%A,</font> <font color="green">%e</font> <font color="blue">%B %Y"</font><font color="green">,</font> <font color="darkred">time</font><font color="green">());</font></p>
+                    </codeblock>
+
                     <p>Para definir a localidade para o idioma do usuário atual do Gestor Express:</p>
-                    <p>setlocale ( "LC_TIME" , @@ LANG ) ;</p>
+
+                    <codeblock>
+                        <font color="darkred">setlocale</font><font color="green">(</font><font color="blue">"LC_TIME"</font> <font color="green">, @@</font>LANG<font color="green">);</font>
+                    </codeblock>
+
                     <p>Observe que a localidade selecionada também deve ser instalada no servidor Gestor Express.</p>
-                    <p>Para adicionar localidades no Debian/Ubuntu , use o comando como root:</p>
-                    <p>dpkg-reconfigure locale</p>
-                    <p>No Red Hat/CentOS/Fedora , vá para Sistema > Adicionar/Remover Pacotes. No Gerenciador de Pacotes , vá para a guia Procurar e selecione Idiomas. Em seguida, clique no idioma desejado e instale-o.</p>
+
+                    <p>Para adicionar localidades no <strong>Debian/Ubuntu</strong>, use o comando como root:</p>
+                    
+                    <codeblock>dpkg-reconfigure locale</codeblock>
+
+                    <p>No Red Hat/CentOS/Fedora, vá para <strong>Sistema => Adicionar/Remover Pacotes</strong>. No <strong>Gerenciador de Pacotes</strong>, vá para a guia <strong>Browse</strong> e selecione <strong>Idiomas</strong>. Em seguida, clique no idioma desejado e instale-o.</p>
+
                     <p>Se vários idiomas estiverem instalados no Microsoft Windows, use setlocale() para selecionar o idioma. Consulte esta lista de localidades da Microsoft com suporte.</p>
-                    <p>Data e Horas dinâmicos usando variáveis</p>
-                    <p>As propriedades de data padrão , data mínima e data máxima usadas por um controle Data e Hora podem ser definidas dinamicamente usando variáveis case. As propriedades do controle Data e Hora serão definidas pelas variáveis (desde que essas variáveis sejam definidas em um trigger anterior ou em campos em um Formulário Dinâmico anterior). As variáveis devem usar o formato "YYYY-MM-DD"ou "YYYY-MM-DD HH:MM:SS", como "1999-01-01"ou "2016-12-31 23:59:59".</p>
-                    <p>Exemplo - Configurando o controle para a data e hora atual:</p>
-                    <p>Um controle Data e Hora cuja variável é denominada "currentDate" precisa ser definida para o Data e Hora atual. Primeiro, crie um gatilho definido para disparar antes do Formulário Dinâmico que usa as funções getCurrentDate() e getCurrentTime() para definir a data e hora atual no YYYY-MM-DD HH:MM:SSformato:</p>
-                    <p>@@ currentDate = getCurrentDate ( ). ' '. getCurrentTime ( ) ;</p>
-                    <p>Quando o Formulário Dinâmico for carregado, o controle Data e Hora associado à @@currentDatevariável será preenchido automaticamente com o Data e Hora atual. Se o usuário não puder alterar o valor do campo Data e Hora, defina sua propriedade mode como disabled.</p>
-                    <p>Exemplo - Definir três datas relativas</p>
-                    <p>Neste exemplo, as @@minDatevariáveis e são definidas nas @@maxDatepropriedades min date , max date e default date , respectivamente.@@defaultDate</p>
-                    <p>O gatilho a seguir, que é executado antes do Formulário Dinâmico, define as três variáveis. Se o usuário definir a @@dueDatevariável em um Formulário Dinâmico anterior, o gatilho definirá min date para o primeiro dia do mês do @@dueDate, max date para o último dia do mês do @dueDate e a data padrão para o meio de o mês do vencimento. Se nenhum valor foi selecionado para @@dueDate, o gatilho definirá as três variáveis para o primeiro dia, último dia e dia do meio do próximo mês, respectivamente:</p>
-                    <p>if ( ! isset ( @@ dueDate ) ou vazio ( @@ dueDate ) ) {</p>
-                    <p>   @@ minDate = date ( 'Ym-01' , strtotime ( '+1 mês' ) ) ) ;</p>
-                    <p>   @@ maxDate = date ( 'Ymt' , strtotime ( '+1 mês' ) ) ;</p>
-                    <p>   @@ defaultDate = data ( 'Ym-15' , strtotime ('+1 mês' ) ) ;</p>
-                    <p>}</p>
-                    <p>else {</p>
-                    <p>   @@ minDate = date ( 'Ym-01' , strtotime ( @@ dueDate ) ) ;</p>
-                    <p>   @@ maxDate = date ( 'Ymt' , strtotime ( @@ dueDate ) ) ;</p>
-                    <p>   @@ defaultDate = date ( 'Ym-15' , strtotime ( @@ dueDate ) ) ;</p>
-                    <p>}</p>
+
+                <h2 id="item6g">Data e Horas dinâmicos usando variáveis</h2>
+
+                    <p>As propriedades data padrão, data mínima e data máxima usadas por um controle Data e Hora podem ser definidas dinamicamente usando variáveis de caso. As propriedades do controle Data e Hora serão definidas pelas variáveis (desde que essas variáveis sejam definidas em um gatilho anterior ou em campos em um Formulário Dinâmico anterior). As variáveis devem usar o formato <code>"YYYY-MM-DD"</code> ou <code>"YYYY-MM-DD HH:MM:SS"</code>, como <code>"1999-01-01"</code> ou <code>"2016-12-31 23:59:59"</code>.</p>
+
+                    <p><strong>Exemplo - Configurando o controle para a data e hora atual:</strong></p>
+
+                    <p>Um controle Data e Hora cuja variável é denominada "currentDate" precisa ser definido para a Data e Hora atual. Primeiro, crie um gatilho definido para disparar antes do Formulário Dinâmico que usa as funções getCurrentDate() e getCurrentTime() para definir a data e hora atual no formato <code>YYYY-MM-DD HH:MM:SS</code>:</p>
+
+                    <codeblock>
+                        <font color="green">@@</font>currentDate <font color="green">=</font> getCurrentDate<font color="green">( ) .</font> <font color="blue">' '</font> <font color="green">.</font> getCurrentTime<font color="green">( );</font>
+                    </codeblock>
+
+                    <p>Quando o Formulário Dinâmico for carregado, o controle Data e Hora associado à variável <code>@@currentDate</code> será preenchido automaticamente com o Data e Hora atual. Se o usuário não puder alterar o valor do campo Data e Hora, defina a propriedade valor protegido clicando no checkbox.</p>
+
+                    <p><strong>Exemplo - Definir três datas relativas</strong></p>
+
+                    <p>Neste exemplo, as variáveis<code> @@minDate</code>, <code>@@maxDate</code> e <code>@@defaultDate</code> são definidas nas propriedades data mínima, data máxima e data padrão, respectivamente.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>O gatilho a seguir, que é executado antes do Formulário Dinâmico, define as três variáveis. Se o usuário definir a variável <code>@@dueDate</code> em um Formulário Dinâmico anterior, o gatilho definirá a <strong>data mínima</strong> para o primeiro dia do mês de @@dueDate, <strong>data máxima</strong> para o último dia do mês de @dueDate e a <strong>data padrão</strong> para o meio de o mês do vencimento. Se nenhum valor foi selecionado para @@dueDate, o gatilho definirá as três variáveis para o primeiro dia, último dia e dia do meio do próximo mês, respectivamente:</p>
+
+                    <codeblock>
+                        <p><font color="olive">if</font> <font color="green">(!</font><font color="darkred">isset</font><font color="green">(@@</font>dueDate<font color="green">)</font> or <font color="darkred">empty</font><font color="green">(@@</font>dueDate<font color="green">)) {</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>minDate <font color="green">=</font> <font color="darkred">date</font><font color="green">(</font><font color="blue">'Y-m-01'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">'+1 month'</font><font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>maxDate <font color="green">=</font> <font color="darkred">date</font><font color="green">(</font><font color="blue">'Y-m-t'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">'+1 month'</font><font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>defaultDate <font color="green">=</font> <font color="darkred">date</font><font color="green">(</font><font color="blue">'Y-m-15'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(</font><font color="blue">'+1 month'</font><font color="green">));</font></p>
+                         <p><font color="green">}</font></p>
+                         <p><font color="olive">else</font> <font color="green">{</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>minDate <font color="green">=</font> <font color="darkred">date</font>(<font color="blue">'Y-m-01'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(@@</font>dueDate<font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>maxDate <font color="green">=</font> <font color="darkred">date</font>(<font color="blue">'Y-m-t'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(@@</font>dueDate<font color="green">));</font></p>
+                            <p>&nbsp&nbsp&nbsp <font color="green">@@</font>defaultDate <font color="green">=</font> <font color="darkred">date</font>(<font color="blue">'Y-m-15'</font><font color="green">,</font> <font color="darkred">strtotime</font><font color="green">(@@</font>dueDate<font color="green">));</font></p>
+                         <p><font color="green">}</font></p>
+                    </codeblock>
 
             </article>
         </section>
