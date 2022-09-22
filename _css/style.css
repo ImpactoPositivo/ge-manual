@@ -29,7 +29,7 @@ header {
 }
 
 header img#logo {
-    width: 30vw;
+    max-width: 30vw;
     padding: 10px; 
 }
 
@@ -47,7 +47,7 @@ header img#logo {
 
 #cabecario h2 {
     font-family: var(--fonte1);
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: rgb(233, 233, 233);
     padding-bottom: 15px;
     text-align: center;
@@ -216,16 +216,22 @@ codeblock {
 }
 
 .textbox ul {
-    padding: 0px; 
+    padding: 0px;
+    margin: 0px;
 }
 
 .textbox li {
-    font-size: .8rem;
+    font-size: .95rem;
 }
 
 .textbox strong{
-    font-size: .8rem;
+    font-size: .95rem;
 }
+
+.textbox codeblock {
+    margin: 10px 2px;
+}
+
 
 .tab2 {
     width: 60%;
@@ -438,7 +444,7 @@ div#caixa {
         width: 100%;
         position: relative;
         float: none;
-        margin: 0px auto;
+        margin: 0px;
         display: list-item;
     }
 
@@ -446,6 +452,7 @@ div#caixa {
         width: 100%;
         position: relative;
         float: none;
+        margin: 0px;
    } 
 }
 

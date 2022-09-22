@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Caixa Suspensa</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Caixa Suspensa</h1>
+                <h2>Conteúdo</h2>
+        
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Gerenciando caixas suspensas</a></li>
+                    <li><a href="#item3">Propriedades do controle de caixa suspensa</a></li>
+                    <li><a href="#item4">Exemplo de controle de caixa suspensa</a></li>
+                    <li><a href="#item5">Configurando Campos Dependentes</a></li>
+                    <li><a href="#item6">Procedimentos armazenados do MSSQL e campos dependentes</a></li>
+                    <li><a href="#item7">JavaScript em caixas suspensas</a>
+                        <ol type="A">
+                            <li><a href="#item7a">Métodos JavaScript</a></li>
+                            <li><a href="#item7b">Desativando opções em caixas suspensas</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+
+                    <p>Um controle de caixa suspensa permite que os usuários selecionem uma única opção de uma lista de opções predeterminadas com menu dropdown.</p>
+
+                    <p>Para adicionar este controle no Formulário Dinâmico, vá para a caixa de ferramentas de controle no lado esquerdo da Ferramenta de Desenho do Formulário Dinâmico, arraste e solte o seguinte ícone:</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Ao adicionar este controle ao modelo, é possível relacioná-lo a uma variável com opções criadas ou uma variável que recupera dados de uma consulta SQL, conforme explicado nesta seção. Os dados da variável serão mostrados ao clicar na seta para baixo do controle. Se as opções do menu suspenso forem recuperadas de uma consulta SQL, as opções não serão mostradas dentro da Ferramenta de Desenho. As opções da Caixa Suspensa são mostradas apenas quando o Formulário Dinâmico é renderizado dentro do "Visualizar" e ao executar um caso. Um controle de caixa suspensa cujas opções são recuperadas da tabela iso_country é semelhante a:</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Ao executar um caso:</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                    <p>As caixas suspensas são usadas porque economizam espaço, mas não permitem seleções múltiplas e o usuário é obrigado a usar o mouse para exibir a lista de opções disponíveis.</p>
+
+                    <p>Uma opção pode ser selecionada clicando uma vez na caixa suspensa para exibir a lista de opções e, em seguida, clicando uma segunda vez na opção a ser selecionada. Alternativamente, uma opção pode ser selecionada mantendo pressionado o botão direito do mouse para exibir a lista e, em seguida, movendo o cursor do mouse para uma opção e soltando o mouse.</p>
+
+                    <p>Para selecionar uma opção com o teclado, use TAB ou SHIFT+TAB para trazer o foco para a caixa suspensa. Pressione a tecla de seta PARA CIMA ou ESQUERDA para selecionar a opção anterior na lista. Pressione a tecla de seta PARA BAIXO ou DIREITA para selecionar a próxima opção na lista. Pressione HOME para selecionar a primeira opção da lista e END para selecionar a última opção. Pressionar uma tecla de letra ou número moverá a seleção para a primeira opção cujo rótulo comece com essa letra ou número. Pressionar a mesma letra ou número novamente move para as opções subsequentes que começam com essa letra ou número. Não há como exibir a lista de opções com o teclado, mas uma vez que a lista é exibida com um único clique, o teclado pode ser usado para mover a seleção. Para selecionar a opção atual e ocultar a lista, pressione ENTER ou TAB.</p>
+
+            </article>
+            <article>
+                    <h1 id="item2">Gerenciando caixas suspensas</h1>
+
+                    <p>Depois de adicionar o controle a um modelo de formulário, é obrigatório definir suas propriedades para dar-lhe funcionalidade em relação ao seu comportamento, aparência e os dados mostrados em suas opções. Para fazer isso, clique no controle e vá para o painel esquerdo onde são mostradas suas propriedades:</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo</strong> Definido por padrão como "dropdown". Esta definição não pode ser modificada.</li>
+                        <li><strong>id</strong> Definido por padrão como dropdownVar00X, onde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</li>
+                        <li><strong>rótulo</strong> Definido por padrão como "dropdown_X" onde "X" representa a numeração correspondente do controle no desenho. Esta numeração começa em 1.</li>
+                        <li><strong>modo de exibição</strong> Definido por padrão como "mestre". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</li>
+                        <li><strong>fonte de dados</strong> Definido por padrão como "banco de dados". Consulte esta documentação para obter mais informações sobre a fonte de dados disponível para esse controle.</li>
+                        <li><strong>Conexão de banco de dados</strong> Definido por padrão como "PM Database". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express) esta propriedade herda a definição da variável relacionada no controle.</li>
+                    </ul>
+
+            </article>
+            <article>
+
+                <h1 id="item3">Propriedades do controle de caixa suspensa</h1>
+
+                    <p>As propriedades relacionadas a este controle são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="25%">Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tipo</td><td><code>dropdown</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Verifique esta seção para saber mais sobre como relacionar uma variável a um controle.<br>
+                            Somente variáveis dos seguintes tipos de dados podem ser selecionadas:<br>
+                            <ul>
+                                <li>inteiro</li>
+                                <li>string</li>
+                                <li>float</li>
+                            </ul>
+                            <font color="green">Observação:</font> Leve em consideração que o tipo booleano  não é mais suportado por este controle. Assim, tome cuidado ao importar Formulários Dinâmicos de versões anteriores que possuíam variáveis booleanas relacionadas a Caixas Suspensas.</td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Tipo de dado da variável relacionada ao controle (somente leitura).</td></tr>
+                            <tr><td>Valor Protegido</td><td>Ao marcar esta opção, as informações armazenadas nas variáveis são protegidas de alterações.</td></tr>
+                            <tr><td>ID</td><td>
+                                [Requeridos]<br><br>
+                                Identificador exclusivo de campo e HTML.</td></tr>
+                            <tr><td>Rótulo</td><td>o rótulo do controle</td></tr>
+                            <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.<br>
+                            Para saber mais sobre valores padrão, valores nulos e algumas outras considerações para esta propriedade neste controle, dê uma olhada nesta documentação.</td></tr>
+                            <tr><td>Informativo</td><td>Esta propriedade é um texto definido pelo desenhista que normalmente indica o que deve ser inserido dentro do campo.</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando o menu suspenso é renderizado. É mostrado quando o ponteiro do mouse está sobre o icone ?.</td></tr>
+                            <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que uma opção deve ser selecionada obrigatoriamente no controle. Se a propriedade Obrigatório estiver marcada, uma segunda propriedade da mensagem de erro do campo obrigatório é habilitada para preencher uma mensagem personalizada.
+                                <figure>
+
+                                </figure>
+                            </td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requeridos]<br>
+                            Modo de exibição:
+                            <ul>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grade)</li>
+                                <li><strong>editar:</strong> o controle é habilitado para edição quando é renderizado.</li>
+                                <li><strong>visaulizar:</strong> o controle só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</li>
+                                <li><strong>desativada:</strong> o controle é exibido como desabilitado. O controle é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado</li>
+                            </ul>.</td></tr>
+                            <tr><td>Fonte de dados</td><td>A fonte de dados para a lista de opções disponíveis:
+                            <ul>
+                                <li><strong>database:</strong> Esta opção habilita as propriedades DB Connection e SQL.</li>
+                                <li><strong>variável array:</strong> Esta opção habilita a propriedade da variável de dados.</li>
+                            </ul></td></tr>
+                            <tr><td>Conexão DB</td><td>Caso as opções da Caixa Suspensa sejam recuperadas de um banco de dados, selecione na Caixa Suspensa desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso).</td></tr>
+                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Os dados recuperados da consulta definem o domínio de opções disponíveis para o controle. O controle suspenso requer dois parâmetros: <strong>KEY</strong> e <strong>LABEL</strong> .
+                            <codeblock><font color="darkred">SELECT</font> Field_Key<font color="green">,</font> Field_Label <font color="darkred">FROM TABLE</font></codeblock>
+                            <font color="green">Observação:</font> O identificador <code>*</code> não é suportado em consultas SQL. <br>
+                            <font color="green">Observação:</font> Leia a seção a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
+                            <ul>
+                                <li>SQL na versão 3.5.</li>
+                            </ul></td></tr>
+                            <tr><td>Variável de dados</td><td>Atribua a variável de matriz usando o botão @@.
+                                <figure>
+
+                                </figure>
+                            </td></tr>
+                            <tr><td>Opções</td><td>Defina nesta propriedade as opções que são utilizadas para definir o valor utilizado no campo. É possível definir esta propriedade mesmo que a propriedade SQL já esteja definida, em ambos os casos os dados definem o domínio de opções para o controle.<br>
+                            Para saber como essa propriedade funciona com valores recuperados das opções, dê uma olhada nesta documentação .</td></tr>
+                        </tbody>
+                    </table>
+                            
+                        
+
+                <h1 id="item4">Exemplo de controle de caixa suspensa</h1>
+
+                    <p>Para este exemplo, adicione um controle "Caixa suspensa" arrastando e soltando-o no modelo do Formulário Dinâmico.</p>
+
+                        <figure>
+                            
+                        </figure>
+
+                    <p>Após adicionar o controle, a janela Criar variável aparecerá imediatamente. Crie uma nova variável ou selecione uma variável já criada. Para este exemplo, crie uma variável chamada "país", digite string. Termine de criar a variável clicando no botão "Gravar".</p>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Agora, exiba as propriedades do controle, clicando em qualquer espaço vazio do controle e suas propriedades serão exibidas no painel esquerdo.</p>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Para este caso altere a propriedade "rótulo" para "país:".</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p>A próxima propriedade é "valor padrão" não é aconselhável adicionar um valor por padrão em uma lista suspensa porque perderá a função do controle. Como no exemplo, adicione o texto "ESCOLHA UM" que será o valor padrão e mostrará apenas este texto.</p>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <p>A propriedade "informativo" mostrará o texto de ajuda que é exibido quando nenhuma opção é selecionada. Por exemplo, adicione "Selecione seu país". e isso será mostrado dentro do controle para orientar o usuário. Depois que uma opção for selecionada, o espaço reservado desaparecerá.</p>
+
+                    <p>Outra maneira de mostrar ajuda é adicionar texto na propriedade "dica". A dica será mostrada em um ícone colocado no canto direito do controle.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Clique na propriedade "obrigatório" para adicionar um asterisco no rótulo para indicar que o campo é obrigatório.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p>A próxima propriedade é "modo de exibição" que possui diferentes opções para dar funcionalidade ao controle. Observe a imagem abaixo:</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Mestre</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Ediar</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Visaulizar</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Desabilitado</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+
+                    <p>Agora para a propriedade "Conexão DB" tem um banco de dados selecionado a partir de uma lista de conexões de banco de dados definidas nos objetos do processo. Clique na propriedade "sql" para adicionar código e, portanto, preencher o menu suspenso. Adicione o seguinte código:</p>
+
+                    <codeblock>SELECT ic_uid , ic_name FROM ISO_COUNTRY</codeblock>
+
+                    <p><font color= "green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                    <p>O código adicionado preencherá o menu suspenso com uma lista de países, conforme mostrado na imagem abaixo. Leve em consideração que, se a propriedade "valor padrão" tiver sido usada, o menu suspenso não usará a consulta e, portanto, não chamará a sentença.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Por fim, a propriedade "opções" preencherá a lista suspensa manualmente, o que significa que o usuário adicionará as opções específicas de que precisa. Para isso, clique nos colchetes sublinhados [] e uma nova janela será aberta. Clique no botão "Criar" para começar a adicionar opções, observe que quando o botão for clicado ele iniciará imediatamente uma nova chave e rótulo.</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Para este exemplo, adicione duas opções: "Não" e "Sim". Para adicionar uma nova opção, clique novamente no botão "Criar".</p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p>Uma vez que ambas as opções foram adicionadas, clique no botão "Aplicar". Ao executar um caso o controle será preenchido com as opções "Não" e "Sim".</p>
+                    
+                    <figure>
+                            
+                    </figure>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                <h1 id="item5">Configurando Campos Dependentes</h1>
+                    <p><font color="green">Observação:</font> Para definir a dependência, basta trabalhar com as consultas das variáveis atribuídas aos controles e as variáveis que definem a dependência (veja o exemplo desta seção).</p>
+
+                    <p>As listas suspensas podem ser definidas como campos dependentes de outros campos com base em seus estados e valores.</p>
+
+                    <p>Para estabelecer essa dependência, as variáveis normalmente devem ser definidas com uma instrução <code>SQL SELECT</code> para preencher os campos com valores de um banco de dados, que será mostrado assim que o formulário dinâmico estiver renderizando na visualização ou executando o formulário.</p>
+
+                    <p>Por exemplo, para a dependência país-estado-localização, vamos adicionar três listas suspensas na Ferramenta de Desenho do Formulário Dinâmico e relacioná-las às variáveis <code>PAISES</code>, <code>ESTADOS</code> e <code>LOCALIZAÇÃO</code></p>
+
+                    <p>A variável PAISES e tem a seguinte sentença SQL:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> ic_uid<font color="green">,</font> ic_name <font color="darkred">FROM</font> ISO_COUNTRY</p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                    <p>A variável ESTADO tem a sentença SQL:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> is_uid<font color="green">,</font> is_name <font color="darkred">FROM</font> ISO_SUBDIVISION</p>
+                        <p><font color="darkred">WHERE</font> ic_uid <font color="green">=</font> <font color="red">"@#COUNTRIES"</font> <font color="darkred">ORDER BY</font> is_name</p>
+                    </codeblock>
+
+                    <p>E para a variável LOCALIZACAO:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> il_uid<font color="green">,</font> il_name <font color="darkred">FROM</font> ISO_LOCATION</p>
+                        <p><font color="darkred">WHERE</font> ic_uid <font color="green">=</font> <font color="red">"@#COUNTRIES"</font> <font color="darkred">AND</font> is_uid <font color="green">=</font> <font color="red">"@#SUBDIVISION"</font></p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> Leve em consideração essas regras de digitação para usar variáveis de caso nas consultas.</p>
+
+                    <p>Para a dependência e a recuperação correta dos dados, a consulta deve diferenciar maiúsculas de minúsculas. Isso significa que se o nome da tabela ou o nome dos campos contiverem letras maiúsculas ou minúsculas no banco de dados, a consulta deverá obrigatoriamente ter as mesmas considerações.</p>
+
+                    <p>Em seguida, relacione cada menu suspenso adicionado no formulário às variáveis <code>PAISES</code>, <code>ESTADO</code> e <code>LOCALIZACAO</code>. A dependência será definida automaticamente.</p>
+
+                    <p>Ao renderizar o formulário, para obter o seguinte resultado:.</p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>Vamos verificar a dependência:</p>
+                 
+                    <figure>
+
+                    </figure>
+
+                    <p>Se tiver problemas para definir os campos dependentes, leve em consideração o seguinte:</p>
+
+                    <ul>
+                        <li>O nome das variáveis pode não ter respeitado o nome dos campos ou da tabela definida no banco de dados (já que a consulta deve diferenciar maiúsculas de minúsculas).</li>
+
+                        <li>A dependência dos controles pode não ter sido definida corretamente.</li>
+
+                        <li>Leve em consideração que <code>"ic_uid="@#COUNTRIES""</code> não recupera nenhum dado ao executar as consultas. Deve haver um espaço em branco entre o símbolo de igual e as variáveis para que a expressão correta seja <code>"ic_uid = "@#COUNTRIES""</code></li>
+                    </ul>
+                    <p><font color="green">Observação:</font> Os campos dependentes não estão disponíveis quando um controle é definido no modo de visualização.</p>
+
+                    <p>Procedimentos armazenados do MSSQL e campos dependentes</p>
+                    <p>Os procedimentos armazenados do SQL Server podem ser usados para preencher os controles suspensos. Um procedimento armazenado pode ser chamado da propriedade SQL do controle de caixa suspensa da seguinte maneira:</p>
+                    <p>Nome do procedimento EXEC</p>
+                    <p>Além disso, os campos dependentes podem ser definidos usando procedimentos armazenados. Para fazer isso, o procedimento armazenado do campo dependente deve ser projetado para passar um parâmetro. Por exemplo:</p>
+                    <p>CREATE PROCEDURE nome-do-procedimento ( @Parameter1 nvarchar(255) ) BEGIN</p>
+                    <p>     SELECT id, nome FROM escritórios WHERE ID = @Parameter1;</p>
+                    <p>FIM</p>
+                    <p>Uma vez criado, ele pode ser chamado da seguinte maneira:</p>
+                    <p>EXEC procedure-nam  @@Parameter1-Value</p>
+                    <p>Onde @@Parameter1-Value é a variável na qual a consulta será baseada para recuperar informações.</p>
+                    <p>Exemplo</p>
+                    <p>Vamos criar uma dependência Category - Subcategory usando as tabelas ProductCategory e ProductSubcategory do banco de dados de exemplo AdventureWorks2012 .</p>
+                    <p>Primeiro, crie um procedimento armazenado simples para o menu suspenso "Categoria".</p>
+                    <p>CRIAR PROCEDIMENTO dbo . productPro1</p>
+                    <p>AS</p>
+                    <p>SELECT top 28 ProductCategoryID , Name</p>
+                    <p>FROM Production . Categoria de Produto;</p>
+                    <p>Este procedimento recuperará o ID e o nome dos primeiros 28 registros na tabela ProductCategory . Depois disso, crie um segundo procedimento armazenado que será usado na lista suspensa "Subcategoria".</p>
+                    <p>CRIAR PROCEDIMENTO dbo . productPro2 ( @Param1 nvarchar ( 255 ) )</p>
+                    <p>SELECT top 28 ProductCategoryID , Name</p>
+                    <p>FROM Production . ProductSubcategory WHERE ProductCategoryID = @Param1;</p>
+                    <p>Observe que o segundo procedimento armazenado passa um parâmetro de comparação para a consulta. Ele passará a categoria selecionada como parâmetro e recuperará o ID e o nome das Subcategorias com base na seleção da categoria.</p>
+                    <p>Depois que os dois procedimentos forem criados, atribua-os aos controles suspensos. Clique no menu suspenso "Categoria" e procure a propriedade "Conexão DB" em suas propriedades, selecione a conexão do banco de dados SQL Server e coloque a seguinte consulta dentro da propriedade SQL .</p>
+                    <p>produto executivoPro1</p>
+                    <p>Depois disso, repita os mesmos passos com o menu suspenso "Subcategoria", mas coloque a seguinte consulta na propriedade SQL em vez da acima:</p>
+                    <p>exec productPro2 @@dropdownVar001</p>
+                    <p>Observe que o procedimento "productPro2" depende de um parâmetro para recuperar valores, este parâmetro deve ser a variável suspensa "Category" (@@dropdownVar001) para definir a dependência.</p>
+                    <p>Verifique a dependência indo ao "Modo de visualização" ou iniciando um caso. As subcategorias exibidas dependerão da opção selecionada na categoria.</p>
+                    <p>JavaScript em listas suspensas</p>
+                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
+                    <p>As listas suspensas no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
+                    <p>Texto: O texto (rótulo) exibido para a opção selecionada.</p>
+                    <p>Valor: O valor armazenado (chave) para a opção selecionada.</p>
+                    <p>Métodos JavaScript</p>
+                    <p>Alguns dos métodos JavaScript para manipular caixas suspensas incluem:</p>
+                    <p>Método</p>
+                    <p>jQuery("#fieldID") . getControl()</p>
+                    <p>Use esta função para obter o campo de entrada do controle, em vez de seu DIV que é obtido com$("#id")</p>
+                    <p>jQuery("#fieldID") . disableValidation()</p>
+                    <p>jQuery("#fieldID") . enableValidation()</p>
+                    <p>jQuery("#fieldID") . getValue()</p>
+                    <p>jQuery("#fieldID") . getText()</p>
+                    <p>jQuery("#fieldID") . getRótulo()</p>
+                    <p>jQuery("#fieldID") . setValue("novo valor")</p>
+                    <p>jQuery("#fieldID") . setText("novoTexto")</p>
+                    <p>jQuery("#fieldID") . setRótulo("novoEtiqueta")</p>
+                    <p>jQuery("#fieldID") . setOnchange(</p>
+                    <p>function(newVal, oldVal){...})</p>
+                    <p>newVal: O novo valor que acabou de ser definido no campo.</p>
+                    <p>oldVal: O valor antigo que foi alterado.</p>
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
+                    <p>Desativando opções em caixas suspensas</p>
+                    <p>As opções podem ser desabilitadas em uma caixa suspensa usando a configuração da propriedade desabilitada das opções para um valor de "disabled". Por exemplo, uma caixa suspensa com o ID "selectCountry" tem uma opção com um valor de "MX"e um rótulo de "Mexico". O código JavaScript a seguir desativa essa opção na caixa suspensa:</p>
+                    <p> $ ( "#selectCountry" ) . find ( "opção[valor=MX]" ) . attr ( "desativado" , "desativado" ) ;</p>
+                    <p>Lembre-se de que desabilitar uma opção não altera a opção selecionada no momento, mas impede que o usuário selecione essa opção no futuro. Use control.setValue() para selecionar uma opção diferente.</p>
+                    <p>No exemplo a seguir, um Formulário Dinâmico tem duas caixas suspensas com os IDs "selectService1" e "selectService2".</p>
+                    <p>Esses menus suspensos têm a mesma lista de opções:</p>
+                    <p>Quando um serviço é selecionado na primeira caixa suspensa, ele deve ser desabilitado na segunda caixa suspensa, para que o usuário não possa selecioná-lo.</p>
+                    <p>O código JavaScript usa o método control .setOnchange() para a primeira lista suspensa para desabilitar a opção na segunda lista suspensa. Se a segunda caixa suspensa tiver selecionado a opção desativada, o código selecionará automaticamente a primeira opção disponível.</p>
+                    <p>function disableOption ( newVal , oldVal ) {</p>
+                    <p>  //desativa a nova opção selecionada no segundo menu suspenso:</p>
+                    <p>  $ ( "#selectService2" ) . find ( "opção[valor=" + newVal + "]" ) . attr ( "desativado" , "desativado" ) ;</p>
+                    <p>  if ( oldVal ) {</p>
+                    <p>     // reativar a opção selecionada antiga no segundo menu suspenso:</p>
+                    <p>     $ ( "#selectService2" ) . encontrar ( "+ valor antigo + "]" ) ) . attr ( "desativado" , false ) ;</p>
+                    <p>  }</p>
+                    <p>  //selecione uma opção diferente se a opção desabilitada for selecionada</p>
+                    <p>  if ( $ ( "#selectService2" ) . getValue ( ) == newVal ) {</p>
+                    <p>    var aOptions = $ ( "#selectService2" ) . getInfo ( ) . opções ;</p>
+                    <p>    para ( i = 0 ; i< aOpções. comprimento ; i ++ ) {</p>
+                    <p>      if ( aOptions [ i ] . value != newVal ) {</p>
+                    <p>         $ ( "#selectService2" ) . setValue ( aOptions [ i ] .value ) ; _ quebrar ; } } } } $ ( "#selectService1" ) . setOnchange ( disableOption ) ;</p>
+                    <p>//quando o valor muda no primeira Caixa Suspensa</p>
+                    <p>disableOption ( $ ( "#selectService1" ) . getValue ( ) , null ) ; //desativa a opção quando o Formulário Dinâmico carrega</p>
+                
+
+                    
+            </article>
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
