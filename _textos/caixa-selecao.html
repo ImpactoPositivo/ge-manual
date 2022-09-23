@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Caixa de seleção e grupo de seleção</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Caixa de seleção/grupo de seleção</h1>
+                <h2>Conteúdo</h2>
+        
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Caixa de seleção</a>
+                        <ol type="A">
+                            <li><a href="#item2a">Gerenciando caixas de seleção</a></li>
+                            <li><a href="#item2b">Propriedades da caixa de seleção</a></li>
+                            <li><a href="#item2c">Exemplo de controle de caixa de seleção</a></li>
+                            <li><a href="#item2d">Acessando uma caixa de seleção com PHP</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item3">Grupo de verificação</a>
+                        <ol type="A">
+                            <li><a href="#item3a">Gerenciando Grupos de Verificação</a></li>
+                            <li><a href="#item3b">Propriedades do grupo de verificação</a></li>
+                            <li><a href="#item3c">Exemplo de controle de grupo de verificação</a></li>
+                            <li><a href="#item3d">Acessando Checkgroups com PHP</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item4">JavaScript em caixas de seleção e grupos de verificação</a>
+                        <ol type="A">
+                            <li><a href="#item4a">Métodos JavaScript</a></li>
+                            <li><a href="#item4b">Valores nas caixas de seleção</a></li>
+                            <li><a href="#item4c">Caixas de seleção em grades</a></li>
+                            <li><a href="#item4d">setOnchange() com caixas de seleção</a></li>
+                            <li><a href="#item4e">Exibindo opções em uma lista horizontal</a></li>
+                            <li><a href="#item4f">Remova a caixa de sombra ao redor das caixas de seleção</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+
+                    <p>A Ferramenta de Desenho do Formulário Dinâmico oferece dois controles diferentes para gerenciar opções com itens selecionáveis; os controles Caixa de seleção e grupo de seleção.</p>
+
+                <h1 id="item2">Caixa de seleção</h1>
+
+                    <p>Uma caixa de seleção oferece uma opção binária de ativação/desativação e aparece como uma caixa quadrada com uma marca de seleção quando marcada. As caixas de seleção são convenientes para permitir que um usuário selecione apenas uma opção com um único clique do mouse. Seu ícone na barra de ferramentas da Ferramenta de Desenho do Formulário Dinâmico é o seguinte:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>A aparência padrão de um campo de caixa de seleção é a seguinte:</p>
+ 
+                    <figure>
+
+                    </figure>
+               
+                    <p><font color="green">Observação:</font> Observe que apenas uma caixa representando uma opção sim/não está disponível ao trabalhar com um controle de caixa de seleção.</p>
+
+                    <p>Ao executar um caso, um controle Caixa de Seleção se parece com a imagem abaixo quando o Formulário Dinâmico é renderizado:</p>
+ 
+                    <figure>
+
+                    </figure>                                 
+
+                <h2 id="item2a">Gerenciando Caixas de Seleção</h2>
+
+                    <p>Após adicionar uma caixa de seleção ao Formulário Dinâmico, é possível personalizar sua funcionalidade e comportamento usando o painel de propriedades.</p>
+  
+                    <figure>
+
+                    </figure>                                 
+                   
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo:</strong> Defina como " checkbox " por padrão. Esta propriedade não pode ser modificada.</li>
+                        <li><strong>id:</strong> definido como " checkbox 000000000X" por padrão, onde "X" representa o número correspondente do controle no projeto. Essa numeração começa em 1. Depois que uma variável é relacionada a esse controle, o ID muda para o nome da variável. No entanto, é possível definir um novo ID para o controle.</li>
+                        <li><strong>rótulo:</strong> Definido como " checkbox _X" por padrão, onde "X" representa o número correspondente do controle no desenho. Esta numeração começa em 1.</li>
+                        <li><strong>modo de exibição:</strong> definido como " parent" por padrão. Consulte esta documentação para obter mais informações sobre os modos de exibição disponíveis para este controle.</li>
+                    </ul>
+
+
+                <h2 id="item2b">Propriedades da caixa de seleção</h2>
+
+                    <p>As propriedades relacionadas a este controle da web são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="25%">Propriedade</th><th>Descrição</th></tr>
+                        </tread>
+                        <tbody>
+                            <tr><td>Tipo</td><td><code>checkbox</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br>
+                            Somente variáveis do seguinte tipo de dados podem ser selecionadas:
+                            <ul>
+                                <li>boleano</li>
+                                Quando uma variável não está relacionada a este controle, os valores retornados são:
+                                <li><strong>0</strong>: falso</li>
+                                <li><strong>1</strong>: verdadeiro</li>
+                            </ul></td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>ID</td><td>[Requerido]<br>
+                            Identificador exclusivo de campo e HTML.</td></tr>
+                            <tr><td>Rótulo</td><td>Defina o rótulo do controle nesta propriedade</td></tr>
+                            <tr><td>Valor padrão</td><td>O valor salvo na variável do controle quando o usuário final não marca uma opção. Quando o formulário é renderizado pela primeira vez, o valor definido é "null". Caso o campo não seja obrigatório e o usuário não marque uma opção, o valor recuperado também será "null". Assim, os dados salvos serão o valor padrão para este controle nestes casos.<br>
+                            Consulte esta documentação para saber como o valor padrão funciona neste controle.</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando a caixa de seleção é renderizada. É mostrado quando o ponteiro do mouse está sobre o ícone ?.</td></tr>
+                            <tr><td>obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório. Quando um campo obrigatório não é preenchido com um valor, não é possível ir para a próxima etapa.</td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requerido] <br>
+                            Modo de exibição:
+                            <ul>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner mestre (form/grade)</li>
+                                <li><strong>editar:</strong> o campo é habilitado para edição quando o Dynaform é renderizado.</li>
+                                <li><strong>visualizar:</strong> o campo só pode ser visualizado quando o Dynaform é renderizado. O conteúdo não pode ser editado.</li>
+                                <li><strong>desabativado:</strong> o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Opções</td><td>A propriedade Opções exibe as opções definidas na variável booleana relacionada. Se a caixa de seleção não estiver relacionada a uma variável booleana, esta propriedade não será exibida.</td></tr>
+                        </tbody>
+                    </table>
+ 
+                <h2 id="item2c">Exemplo de controle de caixa de seleção</h2>
+
+                    <p>Para este exemplo, adicione um controle Caixa de Seleção simplesmente arrastando e soltando-o na Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Após adicionar o controle, a janela Criar variável aparecerá. Crie uma variável chamada "casado" e defina as configurações conforme a imagem abaixo.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Quando uma variável é adicionada, as propriedades "váriável" e "tipo de dados da variável" serão alteradas. A propriedade ID também mudará para o nome da variável, como na imagem abaixo.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>A propriedade rótulos do controle pode ser alterada para dar a ele um nome próprio em vez de "label_1". Para este exemplo, o rótulo da propriedade será alterado para "Casado:"</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Não é recomendado adicionar texto à propriedade de valor padrão porque o campo de controle não mostra texto.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>A próxima propriedade é chamada de "dica", que será usada para mostrar uma mensagem de ajuda ao usuário adicionando um ícone que exibe o texto adicionado na propriedade. Por exemplo, a dica pode ser o seguinte texto: "Verifique se casado". Ao executar um caso, a dica aparecerá quando o ponteiro do mouse passar sobre o ícone ao lado do controle, como pode ser visto na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Em seguida está a propriedade orbrigatório, que adiciona um asterisco vermelho ao lado do nome do controle. Se habilitada, a caixa de seleção deve estar marcada, caso não esteja, aparecerá uma mensagem de erro conforme observado na imagem.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Agora a próxima propriedade, que é a propriedade do modo de exibição, fará as seguintes alterações no controle.</p>
+
+                    <p><font color="red">Mestre</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="red">Editar</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="red">Visualizar</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="red">Desativado</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+
+
+
+                    <p>Observe que para este exemplo a propriedade opções já possui valores, pois quando a variável foi criada ela era booleana e portanto seus valores foram adicionados diretamente da variável. Para obter mais informações sobre a propriedade opção, leia esta documentação .</p>
+                  
+                    <figure>
+
+                    </figure>
+
+                <h2 id="item2d">Acessando uma caixa de seleção com PHP</h2>
+
+                    <p>Quando uma caixa de seleção em um formulário dinâmico é enviada, sua variável associada tem um valor de <code><font color="darkred">array</font><font color="green">(</font><font color="magenta">1</font><font color="green">)</font></code> se marcada ou <code><font color="darkred">array</font><font color="green">(</font><font color="magenta">0</font><font color="green">)</font></code> se desmarcada. Por exemplo, o código de gatilho a seguir verifica se uma caixa de seleção associada à variável "temContrato" está marcada para definir o valor mínimo na variável @#minimaNota.</p>
+
+                    <codeblock>
+                        <p><i><font color="darkgrey">//se a caixa de seleção estiver marcada:</font></i></p>
+                        <p><font color="olive">if</font> <font color="green">(</font><font color="darkred">isset</font><font color="green">(@=</font>temContrato<font color="green">)</font> and <font color="green">@=</font>temContrato <font color="green">==</font> <font color="darkred">array</font><font color="green">(</font><font color="magenta">1</font><font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@</font>#minimaNota <font color="green">=</font> 1000.00<font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                        <p><font color="olive">else</font> <font color="green">{</font> <i><font color="darkgrey">//se desmarcado:</font></i></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@</font>#minimaNota <font color="green">=</font> 200.00<font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+                    <p>Por padrão, a variável de rótulo para caixas de seleção é definida como "verdadeira", se marcada; ou "falso". se desmarcada; no entanto, esse valor pode ser personalizado na propriedade opções da caixa de seleção. Por exemplo, o gatilho acima pode ser escrito como:</p>
+
+                    <codeblock>
+                        <p><font color="darkgrey">//se a caixa de seleção estiver marcada:</font></i></p>
+                        <p><font color="olive">if</font> <font color="green">(</font><font color="darkred">isset</font><font color="green">(@@</font>hasContract_label<font color="green">)</font> and <font color="green">@@</font>hasContract_label <font color="green">==</font> <font color="blue">'true'</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@</font>#minimumInvoice = 1000.00<font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                        <p><font color="olive">else</font> <font color="green">{</font> <i><font color="darkgrey">//se desmarcado:</font></i></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@</font>#minimumInvoice = 200.00<font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+                    <p>Para definir o valor de uma caixa de seleção em um gatilho, defina sua variável associada com um valor de <code><font color="darkred">array</font><font color="green">(</font><font color="magenta">1</font><font color="green">)</font></code> ou <code><font color="green">"verdadeiro"</font></code> para marcá-la, ou um valor de <code><font color="darkred">array</font><font color="green">(</font><font color="magenta">0</font><font color="green">)</font></code> ou <font color="green">"falso"</font> para desmarcá-la. O gatilho a seguir marca uma caixa de seleção associada à variável temContrato em um gatilho disparado antes do formulário dinâmico que contém a caixa de seleção:</p>
+
+
+                    <codeblock>
+                        <p><font color="green">@=</font>temContrato <font color="green">=</font> <font color="darkred">array</font><font color="green">(</font><font color="magenta">1</font><font color="green">);</font></p>
+                    </codeblock>
+
+                    <p><font color="green">ou</font></p>
+                    
+                    <codeblock>
+                        <p><font color="green">@=</font>temContrato <font color="green">= verdadeiro;</font></p>
+                    </codeblock>
+                    
+                    <h1 id="item3">Grupo de verificação</h1>
+
+                    <p>Um grupo de verificação oferece uma opção sim/não para uma ou mais opções em um formulário dinâmico e aparece como uma ou várias caixas quadradas com uma marca de verificação quando selecionada (marcada). Os grupos de verificação são convenientes para permitir que um usuário selecione <strong>mais de uma opção</strong> com um único clique do mouse. Seu ícone na barra da Ferramenta de Desenho do Formulário Dinâmico é o seguinte:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>A aparência padrão de um grupo de verificação é a seguinte:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Ao executar um caso, é semelhante a:</p>
+
+                        <figure>
+
+                        </figure>
+
+                <h2 id="item3a">Gerenciando Grupos de Verificação</h2>
+
+                    <p>Após adicionar um Grupo de Verificação ao modelo de Formulário, é possível customizar sua funcionalidade e comportamento configurando suas propriedades.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo:</strong> Defina como "checkgroup" por padrão. Esta propriedade não pode ser modificada.</li>
+                        <li><strong>id:</strong> definido como " checkgroupVar00X" por padrão, onde "X" representa o número correspondente do controle no projeto. Esta numeração inicia em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável; no entanto, é possível atribuir um novo ID ao controle.</li>
+                        <li><strong>rótulo:</strong> Definido como "checkgroup_X" por padrão, onde "X" representa o número correspondente do controle no desenho. Esta numeração começa em 1.</li>
+                        <li><strong>modo de exibição:</strong> definido como "mestre" por padrão. Consulte esta documentação para obter mais informações sobre os modos de exibição disponíveis para este controle.</li>
+                        <li><strong>fonte de dados :</strong> Definido por padrão como "banco de dados". Consulte esta documentação para obter mais informações sobre a fonte de dados disponível para esse controle.</li>
+                        <li><strong>Conexão de banco de dados:</strong> Defina como " PM Database" por padrão. Leve em consideração que se nenhuma consulta SQL for definida na propriedade sql, o banco de dados não será consultado. Além disso, quando uma variável está relacionada a um controle e possui sua própria conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express), essa propriedade herda a conexão da variável.</li>
+                    </ul>
+
+                    <p><font color="green">Observação:</font> O identificador <code>*</code> não é suportado em consultas SQL.</p>
+
+                <h2 id="item3b">Propriedades do grupo de verificação</h2>
+
+                    <p>As propriedades relacionadas a este controle são as seguintes:</p>
+                    <p>Propriedade</p>
+                    <p>Modelo</p>
+                    <p>Variável</p>
+                    <p>Clique na opção ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.</p>
+                    <p>Somente variáveis dos seguintes tipos de dados podem ser selecionadas:</p>
+                    <p>variedade</p>
+                    <p>Tipo de dados variável</p>
+                    <p>Valor Protegido</p>
+                    <p>ID</p>
+                    <p>[Requeridos]</p>
+                    <p>Identificador exclusivo de campo e HTML.</p>
+                    <p>Etiqueta</p>
+                    <p>Valor padrão</p>
+                    <p>O valor salvo na variável do controle quando o usuário final não marca uma opção. Para definir mais de uma opção neste controle, use um pipe. Por exemplo, para definir que "Bolívia", "Argentina" e "Venezuela" devem ser os países padrão, defina “BO|AR|VE” como o valor padrão.</p>
+                    <p>Dê uma olhada nesta documentação para saber como os grupos de verificação funcionam com valores padrão.</p>
+                    <p>Dica</p>
+                    <p>Requeridos</p>
+                    <p>Modo de exibição</p>
+                    <p>[Requeridos]</p>
+                    <p>Modo de exibição:</p>
+                    <p>pai: herda o modo de exibição definido no contêiner pai (form/grade)</p>
+                    <p>edit: o campo é habilitado para edição quando o Formulário Dinâmico é renderizado.</p>
+                    <p>view: o campo só pode ser visualizado quando o Formulário Dinâmico é renderizado. O conteúdo não pode ser editado.</p>
+                    <p>desabilitado: o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</p>
+                    <p>Fonte de dados</p>
+                    <p>database: Esta opção habilita as propriedades DB Connection e SQL .</p>
+                    <p>variável array: Esta opção habilita a propriedade da variável de dados .</p>
+                    <p>Conexão de banco de dados</p>
+                    <p>SQL</p>
+                    <p>Dê uma olhada nesta documentação para saber como essa propriedade funciona no designer.</p>
+                    <p>De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:</p>
+                    <p>SQL nas versões 3.2 a 3.4.</p>
+                    <p>SQL na versão 3.5.</p>
+                    <p>Variável de dados</p>
+                    <p>Opções</p>
+                    <p>Defina as opções que o usuário poderá selecionar nesta propriedade.</p>
+                    <p>Leve em consideração que se as opções forem definidas primeiro no designer e depois uma variável estiver relacionada ao controle, as opções serão substituídas pelas opções definidas na variável (as opções serão excluídas mesmo que a variável não tenha opções).</p>
+                    <p>Após uma variável ter sido relacionada ao controle, é possível adicionar manualmente mais variáveis ao controle definindo-as nesta propriedade, mesmo que a variável tenha uma consulta SQL definida ou variáveis dentro de sua configuração.</p>
+                    <p>Dê uma olhada nesta documentação para saber como essa opção funciona no designer.</p>
+                    <p>Exemplo de controle de grupo de verificação</p>
+                    <p>Para este exemplo, adicione um controle Checkgroup arrastando e soltando o controle no Formulário Dinâmico Designer.</p>
+                    <p>Depois de adicionar o controle, uma janela aparecerá imediatamente. Esta é a janela Criar Variável , que permite ao usuário criar variáveis ou selecionar uma variável já existente. Crie uma variável chamada "novo item". Use a seção Configurações para configurar a variável. Concluir Feche a janela Criar variável clicando no botão Salvar.</p>
+                    <p>Agora que a variável foi criada, exiba as propriedades do controle clicando em qualquer espaço dentro do controle. As propriedades serão mostradas no painel esquerdo.</p>
+                    <p>Agora, a propriedade do rótulo pode ser alterada de "checkgroup_1" para "Item para comprar".</p>
+                    <p>Para este controle não é aconselhável alterar a propriedade do valor padrão, pois isso não afetará este tipo de controle, como pode ser visto na imagem abaixo.</p>
+                    <p>A propriedade hint pode ser usada para mostrar uma mensagem de ajuda ao usuário. Neste exemplo, o usuário escolherá um item para comprar, então adicione o seguinte texto à propriedade hint: "Verifique o(s) item(ns) para a compra". Ao executar um caso, passe o ponteiro do mouse sobre o ícone ao lado do controle e a dica será exibida, conforme mostrado na imagem abaixo.</p>
+                    <p>Em seguida é a propriedade necessária. Quando/se a propriedade requerida estiver marcada, aparecerá um asterisco vermelho ao lado do campo de controle, o que significa que uma opção deve ser selecionada ou aparecerá uma mensagem de erro, conforme observado na imagem abaixo.</p>
+                    <p>Em seguida está a propriedade do modo de exibição, que permite ao usuário escolher a forma como o controle é exibido. Se o mouse estiver sobre o ícone do ponto de interrogação, uma explicação de cada modo de exibição será exibida. Como visto na imagem abaixo, cada modo terá os seguintes efeitos no controle:</p>
+                    <p>As propriedades a seguir são a propriedade DB Connection, que é usada para selecionar entre a lista de conexões de banco de dados definidas nos objetos de processo, e a propriedade sql, que é usada para consultar valores de bancos de dados. Para demonstrar o uso dessas propriedades, um exemplo diferente será usado. Vamos fingir que um país precisa ser escolhido; portanto, uma consulta será usada para chamar o UID e o nome de uma tabela chamada ISO_COUNTRY.</p>
+                    <p>SELECT IC_UID , IC_NAME FROM ISO_COUNTRY</p>
+                    <p>Nota: O identificador * não é suportado em consultas SQL.</p>
+                    <p>O resultado do uso dessa consulta no controle é o seguinte:</p>
+                    <p>Nota: Na imagem acima, o número completo de países não é mostrado porque é muito longo para mostrar em uma imagem, mas ao testar o exemplo, a lista completa será mostrada.</p>
+                    <p>Observe que a propriedade options já possui valores, isso porque a variável associada ao controle já possui valores definidos. Para obter mais informações sobre a propriedade options, leia esta documentação</p>
+                    <p>Acessando Checkgroups com PHP</p>
+                    <p>Quando um grupo de verificação é enviado, é criada uma variável de matriz que contém as chaves das opções selecionadas na caixa de seleção. Outra variável chamada @@ variável _label também é criada, que é uma string JSON contendo uma matriz dos rótulos das opções selecionadas.</p>
+                    <p>Por exemplo, o seguinte grupo de verificação está associado à variável selectSubjects :</p>
+                    <p>Este grupo de verificação tem a seguinte lista de opções:</p>
+                    <p>Se o usuário selecionar as seguintes opções ao executar um caso:</p>
+                    <p>Em seguida, as duas variáveis de caso a seguir serão adicionadas ao caso quando o Formulário Dinâmico que contém o grupo de verificação for enviado:</p>
+                    <p>@= selectSubjects = array ( 'HIS-101' , 'FRE-302' , 'LIT-304' ) ;</p>
+                    <p>@@ selectSubjects_label = '["Histórico 101","Francês 302","Literatura 304"]' ;</p>
+                    <p>A variável de array do grupo de verificação precisa ser acessada como @=selectSubjects no código do gatilho. Se for acessado como @@selectSubjects, ele será convertido em uma string, o que causará problemas ao tentar usá-lo como um array.</p>
+                    <p>Um item individual no array pode ser acessado como @=selectSubjects[ index ], onde o índice começa a contar a partir do número 0. A função count() pode ser usada para obter o número de itens selecionados no grupo de verificação. Se o usuário pode não ter enviado o formulário dinâmico ou pulado usando o menu Passos, então é uma boa ideia usar isset() para primeiro verificar se a variável do grupo de verificação foi definida. Verifique também se o número de itens selecionados é maior que o número do índice ao acessar o array.</p>
+                    <p>Por exemplo, o código acionador a seguir obtém a chave da primeira opção selecionada no grupo de verificação selectSubjects :</p>
+                    <p>if ( isset ( @= selectSubjects ) and count ( @= selectSubjects ) > 0 ) {</p>
+                    <p>  @@ firstSelectedKey = @= selectSubjects [ 0 ] ;</p>
+                    <p>}</p>
+                    <p>Um loop for ou foreach pode ser usado para acessar todas as opções selecionadas em um grupo de verificação.</p>
+                    <p>Por exemplo, o código a seguir cria um novo caso no processo "Inscrever aluno" para cada item selecionado no grupo de verificação "selectSubjects". O código primeiro procura os IDs exclusivos do processo e sua primeira tarefa chamada "Verificar elegibilidade" e, em seguida, usa a função Derivation::getAllUsersFromAnyTask() para obter uma matriz dos usuários atribuídos à tarefa "Verificar elegibilidade". Em seguida, ele percorre as opções selecionadas no grupo de verificação "selectSubjects" e usa a função rand() para selecionar aleatoriamente um usuário para atribuir ao novo caso.</p>
+                    <p>$processId = PMFGetProcessUidByName ( 'Inscrever Aluno' ) ;</p>
+                    <p>$firstTaskId = PMFGetUidFromText ( 'Verificar Elegibilidade' , 'TAS_TITLE' , $processId , @@ SYS_LANG ) [ 0 ] ;</p>
+                    <p>$d = nova Derivação ( ) ;</p>
+                    <p>$aUsers = $d -> getAllUsersFromAnyTask ( $firstTaskId ) ;</p>
+                    <p>if ( contagem ( $aUsers ) == 0) {</p>
+                    <p>   throw new Exception ( "Nenhum usuário atribuído à tarefa 'Verificar elegibilidade'." ) ;</p>
+                    <p>}</p>
+                    <p>foreach ( @= selectSubjects as $ subjectKey ) {</p>
+                    <p>   $random = rand ( 0 , count ( $aUsers ) -1 ) ; $assignedUserId = $aUsers [ $random ] ; $aVars = array ( 'subjectKey' => $subjectKey ) ;</p>
+                    <p>   $newCaseId = PMFNewCase ( $processId , $assignedUserId , $firstTaskId , $aVars ) ;</p>
+                    <p>   if ( vazio ( $newCaseId ) ) {</p>
+                    <p>      throw new Exception ( "Não foi possível criar um novo caso no processo 'Inscrever Aluno'." ) ;</p>
+                    <p>   }</p>
+                    <p>}</p>
+                    <p>Para acessar os rótulos das opções selecionadas no grupo de verificação, a função decode_json() pode ser usada para converter a variável @@selectSubjects_label em um array.</p>
+                    <p>Por exemplo, o código de gatilho a seguir verifica se o usuário selecionou uma opção com o rótulo "Histórico 101" ou "Literatura 304" no grupo de verificação "selectSubjects". Nesse caso, a chave da opção selecionada é adicionada a uma variável de matriz chamada "languageRequirements".</p>
+                    <p>@= languageRequirements = array ( ) ;</p>
+                    <p>//verifica se o formulário dinâmico foi enviado:</p>
+                    <p>if ( isset ( @@ selectSubjects_label ) e ! empty ( @@ selectSubjects_label ) ) {</p>
+                    <p>   $aLabels = json_decode ( @@ selectSubjects_label ) ;</p>
+                    <p>   for ( $i = 0 ; $i < contagem ( $aLabels ) ; $i ++ ) {</p>
+                    <p>      $label = $aLabels [ $i ] ;</p>
+                    <p>      $key = @= selectAssuntos [ $i ] ;</p>
+                    <p>      if ( $label == 'Histórico 101' ou $label == 'Literatura 304' ) {</p>
+                    <p>         @= languageRequirements [ ] = $key ;</p>
+                    <p>      }</p>
+                    <p>   }</p>
+                    <p>}</p>
+                    <p>Para definir as opções selecionadas em um grupo de verificação, adicione as chaves das opções à variável de matriz associada ao grupo de verificação. Certifique-se de que o gatilho esteja definido para disparar ANTES do formulário dinâmico que contém o grupo de verificação.</p>
+                    <p>Por exemplo, o gatilho a seguir verifica se o aluno é formado em humanidades antes de marcar a primeira e a terceira opções no grupo de verificação "selectSubjects", que possuem as chaves 'HIS-101' e 'LIT-304':</p>
+                    <p>if ( @@ major == 'Humanidades' ) {</p>
+                    <p>   @= selectSubjects = array ( 'HIS-101' , 'FRE-304' ) ;</p>
+                    <p>}</p>
+                    <p>Antes de adicionar uma opção à lista de opções selecionadas em um grupo de verificação, primeiro use a função in_array() para verificar se a opção já foi adicionada.</p>
+                    <p>O código a seguir adiciona a opção 'FRE-302' à lista de opções selecionadas no grupo de verificação "selectSubjects":</p>
+                    <p>//se não estiver definido, crie a variável do grupo de verificação:</p>
+                    <p>if ( ! isset ( @= selectSubjects ) ) {</p>
+                    <p>   @= selectSubjects = array ( ) ;</p>
+                    <p>}</p>
+                    <p>//verifica se a opção ainda não está no array, antes de adicioná-la:</p>
+                    <p>if ( ! in_array ( 'FRE-302' , @= selectSubjects ) ) {</p>
+                    <p>   @= selectSubjects [ ] = 'FRE-302' ;</p>
+                    <p>}</p>
+                    <p>A função unset() pode ser usada para remover uma opção da lista de opções selecionadas em um grupo de verificação. Use array_search() para primeiro encontrar o índice da opção selecionada.</p>
+                    <p>Por exemplo, o seguinte código de gatilho desmarca a opção 'FRE-302' no grupo de verificação "selectSubjects":</p>
+                    <p>if ( isset ( @= selectSubjects ) ) {</p>
+                    <p>   $index = array_search ( 'FRE-302' , @= selectSubjects ) ;</p>
+                    <p>   if ( $index !== false ) {</p>
+                    <p>      unset ( @= selectSubjects [ $ index ] ) ;</p>
+                    <p>   }</p>
+                    <p>}</p>
+                    <p>JavaScript em caixas de seleção e grupos de verificação</p>
+                    <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
+                    <p>As caixas de seleção/grupos de verificação no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
+                    <p>Texto: O texto (etiqueta) das opções do grupo de verificação, que podem ser configuradas na lista de opções. Este texto pode ser configurado em checkboxes, mas por padrão é "true" se marcado e "false" se desmarcado. Para grupos de verificação (e caixas de seleção anteriores à versão 3.0.1.4), o texto é uma string JSON contendo uma matriz dos rótulos das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter o seguinte texto:'["United States", "Mexico", "Brazil"]'</p>
+                    <p>Valor: O valor armazenado (chave) da opção marcada. Para caixas de seleção, este é um valor de "1" se marcado e "0" se desmarcado. Para checkgroups, este é um array dos valores (chaves) das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter um valor de:["US", "MX", "BR"]</p>
+                    <p>Métodos JavaScript</p>
+                    <p>Alguns dos métodos JavaScript usados para manipular caixas de seleção e grupos de verificação incluem:</p>
+                    <p>Método</p>
+                    <p>jQuery("#fieldID") . getControl()</p>
+                    <p>Use esta função para obter o campo de entrada do controle, em vez de seu DIV, com$("#id")</p>
+                    <p>Para grupos de verificação, getControl() retorna um array de opções, então a terceira caixa de seleção no grupo de verificação pode ser acessada com:$("#id").getControl()[2]</p>
+                    <p>jQuery("#fieldID") . disableValidation()</p>
+                    <p>jQuery("#fieldID") . enableValidation()</p>
+                    <p>jQuery("#fieldID") . getValue()</p>
+                    <p>Para caixas de seleção, ele retorna "1"se marcado ou "0"desmarcado.</p>
+                    <p>Para checkgroups (e checkboxes anteriores à versão 3.0.14), ele retorna um array dos valores das opções marcadas.</p>
+                    <p>jQuery("#fieldID") . getText()</p>
+                    <p>jQuery("#fieldID") . getLabel()</p>
+                    <p>jQuery("#fieldID") . setValue(["valor1", "valor2"])</p>
+                    <p>Para uma caixa de seleção, defina como "1"para marcá-la ou "0"desmarcá-la.</p>
+                    <p>Para grupos de verificação (e caixas de verificação anteriores à versão 3.0.14), defina-o como uma matriz dos valores das opções a serem marcadas. Por exemplo, um grupo de verificação para selecionar países:</p>
+                    <p>$("#countries").setValue(["US", "MX", "BR"])</p>
+                    <p>jQuery("#fieldID") . setText(["etiqueta1", "etiqueta2"])</p>
+                    <p>Por exemplo, um grupo de verificação para selecionar países:</p>
+                    <p>$("#countries").setText(["United States", "Mexico", "Brazil"])</p>
+                    <p>jQuery("#fieldID") . setLabel("novoEtiqueta")</p>
+                    <p>jQuery("#fieldID") . setOnchange(</p>
+                    <p>function(newVal, oldVal){...})</p>
+                    <p>newVal: O novo valor que foi definido no campo.</p>
+                    <p>oldVal: O valor antigo que foi alterado.</p>
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
+                    <p>Valores nas caixas de seleção</p>
+                    <p>Obtendo valores da caixa de seleção:</p>
+                    <p>O valor retornado pelo getValue()método depende da versão do Gestor Express. Na versão 3.1 e posterior, o valor de uma caixa de seleção é armazenado como uma string. Se a caixa de seleção estiver marcada, retorna . Se desmarcado, ele retorna . $("#checkbox-id").getValue()"1""0"</p>
+                    <p>Por outro lado, na versão 3.0.1.8 e anterior, retornado se marcado e desmarcado. Leve essa alteração em consideração ao atualizar o Gestor Express.$("#checkbox-id").getValue()'["1"]''["0"]'</p>
+                    <p>Definir valores de caixa de seleção:</p>
+                    <p>Uma caixa de seleção pode ser marcada com ou . Ele pode ser desmarcado com ou . $("#checkbox-id").setValue(["1"])$("#checkbox-id").setValue("1")$("#checkbox-id").setValue(["0"])$("#checkbox-id").setValue("0")</p>
+                    <p>Exemplo:</p>
+                    <p>O código JavaScript a seguir marca uma caixa de seleção com o ID "hasContract" se o valor de "catering_contract" estiver selecionado em uma caixa suspensa com o ID "chooseService". Se qualquer outro valor for selecionado na caixa suspensa, o valor da caixa de seleção "hasContract" será alterado automaticamente para o valor oposto; se marcado, é desmarcado, ou vice-versa.</p>
+                    <p>$ ( "#escolhaServiço" ) . setOnchange ( function ( newVal , oldVal ) {</p>
+                    <p>   if ( newVal == "catering_contract" ) {</p>
+                    <p>      $ ( "#hasContract" ) . setValue ( "1" ) ;</p>
+                    <p>   }</p>
+                    <p>   else {</p>
+                    <p>      //verifica as versões 3.0.1.8- e 3.1+</p>
+                    <p>      if  ( $ ( "#hasContract" ) . getValue ( ) == '["1"]' || $( "#temContrato" ) . getValue ( ) == "1" ) {</p>
+                    <p>          $ ( "#hasContract" ) . setValue ( "0" ) ;</p>
+                    <p>       }</p>
+                    <p>       else {</p>
+                    <p>           $ ( "#hasContrato" ) . setValue ( "1" ) ;</p>
+                    <p>       }</p>
+                    <p>   }</p>
+                    <p>} ) ;</p>
+                    <p>Caixas de seleção em grades</p>
+                    <p>Obtendo valores de caixa de seleção em grades:</p>
+                    <p>Na versão 3.1 e posterior, o método grid .getValue( row , column ) para uma caixa de seleção retorna uma string. Se a caixa de seleção na grade estiver marcada, ela retornará "1". Se desmarcado, ele retorna "0".</p>
+                    <p>Por outro lado, na versão 3.0.1.8 e anteriores, o método grid .getValue( row , column ) para uma caixa de seleção retorna se marcado e se desmarcado. Se estiver atualizando o Gestor Express, o código deve ser alterado para levar essa alteração em consideração. Lembre-se também de que os números de linha e coluna nas grades começam a contar a partir do número . ["1"]["0"]1</p>
+                    <p>Por exemplo, para verificar se uma caixa de seleção na segunda linha na terceira coluna de uma grade com o ID "clientList" está marcada na versão 3.1 e posterior:</p>
+                    <p>if ( $ ( " # clientList " ) .getValue ( 2,3 ) == "1" ) { alert ( " Está verificado" ) ; }</p>
+                    <p>Da mesma forma, o valor de uma caixa de seleção será "1"ou "0"na matriz retornada por grid.getValue(). Lembre-se de começar a contar as linhas e colunas do número 0ao acessar o array. Por exemplo, para verificar se uma caixa de seleção na segunda linha da terceira coluna de uma grade com o ID "clientList" está marcada:</p>
+                    <p>if ( $ ( "# clientList " ) .getValue ( ) [ 1 ] [ 2 ] == "1" ) { alert ( "Está verificado" ) ; }</p>
+                    <p>Configurando valores de caixa de seleção em grades:</p>
+                    <p>Uma caixa de seleção em uma grade pode ser marcada com ou grid .setValue(["1"], linha , coluna ). Para desmarcar uma caixa de seleção, use um valor de ou . Por exemplo, para desmarcar uma caixa de seleção na terceira coluna na segunda linha de uma grade com o ID "clientList": grid.setValue("1", row, column)["0"]"0"</p>
+                    <p>$ ( "#clientList" ) . setValue ( "0" , 2 , 3 ) ;</p>
+                    <p>ou</p>
+                    <p>$ ( "#clientList" ) . setValue ( [ "0" ] , 2 , 3 ) ;</p>
+                    <p>Da mesma forma, o valor de uma caixa de seleção pode ser ["1"], "1", ["0"]ou "0"ao adicionar uma nova linha a uma grade com o método grid .addRow() . Por exemplo, para adicionar uma nova linha a uma grade com o ID "clientList" que possui duas caixas de texto e uma caixa de seleção em cada linha:</p>
+                    <p>$ ( "#clientList" ) . addRow ( [ { valor : "Sally" } , { valor : "Rogers" } , { valor : "1" } ] ) ;</p>
+                    <p>ou</p>
+                    <p>$ ( "#clientList" ) . addRow ( [ { valor : "Sally" } , { valor : "Rogers" } , { valor : [ "1" ] } ] ) ;</p>
+                    <p>setOnchange() com caixas de seleção</p>
+                    <p>O método control .setOnchange() na versão 3.0.1.8 informa o valor de uma caixa de seleção como '["0"]'(desmarcada) ou '["1"]'(marcada). Na versão 3.1 e posterior, o control.setOnchange()método relata o valor de uma caixa de seleção como '"0"'(desmarcada) ou '"1"'(marcada).</p>
+                    <p>Exemplo</p>
+                    <p>No exemplo JavaScript a seguir, se uma caixa de seleção com o ID "hasContract" estiver marcada, um controle de arquivo com o ID "contractFile" será mostrado. Se desmarcado, o controle "contractFile" ficará oculto.</p>
+                    <p>$ ( "#temContrato" ) . setOnchange ( function ( newVal , oldVal ) {</p>
+                    <p>   //verifica a versão 3.1+ ou 3.0.1.8-</p>
+                    <p>   if ( newVal == '"1"' || newVal == '["1"]' ) {</p>
+                    <p>      $ ( "# contractFile" ) . show ( ) ;</p>
+                    <p>   }</p>
+                    <p>   else {</p>
+                    <p>      $ ( "#contractFile" ) . hide ( ) ;</p>
+                    <p>   }</p>
+                    <p>} );</p>
+                    <p>Exibindo opções em uma lista horizontal</p>
+                    <p>As opções em um grupo de verificação são exibidas como uma lista horizontal quando exibidas no modo de visualização ou ao executar um caso. Para grupos de verificação que possuem um grande número de opções, isso pode ocupar muito espaço e forçar o usuário a percorrer um formulário longo. Para mudar de uma lista vertical de opções para uma lista horizontal, adicione a classe "radio-inline" às DIVs ao redor de cada caixa de seleção.</p>
+                    <p>Por exemplo, o seguinte grupo de verificação com o ID "selectCountries" é usado para selecionar em uma lista de países:</p>
+                    <p>Este grupo de verificação ocupa menos espaço com uma lista horizontal de opções:</p>
+                    <p>O seguinte código JavaScript pode ser adicionado a um Formulário Dinâmico para fazer o checkgroup com o ID "selectCountries" para exibir uma lista horizontal de opções:</p>
+                    <p>$ ( "#selectCountries" ) . find ( "div.checkbox" ) . addClass ( "radio-inline" ) ;</p>
+                    <p>Remova a caixa de sombra ao redor das caixas de seleção</p>
+                    <p>Para remover a caixa de sombra azul clara ao redor das caixas de seleção e grupos de seleção, adicione o seguinte JavaScript ao formulário dinâmico:</p>
+                    <p>$ ( "div.pmFormulário Dinâmico-control-checkbox-list" ) . css ( "box-shadow" , "nenhum" ) ;</p>
+
+            </article>
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
