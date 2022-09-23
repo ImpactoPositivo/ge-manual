@@ -346,33 +346,56 @@
                         <li>Leve em consideração que <code>"ic_uid="@#COUNTRIES""</code> não recupera nenhum dado ao executar as consultas. Deve haver um espaço em branco entre o símbolo de igual e as variáveis para que a expressão correta seja <code>"ic_uid = "@#COUNTRIES""</code></li>
                     </ul>
                     <p><font color="green">Observação:</font> Os campos dependentes não estão disponíveis quando um controle é definido no modo de visualização.</p>
+            </article>
+            <article>
+                <h1 id="item6">Procedimentos armazenados do MSSQL e campos dependentes</h1>
 
-                    <p>Procedimentos armazenados do MSSQL e campos dependentes</p>
-                    <p>Os procedimentos armazenados do SQL Server podem ser usados para preencher os controles suspensos. Um procedimento armazenado pode ser chamado da propriedade SQL do controle de caixa suspensa da seguinte maneira:</p>
-                    <p>Nome do procedimento EXEC</p>
+                    <p>Os procedimentos armazenados do SQL Server podem ser usados para preencher os controles de caixa suspensa. Um procedimento armazenado pode ser chamado da propriedade SQL do controle de caixa suspensa da seguinte maneira:</p>
+
+                    <codeblock>
+                        <font color=blue>Nome do procedimento</font> EXEC
+                    </codeblock>
+
                     <p>Além disso, os campos dependentes podem ser definidos usando procedimentos armazenados. Para fazer isso, o procedimento armazenado do campo dependente deve ser projetado para passar um parâmetro. Por exemplo:</p>
-                    <p>CREATE PROCEDURE nome-do-procedimento ( @Parameter1 nvarchar(255) ) BEGIN</p>
-                    <p>     SELECT id, nome FROM escritórios WHERE ID = @Parameter1;</p>
-                    <p>FIM</p>
+
+                    <codeblock>
+                        <p>CREATE PROCEDURE <font color="blue">nome-do-procedimento</font> ( <font color="blue">@Parameter1 nvarchar</font>(<font color="blue">255</font>) ) BEGIN</p>
+                        <p>     <font color="blue">SELECT id, nome FROM escritórios WHERE ID = @Parameter1;</font></p>
+                        <p>FIM</p>
+                    </codeblock>
+                    
                     <p>Uma vez criado, ele pode ser chamado da seguinte maneira:</p>
-                    <p>EXEC procedure-nam  @@Parameter1-Value</p>
-                    <p>Onde @@Parameter1-Value é a variável na qual a consulta será baseada para recuperar informações.</p>
-                    <p>Exemplo</p>
-                    <p>Vamos criar uma dependência Category - Subcategory usando as tabelas ProductCategory e ProductSubcategory do banco de dados de exemplo AdventureWorks2012 .</p>
+
+                    <codeblock>EXEC <font color="blue">procedure-nam  @@Parameter1-Value</font></codeblock>
+
+                    <p>Onde <strong>@@Parameter1-Value</strong> é a variável na qual a consulta será baseada para recuperar informações.</p>
+
+                    <p><strong>Exemplo</strong></p>
+
+                    <p>Vamos criar uma dependência Categoria - Subcategoria usando as tabelas ProductCategory e ProductSubcategory do banco de dados de exemplo AdventureWorks2012 .</p>
+
                     <p>Primeiro, crie um procedimento armazenado simples para o menu suspenso "Categoria".</p>
+
                     <p>CRIAR PROCEDIMENTO dbo . productPro1</p>
                     <p>AS</p>
                     <p>SELECT top 28 ProductCategoryID , Name</p>
                     <p>FROM Production . Categoria de Produto;</p>
+
                     <p>Este procedimento recuperará o ID e o nome dos primeiros 28 registros na tabela ProductCategory . Depois disso, crie um segundo procedimento armazenado que será usado na lista suspensa "Subcategoria".</p>
+
                     <p>CRIAR PROCEDIMENTO dbo . productPro2 ( @Param1 nvarchar ( 255 ) )</p>
                     <p>SELECT top 28 ProductCategoryID , Name</p>
                     <p>FROM Production . ProductSubcategory WHERE ProductCategoryID = @Param1;</p>
+
                     <p>Observe que o segundo procedimento armazenado passa um parâmetro de comparação para a consulta. Ele passará a categoria selecionada como parâmetro e recuperará o ID e o nome das Subcategorias com base na seleção da categoria.</p>
+
                     <p>Depois que os dois procedimentos forem criados, atribua-os aos controles suspensos. Clique no menu suspenso "Categoria" e procure a propriedade "Conexão DB" em suas propriedades, selecione a conexão do banco de dados SQL Server e coloque a seguinte consulta dentro da propriedade SQL .</p>
                     <p>produto executivoPro1</p>
+
                     <p>Depois disso, repita os mesmos passos com o menu suspenso "Subcategoria", mas coloque a seguinte consulta na propriedade SQL em vez da acima:</p>
+
                     <p>exec productPro2 @@dropdownVar001</p>
+                    
                     <p>Observe que o procedimento "productPro2" depende de um parâmetro para recuperar valores, este parâmetro deve ser a variável suspensa "Category" (@@dropdownVar001) para definir a dependência.</p>
                     <p>Verifique a dependência indo ao "Modo de visualização" ou iniciando um caso. As subcategorias exibidas dependerão da opção selecionada na categoria.</p>
                     <p>JavaScript em listas suspensas</p>

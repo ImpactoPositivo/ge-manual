@@ -16,7 +16,6 @@
     font-size: 16px;
 }
 
-
 main {
     font-family: var(--fonte1);
     color: black;   
@@ -58,10 +57,63 @@ header img#logo {
     margin: 5px auto;
 }
 
+#lado {
+    width: 30vw;
+    max-width: 400px;
+    position: absolute;
+    float: left;
+    background-color: #e7eefc;
+    color: var(--cor1);
+    padding:  5px 5px 10px 0px;
+    margin: 0px;
+}
+
+#lado h1 {
+    font-family: var(--fonte1);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 10px 0px 0px 10px;
+    font-weight: bolder;
+}
+
+#lado h2 {
+    font-family: var(--fonte1);
+    font-size: 1rem;
+    padding: 5px 0px 10px 10px;
+}
+
+#lado ol {
+    padding: 0px 5px 0px 25px;
+}
+
+#lado ul {
+    padding: 0px 5px 0px 25px;
+}
+
+#lado ol > li {
+    line-height: 1.5rem;
+}
+
+#lado ul > li {
+    line-height: 1.5rem;
+}
+
+#lado ol > li a {
+    text-decoration: none;
+    color: black;
+}
+
+#lado ol > li a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+    font-weight: bold;
+}
+
 #principal {
     width: 70vw;
     max-width: 900px;
     background-color: rgb(252, 250, 228);
+    padding:  5px 5px 10px 0px;
     float: right;
     margin: 5px;
 }
@@ -347,58 +399,6 @@ div#caixa {
 }
 
 
-
-#lado {
-    width: 30vw;
-    max-width: 400px;
-    position: absolute;
-    float: left;
-    background-color: #e7eefc;
-    color: var(--cor1);
-    padding: 20px;
-    margin: 5px 0px 5px 0px;
-}
-
-#lado h1 {
-    font-family: var(--fonte1);
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    padding-bottom: 10px;
-    font-weight: bolder;
-}
-
-#lado h2 {
-    font-family: var(--fonte1);
-    font-size: 1rem;
-    padding-bottom: 10px;
-}
-
-#lado ol {
-    padding-left: 15px;
-}
-
-#lado ul {
-    padding-left: 25px;
-}
-
-#lado ol > li {
-    line-height: 1.5rem;
-}
-
-#lado ul > li {
-    line-height: 1.5rem;
-}
-
-#lado ol > li a {
-    text-decoration: none;
-    color: black;
-}
-
-#lado ol > li a:hover {
-    text-decoration: underline;
-    color: var(--cor1);
-    font-weight: bold;
-}
 
 .btnAction {
     position: fixed;
