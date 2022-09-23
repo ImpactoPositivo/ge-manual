@@ -347,6 +347,7 @@
                     </ul>
                     <p><font color="green">Observação:</font> Os campos dependentes não estão disponíveis quando um controle é definido no modo de visualização.</p>
             </article>
+
             <article>
                 <h1 id="item6">Procedimentos armazenados do MSSQL e campos dependentes</h1>
 
@@ -359,9 +360,12 @@
                     <p>Além disso, os campos dependentes podem ser definidos usando procedimentos armazenados. Para fazer isso, o procedimento armazenado do campo dependente deve ser projetado para passar um parâmetro. Por exemplo:</p>
 
                     <codeblock>
-                        <p>CREATE PROCEDURE <font color="blue">nome-do-procedimento</font> ( <font color="blue">@Parameter1 nvarchar</font>(<font color="blue">255</font>) ) BEGIN</p>
-                        <p>     <font color="blue">SELECT id, nome FROM escritórios WHERE ID = @Parameter1;</font></p>
-                        <p>FIM</p>
+                        <p>CREATE PROCEDURE <font color="blue">nome-do-procedimento</font> (<font color="blue">@Parameter1 nvarchar</font>(<font color="blue">255</font>))</p>
+                        <p>BEGIN</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="blue">SELECT id, name</font></p>
+                        <P>&nbsp&nbsp&nbsp&nbsp <font color="blue">FROM eoffices</font></P>
+                        <p>&nbsp&nbsp&nbsp&nbsp <font color="blue">WHERE ID = @Parameter1;</font></font></p>
+                        <p>END</p>
                     </codeblock>
                     
                     <p>Uma vez criado, ele pode ser chamado da seguinte maneira:</p>
@@ -372,79 +376,152 @@
 
                     <p><strong>Exemplo</strong></p>
 
-                    <p>Vamos criar uma dependência Categoria - Subcategoria usando as tabelas ProductCategory e ProductSubcategory do banco de dados de exemplo AdventureWorks2012 .</p>
+                    <p>Vamos criar uma dependência Categoria - Subcategoria usando as tabelas ProdutoCategoria e ProdutoSubcategoria do banco de dados de exemplo AventuraWorks2022 .</p>
 
                     <p>Primeiro, crie um procedimento armazenado simples para o menu suspenso "Categoria".</p>
 
-                    <p>CRIAR PROCEDIMENTO dbo . productPro1</p>
-                    <p>AS</p>
-                    <p>SELECT top 28 ProductCategoryID , Name</p>
-                    <p>FROM Production . Categoria de Produto;</p>
+                    <codeblock>
+                        <p><font color="darkred">CREATE PROCEDURE</font> dbo.produtoPro1</p>
+                        <p><font color="darkred">AS</font></p>
+                        <p><font color="darkred">SELECT</font> top <font color="magenta">28</font> ProdutoCategoriaID<font color="green">,</font> Name</p>
+                        <p><font color="darkred">FROM</font> Production.ProdutoCategoria;</p>
+                    </codeblock>>
 
-                    <p>Este procedimento recuperará o ID e o nome dos primeiros 28 registros na tabela ProductCategory . Depois disso, crie um segundo procedimento armazenado que será usado na lista suspensa "Subcategoria".</p>
+                    <p>Este procedimento recuperará o ID e o nome dos primeiros 28 registros na tabela ProdutoCategoria. Depois disso, crie um segundo procedimento armazenado que será usado na lista suspensa "Subcategoria".</p>
 
-                    <p>CRIAR PROCEDIMENTO dbo . productPro2 ( @Param1 nvarchar ( 255 ) )</p>
-                    <p>SELECT top 28 ProductCategoryID , Name</p>
-                    <p>FROM Production . ProductSubcategory WHERE ProductCategoryID = @Param1;</p>
+                    <codeblock>
+                        <p><font color="darkred">CREATE PROCEDURE</font> dbo.produtoPro2 <font color="green">(</font>@Param1 nvarchar<font color="green">(</font>255<font color="green">))</font></p>
+                        <p><font color="darkred">SELECT</font> top <font color="magenta">28</font> ProdutoCategoriayID<font color="green">,</font> Name</p>
+                        <p><font color="darkred">FROM</font> Production.ProdutoSubcategoria <font color="darkred">WHERE</font> ProdutoCategoriayID <font color="green">=</font> @Param1;</p>
+                    </codeblock>
 
                     <p>Observe que o segundo procedimento armazenado passa um parâmetro de comparação para a consulta. Ele passará a categoria selecionada como parâmetro e recuperará o ID e o nome das Subcategorias com base na seleção da categoria.</p>
 
-                    <p>Depois que os dois procedimentos forem criados, atribua-os aos controles suspensos. Clique no menu suspenso "Categoria" e procure a propriedade "Conexão DB" em suas propriedades, selecione a conexão do banco de dados SQL Server e coloque a seguinte consulta dentro da propriedade SQL .</p>
+                    <p>Depois que os dois procedimentos forem criados, atribua-os aos controles suspensos. Clique no menu da Caixa Suspensa "Categoria" e procure a propriedade "Conexão DB" em suas propriedades, selecione a conexão do banco de dados SQL Server e coloque a seguinte consulta dentro da propriedade SQL.</p>
+
+                    <figure>
+
+                    </figure>
+
                     <p>produto executivoPro1</p>
 
                     <p>Depois disso, repita os mesmos passos com o menu suspenso "Subcategoria", mas coloque a seguinte consulta na propriedade SQL em vez da acima:</p>
 
-                    <p>exec productPro2 @@dropdownVar001</p>
+                    <codeblock><p>exec produtoPro2 @@dropdownVar001</p></codeblock>
                     
-                    <p>Observe que o procedimento "productPro2" depende de um parâmetro para recuperar valores, este parâmetro deve ser a variável suspensa "Category" (@@dropdownVar001) para definir a dependência.</p>
+                    <p>Observe que o procedimento "produtoPro2" depende de um parâmetro para recuperar valores, este parâmetro deve ser a variável da Caixa Suspensa "Categoria" (@@dropdownVar001) para definir a dependência.</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Verifique a dependência indo ao "Modo de visualização" ou iniciando um caso. As subcategorias exibidas dependerão da opção selecionada na categoria.</p>
-                    <p>JavaScript em listas suspensas</p>
-                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
-                    <p>As listas suspensas no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
-                    <p>Texto: O texto (rótulo) exibido para a opção selecionada.</p>
-                    <p>Valor: O valor armazenado (chave) para a opção selecionada.</p>
-                    <p>Métodos JavaScript</p>
+         
+                    <figure>
+
+                    </figure>
+            </article>
+
+            <article>
+                <h1 id="item7">JavaScript em caixas suspensas</h1>
+                    
+                    <p>Para saber como gerenciar campos de Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+
+                    <p>As caixas suspensas no Gestor Express têm os seguintes componentes de campo:</p>
+
+                    <ul>
+                        <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</li>
+                        <li><strong>Texto:</strong> O texto (rótulo) exibido para a opção selecionada.</li>
+                        <li><strong>Valor:</strong> O valor armazenado (chave) para a opção selecionada.</li>
+                    </ul>
+
+                    <figure>
+
+                    </figure>
+
+                <h2 id="item7a">Métodos JavaScript</h2>
+
                     <p>Alguns dos métodos JavaScript para manipular caixas suspensas incluem:</p>
-                    <p>Método</p>
-                    <p>jQuery("#fieldID") . getControl()</p>
-                    <p>Use esta função para obter o campo de entrada do controle, em vez de seu DIV que é obtido com$("#id")</p>
-                    <p>jQuery("#fieldID") . disableValidation()</p>
-                    <p>jQuery("#fieldID") . enableValidation()</p>
-                    <p>jQuery("#fieldID") . getValue()</p>
-                    <p>jQuery("#fieldID") . getText()</p>
-                    <p>jQuery("#fieldID") . getRótulo()</p>
-                    <p>jQuery("#fieldID") . setValue("novo valor")</p>
-                    <p>jQuery("#fieldID") . setText("novoTexto")</p>
-                    <p>jQuery("#fieldID") . setRótulo("novoEtiqueta")</p>
-                    <p>jQuery("#fieldID") . setOnchange(</p>
-                    <p>function(newVal, oldVal){...})</p>
-                    <p>newVal: O novo valor que acabou de ser definido no campo.</p>
-                    <p>oldVal: O valor antigo que foi alterado.</p>
-                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
-                    <p>Desativando opções em caixas suspensas</p>
-                    <p>As opções podem ser desabilitadas em uma caixa suspensa usando a configuração da propriedade desabilitada das opções para um valor de "disabled". Por exemplo, uma caixa suspensa com o ID "selectCountry" tem uma opção com um valor de "MX"e um rótulo de "Mexico". O código JavaScript a seguir desativa essa opção na caixa suspensa:</p>
-                    <p> $ ( "#selectCountry" ) . find ( "opção[valor=MX]" ) . attr ( "desativado" , "desativado" ) ;</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="20%">Método</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID").getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez de seu DIV que é obtido com <code>$("#id")</code></td></tr>
+                            <tr><td>jQuery("#fieldID").disableValidation()</td><td>Desabilita a validação do campo, para que não verifique se o campo é <strong>obrigatório</strong> quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").enableValidation()</td><td>Habilita a validação do campo, assim verificará se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").getValue()</td><td>Retorna o valor (chave) da opção selecionada do menu caixa suspensa.</td></tr>
+                            <tr><td>jQuery("#fieldID").getText()</td><td>Retorna o texto exibido (rótulo) da opção selecionada do menu caixa suspensa.</td></tr>
+                            <tr><td>jQuery("#fieldID").getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setValue("novo valor")</td><td>Seleciona uma opção na caixa suspensa, especificando seu valor (chave).</td></tr>
+                            <tr><td>jQuery("#fieldID").setText("novoTexto")</td><td>Seleciona uma opção na caixa suspensa, especificando seu texto exibido (rótulo).</td></tr>
+                            <tr><td>jQuery("#fieldID").setLabel("novoRotulo")</td><td>Altera o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setOnchange(function(newVal, oldVal){...})</td><td>Define um manipulador de eventos de alteração, que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros:
+                                <ul>
+                                    <li><strong>newVal:</strong> O novo valor que acabou de ser definido no campo.</li>
+                                    <li><strong>oldVal:</strong> O valor antigo que foi alterado.</li>
+                                </ul>
+                            </td></tr>
+                        </tbody>
+                    </table>
+    
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+
+                <h2 id="item7b">Desativando opções em caixas suspensas</h2>
+
+                    <p>As opções de uma caixa suspensa podem ser desabilitadas, configurando a propriedade <strong>desabilitar</strong> das opções para um valor de <code>"disativado"</code>. Por exemplo, uma caixa suspensa com o ID "selectPais" tem uma opção com um valor de <code>"MX"</code> e um rótulo de <code>"Mexico"</code>. O código JavaScript a seguir desativa essa opção na caixa suspensa:</p>
+
+                    <codeblock>
+                        <p>$<font color="green">(</font><font color="blue">"#selectPais"</font><font color="green">)</font>.find<font color="green">(</font><font color="blue">"opção[valor=MX]"</font><font color="green">)</font>.attr<font color="green">(</font><font color="blue">"desativado"</font><font color="green">,</font><font color="blue">"desativado"</font><font color="green">);</font></p>
+                    </codeblock>
+
                     <p>Lembre-se de que desabilitar uma opção não altera a opção selecionada no momento, mas impede que o usuário selecione essa opção no futuro. Use control.setValue() para selecionar uma opção diferente.</p>
-                    <p>No exemplo a seguir, um Formulário Dinâmico tem duas caixas suspensas com os IDs "selectService1" e "selectService2".</p>
+                    <p>No exemplo a seguir, um Formulário Dinâmico tem duas caixas suspensas com os IDs "selectServico1" e "selectServico2".</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Esses menus suspensos têm a mesma lista de opções:</p>
+ 
+                    <figure>
+
+                    </figure>
+               
                     <p>Quando um serviço é selecionado na primeira caixa suspensa, ele deve ser desabilitado na segunda caixa suspensa, para que o usuário não possa selecioná-lo.</p>
-                    <p>O código JavaScript usa o método control .setOnchange() para a primeira lista suspensa para desabilitar a opção na segunda lista suspensa. Se a segunda caixa suspensa tiver selecionado a opção desativada, o código selecionará automaticamente a primeira opção disponível.</p>
-                    <p>function disableOption ( newVal , oldVal ) {</p>
-                    <p>  //desativa a nova opção selecionada no segundo menu suspenso:</p>
-                    <p>  $ ( "#selectService2" ) . find ( "opção[valor=" + newVal + "]" ) . attr ( "desativado" , "desativado" ) ;</p>
-                    <p>  if ( oldVal ) {</p>
-                    <p>     // reativar a opção selecionada antiga no segundo menu suspenso:</p>
-                    <p>     $ ( "#selectService2" ) . encontrar ( "+ valor antigo + "]" ) ) . attr ( "desativado" , false ) ;</p>
-                    <p>  }</p>
-                    <p>  //selecione uma opção diferente se a opção desabilitada for selecionada</p>
-                    <p>  if ( $ ( "#selectService2" ) . getValue ( ) == newVal ) {</p>
-                    <p>    var aOptions = $ ( "#selectService2" ) . getInfo ( ) . opções ;</p>
-                    <p>    para ( i = 0 ; i< aOpções. comprimento ; i ++ ) {</p>
-                    <p>      if ( aOptions [ i ] . value != newVal ) {</p>
-                    <p>         $ ( "#selectService2" ) . setValue ( aOptions [ i ] .value ) ; _ quebrar ; } } } } $ ( "#selectService1" ) . setOnchange ( disableOption ) ;</p>
-                    <p>//quando o valor muda no primeira Caixa Suspensa</p>
-                    <p>disableOption ( $ ( "#selectService1" ) . getValue ( ) , null ) ; //desativa a opção quando o Formulário Dinâmico carrega</p>
+
+                    <p>O código JavaScript usa o método control.setOnchange() para a primeira caixa suspensa para desabilitar a opção na segunda caixa suspensa. Se a segunda caixa suspensa tiver selecionado a opção desativada, o código selecionará automaticamente a primeira opção disponível.</p>
+
+
+                    <codeblock>
+                        <p><strong>function</strong> disableOption<font color="green">(</font>newVal, oldVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp <i><font color="#688a08">//desativa a nova opção selecionada no segundo menu suspenso:</font></i></p>
+                        <p>
+                        &nbsp&nbsp $<font color="green">(</font><font color="blue">"#selectServico2"</font><font color="green">)</font>.<strong>find</strong><font color="green">(</font><font color="blue">"option[value</font>="<font color="green">+</font>newVal<font color="green">+</font><font color="blue">"]"</font><font color="green">)</font>.<strong>attr</strong><font color="green">(</font><font color="blue">"disabled"</font><font color="green">,</font> <font color="blue">"disabled"</font><font color="green">);</font>
+                        <p>&nbsp&nbsp <strong>if</strong> <font color="green">(</font>oldVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <i><font color="#688a08">//reativar a opção selecionada antiga no segundo menu suspenso:</font></i></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#selectServico2"</font><font color="green">)</font>.<strong>find</strong><font color="green">(</font><font color="blue">"option[value="</font><font color="green">+</font>oldVal<font color="green">+</font><font color="blue">"]"</font><font color="green">)</font>.<strong>attr</strong><font color="green">(</font><font color="blue">"disabled"</font><font color="green">,</font> falso<font color="green">);</font></p>
+                        <p>&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp <i><font color="#688a08">//selecione uma opção diferente se a opção desabilitada for selecionada</font></i></p>
+                        <p>&nbsp&nbsp <strong>if</strong> <font color="green">(</font>$<font color="green">(</font><font color="blue">"#selectServico2"</font><font color="green">)</font><font color="darkred">.getValue</font><font color="green">()</font> <font color="green">==</font> newVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <strong>var</strong> aOptions <font color="green">=</font> $<font color="green">(</font><font color="blue">"#selectServico2"</font><font color="green">)</font><font color="darkred">.getInfo</font><font color="green">()</font><font color="darkred">.options</font><font color="green">;</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <strong>for</strong> <font color="green">(</font>i<font color="green">=</font><font color="red">0</font><font color="green">;</font> i <font color="green"><</font> aOptions.length<font color="green">;</font> i<font color="green">++) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>if</strong> <font color="green">(</font>aOptions<font color="green">[</font>i<font color="green">]</font><font color="darkred">.value</font> <font color="green">!=</font> newVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#selectServico2"</font><font color="green">)</font><font color="darkred">.setValue</font><font color="green">(</font>aOptions<font color="green">[</font>i<font color="green">]</font><font color="darkred">.value</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>break</strong><font color="green">;</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                        
+                        <p>$<font color="green">(</font><font color="blue">"#selectServico1"</font><font color="green">)</font><font color="darkred">.setOnchange</font><font color="green">(</font>disableOption<font color="green">);</font></p>
+                        <p><i>&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#688a08">//quando o valor muda na primeira Caixa Suspensa</font></i></p>
+                        
+                        <p>disableOption<font color="green">(</font> $<font color="green">(</font><font color="blue">"#selectServico1"</font><font color="green">)</font><font color="darkred">.getValue</font><font color="green">(),</font> null <font color="green">);</font></p>
+                        <p><i>&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#688a08">//desativa a opção quando o Formulário Dinâmico carrega</font></i></p>
+                        
+                    </codeblock>
                 
 
                     

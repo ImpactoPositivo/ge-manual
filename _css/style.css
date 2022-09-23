@@ -233,14 +233,19 @@ code#sozinho {
     margin:0px 0px 15px 30px;
 }
 
-codeblock {
+#principal codeblock {
     background-color: #e7eefc;
     font-family: var(--fonte1);
     font-size: .95rem;
     margin: 5px 5px 5px 30px;
-    padding: 5px;
+    padding-top: 7px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
+}
+
+#principal codeblock p {
+    line-height: 1rem;
+    padding-left: 10px;
 }
 
 .textbox {
