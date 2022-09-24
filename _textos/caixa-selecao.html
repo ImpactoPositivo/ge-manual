@@ -42,7 +42,7 @@
                             <li><a href="#item3a">Gerenciando Grupos de Verificação</a></li>
                             <li><a href="#item3b">Propriedades do grupo de verificação</a></li>
                             <li><a href="#item3c">Exemplo de controle de grupo de verificação</a></li>
-                            <li><a href="#item3d">Acessando Checkgroups com PHP</a></li>
+                            <li><a href="#item3d">Acessando Grupos de verificação com PHP</a></li>
                         </ol>
                     </li>
                     <li><a href="#item4">JavaScript em caixas de seleção e grupos de verificação</a>
@@ -306,61 +306,175 @@
                 <h2 id="item3b">Propriedades do grupo de verificação</h2>
 
                     <p>As propriedades relacionadas a este controle são as seguintes:</p>
-                    <p>Propriedade</p>
-                    <p>Modelo</p>
-                    <p>Variável</p>
-                    <p>Clique na opção ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.</p>
-                    <p>Somente variáveis dos seguintes tipos de dados podem ser selecionadas:</p>
-                    <p>variedade</p>
-                    <p>Tipo de dados variável</p>
-                    <p>Valor Protegido</p>
-                    <p>ID</p>
-                    <p>[Requeridos]</p>
-                    <p>Identificador exclusivo de campo e HTML.</p>
-                    <p>Etiqueta</p>
-                    <p>Valor padrão</p>
-                    <p>O valor salvo na variável do controle quando o usuário final não marca uma opção. Para definir mais de uma opção neste controle, use um pipe. Por exemplo, para definir que "Bolívia", "Argentina" e "Venezuela" devem ser os países padrão, defina “BO|AR|VE” como o valor padrão.</p>
-                    <p>Dê uma olhada nesta documentação para saber como os grupos de verificação funcionam com valores padrão.</p>
-                    <p>Dica</p>
-                    <p>Requeridos</p>
-                    <p>Modo de exibição</p>
-                    <p>[Requeridos]</p>
-                    <p>Modo de exibição:</p>
-                    <p>pai: herda o modo de exibição definido no contêiner pai (form/grade)</p>
-                    <p>edit: o campo é habilitado para edição quando o Formulário Dinâmico é renderizado.</p>
-                    <p>view: o campo só pode ser visualizado quando o Formulário Dinâmico é renderizado. O conteúdo não pode ser editado.</p>
-                    <p>desabilitado: o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</p>
-                    <p>Fonte de dados</p>
-                    <p>database: Esta opção habilita as propriedades DB Connection e SQL .</p>
-                    <p>variável array: Esta opção habilita a propriedade da variável de dados .</p>
-                    <p>Conexão de banco de dados</p>
-                    <p>SQL</p>
-                    <p>Dê uma olhada nesta documentação para saber como essa propriedade funciona no designer.</p>
-                    <p>De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:</p>
-                    <p>SQL nas versões 3.2 a 3.4.</p>
-                    <p>SQL na versão 3.5.</p>
-                    <p>Variável de dados</p>
-                    <p>Opções</p>
-                    <p>Defina as opções que o usuário poderá selecionar nesta propriedade.</p>
-                    <p>Leve em consideração que se as opções forem definidas primeiro no designer e depois uma variável estiver relacionada ao controle, as opções serão substituídas pelas opções definidas na variável (as opções serão excluídas mesmo que a variável não tenha opções).</p>
-                    <p>Após uma variável ter sido relacionada ao controle, é possível adicionar manualmente mais variáveis ao controle definindo-as nesta propriedade, mesmo que a variável tenha uma consulta SQL definida ou variáveis dentro de sua configuração.</p>
-                    <p>Dê uma olhada nesta documentação para saber como essa opção funciona no designer.</p>
-                    <p>Exemplo de controle de grupo de verificação</p>
-                    <p>Para este exemplo, adicione um controle Checkgroup arrastando e soltando o controle no Formulário Dinâmico Designer.</p>
-                    <p>Depois de adicionar o controle, uma janela aparecerá imediatamente. Esta é a janela Criar Variável , que permite ao usuário criar variáveis ou selecionar uma variável já existente. Crie uma variável chamada "novo item". Use a seção Configurações para configurar a variável. Concluir Feche a janela Criar variável clicando no botão Salvar.</p>
+                   
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="20%">Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>checkgroup</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br>
+                            Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
+                                <ul>
+                                    <li>variedade</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Tipo de dados variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>Valor Protegido</td><td>Ao marcar esta opção, as informações armazenadas nas variáveis são protegidas.</td></tr>
+                            <tr><td>ID</td><td>[Requeridos]<br>
+                            Identificador exclusivo de campo e HTML.</td></tr>
+                            <tr><td>Rótulo</td><td>Defina o rótulo do controle nesta propriedade</td></tr>
+                            <tr><td>Valor padrão</td><td>O valor salvo na variável do controle quando o usuário final não marca uma opção. Para definir mais de uma opção neste controle, use um pipe. Por exemplo, para definir que "Bolívia", "Argentina" e "Venezuela" devem ser os países padrão, defina “BO|AR|VE” como o valor padrão.<br>
+                            Dê uma olhada nesta documentação para saber como os grupos de verificação funcionam com valores padrão.</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando o grupo de verificação é renderizado. É mostrado quando o ponteiro do mouse está sobre ícone o ?.</td></tr>
+                            <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório. Quando um campo obrigatório não é preenchido com um valor, não é possível ir para a próxima etapa. Se a propriedade Obrigatório estiver marcada, uma segunda propriedade da mensagem de erro do campo obrigatório é habilitada para preencher uma mensagem personalizada.
+                                <figure>
+
+                                </figure>
+                            </td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requerido] <br>
+                            Modo de exibição:
+                                <ul>
+                                    <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grade)</li>
+                                    <li><strong>editar:</strong> o campo é habilitado para edição quando o Formulário Dinâmico é renderizado.</li>
+                                    <li><strong>visualizar:</strong> o campo só pode ser visualizado quando o Formulário Dinâmico é renderizado. O conteúdo não pode ser editado.</li>
+                                    <li><strong>desativado:</strong> o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Fonte de dados</td><td>A fonte de dados para a lista de opções disponíveis:
+                                <ul>
+                                    <li><strong>database:</strong> Esta opção habilita as propriedades DB Connection e SQL .</li>
+                                    <li><strong>variável array:</strong> Esta opção habilita a propriedade da variável de dados.</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Conexão BD</td><td>Para armazenar um valor recuperado de um banco de dados, selecione a conexão do banco de dados que será utilizada (a conexão já deve ser criada no processo, consulte esta seção para saber mais sobre ela).</td></tr>
+                            <tr><td>SQL</td><td>Insira a consulta SQL necessária para preencher a opção do controle com dados do banco de dados.<br>
+                            Dê uma olhada nesta documentação para saber como essa propriedade funciona no designer.<br>
+                            De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
+                                <ul>
+                                    <li>SQL nas versões 3.2 a 3.4.</li>
+                                    <li>SQL na versão 3.5.</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Variável de dados</td><td>Atribua a variável de matriz usando o botão @@.
+                                    <figure>
+
+                                    </figure>
+                            </td></tr>
+                            <tr><td>Opções</td><td>Defina as opções que o usuário poderá selecionar nesta propriedade. <br>
+                            Leve em consideração que se as opções forem definidas primeiro no modelo e depois uma variável estiver relacionada ao controle, as opções serão substituídas pelas opções definidas na variável (as opções serão excluídas mesmo que a variável não tenha opções). <br>
+                            Após uma variável ter sido relacionada ao controle, é possível adicionar manualmente mais variáveis ao controle definindo-as nesta propriedade, mesmo que a variável tenha uma consulta SQL definida ou variáveis dentro de sua configuração.<br>
+                            Dê uma olhada nesta documentação para saber como essa opção funciona na Ferramenta de Desenho.</td></tr>
+                        </tbody>
+                    </table>
+ 
+                <h2 id="item3c">Exemplo de controle de grupo de verificação</h2>
+
+                    <p>Para este exemplo, adicione um controle Grupo de Verificação arrastando e soltando o controle na Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Depois de adicionar o controle, uma janela aparecerá imediatamente. Esta é a janela Criar Variável, que permite ao usuário criar variáveis ou selecionar uma variável já existente. Crie uma variável chamada "novo item". Use a seção Configurações para configurar a variável. Conclua fechando a janela Criar variável clicando no botão Gravar.</p>
+
+                    <figure>
+
+                    </figure>
+
                     <p>Agora que a variável foi criada, exiba as propriedades do controle clicando em qualquer espaço dentro do controle. As propriedades serão mostradas no painel esquerdo.</p>
+               
+                    <figure>
+
+                    </figure>
+ 
                     <p>Agora, a propriedade do rótulo pode ser alterada de "checkgroup_1" para "Item para comprar".</p>
+                    
+                    <figure>
+
+                    </figure>
+
                     <p>Para este controle não é aconselhável alterar a propriedade do valor padrão, pois isso não afetará este tipo de controle, como pode ser visto na imagem abaixo.</p>
-                    <p>A propriedade hint pode ser usada para mostrar uma mensagem de ajuda ao usuário. Neste exemplo, o usuário escolherá um item para comprar, então adicione o seguinte texto à propriedade hint: "Verifique o(s) item(ns) para a compra". Ao executar um caso, passe o ponteiro do mouse sobre o ícone ao lado do controle e a dica será exibida, conforme mostrado na imagem abaixo.</p>
-                    <p>Em seguida é a propriedade necessária. Quando/se a propriedade requerida estiver marcada, aparecerá um asterisco vermelho ao lado do campo de controle, o que significa que uma opção deve ser selecionada ou aparecerá uma mensagem de erro, conforme observado na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>A propriedade Dica pode ser usada para mostrar uma mensagem de ajuda ao usuário. Neste exemplo, o usuário escolherá um item para comprar, então adicione o seguinte texto à propriedade Dica: "Verifique o(s) item(ns) para a compra". Ao executar um caso, passe o ponteiro do mouse sobre o ícone ao lado do controle e a dica será exibida, conforme mostrado na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Em seguida é a propriedade Obrigatório Quando/se a propriedade obrigatório estiver marcada, aparecerá um asterisco vermelho ao lado do campo de controle, o que significa que uma opção deve ser selecionada ou aparecerá uma mensagem de erro, conforme observado na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                  
                     <p>Em seguida está a propriedade do modo de exibição, que permite ao usuário escolher a forma como o controle é exibido. Se o mouse estiver sobre o ícone do ponto de interrogação, uma explicação de cada modo de exibição será exibida. Como visto na imagem abaixo, cada modo terá os seguintes efeitos no controle:</p>
-                    <p>As propriedades a seguir são a propriedade DB Connection, que é usada para selecionar entre a lista de conexões de banco de dados definidas nos objetos de processo, e a propriedade sql, que é usada para consultar valores de bancos de dados. Para demonstrar o uso dessas propriedades, um exemplo diferente será usado. Vamos fingir que um país precisa ser escolhido; portanto, uma consulta será usada para chamar o UID e o nome de uma tabela chamada ISO_COUNTRY.</p>
-                    <p>SELECT IC_UID , IC_NAME FROM ISO_COUNTRY</p>
-                    <p>Nota: O identificador * não é suportado em consultas SQL.</p>
+                                        
+                    <figure>
+
+                    </figure>
+
+                    <p><font color="red">Mestre</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Ediar</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Visaulizar</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p><font color="red">Desabilitado</font></p>
+                    
+                    <figure>
+                            
+                    </figure>
+
+                    <p>As propriedades a seguir são a propriedade Conexão BD, que é usada para selecionar entre a lista de conexões de banco de dados definidas nos objetos de processo, e a propriedade sql, que é usada para consultar valores de bancos de dados. Para demonstrar o uso dessas propriedades, um exemplo diferente será usado. Vamos fingir que um país precisa ser escolhido; portanto, uma consulta será usada para chamar o UID e o nome de uma tabela chamada ISO_PAIS.</p>
+
+                    <codeblock>
+                        <p>SELECT IC_UID , IC_NAME FROM ISO_PAIS</p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                        <figure>
+                            
+                        </figure>
+
                     <p>O resultado do uso dessa consulta no controle é o seguinte:</p>
-                    <p>Nota: Na imagem acima, o número completo de países não é mostrado porque é muito longo para mostrar em uma imagem, mas ao testar o exemplo, a lista completa será mostrada.</p>
-                    <p>Observe que a propriedade options já possui valores, isso porque a variável associada ao controle já possui valores definidos. Para obter mais informações sobre a propriedade options, leia esta documentação</p>
-                    <p>Acessando Checkgroups com PHP</p>
+                        
+                        <figure>
+                                
+                        </figure>
+
+                    <p><font color="green">Observação:</font> Na imagem acima, o número completo de países não é mostrado porque é muito longo para mostrar em uma imagem, mas ao testar o exemplo, a lista completa será mostrada.</p>
+
+                    <p>Observe que a propriedade opções já possui valores, isso porque a variável associada ao controle já possui valores definidos. Para obter mais informações sobre a propriedade opções, leia esta documentação</p>
+                            
+                        <figure>
+                                    
+                        </figure>
+
+                                            
+                        <figure>
+                                    
+                        </figure>
+
+                <h2 id="item3d">Acessando Grupos de verificação com PHP</h2>
+
                     <p>Quando um grupo de verificação é enviado, é criada uma variável de matriz que contém as chaves das opções selecionadas na caixa de seleção. Outra variável chamada @@ variável _label também é criada, que é uma string JSON contendo uma matriz dos rótulos das opções selecionadas.</p>
                     <p>Por exemplo, o seguinte grupo de verificação está associado à variável selectSubjects :</p>
                     <p>Este grupo de verificação tem a seguinte lista de opções:</p>
