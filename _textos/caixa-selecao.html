@@ -49,7 +49,7 @@
                         <ol type="A">
                             <li><a href="#item4a">Métodos JavaScript</a></li>
                             <li><a href="#item4b">Valores nas caixas de seleção</a></li>
-                            <li><a href="#item4c">Caixas de seleção em grades</a></li>
+                            <li><a href="#item4c">Caixas de seleção em grids</a></li>
                             <li><a href="#item4d">setOnchange() com caixas de seleção</a></li>
                             <li><a href="#item4e">Exibindo opções em uma lista horizontal</a></li>
                             <li><a href="#item4f">Remova a caixa de sombra ao redor das caixas de seleção</a></li>
@@ -134,7 +134,7 @@
                             <tr><td>Modo de exibição</td><td>[Requerido] <br>
                             Modo de exibição:
                             <ul>
-                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner mestre (form/grade)</li>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner mestre (form/grid)</li>
                                 <li><strong>editar:</strong> o campo é habilitado para edição quando o Dynaform é renderizado.</li>
                                 <li><strong>visualizar:</strong> o campo só pode ser visualizado quando o Dynaform é renderizado. O conteúdo não pode ser editado.</li>
                                 <li><strong>desabativado:</strong> o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</li>
@@ -335,7 +335,7 @@
                             <tr><td>Modo de exibição</td><td>[Requerido] <br>
                             Modo de exibição:
                                 <ul>
-                                    <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grade)</li>
+                                    <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grid)</li>
                                     <li><strong>editar:</strong> o campo é habilitado para edição quando o Formulário Dinâmico é renderizado.</li>
                                     <li><strong>visualizar:</strong> o campo só pode ser visualizado quando o Formulário Dinâmico é renderizado. O conteúdo não pode ser editado.</li>
                                     <li><strong>desativado:</strong> o campo fica acinzentado para indicar que está no modo desabilitado. O conteúdo também não pode ser editado.</li>
@@ -642,12 +642,12 @@
                             <tr><td>jQuery("#fieldID").getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
                             <tr><td>jQuery("#fieldID").setValue(["valor1", "valor2"])</td><td>Define o valor.<br>
                                 <ul>
-                                    <li>Para uma caixa de verificação, defina como "1" para marcá-la ou "0" para desmarcá-la.</li>
+                                    <li>Para uma caixa de seleção, defina como "1" para marcá-la ou "0" para desmarcá-la.</li>
                                     <li>Para grupos de verificação, defina-o como uma matriz dos valores das opções a serem marcadas. Por exemplo, um grupo de verificação para selecionar países:
                                     <code>$("#paises").setValue(["US", "MX", "BR"])</code></li>
                                 </ul>
                             </td></tr>
-                            <tr><td>jQuery("#fieldID").setText(["rotulo1", "rotulo2"])</td><td>Marca as opções usando seu rótulo de texto. Para uma caixa de verificação, defina-a como o rótulo de texto da opção marcada ou desmarcada. Como alternativa, para marcar uma caixa de verificação, defina seu texto como "true" e, para desmarcá-la, defina seu texto como "false". Para grupos de verificação, defina-o como uma matriz dos rótulos das opções marcadas.<br>
+                            <tr><td>jQuery("#fieldID").setText(["rotulo1", "rotulo2"])</td><td>Marca as opções usando seu rótulo de texto. Para uma caixa de seleção, defina-a como o rótulo de texto da opção marcada ou desmarcada. Como alternativa, para marcar uma caixa de seleção, defina seu texto como "true" e, para desmarcá-la, defina seu texto como "false". Para grupos de verificação, defina-o como uma matriz dos rótulos das opções marcadas.<br>
                             Por exemplo, um grupo de verificação para selecionar países:
                             <code>$<font color="green">(</font><font color="blue">"#paises"</font><font color="green">)</font>.<font color="darkred">setText</font><font color="green">([</font><font color="blue">"Estados Unidos"</font><font color="green">,</font> <font color="blue">"México"</font><font color="green">,</font> <font color="blue">"Brasil"</font><font color="green">])</font></code></td></tr>
                             <tr><td>jQuery("#fieldID").setLabel("novoRotulo")</td><td>Altera o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
@@ -674,64 +674,115 @@
 
                     <p><strong>Exemplo:</strong></p>
 
-                    <p>O código JavaScript a seguir marca uma caixa de verificação com o ID "temContrato" se o valor de "buffet_contrato" estiver selecionado em uma caixa suspensa com o ID "escolhaServico". Se qualquer outro valor for selecionado na caixa suspensa, o valor da caixa de seleção "temContrato" será alterado automaticamente para o valor oposto; se marcado, é desmarcado, ou vice-versa.</p>
+                    <p>O código JavaScript a seguir marca uma caixa de seleção com o ID "temContrato" se o valor de "buffet_contrato" estiver selecionado em uma caixa suspensa com o ID "escolhaServico". Se qualquer outro valor for selecionado na caixa suspensa, o valor da caixa de seleção "temContrato" será alterado automaticamente para o valor oposto; se marcado, é desmarcado, ou vice-versa.</p>
 
                     <codeblock>
-                        <p>$("#escolhaServico").setOnchange( function(newVal, oldVal) {</p>
-                        <p>&nbsp&nbsp if (newVal == "buffet_contrato") {</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("1");</p>
-                        <p>&nbsp&nbsp }</p>
-                        <p>&nbsp&nbsp else {</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp //check for versions 3.0.1.8- and versions 3.1+</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp if  ($("#temContrato").getValue() == '["1"]' || $("#temContrato").getValue() == "1") {</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("0");</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp else {</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("1");</p>
-                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
-                        <p>&nbsp&nbsp }</p>
-                        <p>});</p>
+                        <p><font color="darkblue">$</font><font color="green">(</font><font color="blue">"#escolhaServico"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font>(newVal<font color="green">,</font> oldVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>newVal <font color="green">==</font> <font color="blue">"buffet_contrato"</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$</font><font color="green">(</font><font color="blue">"#temContrato"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">"1"</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font>  <font color="green">(</font><font color="darkblue">$</font><font color="green">(</font><font color="blue">"#temContrato"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">() ==</font> <font color="blue">"1"</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$</font><font color="green">(</font><font color="blue">"#temContrato"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">"0"</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$</font><font color="green">(</font><font color="blue">"#temContrato"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">"1"</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">});</font></p>
                     </codeblock>
 
-                    <p>Caixas de seleção em grades</p>
-                    <p>Obtendo valores de caixa de seleção em grades:</p>
-                    <p>Na versão 3.1 e posterior, o método grid .getValue( row , column ) para uma caixa de seleção retorna uma string. Se a caixa de seleção na grade estiver marcada, ela retornará "1". Se desmarcado, ele retorna "0".</p>
-                    <p>Por outro lado, na versão 3.0.1.8 e anteriores, o método grid .getValue( row , column ) para uma caixa de seleção retorna se marcado e se desmarcado. Se estiver atualizando o Gestor Express, o código deve ser alterado para levar essa alteração em consideração. Lembre-se também de que os números de linha e coluna nas grades começam a contar a partir do número . ["1"]["0"]1</p>
-                    <p>Por exemplo, para verificar se uma caixa de seleção na segunda linha na terceira coluna de uma grade com o ID "clientList" está marcada na versão 3.1 e posterior:</p>
-                    <p>if ( $ ( " # clientList " ) .getValue ( 2,3 ) == "1" ) { alert ( " Está verificado" ) ; }</p>
-                    <p>Da mesma forma, o valor de uma caixa de seleção será "1"ou "0"na matriz retornada por grid.getValue(). Lembre-se de começar a contar as linhas e colunas do número 0ao acessar o array. Por exemplo, para verificar se uma caixa de seleção na segunda linha da terceira coluna de uma grade com o ID "clientList" está marcada:</p>
-                    <p>if ( $ ( "# clientList " ) .getValue ( ) [ 1 ] [ 2 ] == "1" ) { alert ( "Está verificado" ) ; }</p>
-                    <p>Configurando valores de caixa de seleção em grades:</p>
-                    <p>Uma caixa de seleção em uma grade pode ser marcada com ou grid .setValue(["1"], linha , coluna ). Para desmarcar uma caixa de seleção, use um valor de ou . Por exemplo, para desmarcar uma caixa de seleção na terceira coluna na segunda linha de uma grade com o ID "clientList": grid.setValue("1", row, column)["0"]"0"</p>
-                    <p>$ ( "#clientList" ) . setValue ( "0" , 2 , 3 ) ;</p>
+                <h2 id="item4c">Caixas de seleção em grids</h2>
+
+                    <p><strong>Obtendo valores de caixa de seleção em grids:</strong></p>
+
+                    <p>O método grid .getValue(row, column) para uma caixa de seleção retorna uma string. Se a caixa de seleção na grid estiver marcada, ela retornará <code>"1"</code>. Se desmarcada, ele retorna <code>"0"</code>.</p>
+
+                    <p>Lembre-se também de que os números de linha e coluna nas grids começam a contar a partir do número 1.</p>
+
+                    <p>Por exemplo, para verificar se uma caixa de seleção na segunda linha na terceira coluna de uma grid com o ID "listaCliente" está marcada temos o código seguinte:</p>
+
+                    <codeblock>
+                        <p><font color="olive"><strong>if</strong></font> <font color="green">(</font>$<font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">(</font><font color="magenta">2</font><font color="green">,</font> <font color="magenta">3</font>) <font color="green">==</font> <font color="blue">"1"</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">"Está marcada"</font><font color="green">);</font></p>
+                         <p><font color="green">}</font></p>
+                    </codeblock>
+
+                    <p><strong>Configurando valores de caixa de seleção em grids:</strong></p>
+
+                    <p>Uma caixa de seleção em uma grid pode ser marcada com <code><font color="blue">grid</font>.setValue("1", linha, coluna)</code> ou <font color="blue">grid</font>.setValue(["1"], linha, coluna). Para desmarcar uma caixa de seleção, use um valor de <code>["0"]</code> ou <code>"0"</code>. Por exemplo, para desmarcar uma caixa de seleção na terceira coluna na segunda linha de uma grid com o ID "listaCliente": </p>
+
+                    <codeblock>
+                        <p><strong>$</strong><font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">"0"</font><font color="green">,</font> <font color="magenta">2</font><font color="green">,</font> <font color="magenta">3</font><font color="green">);</font></p>
+                    </codeblock>
+
                     <p>ou</p>
-                    <p>$ ( "#clientList" ) . setValue ( [ "0" ] , 2 , 3 ) ;</p>
-                    <p>Da mesma forma, o valor de uma caixa de seleção pode ser ["1"], "1", ["0"]ou "0"ao adicionar uma nova linha a uma grade com o método grid .addRow() . Por exemplo, para adicionar uma nova linha a uma grade com o ID "clientList" que possui duas caixas de texto e uma caixa de seleção em cada linha:</p>
-                    <p>$ ( "#clientList" ) . addRow ( [ { valor : "Sally" } , { valor : "Rogers" } , { valor : "1" } ] ) ;</p>
+
+                    <codeblock>
+                        <p><strong>$</strong><font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">([</font><font color="blue">"0"</font><font color="green">],</font> <font color="magenta">2</font><font color="green">,</font> <font color="magenta">3</font><font color="green">);</font></p>
+                    </codeblock>
+                
+                    <p>Da mesma forma, o valor de uma caixa de seleção pode ser <code>["1"]</code>, <code>"1"</code>, <code>["0"]</code> ou <code>"0"</code> ao adicionar uma nova linha a uma grid com o método <font color="skyblue">grid.addRow()</font>. Por exemplo, para adicionar uma nova linha a uma grid com o ID "listaCliente" que possui duas caixas de texto e uma caixa de seleção em cada linha:</p>
+
+                    <codeblock>
+                        <p><strong>$</strong><font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">addRow</font><font color="green">([{</font>valor<font color="green">:</font> <font color="green"><font color="blue">"Soraia"</font>},</font> valor<font color="green">:</font> <font color="blue">"Ribeiro"</font><font color="green">, {</font></font>valor<font color="green">:</font> <font color="blue">"1"</font> <font color="green">}]);</font></p>
+                    </codeblock>
+
                     <p>ou</p>
-                    <p>$ ( "#clientList" ) . addRow ( [ { valor : "Sally" } , { valor : "Rogers" } , { valor : [ "1" ] } ] ) ;</p>
-                    <p>setOnchange() com caixas de seleção</p>
-                    <p>O método control .setOnchange() na versão 3.0.1.8 informa o valor de uma caixa de seleção como '["0"]'(desmarcada) ou '["1"]'(marcada). Na versão 3.1 e posterior, o control.setOnchange()método relata o valor de uma caixa de seleção como '"0"'(desmarcada) ou '"1"'(marcada).</p>
-                    <p>Exemplo</p>
-                    <p>No exemplo JavaScript a seguir, se uma caixa de seleção com o ID "hasContract" estiver marcada, um controle de arquivo com o ID "contractFile" será mostrado. Se desmarcado, o controle "contractFile" ficará oculto.</p>
-                    <p>$ ( "#temContrato" ) . setOnchange ( function ( newVal , oldVal ) {</p>
-                    <p>   //verifica a versão 3.1+ ou 3.0.1.8-</p>
-                    <p>   if ( newVal == '"1"' || newVal == '["1"]' ) {</p>
-                    <p>      $ ( "# contractFile" ) . show ( ) ;</p>
-                    <p>   }</p>
-                    <p>   else {</p>
-                    <p>      $ ( "#contractFile" ) . hide ( ) ;</p>
-                    <p>   }</p>
-                    <p>} );</p>
-                    <p>Exibindo opções em uma lista horizontal</p>
+
+                    <codeblock>
+                        <p><strong>$</strong><font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">addRow</font><font color="green">([{</font>valor<font color="green">:</font> <font color="blue">"Soraia"</font><font color="green">}, {</font>valor: <font color="blue">"Ribeiro"</font><font color="green">}, {</font>valor<font color="green">: [</font><font color="blue">"1"</font><font color="green">]}]);</font></p>
+                    </codeblock>
+
+                <h2 id="item4d">setOnchange() com caixas de seleção</h2>
+
+                    <p>O método <font color="skyblue">control.setOnchange()</font> informa o valor de uma caixa de seleção como <code>'"0"'</code> (desmarcada) ou <code>'"1"'</code>(marcada).</p>
+                    
+                    <p><strong>Exemplo</strong></p>
+
+                    <p>No exemplo JavaScript a seguir, se uma caixa de seleção com o ID "temContrato" estiver marcada, um controle de arquivo com o ID "contratoArquivo" será mostrado. Se desmarcado, o controle "contratoArquivo" ficará oculto.</p>
+
+                    <codeblock>
+                        <p>$<font color="green">(</font>"<font color="blue">#temContrato"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font> <strong>function</strong><font color="green">(</font>newVal<font color="green">,</font> oldVal<font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>if</strong> <font color="green">(</font>newVal <font color="green">==</font> <font color="blue">'"1"'</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#contratoArquivo"</font><font color="green">)</font>.show<font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp <strong>else</strong> <font color="green">{</font></p>
+                        <p>&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#contratoArquivo"</font><font color="green">)</font>.hide<font color="green">();</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>}<font color="green">);</font></p>
+                    </codeblock>
+
+                <h2 id="item4e">Exibindo opções em uma lista horizontal</h2>
+
                     <p>As opções em um grupo de verificação são exibidas como uma lista horizontal quando exibidas no modo de visualização ou ao executar um caso. Para grupos de verificação que possuem um grande número de opções, isso pode ocupar muito espaço e forçar o usuário a percorrer um formulário longo. Para mudar de uma lista vertical de opções para uma lista horizontal, adicione a classe "radio-inline" às DIVs ao redor de cada caixa de seleção.</p>
-                    <p>Por exemplo, o seguinte grupo de verificação com o ID "selectCountries" é usado para selecionar em uma lista de países:</p>
+
+                    <p>Por exemplo, o seguinte grupo de verificação com o ID "selectPaises" é usado para selecionar em uma lista de países:</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Este grupo de verificação ocupa menos espaço com uma lista horizontal de opções:</p>
-                    <p>O seguinte código JavaScript pode ser adicionado a um Formulário Dinâmico para fazer o checkgroup com o ID "selectCountries" para exibir uma lista horizontal de opções:</p>
-                    <p>$ ( "#selectCountries" ) . find ( "div.checkbox" ) . addClass ( "radio-inline" ) ;</p>
-                    <p>Remova a caixa de sombra ao redor das caixas de seleção</p>
+ 
+                    <figure>
+
+                    </figure>
+               
+                    <p>O seguinte código JavaScript pode ser adicionado a um Formulário Dinâmico para fazer o Grupo de Seleção com o ID "selectPaises" exibir uma lista horizontal de opções:</p>
+
+
+                    <codeblock>
+                        <p>$<font color="green">(</font><font color="blue">"#selectPaises"</font><font color="green">)</font>.find<font color="green">(</font><font color="blue">"div.checkbox"</font><font color="green">)</font>.addClass<font color="green">(</font><font color="blue">"radio-inline"</font><font color="green">);</font></p>
+                    </codeblock>
+
+                <h2 id="item4f">Remova a caixa de sombra ao redor das caixas de seleção</h2>
+
                     <p>Para remover a caixa de sombra azul clara ao redor das caixas de seleção e grupos de seleção, adicione o seguinte JavaScript ao formulário dinâmico:</p>
-                    <p>$ ( "div.pmFormulário Dinâmico-control-checkbox-list" ) . css ( "box-shadow" , "nenhum" ) ;</p>
+
+                    <codeblock>
+                        <p>$<font color="green">(</font><font color="blue">"div.pmdynaform-control-checkbox-list"</font><font color="green">)</font>.css<font color="green">(</font><font color="blue">"box-shadow"</font><font color="green">,</font><font color="blue">"none"</font><font color="green">);</font></p>
+                    </codeblock>
 
             </article>
         </section>
