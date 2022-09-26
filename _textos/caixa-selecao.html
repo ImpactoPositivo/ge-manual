@@ -475,126 +475,224 @@
 
                 <h2 id="item3d">Acessando Grupos de verificação com PHP</h2>
 
-                    <p>Quando um grupo de verificação é enviado, é criada uma variável de matriz que contém as chaves das opções selecionadas na caixa de seleção. Outra variável chamada @@ variável _label também é criada, que é uma string JSON contendo uma matriz dos rótulos das opções selecionadas.</p>
+                    <p>Quando um grupo de verificação é enviado, é criada uma variável de matriz que contém as chaves das opções selecionadas na caixa de seleção. Outra variável chamada @@variável _label também é criada, que é uma string JSON contendo uma matriz dos rótulos das opções selecionadas.</p>
+
                     <p>Por exemplo, o seguinte grupo de verificação está associado à variável selectSubjects :</p>
+
+                        <figure>
+
+                        </figure>
+
                     <p>Este grupo de verificação tem a seguinte lista de opções:</p>
+
+                    <figure>
+
+                    </figure>
+
                     <p>Se o usuário selecionar as seguintes opções ao executar um caso:</p>
+                    
+                    <figure>
+
+                    </figure>
+
                     <p>Em seguida, as duas variáveis de caso a seguir serão adicionadas ao caso quando o Formulário Dinâmico que contém o grupo de verificação for enviado:</p>
-                    <p>@= selectSubjects = array ( 'HIS-101' , 'FRE-302' , 'LIT-304' ) ;</p>
-                    <p>@@ selectSubjects_label = '["Histórico 101","Francês 302","Literatura 304"]' ;</p>
-                    <p>A variável de array do grupo de verificação precisa ser acessada como @=selectSubjects no código do gatilho. Se for acessado como @@selectSubjects, ele será convertido em uma string, o que causará problemas ao tentar usá-lo como um array.</p>
-                    <p>Um item individual no array pode ser acessado como @=selectSubjects[ index ], onde o índice começa a contar a partir do número 0. A função count() pode ser usada para obter o número de itens selecionados no grupo de verificação. Se o usuário pode não ter enviado o formulário dinâmico ou pulado usando o menu Passos, então é uma boa ideia usar isset() para primeiro verificar se a variável do grupo de verificação foi definida. Verifique também se o número de itens selecionados é maior que o número do índice ao acessar o array.</p>
-                    <p>Por exemplo, o código acionador a seguir obtém a chave da primeira opção selecionada no grupo de verificação selectSubjects :</p>
-                    <p>if ( isset ( @= selectSubjects ) and count ( @= selectSubjects ) > 0 ) {</p>
-                    <p>  @@ firstSelectedKey = @= selectSubjects [ 0 ] ;</p>
-                    <p>}</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <codeblock>
+                        <p><font color="grenn">@=</font>selectMaterias <font color="grenn">=</font> <font color="darkred">array</font><font color="grenn">(</font><font color="blue">'HIS-101'</font><font color="grenn">,</font> <font color="blue">'FRE-302'</font><font color="grenn">,</font> <font color="blue">'LIT-304'</font><font color="grenn">);</font></p>
+                        <p><font color="grenn">@@</font>selectMaterias_label <font color="grenn">=</font> <font color="blue">'["História 101","Francês 302","Literatura 304"]'</font><font color="grenn">;</font></p></p>
+                    </codeblock>
+
+                    <p>A variável de array do grupo de verificação precisa ser acessada como @=selectMaterias no código do gatilho. Se for acessado como @@selectMaterias, ele será convertido em uma string, o que causará problemas ao tentar usá-lo como um array.</p>
+
+                    <p>Um item individual no array pode ser acessado como @=selectMaterias[<font color="blue">index</font>], onde o índice começa a contar a partir do número 0. A função <font color="blue">count()</font> pode ser usada para obter o número de itens selecionados no grupo de verificação. Se o usuário pode não ter enviado o formulário dinâmico ou pulado usando o menu Passos, então é uma boa ideia usar <font color="blue">isset()</font> para primeiro verificar se a variável do grupo de verificação foi definida. Verifique também se o número de itens selecionados é maior que o número do índice ao acessar o array.</p>
+
+                    <p>Por exemplo, o código de gatilho a seguir obtém a chave da primeira opção selecionada no grupo de verificação selectMaterias:</p>
+
+                    <codeblock>
+                        <p><font color="olive">if</font> <font color="green">(</font><font color="darkred">isset</font><font color="green">(@=</font>selectMaterias<font color="green">)</font> and <font color="darkred">count</font><font color="green">(@=</font>selectMaterias<font color="green">) ></font> <font color="magenta">0</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@@</font>firstSelectedKey <font color="green">= @=</font>selectMaterias<font color="green">[</font><font color="magenta">0</font><font color="green">];</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
                     <p>Um loop for ou foreach pode ser usado para acessar todas as opções selecionadas em um grupo de verificação.</p>
-                    <p>Por exemplo, o código a seguir cria um novo caso no processo "Inscrever aluno" para cada item selecionado no grupo de verificação "selectSubjects". O código primeiro procura os IDs exclusivos do processo e sua primeira tarefa chamada "Verificar elegibilidade" e, em seguida, usa a função Derivation::getAllUsersFromAnyTask() para obter uma matriz dos usuários atribuídos à tarefa "Verificar elegibilidade". Em seguida, ele percorre as opções selecionadas no grupo de verificação "selectSubjects" e usa a função rand() para selecionar aleatoriamente um usuário para atribuir ao novo caso.</p>
-                    <p>$processId = PMFGetProcessUidByName ( 'Inscrever Aluno' ) ;</p>
-                    <p>$firstTaskId = PMFGetUidFromText ( 'Verificar Elegibilidade' , 'TAS_TITLE' , $processId , @@ SYS_LANG ) [ 0 ] ;</p>
-                    <p>$d = nova Derivação ( ) ;</p>
-                    <p>$aUsers = $d -> getAllUsersFromAnyTask ( $firstTaskId ) ;</p>
-                    <p>if ( contagem ( $aUsers ) == 0) {</p>
-                    <p>   throw new Exception ( "Nenhum usuário atribuído à tarefa 'Verificar elegibilidade'." ) ;</p>
-                    <p>}</p>
-                    <p>foreach ( @= selectSubjects as $ subjectKey ) {</p>
-                    <p>   $random = rand ( 0 , count ( $aUsers ) -1 ) ; $assignedUserId = $aUsers [ $random ] ; $aVars = array ( 'subjectKey' => $subjectKey ) ;</p>
-                    <p>   $newCaseId = PMFNewCase ( $processId , $assignedUserId , $firstTaskId , $aVars ) ;</p>
-                    <p>   if ( vazio ( $newCaseId ) ) {</p>
-                    <p>      throw new Exception ( "Não foi possível criar um novo caso no processo 'Inscrever Aluno'." ) ;</p>
-                    <p>   }</p>
-                    <p>}</p>
-                    <p>Para acessar os rótulos das opções selecionadas no grupo de verificação, a função decode_json() pode ser usada para converter a variável @@selectSubjects_label em um array.</p>
-                    <p>Por exemplo, o código de gatilho a seguir verifica se o usuário selecionou uma opção com o rótulo "Histórico 101" ou "Literatura 304" no grupo de verificação "selectSubjects". Nesse caso, a chave da opção selecionada é adicionada a uma variável de matriz chamada "languageRequirements".</p>
-                    <p>@= languageRequirements = array ( ) ;</p>
-                    <p>//verifica se o formulário dinâmico foi enviado:</p>
-                    <p>if ( isset ( @@ selectSubjects_label ) e ! empty ( @@ selectSubjects_label ) ) {</p>
-                    <p>   $aLabels = json_decode ( @@ selectSubjects_label ) ;</p>
-                    <p>   for ( $i = 0 ; $i < contagem ( $aLabels ) ; $i ++ ) {</p>
-                    <p>      $label = $aLabels [ $i ] ;</p>
-                    <p>      $key = @= selectAssuntos [ $i ] ;</p>
-                    <p>      if ( $label == 'Histórico 101' ou $label == 'Literatura 304' ) {</p>
-                    <p>         @= languageRequirements [ ] = $key ;</p>
-                    <p>      }</p>
-                    <p>   }</p>
-                    <p>}</p>
+
+                    <p>Por exemplo, o código a seguir cria um novo caso no processo "Matricular aluno" para cada item selecionado no grupo de verificação "selectMaterias". O código procura primeiramente os IDs exclusivos do processo e sua primeira tarefa chamada "Verificar elegibilidade" e, em seguida, usa a função <font color="deepskyblue">Derivation::getAllUsersFromAnyTask()</font> para obter uma matriz dos usuários atribuídos à tarefa "Verificar elegibilidade". Em seguida, ele percorre as opções selecionadas no grupo de verificação "selectMaterias" e usa a função <font color="deepskyblue">rand()</font> para selecionar aleatoriamente um usuário para atribuir ao novo caso.</p>
+
+
+                    <codeblock>
+                        <p><font color="darkblue">$processId</font> <font color="green">=</font> PMFGetProcessUidByName<font color="green">(</font><font color="blue">'Matricular aluno'</font><font color="green">);</font></p>
+                        <p><font color="darkblue">$firstTaskId</font> <font color="green">=</font> PMFGetUidFromText(<font color="blue">'Verificar elegibilidade'</font><font color="green">,</font> <font color="blue">'TAS_TITLE'</font><font color="green">,</font> $processId<font color="green">, @@</font>SYS_LANG<font color="green">)[</font><font color="magenta">0</font><font color="green">];</font></p>
+                        <p><font color="darkblue">$d</font> <font color="green">=</font> new Derivation<font color="green">();</font></p>
+                        <p><font color="darkblue">$aUsers</font> <font color="green">=</font> $d<font color="green">-></font>getAllUsersFromAnyTask<font color="green">(</font>$firstTaskId<font color="green">);</font></p>
+                        <p><font color="olive">if</font> <font color="green">(</font><font color="darkred">count</font><font color="green">(</font>$aUsers<font color="green">) ==</font> <font color="magenta">0</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="olive">throw</font> new Exception<font color="green">(</font><font color="blue">"Nenhum usuário atribuído à tarefa 'Verificar elegibilidade'."</font><font color="green">);</font></p>
+                        <p><font color="green">}</font></p>
+                        <p><font color="olive">foreach</font> <font color="green">(@=</font>selectMatarias <font color="olive">as</font> $<font color="darkblue">subjectKey</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="darkblue">$random</font> <font color="green">=</font> <font color="darkred">rand</font><font color="green">(</font><font color="magenta">0</font><font color="green">,</font> <font color="darkred">count</font><font color="green">(</font><font color="darkblue">$aUsers</font><font color="green">) -</font> <font color="magenta">1</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="darkblue">$assignedUserId</font> <font color="green">=</font> <font color="darkblue">$aUsers</font>[<font color="darkblue">$random</font><font color="green">];</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="darkblue">$aVars</font> <font color="green">=</font> <font color="darkred">array</font><font color="green">(</font>'subjectKey' <font color="green">=></font> <font color="darkblue">$subjectKey</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="darkblue">$newCaseId</font> <font color="green">=</font> PMFNewCase<font color="green">(</font><font color="darkblue">$processId</font><font color="green">,</font> <font color="darkblue">$assignedUserId</font><font color="green">,</font> <font color="darkblue">$firstTaskId</font><font color="green">,</font> <font color="darkblue">$aVars</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="olive">if</font> <font color="green">(</font><font color="darkred">empty</font><font color="green">(</font><font color="darkblue">$newCaseId</font><font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="olive">throw</font> new Exception<font color="green">(</font><font color="blue">"Não foi possível criar um novo caso no processo 'Matricular aluno'."</font><font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+                    <p>Para acessar os rótulos das opções selecionadas no grupo de verificação, a função decode_json() pode ser usada para converter a variável @@selectMaterias_label em um array.</p>
+
+                    <p>Por exemplo, o código de gatilho a seguir verifica se o usuário selecionou uma opção com o rótulo "História 101" ou "Literatura 304" no grupo de verificação "selectMaterias". Nesse caso, a chave da opção selecionada é adicionada a uma variável de matriz chamada "idiomaRequisitos".</p>
+
+                    <codeblock>
+                        <p><font color="green">@=</font>idiomaRequisitos <font color="green">=</font> <font color="darkred">array</font><font color="green">();</font></p>
+                        <p><font color="#688a08"><i>//verifica se o formulário dinâmico foi enviado:</i></font></p>
+                        <p><font color="olive">if</font> (<font color="darkred">isset</font><font color="green">(@@</font>selectMaterias_label<font color="green">)</font> and <font color="green">!</font><font color="darkred">empty</font><font color="green">(@@</font>selectMaterias_label<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="darkblue">$aLabels</font> <font color="green">=</font> <font color="darkred">json_decode</font><font color="green">(@@</font>selectMaterias_label<font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="olive">for</font> (<font color="darkblue">$i</font> <font color="green">=</font> <font color="magenta">0</font><font color="green">;</font> <font color="darkblue">$i</font> <font color="green"><</font> <font color="darkred">count</font><font color="green">(</font><font color="darkblue">$aLabels</font><font color="green">);</font> <font color="darkblue">$i</font><font color="green">++) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$label</font> <font color="green">=</font> <font color="darkblue">$aLabels</font><font color="green">[</font><font color="darkblue">$i</font><font color="green">];</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkblue">$key</font> <font color="green">= @=</font>selectMaterias<font color="green">[</font><font color="darkblue">$i</font><font color="green">];</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="olive">if</font> <font color="green">(</font><font color="darkblue">$label</font> <font color="green">==</font> <font color="blue">'Historia 101'</font> or $label <font color="green">==</font> <font color="blue">'Literatura 304'</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">@=</font>idiomaRequisitos<font color="green">[] =</font> <font color="darkblue">$key</font><font color="green">;</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
                     <p>Para definir as opções selecionadas em um grupo de verificação, adicione as chaves das opções à variável de matriz associada ao grupo de verificação. Certifique-se de que o gatilho esteja definido para disparar ANTES do formulário dinâmico que contém o grupo de verificação.</p>
-                    <p>Por exemplo, o gatilho a seguir verifica se o aluno é formado em humanidades antes de marcar a primeira e a terceira opções no grupo de verificação "selectSubjects", que possuem as chaves 'HIS-101' e 'LIT-304':</p>
-                    <p>if ( @@ major == 'Humanidades' ) {</p>
-                    <p>   @= selectSubjects = array ( 'HIS-101' , 'FRE-304' ) ;</p>
-                    <p>}</p>
+
+                    <p>Por exemplo, o gatilho a seguir verifica se o aluno é formado em humanidades antes de marcar a primeira e a terceira opções no grupo de verificação "selectMaterias", que possuem as chaves 'HIS-101' e 'LIT-304':</p>
+
+                    <codeblock>
+                        <p><font color="olive">if</font> <font color="green">(@@</font>major <font color="green">==</font> <font color="blue">'Humanidades'</font><font color="green">) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@=</font>selectMaterias <font color="green">=</font> <font color="darkred">array</font>(<font color="blue">'HIS-101'</font><font color="green">,</font> <font color="blue">'FRE-304'</font><font color="green">);</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
                     <p>Antes de adicionar uma opção à lista de opções selecionadas em um grupo de verificação, primeiro use a função in_array() para verificar se a opção já foi adicionada.</p>
-                    <p>O código a seguir adiciona a opção 'FRE-302' à lista de opções selecionadas no grupo de verificação "selectSubjects":</p>
-                    <p>//se não estiver definido, crie a variável do grupo de verificação:</p>
-                    <p>if ( ! isset ( @= selectSubjects ) ) {</p>
-                    <p>   @= selectSubjects = array ( ) ;</p>
-                    <p>}</p>
-                    <p>//verifica se a opção ainda não está no array, antes de adicioná-la:</p>
-                    <p>if ( ! in_array ( 'FRE-302' , @= selectSubjects ) ) {</p>
-                    <p>   @= selectSubjects [ ] = 'FRE-302' ;</p>
-                    <p>}</p>
+
+                    <p>O código a seguir adiciona a opção 'FRE-302' à lista de opções selecionadas no grupo de verificação "selectMaterias":</p>
+
+                    <codeblock>
+                        <p><font color="#688a08"><i>//se não estiver definido, crie a variável do grupo de verificação:</font></i></p>
+                        <p><font color="olive">if</font> <font color="green">(!</font><font color="darkred">isset</font><font color="green">(@=</font>selectMaterias<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@=</font>selectMaterias <font color="green">=</font> <font color="darkred">array</font><font color="green">();</font></p>
+                        <p><font color="green">}</font></p>
+                        <br><br>
+                        <p><font color="#688a08"><i>//verifica se a opção ainda não está no array, antes de adicioná-la:</font></i></p>
+                        <p><font color="olive">if</font> <font color="green">( !</font><font color="darkred">in_array</font><font color="green">(</font><font color="blue">'FRE-302'</font><font color="green">, @=</font>selectMaterias<font color="green">)) {</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">@=</font>selectMaterias<font color="green">[] =</font> <font color="blue">'FRE-302'</font><font color="green">;</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
                     <p>A função unset() pode ser usada para remover uma opção da lista de opções selecionadas em um grupo de verificação. Use array_search() para primeiro encontrar o índice da opção selecionada.</p>
-                    <p>Por exemplo, o seguinte código de gatilho desmarca a opção 'FRE-302' no grupo de verificação "selectSubjects":</p>
-                    <p>if ( isset ( @= selectSubjects ) ) {</p>
-                    <p>   $index = array_search ( 'FRE-302' , @= selectSubjects ) ;</p>
-                    <p>   if ( $index !== false ) {</p>
-                    <p>      unset ( @= selectSubjects [ $ index ] ) ;</p>
-                    <p>   }</p>
-                    <p>}</p>
-                    <p>JavaScript em caixas de seleção e grupos de verificação</p>
-                    <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
-                    <p>As caixas de seleção/grupos de verificação no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                    <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
-                    <p>Texto: O texto (etiqueta) das opções do grupo de verificação, que podem ser configuradas na lista de opções. Este texto pode ser configurado em checkboxes, mas por padrão é "true" se marcado e "false" se desmarcado. Para grupos de verificação (e caixas de seleção anteriores à versão 3.0.1.4), o texto é uma string JSON contendo uma matriz dos rótulos das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter o seguinte texto:'["United States", "Mexico", "Brazil"]'</p>
-                    <p>Valor: O valor armazenado (chave) da opção marcada. Para caixas de seleção, este é um valor de "1" se marcado e "0" se desmarcado. Para checkgroups, este é um array dos valores (chaves) das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter um valor de:["US", "MX", "BR"]</p>
-                    <p>Métodos JavaScript</p>
+                    
+                    <p>Por exemplo, o seguinte código de gatilho desmarca a opção 'FRE-302' no grupo de verificação "selectMaterias":</p>
+
+
+                    <codeblock>
+                        <p><font color="olive">if</font> <font color="green">(</font><font color="darkred">isset</font><font color="green">(@=</font>selectMaterias<font color="green">)) {</font></p>
+                        <p>&nbsp&nbs&nbsp <font color="darkblue">$index</font> <font color="green">=</font> <font color="darkred">array_search</font><font color="green">(</font><font color="blue">'FRE-302'</font><font color="green">, @=</font>selectMaterias<font color="green">);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="olive">if</font> <font color="green">(</font><font color="darkblue">$index</font> <font color="green">!== false) {</font></p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="darkred">unset</font><font color="green">(@=</font>selectMaterias<font color="green">[</font><font color="darkblue">$index</font><font color="green">]);</font></p>
+                        <p>&nbsp&nbsp&nbsp <font color="green">}</font></p>
+                        <p><font color="green">}</font></p>
+                    </codeblock>
+
+
+
+                <h1 id="item4">JavaScript em caixas de seleção e grupos de verificação</h1>
+
+                    <p>Para aprender a manipular controles de Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
+
+                    <p>As caixas/grupos de verificação no Gestor Express têm os seguintes componentes de campo:</p>
+                    
+                    <ul>
+                        <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</li>
+                        <li><strong>Texto:</strong> O texto (rótulo) das opções do grupo de verificação, que podem ser configuradas na lista de opções. Este texto pode ser configurado em caixas de verificação, mas por padrão é "verdadeiro" se marcado e "falso" se desmarcado. Para grupos de verificação, o texto é uma string JSON contendo uma matriz dos rótulos das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter o seguinte texto:<code><font color="darkblue">'["Estados Unidos", "México", "Brasil"]'</font></code></li>
+                        <li><strong>Valor:</strong> O valor armazenado (chave) da opção marcada. Para caixas de seleção, este é um valor de "1" se marcado e "0" se desmarcado. Para grupos de verificação, este é um array dos valores (chaves) das opções marcadas. Por exemplo, um grupo de verificação para selecionar países pode ter um valor de:<code>[<font color="darkblue">"US"</font><font color="green">,</font> <font color="darkblue">"MX"</font><font color="green">,</font> <font color="darkblue">"BR"</font><font color="green">]</font></code></li>
+                    </ul>
+
+                        <figure>
+                            
+                        </figure>
+
+                <h2 id="item4a">Métodos JavaScript</h2>
+
                     <p>Alguns dos métodos JavaScript usados para manipular caixas de seleção e grupos de verificação incluem:</p>
-                    <p>Método</p>
-                    <p>jQuery("#fieldID") . getControl()</p>
-                    <p>Use esta função para obter o campo de entrada do controle, em vez de seu DIV, com$("#id")</p>
-                    <p>Para grupos de verificação, getControl() retorna um array de opções, então a terceira caixa de seleção no grupo de verificação pode ser acessada com:$("#id").getControl()[2]</p>
-                    <p>jQuery("#fieldID") . disableValidation()</p>
-                    <p>jQuery("#fieldID") . enableValidation()</p>
-                    <p>jQuery("#fieldID") . getValue()</p>
-                    <p>Para caixas de seleção, ele retorna "1"se marcado ou "0"desmarcado.</p>
-                    <p>Para checkgroups (e checkboxes anteriores à versão 3.0.14), ele retorna um array dos valores das opções marcadas.</p>
-                    <p>jQuery("#fieldID") . getText()</p>
-                    <p>jQuery("#fieldID") . getLabel()</p>
-                    <p>jQuery("#fieldID") . setValue(["valor1", "valor2"])</p>
-                    <p>Para uma caixa de seleção, defina como "1"para marcá-la ou "0"desmarcá-la.</p>
-                    <p>Para grupos de verificação (e caixas de verificação anteriores à versão 3.0.14), defina-o como uma matriz dos valores das opções a serem marcadas. Por exemplo, um grupo de verificação para selecionar países:</p>
-                    <p>$("#countries").setValue(["US", "MX", "BR"])</p>
-                    <p>jQuery("#fieldID") . setText(["etiqueta1", "etiqueta2"])</p>
-                    <p>Por exemplo, um grupo de verificação para selecionar países:</p>
-                    <p>$("#countries").setText(["United States", "Mexico", "Brazil"])</p>
-                    <p>jQuery("#fieldID") . setLabel("novoEtiqueta")</p>
-                    <p>jQuery("#fieldID") . setOnchange(</p>
-                    <p>function(newVal, oldVal){...})</p>
-                    <p>newVal: O novo valor que foi definido no campo.</p>
-                    <p>oldVal: O valor antigo que foi alterado.</p>
-                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
-                    <p>Valores nas caixas de seleção</p>
-                    <p>Obtendo valores da caixa de seleção:</p>
-                    <p>O valor retornado pelo getValue()método depende da versão do Gestor Express. Na versão 3.1 e posterior, o valor de uma caixa de seleção é armazenado como uma string. Se a caixa de seleção estiver marcada, retorna . Se desmarcado, ele retorna . $("#checkbox-id").getValue()"1""0"</p>
-                    <p>Por outro lado, na versão 3.0.1.8 e anterior, retornado se marcado e desmarcado. Leve essa alteração em consideração ao atualizar o Gestor Express.$("#checkbox-id").getValue()'["1"]''["0"]'</p>
-                    <p>Definir valores de caixa de seleção:</p>
-                    <p>Uma caixa de seleção pode ser marcada com ou . Ele pode ser desmarcado com ou . $("#checkbox-id").setValue(["1"])$("#checkbox-id").setValue("1")$("#checkbox-id").setValue(["0"])$("#checkbox-id").setValue("0")</p>
-                    <p>Exemplo:</p>
-                    <p>O código JavaScript a seguir marca uma caixa de seleção com o ID "hasContract" se o valor de "catering_contract" estiver selecionado em uma caixa suspensa com o ID "chooseService". Se qualquer outro valor for selecionado na caixa suspensa, o valor da caixa de seleção "hasContract" será alterado automaticamente para o valor oposto; se marcado, é desmarcado, ou vice-versa.</p>
-                    <p>$ ( "#escolhaServiço" ) . setOnchange ( function ( newVal , oldVal ) {</p>
-                    <p>   if ( newVal == "catering_contract" ) {</p>
-                    <p>      $ ( "#hasContract" ) . setValue ( "1" ) ;</p>
-                    <p>   }</p>
-                    <p>   else {</p>
-                    <p>      //verifica as versões 3.0.1.8- e 3.1+</p>
-                    <p>      if  ( $ ( "#hasContract" ) . getValue ( ) == '["1"]' || $( "#temContrato" ) . getValue ( ) == "1" ) {</p>
-                    <p>          $ ( "#hasContract" ) . setValue ( "0" ) ;</p>
-                    <p>       }</p>
-                    <p>       else {</p>
-                    <p>           $ ( "#hasContrato" ) . setValue ( "1" ) ;</p>
-                    <p>       }</p>
-                    <p>   }</p>
-                    <p>} ) ;</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="15%">Método</th><th>Descrição</th>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID").getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez de seu DIV, com <code>$("#id")</code>.<br>
+                            Para grupos de verificação, getControl() retorna um array de opções, então a terceira caixa de seleção no grupo de verificação pode ser acessada com:<code>$("#id").getControl()[2]</code></td></tr>
+                            <tr><td>jQuery("#fieldID").disableValidation()</td><td>Desabilita a validação do campo, portanto, não verifica se o campo é obrigatório quando o formulário é enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").enableValidation()</td><td>Habilita a validação do campo, portanto, verificará se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").getValue()</td><td>Retorna o valor (chave).<br>
+                                <ul>
+                                    <li>Para caixas de verificação, ele retorna <code>"1"</code>, se marcado ou <code>"0"</code>, se desmarcado.</li>
+                                    <li>Para grupos de verificação, ele retorna um array dos valores das opções marcadas.</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>jQuery("#fieldID").getText()</td><td>Retorna o texto (rótulo). Para caixas de verificação, ele retorna o rótulo, que por padrão é "verdadeiro" se marcado e "falso" se desmarcado. Para grupos de verificação, ele retorna uma string JSON contendo uma matriz dos rótulos das opções marcadas.</td></tr>
+                            <tr><td>jQuery("#fieldID").getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setValue(["valor1", "valor2"])</td><td>Define o valor.<br>
+                                <ul>
+                                    <li>Para uma caixa de verificação, defina como "1" para marcá-la ou "0" para desmarcá-la.</li>
+                                    <li>Para grupos de verificação, defina-o como uma matriz dos valores das opções a serem marcadas. Por exemplo, um grupo de verificação para selecionar países:
+                                    <code>$("#paises").setValue(["US", "MX", "BR"])</code></li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>jQuery("#fieldID").setText(["rotulo1", "rotulo2"])</td><td>Marca as opções usando seu rótulo de texto. Para uma caixa de verificação, defina-a como o rótulo de texto da opção marcada ou desmarcada. Como alternativa, para marcar uma caixa de verificação, defina seu texto como "true" e, para desmarcá-la, defina seu texto como "false". Para grupos de verificação, defina-o como uma matriz dos rótulos das opções marcadas.<br>
+                            Por exemplo, um grupo de verificação para selecionar países:
+                            <code>$<font color="green">(</font><font color="blue">"#paises"</font><font color="green">)</font>.<font color="darkred">setText</font><font color="green">([</font><font color="blue">"Estados Unidos"</font><font color="green">,</font> <font color="blue">"México"</font><font color="green">,</font> <font color="blue">"Brasil"</font><font color="green">])</font></code></td></tr>
+                            <tr><td>jQuery("#fieldID").setLabel("novoRotulo")</td><td>Altera o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setOnchange(function(newVal, oldVal){...})</td><td>Define um manipulador de eventos de alteração , que é uma função personalizada que é executada após o valor do campo a ser alterado. A função pode conter os seguintes parâmetros:
+                                <ul>
+                                    <li><strong>newVal:</strong> O novo valor que foi definido no campo.</li>
+                                    <li><strong>oldVal:</strong> O valor antigo que foi alterado.</li>
+                                </ul>
+                            </td></tr>
+                        </tbody>
+                    </table>
+   
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+
+                <h2 id="item4b">Valores nas caixas de seleção</h2>
+
+                    <p><strong>Obtendo valores da caixa de seleção:</strong></p>
+
+                    <p>O valor de uma caixa de seleção é armazenado como uma string. Se a caixa de seleção estiver marcada, <code>$("<font color="blue">#checkbox-id</font>").getValue()</code> retorna <code>"1"</code>. Se desmarcado, ele retorna <code>"0"</code>. </p>
+
+                    <p><strong>Definir valores de caixa de seleção:</strong></p>
+
+                    <p>Uma caixa de seleção pode ser marcada com <code>$("<font color="blue">#checkbox-id</font>").setValue(["1"])</code> ou <code>$("<font color="blue">#checkbox-id</font>").setValue("1")</code>. Ela pode ser desmarcado com <code>$("<font color="blue">#checkbox-id</font>").setValue(["0"])</code> ou <code>$("<font color="blue">#checkbox-id</font>").setValue("0")</code>. </p>
+
+                    <p><strong>Exemplo:</strong></p>
+
+                    <p>O código JavaScript a seguir marca uma caixa de verificação com o ID "temContrato" se o valor de "buffet_contrato" estiver selecionado em uma caixa suspensa com o ID "escolhaServico". Se qualquer outro valor for selecionado na caixa suspensa, o valor da caixa de seleção "temContrato" será alterado automaticamente para o valor oposto; se marcado, é desmarcado, ou vice-versa.</p>
+
+                    <codeblock>
+                        <p>$("#escolhaServico").setOnchange( function(newVal, oldVal) {</p>
+                        <p>&nbsp&nbsp if (newVal == "buffet_contrato") {</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("1");</p>
+                        <p>&nbsp&nbsp }</p>
+                        <p>&nbsp&nbsp else {</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp //check for versions 3.0.1.8- and versions 3.1+</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp if  ($("#temContrato").getValue() == '["1"]' || $("#temContrato").getValue() == "1") {</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("0");</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp else {</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#temContrato").setValue("1");</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp }</p>
+                        <p>&nbsp&nbsp }</p>
+                        <p>});</p>
+                    </codeblock>
+
                     <p>Caixas de seleção em grades</p>
                     <p>Obtendo valores de caixa de seleção em grades:</p>
                     <p>Na versão 3.1 e posterior, o método grid .getValue( row , column ) para uma caixa de seleção retorna uma string. Se a caixa de seleção na grade estiver marcada, ela retornará "1". Se desmarcado, ele retorna "0".</p>
