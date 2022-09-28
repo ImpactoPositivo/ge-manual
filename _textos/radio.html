@@ -32,11 +32,11 @@
                     <li><a href="#item3">Propriedades de controle de grupo de rádio</a></li>
                     <li><a href="#item4">Exemplo de controle de grupo de rádio</a></li>
                     <li><a href="#item5">JavaScript em grupos de rádio</a>
-                            <ul type="A">
+                            <ol type="A">
                                 <li><a href="#item5a">Métodos JavaScript</a></li>
                                 <li><a href="#item5b">Exibindo opções em uma lista horizontal</a></li>
                                 <li><a href="#item5c">Ocultar/Mostrar campos com base na seleção de rádio</a></li>
-                            </ul>
+                            </ol>
                     </li>
                 </ol>
             </section>
@@ -45,6 +45,7 @@
         <section id="principal">
             <article>
                 <h1 id="item1">Visão geral</h1>
+
                 <p>Um controle de rádio (grupo) oferece apenas uma opção binária de ativação/desativação. É redondo e um ponto preto aparece no meio quando ativado (on). Um controle de grupo de rádio é usado em vez de uma caixa de seleção ou controle de grupo de seleção, quando o usuário deve selecionar apenas uma opção de um domínio de opções. Seu ícone no painel de ferramentas do designer Formulário Dinâmico é o seguinte:</p>
 
                     <figure>
@@ -66,109 +67,254 @@
             <h1 id="item2">Gerenciando Rádio (grupo)</h1>
             
                 <p>Após adicionar uma caixa de seleção na ferramenta de desenho do, é possível personalizar sua funcionalidade e comportamento, utilizando o painel de propriedades.</p>
+
                 <p>As propriedades definidas por padrão são as seguintes:</p>
-                <p>tipo Definido por padrão como " radio". Esta definição não pode ser modificada.</p>
-                <p>id Definido por padrão como radio000000000Xonde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</p>
-                <p>label Definido por padrão como " radio_X" onde "X" representa a numeração correspondente do controle no desenho. Esta numeração começa em 1.</p>
-                <p>modo de exibição Definido por padrão como " parent". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</p>
-                <p>fonte de dados Definido por padrão como " database". Consulte esta documentação para obter mais informações sobre a fonte de dados disponível para esse controle.</p>
-                <p>Conexão de banco de dados Definido por padrão como " PM Database". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express workflow) esta propriedade herda a definição da variável relacionada no controle.</p>
-                <p>Propriedades de controle de grupo de rádio</p>
-                <p>Ao adicionar este controle aa ferramenta de desenho do, serão mostradas as opções criadas na configuração da variável. Se as opções do rádio (grupo) devem ser recuperadas de uma consulta SQL, elas não serão mostradas no designer. As propriedades relacionadas a este controle da web são as seguintes:</p>
-                <p>Propriedade</p>
-                <p>Modelo</p>
-                <p>Variável</p>
-                <p>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Verifique esta seção para saber mais sobre como relacionar uma variável a um controle.</p>
-                <p>Somente variáveis dos seguintes tipos de dados podem ser selecionadas:</p>
-                <p>flutuador</p>
-                <p>inteiro</p>
-                <p>corda</p>
-                <p>boleano</p>
-                <p>Tipo de dados variável</p>
-                <p>Valor Protegido</p>
-                <p>EU IRIA</p>
-                <p>[Requeridos]</p>
-                <p>Identificador exclusivo de campo e HTML.</p>
-                <p>Etiqueta</p>
-                <p>Valor padrão</p>
-                <p>Por favor, dê uma olhada nesta documentação para saber como os valores padrão funcionam com rádio (grupos).</p>
-                <p>Dica</p>
-                <p>Requeridos</p>
-                <p>Modo de exibição</p>
-                <p>[Requeridos]</p>
-                <p>Modo de exibição:</p>
-                <p>pai: herda o modo de exibição definido no contêiner pai (form/grade)</p>
-                <p>edit: o campo é habilitado para edição ao ser renderizado.</p>
-                <p>view: o campo só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</p>
-                <p>desabilitado: o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</p>
-                <p>Fonte de dados</p>
-                <p>database: Esta opção habilita as propriedades DB Connection e SQL .</p>
-                <p>variável array: Esta opção habilita a propriedade da variável de dados .</p>
-                <p>Conexão de banco de dados</p>
-                <p>SQL</p>
-                <p>Por favor, dê uma olhada nesta documentação para saber mais sobre as opções de SQL nos controles.</p>
-                <p>De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:</p>
-                <p>SQL nas versões 3.2 a 3.4.</p>
-                <p>SQL na versão 3.5.</p>
-                <p>Variável de dados</p>
-                <p>Opções</p>
-                <p>Exemplo de controle de grupo de rádio</p>
-                <p>Para este exemplo, adicione um controle "rádio" arrastando e soltando-o do painel esquerdo onde estão os "Controles da Web", no Formulário Dinâmico Designer.</p>
+
+                <ul>
+                    <li><strong>tipo</strong> Definido por padrão como "<code>radio</code>". Esta definição não pode ser modificada.</li>
+                    <li><strong>id </strong>Definido por padrão como <code>radioVar0X</code>, onde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</li>
+                    <li><strong>rótulo</strong> Definido por padrão como "radio_X" onde "X" representa a numeração correspondente do controle no desenho. Esta numeração começa em 1.</li>
+                    <li><strong>modo de exibição</strong> Definido por padrão como "<code>mestre</code>". Consulte esta documentação para obter mais informações sobre os modos disponíveis para este controle.</li>
+                    <li><strong>fonte de dados</strong> Definido por padrão como "<code>banco de dados</code>". Consulte esta documentação para obter mais informações sobre a fonte de dados disponível para esse controle.</li>
+                    <li><strong>Conexão de BD</strong> Definido por padrão como "<code>PM Database</code>". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express) esta propriedade herda a definição da variável relacionada no controle.</li>
+                </ul>
+
+                <h1 id="item3">Propriedades de controle de grupo de rádio</h1>
+
+                    <p>Ao adicionar este controle aa ferramenta de desenho do, serão mostradas as opções criadas na configuração da variável. Se as opções do rádio (grupo) devem ser recuperadas de uma consulta SQL, elas não serão mostradas no designer. As propriedades relacionadas a este controle da web são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th>Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>radio</code>(somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Verifique esta seção para saber mais sobre como relacionar uma variável a um controle.
+                            Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
+                                <ul>
+                                    <li>flutuador</li>
+                                    <li>inteiro</li>
+                                    <li>string</li>
+                                    <li>boleano</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Tipo de dados variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>Valor Protegido</td><td>Ao marcar esta opção, as informações armazenadas nas variáveis são protegidas.</td></tr>
+                            <tr><td>ID</td><td>[Requeridos]<br>
+                            Identificador exclusivo de campo e HTML.</td></tr>
+                            <tr><td>Rótulo</td><td>Defina o rótulo do controle nesta propriedade</td></tr>
+                            <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.<br>
+                            Por favor, dê uma olhada nesta documentação para saber como os valores padrão funcionam com rádio (grupos).</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando o rádio é renderizado. É mostrado quando o ponteiro do mouse está sobre o ? ícone.</td></tr>
+                            <tr><td>Requeridos</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que uma opção deve ser selecionada obrigatoriamente no controle. Quando um campo obrigatório não estiver preenchido com nenhum valor, não será possível ir para a próxima etapa. Se a propriedade Obrigatório estiver marcada, uma segunda propriedade da mensagem de erro do campo obrigatório é habilitada para preencher uma mensagem personalizada.
+                            </td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requeridos]<br>
+                            Modo de exibição:
+                                <ul>
+                                    <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (formulário/grid)</li>
+                                    <li><strong>editar:</strong> o campo é habilitado para edição ao ser renderizado.</li>
+                                    <li><strong>visualizar: </strong>o campo só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</li>
+                                    <li><strong>desativado:</strong> o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</li></td></tr>
+                                    <tr><td>Fonte de dados</td><td>A fonte de dados para a lista de opções disponíveis:<br>
+                                    <li><strong>database:</strong> Esta opção habilita as propriedades DB Connection e SQL .</li>
+                                    <li><strong>variável array:</strong> Esta opção habilita a propriedade da variável de dados .</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Conexão de banco de dados</td><td>Para um rádio controle, se precisar armazenar um valor recuperado de um banco de dados, selecione no menu suspenso desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso) .</td></tr>
+                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle oculto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados. <br>
+                            Por favor, dê uma olhada nesta documentação para saber mais sobre as opções de SQL nos controles.<br>
+                           Leia a seção a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
+                                <ul>
+                                    <li>SQL na versão 3.5.</li>
+                                </ul>
+                            </td></tr>
+                            <tr><td>Variável de dados</td><td>Atribua a variável de matriz usando o botão@@.
+                                    <figure>
+
+                                    </figure>
+                            </td></tr>
+                            <tr><td>Opções</td><td>Defina nesta propriedade as opções que serão utilizadas para definir o valor utilizado no campo. Para um controle de caixa de texto, o valor armazenado no campo será o primeiro valor definido nas opções. Por favor, dê uma olhada nesta documentação para saber mais sobre os valores recuperados das opções.</td></tr>
+                        </tbody>
+                    </table>
+     
+            <h1 id="item4">Exemplo de controle de grupo de rádio</h1>
+
+                <p>Para este exemplo, adicione um controle "rádio" arrastando e soltando-o do painel esquerdo onde estão os "Controles da Web", na Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                    <figure>
+
+                    </figure>
+
                 <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Para este exemplo, crie uma variável chamada "pagamento" e use a imagem abaixo como orientação para adicionar mais configurações ao controle.</p>
-                <p>Clique em qualquer espaço vazio do controle para exibir suas propriedades no painel esquerdo. Observe que "variable", "variable data type" e "id" serão alterados dependendo das especificações adicionadas na janela "Create Variable".</p>
-                <p>A propriedade "label" pode ser alterada para que, ao executar um caso, ele não tenha um nome como "radio_1" e, em vez disso, possa ser nomeado (para este exemplo) "Pagamento:"</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Clique em qualquer espaço vazio do controle para exibir suas propriedades no painel esquerdo. Observe que "variável", "Tipo de dados variável" e "id" serão alterados dependendo das especificações adicionadas na janela "Criar Variável".</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "rótulo" pode ser alterada para que, ao executar um caso, ele não tenha um nome como "radio_1" e, em vez disso, possa ser nomeado (para este exemplo) "Pagamento:"</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Para a próxima propriedade que é "valor padrão", o valor é definido por padrão quando o valor é nulo. O valor padrão deve ser definido no domínio dos valores definidos nas opções ou SQL. ex: "VNZ". Se o valor padrão não estiver no domínio, o valor padrão não será definido. Se o valor padrão não for definido, nenhuma das opções será selecionada inicialmente.</p>
-                <p>A seguir está a propriedade "hint" que será usada para mostrar a ajuda. Por exemplo, adicione o seguinte texto: "Escolha um". Ao executar um caso, um ícone aparecerá no canto direito do controle e quando o ponteiro do mouse passar sobre ele, o texto adicionado será exibido.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>A seguir está a propriedade "Dica" que será usada para mostrar a ajuda. Por exemplo, adicione o seguinte texto: "Escolha um". Ao executar um caso, um ícone aparecerá no canto direito do controle e quando o ponteiro do mouse passar sobre ele, o texto adicionado será exibido.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>A propriedade "obrigatório" adiciona um asterisco no rótulo para indicar que o campo é obrigatório e que uma opção deve ser selecionada. Se tentar enviar o formulário, o campo mudará imediatamente para a cor vermelha e, como visto na imagem abaixo, se nada for selecionado, uma mensagem de erro será exibida.</p>
+             
+                <figure>
+
+                </figure>
+
                 <p>A próxima propriedade é a propriedade "modo de exibição" que possui muitas opções diferentes, para saber mais sobre elas passe o ponteiro do mouse sobre o ícone do ponto de interrogação, esta propriedade terá o seguinte efeito no controle:</p>
-                <p>A propriedade "DB Connection" é utilizada para selecionar entre a lista de conexões de banco de dados definidas nos objetos de processo, neste caso um PM_Database (um banco de dados do Gestor Express). A propriedade "sql" usa uma consulta para chamar valores do banco de dados. Para o uso de uma consulta sql o exemplo será alterado. O nome do controle agora será "país" para que a consulta preencha o controle com os países em uma tabela ISO_COUNTRY. Clique nas reticências sublinhadas ... da propriedade "sql" para abrir um "Editor SQL" e adicione o seguinte código:</p>
-                <p>SELECT ic_uid , ic_name FROM ISO_COUNTRY</p>
-                <p>Nota: O identificador * não é suportado em consultas SQL.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Mestre</font></p>
+                    
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Editar</font></p>
+                
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Visualizar</font></p>
+                
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Desativado</font></p>
+                
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "Conexão ao BD" é utilizada para selecionar entre a lista de conexões de banco de dados definidas nos objetos de processo, neste caso um PM_Database (um banco de dados do Gestor Express). A propriedade "sql" usa uma consulta para chamar valores do banco de dados. Para o uso de uma consulta sql o exemplo será alterado. O nome do controle agora será "país" para que a consulta preencha o controle com os países em uma tabela ISO_PAIS. Clique nas reticências sublinhadas ... da propriedade "sql" para abrir um "Editor SQL" e adicione o seguinte código:</p>
+
+                <codeblock>
+                    <p>SELECT ic_uid , ic_name FROM ISO_PAIS</p>
+                </codeblock>
+
+                <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
                 <p>Salve a consulta SQL adicionada. Ao executar um caso, o controle será preenchido com todos os países da tabela conforme mostrado na imagem abaixo.</p>
-                <p>Nota: Na imagem acima, a quantidade de países não é mostrada completamente porque seria extremamente longo para ser mostrado em uma imagem.</p>
-                <p>Voltando ao primeiro exemplo, na propriedade "options" observe que os valores já estão configurados. Isso ocorre porque quando a variável foi criada os valores foram definidos diretamente a partir daí.</p>
-                <p>JavaScript em grupos de rádio</p>
-                <p>Para saber como manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulário Dinâmicos .</p>
-                <p>Os grupos de rádio no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                <p>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</p>
-                <p>Texto: O texto (rótulo) exibido para a opção selecionada.</p>
-                <p>Valor: O valor armazenado (chave) para a opção selecionada.</p>
-                <p>Métodos JavaScript</p>
-                <p>Alguns dos métodos JavaScript para manipular grupos de rádio incluem:</p>
-                <p>Método</p>
-                <p>jQuery("#fieldID") . getControl()</p>
-                <p>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com$("#id")</p>
-                <p>jQuery("#fieldID") . disableValidation()</p>
-                <p>jQuery("#fieldID") . enableValidation()</p>
-                <p>jQuery("#fieldID") . getValue()</p>
-                <p>jQuery("#fieldID") . getText()</p>
-                <p>jQuery("#fieldID") . getLabel()</p>
-                <p>jQuery("#fieldID") . setValue("novo valor")</p>
-                <p>jQuery("#fieldID") . setText("novoTexto")</p>
-                <p>jQuery("#fieldID") . setLabel("novoEtiqueta")</p>
-                <p>jQuery("#fieldID") . setOnchange(</p>
-                <p>function(newVal, oldVal){...})</p>
-                <p>newVal: O novo valor que acabou de ser definido no campo.</p>
-                <p>oldVal: O valor antigo que foi alterado.</p>
-                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
-                <p>Exibindo opções em uma lista horizontal</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p><font color="green">Observação:</font> Na imagem acima, a quantidade de países não é mostrada completamente porque seria extremamente longo para ser mostrado em uma imagem.</p>
+
+                <p>Voltando ao primeiro exemplo, na propriedade "opções" observe que os valores já estão configurados. Isso ocorre porque quando a variável foi criada, os valores foram definidos diretamente a partir daí.</p>
+
+                    <figure>
+
+                    </figure>
+                    
+            <h1 id="item5">JavaScript em grupos de rádio</h1>
+
+                <p>Para saber como manipular os controles de Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulário Dinâmicos .</p>
+
+                <p>Os grupos de rádio no Gestor Express têm os seguintes componentes de campo:</p>
+
+                <ul>
+                    <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</li>
+                    <li><strong>Texto:</strong> O texto (rótulo) exibido para a opção selecionada.</li>
+                    <li><strong>Valor:</strong> O valor armazenado (chave) para a opção selecionada.</li>
+                </ul>
+
+                    <figure>
+
+                    </figure>
+
+                <h2 id="item5a">Métodos JavaScript</h2>
+
+                    <p>Alguns dos métodos JavaScript para manipular grupos de rádio incluem:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="15%">Método</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID").getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez do seu DIV que é obtido com <code>$("#id")</code></td></tr>
+                            <tr><td>jQuery("#fieldID").disableValidation()</td><td>Desabilite a validação do campo, para que não verifique se o campo é <strong>obrigatório</strong> quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").enableValidation()</td><td>Habilite a validação do campo, assim verificará se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").getValue()</td><td>Retorna o valor (chave) da opção selecionada do grupo de rádio.</td></tr>
+                            <tr><td>jQuery("#fieldID").getText()</td><td>Retorna o texto exibido (rótulo) da opção selecionada do grupo de rádio.</td></tr>
+                            <tr><td>jQuery("#fieldID").getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setValue("novo valor")</td><td>Seleciona uma opção no grupo de rádio especificando seu valor (chave).</td></tr>
+                            <tr><td>jQuery("#fieldID").setText("novoTexto")</td><td>Seleciona uma opção no grupo de rádio especificando seu texto exibido (rótulo).</td></tr>
+                            <tr><td>jQuery("#fieldID").setLabel("novoRotulo")</td><td>Altere o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                            <tr><td>jQuery("#fieldID").setOnchange(function(newVal, oldVal){...})</td><td>Defina um manipulador de eventos de alteração, que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros:
+                            <ul>
+                                <li>newVal: O novo valor que acabou de ser definido no campo.</li>
+                                <li>oldVal: O valor antigo que foi alterado.</li>
+                            </ul>
+                            </td></tr>
+                        </tbody>
+                        </table>
+ 
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                
+                <h2 id="item5b">Exibindo opções em uma lista horizontal</p>
+
                 <p>As opções em um grupo de rádio são exibidas como uma lista horizontal quando exibidas no modo de visualização ou ao executar um caso. Para grupos de rádio que possuem um grande número de opções, isso pode ocupar muito espaço e forçar o usuário a percorrer um longo formulário. Para mudar de uma lista vertical de opções para uma lista horizontal, adicione a classe "radio-inline" às DIVs ao redor de cada botão de opção.</p>
-                <p>Por exemplo, o código JavaScript a seguir pode ser adicionado a um formulário dinâmico para alterar um grupo de rádio com o ID "selectCountries" para exibir uma lista horizontal de opções:</p>
-                <p>$ ( "#selectCountries" ) . find ( "div.radio" ) . addClass ( "radio-inline" ) ;</p>
-                <p>Ocultar/Mostrar campos com base na seleção de rádio</p>
-                <p>Javascript pode ser usado para ocultar ou mostrar campos no formulário, com base na seleção em um botão de rádio. Use o método setOnchange() para definir o manipulador de eventos para mostrar/ocultar os campos.</p>
-                <p>Por exemplo, um formulário tem um botão de opção com o ID "typeOfService" que contém as opções: "catering", "courier", "accounting", "consulting". Se a opção "catering" for selecionada, uma caixa suspensa com o ID "selectFood" deverá ficar visível. Caso contrário, este campo deve ficar oculto.</p>
-                <p>O código JavaScript a seguir oculta ou mostra a lista suspensa "selectFood":</p>
-                <p>$ ( "#selecionarComida" ) . esconder ( ) ; //Ocultar quando o formulário carrega</p>
-                <p>$ ( "#typeOfService" ) . setOnchange ( function ( newVal , oldVal ) {</p>
-                <p>  if ( newVal == "catering" ) {</p>
-                <p>    $ ( "#selectFood" ) . show ( ) ;</p>
-                <p>  }</p>
-                <p>  else {</p>
-                <p>    $ ( "#selectFood" ) . hide ( );</p>
-                <p>  }</p>
-                <p>} ) ;</p>
-                <p>Ao usar setOnchange() , lembre-se de verificar o valor da opção selecionada no botão de opção, não em seu rótulo .</p>
+
+                <p>Por exemplo, o código JavaScript a seguir pode ser adicionado a um formulário dinâmico para alterar um grupo de rádio com o ID "selectPáises" para exibir uma lista horizontal de opções:</p>
+
+                <codeblock>
+                    <p>$("#selectPáises").find("div.radio").addClass("radio-inline");</p>
+                </codeblock>
+
+            <h2 id="item5c">Ocultar/Mostrar campos com base na seleção de rádio</h2>
+
+                <p>Javascript pode ser usado para ocultar ou mostrar campos no formulário, com base na seleção em um botão de rádio. Use o método <font color="skyblue">setOnchange()</font> para definir o manipulador de eventos para mostrar/ocultar os campos.</p>
+
+                <p>Por exemplo, um formulário tem um botão de opção com o ID "tipodeServico" que contém as opções: "buffet", "corrio", "contabilidade", "consultoria". Se a opção "buffet" for selecionada, uma caixa suspensa com o ID "selectComida" deverá ficar visível. Caso contrário, este campo deve ficar oculto.</p>
+
+                    <figure>
+                        
+                    </figure>
+
+                <p>O código JavaScript a seguir oculta ou mostra a lista suspensa "selectComida":</p>
+
+
+                <codeblock>
+                    <p><strong>$</strong><font color="green">(</font><font color="blue">"#selectComida"</font>).hide<font color="green">();</font> <i><font color="#688a08">//Ocultar quando o formulário carrega</font></i></p>
+                    <br>
+                    <p><strong>$</strong><font color="green">(</font><font color="blue">"#tipodeServico"</font><font color="green">)</font>.<font color="darkred"d>setOnchange</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">(</font>newVal<font color="green">,</font> oldVal<font color="green">) {</font></p>
+                    <p>&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>newVal <font color="green">==</font> <font color="blue">"buffet"</font><font color="green">) {</font></p>
+                    <p>&nbsp&nbsp&nbsp&nbsp <strong>$</strong><font color="green">(</font><font color="blue">"#selectComida"</font><font color="green">)</font>.show<font color="green">();</font></p>
+                    <p>&nbsp&nbsp <font color="green">}</font></p>
+                    <p>&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font></p>
+                    <p>&nbsp&nbsp&nbsp&nbsp <strong>$</strong><font color="green">(</font><font color="blue">"#selectComida"</font><font color="green">)</font>.hide<font color="green">();</font></p>
+                    <p>&nbsp&nbsp <font color="green">}</font></p>
+                    <p><font color="green">});</font></p>
+                </codeblock>
+
+                <p>Ao usar <font color="skyblue">setOnchange()</font>, lembre-se de verificar o valor da opção selecionada no botão de opção, não em seu rótulo .</p>
                     
             </article>
         </section>
