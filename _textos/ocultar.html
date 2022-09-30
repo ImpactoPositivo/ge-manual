@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Ocultar</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+        
+        <aside>
+            <section id="lado">
+
+                <h1>Controle Ocultar</h1>
+                <h2>Conteúdo</h2>
+        
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Gerenciando o controle oculto</a>
+                        <ol type="A">
+                            <li><a href="#item2a">Propriedades ocultas</a></li>
+                        </ol>
+                    </li>
+                        <li><a href="#item3">Exemplo de controle oculto</a></li>
+                        <li><a href="#item4">JavaScript em controles ocultos</a>
+                        <ol type="A">
+                            <li><a href="#item4a">Métodos JavaScript</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+        <section id="principal">
+            <article>
+                
+                <h1 id="item1">	Visão geral	</h1>
+                
+                    <p>Campos ocultos são usados para armazenar dados - não vistos pelo usuário - no formulário dinâmico. Como os campos do Formulário Dinâmico normais, os campos ocultos podem ser usados para passar dados de ou para o Formulário Dinâmico, que não precisam ser vistos pelos usuários. Este controle é representado na barra de ferramentas da Ferramenta de Desenho do Formulário Dinâmico pelo ícone a seguir:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Esse tipo de controle só é visível dentro da Ferramenta de Desenho do Formulário Dinâmico e não ao executar um caso ou na visualização do Formulário Dinâmico. Ele não possui caixa de entrada, mas a variável atribuída a ele pode ser usada como curinga para operações com outros elementos do formulário dinâmico.</p>
+
+                    <figure>
+
+                    </figure>
+
+                <h1 id="item2">Gerenciando controles ocultos</h1>
+
+                    <p>Após adicionar um controle oculto ao modelo de formulário, é possível definir sua funcionalidade e comportamento no painel de propriedades.</p>
+
+                        <figure>
+
+                        </figure>
+                        
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+
+                    <ul>
+                        <li><strong>tipo</strong> Definido por padrão como "<code>hidden</code>". Esta propriedade não pode ser modificada.</li>
+                        <li><strong>id</strong> Definido por padrão como <code>hiddenVar00X</code> onde "X" representa a numeração correspondente do controle no projeto. Esta numeração começa em 1. Após uma variável ser relacionada a este controle, o ID muda para o nome da variável, porém é possível definir um novo ID para trabalhar com o controle.</li>
+                        <li><strong>Conexão BD</strong> Definido por padrão como "<code>PM Database</code>". Leve em consideração que se nenhuma consulta SQL for definida na propriedade "sql", nenhuma execução será feita. Além disso, quando uma variável está relacionada a este controle que possui sua própria definição da conexão com um banco de dados (um banco de dados externo ou banco de dados do Gestor Express) esta propriedade herda a definição da variável relacionada no controle.</li>
+                    </ul>
+
+                <h2 id="item2a">Propriedades ocultas</h2>
+
+                    <p>As propriedades para gerenciar esse controle são as seguintes:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th>Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>hidden</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle. <br>
+                            Somente variáveis dos seguintes tipos de dados podem ser selecionadas:
+                            <ul>
+                                <li>float (com opções)</li>
+                                <li>inteiro</li>
+                                <li>string</li>
+                                <li>Booleano // string PHP que pode ser avaliada como verdadeira ou falsa</li>
+                                <li>Data e hora //no formato PHP, mas o controle deve ser capaz de analisá-lo para data e hora</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>ID</td><td>[Requeridos] <br>
+                            Identificador exclusivo de campo e HTML.</td></tr>
+                            <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.<br>
+                            Para saber mais sobre valores padrão, valores nulos e algumas outras considerações sobre essa propriedade, consulte esta documentação .</td></tr>
+                            <tr><td>Conexão BD</td><td>Para um controle oculto, caso precise armazenar um valor recuperado de um banco de dados, selecione no menu suspenso desta propriedade a conexão do banco de dados que será utilizada (a conexão já deve estar criada no processo, consulte esta seção para saber mais sobre isso).</td></tr>
+                            <tr><td>SQL</td><td>Insira nesta propriedade, a consulta SQL para preencher a opção do controle do banco de dados. Para um controle oculto, o valor armazenado no campo será o primeiro valor recuperado do banco de dados.
+                            </td></tr>
+                            <tr><td>Opções</td><td>Defina nesta propriedade as opções que serão utilizadas para definir o valor utilizado no campo. Para um controle oculto, o valor armazenado no campo será o primeiro valor definido nas opções.<br>
+                            Leia esta seção para saber como esse controle gerencia os valores quando há opções definidas para o controle ou no controle.</td></tr>
+                        </tbody>
+                    </table>
+
+
+                <h1 id="item3">Exemplo de controle oculto</h1>
+
+                    <p>Este exemplo mostrará como um controle "Oculto" pode ser usado de muitas maneiras diferentes. Portanto, foi criado um processo simples no qual existem duas tarefas e um evento de notificação. Recrie o processo de exemplo usando a imagem abaixo como guia.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Crie um Formulário Dinâmico com dois controles "texbox" como visto na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Adicione um controle "oculto" arrastando-o e soltando-o do Controle da Web no painel esquerdo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Imediatamente após a adição do controle, a nova janela Criar variável aparecerá. Crie uma variável para este controle como visto na imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>O Formulário Dinâmico final deve se parecer com a imagem mostrada abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Agora clique em qualquer espaço vazio do controle "oculto" para exibir suas propriedades no painel esquerdo.</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                    <p>A primeira propriedade é a propriedade "id" que pode ser usada com código Javascript para adicionar funcionalidade e comportamento ao controle. Para isso, clique na borda cinza claro do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor de Javascript.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Uma vez no editor, adicione o seguinte código Javascript:</p>
+
+                    <codeblock>
+                        <p>jQuery(<font color="blue">"#hiddenVar"</font>).setValue(<font color="blue">"TestValue: GestorExpress"</font>)</p>
+                    </codeblock>
+
+                    <p>Clique no botão "Gravar" para armazenar o código adicionado recentemente.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+
+                    <p>Antes de testar o controle, configure o evento intermediário no processo clicando com o botão direito sobre ele e selecionando suas propriedades.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Configure o evento de email com as especificações mostradas na imagem abaixo. Observe que a variável de controle "oculta" está sendo adicionada no conteúdo do email.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Para testar o controle vá em <strong>Início => Novo Caso</strong> e então dê um duplo clique no processo que possui o Formulário Dinâmico criado acima.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Como visto na imagem abaixo, o controle "oculto" não é mostrado ao executar um caso, mas está funcionando em segundo plano. Após preencher as informações solicitadas clique no botão "Enviar".</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Uma vez clicado aparecerá a janela da próxima tarefa, clique no botão "Continuar" e a notificação por e-mail enviará o e-mail criado.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Verifique o e-mail que foi enviado. Pode-se observar que o valor de controle "oculto" adicionado no código Javascript pode ser encontrado no conteúdo do e-mail conforme imagem abaixo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>Para este exemplo a propriedade "valor padrão" mostra um valor definido pelo usuário como: "Confirme seu endereço de e-mail clicando neste link: www.gestorexpress.com". Execute este caso para receber uma notificação por email com o valor padrão do controle.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p><font color="green">Observação:</font> O valor padrão não terá efeito no controle se o código Javascript adicionado antes ainda estiver funcionando, portanto, é recomendável apagar ou comentar o código antes de executar o processo.</p>
+
+                    <p>Como visto na imagem abaixo o valor adicionado como padrão foi efetivo.</p>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                <h1 id="item4">JavaScript em controles ocultos</h1>
+
+                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulário Dinâmicos.</p>
+
+                    <p>Os controles ocultos no Gestor Express têm os seguintes componentes de campo:</p>
+
+                    <ul>
+                        <li><strong>Texto:</strong> O texto dentro do campo.</li>
+                        <li><strong>Valor:</strong> O valor armazenado para o campo. Para controles ocultos, o texto e o valor são os mesmos.</li>
+                    </ul>
+
+                <h2 id="item4a">Métodos JavaScript</h2>
+
+                    <p>Alguns dos métodos JavaScript para manipular controles ocultos incluem:</p>
+
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="25%">Método</th><th>Descrição</tr></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID").getControl()</td><td>Use esta função para obter o campo de entrada do controle, em vez de seu DIV que é obtido com$(<code>"#id"</code>)</tr></tr>
+                            <tr><td>jQuery("#fieldID").getValue()</td><td>Retorna o valor do campo oculto. Observe que <code>getValue()</code> e getText() retornam a mesma coisa.</tr></tr>
+                            <tr><td>jQuery("#fieldID").getText()</td><td>Retorna o texto do campo oculto. Observe que <code>getValue()</code> e getText() retornam a mesma coisa.</tr></tr>
+                            <tr><td>jQuery("#fieldID").setValue("novo valor")</td><td>Define um novo valor no campo. Observe que, para controles ocultos, <code>setText()</code> é o mesmo que setValue().</tr></tr>
+                            <tr><td>jQuery("#fieldID").setText("novoTexto")</td><td>define um novo texto no campo. Observe que, para controles ocultos, <code>setText()</code> é o mesmo que setValue().</tr></tr>
+                        </tbody>
+                    </table>    
+
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                                    
+            </article>
+        </section>
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
