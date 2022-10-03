@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Caixa de Sugestão</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <figure>
+                <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+            </figure>
+            <div id="cabecario">
+                <h1>Gestor Express</h1>
+                <h2>Gerenciamento de Fluxo de Trabalho</h2>
+            </div>
+        </header>
+
+        <aside>
+            <section id="lado">
+
+                <h1>Caixa de Sugestão</h1>
+                <h2>Conteúdo:</h2>
+                <ol>
+                    <li><a href="#item1">Visão geral</a></li>
+                    <li><a href="#item2">Gerenciando controles de sugestão</a></li>
+                    <li><a href="#item3">Sugerir propriedades de controle</a>
+                        <ol type="A">
+                            <li><a href="#item3a">Limite de resultados</a></li>
+                            <li><a href="#item3b">Forçar Seleção</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#item4">Considerações adicionais</a></li>
+                    <li><a href="#item5">Configurando Campos Dependentes</a></li>
+                    <li><a href="#item6">Sugerir exemplo de controle</a></li>
+                    <li><a href="#item7">Usando procedimentos armazenados do MSSQL</a></li>
+                    <li><a href="#item8">JavaScript em caixas de sugestões</a>
+                        <ol type="A">
+                            <li><a href="#item8a">Métodos JavaScript</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </section>
+        </aside>
+
+        <section id="principal">
+            <article>
+                <h1 id="item1">Visão geral</h1>
+                    <p>Um controle de caixa de sugestão é semelhante a um controle de caixa de texto, pois o usuário pode digitar qualquer texto em uma caixa de sugestão, mas oferece opções sugeridas ao usuário para ajudar a orientar a entrada. Conforme o usuário digita um valor, a lista de opções sugeridas será filtrada e aparecerá abaixo da caixa de sugestões, para que o usuário possa selecionar uma das opções sugeridas ou continuar digitando. A lista de opções sugeridas pode vir de uma consulta SQL em um banco de dados e/ou de uma lista de opções pré-configuradas.</p>
+
+                    <p>Ao contrário de uma caixa suspensa, a lista de opções sugeridas para uma caixa de sugestões não será mostrada na Ferramenta de Desenho do Formulário Dinâmico.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Para ver as opções sugeridas, é necessário estar no Modo de Visualização ou executar um caso. As sugestões só aparecerão após o usuário inserir pelo menos um caractere no campo.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>Para adicionar uma caixa de sugestão ao formulário, arraste seu ícone da barra de ferramentas e solte-o no formulário dinâmico.</p>
+
+                <h1 id="item2">Gerenciando controles de sugestão</h1>
+
+                    <p>Após adicionar um controle caixa de sugestão ao formulário, é possível personalizar sua funcionalidade e comportamento usando o painel Propriedades.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>As propriedades definidas por padrão são as seguintes:</p>
+                    <ul>
+                        <li><strong>tipo:</strong> O identificador exclusivo do controle. Definido por padrão como "<code>suggest</code>". Esta definição não pode ser modificada.</li>
+                        <li><strong>id:</strong> Definido por padrão como <code>suggestVar00X</code>, onde X começa a numeração a partir de 1, mas pode ser alterado. Depois que uma variável é associada a esse controle, o ID muda para o nome da variável.</li>
+                        <p><font color="green">Observação:</font> Se uma caixa de sugestão tiver uma variável associada, seu ID deve ser igual ao nome da variável associada à caixa de sugestão.</p>
+                        <li><strong>rótulo:</strong> O rótulo do controle que aparece no Formulário Dinâmico é definido como "<code>suggest_X</code>" por padrão, onde começa a numeração a partir de 1.</li>
+                        <li><strong>modo de exibição:</strong> O modo de exibição do controle, que pode ser:</li>
+                        <ul type="disc">
+                            <li><strong>editar:</strong> O usuário final pode alterar o valor do controle ao preencher um formulário dinâmico.</li>
+                            <li><strong>visualizar:</strong> O usuário final só poderá visualizar o valor do controle ao preencher o formulário dinâmico, mas não poderá alterá-lo.</li>
+                            <li><strong>desativado:</strong> O controle está desativado e acinzentado, mas o usuário final ainda pode visualizar seu valor ao preencher o formulário dinâmico.</li>
+                            <li><strong>mestre:</strong> padrão. O modo do controle é herdado de seu pai, que é o formulário dinâmico, subformulário ou grade que contém o controle.</li>
+                        </ul>
+                        <li><strong>fonte de dados</strong> Definido por padrão como "<code>banco de dados</code>". Consulte esta documentação para obter mais informações sobre a fonte de dados disponível para esse controle.</li>
+                        <li><strong>Conexão BD:</strong> O banco de dados onde a consulta SQL é executada para preencher a lista de opções na caixa de sugestões. Definido automaticamente como "<code>PM Database</code>", que é o banco de dados associado ao espaço de trabalho atual, denominado wf_ {WORKSPACE} por padrão. Se a propriedade sql for deixada em branco, nenhum banco de dados será consultado. Quando uma variável é associada a esse controle, o controle herda automaticamente a conexão de banco de dados usada por essa variável.</li>
+                    </ul>
+
+                    <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                <h1 id="item3">Sugerir propriedades de controle</h1>
+
+                    <p>As propriedades relacionadas a este controle da web são as seguintes:</p>
+                 
+                    <table class="textbox">
+                        <thead>
+                            <tr><th width="25%">Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>suggest</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção <code>...</code> para selecionar a variável da lista de variáveis disponíveis. Confira esta seção para saber mais sobre como relacionar uma variável a um controle.
+                            Somente variáveis com os seguintes tipos de dados podem ser selecionadas:
+                            <li>float</li>
+                            <li>inteiro</li>
+                            <li>string</li></td>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>Valor Protegido</td><td>Esta propriedade protege as informações armazenadas em variáveis. A variável atribuída não poderá ser modificada ou alterada de forma alguma, protegendo o valor da variável.</td></tr>
+                            <tr><td>ID</td><td><i>Obrigatório</i>. Identificador exclusivo de campo e HTML.</td>
+                            <tr><td>Rótulo</td><td>Defina o rótulo do controle exibido no Formulário Dinâmico nesta propriedade</td></tr>
+                            <tr><td>Valor padrão</td><td>Valor definido por padrão quando o valor recuperado é nulo.<br>
+                            Leia esta documentação para saber como esse controle gerencia os valores padrão.</td></tr>
+                            <tr><td>Espaço reservado</td><td>Defina o texto nesta propriedade que será mostrado em cinza no Formulário Dinâmico para ajudar o usuário a preencher o campo.</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando o controle de sugestão é renderizado. É mostrado quando o ponteiro do mouse está sobre o ? ícone.</td></tr>
+                            <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório. Quando um campo obrigatório não é preenchido com nenhum valor, não é possível passar para a próxima etapa. Se a propriedade Obrigatório estiver marcada, uma segunda propriedade da <strong>mensagem de erro do campo obrigatório</strong> é habilitada para preencher uma mensagem personalizada.</td></tr>
+                            <tr><td>Modo de exibição</td><td><i>Obrigatório</i>. O modo de exibição pode ser:
+                            <ul>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grid)</li>
+                                <li><strong>editar:</strong> O campo pode ser editado pelo usuário final quando renderizado no Formulário Dinâmico.</li>
+                                <li><strong>visualizar:</strong> O campo só pode ser visualizado pelo usuário final quando renderizado no Formulário Dinâmico. O conteúdo não pode ser editado.</li>
+                                <li><strong>desativado:</strong> O campo é exibido em cinza para indicar que o controle está no modo desabilitado e não pode ser editado.</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Fonte de dados</td><td>Selecione "banco de dados" para armazenar um valor recuperado de um banco de dados. Esta propriedade exibirá as seguintes opções: <br>
+                            <ul>
+                                <li><font color="skyblue"><strong>Conexão BD:</strong></font> Para armazenar um valor recuperado de um banco de dados, selecione a conexão de banco de dados que será usada no menu suspenso (a conexão já deve estar criada no processo, leia esta seção para saber mais sobre isso).</li>
+                                <li><font color="darkblue"><strong>SQL:</strong></font> Insira a consulta SQL a ser usada para preencher as opções de controle do banco de dados. Os dados recuperados da consulta definirão um domínio de opções para o controle. As opções mostradas ao usuário pertencerão a este domínio.</li>
+                            </ul>
+                            O controle Caixa de Sugestão requer dois parâmetros: KEY e LABEL.<br>
+
+                            <codeblock><p>SELECT Key_Field, Label_Field FROM TABLE_NAME</p></codeblock>
+
+                            <font color=green>Observação:</font> O identificador * não é suportado em consultas SQL.<br>
+                            A cláusula LIMIT pode ser usada para restringir o número de resultados retornados da instrução SQL. Se a cláusula LIMIT não for usada, o controle de sugestão exibirá 10 resultados por padrão.<br>
+
+                            <codeblock><p>SELECT IC_UID, IC_NAME FROM ISO_COUNTRY LIMIT 5</p></codeblock>
+
+                            <font color=green>Observação:</font> Até o Gestor Express 3.1, se a Consulta SQL selecionar apenas um parâmetro, o mesmo parâmetro será atribuído como KEY e LABEL.<br>
+
+                            Nos controles de sugestão que usam uma conexão do servidor SQL , a consulta SQL deve usar aliases para selecionar a mesma coluna mais de uma vez. Esses aliases permitirão que a coluna selecionada na consulta seja diferenciada de si mesma quando usada várias vezes.<br>
+
+                            <codeblock><p>SELECT first_name AS one, first_name AS two FROM user_information</p></codeblock>
+
+                            O uso da instrução GROUP BY com modificadores ASC e DESC NÃO é suportado em controles caixa de sugestão.
+                            De acordo com sua versão do Gestor Express, leia as seções a seguir para saber como esse controle gerencia os valores recuperados por uma consulta SQL:
+                            <ul>
+                                <li>SQL na versão 3.5.</li>
+                            </ul>
+                            Selecione "variável de matriz" para atribuir valores dinamicamente ao controle sugerido de uma variável de matriz definida. Esta opção exibirá a propriedade Data Variable:
+                            Data Variable : A propriedade Data Variable define a variável de matriz usada para obter os dados de controle. O botão @@ permite que o usuário selecione uma variável de matriz. Essa variável de matriz obtém seus valores de um script ou gatilho atribuído antes do Formulário Dinâmico.</td></tr>
+                            <tr><td>Opções</td><td>Defina o método que será utilizado para definir os valores listados no campo de controle. É possível utilizar consultas SQL e opções pré-definidas para definir o domínio de opções deste controle. As sugestões mostradas aos usuários à medida que eles inserem o texto pertencerão a este domínio.</td></tr>
+                            <tr><td>Atraso</td><td>Defina a quantidade de tempo que o controle aguardará antes de preencher o controle sugerido com valores. Em outras palavras, é o tempo decorrido desde que o usuário para de digitar até que os valores sugeridos sejam exibidos. Este valor é expresso em milissegundos(ms). O valor padrão é zero.<br>
+                            Se este valor for zero, o campo de controle de sugestão será preenchido enquanto o usuário estiver digitando. Caso contrário, aguardará que o usuário pare de digitar mais o tempo de atraso definido.</td></tr>
+                            <tr><td>Limite de resultados</td><td>Define o limite de resultados.</td></tr>
+                            <tr><td>Forçar a seleção</td><td>Marque esta opção para validar a opção inserida no campo.</td></tr>
+                        </tbody>
+                    </table>
+         
+                <h2 id="item3a">Limite de resultados</h2>
+
+
+                    <p>Esta propriedade define o número de resultados quando você está inserindo um campo em uma Caixa de Sugestão. É um valor inteiro, que também pode aceitar variáveis de caso ao executar o caso. Se você não definir um número, o valor padrão e máximo será 10.</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>A validação é a seguinte:</p>
+
+                    <ul>
+                        <li>Se você estiver executando um caso que usa variáveis de caso para definir o limite de resultados e o valor for diferente de um valor inteiro, na configuração <strong>Limite de resultados</strong> insira o valor padrão.</li>
+                        <li>Se você estiver na Ferramenta de Desenho do Formulário Dinâmico e o valor de configuração do <strong>Limite de resultados</strong> for diferente de um valor inteiro ou de uma variável de caso, a seguinte mensagem de alerta será exibida:
+                            <figure>
+                        
+                            </figure>
+                        </li>
+                    </ul>
+
+                    <p>Ao executar um caso, o campo exibe o número do resultado definido na propriedade <strong>Limite de Resultados</strong> se o atraso for atingido e o campo estiver em foco.</p>
+
+                    <figure>
+
+                    </figure>
+
+                <h2 id="item3b">Forçar Seleção</h2>
+
+                    <p>Marcando esta propriedade, o usuário seleciona uma opção que pertence ao domínio de dados configurado no controle Caixa de Sugestão.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Se o valor inserido não pertencer ao domínio de dados, o campo Sugestão será exibido em branco.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Essa propriedade também força a seleção ao usar os métodos setValue, setText e addRow.</p>
+
+                    <p>Leve em conta as seguintes considerações:</p>
+
+                    <ul>
+                        <li>Se o controle Caixa de Sugestão estiver configurado com a opção Forçar Seleção habilitada e o valor definido por esses auxiliares não estiver no domínio de dados. O campo Sugestão deve ser desmarcado.</li>
+                        <li>Os auxiliares setValue e setText devem corresponder à palavra exata fornecida como parâmetro no auxiliar. Caso retorne dois ou mais resultados com o mesmo valor, por padrão deve receber o primeiro resultado.</li>
+                    </ul>
+
+                    <p>Exemplos:</p>
+
+                    <ol>
+                        <li><codeblock><p>$("#suggest_1").setText("admin")</p></codeblock>
+                            <figure>
+
+                            </figure>
+                        <codeblock><p>$("#suggest_1").setText("adminx")</p></codeblock>
+                            <figure>
+
+                            </figure>
+                        </li>
+                        <li><codeblock><p>$("#suggest_1").setValue("00000000000001")</p></codeblock>
+                            <figure>
+
+                            </figure>
+                        <codeblock><p>$("#suggest_1").setValue("adminx")</p></codeblock>
+                            <figure>
+
+                            </figure>
+                        </li>
+                    </ol>
+
+                <h1 id="item4">Considerações adicionais</h1>
+
+                    <p>Leve em consideração o seguinte:</p>
+
+                    <ul>
+                        <li>Quando um usuário final está usando um controle de caixa de sugestão, não é obrigatório selecionar uma opção entre as opções sugeridas (SQL e/ou Opções). Se o usuário inserir um texto que não esteja incluído nas sugestões, o texto inserido será armazenado na variável.</li>
+                        <li>O controle de caixa de sugestões busca em qualquer posição do texto digitado pelo usuário (início, meio, fim).</li>
+                        <li>Recomenda-se que controles de caixa de sugestão em grids trabalhem com variáveis em colunas. Por exemplo, se o controle de caixa de sugestão tiver a seguinte consulta em sua propriedade SQL:</p>
+                        <codeblock>
+                            <font color="darkred">SELECT</font> IC_UID<font color="green">,</font> IC_NAME <font color="darkred">FROM</font> ISO_COUNTRY <font color="darkred">WHERE</font> IC_UID <font color="green">=</font> @@PAIS
+                        </codeblock>
+                        <p>A variável <code>PAIS</code> deve ser uma coluna de grade. Atualmente, um controle de caixa de sugestão em grid é capaz de trabalhar com variáveis que estão fora das colunas da grade, mas esse comportamento não é oficialmente suportado e não há garantia de que funcionará em versões futuras.</li>
+                        <li>Para conexões externas de banco de dados com PostgreSQL, leve em consideração que os campos de sugestão só podem consultar dados unidimensionais em cada uma das expressões da consulta (o Gestor Express trabalha apenas com "campos" e não com "linhas"). Além disso, lembre-se de que as expressões na consulta devem ser explícitas de acordo com os campos da tabela.</p>
+                        <p><font color="green">Observação:</font> Dependendo da versão do PostgreSQL ou do esquema do banco de dados, as expressões na consulta, assim como o nome da tabela, devem ter aspas. Por exemplo:</p>
+                        <codeblock>
+                            <font color="darkred">SELECT</font> <font color="red">"campo1"</font><font color="green">,</font> <font color="red">"campo2"</font> <font color="darkred">FROM</font> <font color="red">"tabela1"</font>
+                        </codeblock>
+                        <p>Caso contrário, um erro nativo do PostgreSQL pode ser gerado ao executar a consulta.</p>
+                        </li>
+                        <li>O Gestor Express não oferece suporte a valores colados em campos de sugestão para pesquisar resultados se um segundo campo de sugestão estiver em uma grade.</li>
+                        <li>Para preencher um campo Sugestão, além de configurar a variável para o controle Caixa de Sugestão, você deve configurar a variável _label.</li>
+                    </ul>
+
+                <h1 id="item5">Configurando Campos Dependentes</h1>
+
+                    <p>Os controles de sugestão podem ser definidos como campos dependentes de outros campos com base em seus valores.</p>
+
+                    <p><font color="green">Observação:</font> Os controles de caixa de sugestão funcionam com qualquer controle dependente com seu valor (a primeira coluna da tabela selecionada na consulta do controle de sugestão).</p>
+
+                    <p>Para estabelecer essa dependência, as variáveis devem ser definidas com uma instrução <code>SQL SELECT</code> para preencher os campos com valores de um banco de dados, que será mostrado assim que o Formulário Dinâmico for renderizado na visualização ou durante a execução de um caso.</p>
+
+                    <p>Por exemplo, para a dependência país-estado-localização, vamos adicionar três controles sugeridos na Ferramenta de Desenho do Formulário Dinâmico e relacioná-los às variáveis <code>PAÍSES</code>, <code>ESTADO</code> e <code>LOCALIZAÇÃO</code></p>
+
+                    <p>A variável <code>PAÍSES</code> tem a seguinte instrução SQL quando a variável é criada:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> ic_uid<font color="green">,</font> ic_name <font color="darkred">FROM</font> ISO_COUNTRY</p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                    <p>A variável ESTADO  tem a instrução SQL:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> is_uid<font color="green">,</font> is_name <font color="darkred">FROM</font> ISO_ESTADO </p>
+                        <p><font color="darkred">WHERE</font> ic_uid <font color="green">=</font> <font color="red">"@#PAÍSES"</font> <font color="darkred">ORDER BY</font> is_name</p>
+                    </codeblock>
+
+                    <p>E para a variável LOCALIZAÇÃO:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> il_uid<font color="green">,</font> il_name <font color="darkred">FROM</font> ISO_LOCALIZAÇÃO</p>
+                        <p><font color="darkred">WHERE</font> ic_uid <font color="green">=</font> <font color="red">"@#PAÍSES"</font> <font color="darkred">AND</font> is_uid <font color="green">=</font> <font color="red">"@#ESTADO"</font></p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> Leve em consideração essas regras de digitação para usar variáveis de caso nas consultas.</p>
+
+                    <p>Para recuperar dados corretamente por meio da dependência, a consulta deve diferenciar maiúsculas de minúsculas. Se o nome da tabela ou o nome dos campos contiverem letras maiúsculas ou minúsculas no banco de dados, a consulta deverá ser escrita exatamente da mesma forma.</p>
+
+                    <p>Depois de adicionar as consultas SQL acima às suas variáveis correspondentes, relacione cada controle sugerido no formulário às variáveis PAÍSES, ESTADO e LOCALIZAÇÃO.</p>
+
+                    <p>Ao renderizar o formulário, vamos procurar por "Argentina" no primeiro campo de sugestão.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Como você pode ver, o controle de sugestões procura todas as coincidências no campo à medida que o texto é inserido. Após selecionar "Argentina", os próximos dois campos são preenchidos com um estado relacionado (o primeiro valor retornado pertencente ao domínio de opções) e uma localização dependente de ambos, do país e do estado.</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Para o campo estado, vamos procurar por "Jujuy"</p>
+
+                    <figure>
+
+                    </figure>
+
+                    <p>Após selecionar "Jujuy" e preencher o campo estado, os resultados no campo Localização também mudam de acordo com o país e estado selecionados ("Argentina" e "Jujuy"). Agora, vamos ver as opções para "Jujuy" em "Argentina":</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Se tiver problemas para definir os campos dependentes, leve em consideração as seguintes possibilidades:</p>
+
+                    <ul>
+                        <li>O nome das variáveis pode não corresponder ao nome dos campos ou da tabela definida no banco de dados (já que a consulta diferencia maiúsculas de minúsculas).</li>
+                        <li>A dependência dos controles pode não ter sido definida corretamente.</li>
+                        <li>Leve em consideração que <code>"ic_uid="@#PAISES""</code> não recupera nenhum dado ao executar as consultas. Deve haver um espaço em branco entre o símbolo de igual e as variáveis para que a expressão correta seja <code>"ic_uid = "@#PAISES""</code></li>
+                    </ul>
+
+                    <p><font color="green">Observação:</font> Os campos dependentes não estão disponíveis quando um controle é definido no modo de visualização.</p>
+
+                <h1 id="item6">Sugerir exemplo de controle</h1>
+
+                    <p>Para este exemplo, adicione um controle Caixa de Sugestão arrastando e soltando-o na Ferramenta de Desenho do Formulário Dinâmico. Como resultado, ficará como na imagem abaixo.</p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>Após adicionar o controle, a janela “Criar variável” aparecerá. Crie uma variável chamada "linguagem" e configure a opção Config, conforme a imagem abaixo. Em seguida, clique no botão Gravar.</p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>Agora, vá para o controle e clique em qualquer espaço vazio dentro dele. Suas propriedades serão exibidas no painel esquerdo, como pode ser visto na imagem abaixo. Observe que as propriedades das variáveis, tipo de dado variável e id possuem os valores da variável.</p>
+                                        
+                        <figure>
+
+                        </figure>
+
+                    <p>Agora, para dar ao controle um nome próprio em vez de "suggest_1", altere a propriedade do rótulo para "Linguagem:".</p>
+                                        
+                        <figure>
+
+                        </figure>
+
+                    <p>A propriedade a seguir é a propriedade de valor padrão, que preenche o campo de controle no formulário dinâmico com um valor padrão quando nenhum outro valor é inserido. Tente adicionar um valor padrão como "Português" e o resultado será semelhante às imagens abaixo:</p>
+                                        
+                        <figure>
+
+                        </figure>
+
+                    <p>Em seguida está a propriedade informativo, que será mostrada em cinza no Formulário Dinâmico para ajudar o usuário a preencher o campo antes que um valor seja inserido. Como exemplo, tente adicionar o seguinte texto à propriedade informativo: "Digite seu idioma", e quando um caso for executado, o texto será exibido dentro do controle em cinza. Ao digitar texto no campo, o texto do espaço reservado desaparecerá.</p>
+                                            
+                        <figure>
+
+                        </figure>
+
+                    <p>A propriedade "Dica" é usada para mostrar ajuda adicionando um ícone "i" no canto inferior direito do controle que exibe o texto quando o cursor passa sobre ele. Por exemplo, o texto de dica "Adicione seu idioma" será exibido quando um cursor passar sobre o ícone "i", como pode ser visto na imagem abaixo:</p>
+                                             
+                        <figure>
+
+                        </figure>
+               
+                    <p>Em seguida está a propriedade "Obrigatório", que adiciona um asterisco ao lado do rótulo para indicar que o campo é obrigatório. Conforme mostrado na imagem abaixo, se o campo não estiver preenchido, uma mensagem de erro será exibida.</p>
+                                            
+                        <figure>
+
+                        </figure>
+
+                    <p>A propriedade de "modo de exibição" permite que o usuário controle como o campo de controle de sugestão é visualizado pelo usuário final ao executar um caso. Clique no ponto de interrogação ao lado do controle para saber mais sobre cada seleção. Selecione um modo de exibição para o controle clicando na seta da caixa suspensa.</p>
+                                                                
+                        <figure>
+
+                        </figure>
+
+                    <p>A ilustração mostra as diferentes alterações que as opções "mestre", "editar", "visualizar" e "desativado" fazem no controle.</p>
+
+                    <p><font color="red">Mestre</font></p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p><font color="red">Editar</font></p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p><font color="red">Visualizar</font></p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p><font color="red">Desativado</font></p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>A propriedade "Conexão BD" é usada para selecionar na lista de conexões de banco de dados definidas nos objetos de processo. A propriedade "sql" é usada para consultar valores do banco de dados selecionado na propriedade de conexão do banco de dados. No exemplo abaixo, o controle Caixa de Sugestão será preenchido com idiomas de uma tabela chamada LINGUAGEM, adicionando a seguinte consulta ao controle ao clicar nas reticências sublinhadas "..." na propriedade sql. Quando o Editor SQL for aberto, adicione o seguinte código:</p>
+
+                    <codeblock>
+                        <p><font color="darkred">SELECT</font> LAN_ID<font color="green">,</font> LAN_NAME <font color="darkred">FROM LINGUAGEM</font></p>
+                    </codeblock>
+
+                    <p><font color="green">Observação:</font> O identificador * não é suportado em consultas SQL.</p>
+
+                    <p>Ao executar um caso, o controle chamará todos os valores dentro da tabela LINGUAGEM. Para ver como isso funciona, comece a digitar um idioma no campo de controle e o controle fornecerá uma lista de idiomas que contêm o texto que está sendo escrito.</p>
+                    
+                        <figure>
+
+                        </figure>
+
+                    <p>Por fim, a propriedade "opções" define os valores que preenchem o controle de caixa de sugestão no Formulário Dinâmico. Isso pode ser usado em vez de uma consulta. Para saber mais sobre esta propriedade leia esta documentação.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <h1 id="item7">Usando procedimentos armazenados do MSSQL</h1>
+
+                    <p>Os procedimentos armazenados do SQL Server podem ser usados para preencher os controles de caixa de sugestão. Como uma caixa de sugestão precisa de um parâmetro para sugerir dados, o procedimento armazenado deve ser projetado para passar um parâmetro para a consulta. Por exemplo:</p>
+
+                    <codeblock>
+                        <p>CREATE PROCEDURE <font color="blue">nome-do-procedimento</font> (<font color="blue">@<strong>Parameter</strong> nvarchar(255)</font>)</p>
+                        <P>BEGIN</p>
+                        <p><font color="blue">&nbsp&nbsp SELECT id, nome</font></p>
+                        <P><font color="blue">&nbsp&nbsp FROM escritórios</font></P>
+                        <P><font color="blue">&nbsp&nbsp WHERE ID = @<strong>Parameter</strong>;</font></p>
+                        <p>END</p>
+                    </codeblock>
+
+                    <p>O controle Caixa de Sugestão filtrará os resultados de acordo com os caracteres digitados. Esses caracteres são armazenados em uma variável chamada <strong>"filter"</strong> por padrão. Portanto, a consulta SQL colocada dentro da propriedade SQL do controle de sugestão deve ter o seguinte formato:</p>
+
+                    <codeblock>
+                        <p>EXEC <font color="blue">nome-do-procedimento</font> @@filter</p>
+                    </codeblock>
+
+                    <p>Lembre-se de limitar o número de registros recuperados pelo procedimento armazenado para otimizar o desempenho.</p>
+
+                    <p><strong>Exemplo</strong></p>
+
+                    <p>O exemplo a seguir usa o banco de dados de exemplo AventuraJob2022.</p>
+
+                    <p>Considere a tabela <code>ProdutoSubcategoria</code> que possui os seguintes registros:</p>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>Vamos usar os primeiros 28 registros como valores dentro de um controle Caixa de Sugestão. Crie o seguinte procedimento armazenado:</p>
+
+                    <codeblock>
+                        <p>CREATE PROCEDURE dbo.produtoSubcategoria (@Param1 nvarchar(255))</p>
+                        <p>AS</p>
+                        <p>SELECT top 28 ProdutoSubcategoriaID, Name</p>
+                        <p>FROM Production.ProdutoSubcategoria WHERE Nome LIKE concat('%',@Param1,'%');</p>
+                    </codeblock>
+
+                    <p>No Gestor Express, após selecionar a conexão do banco de dados com o servidor SQL, coloque a seguinte consulta dentro da propriedade SQL do controle Caixa de Sugestão:</p>
+
+                    <codeblock>
+                        <p>EXEC dbo.produtoSubcategoria @@filter</p>
+                    </codeblock>
+
+                    <p>Lembre-se de que <strong>@@filter</strong> é a variável permanente que contém os critérios de pesquisa digitados na caixa de sugestões.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                    <p>Por fim, execute um caso e digite qualquer texto na caixa de sugestão e o controle chamará o procedimento armazenado para filtrar e recuperar registros armazenados na tabela Subcategoria. Por exemplo, digitar "Bike" ou "ts" fornecerá uma lista de todas as subcategorias com esses caracteres.</p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <h1 id="item8">JavaScript em caixas de sugestões</h1>
+
+                    <p>Para saber como gerenciar campos Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+
+                    <p>As caixas de sugestão no Gestor Express têm os seguintes componentes de campo:</p>
+
+                    <ul>
+                        <li>Rótulo: O texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</li>
+                        <li>Texto: O texto (rótulo) exibido pela opção selecionada ou o texto personalizado inserido pelo usuário.</li>
+                        <li>Valor: O valor armazenado (chave) da opção selecionada ou o texto personalizado inserido pelo usuário.</li>
+                    </ul>
+
+
+                <h2 id="item8a">Métodos JavaScript</h2>
+
+                    <p>Alguns dos métodos JavaScript usados para manipular caixas suspensas incluem:</p>
+
+                  
+                    <table class="textbox">
+                        <thead>
+                            <tr><th>Método</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>jQuery("#fieldID").getControl()</td><td>Use esta função para obter o campo de entrada do controle em vez de seu DIV, que é obtido com$("#id")</td></tr>
+                            <tr><td>jQuery("#fieldID").disableValidation()</td><td>Desabilita a validação do campo para que não verifique se o campo é obrigatório quando o formulário é enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").enableValidation()</td><td>Habilita a validação do campo para verificar se o campo é obrigatório quando o formulário for enviado.</td></tr>
+                            <tr><td>jQuery("#fieldID").getValue()</td><td>Retorna o valor (chave) da opção selecionada ou o texto personalizado inserido pelo usuário.</td></tr>
+                            <tr><td>jQuery("#fieldID").getText()</td><td>Retorna o texto exibido (rótulo) da opção selecionada ou o texto personalizado inserido pelo usuário.</td></tr>
+                            <tr><td>jQuery("#fieldID").getLabel()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo ao usuário final.</td></tr>
+                            <tr><td>jQuery("#fieldID").setValue("novo valor")</td><td>Seleciona uma opção na lista suspensa especificando seu valor (chave). Se uma opção não existir com o valor especificado, ela será inserida como texto personalizado.</td></tr>
+                            <tr><td>jQuery("#fieldID").setText("novoTexto")</td><td>Seleciona uma opção especificando seu texto exibido (rótulo). Se a opção não existir, ela será inserida como texto personalizado.</td></tr>
+                            <tr><td>jQuery("#fieldID").setLabel("novoEtiqueta")</td><td>Altera o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo ao usuário.</td></tr>
+                            <tr><td>jQuery("#fieldID").setOnchange(function(newVal, oldVal){...})</td><td>Define um manipulador de eventos de alteração , que é uma função personalizada que é executada após o valor do campo ser alterado. A função pode conter os seguintes parâmetros: <br>
+                            <ul>
+                                <li><strong>newVal:</strong> O novo valor que acabou de ser definido no campo.</li>
+                                <li><strong>oldVal:</strong> O valor antigo, que foi alterado.</li>
+                            </ul>
+                            </td></tr>
+                        </tbody>
+                    </table>
+                        
+
+
+
+
+                    <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                    
+            </article>
+        </section>
+
+        <footer>
+            <div class="container-footer">
+                <div class="row-footer">
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Selo de Qualidade</h4>
+
+                        <figure>
+                            <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        </figure>
+
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Endereço</h4>
+                        <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                        <p>Avenida Nações Unidas, 17-17</p>
+                        <p>Vila Santo Antônio</p>
+                        <p>17015-903, Bauru, SP</p>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Mídias Sociais</h4>
+                        <div class="medias-sociais">
+                            <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                            <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <!--end footer-col-->
+                    <!-- footer col -->
+                    <div class="footer-col">
+                        <h4>Subescreva-se</h4>
+                        <!-- form sub -->             
+                        <div class="form-sub">
+                            <form>
+                                <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                                <button>Subescrever</button>
+                            </form>
+                        </div>
+                        <!-- form sub -->        
+
+                    </div> 
+                    <!--end footer-col-->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
