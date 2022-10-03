@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Títulos e subtítulos</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+
+ <aside>
+        <section id="lado">
+            <h1>Títulos e subtítulos</h1>
+            <h2>Conteúdo:</h2>
+            <ol>
+                <li>Visão geral</li>
+                <li>Título</li>
+                <li>Exemplo de controle de título</li>
+                <li>Subtítulo</li>
+                <li>Exemplo de controle de subtítulos</li>
+                <li>Propriedades</li>
+                <li>JavaScript em títulos e subtítulos
+                    <ol type="A">
+                        <li>Métodos JavaScript</li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+    </aside>
+
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+
+                <p>Títulos e subtítulos são usados para agrupar campos sob títulos e fornecer informações ao usuário sobre a finalidade do formulário.</p>
+
+            <h1 id="item2">Título</h1>
+
+                <p>Ao projetar um Formulário Dinâmico, um controle de título tem a seguinte aparência:</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Ao visualizar um Formulário Dinâmico ou executar um caso, um controle de título tem a seguinte aparência:</p>
+                
+                <figure>
+
+                </figure>
+                
+            <h1 id="item3 id="item5"">Exemplo de controle de título</h1>
+
+                <p>Para este exemplo, adicione um controle "Título" arrastando-o e soltando-o no modelo de Formulário Dinâmico.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Clique em qualquer espaço vazio dentro do controle e suas propriedades serão exibidas no painel esquerdo. Primeiro, a propriedade "tipo" fornece o nome do controle e não pode ser alterada.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>A propriedade "id" é o campo e identificador Html que pode ser usado com código Javascript. Use o nome da propriedade "id" para referência. Clique no espaço cinza do Formulário Dinâmico como visto na imagem abaixo e as propriedades do Formulário Dinâmico completo aparecerão no painel do lado esquerdo.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Clique no botão "editar" na propriedade "javascript" e um editor será aberto.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Adicione o seguinte código no editor:</p>
+
+                <codeblock>
+                    <p>jQuery<font color="green">(</font>'#title0000000001'<font color="green">)</font>.setLabel<font color="green">(</font><font color="blue">'Gestor Express'</font><font color="green">);</font></p>
+                </codeblock>
+
+                    <figure>
+                        
+                    </figure>
+
+                <p>Este exemplo de código obtém o objeto jQuery para um campo com o ID "title0000000001". Em seguida, ele chama o método control.setLabel() do objeto para alterar o rótulo para "Gestor Express". O resultado é mostrado na imagem abaixo.</p>
+
+                    <figure>
+
+                    </figure>
+                    
+                <p>A propriedade a seguir para o controle é a propriedade "rótulo" que exibe o texto escrito no título. Leve em consideração que, se o código Javascript foi usado, qualquer texto escrito posteriormente não terá nenhum efeito no controle, portanto, é recomendável apagar o código javascript escrito anteriormente para que a propriedade "rótulo" tenha efeito. Agora, tente escrever "EXEMPLO DE TÍTULO" e vá até a visualização para observar o resultado deste texto.</p>
+
+                <figure>
+
+                </figure>
+            
+            <h1 id="item4">Subtítulo</h1>
+
+                <p>Ao projetar um Formulário Dinâmico, um controle de subtítulo tem a seguinte aparência:</p>
+                <p>Ao visualizar um Formulário Dinâmico ou executar um caso, um controle de subtítulo tem a seguinte aparência:</p>
+            <h1 id="item5">Exemplo de controle de subtítulos</h1>
+                <p>Para este exemplo, adicione um controle "subtítulo" arrastando-o e soltando-o na tela do Formulário Dinâmico. O resultado de adicioná-lo seria o seguinte:</p>
+                <p>Clique em qualquer espaço vazio dentro do controle para exibir suas propriedades no painel do lado esquerdo. As propriedades do controle são mostradas na imagem abaixo. A propriedade "type" é definida por padrão e não pode ser alterada.</p>
+                <p>A propriedade "id" é o campo e identificador HTML que pode ser usado com código Javascript. Por exemplo, clique no espaço cinza no Formulário Dinâmico para exibir suas propriedades no painel do lado esquerdo, conforme mostrado na imagem abaixo.</p>
+                <p>Clique no botão "editar" na propriedade "javascript" para abrir um editor de Javascript onde pode ser adicionado o seguinte código:</p>
+                <p>jQuery ( '#subtitle0000000001' ) . setLabel ( 'Workflow Simplificado' ) ;</p>
+                <p>Este exemplo de código obtém o objeto jQuery para um campo com o ID "subtitle0000000001". Em seguida, ele chama o método control.setLabel() do objeto para alterar o rótulo para "Fluxo de trabalho simplificado". O resultado é mostrado na imagem abaixo. Leve em consideração que o código adicionado no exemplo de controle de título está definido no editor, mas se o código não interferir no código já existente, não há inconveniente, então adicione o código javascript da subtítulo acima do código do título.</p>
+                <p>O resultado do código javascript seria o seguinte:</p>
+                <p>A propriedade final do controle é a propriedade "label" que exibe o texto escrito na subtítulo. Leve em consideração que se o código Javascript tiver sido usado, qualquer texto escrito posteriormente não terá nenhum efeito no controle. Agora, tente escrever "Exemplo de subtítulo" e vá para a visualização para observar o resultado deste texto.</p>
+
+            <h1 id="item6">Propriedades</h1>
+
+                <p>Títulos e subtítulos têm as seguintes propriedades:</p>
+                
+                <p>Propriedade</p>
+                <p>Modelo</p>
+                <p>EU IRIA</p>
+                <p>Identificador HTML exclusivo</p>
+                <p>Etiqueta</p>
+
+                <p>Depois de adicionar um título ou subtítulo usando o designer de formulários, clique no controle para expandir suas propriedades no painel esquerdo. A propriedade "Tipo" indica o tipo de controle, que no caso de controle de título será "título" e no caso de subtítulo será "subtítulo".</p>
+                <p>A propriedade "Id" define o identificador exclusivo do controle selecionado. Por padrão, quando um título é adicionado, o identificador é definido como "títuloxxxxxxxxxxxx", onde os x representam o número correlativo do controle dentro do designer. Isso significa que se um controle de título for o primeiro a ser adicionado, o id será definido como "title0000000001". Leve em conta as mesmas considerações ao trabalhar com subtítulos. A propriedade "Nome" permite definir um nome para o controle selecionado.</p>
+                <p>Essas duas propriedades permitem trabalhar com o nome e o ID ao adicionar Javascript ao formulário.</p>
+            <h1 id="item7">JavaScript em títulos e subtítulos</h1>
+                <p>Para saber como manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos .</p>
+                <p>Títulos e subtítulos no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                <p>Rótulo: O texto no título/subtítulo, que é exibido ao usuário.</p>
+                <p>Valor: o valor é o mesmo do rótulo .</p>
+
+            <h2 id="item7a">Métodos JavaScript</h2>
+
+                <p>Alguns dos métodos JavaScript para manipular títulos e subtítulos incluem:</p>
+                <p>Método</p>
+                <p>jQuery("#fieldID") . getValue()</p>
+                <p>jQuery("#fieldID") . getLabel()</p>
+                <p>jQuery("#fieldID") . setValue("novo valor")</p>
+                <p>jQuery("#fieldID") . setLabel("novoEtiqueta")</p>
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
+                <p>Nota: Chamar setLabel()ou setValue()para obter um título ou subtítulo irá redefinir suas propriedades e remover quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar setLabel()ou setValue(), essas propriedades precisarão ser redefinidas.</p>
+
+        </article>
+
+    </section>
+
+   
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
