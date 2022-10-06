@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Grids</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+
+ <aside>
+        <section id="lado">
+            <h1>Grid</h1>
+            <h2>Conteúdo:</h2>
+            <ol>
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Propriedades da grid</a>
+                    <ol type="A">
+                        <li><a href="#item2a">Esquema</a></li>
+                        <li><a href="#item2b">Tamanho da página</a></li>
+                        <li><a href="#item2c">Adicionar linha</a></li>
+                        <li><a href="#item2d">Excluir linha</a></li>
+                        <li><a href="#item2e">Título</a></li>
+                    </ol>
+                </li>    
+                <li><a href="#item3">Controles suportados por colunas de grid</a>
+                    <ol type="A">
+                        <li><a href="#item3a">Largura da coluna</a></li>
+                        <li><a href="#item3b">Função</a></li>
+                    </ol>
+                </li>    
+                <li><a href="#item4">Exemplo de controle de grid</a></li>
+                <li><a href="#item5">JavaScript em grid</a>s
+                    <ol type="A">
+                        <li><a href="#item5a">Acessando grids com JavaScript</a></li>
+                        <li><a href="#item5b">Funções JavaScript</a></li>
+                        <li><a href="#item5c">Escondendo uma grid</a></li>
+                        <li><a href="#item5d">Fórmulas de precisão fixas em grids</a></li>
+                        <li><a href="#item5e">Alterar manipuladores de eventos dentro de grids</a></li>
+                        <li><a href="#item5f">Desativando grids</a></li>
+                        <li><a href="#item5g">Obtendo linhas de grid</a></li>
+                        <li><a href="#item5h">Desativando linhas de grid</a></li>
+                        <li><a href="#item5i">Número máximo de linhas da grid</a></li>
+                        <li><a href="#item5j">Verificando se um número mínimo de linhas de grid</a></li>
+                        <li><a href="#item5k">Número fixo de linhas da grid</a></li>
+                        <li><a href="#item5l">Limpando uma grid</a></li>
+                    </ol>
+                </li>    
+                <li><a href="#item6">PHP em grids</a>
+                    <ol type="A">
+                        <li><a href="#item6a">Preenchendo grids inteiras</a></li>
+                        <li><a href="#item6b">Preenchendo grids usando uma consulta de banco de dados</a></li>
+                        <li><a href="#item6c">Exibindo informações de casos em grids</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+    </aside>
+
+    <section id="principal">
+
+        <article>
+            <h1 id="item1">Visão geral</h1>
+
+                <p>Uma grid é uma estrutura gráfica que apresenta dados em um formato tabular composto por colunas e linhas. Para Formulários Dinâmicos no Gestor Express, cada coluna é representada por um controle e cada linha das colunas é um registro desse controle. Para adicionar uma nova grid a um modelo de Formulário Dinâmico, arraste o ícone abaixo da barra de ferramentas no painel esquerdo e solte-o no modelo:</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Após adicionar o controle, a grid será mostrada da seguinte forma:</p>
+ 
+                    <figure>
+
+                    </figure>
+           
+                <p>Esta grid ainda não compreende nenhuma coluna nem nenhum dado relacionado a ela. Para definir as colunas, arraste um controle para a grid que habilitará a primeira célula e solte-a dentro dela.</p>
+ 
+                <figure>
+
+                </figure>
+                       
+                <p>Defina a largura da coluna do controle para obter uma renderização correta das colunas no campo. Além disso, dê uma olhada nesta seção para ver quais controles são suportados dentro de grids.</p>
+
+                <p>À medida que mais colunas são adicionadas, as células na grid serão habilitadas em qualquer posição em que o controle for trazido.</p>
+                 
+                <figure>
+
+                </figure>
+       
+                <p>Só é possível inserir dados dentro da grid ao verificar o Formulário Dinâmico em sua visualização (o que não salva os dados) ou ao executar um caso.</p>
+                 
+                <figure>
+
+                </figure>
+       
+                <p>Use o link "Novo" no canto superior esquerdo da grid para adicionar uma nova linha.</p>
+                 
+                <figure>
+
+                </figure>
+       
+                <p>Para excluir uma linha, clique no botão com o ícone da lixeira no lado direito de cada linha.</p>
+                 
+                <figure>
+
+                </figure>
+       
+                <p>Leve em consideração o seguinte ao executar casos com Grids:</p>
+
+                <ul>
+                    <li>As grids no Gestor Express Edição Web são criadas sempre com pelo menos uma linha e a primeira linha pode ser removida. No Gestor Express Mobile, as grids são criadas sem linhas. Tome cuidado com esse comportamento porque os campos dependentes no Gestor Express Mobile com funções JavaScript como onAddRow() funcionam corretamente após clicar no botão Gravar.</li>
+                    <li>Os dados podem ser perdidos quando as colunas dentro da mesma grid são alteradas em Formulários Dinâmicos de diferentes tarefas, no mesmo processo. Considere o seguinte exemplo:</li>
+                    <ul type="disc">
+                        <li>Na primeira tarefa de um processo, o Formulário Dinâmico possui uma grid com três colunas.</li>
+                        <li>Na segunda tarefa, você exclui uma das colunas da mesma grid.</li>
+                        <li>Na terceira tarefa, você recria a coluna que excluiu no formulário dinâmico da segunda tarefa.</li>
+                       </ul>
+
+                    <p>Se você executar um caso para este exemplo, os dados serão perdidos na grid entre a primeira tarefa e a segunda. Isso ocorre porque a grid na segunda tarefa tem uma coluna a menos que na primeira tarefa. Apesar de a grid ter três colunas na terceira tarefa, os dados perdidos entre a primeira tarefa e a segunda não podem ser restaurados.</p>
+
+                    <li>Se estiver usando grids com um grande número de linhas, as configurações no arquivo php.ini precisam ser aumentadas para permitir mais de 1.000 campos no total em um formulário dinâmico. Consulte Aumentando o número máximo de campos de um Formulário Dinâmico .</li>
+                </ul>
+        </article>
+        <article>
+
+            <h1 id="item2">Propriedades da grid</h1>
+
+                <p>Clique em uma grid para exibir suas propriedades no painel esquerdo:</p>
+
+                <p>Cada controle adicionado na grid funciona de acordo com sua própria definição e propriedades definidas. Leve em consideração que, dentro do modelo do Formulário Dinâmico, apenas as colunas da grid são definidas, algumas outras características da grid são definidas em suas propriedades:</p>
+
+                <figure>
+
+                </figure>
+
+                <table class="textbox">
+                    <thead>
+                            <tr><th>Propriedade</th><th>Descrição</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Modelo</td><td><code>grid</code> (somente leitura)</td></tr>
+                            <tr><td>Variável</td><td>Clique na opção ... para selecionar a variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle.<br>
+                            Somente variáveis do seguinte tipo de dados podem ser selecionadas:
+                            <li>rede</li></td></tr>
+                            <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                            <tr><td>ID</td><td>[Requeridos]<br>
+                            Controle e identificador exclusivo HTML.</td></tr>
+                            <tr><td>Título</td><td>Defina o título da grade nesta propriedade</td></tr>
+                            <tr><td>Dica</td><td>Usado para mostrar ajuda quando a grade é renderizada. É mostrado quando o ponteiro do mouse está sobre o  ícone ?.<br>
+                            <font color="red"><strong>Aviso:</strong></font> O ícone de dica e a mensagem em uma grade são cortados no Gestor Express mobile. Este é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</td></tr>
+                            <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que o campo precisa ser preenchido obrigatoriamente a partir do controle. Quando um campo obrigatório não estiver preenchido com nenhum valor, não será possível ir para a próxima etapa.</td></tr>
+                            <tr><td>Modo de exibição</td><td>[Requeridos]
+                            Modo de exibição:
+                            <ul>
+                                <li><strong>mestre:</strong> herda o modo de exibição definido no contâiner mestre(formulário)</li>
+                                <li><strong>editar:</strong> o campo é habilitado para edição ao ser renderizado.</li>
+                                <li><strong>visualizar:</strong> o campo só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</li>
+                                <li><strong>desativado:</strong> o campo é exibido como desabilitado. O campo é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Esquema</td><td>[Requeridos]<br>
+                            Esta propriedade define o formato como a grade será mostrada quando renderizada. As opções desta propriedade são as seguintes:
+                            <ul>
+                                <li>responsivo</li>
+                                <li>estático</li>
+                            </ul>
+                            </td></tr>
+                            <tr><td>Tamanho da página</td><td>[Requeridos]<br>
+                            Defina o número de linhas exibidas por página.</td></tr>
+                            <tr><td>Adicionar linha</td><td>Ative o botão adicionar linha</td></tr>
+                            <tr><td>Excluir linha</td><td>Ative o botão excluir linha</td></tr>
+                        </tbody>
+                </table>
+
+            <h2 id="item2a">Esquema</h2>
+
+                <p>Esta propriedade define a forma como as grids acomodarão suas linhas desde o momento em que são renderizadas na visualização do Formulário Dinâmico ou ao executar um caso.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As opções para este imóvel são:</p>
+
+                <ul>
+                    <li>Responsivo</li>
+                    <li>Estático</li>
+                </ul>
+
+                <p>Para esta propriedade, leve em consideração que a largura das colunas dos controles dentro da grid deve estar configurada corretamente para um bom desempenho.</p>
+
+                <p>Quando o layout da grid é definido como responsivo, as colunas se acomodam imediatamente de acordo com o tamanho da tela tornando-as mais largas ou diminuindo-as. Para o layout estático, a grid mantém seu tamanho apesar do tamanho da tela. Nesse tipo de layout, se o comprimento da grid ultrapassar o comprimento da tela, uma barra de rolagem permite que os usuários ainda possam trabalhar com a grid. Veja as figuras abaixo para ver as diferenças entre elas.</p>
+
+                <p><strong>Layout responsivo</strong></p>
+
+                    <figure>
+
+                    </figure>
+
+                <p><strong>Layout Estático</strong></p>
+
+                    <figure>
+
+                    </figure>
+                    
+
+            <h2 id="item2b">Tamanho da página</h2>
+
+                <p>Esta propriedade define o tamanho da página da grid. Obtém ou define o número de itens a serem exibidos em uma única página da grid.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Ao renderizar o formulário e adicionar mais linhas na grid do que o tamanho definido nesta propriedade, uma nova página é adicionada e o controle de navegação aparece na parte inferior da grid.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Por padrão, esta propriedade é definida como "Nenhuma", assim as linhas da grid são adicionadas uma após a outra</p>
+
+            <h2 id="item2c">Adicionar linha</h2>
+
+                <p>Esta propriedade define se a grid terá o botão "Novo" habilitado ou não, marcando ou desmarcando através de um clique. Por padrão, esta opção está marcada, o que significa que o botão "Novo" está habilitado ao renderizar a grid no formulário.</p>
+                
+                <figure>
+
+                </figure>
+
+            <h2 id="item2d">Excluir linha</h2>
+
+                <p>Esta propriedade define se a grid terá o botão "Deletar" habilitado ou não, marcando ou desmarcando por um clique. Por padrão, esta opção está marcada, o que significa que o botão está habilitado ao renderizar a grid no formulário.</p>
+                
+                <figure>
+                    
+                </figure>
+
+            <h2 id="item2e">Título</h2>
+
+                <p>Defina o título da grid nesta propriedade.</p>
+                  
+                <figure>
+                    
+                </figure>
+              
+                <p>O título da grid é exibido no meio da tela (de qualquer dispositivo) na parte superior da grid.</p>
+                              
+                <figure>
+                    
+                </figure>
+        </article>
+        <article>
+            <h1 id="item3">Controles suportados por colunas de grid</h1>
+
+                <p>A seguir estão os controles suportados dentro de grids:</p>
+
+                <ul>
+                    <li>Texto e Área de Texto</li>
+                    <li>Caixa Suspensa</li>
+                    <li>Caixa de seleção</li>
+                    <li>Data e hora</li>
+                    <li>Caixa de Sugestão</li>
+                    <li>Campo Oculto</li>
+                    <li>Link</li>
+                    <li>Carregador de vários arquivos</li>
+                </ul>
+
+                <p>Leve em consideração que os controles adicionados dentro de uma grid não aceitam uma variável relacionada a eles. Além disso, esses controles possuem a propriedade Column Width, que deve ser configurada para renderizar corretamente a grid.</p>
+
+                <p><font color="red"><strong>Aviso:</strong></font> o controle de arquivo não é mais suportado como uma coluna de grid e não estará mais disponível nas próximas versões do Gestor Express. No Gestor Express 3.1 ou posterior, use o controle Carregador de vários arquivos.</p>
+
+            <h2 id="item3a">Largura da coluna</h2>
+
+                <p>Esta propriedade define a largura que cada coluna na grid terá ao renderizar o formulário. Esta propriedade está disponível apenas para os controles adicionados dentro de uma grid e deve ser preenchida para visualizar o controle no modo de visualização ou ao executar um caso.</p>
+
+                <p>O valor da propriedade de <strong>largura da coluna</strong> é interpretado de forma diferente dependendo da configuração da propriedade de layout da grid:</p>
+
+                <ul>
+                    <li><strong>Estático:</strong> se o layout for "Estático", defina a largura da coluna em pixels. Exemplo: <code>250</code>.<br>
+                    Se as colunas na grid ocuparem mais pixels do que a largura total da grid, uma barra de rolagem horizontal aparecerá sob a grid para permitir que o usuário role para visualizar todos os controles na grid.</li>
+                    <li><strong>Responsivo:</strong> Se o layout for "Responsivo", defina a largura da coluna como uma porcentagem da largura total da grid. Exemplo: <code>30</code>.<br>
+                    Se as porcentagens das colunas na grid somarem mais de 100%, as últimas colunas do lado direito serão cortadas e não visíveis no Formulário Dinâmico.</li>
+                </ul>
+       
+                <p>Por padrão, a <strong>largura da coluna</strong> é definida como 10, significando 10% da largura total da grid quando o <strong>layout</strong> for "Responsivo", mas apenas 10 pixels de largura quando o <strong>layout</strong> for "Estático", portanto, lembre-se de ajustar esse número após alterar a largura da grid propriedade de <strong>layout</strong>.</p>
+
+                <p>Para acessar esta propriedade adicione um controle à grid e vá até suas propriedades clicando sobre ele. Por exemplo, se adicionar os seguintes controles na grid:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Clique no controle da caixa de texto "Nome do funcionário" para visualizar suas propriedades e veja que no final da lista há a propriedade "Largura da coluna".</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Como há três colunas na grid, esse controle ocupará 33% ao renderizar o formulário.</p>
+ 
+                <figure>
+
+                </figure>
+               
+                <p>Apenas as colunas que configuraram essa propriedade são renderizadas na grid. Se alguma das colunas tiver definido esta propriedade ao renderizar os formulários, ela será mostrada da seguinte forma:</p>
+
+            <h2 id="item3b">Função</h2>
+
+                <p><font color=green><strong>Observação: As regras de</strong></font> <font color=blue>validação</font> devem ser definidas nos controles de texto envolvidos em funções matemáticas para restringir a entrada de dados.</p>
+
+                <p>Esta propriedade pertence ao controle Texto em uma grid. Oferece funções matemáticas predefinidas para somar colunas ou obter sua média.</p>
+
+                <p>Esta propriedade só funciona com controles de texto que são inteiros ou flutuantes no tipo de dados da variável. Um controle de texto com esta característica deve ser adicionado como uma coluna na grid e dentro de suas propriedades deve-se selecionar a função:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Ao executar um caso ou revisá-lo dentro da Visualização, os usuários verão os resultados automaticamente à medida que as quantidades forem inseridas.</p>
+
+                <figure>
+
+                </figure>
+        
+        </article>
+        <article>
+
+            <h1 id="item4">Exemplo de controle de grid</h1>
+
+                <p>Adicione um controle "Grid" arrastando e soltando-o dos Controles Web localizados no painel esquerdo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Imediatamente após a adição do controle, a janela Criar variável aparecerá.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para este exemplo, altere o nome da variável e clique na opção "Configurações" para adicionar ou remover quaisquer opções adicionais para a variável. Como visto na imagem abaixo a variável "grid" não possui muitas configurações. Após fazer isso clique no botão "Gravar" para adicionar a variável às propriedades do controle.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Após salvar as configurações da variável, vá até o controle e clique em qualquer espaço vazio nela e suas propriedades serão exibidas no painel do lado esquerdo onde estarão as propriedades "variável", "tipo de dados de variável" e "id" agora alterado como visto na imagem abaixo</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Agora, a propriedade "id" pode ser usada com código JavaScript.</p>
+
+                <p>Para adicionar funcionalidade e comportamento ao controle, clique na borda cinza claro do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor de JavaScript.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Uma vez no editor, adicione o seguinte código que definirá o valor "Gestor Express" na primeira linha e na primeira coluna. Para obter mais informações sobre o código javascript para este controle, leia esta seção.</p>
+
+                <codeblock>
+                    <p>jQuery<font color="green">(</font><font color="blue">"#grid"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">'Gestor Express'</font><font color="green">,</font> <font color="blue">'1'</font><font color="green">,</font> <font color="blue">'1'</font><font color="green">);</font></p>
+                </codeblock>
+
+                <figure>
+
+                </figure>
+
+                <p>Quando o controle for renderizado, o valor que é "Gestor Express" será definido na primeira linha e na primeira coluna conforme adicionado no código.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Em seguida está a propriedade "título" que define o nome do controle que será exibido como título da grid quando o controle for renderizado conforme a imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Agora a propriedade "Dica" é usada para mostrar ajuda quando a grid é renderizada. Para este exemplo, adicione uma dica como "Adicionar mais informações". O resultado disso é mostrado na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade a seguir é a propriedade "modo de exibição" que tem efeitos diferentes em um controle dependendo da opção selecionada. A ilustração abaixo mostra todos os efeitos que a propriedade "modo de exibição" tem no controle.</p>
+
+                <figure>
+
+                </figure>
+
+
+                <p><font color="red">Mestre</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <p><font color="red">Editar</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <p><font color="red">Visualizar</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <p><font color="red">Desativado</font></p>
+                    
+                    <figure>
+
+                    </figure>
+
+                <p>A propriedade "layout" define o formato de como a grid será mostrada. A opção "responsive" é definida como padrão quando o controle é adicionado. Esta opção significa que o controle responde às alterações feitas quando o controle é renderizado. E, ao contrário, a opção "estática" não responderá às alterações e ficará inativa às alterações.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>O controle "tamanho da página" definirá o número de linhas exibidas por página adicionando um controle de paginação. Por exemplo, se o tamanho da página for escolhido como 20, o controle adicionará 20 linhas e a paginação adicionará uma página.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As duas últimas propriedades são as propriedades "adicionar linha" e "excluir linha" que, por padrão, são sempre verificadas, o que significa que as linhas podem ser adicionadas e excluídas. Na imagem abaixo pode-se adicionar uma linha clicando na opção "+ Novo" e excluir uma linha clicando na lixeira vermelha.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Se desejar que essas propriedades não sejam mostradas, desmarque-as e o resultado dessa ação será o seguinte.</p>
+
+                <figure>
+
+                </figure>
+
+            <h1 id="item5">JavaScript em grids</h1>
+
+                <p>Para saber mais sobre como acessar campos e controles usando JavaScript e as funções JavaScript suportadas por eles; é muito importante ler primeiro a documentação sobre JavaScript no Formulários Dinâmicos</p>
+                <p>Para os elementos de grid, leve em consideração o seguinte:</p>
+                <p>Observação: para listas suspensas, o valor é diferente do texto:</p>
+                <p>Acessando grids com JavaScript</p>
+                <p>Por favor, leia esta documentação para aprender maneiras de acessar controles e campos dentro do Formulários Dinâmicos. Além disso, leve em consideração o seguinte para grids:</p>
+                <p>Para acessar grids usando jquery, use os seguintes métodos:</p>
+                <p>jQuery ( "#gridId" )</p>
+                <p>ou</p>
+                <p>$ ( "#gridId" )</p>
+                <p>Que é o mesmo.</p>
+                <p>Lembre-se que quando uma grid é um elemento complexo que está contido dentro de um divelemento no HTML do formulário. O divID do 's é aquele definido nas propriedades da grid é definido por padrão como " grid000000000X" onde "x" representa a numeração das grids já adicionadas no desenho. No entanto, é possível definir um ID personalizado nas propriedades para ter um melhor gerenciamento das grids.</p>
+                <p>Os elementos dentro da grid, como seu título e controles, estão contidos em seus próprios divs (incluindo seus elementos), o que o torna um elemento complexo. Por esse motivo, é importante gerenciar as funções do Gestor Express descritas abaixo. Leve em consideração o seguinte:</p>
+                <p>Funções JavaScript</p>
+                <p>Funções</p>
+                <p>jQuery("#gridId") . getControl()</p>
+                <p>Lembre-se que quando o formulário é renderizado, cada controle é mantido dentro de um divelemento, então use esta função para trabalhar com o controle como está.</p>
+                <p>Além disso, você pode obter o controle diretamente usando:</p>
+                <p>$ ( “#form\\ [ fieldid\\ ] ” )</p>
+                <p>$ ( “#form\\ [ nome\\ ] ” ) . val ( 'Olá mundo' ) ;</ td ></p>
+                <p>jQuery("#gridId") . getValue(linha, coluna)</p>
+                <p>jQuery("#gridId") . getLabel()</p>
+                <p>jQuery("#gridId") . getLabel(coluna)</p>
+                <p>jQuery("#gridId") . getText(linha, coluna)</p>
+                <p>jQuery("#gridId") . setValue(valor, linha, coluna)</p>
+                <p>jQuery("#gridId") . setText(texto, linha, coluna)</p>
+                <p>jQuery("#gridId") . setLabel(gridLabel)</p>
+                <p>jQuery("#gridId") . setLabel(columnLabel, col)</p>
+                <p>jQuery("#gridId") . getSummary("columnId")</p>
+                <p>jQuery("#gridId") . getSummary(coluna)</p>
+                <p>jQuery("#gridId") . getNumberRows()</p>
+                <p>jQuery("#gridId") . addRow()</p>
+                <p>jQuery("#gridId") . addRow([{label1:valor1}, {label2:valor2}])</p>
+                <p>jQuery("#gridId") . deleteRow(linhaIndex)</p>
+                <p>jQuery("#gridId") . onAddRow(ligue de volta)</p>
+                <p>jQuery ( "#gridId" ) . onAddRow ( function ( row , grid , index ) {</p>
+                <p>//codifique aqui</p>
+                <p>} ) ;</p>
+                <p>jQuery("#gridId") . onDeleteRow(ligue de volta)</p>
+                <p>jQuery ( "#gridId" ) . onDeleteRow ( function ( row , grid , index ) {</p>
+                <p>//codifique aqui</p>
+                <p>} ) ;</p>
+                <p>jQuery("#gridId") . hideColumn(colIndex)</p>
+                <p>jQuery("#gridId") . showColumn(colIndex)</p>
+                <p>jQuery("#gridId") .disableValidation(colIndex)</p>
+                <p>jQuery("#gridId") .enableValidation(colIndex)</p>
+                <p>jQuery("#gridId") .getControl(row, col)</p>
+                <p>Observação: para ver exemplos de código dessas funções, consulte Funções e métodos JavaScript .</p>
+                <p>Escondendo uma grid</p>
+                <p>É possível ocultar ou mostrar a tabela que contém uma grid com o evento toggle jquery. Por exemplo, vamos ocultar uma grid "grid1"sempre que a caixa de seleção "HideGrid"estiver marcada e mostrá-la sempre que a caixa de seleção estiver desmarcada. Para isso, vamos criar a variável booleana " HideGrid" com as seguintes opções:</p>
+                <p>Verdadeiro: Ocultar Falso: Mostrar</p>
+                <p>Vamos criar um novo Formulário Dinâmico, abri-lo e adicionar um controle de caixa de seleção e um controle de grid ao design. Clique no checkboxbotão , vá em suas propriedades e relacione o controle com a variável "HideGrid", previamente criada e que será toda a configuração a ser feita para o checkbox.</p>
+                <p>Agora, adicione alguns controles à grid (no exemplo, as caixas de texto "Nome" e "Telefone" foram adicionadas, bem como a área de texto "Endereço"), clique na grid para visualizar suas propriedades no painel esquerdo e defina o ID de a grid como "grid1".</p>
+                <p>Feito isso, os controles têm a configuração necessária para que funcionem corretamente. Agora, clique no formulário para visualizar suas propriedades, clique no botão "editar..." e adicione o seguinte código ao editor.</p>
+                <p>$ ( documento ) . ready ( function ( ) {</p>
+                <p>$ ( '#HideGrid' ) . click ( function ( ) {</p>
+                <p>    //console.log($('#HideGrid').getControl().is(":checked")); //descomente para verificar quais valores o controle de caixa de seleção tem $</p>
+                <p>    ( " # grid1 " ) . toggle ( this.checked ) ; } ) ;</p>
+                <p>Experimente renderizando-o na visualização do formulário. Quando é renderizado pela primeira vez, o formulário é como o seguinte:</p>
+                <p>Marque a caixa de seleção "Ocultar grid??" para ocultar a grid.</p>
+                <p>Desmarque-o para mostrar a grid</p>
+                <p>Para verificar o valor da caixa de seleção quando o usuário clicar nela, descomente a seguinte linha no código:</p>
+                <p>   console. log ( $ ( '#HideGrid' ) . getControl ( ) . is ( ":checked" ) ) ; //descomente para verificar quais valores o controle checkbox possui</p>
+                <p>Vamos ver os valores que o checkbox pegou no console do navegador (pressione a "F12"tecla do quadro), e veja o console:</p>
+                <p>Quando marcada, a caixa de seleção retorna "true", quando desmarcada, a caixa de seleção retorna"false"</p>
+                <p>Fórmulas de precisão fixas em grids</p>
+                <p>As fórmulas nas grids não especificam a precisão de seus cálculos, portanto, os resultados das fórmulas podem ter um número variável de dígitos decimais .</p>
+                <p>Por exemplo, uma grid "invoiceList" contém campos com os IDs "price", "taxRate" e "total" para calcular o preço total de cada item. O campo "total" usa a seguinte fórmula:</p>
+                <p>preço + (preço * taxa de imposto)</p>
+                <p>O número de dígitos decimais no campo "total" muda dependendo dos números inseridos nos campos "preço" e "taxRate":</p>
+                <p>Outro problema é que ter vários campos usando fórmulas em grids pode causar problemas nos cálculos . Por exemplo, na grid a seguir, os campos "imposto" e "total" usam fórmulas:</p>
+                <p>As duas fórmulas na mesma grid causam conflitos e geram resultados errôneos:</p>
+                <p>Ambos os problemas podem ser corrigidos usando JavaScript. Em vez de usar fórmulas para calcular os campos "imposto" e "total", JavaScript pode ser adicionado ao formulário dinâmico para calcular os valores dos campos "imposto" e "total" na grid. O código JavaScript a seguir percorre a grid e recalcula o "imposto" e o total" para cada linha na grid quando qualquer valor é alterado no formulário dinâmico:</p>
+                <p>function roundToFixed ( _float , _digits ) {</p>
+                <p>  var rounder = Math . pow ( 10 , _digits ) ;</p>
+                <p>  return ( Math . round ( _float * rounder ) / rounder ) . toFixed ( _digits ) ;</p>
+                <p>}</p>
+                <p>$ ( "formulário" ) . setOnchange ( função ( campo , newVal, oldVal ) {</p>
+                <p>  var totalRows = $ ( "#invoiceList" ) . getNumberRows ( ) ;</p>
+                <p>  for ( var i = 1 ; i <= totalRows ; i ++ ) {</p>
+                <p>    preço   = parseFloat ( $ ( "#invoiceList" ) . getValue ( i , 1 ) ) ;</p>
+                <p>    taxRate = parseFloat ($ ( "#invoiceList" ) . getValue ( i , 2 ) ) ;</p>
+                <p>    imposto     = preço * taxa de imposto ;</p>
+                <p>    //verifica se o usuário digitou valores válidos:</p>
+                <p>    if ( isNaN ( tax ) ) {</p>
+                <p>      tax = '' ;</p>
+                <p>      total = '' ;</p>
+                <p>    }</p>
+                <p>    else {</p>
+                <p>      imposto     = roundToFixed ( taxa , 2 ) ;</p>
+                <p>      total   = roundToFixed ( preço + ( preço * taxRate ) , 2 ) ;</p>
+                <p>    }  </p>
+                <p>    $ ( "#invoiceList" ) . setValue ( imposto ,   i , 3 ) ;</p>
+                <p>    $ ( "#invoiceList" ) . setValue ( total , i , 4 ) ;</p>
+                <p>  }</p>
+                <p>} ) ;</p>
+                <p>A roundToFixed()função personalizada é usada para definir dois dígitos decimais nos cálculos para os campos "imposto" e "total". Para saber mais, consulte Trabalhando com números em JavaScript . A isNaN()função é usada para verificar se o usuário digitou números válidos nos campos. Se calcular um resultado que não seja um número (NaN), os campos de imposto e total serão definidos como ''(string vazia).</p>
+                <p>Usando este código JavaScript, ambos os campos são calculados corretamente com dois dígitos decimais quando o usuário altera um valor na grid:</p>
+                <p>Para ver um exemplo desse código, baixe o processo de amostra Fixed_precision_grid_math-1.pmx .</p>
+                <p>Alterar manipuladores de eventos dentro de grids</p>
+                <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de , onde o número da primeira linha é , a segunda linha é , etc."form[gridId][rowNumber][fieldId]"12</p>
+                <p>Por exemplo, uma grid com o ID "ReceiptList" contém um campo "recipt" File para carregar um arquivo digitalizado de um recibo e uma caixa de texto "amount" para inserir o total de um recibo. O campo "quantia" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
+                <p>O campo "recibo" na primeira linha teria um ID de "form[ReceiptList][1][receipt]"e o campo "quantia" na segunda linha teria um ID de "form[ReceiptList][2][amount]". Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o [e ]no ID deve ser escapado com \\:</p>
+                <p>$("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]")</p>
+                <p>Por exemplo, o código JavaScript a seguir define a cor do texto no campo de valor na segunda linha para verde.</p>
+                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [2 \\ ] \\ [quantidade \\ ]" ) . css ( "cor" , "verde" ) ;</p>
+                <p>Um manipulador de eventos de alteração pode ser definido para um único campo dentro de uma grid desta maneira:</p>
+                <p>$("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]").change( function() { // código do manipulador de eventos } );</p>
+                <p>Por exemplo, o código JavaScript a seguir define um manipulador de eventos de alteração para o campo "quantidade" na primeira linha da grid. Se o usuário definir o campo "quantidade" na primeira linha para um valor maior que 300, a cor da borda desse campo será alterada para vermelho. O método css() do campo é chamado para alterar a cor da borda. Observe que é usado para converter do objeto DOM do campo para seu objeto jQuery, para que seu método possa ser chamado.$(this)css()</p>
+                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [1 \\ ] \\ [quantidade \\ ]" ) . change ( function ( ) {</p>
+                <p>   if ( this . value > 300 ) {</p>
+                <p>      $ ( this ) . css ( "border" , "1px solid red" ) ;</p>
+                <p>   }</p>
+                <p>   else { // define a borda do campo "amount" de volta para o padrão cinza claro cor:</p>
+                <p>      $( isso ) . css ( "borda" , "" ) ;  </p>
+                <p>   }</p>
+                <p>} ) ;</p>
+                <p>Se o usuário entrar 400no campo "quantidade" na primeira linha, sua borda mudará para vermelho.</p>
+                <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "quantidade" quando o usuário clicar no botão Novo para adicionar outra linha à grid. O método grid .onAddRow() pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "amount" na nova linha adicionada à grid "ReceiptList":</p>
+                <p>function checkAmount ( ) {</p>
+                <p>   if ( this . value > 300 ) {</p>
+                <p>      $ ( this ) . css ( "borda" , "1px vermelho sólido" ) ;</p>
+                <p>   }</p>
+                <p>   else { //defina a borda do campo "quantidade" de volta para a cor cinza claro padrão:</p>
+                <p>      $ ( this ) . css ( "borda" , "" ) ;  </p>
+                <p>   }</p>
+                <p>}</p>
+                <p>//defina o manipulador de eventos change para a primeira linha quando o Formulário Dinâmico for carregado:</p>
+                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [1 \\ ] \\ [quantidade \\ ]" ) . alteração ( checkAmount ) ;</p>
+                <p>//defina o manipulador de eventos de mudança para cada nova linha adicionada à grid:</p>
+                <p>$ ( "#ReceiptList" ) . onAddRow ( function ( aRow , oGrid , rowNumber ) {</p>
+                <p>   $ ( "#form \\ [ReceiptList \\ ] \\ [" + rowNumber + " \\ ] \\ [quantidade \\ ]" ) . alteração ( checkAmount ) ;</p>
+                <p>} ) ;</p>
+                <p>Uma maneira mais fácil de definir um manipulador de eventos de alteração em grids é usar o método .setOnchange() do formulário para todo o formulário dinâmico e verificar se o ID do campo que foi alterado está dentro da grid. O form.setOnchange()método relatará que o ID de um campo alterado dentro de uma grid é , como . "[gridId][rowNumber][fieldId]""[ReceiptList][2][amount]"</p>
+                <p>O exemplo a seguir mostra como alterar a cor da borda de uma grid dependendo do total de uma função de soma em uma grid.</p>
+                <p>O código JavaScript a seguir é adicionado ao formulário dinâmico para verificar se o total somado da coluna "quantidade" é maior que 500. Se for, ele muda para a cor da borda da grid para vermelho. Se for menor que 500, ele será redefinido para a cor padrão, que é uma cor cinza claro.</p>
+                <p>function checkAmountTotal ( fieldId , newVal , oldVal ) {</p>
+                <p>  //se um valor for alterado dentro da grid "ReceiptList":</p>
+                <p>  if ( fieldId. search ( /^\[ReceiptList\]/ ) == 0 ) {</p>
+                <p>    //se a soma " quantidade" é maior que 500:</p>
+                <p>    if ( $ ( "#ReceiptList" ) . getSummary ( "amount" ) >= 500 ) {</p>
+                <p>      // altera a borda da grid "ReceiptList" para vermelho</p>
+                <p>      $ ("#ListaRecebimento" ) ) . find ( "div.pmFormulário Dinâmico-grid-tbody" ) . css ( "borda" , "1px vermelho sólido" ) ;</p>
+                <p>    }</p>
+                <p>    else {  //retorna a grid para a cor da borda padrão</p>
+                <p>      $ ( "#ReceiptList" ) . find ( "div.pmFormulário Dinâmico-grid-tbody" ) . css ( "borda" , "" ) ;</p>
+                <p>    }</p>
+                <p>  }</p>
+                <p>}</p>
+                <p>$ ( "formulário" ) .) ;</p>
+                <p>O método grid .getSummary() é usado para obter o total somado da coluna "amount" na grid "ReceiptList". A borda da grid está em um <div>estilo cujo nome é pmFormulário Dinâmico-grid-tbody.</p>
+                <p>Quando o usuário insere valores nos campos "quantidade" que totalizam mais de 500, a cor da borda da grid muda para vermelho, mas muda para cinza claro quando o total somado é menor que 500.</p>
+                <p>Desativando grids</p>
+                <p>Uma grid e todos os controles dentro dela podem ser desabilitados com o seguinte código JavaScript:</p>
+                <p>$('# grid-id ').find("input,button,textarea,select").attr("disabled", true);</p>
+                <p>Da mesma forma, todos os controles dentro de uma grid podem ser habilitados com o seguinte código:</p>
+                <p>$('# grid-id ').find("input,button,textarea,select").attr("enabled", true);</p>
+                <p>Exemplo: Desabilitar grid quando uma caixa de seleção estiver marcada:</p>
+                <p>Um formulário dinâmico possui uma caixa de seleção com o ID "disableGrid" e uma grid com o ID "clientList.</p>
+                <p>Quando a caixa de seleção "disableGrid" está marcada, os controles da grid são desabilitados e, quando desmarcados, os controles da grid são habilitados. O código JavaScript a seguir usa o método setOnchange() para adicionar um manipulador de eventos de alteração à caixa de seleção "disableGrid" para habilitar ou desabilitar a grid:</p>
+                <p>$ ( "#disableGrid" ) . setOnchange ( function ( newVal , oldVal ) {</p>
+                <p>  //se estiver usando PM 3.0.1.8 ou posterior:</p>
+                <p>  if ( newVal == '["1"]' ) {</p>
+                <p>    $ ( "#clientList" ) . find ( "input,button,textarea ,select" ) .attr ( "disabled" , true ) ; } else {     $ ( "# clientList " ) .</p>
+                <p>entrada,botão,área de texto,selecionar ) ) . attr ( "desativado" , false ) ;</p>
+                <p>  }</p>
+                <p>} ) ;</p>
+                <p>Nota: Este exemplo funciona na versão 3.0.1.8 e posterior. Infelizmente, o método setOnchange() não funciona corretamente com caixas de seleção na versão 3.0.1.7, portanto, é recomendável usar um menu suspenso ou um botão em vez de uma caixa de seleção se estiver usando a versão 3.0.1.7.</p>
+                <p>Exemplo: desabilitar linhas existentes em uma grid, mas permitir novas linhas</p>
+                <p>A grid "clientList" do exemplo anterior permite que novas linhas sejam adicionadas à grid, mas não permite que as linhas existentes sejam editadas ou excluídas. Quando o Formulário Dinâmico é carregado, ele verifica a datapropriedade da grid. Se for igual a um array vazio, então é uma grid vazia, portanto não desabilita a primeira linha da grid, que é criada por padrão. Caso contrário, o código desabilita as linhas existentes e adiciona uma nova linha no final da grid que o usuário pode editar.</p>
+                <p>var oGrid = $ ( '#clientList' ) ; //definir o ID da grid</p>
+                <p>//se não for uma grid vazia:</p>
+                <p>//(precisa converter para string JSON porque não é possível comparar duas matrizes)</p>
+                <p>if ( JSON. stringify ( oGrid. getInfo ( ) . data ) != '[]' ) {</p>
+                <p>  //desativa todos os campos em todas as linhas existentes:</p>
+                <p>  oGrid. find ( "input,button,textarea,select" ) . attr ( "desativado" , true ) ;</p>
+                <p>  //adiciona uma linha vazia no final que não está desabilitada:</p>
+                <p>  oGrid. addLinha ( ) ;</p>
+                <p>}</p>
+                <p>Obtendo linhas de grid</p>
+                <p>Cada linha dentro de uma grid é colocada dentro de um <div>com a classe "pmFormulário Dinâmico-grid-row". Uma matriz das linhas em uma grid pode ser obtida com o seguinte código:</p>
+                <p>$('# grid-id ').find("div.pmFormulário Dinâmico-grid-row")</p>
+                <p>O objeto DOM para o div que contém uma linha de grid especificada pode ser obtido com:</p>
+                <p>$('# grid-id ').find("div.pmFormulário Dinâmico-grid-row")[ row-number ]</p>
+                <p>Onde row-numberé 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
+                <p>Este objeto DOM pode ser convertido em um objeto jQuery colocando-o em : $(DOMobject)</p>
+                <p>$($('# grid-id ').find("div.pmFormulário Dinâmico-grid-row")[ row-number ])</p>
+                <p>Exemplo: alterar a cor de fundo das linhas</p>
+                <p>Usando a grid "clientList" do exemplo anterior, o código a seguir define a cor de fundo para vermelho de cada linha cujo campo "name" está vazio:</p>
+                <p>var gridId = 'clientList' ; //definir o ID da</p>
+                <p>função de grid setEmptyRowsToRed ( ) {</p>
+                <p>    var aGridVals = $ ( '#' + gridId ) . getValue ( ) ;</p>
+                <p>    //percorre a grid e verifica se o campo "nome" está vazio em cada linha</p>
+                <p>    for ( i = 1 ; i <= aGridVals. length ; i ++ ) {</p>
+                <p>       if ( $ ( "#form \\[" + gridId + " \\ ] \\ [" + i + " \\ ] \\ [name \\ ]" ) . val ( ) == "" ) {</p>
+                <p>          //subtrai 1 porque o array começa a contar do zero, não um.</p>
+                <p>          $ ( $ ( "#" + gridId ) . find ( "div.pmFormulário Dinâmico-grid-row" ) [ i - 1 ] ) . css ("cor de fundo" , "vermelho" ) ;</p>
+                <p>       }</p>
+                <p>    }</p>
+                <p>}</p>
+                <p>//executa quando o valor no formulário muda:</p>
+                <p>$ ( "form" ) . setOnchange ( function ( fieldId , newVal , oldVal ) {</p>
+                <p>   setEmptyRowsToRed ( ) ;</p>
+                <p>} ) ;</p>
+                <p>setEmptyRowsToRed ( ) ; //executa quando o Formulário Dinâmico carrega</p>
+                <p>Desativando linhas de grid</p>
+                <p>Os controles dentro de uma linha de grid especificada podem ser desabilitados com o seguinte código JavaScript:</p>
+                <p>$($('# grid-id ').find("div.pmFormulário Dinâmico-grid-row")[ row-number ]).find("input,button,textarea,select").attr("disabled", verdadeiro)</p>
+                <p>Onde row-numberé 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
+                <p>Exemplo:</p>
+                <p>A grid "clientList" do exemplo anterior tem um campo oculto com o ID "disableRow" em cada linha. O conteúdo desta grid é definido pelo seguinte código de gatilho que foi executado antes do Formulário Dinâmico:</p>
+                <p>@= clientList = array (</p>
+                <p>   1 => array ( 'name' => 'John Doe' ,  'disableRow' => 'yes' ) ,</p>
+                <p>   2 => array ( 'name' => 'Sally Slim' , 'disableRow' = > 'não' ) ,</p>
+                <p>   3 => array ( 'nome' => 'Mary Moe' ,  'disableRow' => 'sim' )</p>
+                <p>) ;</p>
+                <p>Em seguida, o código JavaScript a seguir é adicionado ao formulário dinâmico que contém a grid "clientList". Ele percorre cada linha quando o Formulário Dinâmico carrega e desativa qualquer linha cujo campo "disableRow" esteja definido como "yes":</p>
+                <p>var gridId = 'clientList' ; //definir o ID da grid</p>
+                <p>var aRows = $ ( "#" + gridId ) . find ( "div.pmFormulário Dinâmico-grid-row" ) ;</p>
+                <p>var aGridVals = $ ( '#' + gridId ) . getValue ( ) ;</p>
+                <p>//percorre a grid e verifica se o campo "disableRow" é igual a "yes" em cada linha</p>
+                <p>para ( i = 1 ; i <= aGridVals.comprimento ; i ++ ) {</p>
+                <p>   if ( $ ( "#form \\ [" + gridId + " \\ ] \\ [" + i + " \\ ] \\ [disableRow \\ ]" ) . val ( ) == " yes" ) {</p>
+                <p>      //subtrai 1 porque o array começa a contar de zero, não de um.</p>
+                <p>      $ ( aRows [ i - 1 ] ) . achar( "entrada,botão,área de texto,selecionar" ) . attr ( "desativado" , true )</p>
+                <p>    }</p>
+                <p>}</p>
+                <p>Número máximo de linhas da grid</p>
+                <p>Os métodos grid .onAddRow() e grid .deleteRow() podem ser usados para limitar o número máximo de linhas em uma grid. Se estiver usando o aplicativo Gestor Express, use grid .onShowRowDialog() em vez de grid.onAddRow().</p>
+                <p>Exemplo:</p>
+                <p>O código JavaScript a seguir limita uma grid cujo ID é "clientsList" a um máximo de 5 linhas.</p>
+                <p>var env = PMFormulário Dinâmico. getAmbiente ( ) ;</p>
+                <p>//se estiver usando o aplicativo Gestor Express:</p>
+                <p>if ( env == "android" || env == "iOS" ) {</p>
+                <p>  $ ( "#clientList" ) . onShowRowDialog ( function ( aNewRow , oGrid , rowIndex , rowModel ) {</p>
+                <p>    if ( rowIndex > 5 ) {  </p>
+                <p>        this . deleteRow (índicedelinha ) ;</p>
+                <p>    }</p>
+                <p>  } ) ;</p>
+                <p>}</p>
+                <p>else {</p>
+                <p>  $ ( "#clientList" ) . onAddRow ( function ( aNewRow , oGrid , rowIndex ) {</p>
+                <p>    if ( rowIndex > 5 ) {</p>
+                <p>      this . deleteRow ( rowIndex ) ;</p>
+                <p>    }</p>
+                <p>  } ) ;</p>
+                <p>}</p>
+                <p>Observação: este exemplo de código funciona na versão 3.0.1.8 e posterior. Para versões anteriores, use o seguinte código que não oferece suporte ao aplicativo Gestor Express:</p>
+                <p>$ ( "#clientList" ) . onAddRow ( function ( aNewRow , oGrid , rowIndex ) {</p>
+                <p>   if ( rowIndex > 5 ) {</p>
+                <p>      this . deleteRow ( rowIndex ) ;</p>
+                <p>   }</p>
+                <p>} ) ;</p>
+                <p>Verificando se um número mínimo de linhas de grid</p>
+                <p>O método .setOnSubmit() do formulário pode ser usado para verificar se o usuário adicionou um número mínimo ou máximo de linhas a uma grid, antes de enviar um formulário dinâmico. A ação de envio pode ser interrompida criando um manipulador de eventos que retorna false. O método grid .getNumberRows() é usado para verificar quantas linhas há em uma grid.</p>
+                <p>Exemplo:</p>
+                <p>Uma grid com o ID "clientsList" precisa ter no mínimo 3 linhas e no máximo 10 linhas. Se a lista de clientes tiver poucos ou muitos clientes, o código JavaScript a seguir exibirá uma mensagem para o usuário e interromperá a ação de envio retornando false, para que o usuário tenha a chance de excluir ou adicionar linhas antes de enviar o formulário novamente.</p>
+                <p>var formId = $ ( "form" ) . prop ( "id" ) ;</p>
+                <p>getFormById ( formId ) . setOnSubmit ( function ( ) {</p>
+                <p>  if ( $ ( "#clientsList" ) . getNumberRows ( ) < 3 ) {</p>
+                <p>     alert ( "Por favor, adicione pelo menos 3 clientes à lista" ) ;</p>
+                <p>     return false ; //para o envio do formulário</p>
+                <p>  }</p>
+                <p>  else if ( $ ( "#clientsList" ) . getNumberRows ( ) > 10 ) {</p>
+                <p>     alert ( "É permitido um máximo de 10 clientes. \n " +</p>
+                <p>           "Por favor, elimine alguns clientes." ) ;</p>
+                <p>     retornar falso ; //para o envio do formulário</p>
+                <p>  }</p>
+                <p>} ) ;</p>
+                <p>Número fixo de linhas da grid</p>
+                <p>Para definir um número fixo de linhas em uma grid, primeiro desmarque as propriedades adicionar linha e excluir linha na grid, para que o usuário não possa adicionar e excluir linhas. Em seguida, crie um forloop que chame grid .addRow() para adicionar quantas linhas à grid forem necessárias. Lembre-se de que uma linha já existe por padrão.</p>
+                <p>Exemplo:</p>
+                <p>Se precisar de 5 linhas em uma grid cujo ID seja "clientsList", o seguinte JavaScript adicionará 4 linhas adicionais à 1 linha existente quando o Formulário Dinâmico for carregado:</p>
+                <p>for ( i = 0 ; i < 4 ; i ++ ) {</p>
+                <p>   $ ( "#clientsList" ) . addLinha ( ) ;</p>
+                <p>}</p>
+                <p>Se a grid já estiver preenchida, o código a seguir usa grid .getNumberRows() para verificar quantas linhas precisam ser adicionadas ou excluídas para obter um total de 5 linhas. Em seguida, ele chama grid .addRow() ou grid .deleteRow() repetidamente para obter 5 linhas na grid:</p>
+                <p>var nRowsNeeded = 5 - $ ( "#clientsList" ) . getNumberRows ( ) ;</p>
+                <p>if ( nRowsNeeded > 0 ) {</p>
+                <p>   for ( i = 0 ; i < nRowsNeeded ; i ++ ) {</p>
+                <p>      $ ( "#clientsList" ) . addLinha ( ) ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>else if ( nRowsNeeded < 0 ) {</p>
+                <p>   for ( i = 0 ; i > nRowsNeeded ; i -- ) {</p>
+                <p>      $ ( "#clientsList" ) . deleteRow ( ) ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>Limpando uma grid</p>
+                <p>Se precisar limpar uma grid, todas as linhas na grid podem ser excluídas fazendo um loop pelas linhas na grid e chamando o método grid .deleteRow() para cada linha. A primeira linha nas grids, no entanto, não pode ser excluída, portanto, é necessário percorrer os campos na primeira linha e definir seus valores para ""(string vazia).</p>
+                <p>O exemplo de JavaScript a seguir define a clearGrid()função para limpar o conteúdo de uma grid especificada. Neste exemplo, uma grid com o ID "clientsList" precisa ser limpa quando um botão personalizado com o ID "emptyGrid" é clicado. O exemplo de código cria umclique no manipulador de eventos para o botão "emptyGrid" que chama a clearGrid()função.</p>
+                <p>function clearGrid ( gridId ) {</p>
+                <p>   var nRow = $ ( "#" + gridId ) . getNumberRows ( ) ;</p>
+                <p>   for ( ; nRow >= 1 ; nRow -- ) {</p>
+                <p>      //Não é possível excluir a primeira linha, então limpe todos os seus campos</p>
+                <p>      if ( nRow == 1 ) {</p>
+                <p>         var aCols = $ ( "#" + gridId ) . obterInformações () . colunas ;</p>
+                <p>         for ( nField in aCols ) {</p>
+                <p>            var val = '' ;</p>
+                <p>            if ( aCols [ nField ] . type == 'checkbox' ) {</p>
+                <p>               val = "0" ;</p>
+                <p>            }</p>
+                <p>            //solução para limpar os campos de data. Veja: https://Gestor Express.atlassian.net/browse/TRI-1280</p>
+                <p>            if ( aCols [ nField ] . type == 'datetime' ) {</p>
+                <p>               var gridFieldId= 'form[' + gridName + '][1][' + aCols [ nField ] . identificação ;</p>
+                <p>               $ ( "[id='" + gridFieldId + "]']" ) . valor ( ' ) ;</p>
+                <p>               $ ( "[id='" + gridFieldId + "_label]']" ) . valor ( ' ) ;</p>
+                <p>            }</p>
+                <p>            else if ( aCols [ nField ] . 'link' ) {</p>
+                <p>               $ ( "#" + gridId ) . setValue ( val , 1 , parseInt ( nField ) + 1 ) ;</p>
+                <p>            }</p>
+                <p>         }</p>
+                <p>      }</p>
+                <p>      else {</p>
+                <p>         $ ( "#" + gridId ) . deleteRow ( nRow ) ;</p>
+                <p>      }      </p>
+                <p>   }</p>
+                <p>}</p>
+                <p>$ ( "#emptyGrid" ) . clique ( função ( ) {</p>
+                <p>   clearGrid ( "clientsList" ) ;</p>
+                <p>} ) ;</p>
+                <p>PHP em grids</p>
+                <p>Quando é submetido um formulário dinâmico que contém um campo de grid, a variável case relacionada à grid contém um array associativo de arrays associativos. A matriz associativa externa tem chaves que começam a contar a partir do número 1 (não 0 como uma matriz normal). Cada linha na grid é armazenada como uma matriz associativa interna onde os nomes dos campos da grid são os IDs definidos no designer para cada controle dentro da grid e os dados inseridos são os valores.</p>
+                <p>Preenchendo grids inteiras</p>
+                <p>Uma nova grid pode ser preenchida atribuindo uma matriz associativa de matrizes associativas à variável case da grid.</p>
+                <p>Por exemplo, para preencher uma grid chamada "EmployeesGrid" com os campos "Nome", "Salary" e "HireDate":</p>
+                <p>@= EmployeesGrid = array (</p>
+                <p>   '1' => array ( 'Name' => 'John Doe' , 'Salary' => 22525.99 , 'HireDate' => '2012-12-31' ) ,</p>
+                <p>   '2' => array ( 'Nome' => 'Jane Roe' , 'Salary' => 40.000,00 , 'HireDate' => '1997-06-01' ) ,</p>
+                <p>   '3' => array ( 'Nome' =>'Jill Hill' , 'Salário' =>33600.10 , 'Data de Contratação' => '2008-01-25' )</p>
+                <p>) ;</p>
+                <p>Preenchendo grids usando uma consulta de banco de dados</p>
+                <p>Uma grid também pode ser preenchida por uma consulta de banco de dados, uma vez que instruções SELECT com executeQuery() retornam registros como uma matriz de matrizes associativas, que é o mesmo formato usado por grids. Desde que o banco de dados tenha os mesmos nomes de campo que os nomes de campo da grid, os dados serão exibidos corretamente na grid. Lembre-se de que os nomes de campo diferenciam maiúsculas de minúsculas.</p>
+                <p>Por exemplo, os valores no "EmployeesGrid" podem ser definidos consultando uma tabela chamada Employees que também possui os campos Name, Salary e HireDate.</p>
+                <p>$query = 'SELECT Nome, Salário, Data de Contratação FROM Funcionários' ;</p>
+                <p>$resultado = executeQuery ( $query ) ;</p>
+                <p>if ( is_array ( $ resultado ) e contagem ( $ resultado ) > 0 )</p>
+                <p>    @= EmployeesGrid = $ resultado ;</p>
+                <p>Geralmente, as colunas da grid devem ter o mesmo ID que as colunas da tabela de onde os dados serão recuperados. Se o banco de dados usar nomes de campo diferentes dos nomes de campo da grid, use AS para renomear os campos. Por exemplo, se um banco de dados externo com a tabela EMPLOYEES contiver os campos FULL_NAME, STARTING_SALARY e HIRE_DATE, esses campos poderão ser renomeados para corresponder aos nomes dos campos no “EmployeesGrid”:</p>
+                <p>$query = 'SELECT FULL_NAME AS Nome, STARTING_SALARY AS Salário HIRE_DATE as HireDate FROM EMPLOYEES' ;</p>
+                <p>$resultado = executeQuery ( $query ) ;</p>
+                <p>if ( is_array ( $ resultado ) e contagem ( $ resultado ) > 0 )</p>
+                <p>   @= EmployeesGrid = $ resultado ;</p>
+                <p>Exibindo informações de casos em grids</p>
+                <p>A tabela APP_CACHE_VIEW no banco de dados contém informações sobre casos, que são usadas para gerar a lista de casos no menu inicial . Cada registro nesta tabela contém informações sobre uma tarefa em um caso, que foi atribuída a um usuário. Este exemplo mostra como criar um formulário dinâmico para pesquisar a tabela APP_CACHE_VIEW e exibir informações sobre as tarefas em uma grid. Os gerentes podem usar essas informações para avaliar quão bem os trabalhadores estão realizando suas tarefas. Este exemplo também mostra como executar um acionador clicando no botão enviar e, em seguida, usar um acionador que preenche uma grid e retorna ao formulário dinâmico para exibi-lo novamente com a grid preenchida.</p>
+                <p>Primeiro, crie as seguintes variáveis:</p>
+                <p>caseList: Contém a grid com informações sobre os casos.</p>
+                <p>caseListJson: contém uma string JSON que contém as informações exibidas na grid. Essas informações serão passadas em um campo oculto para o Formulário Dinâmico e serão usadas para definir os links para os casos.</p>
+                <p>selectProcess: Contém o ID exclusivo de um processo a ser pesquisado na tabela APP_CACHE_VIEW .</p>
+                <p>selectTask: contém o ID exclusivo de uma tarefa a ser pesquisada na tabela APP_CACHE_VIEW .</p>
+                <p>selectUser: contém o ID exclusivo de um usuário atribuído para pesquisar na tabela APP_CACHE_VIEW .</p>
+                <p>submitButton: Indica qual botão foi clicado para fechar o Formulário Dinâmico com a grid de informações do caso.</p>
+                <p>Em seguida, crie um formulário dinâmico com campos para pesquisar e uma grid para exibir os resultados da pesquisa:</p>
+                <p>Este Formulário Dinâmico possui os seguintes controles:</p>
+                <p>Lista suspensa associada à selectProcessvariável de string. Ele é preenchido com a seguinte consulta SQL:</p>
+                <p>SELECT '', 'All processes' UNION SELECT PRO_UID, PRO_TITLE FROM PROCESS</p>
+                <p>Lista suspensa associada à selectTaskvariável de string. É um campo dependente , que é preenchido com as tarefas do processo selecionado. Ele usa a seguinte consulta SQL:</p>
+                <p>SELECT '', 'Any task' UNION SELECT TAS_UID, TAS_TITLE FROM TASK WHERE PRO_UID=@@selectProcess</p>
+                <p>Caixa de sugestões associada à selectUservariável. Ele é preenchido com a seguinte consulta SQL:</p>
+                <p>SELECT USR_UID, concat(USR_FIRSTNAME, ' ', USR_LASTNAME, ' (', USR_USERNAME, ')') FROM USERS</p>
+                <p>botão Enviar com o ID "pesquisar". Se clicado, um acionador subsequente usará os termos de pesquisa inseridos para preencher a grid.</p>
+                <p>Grid com o ID "caseList", que está associado à caseListvariável. Possui os seguintes campos de grid que estão todos no modo "view":</p>
+                <p>Link com o ID "caseNo", que vincula ao caso.</p>
+                <p>Caixa de texto com o ID "processo", que exibe o título do processo.</p>
+                <p>Caixa de texto com o ID "tarefa", que exibe o título da tarefa.</p>
+                <p>Caixa de texto com o ID "usuário", que exibe o nome e sobrenome do usuário atribuído à tarefa.</p>
+                <p>Caixa de texto com o ID "startDate", que exibe a data e hora em que a tarefa foi atribuída ao usuário.</p>
+                <p>Caixa de texto com o ID "overdueDate", que exibe a data e hora do vencimento da tarefa.</p>
+                <p>Caixa de texto com o ID "finishDate", que exibe a data e hora em que a tarefa foi concluída. Se não terminar, então está em branco.</p>
+                <p>Caixa de texto com o ID "totalTime", que exibe o número de horas que levou para concluir a tarefa. Se a tarefa ainda não foi concluída, o número de horas até o presente decorrido.</p>
+                <p>botão Enviar com o ID "enviar". Se clicado, o caso continuará normalmente para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa).</p>
+                <p>Este Formulário Dinâmico possui o seguinte código JavaScript:</p>
+                <p>$ ( "#form \\ [pesquisar \\ ]" ) . on ( "click" , function ( ) {</p>
+                <p>  $ ( "#submitButton" ) . setValue ( "search" ) ;</p>
+                <p>} ) ;</p>
+                <p>if ( $ ( "#caseListJson" ) . getValue ( ) != '' ) {</p>
+                <p>  var oCaseList = JSON. parse ( $ ( "#caseListJson") . getValue ( ) ) ;</p>
+                <p>  var nRows = $ ( "#caseList" ) . getNumberRows ( ) ;</p>
+                <p>  for ( i = 1 ; i <= nRows ; i ++ ) {</p>
+                <p>    var caseNo = oCaseList [ i ] [ 'caseNo' ] ;</p>
+                <p>    var url     = oCaseList [ i ] [ 'url' ];</p>
+                <p>    $ ( "#form \\ [caseList \\ ] \\ [" + i + " \\ ] \\ [caseNo \\ ]" ) . find ( "intervalo" ) . html ( caseNo ) ;</p>
+                <p>    $ ( "#form \\ [caseList \\ ] \\ [" + i + " \\ ] \\ [caseNo \\ ]" ) . adereço ("href" , url ) ;</p>
+                <p>  }</p>
+                <p>}</p>
+                <p>Quando o botão "Pesquisar" é clicado, o valor "pesquisar" é colocado no campo oculto "submitButton", para que o gatilho subsequente saiba que o botão "Pesquisar" foi clicado para fechar o formulário.</p>
+                <p>Quando o Formulário Dinâmico é carregado, o código JavaScript verifica se há um valor no campo "caseListJson". Este campo oculto contém o conteúdo da grid no formato JSON. Essas informações são usadas para definir os links nos campos "caseNo" na grid. O código primeiro converte a string JSON em um objeto de objetos que contém os dados de cada linha na grid. Em seguida, ele percorre cada linha na grid e define os links "caseNo".</p>
+                <p>Em seguida, crie o seguinte gatilho que usará os termos de pesquisa selecionados no Formulário Dinâmico para consultar a tabela APP_CACHE_VIEW no banco de dados:</p>
+                <p>if ( @@ submitButton == 'pesquisar' ) {</p>
+                <p>   @@ submitButton = '' ;</p>
+                <p>   $onde = '' ;</p>
+                <p>   if ( @@ selectProcess ) {</p>
+                <p>      $where .= "PRO_UID='" .@@ selectProcess . "'" ;</p>
+                <p>   }  </p>
+                <p>   if ( @@ selectTask ) {</p>
+                <p>      $onde .= ( vazio ( $onde ) ? '' : ' AND ' ) . "TAS_UID='" .@@ selectTask . "'" ;</p>
+                <p>   }  </p>
+                <p>   if ( @@ selectUser ) {</p>
+                <p>      $onde .= ( vazio ( $onde ) ? '' : ' AND ' ) . "USR_UID='" .@@ selectUser . "'" ;</p>
+                <p>   }</p>
+                <p>   $onde = ( vazio ( $onde ) ? '' : 'ONDE' ) . $onde ;</p>
+                <p>   $sql = "SELECT APP_UID, DEL_INDEX, APP_NUMBER, APP_STATUS,</p>
+                <p>      USR_UID, PREVIOUS_USR_UID, TAS_UID, PRO_UID, DEL_DELEGATE_DATE,</p>
+                <p>      DEL_INIT_DATE, DEL_FINISH_DATE, DEL_TASK_DUE_DATE, DEL_RISK_DATE,</p>
+                <p>      APP_TITLE, APP_PRO_TITLE, APP_TAS_TITLE, APP_CURRENT_USER,</p>
+                <p>      APP_CREATE_DATE, APP_FINISH_DATE, APP_UPDATE_DATE FROM APP_CACHE_VIEW</p>
+                <p>      $where ORDER BY APP_NUMBER DESC" ;</p>
+                <p>   $aCases = executeQuery ( $sql ) ;</p>
+                <p>   @= caseList = array ( ) ;</p>
+                <p>   $i = 1 ;</p>
+                <p>   foreach ( $aCases as $aCase) {</p>
+                <p>      $ startTime  = strtotime ( $aCase [ 'DEL_INIT_DATE' ] ) ;</p>
+                <p>      $finishDate = $aCase [ 'DEL_FINISH_DATE' ] ;</p>
+                <p>      $finishTime = strtotime ( $finishDate == null ? date ( 'Ymd H:i:s' ) : $finishDate ) ;</p>
+                <p>      $horas      = ( $finishTime - $startTime ) / 60 / 60 ;</p>
+                <p>      $url = "../cases/open?APP_UID=" . $aCase [ 'APP_UID' ] . "&DEL_INDEX=" .</p>
+                <p>      $aCase [ 'DEL_INDEX' ] . "&action=rascunho" ;</p>
+                <p>      @= caseList [ $i ] = array (</p>
+                <p>         'caseNo'     => $aCase [ 'APP_NUMBER' ] ,</p>
+                <p>         'url'        => $url ,</p>
+                <p>         'process'    => $aCase [ 'APP_PRO_TITLE' ] ,</p>
+                <p>         'task'       => ,</p>
+                <p>         'user'       => $aCase [ 'APP_CURRENT_USER' ] ,</p>
+                <p>         'startDate'  => $aCase [ 'DEL_INIT_DATE' ] ,</p>
+                <p>         'overdueDate' => $aCase [ 'DEL_TASK_DUE_DATE' ] ,</p>
+                <p>         'finishDate' => $aCase [ 'DEL_FINISH_DATE ' ] ,</p>
+                <p>         'TotalTime'  => $horas</p>
+                <p>      ) ;</p>
+                <p>      $i ++;</p>
+                <p>   }</p>
+                <p>   //descomente para depurar:</p>
+                <p>   //imprime "<pre>"; var_dump(@=caseList); morrer;</p>
+                <p>    @= caseList ) ;</p>
+                <p>   PMFRedirectToStep ( @@ APPLICATION , @% INDEX , 'FORMULÁRIO DINÂMICO' , '512296547583375724080b7028326320' ) ;</p>
+                <p>}</p>
+                <p>Este gatilho é definido para ser executado após o Formulário Dinâmico.</p>
+                <p>O código do acionador primeiro verifica se o botão "Pesquisar" foi clicado. Em seguida, ele constrói uma consulta SQL com base nos valores selecionados nos campos "selectProcess", "selectTask" e "selectUser". Em seguida, ele usa executeQuery() para pesquisar na tabela APP_CACHE_VIEW todas as tarefas nos casos que correspondem aos critérios de pesquisa. Em seguida, cria uma matriz para conter o conteúdo da grid "caseList" e a preenche fazendo um loop pelos registros retornados pela consulta. Para cada tarefa, ele calcula o número de horas decorridas e constrói a URL para abrir a tarefa no caso. Observe que, se a tarefa já estiver concluída, essa URL direcionará para o resumo do caso. Se o usuário logado não tiver permissões de processopara abrir o caso, ele será direcionado para a caixa de entrada.</p>
+                <p>Por fim, json_encode() é chamado para converter o conteúdo da grid em uma string JSON e colocá-los no campo oculto "caseListJson". A função PMFRedirectToStep() é usada para redirecionar o navegador da Web de volta para o Formulário Dinâmico e exibir a grid preenchida.</p>
+                <p>Se este Formulário Dinâmico for usado em um processo, ele poderá ser executado repetidamente sem nunca encerrar o caso, portanto, apenas um novo caso precisa ser criado. Após selecionar os critérios de pesquisa e clicar no botão "Pesquisar", a grid será preenchida:</p>
+                <p>Para testar esse processo, baixe e importe o processo Show Task Times ( clique com o botão direito do mouse no link e selecione "Salvar link como").</p>
+
+
+        </article>
+
+    </section>
+
+   
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
