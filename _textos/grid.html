@@ -687,65 +687,93 @@
 
                 <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de <code>"form[<font color="blue">gridId</font>][<font color="blue">rowNumber</font>][<font color="blue">fieldId</font>]"</code>, onde o número da primeira linha é <code>1</code>, a segunda linha é <code>2</code>, etc.</p>
 
-                <p>Por exemplo, uma grid com o ID "ReciboLista" contém um campo tipo arquivo "recibo" para carregar um arquivo digitalizado de um recibo e uma caixa de texto "quantia" para inserir o total de um recibo. O campo "quantia" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
+                <p>Por exemplo, uma grid com o ID "ReciboLista" contém um campo tipo arquivo "recibo" para carregar um arquivo digitalizado de um recibo e uma caixa de texto "valor" para inserir o total de um recibo. O campo "valor" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
 
                 <figure>
 
                 </figure>
 
-                <p>O campo "recibo" na primeira linha teria um ID de <code>"form[ReceiptList][1][recibo]"</code> e o campo "quantia" na segunda linha teria um ID de <code>"form[ReciboLista][2][quantia]"</code>. Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o <code>[</code> e <code>]</code>no ID deve ser escapado com <code>\\</code>:</p>
+                <p>O campo "recibo" na primeira linha teria um ID de <code>"form[ReciboLista][1][recibo]"</code> e o campo "valor" na segunda linha teria um ID de <code>"form[ReciboLista][2][valor]"</code>. Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o <code>[</code> e <code>]</code>no ID deve ser escapado com <code>\\</code>:</p>
 
                 <codeblock>
-                    $("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]")
+                    $("#form\\<font color="green">[</font><font color="blue">gridId</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">rowNumber</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">fieldId</font>\\<font color="green">]</font>")
                 </codeblock>
 
                 <p>Por exemplo, o código JavaScript a seguir define a cor do texto no campo de valor na segunda linha para verde.</p>
-                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [2 \\ ] \\ [quantidade \\ ]" ) . css ( "cor" , "verde" ) ;</p>
+
+                <codeblock>
+                    $<font color="green">(</font><font color="blue">"#form</font><font color="darkblue"><strong>\\</strong></font><font color="green">[</font><font color="blue">ReciboLista</font><font color="darkblue"><strong>\\</strong></font><font color="green">]</font><font color="darkblue"><strong>\\</strong></font><font color="green">[</font>2<font color="darkblue"><strong>\\</strong></font><font color="green">]</font><font color="darkblue"><strong>\\</strong></font><font color="green">[</font><font color="blue">valor</font><font color="darkblue"><strong>\\</strong></font><font color="green">]</font>"<font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"color"</font><font color="green">,</font> <font color="blue">"green"</font><font color="green">);</font>
+                </codeblock>
+                
                 <p>Um manipulador de eventos de alteração pode ser definido para um único campo dentro de uma grid desta maneira:</p>
-                <p>$("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]").change( function() { // código do manipulador de eventos } );</p>
-                <p>Por exemplo, o código JavaScript a seguir define um manipulador de eventos de alteração para o campo "quantidade" na primeira linha da grid. Se o usuário definir o campo "quantidade" na primeira linha para um valor maior que 300, a cor da borda desse campo será alterada para vermelho. O método css() do campo é chamado para alterar a cor da borda. Observe que é usado para converter do objeto DOM do campo para seu objeto jQuery, para que seu método possa ser chamado.$(this)css()</p>
-                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [1 \\ ] \\ [quantidade \\ ]" ) . change ( function ( ) {</p>
-                <p>   if ( this . value > 300 ) {</p>
-                <p>      $ ( this ) . css ( "border" , "1px solid red" ) ;</p>
-                <p>   }</p>
-                <p>   else { // define a borda do campo "amount" de volta para o padrão cinza claro cor:</p>
-                <p>      $( isso ) . css ( "borda" , "" ) ;  </p>
-                <p>   }</p>
-                <p>} ) ;</p>
-                <p>Se o usuário entrar 400no campo "quantidade" na primeira linha, sua borda mudará para vermelho.</p>
-                <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "quantidade" quando o usuário clicar no botão Novo para adicionar outra linha à grid. O método grid .onAddRow() pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "amount" na nova linha adicionada à grid "ReceiptList":</p>
-                <p>function checkAmount ( ) {</p>
-                <p>   if ( this . value > 300 ) {</p>
-                <p>      $ ( this ) . css ( "borda" , "1px vermelho sólido" ) ;</p>
-                <p>   }</p>
-                <p>   else { //defina a borda do campo "quantidade" de volta para a cor cinza claro padrão:</p>
-                <p>      $ ( this ) . css ( "borda" , "" ) ;  </p>
-                <p>   }</p>
-                <p>}</p>
-                <p>//defina o manipulador de eventos change para a primeira linha quando o Formulário Dinâmico for carregado:</p>
-                <p>$ ( "#form \\ [ReceiptList \\ ] \\ [1 \\ ] \\ [quantidade \\ ]" ) . alteração ( checkAmount ) ;</p>
-                <p>//defina o manipulador de eventos de mudança para cada nova linha adicionada à grid:</p>
-                <p>$ ( "#ReceiptList" ) . onAddRow ( function ( aRow , oGrid , rowNumber ) {</p>
-                <p>   $ ( "#form \\ [ReceiptList \\ ] \\ [" + rowNumber + " \\ ] \\ [quantidade \\ ]" ) . alteração ( checkAmount ) ;</p>
-                <p>} ) ;</p>
-                <p>Uma maneira mais fácil de definir um manipulador de eventos de alteração em grids é usar o método .setOnchange() do formulário para todo o formulário dinâmico e verificar se o ID do campo que foi alterado está dentro da grid. O form.setOnchange()método relatará que o ID de um campo alterado dentro de uma grid é , como . "[gridId][rowNumber][fieldId]""[ReceiptList][2][amount]"</p>
+
+                <codeblock>
+                    $<font color="green">(</font>"#form\\<font color="green">[</font><font color="blue">gridId</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">rowNumber</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">fieldId</font>\\<font color="green">]</font>"<font color="green">)</font>.change<font color="green">(</font> function<font color="green">(){</font><br>
+                    //event handler code <br>
+                    <font color="green">});</font>
+                </codeblock>
+
+                <p>Por exemplo, o código JavaScript a seguir define um manipulador de eventos de alteração para o campo "valor" na primeira linha da grid. Se o usuário definir o campo "valor" na primeira linha para um valor maior que 300, a cor da borda desse campo será alterada para vermelho. O método css() do campo é chamado para alterar a cor da borda. Observe que <code>$<font color="green">(</font><font color="blue"><strong>this</strong></font><font color="green">)</font></code> é usado para converter do objeto DOM do campo para seu objeto jQuery, para que seu método <code>css()</code> possa ser chamado.</p>
+
+                <codeblock>
+                    $<font color="green">(</font><font color="blue">"#form</font><font color="darkblue"><strong>\\</strong></font>[<font color="blue">ReciboLista</font><font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>[<font color="blue">1</font><font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>[<font color="blue">valor</font><font color="darkblue"><strong>\\</strong></font>]"<font color="green">)</font>.<font color="darkred">change</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">() {</font> 
+                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font><font color="darkblue"><strong>this</strong></font>.<font color="darkred">value</font> <font color="green">></font> <font color="red">300</font><font color="green">) {</font> 
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong></font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font> <font color="blue">"1px solid red"</font><font color="green">);</font> 
+                    <br>&nbsp&nbsp&nbsp <font color="green">}</font> 
+                    <br>&nbsp&nbsp&nbsp <font color="green">//define a borda do campo "valor" de volta para o padrão cinza claro cor:</font>
+                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font> 
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong></font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font><font color="blue">""</font><font color="green">);</font> 
+                    <br>&nbsp&nbsp&nbsp <font color="green">}</font> 
+                    <br><font color="green">} );</font>
+                </codeblock>
+
+
+                <p>Se o usuário inserir <code>400</code> no campo "valor" na primeira linha, sua borda mudará para vermelho.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "valor" quando o usuário clicar no botão <strong>Novo</strong> para adicionar outra linha à grid. O método <font color="skyblue">grid.onAddRow()</font> pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "valor" na nova linha adicionada à grid "ReciboLista":</p>
+
+
+                <codeblock>
+                    function checkAmount() {
+                        if (this.value > 300) {
+                           $(this).css("border", "1px solid red");
+                        }
+                        else { //defina a borda do campo "valor" de volta para a cor cinza claro padrão:
+                           $(this).css("border","");
+                        }
+                     }
+                     //defina o manipulador de eventos change para a primeira linha quando o Formulário for carregado:
+                     $("#form\[ReceiptList\]\[1\]\[amount\]").change( checkAmount );
+                    
+                     //defina o manipulador de eventos de mudança para cada nova linha adicionada à grade:
+                     $("#ReceiptList").onAddRow( function(aRow, oGrid, rowNumber) {
+                        $("#form\[ReceiptList\]\[" + rowNumber + "\]\[amount\]").change( checkAmount );
+                     } );
+                </codeblock>
+
+
+                <p>Uma maneira mais fácil de definir um manipulador de eventos de alteração em grids é usar o método .setOnchange() do formulário para todo o formulário dinâmico e verificar se o ID do campo que foi alterado está dentro da grid. O form.setOnchange()método relatará que o ID de um campo alterado dentro de uma grid é , como . "[gridId][rowNumber][fieldId]""[ReciboLista][2][valor]"</p>
                 <p>O exemplo a seguir mostra como alterar a cor da borda de uma grid dependendo do total de uma função de soma em uma grid.</p>
                 <p>O código JavaScript a seguir é adicionado ao formulário dinâmico para verificar se o total somado da coluna "quantidade" é maior que 500. Se for, ele muda para a cor da borda da grid para vermelho. Se for menor que 500, ele será redefinido para a cor padrão, que é uma cor cinza claro.</p>
-                <p>function checkAmountTotal ( fieldId , newVal , oldVal ) {</p>
-                <p>  //se um valor for alterado dentro da grid "ReceiptList":</p>
-                <p>  if ( fieldId. search ( /^\[ReceiptList\]/ ) == 0 ) {</p>
+                <p>function checkValorTotal ( fieldId , newVal , oldVal ) {</p>
+                <p>  //se um valor for alterado dentro da grid "ReciboLista":</p>
+                <p>  if ( fieldId. search ( /^\[ReciboLista\]/ ) == 0 ) {</p>
                 <p>    //se a soma " quantidade" é maior que 500:</p>
-                <p>    if ( $ ( "#ReceiptList" ) . getSummary ( "amount" ) >= 500 ) {</p>
-                <p>      // altera a borda da grid "ReceiptList" para vermelho</p>
+                <p>    if ( $ ( "#ReciboLista" ) . getSummary ( "valor" ) >= 500 ) {</p>
+                <p>      // altera a borda da grid "ReciboLista" para vermelho</p>
                 <p>      $ ("#ListaRecebimento" ) ) . find ( "div.pmFormulário Dinâmico-grid-tbody" ) . css ( "borda" , "1px vermelho sólido" ) ;</p>
                 <p>    }</p>
                 <p>    else {  //retorna a grid para a cor da borda padrão</p>
-                <p>      $ ( "#ReceiptList" ) . find ( "div.pmFormulário Dinâmico-grid-tbody" ) . css ( "borda" , "" ) ;</p>
+                <p>      $ ( "#ReciboLista" ) . find ( "div.pmFormulário Dinâmico-grid-tbody" ) . css ( "borda" , "" ) ;</p>
                 <p>    }</p>
                 <p>  }</p>
                 <p>}</p>
                 <p>$ ( "formulário" ) .) ;</p>
-                <p>O método grid .getSummary() é usado para obter o total somado da coluna "amount" na grid "ReceiptList". A borda da grid está em um <div>estilo cujo nome é pmFormulário Dinâmico-grid-tbody.</p>
+                <p>O método grid .getSummary() é usado para obter o total somado da coluna "valor" na grid "ReciboLista". A borda da grid está em um <div>estilo cujo nome é pmFormulário Dinâmico-grid-tbody.</p>
                 <p>Quando o usuário insere valores nos campos "quantidade" que totalizam mais de 500, a cor da borda da grid muda para vermelho, mas muda para cinza claro quando o total somado é menor que 500.</p>
                 <p>Desativando grids</p>
                 <p>Uma grid e todos os controles dentro dela podem ser desabilitados com o seguinte código JavaScript:</p>
