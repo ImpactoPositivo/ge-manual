@@ -243,8 +243,9 @@ code#sozinho {
     background-color: #e7eefc;
     font-family: 'IBM Plex Mono', monospace;
     font-size: .95rem;
+    line-height: 1.5rem;
     margin: 5px 5px 5px 30px;
-    padding-top: 7px;
+    padding: 5px;
     border: 1px solid rgb(190, 190, 190);
     display: block;
 }
@@ -300,10 +301,14 @@ pre code {
     font-size: .95rem;
 }
 
-.textbox codeblock {
-    margin: 10px 2px;
+.textbox td codeblock {
+    background-color: #e7eefc;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .9rem !important;
+    margin: 5px !important;
+    line-height: 1.3rem !important;
+    border: 1px solid rgb(190, 190, 190);
 }
-
 
 .tab2 {
     width: 60%;

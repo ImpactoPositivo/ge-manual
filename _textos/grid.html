@@ -460,104 +460,231 @@
             <h1 id="item5">JavaScript em grids</h1>
 
                 <p>Para saber mais sobre como acessar campos e controles usando JavaScript e as funções JavaScript suportadas por eles; é muito importante ler primeiro a documentação sobre JavaScript no Formulários Dinâmicos</p>
+                
                 <p>Para os elementos de grid, leve em consideração o seguinte:</p>
-                <p>Observação: para listas suspensas, o valor é diferente do texto:</p>
-                <p>Acessando grids com JavaScript</p>
+
+                <figure>
+
+                </figure>
+
+                <p><font color="green">Observação:</font> para listas suspensas, o valor é diferente do texto:</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item5a">Acessando grids com JavaScript</h2>
+
                 <p>Por favor, leia esta documentação para aprender maneiras de acessar controles e campos dentro do Formulários Dinâmicos. Além disso, leve em consideração o seguinte para grids:</p>
+
                 <p>Para acessar grids usando jquery, use os seguintes métodos:</p>
-                <p>jQuery ( "#gridId" )</p>
+
+                <codeblock>
+                    <p>jQuery<font color="green">(</font><font color="blue">"#gridId"</font><font color="green">)</font></p>
+                </codeblock>
+
                 <p>ou</p>
-                <p>$ ( "#gridId" )</p>
+
+                <codeblock>
+                    <p>$<font color="green">(</font><font color="blue">"#gridId"</font><font color="green">)</font></p>
+                </codeblock>
+
                 <p>Que é o mesmo.</p>
-                <p>Lembre-se que quando uma grid é um elemento complexo que está contido dentro de um divelemento no HTML do formulário. O divID do 's é aquele definido nas propriedades da grid é definido por padrão como " grid000000000X" onde "x" representa a numeração das grids já adicionadas no desenho. No entanto, é possível definir um ID personalizado nas propriedades para ter um melhor gerenciamento das grids.</p>
+
+                <p>Lembre-se que quando uma grid é um elemento complexo que está contido dentro de um elemento <code>div</code> no HTML do formulário. O ID da <code>div</code>, aquele definido nas propriedades da grid é definido por padrão como "<code>grid000000000X</code>" onde "x" representa a numeração das grids já adicionadas no modelo. No entanto, é possível definir um ID personalizado nas propriedades para ter um melhor gerenciamento das grids.</p>
+
                 <p>Os elementos dentro da grid, como seu título e controles, estão contidos em seus próprios divs (incluindo seus elementos), o que o torna um elemento complexo. Por esse motivo, é importante gerenciar as funções do Gestor Express descritas abaixo. Leve em consideração o seguinte:</p>
-                <p>Funções JavaScript</p>
-                <p>Funções</p>
-                <p>jQuery("#gridId") . getControl()</p>
-                <p>Lembre-se que quando o formulário é renderizado, cada controle é mantido dentro de um divelemento, então use esta função para trabalhar com o controle como está.</p>
-                <p>Além disso, você pode obter o controle diretamente usando:</p>
-                <p>$ ( “#form\\ [ fieldid\\ ] ” )</p>
-                <p>$ ( “#form\\ [ nome\\ ] ” ) . val ( 'Olá mundo' ) ;</ td ></p>
-                <p>jQuery("#gridId") . getValue(linha, coluna)</p>
-                <p>jQuery("#gridId") . getLabel()</p>
-                <p>jQuery("#gridId") . getLabel(coluna)</p>
-                <p>jQuery("#gridId") . getText(linha, coluna)</p>
-                <p>jQuery("#gridId") . setValue(valor, linha, coluna)</p>
-                <p>jQuery("#gridId") . setText(texto, linha, coluna)</p>
-                <p>jQuery("#gridId") . setLabel(gridLabel)</p>
-                <p>jQuery("#gridId") . setLabel(columnLabel, col)</p>
-                <p>jQuery("#gridId") . getSummary("columnId")</p>
-                <p>jQuery("#gridId") . getSummary(coluna)</p>
-                <p>jQuery("#gridId") . getNumberRows()</p>
-                <p>jQuery("#gridId") . addRow()</p>
-                <p>jQuery("#gridId") . addRow([{label1:valor1}, {label2:valor2}])</p>
-                <p>jQuery("#gridId") . deleteRow(linhaIndex)</p>
-                <p>jQuery("#gridId") . onAddRow(ligue de volta)</p>
-                <p>jQuery ( "#gridId" ) . onAddRow ( function ( row , grid , index ) {</p>
-                <p>//codifique aqui</p>
-                <p>} ) ;</p>
-                <p>jQuery("#gridId") . onDeleteRow(ligue de volta)</p>
-                <p>jQuery ( "#gridId" ) . onDeleteRow ( function ( row , grid , index ) {</p>
-                <p>//codifique aqui</p>
-                <p>} ) ;</p>
-                <p>jQuery("#gridId") . hideColumn(colIndex)</p>
-                <p>jQuery("#gridId") . showColumn(colIndex)</p>
-                <p>jQuery("#gridId") .disableValidation(colIndex)</p>
-                <p>jQuery("#gridId") .enableValidation(colIndex)</p>
-                <p>jQuery("#gridId") .getControl(row, col)</p>
-                <p>Observação: para ver exemplos de código dessas funções, consulte Funções e métodos JavaScript .</p>
-                <p>Escondendo uma grid</p>
-                <p>É possível ocultar ou mostrar a tabela que contém uma grid com o evento toggle jquery. Por exemplo, vamos ocultar uma grid "grid1"sempre que a caixa de seleção "HideGrid"estiver marcada e mostrá-la sempre que a caixa de seleção estiver desmarcada. Para isso, vamos criar a variável booleana " HideGrid" com as seguintes opções:</p>
-                <p>Verdadeiro: Ocultar Falso: Mostrar</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item5b">Funções JavaScript</h2>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Funções</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>jQuery("#gridId").<code>getControl</code>()</td><td>Lembre-se que quando o formulário é renderizado, cada controle é mantido dentro de um divelemento, então use esta função para trabalhar com o controle como está. <br>
+                        Além disso, você pode obter o controle diretamente usando:<br>
+                            <codeblock>
+                                $<font color=green">(</font>“#form\<font color=green">[</font>fieldid\<font color=green">]</font>”<font color=green">)</font><br>
+                                $<font color=green">(</font>“#form\[nome\<font color=green">]</font>”<font color=green">)</font>.<font color="darkred">val</font><font color=green">(</font>'Olá mundo'<font color=green">);</font>
+                            </codeblock>
+                        </td></tr>
+                        <tr><td>jQuery("#gridId").<code>getValue</code>(row,col)</td><td>Obtém o valor da célula da grade.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>getLabel</code>()</td><td>Obtém o rótulo/título da grade.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>getLabel</code>(col)</td><td>Obtém o rótulo/título da coluna.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>getText</code>(row,col)</td><td>Obtém o texto da célula se existir.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>setValue</code>(value, row, col)</td><td>Define o valor da célula.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>setText</code>(text, row, col)</td><td>Define o texto da célula. O mesmo que setValue.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>setLabel</code>(gridLabel)</td><td>Define o rótulo da grade.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>setLabel</code>(columnLabel, col)</td><td>Define o rótulo da coluna.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>getSummary</code>("columnId")<br>jQuery("#gridId").getSummary(col)</td><td>Obtem o valor da função de resumo da coluna especificada ex: média, soma</td></tr>
+                        
+                        <tr><td>jQuery("#gridId").<code>getNumberRows</code>()</td><td>Obtém o número de linhas da grade.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>addRow</code>()<br>
+                        jQuery("#gridId").<code>addRow</code>([{label1:value1}, {label2:value2}])</td><td>Adiciona uma nova linha à grade e retorna o índice da nova linha.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>deleteRow</code>(rowIndex)</td><td>Exclui a linha especificada na grade.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>onAddRow</code>(callback)</td><td>O evento é acionado quando uma nova linha é adicionada e retorna: row, gridtable, index. exemplo:<br>
+                            <codeblock>
+                                jQuery<font color="green">(</font>"<font color="blue">#gridId"</font><font color="green">)</font>.<font color="darkred">onAddRow</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>row<font color="green">,</font> grid<font color="green">,</font> index<font color="green">){</font><br>
+                                <font color="green">//code here</font> <br>
+                                <font color="green">});</font>
+                            </codeblock>
+                        </td></tr>
+                        <tr><td>jQuery("#gridId").<code>onDeleteRow</code>(callback)</td><td>O evento é acionado quando uma linha da grade é excluída. Por exemplo:<br>
+                        <codeblock>
+                            jQuery<font color="green">(</font>"<font color="blue">#gridId"</font><font color="green">)</font>.<font color="darkred">onDeleteRow</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>row<font color="green">,</font> grid<font color="green">,</font> index<font color="green">){</font><br>
+                            <font color="green">//code here</font> <br>
+                            <font color="green">});</font>
+                        </codeblock>
+                        </td></tr>
+                        <tr><td>jQuery("#gridId").<code>hideColumn</code>(colIndex)</td><td>Oculte a coluna de grade especificada.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>showColumn</code>(colIndex)</td><td>Mostra a coluna de grade especificada.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>disableValidation(colIndex)</code></td><td>Desabilite a validação no campo. Desative todas as validações configuradas, incluindo a validação necessária. Observe que o asterisco obrigatório deve ser removido do rótulo.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>enableValidation(colIndex)</code></td><td>Habilite a validação no campo. Habilite todas as validações do campo incluindo a validação necessária.</td></tr>
+                        <tr><td>jQuery("#gridId").<code>getControl</code>(row, col)</td><td>Obtém um dos controles dentro da grade.</td></tr>
+                    </tbody>
+                </table>
+
+                <p><font color="green">Observação:</font> para ver exemplos de código dessas funções, consulte Funções e métodos JavaScript.</p>
+
+            <h2 id="item5c">Escondendo uma grid</h2>
+
+                <p>É possível ocultar ou mostrar a tabela que contém uma grid com o evento <font color="skyblue">toggle</font> jquery. Por exemplo, vamos ocultar uma grid <code>"grid1"</code> sempre que a caixa de seleção <code>"OcultaGrid"</code> estiver marcada e mostrá-la sempre que a caixa de seleção estiver desmarcada. Para isso, vamos criar a variável booleana <code>"OcultaGrid"</code> com as seguintes opções:</p>
+
+                <codeblock>
+                    <p>Verdadeiro: Ocultar</p>
+                    <p>Falso: Mostrar</p>
+                </codeblock>
+
                 <p>Vamos criar um novo Formulário Dinâmico, abri-lo e adicionar um controle de caixa de seleção e um controle de grid ao design. Clique no checkboxbotão , vá em suas propriedades e relacione o controle com a variável "HideGrid", previamente criada e que será toda a configuração a ser feita para o checkbox.</p>
-                <p>Agora, adicione alguns controles à grid (no exemplo, as caixas de texto "Nome" e "Telefone" foram adicionadas, bem como a área de texto "Endereço"), clique na grid para visualizar suas propriedades no painel esquerdo e defina o ID de a grid como "grid1".</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>Agora, adicione alguns controles à grid (no exemplo, as caixas de texto "Nome" e "Telefone" foram adicionadas, bem como a área de texto "Endereço"), clique na grid para visualizar suas propriedades no painel esquerdo e defina o ID de a grid como <code>"grid1"</code>.</p>
+
+                    <figure>
+
+                    </figure>
+
                 <p>Feito isso, os controles têm a configuração necessária para que funcionem corretamente. Agora, clique no formulário para visualizar suas propriedades, clique no botão "editar..." e adicione o seguinte código ao editor.</p>
-                <p>$ ( documento ) . ready ( function ( ) {</p>
-                <p>$ ( '#HideGrid' ) . click ( function ( ) {</p>
-                <p>    //console.log($('#HideGrid').getControl().is(":checked")); //descomente para verificar quais valores o controle de caixa de seleção tem $</p>
-                <p>    ( " # grid1 " ) . toggle ( this.checked ) ; } ) ;</p>
-                <p>Experimente renderizando-o na visualização do formulário. Quando é renderizado pela primeira vez, o formulário é como o seguinte:</p>
+
+                <codeblock>
+                    $<font color="green">(</font>document<font color="green">)</font>.<font color="darkred">ready</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(){</font><br>
+                    $<font color="green">(</font><font color="blue">'#OcultaGrid'</font><font color="green">)</font>.<font color="darkred">click</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(){</font><br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="green">//console.log($('#OcultaGrid').getControl().is(":checked")); //<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Verifica quais valores o controle de caixa de seleção tem</font><br>
+                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#grid1"</font><font color="green">)</font>.<font color="darkred">toggle</font><font color="green">(</font><font color="darkblue"><strong>this</strong></font>.<font color="darkred">checked</font><font color="green">);</font><br>
+                    <font color="green">});</font><br>
+                    <font color="green">});</font><br>
+                </codeblock>
+
+                <p>Experimente renderizando-o na visualização do formulário. Quando é renderizado pela primeira vez, o formulário é como o abiaxo:</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Marque a caixa de seleção "Ocultar grid??" para ocultar a grid.</p>
+  
+                <figure>
+
+                </figure>
+              
                 <p>Desmarque-o para mostrar a grid</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Para verificar o valor da caixa de seleção quando o usuário clicar nela, descomente a seguinte linha no código:</p>
-                <p>   console. log ( $ ( '#HideGrid' ) . getControl ( ) . is ( ":checked" ) ) ; //descomente para verificar quais valores o controle checkbox possui</p>
-                <p>Vamos ver os valores que o checkbox pegou no console do navegador (pressione a "F12"tecla do quadro), e veja o console:</p>
+
+                <codeblock>
+                    console.<font color="darkred">log</font><font color="green">(</font>$<font color="green">(</font><font color="blue">'#HideGrid'</font><font color="green">)</font>.<font color="darkred">getControl</font><font color="green">()</font>.<font color="darkred">is</font><font color="green">(</font><font color="blue">":checked"</font><font color="green">));</font><br>
+                    <font color="rgb(237, 252, 174)">//descomente para verificar quais valores o controle checkbox possui</font>
+                </codeblock>
+
+                <p>Vamos ver os valores que o checkbox pegou no console do navegador (pressione a tecla "F12" do teclado), e veja o console:</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Quando marcada, a caixa de seleção retorna "true", quando desmarcada, a caixa de seleção retorna"false"</p>
-                <p>Fórmulas de precisão fixas em grids</p>
-                <p>As fórmulas nas grids não especificam a precisão de seus cálculos, portanto, os resultados das fórmulas podem ter um número variável de dígitos decimais .</p>
-                <p>Por exemplo, uma grid "invoiceList" contém campos com os IDs "price", "taxRate" e "total" para calcular o preço total de cada item. O campo "total" usa a seguinte fórmula:</p>
-                <p>preço + (preço * taxa de imposto)</p>
-                <p>O número de dígitos decimais no campo "total" muda dependendo dos números inseridos nos campos "preço" e "taxRate":</p>
-                <p>Outro problema é que ter vários campos usando fórmulas em grids pode causar problemas nos cálculos . Por exemplo, na grid a seguir, os campos "imposto" e "total" usam fórmulas:</p>
-                <p>As duas fórmulas na mesma grid causam conflitos e geram resultados errôneos:</p>
+
+            <h2 id="item5d">Fórmulas de precisão fixas em grids</h2>
+                
+                <p>As fórmulas nas grids não especificam a precisão de seus cálculos, portanto, os resultados das fórmulas podem ter um número variável de dígitos decimais.</p>
+
+                <p>Por exemplo, uma grid "listaNotas" contém campos com os IDs "preco", "taxaImposto " e "total" para calcular o preço total de cada item. O campo "total" usa a seguinte fórmula:</p>
+
+                <codeblock>
+                    preco + (preco * taxaImposto)
+                </codeblock>
+
+                <p>O número de dígitos decimais no campo "total" muda dependendo dos números inseridos nos campos "preco" e "taxaImposto ":</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Outro problema é que ter vários campos usando fórmulas em grids pode causar problemas nos cálculos. Por exemplo, na grid a seguir, os campos "imposto" e "total" usam fórmulas:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As duas fórmulas na mesma grid causam conflitos e geram resultados errados:</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Ambos os problemas podem ser corrigidos usando JavaScript. Em vez de usar fórmulas para calcular os campos "imposto" e "total", JavaScript pode ser adicionado ao formulário dinâmico para calcular os valores dos campos "imposto" e "total" na grid. O código JavaScript a seguir percorre a grid e recalcula o "imposto" e o total" para cada linha na grid quando qualquer valor é alterado no formulário dinâmico:</p>
-                <p>function roundToFixed ( _float , _digits ) {</p>
-                <p>  var rounder = Math . pow ( 10 , _digits ) ;</p>
-                <p>  return ( Math . round ( _float * rounder ) / rounder ) . toFixed ( _digits ) ;</p>
-                <p>}</p>
-                <p>$ ( "formulário" ) . setOnchange ( função ( campo , newVal, oldVal ) {</p>
-                <p>  var totalRows = $ ( "#invoiceList" ) . getNumberRows ( ) ;</p>
-                <p>  for ( var i = 1 ; i <= totalRows ; i ++ ) {</p>
-                <p>    preço   = parseFloat ( $ ( "#invoiceList" ) . getValue ( i , 1 ) ) ;</p>
-                <p>    taxRate = parseFloat ($ ( "#invoiceList" ) . getValue ( i , 2 ) ) ;</p>
-                <p>    imposto     = preço * taxa de imposto ;</p>
-                <p>    //verifica se o usuário digitou valores válidos:</p>
-                <p>    if ( isNaN ( tax ) ) {</p>
-                <p>      tax = '' ;</p>
-                <p>      total = '' ;</p>
-                <p>    }</p>
-                <p>    else {</p>
-                <p>      imposto     = roundToFixed ( taxa , 2 ) ;</p>
-                <p>      total   = roundToFixed ( preço + ( preço * taxRate ) , 2 ) ;</p>
-                <p>    }  </p>
-                <p>    $ ( "#invoiceList" ) . setValue ( imposto ,   i , 3 ) ;</p>
-                <p>    $ ( "#invoiceList" ) . setValue ( total , i , 4 ) ;</p>
-                <p>  }</p>
-                <p>} ) ;</p>
-                <p>A roundToFixed()função personalizada é usada para definir dois dígitos decimais nos cálculos para os campos "imposto" e "total". Para saber mais, consulte Trabalhando com números em JavaScript . A isNaN()função é usada para verificar se o usuário digitou números válidos nos campos. Se calcular um resultado que não seja um número (NaN), os campos de imposto e total serão definidos como ''(string vazia).</p>
+
+                <codeblock>
+                    <font color="darkblue"><strong>function</strong></font> roundToFixed<font color="green">(</font>_float<font color="green">,</font> _digits<font color="green">){</font> <br>
+                    &nbsp&nbsp <font color="darkblue"><strong>var</strong></font> rounder <font color="green">=</font> Math.<font color="darkred">pow</font><font color="green">(</font><font color="red">10</font><font color="green">,</font> _digits<font color="green">);</font> <br>
+                    &nbsp&nbsp <font color="darkblue"><strong>return</strong></font> <font color="green">(</font>Math.<font color="darkred">round</font><font color="green">(</font>_float <font color="green">*</font> rounder<font color="green">) /</font> rounder<font color="green">)</font>.<font color="darkred">toFixed</font><font color="green">(</font>_digits<font color="green">);</font> <br>
+                    <font color="green">}</font> <br> <br>
+                    
+                    $<font color="green">(</font><font color="blue">"form"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>field<font color="green">,</font> newVal<font color="green">,</font> oldVal<font color="green">) {</font> <br>
+                    &nbsp&nbsp <font color="darkblue"><strong>var</strong></font> totalRows <font color="green">=</font> $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getNumberRows</font><font color="green">();</font> <br>
+                    &nbsp&nbsp <font color="darkblue"><strong>for</strong></font> <font color="green">(</font><font color="darkblue"><strong>var</strong></font> i <font color="green">=</font> <font color="red">1</font><font color="green">;</font> i <font color="green"><=</font> totalRows<font color="green">;</font> i<font color="green">++) {</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp preco   <font color="green">=</font> parseFloat<font color="green">(</font>$<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">(</font>i<font color="green">,</font> <font color="red">1</font><font color="green">));</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp taxaImposto  <font color="green">=</font> parseFloat<font color="green">(</font>$<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">(</font>i<font color="green">,</font> <font color="red">2</font><font color="green">));</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp imposto     <font color="green">=</font> preco <font color="green">*</font> taxaImposto <font color="green">;</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="green">//make sure the user entered valid values:</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>isNaN(imposto<font color="green">)) {</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto <font color="green">=</font> <font color="blue">''</font><font color="green">;</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total <font color="green">=</font> <font color="blue">''</font><font color="green">;</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="green">}</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto     <font color="green">=</font> roundToFixed<font color="green">(</font>imposto<font color="green">,</font> <font color="red">2</font><font color="green">);</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total   <font color="green">=</font> roundToFixed<font color="green">(</font>preco <font color="green">+ (</font>preco <font color="green">*</font> taxaImposto <font color="green">),</font> <font color="red">2</font><font color="green">);</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp <font color="green">}</font>   <br>
+                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font>imposto<font color="green">,</font>   i<font color="green">,</font> <font color="red">3</font><font color="green">);</font> <br>
+                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font>total<font color="green">,</font> i<font color="green">,</font> <font color="red">4</font><font color="green">);</font> <br>
+                    &nbsp&nbsp <font color="green">}</font> <br>
+                    <font color="green">});</font> <br>
+                </codeblock>
+
+                <p>A função personalizada <code>roundToFixed()</code> é usada para definir dois dígitos decimais nos cálculos para os campos "imposto" e "total". Para saber mais, consulte Trabalhando com números em JavaScript. A função <code>isNaN()</code> é usada para verificar se o usuário digitou números válidos nos campos. Se calcular um resultado que não seja um número (NaN), os campos de imposto e total serão definidos como <code>''</code> (string vazia).</p>
+
                 <p>Usando este código JavaScript, ambos os campos são calculados corretamente com dois dígitos decimais quando o usuário altera um valor na grid:</p>
-                <p>Para ver um exemplo desse código, baixe o processo de amostra Fixed_precision_grid_math-1.pmx .</p>
-                <p>Alterar manipuladores de eventos dentro de grids</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para ver um exemplo desse código, baixe o processo de amostra <font color="skyblue">Fixed_precision_grid_math-1.pmx</font>.</p>
+                
+            <h2 id="item5e">Alterar manipuladores de eventos dentro de grids</h2>
+
                 <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de , onde o número da primeira linha é , a segunda linha é , etc."form[gridId][rowNumber][fieldId]"12</p>
                 <p>Por exemplo, uma grid com o ID "ReceiptList" contém um campo "recipt" File para carregar um arquivo digitalizado de um recibo e uma caixa de texto "amount" para inserir o total de um recibo. O campo "quantia" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
                 <p>O campo "recibo" na primeira linha teria um ID de "form[ReceiptList][1][receipt]"e o campo "quantia" na segunda linha teria um ID de "form[ReceiptList][2][amount]". Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o [e ]no ID deve ser escapado com \\:</p>
