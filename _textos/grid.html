@@ -685,10 +685,20 @@
                 
             <h2 id="item5e">Alterar manipuladores de eventos dentro de grids</h2>
 
-                <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de , onde o número da primeira linha é , a segunda linha é , etc."form[gridId][rowNumber][fieldId]"12</p>
-                <p>Por exemplo, uma grid com o ID "ReceiptList" contém um campo "recipt" File para carregar um arquivo digitalizado de um recibo e uma caixa de texto "amount" para inserir o total de um recibo. O campo "quantia" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
-                <p>O campo "recibo" na primeira linha teria um ID de "form[ReceiptList][1][receipt]"e o campo "quantia" na segunda linha teria um ID de "form[ReceiptList][2][amount]". Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o [e ]no ID deve ser escapado com \\:</p>
-                <p>$("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]")</p>
+                <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de <code>"form[<font color="blue">gridId</font>][<font color="blue">rowNumber</font>][<font color="blue">fieldId</font>]"</code>, onde o número da primeira linha é <code>1</code>, a segunda linha é <code>2</code>, etc.</p>
+
+                <p>Por exemplo, uma grid com o ID "ReciboLista" contém um campo tipo arquivo "recibo" para carregar um arquivo digitalizado de um recibo e uma caixa de texto "quantia" para inserir o total de um recibo. O campo "quantia" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>O campo "recibo" na primeira linha teria um ID de <code>"form[ReceiptList][1][recibo]"</code> e o campo "quantia" na segunda linha teria um ID de <code>"form[ReciboLista][2][quantia]"</code>. Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o <code>[</code> e <code>]</code>no ID deve ser escapado com <code>\\</code>:</p>
+
+                <codeblock>
+                    $("#form\\[ gridId \\]\\[ rowNumber \\]\\[ fieldId \\]")
+                </codeblock>
+
                 <p>Por exemplo, o código JavaScript a seguir define a cor do texto no campo de valor na segunda linha para verde.</p>
                 <p>$ ( "#form \\ [ReceiptList \\ ] \\ [2 \\ ] \\ [quantidade \\ ]" ) . css ( "cor" , "verde" ) ;</p>
                 <p>Um manipulador de eventos de alteração pode ser definido para um único campo dentro de uma grid desta maneira:</p>
