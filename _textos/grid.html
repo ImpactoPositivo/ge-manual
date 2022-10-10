@@ -736,23 +736,22 @@
 
                 <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "valor" quando o usuário clicar no botão <strong>Novo</strong> para adicionar outra linha à grid. O método <font color="skyblue">grid.onAddRow()</font> pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "valor" na nova linha adicionada à grid "ReciboLista":</p>
 
-
                 <codeblock>
-                    function checkAmount() {
-                        if (this.value > 300) {
-                           $(this).css("border", "1px solid red");
-                        }
-                        else { //defina a borda do campo "valor" de volta para a cor cinza claro padrão:
-                           $(this).css("border","");
-                        }
-                     }
-                     //defina o manipulador de eventos change para a primeira linha quando o Formulário for carregado:
-                     $("#form\[ReceiptList\]\[1\]\[amount\]").change( checkAmount );
-                    
-                     //defina o manipulador de eventos de mudança para cada nova linha adicionada à grade:
-                     $("#ReceiptList").onAddRow( function(aRow, oGrid, rowNumber) {
-                        $("#form\[ReceiptList\]\[" + rowNumber + "\]\[amount\]").change( checkAmount );
-                     } );
+                    <font color="darkblue"><strong>function</strong></font> checkValor() {
+                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> (<font color="darkblue"><strong>this</strong></font>.<font color="darkred">value</font> > 300) {
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $(<font color="darkblue"><strong>this</strong>)</font>.<font color="darkred">css</font>("border", <font color="blue">"1px solid red"</font>);
+                    <br>&nbsp&nbsp&nbsp }
+                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> { //defina a borda do campo "valor" de volta para a cor cinza claro padrão:
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $(<font color="darkblue"><strong>this</strong></font>).<font color="darkred">css</font>(<font color="blue">"border"</font>,<font color="blue">""</font>);
+                    <br>&nbsp&nbsp&nbsp }
+                    <br>}
+                    <br>//defina o manipulador de eventos change para a primeira linha quando o Formulário for carregado:
+                    <br>$(<font color="blue">"#form\\[ReceiptList\\]\\[1\\]\\[valor\\]"</font>).<font color="darkred">change</font>( checkValor );
+                    <br>    
+                    <br>//defina o manipulador de eventos de mudança para cada nova linha adicionada à grade:
+                    <br>$(<font color="blue">"#ReceiptList"</font>).<font color="darkred">onAddRow</font>( <font color="darkblue"><strong>function</strong></font>(aRow, oGrid, rowNumber) {
+                    <br>&nbsp&nbsp&nbsp $(<font color="blue">"#form\\[ReceiptList\\]\\["</font> + rowNumber + <font color="blue">"\\]\\[amount\\]"</font>).<font color="darkred">change</font>( checkValor );
+                    <br>} );
                 </codeblock>
 
 
