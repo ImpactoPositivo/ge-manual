@@ -161,7 +161,7 @@
                             Controle e identificador exclusivo HTML.</td></tr>
                             <tr><td>Título</td><td>Defina o título da grade nesta propriedade</td></tr>
                             <tr><td>Dica</td><td>Usado para mostrar ajuda quando a grade é renderizada. É mostrado quando o ponteiro do mouse está sobre o  ícone ?.<br>
-                            <font color="red"><strong>Aviso:</strong></font> O ícone de dica e a mensagem em uma grade são cortados no Gestor Express mobile. Este é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</td></tr>
+                            <span style="color: red">Aviso:</span> O ícone de dica e a mensagem em uma grade são cortados no Gestor Express mobile. Este é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</td></tr>
                             <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado no rótulo para indicar que o campo é obrigatório. Isso significa que o campo precisa ser preenchido obrigatoriamente a partir do controle. Quando um campo obrigatório não estiver preenchido com nenhum valor, não será possível ir para a próxima etapa.</td></tr>
                             <tr><td>Modo de exibição</td><td>[Requeridos]
                             Modo de exibição:
@@ -282,7 +282,7 @@
 
                 <p>Leve em consideração que os controles adicionados dentro de uma grid não aceitam uma variável relacionada a eles. Além disso, esses controles possuem a propriedade Column Width, que deve ser configurada para renderizar corretamente a grid.</p>
 
-                <p><font color="red"><strong>Aviso:</strong></font> o controle de arquivo não é mais suportado como uma coluna de grid e não estará mais disponível nas próximas versões do Gestor Express. No Gestor Express 3.1 ou posterior, use o controle Carregador de vários arquivos.</p>
+                <p><span style="color: red">Aviso:</span> o controle de arquivo não é mais suportado como uma coluna de grid e não estará mais disponível nas próximas versões do Gestor Express. No Gestor Express 3.1 ou posterior, use o controle Carregador de vários arquivos.</p>
 
             <h2 id="item3a">Largura da coluna</h2>
 
@@ -321,7 +321,7 @@
 
             <h2 id="item3b">Função</h2>
 
-                <p><font color=green><strong>Observação: As regras de</strong></font> <font color=blue>validação</font> devem ser definidas nos controles de texto envolvidos em funções matemáticas para restringir a entrada de dados.</p>
+                <p><span style="color: green; font-weight: bold">Observação:</span> As regras de <span style="color: blue">validação</span> devem ser definidas nos controles de texto envolvidos em funções matemáticas para restringir a entrada de dados.</p>
 
                 <p>Esta propriedade pertence ao controle Texto em uma grid. Oferece funções matemáticas predefinidas para somar colunas ou obter sua média.</p>
 
@@ -377,7 +377,7 @@
                 <p>Uma vez no editor, adicione o seguinte código que definirá o valor "Gestor Express" na primeira linha e na primeira coluna. Para obter mais informações sobre o código javascript para este controle, leia esta seção.</p>
 
                 <codeblock>
-                    <p>jQuery<font color="green">(</font><font color="blue">"#grid"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font><font color="blue">'Gestor Express'</font><font color="green">,</font> <font color="blue">'1'</font><font color="green">,</font> <font color="blue">'1'</font><font color="green">);</font></p>
+                    <p>jQuery<span style="color: green">(</span><span style="color: blue">"#grid"</span><span style="color: green">)</span>.<span style="color: darkred">setValue</span><span style="color: green">(</span><span style="color: blue">'Gestor Express'</span><span style="color: green">,</span> <span style="color: blue">'1'</span><span style="color: green">,</span> <span style="color: blue">'1'</span><span style="color: green">);</span></p>
                 </codeblock>
 
                 <figure>
@@ -409,25 +409,25 @@
                 </figure>
 
 
-                <p><font color="red">Mestre</font></p>
+                <p><span style="color: red">Mestre</span></p>
                     
                     <figure>
 
                     </figure>
 
-                <p><font color="red">Editar</font></p>
+                <p><span style="color: red">Editar</span></p>
                     
                     <figure>
 
                     </figure>
 
-                <p><font color="red">Visualizar</font></p>
+                <p><span style="color: red">Visualizar</span></p>
                     
                     <figure>
 
                     </figure>
 
-                <p><font color="red">Desativado</font></p>
+                <p><span style="color: red">Desativado</span></p>
                     
                     <figure>
 
@@ -467,7 +467,7 @@
 
                 </figure>
 
-                <p><font color="green">Observação:</font> para listas suspensas, o valor é diferente do texto:</p>
+                <p><span style="color: green">Observação:</span> para listas suspensas, o valor é diferente do texto:</p>
 
                 <figure>
 
@@ -480,13 +480,13 @@
                 <p>Para acessar grids usando jquery, use os seguintes métodos:</p>
 
                 <codeblock>
-                    <p>jQuery<font color="green">(</font><font color="blue">"#gridId"</font><font color="green">)</font></p>
+                    <p>jQuery<span style="color: green">(</span><span style="color: blue">"#gridId"</span><span style="color: green">)</span></p>
                 </codeblock>
 
                 <p>ou</p>
 
                 <codeblock>
-                    <p>$<font color="green">(</font><font color="blue">"#gridId"</font><font color="green">)</font></p>
+                    <p>$<span style="color: green">(</span><span style="color: blue">"#gridId"</span><span style="color: green">)</span></p>
                 </codeblock>
 
                 <p>Que é o mesmo.</p>
@@ -509,8 +509,8 @@
                         <tr><td>jQuery("#gridId").<code>getControl</code>()</td><td>Lembre-se que quando o formulário é renderizado, cada controle é mantido dentro de um divelemento, então use esta função para trabalhar com o controle como está. <br>
                         Além disso, você pode obter o controle diretamente usando:<br>
                             <codeblock>
-                                $<font color=green">(</font>“#form\<font color=green">[</font>fieldid\<font color=green">]</font>”<font color=green">)</font><br>
-                                $<font color=green">(</font>“#form\[nome\<font color=green">]</font>”<font color=green">)</font>.<font color="darkred">val</font><font color=green">(</font>'Olá mundo'<font color=green">);</font>
+                                $<span style="color:green">(</span>“#form\<span style="color:green">[</span>fieldid\<span style="color:green">]</span>”<span style="color:green">)</span><br>
+                                $<span style="color:  green">(</span>“#form\[nome\<span style="color:  green">]</span>”<span style="color:  green">)</span>.<span style="color: darkred">val</span><span style="color:  green">(</span>'Olá mundo'<span style="color:  green">);</span>
                             </codeblock>
                         </td></tr>
                         <tr><td>jQuery("#gridId").<code>getValue</code>(row,col)</td><td>Obtém o valor da célula da grade.</td></tr>
@@ -529,16 +529,16 @@
                         <tr><td>jQuery("#gridId").<code>deleteRow</code>(rowIndex)</td><td>Exclui a linha especificada na grade.</td></tr>
                         <tr><td>jQuery("#gridId").<code>onAddRow</code>(callback)</td><td>O evento é acionado quando uma nova linha é adicionada e retorna: row, gridtable, index. exemplo:<br>
                             <codeblock>
-                                jQuery<font color="green">(</font>"<font color="blue">#gridId"</font><font color="green">)</font>.<font color="darkred">onAddRow</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>row<font color="green">,</font> grid<font color="green">,</font> index<font color="green">){</font><br>
-                                <font color="green">//code here</font> <br>
-                                <font color="green">});</font>
+                                jQuery<span style="color: green">(</span>"<span style="color: blue">#gridId"</span><span style="color: green">)</span>.<span style="color: darkred">onAddRow</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(</span>row<span style="color: green">,</span> grid<span style="color: green">,</span> index<span style="color: green">){</span><br>
+                                <span style="color: green">//code here</span> <br>
+                                <span style="color: green">});</span>
                             </codeblock>
                         </td></tr>
                         <tr><td>jQuery("#gridId").<code>onDeleteRow</code>(callback)</td><td>O evento é acionado quando uma linha da grade é excluída. Por exemplo:<br>
                         <codeblock>
-                            jQuery<font color="green">(</font>"<font color="blue">#gridId"</font><font color="green">)</font>.<font color="darkred">onDeleteRow</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>row<font color="green">,</font> grid<font color="green">,</font> index<font color="green">){</font><br>
-                            <font color="green">//code here</font> <br>
-                            <font color="green">});</font>
+                            jQuery<span style="color: green">(</span>"<span style="color: blue">#gridId"</span><span style="color: green">)</span>.<span style="color: darkred">onDeleteRow</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(</span>row<span style="color: green">,</span> grid<span style="color: green">,</span> index<span style="color: green">){</span><br>
+                            <span style="color: green">//code here</span> <br>
+                            <span style="color: green">});</span>
                         </codeblock>
                         </td></tr>
                         <tr><td>jQuery("#gridId").<code>hideColumn</code>(colIndex)</td><td>Oculte a coluna de grade especificada.</td></tr>
@@ -549,11 +549,11 @@
                     </tbody>
                 </table>
 
-                <p><font color="green">Observação:</font> para ver exemplos de código dessas funções, consulte Funções e métodos JavaScript.</p>
+                <p><span style="color: green">Observação:</span> para ver exemplos de código dessas funções, consulte Funções e métodos JavaScript.</p>
 
             <h2 id="item5c">Escondendo uma grid</h2>
 
-                <p>É possível ocultar ou mostrar a tabela que contém uma grid com o evento <font color="skyblue">toggle</font> jquery. Por exemplo, vamos ocultar uma grid <code>"grid1"</code> sempre que a caixa de seleção <code>"OcultaGrid"</code> estiver marcada e mostrá-la sempre que a caixa de seleção estiver desmarcada. Para isso, vamos criar a variável booleana <code>"OcultaGrid"</code> com as seguintes opções:</p>
+                <p>É possível ocultar ou mostrar a tabela que contém uma grid com o evento <span style="color: skyblue">toggle</span> jquery. Por exemplo, vamos ocultar uma grid <code>"grid1"</code> sempre que a caixa de seleção <code>"OcultaGrid"</code> estiver marcada e mostrá-la sempre que a caixa de seleção estiver desmarcada. Para isso, vamos criar a variável booleana <code>"OcultaGrid"</code> com as seguintes opções:</p>
 
                 <codeblock>
                     <p>Verdadeiro: Ocultar</p>
@@ -575,12 +575,12 @@
                 <p>Feito isso, os controles têm a configuração necessária para que funcionem corretamente. Agora, clique no formulário para visualizar suas propriedades, clique no botão "editar..." e adicione o seguinte código ao editor.</p>
 
                 <codeblock>
-                    $<font color="green">(</font>document<font color="green">)</font>.<font color="darkred">ready</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(){</font><br>
-                    $<font color="green">(</font><font color="blue">'#OcultaGrid'</font><font color="green">)</font>.<font color="darkred">click</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(){</font><br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="green">//console.log($('#OcultaGrid').getControl().is(":checked")); //<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Verifica quais valores o controle de caixa de seleção tem</font><br>
-                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#grid1"</font><font color="green">)</font>.<font color="darkred">toggle</font><font color="green">(</font><font color="darkblue"><strong>this</strong></font>.<font color="darkred">checked</font><font color="green">);</font><br>
-                    <font color="green">});</font><br>
-                    <font color="green">});</font><br>
+                    $<span style="color: green">(</span>document<span style="color: green">)</span>.<span style="color: darkred">ready</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(){</span><br>
+                    $<span style="color: green">(</span><span style="color: blue">'#OcultaGrid'</span><span style="color: green">)</span>.<span style="color: darkred">click</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(){</span><br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: green">//console.log($('#OcultaGrid').getControl().is(":checked")); //<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Verifica quais valores o controle de caixa de seleção tem</span><br>
+                    &nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#grid1"</span><span style="color: green">)</span>.<span style="color: darkred">toggle</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span>.<span style="color: darkred">checked</span><span style="color: green">);</span><br>
+                    <span style="color: green">});</span><br>
+                    <span style="color: green">});</span><br>
                 </codeblock>
 
                 <p>Experimente renderizando-o na visualização do formulário. Quando é renderizado pela primeira vez, o formulário é como o abiaxo:</p>
@@ -604,8 +604,8 @@
                 <p>Para verificar o valor da caixa de seleção quando o usuário clicar nela, descomente a seguinte linha no código:</p>
 
                 <codeblock>
-                    console.<font color="darkred">log</font><font color="green">(</font>$<font color="green">(</font><font color="blue">'#HideGrid'</font><font color="green">)</font>.<font color="darkred">getControl</font><font color="green">()</font>.<font color="darkred">is</font><font color="green">(</font><font color="blue">":checked"</font><font color="green">));</font><br>
-                    <font color="rgb(237, 252, 174)">//descomente para verificar quais valores o controle checkbox possui</font>
+                    console.<span style="color: darkred">log</span><span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">'#HideGrid'</span><span style="color: green">)</span>.<span style="color: darkred">getControl</span><span style="color: green">()</span>.<span style="color: darkred">is</span><span style="color: green">(</span><span style="color: blue">":checked"</span><span style="color: green">));</span><br>
+                    <span style="color: rgb(237, 252, 174)">//descomente para verificar quais valores o controle checkbox possui</span>
                 </codeblock>
 
                 <p>Vamos ver os valores que o checkbox pegou no console do navegador (pressione a tecla "F12" do teclado), e veja o console:</p>
@@ -647,30 +647,30 @@
                 <p>Ambos os problemas podem ser corrigidos usando JavaScript. Em vez de usar fórmulas para calcular os campos "imposto" e "total", JavaScript pode ser adicionado ao formulário dinâmico para calcular os valores dos campos "imposto" e "total" na grid. O código JavaScript a seguir percorre a grid e recalcula o "imposto" e o total" para cada linha na grid quando qualquer valor é alterado no formulário dinâmico:</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>function</strong></font> roundToFixed<font color="green">(</font>_float<font color="green">,</font> _digits<font color="green">){</font> <br>
-                    &nbsp&nbsp <font color="darkblue"><strong>var</strong></font> rounder <font color="green">=</font> Math.<font color="darkred">pow</font><font color="green">(</font><font color="red">10</font><font color="green">,</font> _digits<font color="green">);</font> <br>
-                    &nbsp&nbsp <font color="darkblue"><strong>return</strong></font> <font color="green">(</font>Math.<font color="darkred">round</font><font color="green">(</font>_float <font color="green">*</font> rounder<font color="green">) /</font> rounder<font color="green">)</font>.<font color="darkred">toFixed</font><font color="green">(</font>_digits<font color="green">);</font> <br>
-                    <font color="green">}</font> <br> <br>
+                    <span style="color: darkblue; font-weight: bold">function</span> roundToFixed<span style="color: green">(</span>_float<span style="color: green">,</span> _digits<span style="color: green">){</span> <br>
+                    &nbsp&nbsp <span style="color: darkblue; font-weight: bold">var</span> rounder <span style="color: green">=</span> Math.<span style="color: darkred">pow</span><span style="color: green">(</span><span style="color: red">10</span><span style="color: green">,</span> _digits<span style="color: green">);</span> <br>
+                    &nbsp&nbsp <span style="color: darkblue; font-weight: bold">return</span> <span style="color: green">(</span>Math.<span style="color: darkred">round</span><span style="color: green">(</span>_float <span style="color: green">*</span> rounder<span style="color: green">) /</span> rounder<span style="color: green">)</span>.<span style="color: darkred">toFixed</span><span style="color: green">(</span>_digits<span style="color: green">);</span> <br>
+                    <span style="color: green">}</span> <br> <br>
                     
-                    $<font color="green">(</font><font color="blue">"form"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font><font color="darkblue"><strong>function</strong></font><font color="green">(</font>field<font color="green">,</font> newVal<font color="green">,</font> oldVal<font color="green">) {</font> <br>
-                    &nbsp&nbsp <font color="darkblue"><strong>var</strong></font> totalRows <font color="green">=</font> $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getNumberRows</font><font color="green">();</font> <br>
-                    &nbsp&nbsp <font color="darkblue"><strong>for</strong></font> <font color="green">(</font><font color="darkblue"><strong>var</strong></font> i <font color="green">=</font> <font color="red">1</font><font color="green">;</font> i <font color="green"><=</font> totalRows<font color="green">;</font> i<font color="green">++) {</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp preco   <font color="green">=</font> parseFloat<font color="green">(</font>$<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">(</font>i<font color="green">,</font> <font color="red">1</font><font color="green">));</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp taxaImposto  <font color="green">=</font> parseFloat<font color="green">(</font>$<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">getValue</font><font color="green">(</font>i<font color="green">,</font> <font color="red">2</font><font color="green">));</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp imposto     <font color="green">=</font> preco <font color="green">*</font> taxaImposto <font color="green">;</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="green">//make sure the user entered valid values:</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>isNaN(imposto<font color="green">)) {</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto <font color="green">=</font> <font color="blue">''</font><font color="green">;</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total <font color="green">=</font> <font color="blue">''</font><font color="green">;</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="green">}</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto     <font color="green">=</font> roundToFixed<font color="green">(</font>imposto<font color="green">,</font> <font color="red">2</font><font color="green">);</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total   <font color="green">=</font> roundToFixed<font color="green">(</font>preco <font color="green">+ (</font>preco <font color="green">*</font> taxaImposto <font color="green">),</font> <font color="red">2</font><font color="green">);</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp <font color="green">}</font>   <br>
-                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font>imposto<font color="green">,</font>   i<font color="green">,</font> <font color="red">3</font><font color="green">);</font> <br>
-                    &nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaNota"</font><font color="green">)</font>.<font color="darkred">setValue</font><font color="green">(</font>total<font color="green">,</font> i<font color="green">,</font> <font color="red">4</font><font color="green">);</font> <br>
-                    &nbsp&nbsp <font color="green">}</font> <br>
-                    <font color="green">});</font> <br>
+                    $<span style="color: green">(</span><span style="color: blue">"form"</span><span style="color: green">)</span>.<span style="color: darkred">setOnchange</span><span style="color: green">(</span><span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(</span>field<span style="color: green">,</span> newVal<span style="color: green">,</span> oldVal<span style="color: green">) {</span> <br>
+                    &nbsp&nbsp <span style="color: darkblue; font-weight: bold">var</span> totalRows <span style="color: green">=</span> $<span style="color: green">(</span><span style="color: blue">"#listaNota"</span><span style="color: green">)</span>.<span style="color: darkred">getNumberRows</span><span style="color: green">();</span> <br>
+                    &nbsp&nbsp <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span><span style="color: darkblue; font-weight: bold">var</span> i <span style="color: green">=</span> <span style="color: red">1</span><span style="color: green">;</span> i <span style="color: green"><=</span> totalRows<span style="color: green">;</span> i<span style="color: green">++) {</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp preco   <span style="color: green">=</span> parseFloat<span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#listaNota"</span><span style="color: green">)</span>.<span style="color: darkred">getValue</span><span style="color: green">(</span>i<span style="color: green">,</span> <span style="color: red">1</span><span style="color: green">));</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp taxaImposto  <span style="color: green">=</span> parseFloat<span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#listaNota"</span><span style="color: green">)</span>.<span style="color: darkred">getValue</span><span style="color: green">(</span>i<span style="color: green">,</span> <span style="color: red">2</span><span style="color: green">));</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp imposto     <span style="color: green">=</span> preco <span style="color: green">*</span> taxaImposto <span style="color: green">;</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: green">//make sure the user entered valid values:</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>isNaN(imposto<span style="color: green">)) {</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto <span style="color: green">=</span> <span style="color: blue">''</span><span style="color: green">;</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total <span style="color: green">=</span> <span style="color: blue">''</span><span style="color: green">;</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp imposto     <span style="color: green">=</span> roundToFixed<span style="color: green">(</span>imposto<span style="color: green">,</span> <span style="color: red">2</span><span style="color: green">);</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp total   <span style="color: green">=</span> roundToFixed<span style="color: green">(</span>preco <span style="color: green">+ (</span>preco <span style="color: green">*</span> taxaImposto <span style="color: green">),</span> <span style="color: red">2</span><span style="color: green">);</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>   <br>
+                    &nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#listaNota"</span><span style="color: green">)</span>.<span style="color: darkred">setValue</span><span style="color: green">(</span>imposto<span style="color: green">,</span>   i<span style="color: green">,</span> <span style="color: red">3</span><span style="color: green">);</span> <br>
+                    &nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#listaNota"</span><span style="color: green">)</span>.<span style="color: darkred">setValue</span><span style="color: green">(</span>total<span style="color: green">,</span> i<span style="color: green">,</span> <span style="color: red">4</span><span style="color: green">);</span> <br>
+                    &nbsp&nbsp <span style="color: green">}</span> <br>
+                    <span style="color: green">});</span> <br>
                 </codeblock>
 
                 <p>A função personalizada <code>roundToFixed()</code> é usada para definir dois dígitos decimais nos cálculos para os campos "imposto" e "total". Para saber mais, consulte Trabalhando com números em JavaScript. A função <code>isNaN()</code> é usada para verificar se o usuário digitou números válidos nos campos. Se calcular um resultado que não seja um número (NaN), os campos de imposto e total serão definidos como <code>''</code> (string vazia).</p>
@@ -681,11 +681,11 @@
 
                 </figure>
 
-                <p>Para ver um exemplo desse código, baixe o processo de amostra <font color="skyblue">Fixed_precision_grid_math-1.pmx</font>.</p>
+                <p>Para ver um exemplo desse código, baixe o processo de amostra <span style="color: skyblue">Fixed_precision_grid_math-1.pmx</span>.</p>
                 
             <h2 id="item5e">Alterar manipuladores de eventos dentro de grids</h2>
 
-                <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de <code>"form[<font color="blue">gridId</font>][<font color="blue">rowNumber</font>][<font color="blue">fieldId</font>]"</code>, onde o número da primeira linha é <code>1</code>, a segunda linha é <code>2</code>, etc.</p>
+                <p>O Gestor Express não fornece um método setOnchange() para grids ou campos dentro de grids, no entanto, manipuladores de eventos de mudança podem ser definidos para os campos individuais dentro de uma grid. Os campos dentro de uma grid têm um ID de <code>"form[<span style="color: blue">gridId</span>][<span style="color: blue">rowNumber</span>][<span style="color: blue">fieldId</span>]"</code>, onde o número da primeira linha é <code>1</code>, a segunda linha é <code>2</code>, etc.</p>
 
                 <p>Por exemplo, uma grid com o ID "ReciboLista" contém um campo tipo arquivo "recibo" para carregar um arquivo digitalizado de um recibo e uma caixa de texto "valor" para inserir o total de um recibo. O campo "valor" possui uma função de soma, que lista o total somado de todos os recebimentos abaixo da coluna.</p>
 
@@ -696,35 +696,35 @@
                 <p>O campo "recibo" na primeira linha teria um ID de <code>"form[ReciboLista][1][recibo]"</code> e o campo "valor" na segunda linha teria um ID de <code>"form[ReciboLista][2][valor]"</code>. Para acessar um campo dentro de uma grid por seu ID com um seletor jQuery , o <code>[</code> e <code>]</code>no ID deve ser escapado com <code>\\</code>:</p>
 
                 <codeblock>
-                    $("#form\\<font color="green">[</font><font color="blue">gridId</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">rowNumber</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">fieldId</font>\\<font color="green">]</font>")
+                    $("#form\\<span style="color: green">[</span><span style="color: blue">gridId</span>\\<span style="color: green">]</span>\\<span style="color: green">[</span><span style="color: blue">rowNumber</span>\\<span style="color: green">]</span>\\<span style="color: green">[</span><span style="color: blue">fieldId</span>\\<span style="color: green">]</span>")
                 </codeblock>
 
                 <p>Por exemplo, o código JavaScript a seguir define a cor do texto no campo de valor na segunda linha para verde.</p>
 
                 <codeblock>
-                    $<font color="green">(</font><font color="blue">"#form</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">[</font><font color="blue">ReciboLista</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">]</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">[</font>2<font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">]</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">[</font><font color="blue">valor</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font><font color="green">]</font>"<font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"color"</font><font color="green">,</font> <font color="blue">"green"</font><font color="green">);</font>
+                    $<span style="color: green">(</span><span style="color: blue">"#form</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">[</span><span style="color: blue">ReciboLista</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">]</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">[</span>2<span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">]</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">[</span><span style="color: blue">valor</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span><span style="color: green">]</span>"<span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"color"</span><span style="color: green">,</span> <span style="color: blue">"green"</span><span style="color: green">);</span>
                 </codeblock>
                 
                 <p>Um manipulador de eventos de alteração pode ser definido para um único campo dentro de uma grid desta maneira:</p>
 
                 <codeblock>
-                    $<font color="green">(</font>"#form\\<font color="green">[</font><font color="blue">gridId</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">rowNumber</font>\\<font color="green">]</font>\\<font color="green">[</font><font color="blue">fieldId</font>\\<font color="green">]</font>"<font color="green">)</font>.change<font color="green">(</font> function<font color="green">(){</font><br>
+                    $<span style="color: green">(</span>"#form\\<span style="color: green">[</span><span style="color: blue">gridId</span>\\<span style="color: green">]</span>\\<span style="color: green">[</span><span style="color: blue">rowNumber</span>\\<span style="color: green">]</span>\\<span style="color: green">[</span><span style="color: blue">fieldId</span>\\<span style="color: green">]</span>"<span style="color: green">)</span>.change<span style="color: green">(</span> function<span style="color: green">(){</span><br>
                     //event handler code <br>
-                    <font color="green">});</font>
+                    <span style="color: green">});</span>
                 </codeblock>
 
-                <p>Por exemplo, o código JavaScript a seguir define um manipulador de eventos de alteração para o campo "valor" na primeira linha da grid. Se o usuário definir o campo "valor" na primeira linha para um valor maior que 300, a cor da borda desse campo será alterada para vermelho. O método css() do campo é chamado para alterar a cor da borda. Observe que <code>$<font color="green">(</font><font color="blue"><strong>this</strong></font><font color="green">)</font></code> é usado para converter do objeto DOM do campo para seu objeto jQuery, para que seu método <code>css()</code> possa ser chamado.</p>
+                <p>Por exemplo, o código JavaScript a seguir define um manipulador de eventos de alteração para o campo "valor" na primeira linha da grid. Se o usuário definir o campo "valor" na primeira linha para um valor maior que 300, a cor da borda desse campo será alterada para vermelho. O método css() do campo é chamado para alterar a cor da borda. Observe que <code>$<span style="color: green">(</span><span style="color: blue">this</span><span style="color: green">)</span></code> é usado para converter do objeto DOM do campo para seu objeto jQuery, para que seu método <code>css()</code> possa ser chamado.</p>
 
                 <codeblock>
-                    $<font color="green">(</font><font color="blue">"#form</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>[<font color="blue">ReciboLista</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>]<font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>[<font color="blue">1</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>]<font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>[<font color="blue">valor</font><font color="darkblue"><font color="darkblue"><strong>\\</strong></font></font>]"<font color="green">)</font>.<font color="darkred">change</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">() {</font> 
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font><font color="darkblue"><strong>this</strong></font>.<font color="darkred">value</font> <font color="green">></font> <font color="red">300</font><font color="green">) {</font> 
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong></font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font> <font color="blue">"1px solid red"</font><font color="green">);</font> 
-                    <br>&nbsp&nbsp&nbsp <font color="green">}</font> 
-                    <br>&nbsp&nbsp&nbsp <font color="green">//define a borda do campo "valor" de volta para o padrão cinza claro cor:</font>
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font> 
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong></font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font><font color="blue">""</font><font color="green">);</font> 
-                    <br>&nbsp&nbsp&nbsp <font color="green">}</font> 
-                    <br><font color="green">} );</font>
+                    $<span style="color: green">(</span><span style="color: blue">"#form</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>[<span style="color: blue">ReciboLista</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>]<span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>[<span style="color: blue">1</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>]<span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>[<span style="color: blue">valor</span><span style="color: darkblue; font-weight: bold"><span style="color: darkblue; font-weight: bold">\\</span></span>]"<span style="color: green">)</span>.<span style="color: darkred">change</span><span style="color: green">(</span> <span style="color: darkblue; font-weight: bold">function</span><span style="color: green">() {</span> 
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span>.<span style="color: darkred">value</span> <span style="color: green"></span> <span style="color: red">300</span><span style="color: green">) {</span> 
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span><span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"border"</span><span style="color: green">,</span> <span style="color: blue">"1px solid red"</span><span style="color: green">);</span> 
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span> 
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">//define a borda do campo "valor" de volta para o padrão cinza claro cor:</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{</span> 
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span><span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"border"</span><span style="color: green">,</span><span style="color: blue">""</span><span style="color: green">);</span> 
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span> 
+                    <br><span style="color: green">} );</span>
                 </codeblock>
 
 
@@ -734,48 +734,48 @@
 
                 </figure>
 
-                <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "valor" quando o usuário clicar no botão <strong>Novo</strong> para adicionar outra linha à grid. O método <font color="skyblue">grid.onAddRow()</font> pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "valor" na nova linha adicionada à grid "ReciboLista":</p>
+                <p>As grids podem ter um número variável de linhas, portanto, esse mesmo manipulador de eventos de alteração deve ser definido para cada novo campo "valor" quando o usuário clicar no botão <strong>Novo</strong> para adicionar outra linha à grid. O método <span style="color: skyblue">grid.onAddRow()</span> pode ser usado para executar código quando uma nova linha é adicionada a uma grid. O código a seguir define um novo manipulador de eventos de alteração para cada campo "valor" na nova linha adicionada à grid "ReciboLista":</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>function</strong></font> checkValor<font color="green">() {</font>
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font><font color="darkblue"><strong>this</strong></font>.<font color="darkred">value</font> <font color="green">></font> <font color="red">300</font><font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong><font color="green">)</font></font>.<font color="darkred">css</font><font color="green">(</font>"border"<font color="green">,</font> <font color="blue">"1px solid red"</font><font color="green">);</font>
+                    <span style="color: darkblue; font-weight: bold">function</span> checkValor<span style="color: green">() {</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span>.<span style="color: darkred">value</span> <span style="color: green"></span> <span style="color: red">300</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</strong><span style="color: green">)</span></span>.<span style="color: darkred">css</span><span style="color: green">(</span>"border"<span style="color: green">,</span> <span style="color: blue">"1px solid red"</span><span style="color: green">);</span>
                     <br>&nbsp&nbsp&nbsp }
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{ //defina a borda do campo "valor" de volta para a cor cinza claro padrão:</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="darkblue"><strong>this</strong></font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font><font color="blue">""</font><font color="green">);</font>
-                    <br>&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br><font color="green">}</font>
-                    <br><font color="green">//defina o manipulador de eventos change para a primeira linha quando o Formulário for carregado:</font>
-                    <br>$<font color="green">(</font><font color="blue">"#form<font color="darkblue"><strong>\\</strong></font>[ReceiptList<font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>[1<font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>[valor<font color="darkblue"><strong>\\</strong></font>]"</font><font color="green">)</font>.<font color="darkred">change</font><font color="green">(</font> checkValor <font color="green">);</font>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{ //defina a borda do campo "valor" de volta para a cor cinza claro padrão:</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: darkblue; font-weight: bold">this</span><span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"border"</span><span style="color: green">,</span><span style="color: blue">""</span><span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br><span style="color: green">}</span>
+                    <br><span style="color: green">//defina o manipulador de eventos change para a primeira linha quando o Formulário for carregado:</span>
+                    <br>$<span style="color: green">(</span><span style="color: blue">"#form<span style="color: darkblue; font-weight: bold">\\</span>[ReceiptList<span style="color: darkblue; font-weight: bold">\\</span>]<span style="color: darkblue; font-weight: bold">\\</span>[1<span style="color: darkblue; font-weight: bold">\\</span>]<span style="color: darkblue; font-weight: bold">\\</span>[valor<span style="color: darkblue; font-weight: bold">\\</span>]"</span><span style="color: green">)</span>.<span style="color: darkred">change</span><span style="color: green">(</span> checkValor <span style="color: green">);</span>
                     <br>    
-                    <br><font color="green">//defina o manipulador de eventos de mudança para cada nova linha adicionada à grade:</font>
-                    <br>$<font color="green">(</font><font color="blue">"#ReceiptList"</font><font color="green">)</font>.<font color="darkred">onAddRow</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">(</font>aRow<font color="green">,</font> oGrid<font color="green">,</font> rowNumber<font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#form<font color="darkblue"><strong>\\</strong></font>[ReceiptList<font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>["</font> <font color="green">+</font> rowNumber <font color="green">+</font> <font color="blue">"<font color="darkblue"><strong>\\</strong></font>]<font color="darkblue"><strong>\\</strong></font>[amount<font color="darkblue"><strong>\\</strong></font>]"</font><font color="green">)</font>.<font color="darkred">change</font><font color="green">(</font> checkValor <font color="green">);</font>
-                    <br><font color="green">} );</font>
+                    <br><span style="color: green">//defina o manipulador de eventos de mudança para cada nova linha adicionada à grade:</span>
+                    <br>$<span style="color: green">(</span><span style="color: blue">"#ReceiptList"</span><span style="color: green">)</span>.<span style="color: darkred">onAddRow</span><span style="color: green">(</span> <span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(</span>aRow<span style="color: green">,</span> oGrid<span style="color: green">,</span> rowNumber<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#form<span style="color: darkblue; font-weight: bold">\\</span>[ReceiptList<span style="color: darkblue; font-weight: bold">\\</span>]<span style="color: darkblue; font-weight: bold">\\</span>["</span> <span style="color: green">+</span> rowNumber <span style="color: green">+</span> <span style="color: blue">"<span style="color: darkblue; font-weight: bold">\\</span>]<span style="color: darkblue; font-weight: bold">\\</span>[amount<span style="color: darkblue; font-weight: bold">\\</span>]"</span><span style="color: green">)</span>.<span style="color: darkred">change</span><span style="color: green">(</span> checkValor <span style="color: green">);</span>
+                    <br><span style="color: green">} );</span>
                 </codeblock>
 
 
-                <p>Uma maneira mais fácil de definir um manipulador de eventos de alteração em grids é usar o método <font color="skyblue">form.setOnchange()</font> para todo o formulário dinâmico e verificar se o ID do campo que foi alterado está dentro da grid. O método <code>form.setOnchange()</code> relatará que o ID de um campo alterado dentro de uma grid é <code>"[gridId][rowNumber][fieldId]"</code>, como <code>"[ReciboLista][2][valor]"</code>.</p>
+                <p>Uma maneira mais fácil de definir um manipulador de eventos de alteração em grids é usar o método <span style="color: skyblue">form.setOnchange()</span> para todo o formulário dinâmico e verificar se o ID do campo que foi alterado está dentro da grid. O método <code>form.setOnchange()</code> relatará que o ID de um campo alterado dentro de uma grid é <code>"[gridId][rowNumber][fieldId]"</code>, como <code>"[ReciboLista][2][valor]"</code>.</p>
 
                 <p>O exemplo a seguir mostra como alterar a cor da borda de uma grid, dependendo do total de uma função de soma em uma grid.</p>
 
                 <p>O código JavaScript a seguir é adicionado ao formulário dinâmico para verificar se o total somado da coluna "valor" é maior que 500. Se for, ele muda para a cor da borda da grid para vermelho. Se for menor que 500, ele será redefinido para a cor padrão, que é uma cor cinza claro.</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>function</strong></font> checkValorotal<font color="green">(</font>fieldId<font color="green">,</font> newVal<font color="green">,</font> oldVal<font color="green">) {</font>
-                    <br> &nbsp&nbsp <font color="rgb(237, 252, 174)">//se um valor for alterado dentro da grade "ReciboLista":</font>
-                    <br> &nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>fieldId.<font color="darkred">search</font><font color="green">(/^\[ReciboLista\]/) ==</font> <font color="red">0</font><font color="green">) {</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp <font color="rgb(237, 252, 174)">//se a soma "valor" é maior que 500:</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>$<font color="green">(</font><font color="blue">"#ReciboLista"</font><font color="green">)</font>.<font color="darkred">getSummary</font><font color="green">(</font><font color="blue">"valor"</font><font color="green">) >= </font><font color="red">500</font><font color="green">) {</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="rgb(237, 252, 174)">//altera a borda da grade "ReciboLista" para vermelho</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#ReciboLista"</font><font color="green">)</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"div.pmdynaform-grid-tbody"</font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font> <font color="blue">"1px solid red"</font><font color="green">);</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font>  <font color="rgb(237, 252, 174)">//retorna a grade para a cor da borda padrão</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#ReciboLista"</font><font color="green">)</font>.<font color="darkred">find</font>(<font color="blue">"div.pmdynaform-grid-tbody"</font><font color="green">)</font>.<font color="darkred">css</font><font color="green">(</font><font color="blue">"border"</font><font color="green">,</font> <font color="blue">""</font><font color="green">);</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br> &nbsp&nbsp <font color="green">}</font>
-                    <br> <font color="green">}</font>
-                    <br> $<font color="green">(</font><font color="blue">"form"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font> checkValorTotal <font color="green">);</font>
+                    <span style="color: darkblue; font-weight: bold">function</span> checkValorotal<span style="color: green">(</span>fieldId<span style="color: green">,</span> newVal<span style="color: green">,</span> oldVal<span style="color: green">) {</span>
+                    <br> &nbsp&nbsp <span style="color: rgb(237, 252, 174)">//se um valor for alterado dentro da grade "ReciboLista":</span>
+                    <br> &nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>fieldId.<span style="color: darkred">search</span><span style="color: green">(/^\[ReciboLista\]/) ==</span> <span style="color: red">0</span><span style="color: green">) {</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//se a soma "valor" é maior que 500:</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#ReciboLista"</span><span style="color: green">)</span>.<span style="color: darkred">getSummary</span><span style="color: green">(</span><span style="color: blue">"valor"</span><span style="color: green">) >= </span><span style="color: red">500</span><span style="color: green">) {</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//altera a borda da grade "ReciboLista" para vermelho</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#ReciboLista"</span><span style="color: green">)</span>.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"div.pmdynaform-grid-tbody"</span><span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"border"</span><span style="color: green">,</span> <span style="color: blue">"1px solid red"</span><span style="color: green">);</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{</span>  <span style="color: rgb(237, 252, 174)">//retorna a grade para a cor da borda padrão</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#ReciboLista"</span><span style="color: green">)</span>.<span style="color: darkred">find</span>(<span style="color: blue">"div.pmdynaform-grid-tbody"</span><span style="color: green">)</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"border"</span><span style="color: green">,</span> <span style="color: blue">""</span><span style="color: green">);</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br> &nbsp&nbsp <span style="color: green">}</span>
+                    <br> <span style="color: green">}</span>
+                    <br> $<span style="color: green">(</span><span style="color: blue">"form"</span><span style="color: green">)</span>.<span style="color: darkred">setOnchange</span><span style="color: green">(</span> checkValorTotal <span style="color: green">);</span>
                 </codeblock>
 
                 <p>O método grid.getSummary() é usado para obter o total somado da coluna "valor" na grid "ReciboLista". A borda da grid está em um estilo <code>&lsaquo;div&rsaquo;</code>, cujo nome é <code>pmdynaform-grid-tbody</code>.</p>
@@ -791,13 +791,13 @@
                 <p>Uma grid e todos os controles dentro dela podem ser desabilitados com o seguinte código JavaScript:</p>
 
                 <codeblock>
-                    $('#<font color="blue">grid-id</font>').find("input,button,textarea,select").attr("disabled", true);
+                    $('#<span style="color: blue">grid-id</span>').find("input,button,textarea,select").attr("disabled", true);
                 </codeblock>
 
                 <p>Da mesma forma, todos os controles dentro de uma grid podem ser habilitados com o seguinte código:</p>
 
                 <codeblock>
-                    $('#<font color="blue">grid-id</font>').find("input,button,textarea,select").attr("enabled", true);
+                    $('#<span style="color: blue">grid-id</span>').find("input,button,textarea,select").attr("enabled", true);
                 </codeblock>
 
                 <p><strong>Exemplo: Desabilitar grid quando uma caixa de seleção estiver marcada:</strong></p>
@@ -808,17 +808,17 @@
 
                 </figure>
 
-                <p>Quando a caixa de seleção "disableGrid" está marcada, os controles da grid são desabilitados e, quando desmarcados, os controles da grid são habilitados. O código JavaScript a seguir usa o método <font color="skyblue">setOnchange()</font> para adicionar um manipulador de eventos de alteração à caixa de seleção "disableGrid" para habilitar ou desabilitar a grid:</p>
+                <p>Quando a caixa de seleção "disableGrid" está marcada, os controles da grid são desabilitados e, quando desmarcados, os controles da grid são habilitados. O código JavaScript a seguir usa o método <span style="color: skyblue">setOnchange()</span> para adicionar um manipulador de eventos de alteração à caixa de seleção "disableGrid" para habilitar ou desabilitar a grid:</p>
 
                 <codeblock>
-                    $<font color="green">(</font><font color="blue">"#disableGrid"</font><font color="green">)</font>.<font color="darkred">setOnchange</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">(</font>newVal<font color="green">,</font> oldVal<font color="green">) {</font>
-                    <br> &nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>newVal <font color="green">==</font> <font color="blue">'["1"]'</font><font color="green">) {</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"input,button,textarea,select"</font><font color="green">)</font>.<font color="darkred">attr</font>(<font color="blue">"disabled"</font><font color="green">,</font> <font color="darkblue"><strong>true</strong></font><font color="green">);</font>
-                    <br> &nbsp&nbsp <font color="green">}</font>
-                    <br> &nbsp&nbsp <font color="darkblue"><strong>else</strong></font> <font color="green">{</font>
-                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"input,button,textarea,select"</font><font color="green">)</font>.<font color="darkred">attr</font>(<font color="blue">"disabled"</font><font color="green">,</font> <font color="darkblue"><strong>false</strong></font><font color="green">);</font>
-                    <br> &nbsp&nbsp <font color="green">}</font>
-                    <br> <font color="green">});</font>
+                    $<span style="color: green">(</span><span style="color: blue">"#disableGrid"</span><span style="color: green">)</span>.<span style="color: darkred">setOnchange</span><span style="color: green">(</span> <span style="color: darkblue; font-weight: bold">function</span><span style="color: green">(</span>newVal<span style="color: green">,</span> oldVal<span style="color: green">) {</span>
+                    <br> &nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>newVal <span style="color: green">==</span> <span style="color: blue">'["1"]'</span><span style="color: green">) {</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"input,button,textarea,select"</span><span style="color: green">)</span>.<span style="color: darkred">attr</span>(<span style="color: blue">"disabled"</span><span style="color: green">,</span> <span style="color: darkblue; font-weight: bold">true</span><span style="color: green">);</span>
+                    <br> &nbsp&nbsp <span style="color: green">}</span>
+                    <br> &nbsp&nbsp <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{</span>
+                    <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"input,button,textarea,select"</span><span style="color: green">)</span>.<span style="color: darkred">attr</span>(<span style="color: blue">"disabled"</span><span style="color: green">,</span> <span style="color: darkblue; font-weight: bold">false</span><span style="color: green">);</span>
+                    <br> &nbsp&nbsp <span style="color: green">}</span>
+                    <br> <span style="color: green">});</span>
                 </codeblock>
 
                 <p><strong>Exemplo: desabilitar linhas existentes em uma grid, mas permitir novas linhas</strong></p>
@@ -826,16 +826,16 @@
                 <p>A grid "listaCliente" do exemplo anterior permite que novas linhas sejam adicionadas à grid, mas não permite que as linhas existentes sejam editadas ou excluídas. Quando o Formulário Dinâmico é carregado, ele verifica apropriedade <code>data</code> da grid. Se for igual a uma matriz vazia, então é uma grid vazia, portanto não desabilita a primeira linha da grid, que é criada por padrão. Caso contrário, o código desabilita as linhas existentes e adiciona uma nova linha no final da grid que o usuário pode editar.</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>var</strong></font> oGrid <font color="green">=</font> $<font color="green">(</font><font color="blue">'#listaCliente'</font><font color="green">);</font> //definir o ID da grid
+                    <span style="color: darkblue; font-weight: bold">var</span> oGrid <span style="color: green">=</span> $<span style="color: green">(</span><span style="color: blue">'#listaCliente'</span><span style="color: green">);</span> //definir o ID da grid
                     <br>
-                    <br> <font color="rgb(237, 252, 174)">//se não for uma grid vazia:</font>
-                    <br> <font color="rgb(237, 252, 174)">//(precisa converter para string JSON porque não é possível comparar duas matrizes)</font>
-                    <br> <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>JSON.<font color="darkred">stringify</font><font color="green">(</font>oGrid.<font color="darkred">getInfo</font><font color="green">()</font>.<font color="darkred">data</font><font color="green">) !=</font> <font color="blue">'[]'</font><font color="green">) {</font>
-                    <br>&nbsp&nbsp <font color="rgb(237, 252, 174)">//desativa todos os campos em todas as linhas existentes:</font>
-                    <br>&nbsp&nbsp oGrid.<font color="darkred">find</font><font color="green">(</font><font color="blue">"input,button,textarea,select"</font><font color="green">)</font>.<font color="darkred">attr</font><font color="green">(</font><font color="blue">"disabled"</font><font color="green">,</font> <font color="darkblue"><strong>true</strong></font><font color="green">);</font>
-                    <br>&nbsp&nbsp <font color="rgb(237, 252, 174)">//adiciona uma linha vazia no final que não está desabilitada:</font>
-                    <br>&nbsp&nbsp oGrid.<font color="darkred">addRow</font><font color="green">();</font>
-                    <font color="green">}</font>
+                    <br> <span style="color: rgb(237, 252, 174)">//se não for uma grid vazia:</span>
+                    <br> <span style="color: rgb(237, 252, 174)">//(precisa converter para string JSON porque não é possível comparar duas matrizes)</span>
+                    <br> <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>JSON.<span style="color: darkred">stringify</span><span style="color: green">(</span>oGrid.<span style="color: darkred">getInfo</span><span style="color: green">()</span>.<span style="color: darkred">data</span><span style="color: green">) !=</span> <span style="color: blue">'[]'</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//desativa todos os campos em todas as linhas existentes:</span>
+                    <br>&nbsp&nbsp oGrid.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"input,button,textarea,select"</span><span style="color: green">)</span>.<span style="color: darkred">attr</span><span style="color: green">(</span><span style="color: blue">"disabled"</span><span style="color: green">,</span> <span style="color: darkblue; font-weight: bold">true</span><span style="color: green">);</span>
+                    <br>&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//adiciona uma linha vazia no final que não está desabilitada:</span>
+                    <br>&nbsp&nbsp oGrid.<span style="color: darkred">addRow</span><span style="color: green">();</span>
+                    <span style="color: green">}</span>
                 </codeblock>
 
             <h2 id="item5g">Obtendo linhas de grid</h2>
@@ -843,21 +843,21 @@
                 <p>Cada linha dentro de uma grid é colocada dentro de uma <code>&lsaquo;div&rsaquo;</code> com classe "pmdynaform-grid-row". Uma matriz das linhas em uma grid pode ser obtida com o seguinte código:</p>
 
                 <codeblock>
-                    $('#<font color="blue">grid-id</font>').find("pmdynaform-grid-row")
+                    $('#<span style="color: blue">grid-id</span>').find("pmdynaform-grid-row")
                 </codeblock>
 
                 <p>O objeto DOM para o div que contém uma linha de grid especificada pode ser obtido com:</p>
 
                 <codeblock>
-                    $('#<font color="blue">grid-id</font>').find("pmdynaform-grid-row")[<font color="blue">row-number</font>]
+                    $('#<span style="color: blue">grid-id</span>').find("pmdynaform-grid-row")[<span style="color: blue">row-number</span>]
                 </codeblock>
 
-                <p>Onde <code><font color="blue">row-number</font></code> é 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
+                <p>Onde <code><span style="color: blue">row-number</span></code> é 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
 
-                <p>Este objeto DOM pode ser convertido em um objeto jQuery colocando-o em: <code><font color="blue">$(DOMobject)</font></code></p>
+                <p>Este objeto DOM pode ser convertido em um objeto jQuery colocando-o em: <code><span style="color: blue">$(DOMobject)</span></code></p>
 
                 <codeblock>
-                    $($('#<font color="blue">grid-id</font>').find("pmdynaform-grid-row")[<font color="blue">row-number</font>])
+                    $($('#<span style="color: blue">grid-id</span>').find("pmdynaform-grid-row")[<span style="color: blue">row-number</span>])
                 </codeblock>
 
                 <p><strong>Exemplo: alterar a cor de fundo das linhas</strong></p>
@@ -865,22 +865,22 @@
                 <p>Usando a grid "listaCliente" do exemplo anterior, o código a seguir define a cor de fundo para vermelho de cada linha cujo campo <code>"nome"</code> está vazio:</p>
 
                 <codeblock>
-                    var gridId = 'listaCliente'; //definido para o ID da grade
-                    function setEmptyRowsToRed() {
-                    <br>&nbsp&nbsp&nbsp&nbsp var aGridVals = $('#'+gridId).getValue();
-                    <br>&nbsp&nbsp&nbsp&nbsp //percorre a grade e verifica se o campo "nome" está vazio em cada linha
-                    <br>&nbsp&nbsp&nbsp&nbsp for (i = 1; i <= aGridVals.length; i++) {
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp if ($("#form\\["+gridId+"\\]\\["+i+"\\]\\[nome\\]").val() == "") {
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp //subtrai 1 porque o array começa a contar do zero, não um.
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $($("#"+gridId).find("div.pmdynaform-grid-row")[i-1]).css("background-color", "red");
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }
-                    <br>&nbsp&nbsp&nbsp&nbsp }
-                    <br>}
+                    <span style="color: darkblue; font-weight: bold">var</span> gridId <span style="color: green">=</span> <span style="color: blue">'listaCliente'</span><span style="color: green">;</span> <span style="color: rgb(237, 252, 174">//definido para o ID da grade</span>
+                    <br><span style="color: darkblue; font-weight: bold">function</span> setEmptyRowsToRed<span style="color: green">() {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">var</span> aGridVals <span style="color: green">=</span> $<span style="color: green">(</span><span style="color: blue">'#'</span>+gridId<span style="color: green">)</span>.<span style="color: darkred">getValue</span><span style="color: green">();</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174">//percorre a grid e verifica se o campo "nome" está vazio em cada linha</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span>i<span style="color: green"> =</span> 1<span style="color: green">;</span> i <span style="color: green"><=</span> aGridVals.<span style="color: darkred">length</span><span style="color: green">;</span> i<span style="color: green">++) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#form<span style="color: darkblue; font-weight: bold">\\</span>["</span><span style="color: green">+</span>gridId<span style="color: green">+</span><span style="color: blue">"<strong>\\</strong>]<strong>\\</strong>["</span><span style="color: green">+</span><span style="color: blue">i</span><span style="color: green">+</span><span style="color: blue">"<span style="color: darkblue; font-weight: bold">\\</span>]<span style="color: darkblue; font-weight: bold">\\</span>[nome<span style="color: darkblue; font-weight: bold">\\</span>]"</span><span style="color: green">)</span>.<span style="color: darkred">val</span><span style="color: green">() ==</span> <span style="color: blue">""</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174">//subtrai 1 porque a matriz começa a contar do zero, não um.</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#"</span><span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">find</span><span style="color: green">(</span>"div.pmdynaform-grid-row"<span style="color: green">)[</span>i<span style="color: green">-</span>1<span style="color: green">])</span>.<span style="color: darkred">css</span><span style="color: green">(</span><span style="color: blue">"background-color"</span><span style="color: green">,</span> <span style="color: blue">"red"</span><span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br><span style="color: green">}</span>
                     <br>//executa quando o valor no formulário muda:
-                    <br>$("form").setOnchange( function (fieldId, newVal, oldVal) {
-                    <br>&nbsp&nbsp&nbsp setEmptyRowsToRed();
-                    <br>});
-                    setEmptyRowsToRed(); //executa quando o Formulário Dinâmico carrega
+                    <br>$<span style="color: green">(</span><span style="color: blue">"form"</span><span style="color: green">)</span>.<span style="color: darkred">setOnchange</span><span style="color: green">(</span> <span style="color: darkblue; font-weight: bold">function</span> <span style="color: green">(</span>fieldId<span style="color: green">,</span> newVal<span style="color: green">,</span> oldVal<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp setEmptyRowsToRed<span style="color: green">();</span>
+                    <br><span style="color: green">});</span>
+                    setEmptyRowsToRed<span style="color: green">();</span> <span style="color: rgb(237, 252, 174">//executa quando o Formulário Dinâmico carrega</span>
                 </codeblock>
                                 
             <h2 id="item5h">Desativando linhas de grid</h2>
@@ -888,86 +888,86 @@
                 <p>Os controles dentro de uma linha de grid especificada podem ser desabilitados com o seguinte código JavaScript:</p>
 
                 <codeblock>
-                    $($('#<font color="blue">grid-id</font>').find("div.pmdynaform-grid-row")[<font color="blue">row-number</font>]).find("input,button,textarea,select").attr("disabled", true)
+                    $($('#<span style="color: blue">grid-id</span>').find("div.pmdynaform-grid-row")[<span style="color: blue">row-number</span>]).find("input,button,textarea,select").attr("disabled", true)
                 </codeblock>
 
-                <p>Onde <code><font color="blue">row-number</font></code> é 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
+                <p>Onde <code><span style="color: blue">row-number</span></code> é 0 para a primeira linha, 1 para a segunda linha, 2 para a terceira linha, etc.</p>
 
                 <p><strong>Exemplo:</strong></p>
 
                 <p>A grid "listaCliente" do exemplo anterior tem um campo oculto com o ID "disableRow" em cada linha. O conteúdo desta grid é definido pelo seguinte código de gatilho que foi executado antes do Formulário Dinâmico:</p>
 
                 <codeblock>
-                    <font color="green">@=</font>listaCliente <font color="green">=</font> <font color="darkred">array</font><font color="green">(</font>
-                    <br>&nbsp&nbsp&nbsp <font color="magenta">1</font> <font color="green">=></font> <font color="darkred">array</font><font color="green">(</font>'name'<font color="green">=></font><font color="blue">'João Silva'</font><font color="green">,</font>  <font color="blue">'disableRow'</font><font color="green">=></font><font color="blue">'yes'</font><font color="green">),</font>
-                    <br>&nbsp&nbsp&nbsp <font color="magenta">2</font> <font color="green">=></font> <font color="darkred">array</font><font color="green">(</font>'name'<font color="green">=></font><font color="blue">'Suely Oliveira'</font><font color="green">,</font> <font color="blue">'disableRow'</font><font color="green">=></font><font color="blue">'no'</font><font color="green">),</font>
-                    <br>&nbsp&nbsp&nbsp <font color="magenta">3</font> <font color="green">=></font> <font color="darkred">array</font><font color="green">(</font>'name'<font color="green">=></font><font color="blue">'Maria Moreira'</font><font color="green">,</font>  <font color="blue">'disableRow'</font><font color="green">=></font><font color="blue">'yes'</font><font color="green">)</font>
-                    <br><font color="green">);</font>
+                    <span style="color: green">@=</span>listaCliente <span style="color: green">=</span> <span style="color: darkred">array</span><span style="color: green">(</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: magenta">1</span> <span style="color: green">=></span> <span style="color: darkred">array</span><span style="color: green">(</span>'name'<span style="color: green">=></span><span style="color: blue">'João Silva'</span><span style="color: green">,</span>  <span style="color: blue">'disableRow'</span><span style="color: green">=></span><span style="color: blue">'yes'</span><span style="color: green">),</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: magenta">2</span> <span style="color: green">=></span> <span style="color: darkred">array</span><span style="color: green">(</span>'name'<span style="color: green">=></span><span style="color: blue">'Suely Oliveira'</span><span style="color: green">,</span> <span style="color: blue">'disableRow'</span><span style="color: green">=></span><span style="color: blue">'no'</span><span style="color: green">),</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: magenta">3</span> <span style="color: green">=></span> <span style="color: darkred">array</span><span style="color: green">(</span>'name'<span style="color: green">=></span><span style="color: blue">'Maria Moreira'</span><span style="color: green">,</span>  <span style="color: blue">'disableRow'</span><span style="color: green">=></span><span style="color: blue">'yes'</span><span style="color: green">)</span>
+                    <br><span style="color: green">);</span>
                 </codeblock>
 
                 <p>Em seguida, o código JavaScript a seguir é adicionado ao formulário dinâmico que contém a grid "listaCliente". Ele percorre cada linha quando o Formulário Dinâmico carrega e desativa qualquer linha cujo campo "disableRow" esteja definido como <code>"yes"</code>:</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>var</strong></font> gridId <font color="green">=</font> <font color="blue">'listaCliente'</font><font color="green">;</font> <font color="rgb(237, 252, 174">//definir o ID da grid</font>
-                    <br> <font color="darkblue"><strong>var</strong></font> aRows <font color="green">=</font> $<font color="green">(</font><font color="blue">"#"</font><font color="green">+</font>gridId<font color="green">)</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"div.pmdynaform-grid-row"</font><font color="green">);</font>
-                    <br> <font color="darkblue"><strong>var</strong></font> aGridVals <font color="green">=</font> $<font color="green">(</font>'#'<font color="green">+</font>gridId<font color="green">)</font>.<font color="darkred">getValue</font><font color="green">();</font>
-                    <br> <font color="rgb(237, 252, 174">//percorre a grid e verifica se o campo "disableRow" é igual a "yes" em cada linha</font>
-                    <br> <font color="darkblue"><strong>for</strong></font> <font color="green">(</font>i <font color="green">=</font> <font color="red">1</font><font color="green">;</font> i <font color="green"><=</font> aGridVals.<font color="darkred">length</font><font color="green">;</font> i<font color="green">++) {</font>
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font>$<font color="green">(</font><font color="blue">"#form</font><font color="darkblue"><strong>\\</strong></font><font color="blue">[</font>"<font color="green">+</font>gridId<font color="green">+</font>"<font color="darkblue"><strong>\\</strong></font><font color="blue">]</font><font color="darkblue"><strong>\\</strong></font><font color="blue">[</font>"<font color="green">+</font>i<font color="green">+</font>"<font color="darkblue"><strong>\\</strong></font><font color="blue">]</font><font color="darkblue"><strong>\\</strong></font>[<font color="blue">disableRow</font><font color="darkblue"><strong>\\</strong></font><font color="blue">]</font>"<font color="green">)</font>.<font color="darkred">val</font><font color="green">() ==</font> <font color="blue">"yes"</font><font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="rgb(237, 252, 174">//subtrai 1 porque o array começa a contar de zero, não de um.</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<font color="green">(</font>aRows<font color="green">[</font>i<font color="green">-</font><font color="red">1</font><font color="green">])</font>.<font color="darkred">find</font><font color="green">(</font><font color="blue">"input,button,textarea,select"</font><font color="green">)</font>.<font color="darkred">attr</font><font color="green">(</font><font color="blue">"disabled"</font><font color="green">,</font> <font color="darkblue"><strong>true</strong></font><font color="green">)</font>
-                    <br>&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br><font color="green">}</font>
+                    <span style="color: darkblue; font-weight: bold">var</span> gridId <span style="color: green">=</span> <span style="color: blue">'listaCliente'</span><span style="color: green">;</span> <span style="color: rgb(237, 252, 174">//definir o ID da grid</span>
+                    <br> <span style="color: darkblue; font-weight: bold">var</span> aRows <span style="color: green">=</span> $<span style="color: green">(</span><span style="color: blue">"#"</span><span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"div.pmdynaform-grid-row"</span><span style="color: green">);</span>
+                    <br> <span style="color: darkblue; font-weight: bold">var</span> aGridVals <span style="color: green">=</span> $<span style="color: green">(</span>'#'<span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">getValue</span><span style="color: green">();</span>
+                    <br> <span style="color: rgb(237, 252, 174">//percorre a grid e verifica se o campo "disableRow" é igual a "yes" em cada linha</span>
+                    <br> <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span>i <span style="color: green">=</span> <span style="color: red">1</span><span style="color: green">;</span> i <span style="color: green"><=</span> aGridVals.<span style="color: darkred">length</span><span style="color: green">;</span> i<span style="color: green">++) {</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#form</span><span style="color: darkblue; font-weight: bold">\\</span><span style="color: blue">[</span>"<span style="color: green">+</span>gridId<span style="color: green">+</span>"<span style="color: darkblue; font-weight: bold">\\</span><span style="color: blue">]</span><span style="color: darkblue; font-weight: bold">\\</span><span style="color: blue">[</span>"<span style="color: green">+</span>i<span style="color: green">+</span>"<span style="color: darkblue; font-weight: bold">\\</span><span style="color: blue">]</span><span style="color: darkblue; font-weight: bold">\\</span>[<span style="color: blue">disableRow</span><span style="color: darkblue; font-weight: bold">\\</span><span style="color: blue">]</span>"<span style="color: green">)</span>.<span style="color: darkred">val</span><span style="color: green">() ==</span> <span style="color: blue">"yes"</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174">//subtrai 1 porque o array começa a contar de zero, não de um.</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $<span style="color: green">(</span>aRows<span style="color: green">[</span>i<span style="color: green">-</span><span style="color: red">1</span><span style="color: green">])</span>.<span style="color: darkred">find</span><span style="color: green">(</span><span style="color: blue">"input,button,textarea,select"</span><span style="color: green">)</span>.<span style="color: darkred">attr</span><span style="color: green">(</span><span style="color: blue">"disabled"</span><span style="color: green">,</span> <span style="color: darkblue; font-weight: bold">true</span><span style="color: green">)</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br><span style="color: green">}</span>
                 </codeblock>
 
             <h2 id="item5i">Número máximo de linhas da grid</h2>
 
-                <p>Os métodos <font color="skyblue">grid.onAddRow()</font> e <font color="skyblue">grid.deleteRow()</font> podem ser usados para limitar o número máximo de linhas em uma grid. Se estiver usando o aplicativo Gestor Express, use <font color="skyblue">grid.onShowRowDialog()</font> em vez de <code>grid.onAddRow()</code>.</p>
+                <p>Os métodos <span style="color: skyblue">grid.onAddRow()</span> e <span style="color: skyblue">grid.deleteRow()</span> podem ser usados para limitar o número máximo de linhas em uma grid. Se estiver usando o aplicativo Gestor Express, use <span style="color: skyblue">grid.onShowRowDialog()</span> em vez de <code>grid.onAddRow()</code>.</p>
 
                 <p><strong>Exemplo:</strong></p>
 
                 <p>O código JavaScript a seguir limita uma grid cujo ID é "listaCliente" a um máximo de 5 linhas.</p>
 
                 <codeblock>
-                    var env <font color="green">=</font> PMDynaform.<font color="darkred">getEnvironment</font><font color="green">();</font>
+                    var env <span style="color: green">=</span> PMDynaform.<span style="color: darkred">getEnvironment</span><span style="color: green">();</span>
                     <br>//quando estiver usando o aplicativo Gestor Express:
-                    <br>if <font color="green">(</font>env <font color="green">==</font> "android" <font color="green">||</font> env <font color="green">==</font> "iOS"<font color="green">) {</font>
-                    <br>&nbsp&nbsp $<font color="green">(</font>"#listaCliente"<font color="green">)</font>.<font color="darkred">onShowRowDialog</font><font color="green">(</font> function<font color="green">(</font>aNewRow<font color="green">,</font> oGrid<font color="green">,</font> rowIndex<font color="green">,</font> rowModel<font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp if <font color="green">(</font>rowIndex <font color="green">></font> 5<font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp this.<font color="darkred">deleteRow</font><font color="green">(</font>rowIndex<font color="green">);</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br>&nbsp&nbsp <font color="green">});</font>
-                    <br><font color="green">}</font>
-                    <br>else <font color="green">{</font>
-                    <br>&nbsp&nbsp $<font color="green">(</font>"#listaCliente"<font color="green">)</font>.<font color="darkred">onAddRow</font><font color="green">(</font> function<font color="green">(</font>aNewRow<font color="green">,</font> oGrid<font color="green">,</font> rowIndex<font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp if <font color="green">(</font>rowIndex <font color="green">></font> 5<font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp this.<font color="darkred">deleteRow</font><font color="green">(</font>rowIndex<font color="green">);</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp <font color="green">}</font>
-                    <br>&nbsp&nbsp <font color="green">});</font>
-                    <br><font color="green">}</font>
+                    <br>if <span style="color: green">(</span>env <span style="color: green">==</span> "android" <span style="color: green">||</span> env <span style="color: green">==</span> "iOS"<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp $<span style="color: green">(</span>"#listaCliente"<span style="color: green">)</span>.<span style="color: darkred">onShowRowDialog</span><span style="color: green">(</span> function<span style="color: green">(</span>aNewRow<span style="color: green">,</span> oGrid<span style="color: green">,</span> rowIndex<span style="color: green">,</span> rowModel<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp if <span style="color: green">(</span>rowIndex <span style="color: green"></span> 5<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp this.<span style="color: darkred">deleteRow</span><span style="color: green">(</span>rowIndex<span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br>&nbsp&nbsp <span style="color: green">});</span>
+                    <br><span style="color: green">}</span>
+                    <br>else <span style="color: green">{</span>
+                    <br>&nbsp&nbsp $<span style="color: green">(</span>"#listaCliente"<span style="color: green">)</span>.<span style="color: darkred">onAddRow</span><span style="color: green">(</span> function<span style="color: green">(</span>aNewRow<span style="color: green">,</span> oGrid<span style="color: green">,</span> rowIndex<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp if <span style="color: green">(</span>rowIndex <span style="color: green"></span> 5<span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp this.<span style="color: darkred">deleteRow</span><span style="color: green">(</span>rowIndex<span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br>&nbsp&nbsp <span style="color: green">});</span>
+                    <br><span style="color: green">}</span>
                 </codeblock>
 
             <h2 id="item5j">Verificando se um número mínimo de linhas de grid</h2>
 
-                <p>O método <font color="skyblue">form.setOnSubmit()</font> pode ser usado para verificar se o usuário adicionou um número mínimo ou máximo de linhas a uma grid, antes de submeter um formulário dinâmico. O envio do formulário pode ser interrompido criando um manipulador de eventos que retorna <code>falso</code>. O método <font color="skyblue">grid.getNumberRows()</font> é usado para verificar quantas linhas há em uma grid.</p>
+                <p>O método <span style="color: skyblue">form.setOnSubmit()</span> pode ser usado para verificar se o usuário adicionou um número mínimo ou máximo de linhas a uma grid, antes de submeter um formulário dinâmico. O envio do formulário pode ser interrompido criando um manipulador de eventos que retorna <code>falso</code>. O método <span style="color: skyblue">grid.getNumberRows()</span> é usado para verificar quantas linhas há em uma grid.</p>
 
                 <p><strong>Exemplo:</strong></p>
 
                 <p>Uma grid com o ID "listaCliente" precisa ter no mínimo 3 linhas e no máximo 10 linhas. Se a lista de clientes tiver poucos ou muitos clientes, o código JavaScript a seguir exibirá uma mensagem para o usuário e interromperá a ação de envio retornando falso, para que o usuário tenha a chance de excluir ou adicionar linhas antes de enviar o formulário novamente.</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>var</strong></font> formId <font color="green">=</font> <font color="darkblue"><strong>$</strong></font><font color="green">(</font><font color="blue">"form"</font><font color="green">)</font>.<font color="darkred">prop</font><font color="green">(</font><font color="blue">"id"</font><font color="green">);</font>
-                    <br> getFormById<font color="green">(</font>formId<font color="green">)</font>.<font color="darkred">setOnSubmit</font><font color="green">(</font> <font color="darkblue"><strong>function</strong></font><font color="green">() {</font>
-                    <br>&nbsp&nbsp <font color="darkblue"><strong>if</strong></font> <font color="green">(</font><font color="darkblue"><strong>$</strong></font><font color="green">(</font><font color="blue">"#listaCliente</font><font color="green">)</font>.<font color="darkred">getNumberRows</font><font color="green">() <</font> <font color="red">3</font><font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">"Por favor, adicione pelo menos 3 clientes à lista"</font><font color="green">);</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>return false</strong></font><font color="green">;</font> <font color="rgb(237, 252, 174)">//para o envio do formulário</font>
-                    <br>&nbsp&nbsp <font color="green">}</font>
-                    <br>&nbsp&nbsp <font color="darkblue"><strong>else if</strong></font> <font color="green">(</font><font color="darkblue"><strong>$</strong></font>(<font color="blue">"#listaCliente</font><font color="green">)</font>.<font color="darkred">getNumberRows<font color="green">()</font></font> <font color="green">></font> <font color="red">10</font><font color="green">) {</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp alert<font color="green">(</font><font color="blue">"É permitido um máximo de 10 clientes.</font><font color="darkblue"><strong>\n</strong></font>"<font color="green">+</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <font color="blue">"Por favor, delete algumas linhas."</font><font color="green">);</font>
-                    <br>&nbsp&nbsp&nbsp&nbsp <font color="darkblue"><strong>return false</strong></font>; <font color="rgb(237, 252, 174)">//para o envio do formulário</font>
-                    <br>&nbsp&nbsp <font color="green">}</font>
-                    <br><font color="green">});</font>
+                    <span style="color: darkblue; font-weight: bold">var</span> formId <span style="color: green">=</span> <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"form"</span><span style="color: green">)</span>.<span style="color: darkred">prop</span><span style="color: green">(</span><span style="color: blue">"id"</span><span style="color: green">);</span>
+                    <br> getFormById<span style="color: green">(</span>formId<span style="color: green">)</span>.<span style="color: darkred">setOnSubmit</span><span style="color: green">(</span> <span style="color: darkblue; font-weight: bold">function</span><span style="color: green">() {</span>
+                    <br>&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span><span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"#listaCliente</span><span style="color: green">)</span>.<span style="color: darkred">getNumberRows</span><span style="color: green">() <</span> <span style="color: red">3</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp alert<span style="color: green">(</span><span style="color: blue">"Por favor, adicione pelo menos 3 clientes à lista"</span><span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">return false</span><span style="color: green">;</span> <span style="color: rgb(237, 252, 174)">//para o envio do formulário</span>
+                    <br>&nbsp&nbsp <span style="color: green">}</span>
+                    <br>&nbsp&nbsp <span style="color: darkblue; font-weight: bold">else if</span> <span style="color: green">(</span><span style="color: darkblue; font-weight: bold">$</span>(<span style="color: blue">"#listaCliente</span><span style="color: green">)</span>.<span style="color: darkred">getNumberRows<span style="color: green">()</span></span> <span style="color: green"></span> <span style="color: red">10</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp alert<span style="color: green">(</span><span style="color: blue">"É permitido um máximo de 10 clientes.</span><span style="color: darkblue; font-weight: bold">\n</span>"<span style="color: green">+</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: blue">"Por favor, delete algumas linhas."</span><span style="color: green">);</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp <span style="color:darkblue; font-weight: bold">return false</span>; <span style="color: rgb(237, 252, 174)">//para o envio do formulário</span>
+                    <br>&nbsp&nbsp <span style="color: green">}</span>
+                    <br><span style="color: green">});</span>
                 </codeblock>
 
 
@@ -975,97 +975,134 @@
 
                 <p>Para definir um número fixo de linhas em uma grid, primeiro desmarque as propriedades adicionar linha e excluir linha na grid, para que o usuário não possa adicionar e excluir linhas. Em seguida, crie um forloop que chame grid .addRow() para adicionar quantas linhas à grid forem necessárias. Lembre-se de que uma linha já existe por padrão.</p>
 
-                <p>Exemplo:</p>
+                <p><strong>Exemplo:</strong></p>
                 
                 <p>Se precisar de 5 linhas em uma grid cujo ID seja "listaCliente", o seguinte JavaScript adicionará 4 linhas adicionais à 1 linha existente quando o Formulário Dinâmico for carregado:</p>
 
                 <codeblock>
-                    <font color="darkblue"><strong>for</strong></font> <font color="green">(</font>i <font color="green">=</font> <font color="red">0</font><font color="green">;</font> i < <font color="red">4</font><font color="green">;</font> i<font color="green">++) {</font>
-                    <br>&nbsp&nbsp&nbsp <font color="darkblue"><strong>$</strong></font><font color="green">(</font><font color="blue">"#listaCliente"</font><font color="green">)</font>.<font color="darkred">addRow</font><font color="green">();</font>
-                    <br> <font color="green">}</font>
+                    <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span>i <span style="color: green">=</span> <span style="color: red">0</span><span style="color: green">;</span> i < <span style="color: red">4</span><span style="color: green">;</span> i<span style="color: green">++) {</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">addRow</span><span style="color: green">();</span>
+                    <br> <span style="color: green">}</span>
                 </codeblock>
 
-                <p>Se a grid já estiver preenchida, o código a seguir usa <font color="skyblue">grid.getNumberRows()</font> para verificar quantas linhas precisam ser adicionadas ou excluídas para obter um total de 5 linhas. Em seguida, ele chama <font color="skyblue">grid.addRow()</font> ou <font color="skyblue">grid.deleteRow()</font> repetidamente para obter 5 linhas na grid:</p>
+                <p>Se a grid já estiver preenchida, o código a seguir usa <span style="color: skyblue">grid.getNumberRows()</span> para verificar quantas linhas precisam ser adicionadas ou excluídas para obter um total de 5 linhas. Em seguida, ele chama <span style="color: skyblue">grid.addRow()</span> ou <span style="color: skyblue">grid.deleteRow()</span> repetidamente para obter 5 linhas na grid:</p>
 
                 <codeblock>
-                    var nRowsNeeded = 5 - $("#clientsList").getNumberRows();
-                    <br> if (nRowsNeeded > 0) {
-                    <br>&nbsp&nbsp&nbsp for (i=0; i < nRowsNeeded; i++) {
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#clientsList").addRow();
-                    <br>&nbsp&nbsp&nbsp }
-                    <br> }
-                    <br> else if (nRowsNeeded < 0) {
-                    <br>&nbsp&nbsp&nbsp for (i=0; i > nRowsNeeded; i--) {
-                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp $("#clientsList").deleteRow();
-                    <br>&nbsp&nbsp&nbsp }
-                    <br> }
+                    <span style="color: darkblue; font-weight: bold">var</span> nRowsNeeded <span style="color: green">=</span> <span style="color: red">5</span> <span style="color: green">-</span> <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">getNumberRows</span><span style="color: green">();</span>
+                    <br> <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>nRowsNeeded <span style="color: green"></span> <span style="color: red">0</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span>i<span style="color: green">=</span><span style="color: red">0</span><span style="color: green">;</span> i <span style="color: green"><</span> nRowsNeeded<span style="color: green">;</span> i<span style="color: green">++) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">addRow</span><span style="color: green">();</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br> <span style="color: green">}</span>
+                    <br> <span style="color: darkblue; font-weight: bold">else if</span> <span style="color: green">(</span>nRowsNeeded <span style="color: green"><</span> <span style="color: red">0</span><span style="color: green">) {</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">for</span><span style="color: green">(</span>i<span style="color: green">=</span><span style="color: red">0</span><span style="color: green">;</span> i <span style="color: green"></span> nRowsNeeded<span style="color: green">;</span> i<span style="color: green">--) {</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span><span style="color: blue">"#listaCliente"</span><span style="color: green">)</span>.<span style="color: darkred">deleteRow</span><span style="color: green">();</span>
+                    <br>&nbsp&nbsp&nbsp <span style="color: green">}</span>
+                    <br> <span style="color: green">}</span>
                 </codeblock>
 
             <h2 id="item5l">Limpando uma grid</h2>
 
-                <p>Se precisar limpar uma grid, todas as linhas na grid podem ser excluídas fazendo um loop pelas linhas na grid e chamando o método grid .deleteRow() para cada linha. A primeira linha nas grids, no entanto, não pode ser excluída, portanto, é necessário percorrer os campos na primeira linha e definir seus valores para ""(string vazia).</p>
-                <p>O exemplo de JavaScript a seguir define a clearGrid()função para limpar o conteúdo de uma grid especificada. Neste exemplo, uma grid com o ID "clientsList" precisa ser limpa quando um botão personalizado com o ID "emptyGrid" é clicado. O exemplo de código cria umclique no manipulador de eventos para o botão "emptyGrid" que chama a clearGrid()função.</p>
-                <p>function clearGrid ( gridId ) {</p>
-                <p>   var nRow = $ ( "#" + gridId ) . getNumberRows ( ) ;</p>
-                <p>   for ( ; nRow >= 1 ; nRow -- ) {</p>
-                <p>      //Não é possível excluir a primeira linha, então limpe todos os seus campos</p>
-                <p>      if ( nRow == 1 ) {</p>
-                <p>         var aCols = $ ( "#" + gridId ) . obterInformações () . colunas ;</p>
-                <p>         for ( nField in aCols ) {</p>
-                <p>            var val = '' ;</p>
-                <p>            if ( aCols [ nField ] . type == 'checkbox' ) {</p>
-                <p>               val = "0" ;</p>
-                <p>            }</p>
-                <p>            //solução para limpar os campos de data. Veja: https://Gestor Express.atlassian.net/browse/TRI-1280</p>
-                <p>            if ( aCols [ nField ] . type == 'datetime' ) {</p>
-                <p>               var gridFieldId= 'form[' + gridName + '][1][' + aCols [ nField ] . identificação ;</p>
-                <p>               $ ( "[id='" + gridFieldId + "]']" ) . valor ( ' ) ;</p>
-                <p>               $ ( "[id='" + gridFieldId + "_label]']" ) . valor ( ' ) ;</p>
-                <p>            }</p>
-                <p>            else if ( aCols [ nField ] . 'link' ) {</p>
-                <p>               $ ( "#" + gridId ) . setValue ( val , 1 , parseInt ( nField ) + 1 ) ;</p>
-                <p>            }</p>
-                <p>         }</p>
-                <p>      }</p>
-                <p>      else {</p>
-                <p>         $ ( "#" + gridId ) . deleteRow ( nRow ) ;</p>
-                <p>      }      </p>
-                <p>   }</p>
-                <p>}</p>
-                <p>$ ( "#emptyGrid" ) . clique ( função ( ) {</p>
-                <p>   clearGrid ( "clientsList" ) ;</p>
-                <p>} ) ;</p>
-                <p>PHP em grids</p>
-                <p>Quando é submetido um formulário dinâmico que contém um campo de grid, a variável case relacionada à grid contém um array associativo de arrays associativos. A matriz associativa externa tem chaves que começam a contar a partir do número 1 (não 0 como uma matriz normal). Cada linha na grid é armazenada como uma matriz associativa interna onde os nomes dos campos da grid são os IDs definidos no designer para cada controle dentro da grid e os dados inseridos são os valores.</p>
-                <p>Preenchendo grids inteiras</p>
-                <p>Uma nova grid pode ser preenchida atribuindo uma matriz associativa de matrizes associativas à variável case da grid.</p>
-                <p>Por exemplo, para preencher uma grid chamada "EmployeesGrid" com os campos "Nome", "Salary" e "HireDate":</p>
-                <p>@= EmployeesGrid = array (</p>
-                <p>   '1' => array ( 'Name' => 'John Doe' , 'Salary' => 22525.99 , 'HireDate' => '2012-12-31' ) ,</p>
-                <p>   '2' => array ( 'Nome' => 'Jane Roe' , 'Salary' => 40.000,00 , 'HireDate' => '1997-06-01' ) ,</p>
-                <p>   '3' => array ( 'Nome' =>'Jill Hill' , 'Salário' =>33600.10 , 'Data de Contratação' => '2008-01-25' )</p>
-                <p>) ;</p>
-                <p>Preenchendo grids usando uma consulta de banco de dados</p>
+                <p>Se precisar limpar uma grid, todas as linhas na grid podem ser excluídas fazendo uma busca pelas linhas e chamando o método grid.deleteRow() para cada linha. A primeira linha nas grids, no entanto, não pode ser excluída, portanto, é necessário percorrer os campos na primeira linha e definir seus valores para <code>""</code> (string vazia).</p>
+
+                <p>O exemplo de JavaScript a seguir define a função <code>clearGrid()</code> para limpar o conteúdo de uma grid especificada. Neste exemplo, uma grid com o ID "listaCliente" precisa ser limpa quando um botão personalizado com o ID "limpaGrid" é clicado. O exemplo de código cria um clique no manipulador de eventos para o botão "limpaGrid" que chama a função <code>clearGrid()</code>.</p>
+
+                <codeblock>
+                    <span style="color: darkblue; font-weight: bold">function</span> clearGrid<span style="color: green">(</span>gridId<span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">var</span> nRow = <span style="color: darkblue; font-weight: bold">$</span>("#"+gridId).<span style="color: darkred">getNumberRows</span><span style="color: green">();</span>
+                    <br>&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(;</span> nRow <span style="color: green">>=</span> <span style="color:red">1</span>; nRow--<span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: olivedrab">//Não é possível excluir a primeira linha, então limpe todos os seus campos</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>nRow <span style="color: green">==</span> <span style="color:red">1</span><span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">var</span> aCols <span style="color: green">=</span> <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span>"#"<span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">getInfo</span><span style="color: green">()</span>.<span style="color: darkred">columns</span><span style="color: green">;</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">for</span> <span style="color: green">(</span>nField <span style="color: darkblue; font-weight: bold">in</span> aCols<span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">var</span> val <span style="color: green">=</span> ''<span style="color: green">;</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>aCols<span style="color: green">[</span>nField<span style="color: green">]</span>.<span style="color: darkred">type</span> <span style="color: green">==</span> 'checkbox'<span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; val = "0";
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: olivedrab">//solução para limpar os campos de data.</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">if</span> (aCols[nField].<span style="color: darkred">type</span> == 'datetime'<span style="color: green">) {</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">var</span> gridFieldId <span style="color: green">=</span> 'form[' <span style="color: green">+</span> gridName <span style="color: green">+</span> '][1][' <span style="color: green">+</span> aCols[nField].id<span style="color: green">;</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span>"[id<span style="color: green">=</span>'"<span style="color: green">+</span>gridFieldId<span style="color: green">+</span>"]']"<span style="color: green">)</span>.val<span style="color: green">(</span>''<span style="color: green">);</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span>"[id<span style="color: green">=</span>'"<span style="color: green">+</span>gridFieldId<span style="color: green">+</span>"_label]']"<span style="color: green">)</span>.val<span style="color: green">(</span>''<span style="color: green">);</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: green">}</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">else if</span> <span style="color: green">(</span>aCols[nField].<span style="color: darkred">type</span> <span style="color: green">!=</span> 'link'<span style="color: green"><span style="color: green">) {</span></span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">$</span><span style="color: green">(</span>"#"<span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">setValue</span><span style="color: green">(</span>val<span style="color: green">,</span> 1<span style="color: green">,</span> parseInt<span style="color: green">(</span>nField<span style="color: green">)+</span>1<span style="color: green">);</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: green">}</span>
+                    <br>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: green">}</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: green">}</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: darkblue; font-weight: bold">else</span> <span style="color: green">{</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $<span style="color: green">(</span>"#"<span style="color: green">+</span>gridId<span style="color: green">)</span>.<span style="color: darkred">deleteRow</span><span style="color: green">(</span>nRow<span style="color: green">);</span>
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: green">}</span>
+                    <br>&nbsp; <span style="color: green">}</span>
+                    <br> <span style="color: green">}</span>
+                    <br>
+                    <br> $<span style="color: green">(</span>"#emptyGrid"<span style="color: green">)</span>.click<span style="color: green">(</span> function<span style="color: green">() {</span>
+                    <br>&nbsp; &nbsp; &nbsp;clearGrid("clientsList"<span style="color: green">);</span>
+                    <br> <span style="color: green">} )</span>;
+                </codeblock>
+
+
+            <h1 id="item6">PHP em grids</h1>
+
+                <p>Quando um formulário dinâmico que contém um campo de grid é submetido, a variável de caso relacionada à grid contém uma matriz associativa de matrizes associativas. A matriz associativa externa tem chaves que começam a contar a partir do número 1 (não 0 como uma matriz normal). Cada linha na grid é armazenada como uma matriz associativa interna onde os nomes dos campos da grid são os IDs definidos no modelo para cada controle dentro da grid e os dados inseridos são os valores.</p>
+
+            <h2 id="item6a">Preenchendo grids inteiras</h2>
+
+                <p>Uma nova grid pode ser preenchida atribuindo uma matriz associativa de matrizes associativas à variável de caso da grid.</p>
+
+                <p>Por exemplo, para preencher uma grid chamada "gridEmpregado" com os campos "Nome", "Salario" e "DataRegistro":</p>
+                
+                <codeblock>
+                    <span style="color: #339933;">@=</span>gridEmpregado <span style="color: #339933;">=</span> <a href="http://php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><br />
+                    &nbsp; &nbsp;<span style="color: #0000ff;">'1'</span> <span style="color: #339933;">=&gt;</span> <a href="http://php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Nome'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'João Silva'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Salario'</span><span style="color: #339933;">=&gt;</span><span style="color:#800080;">22525.99</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'DataRegistro'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'31-12-2012'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp;<span style="color: #0000ff;">'2'</span> <span style="color: #339933;">=&gt;</span> <a href="http://php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Nome'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'Mara Sales'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Salario'</span><span style="color: #339933;">=&gt;</span><span style="color:#800080;">40000.00</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'DataRegistro'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'01-06-1997'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp;<span style="color: #0000ff;">'3'</span> <span style="color: #339933;">=&gt;</span> <a href="http://php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Nome'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'Nilo Ruson'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'Salario'</span><span style="color: #339933;">=&gt;</span><span style="color:#800080;">33600.10</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'DataRegistro'</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">'25-01-2008'</span><span style="color: #009900;">&#41;</span><br />
+                    <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+
+            <h2 id="item6b">Preenchendo grids usando uma consulta de banco de dados</h2>
+
                 <p>Uma grid também pode ser preenchida por uma consulta de banco de dados, uma vez que instruções SELECT com executeQuery() retornam registros como uma matriz de matrizes associativas, que é o mesmo formato usado por grids. Desde que o banco de dados tenha os mesmos nomes de campo que os nomes de campo da grid, os dados serão exibidos corretamente na grid. Lembre-se de que os nomes de campo diferenciam maiúsculas de minúsculas.</p>
-                <p>Por exemplo, os valores no "EmployeesGrid" podem ser definidos consultando uma tabela chamada Employees que também possui os campos Name, Salary e HireDate.</p>
-                <p>$query = 'SELECT Nome, Salário, Data de Contratação FROM Funcionários' ;</p>
-                <p>$resultado = executeQuery ( $query ) ;</p>
-                <p>if ( is_array ( $ resultado ) e contagem ( $ resultado ) > 0 )</p>
-                <p>    @= EmployeesGrid = $ resultado ;</p>
-                <p>Geralmente, as colunas da grid devem ter o mesmo ID que as colunas da tabela de onde os dados serão recuperados. Se o banco de dados usar nomes de campo diferentes dos nomes de campo da grid, use AS para renomear os campos. Por exemplo, se um banco de dados externo com a tabela EMPLOYEES contiver os campos FULL_NAME, STARTING_SALARY e HIRE_DATE, esses campos poderão ser renomeados para corresponder aos nomes dos campos no “EmployeesGrid”:</p>
-                <p>$query = 'SELECT FULL_NAME AS Nome, STARTING_SALARY AS Salário HIRE_DATE as HireDate FROM EMPLOYEES' ;</p>
-                <p>$resultado = executeQuery ( $query ) ;</p>
-                <p>if ( is_array ( $ resultado ) e contagem ( $ resultado ) > 0 )</p>
-                <p>   @= EmployeesGrid = $ resultado ;</p>
-                <p>Exibindo informações de casos em grids</p>
-                <p>A tabela APP_CACHE_VIEW no banco de dados contém informações sobre casos, que são usadas para gerar a lista de casos no menu inicial . Cada registro nesta tabela contém informações sobre uma tarefa em um caso, que foi atribuída a um usuário. Este exemplo mostra como criar um formulário dinâmico para pesquisar a tabela APP_CACHE_VIEW e exibir informações sobre as tarefas em uma grid. Os gerentes podem usar essas informações para avaliar quão bem os trabalhadores estão realizando suas tarefas. Este exemplo também mostra como executar um acionador clicando no botão enviar e, em seguida, usar um acionador que preenche uma grid e retorna ao formulário dinâmico para exibi-lo novamente com a grid preenchida.</p>
+
+                <p>Por exemplo, os valores no "gridEmpregado" podem ser definidos consultando uma tabela chamada Empregados que também possui os campos Nome, Salario e DataRegistro.</p>
+
+                <codeblock>
+                    <span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'SELECT Nome, Salario, DataRegistro FROM Empregados'</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">is_array</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #990000;">count</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">&gt;</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">&#41;</span><br />
+                    &nbsp; &nbsp; <span style="color: #339933;">@=</span>gridEmpregado <span style="color: #339933;">=</span> <span style="color: #000088;">$result</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>Geralmente, as colunas da grid devem ter o mesmo ID que as colunas da tabela de onde os dados serão recuperados. Se o banco de dados usar nomes de campo diferentes dos nomes de campo da grid, use o parâmetro <code>AS</code> para renomear os campos. Por exemplo, se um banco de dados externo com a tabela EMPREGADOS contiver os campos NOME_COMPLETO, SALARIO_INCIAL e DATA_REGISTRO, esses campos poderão ser renomeados para corresponder aos nomes dos campos no “gridEmpregado”:</p>
+
+                <codeblock>
+                    <span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'SELECT NOME_COMPLETO AS Nome, SALARIO_INCIAL AS Salario DATA_REGISTRO AS DataRegistro FROM EMPREGADOS'</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">is_array</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span><span style="color: #990000;">count</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$result</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">&gt;</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">&#41;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@=</span>EmployeesGrid <span style="color: #339933;">=</span> <span style="color: #000088;">$result</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+            <h2 id="item6c">Exibindo informações de casos em grids</h2>
+
+                <p>A tabela APP_CACHE_VIEW no banco de dados contém informações sobre casos, que são usadas para gerar a lista de casos no menu inicial. Cada registro nesta tabela contém informações sobre uma tarefa em um caso, que foi atribuída a um usuário. Este exemplo mostra como criar um formulário dinâmico para pesquisar a tabela APP_CACHE_VIEW e exibir informações sobre as tarefas em uma grid. Os gerentes podem usar essas informações para avaliar quão bem os trabalhadores estão realizando suas tarefas. Este exemplo também mostra como executar um gatilho clicando no botão enviar e, em seguida, usar um gatilho que preenche uma grid e retorna ao formulário dinâmico para exibi-lo novamente com a grid preenchida.</p>
+
                 <p>Primeiro, crie as seguintes variáveis:</p>
-                <p>caseList: Contém a grid com informações sobre os casos.</p>
-                <p>caseListJson: contém uma string JSON que contém as informações exibidas na grid. Essas informações serão passadas em um campo oculto para o Formulário Dinâmico e serão usadas para definir os links para os casos.</p>
-                <p>selectProcess: Contém o ID exclusivo de um processo a ser pesquisado na tabela APP_CACHE_VIEW .</p>
-                <p>selectTask: contém o ID exclusivo de uma tarefa a ser pesquisada na tabela APP_CACHE_VIEW .</p>
-                <p>selectUser: contém o ID exclusivo de um usuário atribuído para pesquisar na tabela APP_CACHE_VIEW .</p>
-                <p>submitButton: Indica qual botão foi clicado para fechar o Formulário Dinâmico com a grid de informações do caso.</p>
+
+                <ul>
+                    <li>listaCaso: Contém a grid com informações sobre os casos.</li>
+                    <li>listaCasoJson: contém uma string JSON que contém as informações exibidas na grid. Essas informações serão passadas em um campo oculto para o Formulário Dinâmico e serão usadas para definir os links para os casos.</li>
+                    <li>selectProcesso: Contém o ID exclusivo de um processo a ser pesquisado na tabela APP_CACHE_VIEW .</li>
+                    <li>selectTarefa: contém o ID exclusivo de uma tarefa a ser pesquisada na tabela APP_CACHE_VIEW .</li>
+                    <li>selectUsusuario: contém o ID exclusivo de um usuário atribuído para pesquisar na tabela APP_CACHE_VIEW .</li>
+                    <li>botaoEnviar: Indica qual botão foi clicado para fechar o Formulário Dinâmico com a grid de informações do caso.</li>
+                </ul>
+
+                <figure>
+
+                </figure>
+
                 <p>Em seguida, crie um formulário dinâmico com campos para pesquisar e uma grid para exibir os resultados da pesquisa:</p>
                 <p>Este Formulário Dinâmico possui os seguintes controles:</p>
                 <p>Lista suspensa associada à selectProcessvariável de string. Ele é preenchido com a seguinte consulta SQL:</p>
