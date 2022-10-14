@@ -764,7 +764,7 @@
                 <codeblock>
                     <span style="color: darkblue; font-weight: bold">function</span> checkValorotal<span style="color: green">(</span>fieldId<span style="color: green">,</span> newVal<span style="color: green">,</span> oldVal<span style="color: green">) {</span>
                     <br> &nbsp&nbsp <span style="color: rgb(237, 252, 174)">//se um valor for alterado dentro da grade "ReciboLista":</span>
-                    <br> &nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>fieldId.<span style="color: darkred">search</span><span style="color: green">(/^\[ReciboLista\]/) ==</span> <span style="color: red">0</span><span style="color: green">) {</span>
+                    <br> &nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>fieldId.<span style="color: darkred">pesquisar</span><span style="color: green">(/^\[ReciboLista\]/) ==</span> <span style="color: red">0</span><span style="color: green">) {</span>
                     <br> &nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//se a soma "valor" é maior que 500:</span>
                     <br> &nbsp&nbsp&nbsp&nbsp <span style="color: darkblue; font-weight: bold">if</span> <span style="color: green">(</span>$<span style="color: green">(</span><span style="color: blue">"#ReciboLista"</span><span style="color: green">)</span>.<span style="color: darkred">getSummary</span><span style="color: green">(</span><span style="color: blue">"valor"</span><span style="color: green">) >= </span><span style="color: red">500</span><span style="color: green">) {</span>
                     <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span style="color: rgb(237, 252, 174)">//altera a borda da grade "ReciboLista" para vermelho</span>
@@ -1091,107 +1091,142 @@
                 <p>Primeiro, crie as seguintes variáveis:</p>
 
                 <ul>
-                    <li>listaCaso: Contém a grid com informações sobre os casos.</li>
-                    <li>listaCasoJson: contém uma string JSON que contém as informações exibidas na grid. Essas informações serão passadas em um campo oculto para o Formulário Dinâmico e serão usadas para definir os links para os casos.</li>
-                    <li>selectProcesso: Contém o ID exclusivo de um processo a ser pesquisado na tabela APP_CACHE_VIEW .</li>
-                    <li>selectTarefa: contém o ID exclusivo de uma tarefa a ser pesquisada na tabela APP_CACHE_VIEW .</li>
-                    <li>selectUsusuario: contém o ID exclusivo de um usuário atribuído para pesquisar na tabela APP_CACHE_VIEW .</li>
-                    <li>botaoEnviar: Indica qual botão foi clicado para fechar o Formulário Dinâmico com a grid de informações do caso.</li>
+                    <li><code>listaCaso:</code> Contém a grid com informações sobre os casos.</li>
+                    <li><code>listaCasoJson:</code> contém uma string JSON que contém as informações exibidas na grid. Essas informações serão passadas em um campo oculto para o Formulário Dinâmico e serão usadas para definir os links para os casos.</li>
+                    <li><code>selectProcessoso:</code> Contém o ID exclusivo de um processo a ser pesquisado na tabela APP_CACHE_VIEW .</li>
+                    <li><code>selectTarefa:</code> contém o ID exclusivo de uma tarefa a ser pesquisada na tabela APP_CACHE_VIEW .</li>
+                    <li><code>selectUsusuario:</code> contém o ID exclusivo de um usuário atribuído para pesquisar na tabela APP_CACHE_VIEW .</li>
+                    <li><code>botaoEnviar:</code> Indica qual botão foi clicado para fechar o Formulário Dinâmico com a grid de informações do caso.</li>
                 </ul>
 
-                <figure>
+                    <figure>
 
-                </figure>
+                    </figure>
 
                 <p>Em seguida, crie um formulário dinâmico com campos para pesquisar e uma grid para exibir os resultados da pesquisa:</p>
-                <p>Este Formulário Dinâmico possui os seguintes controles:</p>
-                <p>Lista suspensa associada à selectProcessvariável de string. Ele é preenchido com a seguinte consulta SQL:</p>
-                <p>SELECT '', 'All processes' UNION SELECT PRO_UID, PRO_TITLE FROM PROCESS</p>
-                <p>Lista suspensa associada à selectTaskvariável de string. É um campo dependente , que é preenchido com as tarefas do processo selecionado. Ele usa a seguinte consulta SQL:</p>
-                <p>SELECT '', 'Any task' UNION SELECT TAS_UID, TAS_TITLE FROM TASK WHERE PRO_UID=@@selectProcess</p>
-                <p>Caixa de sugestões associada à selectUservariável. Ele é preenchido com a seguinte consulta SQL:</p>
-                <p>SELECT USR_UID, concat(USR_FIRSTNAME, ' ', USR_LASTNAME, ' (', USR_USERNAME, ')') FROM USERS</p>
-                <p>botão Enviar com o ID "pesquisar". Se clicado, um acionador subsequente usará os termos de pesquisa inseridos para preencher a grid.</p>
-                <p>Grid com o ID "caseList", que está associado à caseListvariável. Possui os seguintes campos de grid que estão todos no modo "view":</p>
-                <p>Link com o ID "caseNo", que vincula ao caso.</p>
-                <p>Caixa de texto com o ID "processo", que exibe o título do processo.</p>
-                <p>Caixa de texto com o ID "tarefa", que exibe o título da tarefa.</p>
-                <p>Caixa de texto com o ID "usuário", que exibe o nome e sobrenome do usuário atribuído à tarefa.</p>
-                <p>Caixa de texto com o ID "startDate", que exibe a data e hora em que a tarefa foi atribuída ao usuário.</p>
-                <p>Caixa de texto com o ID "overdueDate", que exibe a data e hora do vencimento da tarefa.</p>
-                <p>Caixa de texto com o ID "finishDate", que exibe a data e hora em que a tarefa foi concluída. Se não terminar, então está em branco.</p>
-                <p>Caixa de texto com o ID "totalTime", que exibe o número de horas que levou para concluir a tarefa. Se a tarefa ainda não foi concluída, o número de horas até o presente decorrido.</p>
-                <p>botão Enviar com o ID "enviar". Se clicado, o caso continuará normalmente para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa).</p>
-                <p>Este Formulário Dinâmico possui o seguinte código JavaScript:</p>
-                <p>$ ( "#form \\ [pesquisar \\ ]" ) . on ( "click" , function ( ) {</p>
-                <p>  $ ( "#submitButton" ) . setValue ( "search" ) ;</p>
-                <p>} ) ;</p>
-                <p>if ( $ ( "#caseListJson" ) . getValue ( ) != '' ) {</p>
-                <p>  var oCaseList = JSON. parse ( $ ( "#caseListJson") . getValue ( ) ) ;</p>
-                <p>  var nRows = $ ( "#caseList" ) . getNumberRows ( ) ;</p>
-                <p>  for ( i = 1 ; i <= nRows ; i ++ ) {</p>
-                <p>    var caseNo = oCaseList [ i ] [ 'caseNo' ] ;</p>
-                <p>    var url     = oCaseList [ i ] [ 'url' ];</p>
-                <p>    $ ( "#form \\ [caseList \\ ] \\ [" + i + " \\ ] \\ [caseNo \\ ]" ) . find ( "intervalo" ) . html ( caseNo ) ;</p>
-                <p>    $ ( "#form \\ [caseList \\ ] \\ [" + i + " \\ ] \\ [caseNo \\ ]" ) . adereço ("href" , url ) ;</p>
-                <p>  }</p>
-                <p>}</p>
-                <p>Quando o botão "Pesquisar" é clicado, o valor "pesquisar" é colocado no campo oculto "submitButton", para que o gatilho subsequente saiba que o botão "Pesquisar" foi clicado para fechar o formulário.</p>
-                <p>Quando o Formulário Dinâmico é carregado, o código JavaScript verifica se há um valor no campo "caseListJson". Este campo oculto contém o conteúdo da grid no formato JSON. Essas informações são usadas para definir os links nos campos "caseNo" na grid. O código primeiro converte a string JSON em um objeto de objetos que contém os dados de cada linha na grid. Em seguida, ele percorre cada linha na grid e define os links "caseNo".</p>
-                <p>Em seguida, crie o seguinte gatilho que usará os termos de pesquisa selecionados no Formulário Dinâmico para consultar a tabela APP_CACHE_VIEW no banco de dados:</p>
-                <p>if ( @@ submitButton == 'pesquisar' ) {</p>
-                <p>   @@ submitButton = '' ;</p>
-                <p>   $onde = '' ;</p>
-                <p>   if ( @@ selectProcess ) {</p>
-                <p>      $where .= "PRO_UID='" .@@ selectProcess . "'" ;</p>
-                <p>   }  </p>
-                <p>   if ( @@ selectTask ) {</p>
-                <p>      $onde .= ( vazio ( $onde ) ? '' : ' AND ' ) . "TAS_UID='" .@@ selectTask . "'" ;</p>
-                <p>   }  </p>
-                <p>   if ( @@ selectUser ) {</p>
-                <p>      $onde .= ( vazio ( $onde ) ? '' : ' AND ' ) . "USR_UID='" .@@ selectUser . "'" ;</p>
-                <p>   }</p>
-                <p>   $onde = ( vazio ( $onde ) ? '' : 'ONDE' ) . $onde ;</p>
-                <p>   $sql = "SELECT APP_UID, DEL_INDEX, APP_NUMBER, APP_STATUS,</p>
-                <p>      USR_UID, PREVIOUS_USR_UID, TAS_UID, PRO_UID, DEL_DELEGATE_DATE,</p>
-                <p>      DEL_INIT_DATE, DEL_FINISH_DATE, DEL_TASK_DUE_DATE, DEL_RISK_DATE,</p>
-                <p>      APP_TITLE, APP_PRO_TITLE, APP_TAS_TITLE, APP_CURRENT_USER,</p>
-                <p>      APP_CREATE_DATE, APP_FINISH_DATE, APP_UPDATE_DATE FROM APP_CACHE_VIEW</p>
-                <p>      $where ORDER BY APP_NUMBER DESC" ;</p>
-                <p>   $aCases = executeQuery ( $sql ) ;</p>
-                <p>   @= caseList = array ( ) ;</p>
-                <p>   $i = 1 ;</p>
-                <p>   foreach ( $aCases as $aCase) {</p>
-                <p>      $ startTime  = strtotime ( $aCase [ 'DEL_INIT_DATE' ] ) ;</p>
-                <p>      $finishDate = $aCase [ 'DEL_FINISH_DATE' ] ;</p>
-                <p>      $finishTime = strtotime ( $finishDate == null ? date ( 'Ymd H:i:s' ) : $finishDate ) ;</p>
-                <p>      $horas      = ( $finishTime - $startTime ) / 60 / 60 ;</p>
-                <p>      $url = "../cases/open?APP_UID=" . $aCase [ 'APP_UID' ] . "&DEL_INDEX=" .</p>
-                <p>      $aCase [ 'DEL_INDEX' ] . "&action=rascunho" ;</p>
-                <p>      @= caseList [ $i ] = array (</p>
-                <p>         'caseNo'     => $aCase [ 'APP_NUMBER' ] ,</p>
-                <p>         'url'        => $url ,</p>
-                <p>         'process'    => $aCase [ 'APP_PRO_TITLE' ] ,</p>
-                <p>         'task'       => ,</p>
-                <p>         'user'       => $aCase [ 'APP_CURRENT_USER' ] ,</p>
-                <p>         'startDate'  => $aCase [ 'DEL_INIT_DATE' ] ,</p>
-                <p>         'overdueDate' => $aCase [ 'DEL_TASK_DUE_DATE' ] ,</p>
-                <p>         'finishDate' => $aCase [ 'DEL_FINISH_DATE ' ] ,</p>
-                <p>         'TotalTime'  => $horas</p>
-                <p>      ) ;</p>
-                <p>      $i ++;</p>
-                <p>   }</p>
-                <p>   //descomente para depurar:</p>
-                <p>   //imprime "<pre>"; var_dump(@=caseList); morrer;</p>
-                <p>    @= caseList ) ;</p>
-                <p>   PMFRedirectToStep ( @@ APPLICATION , @% INDEX , 'FORMULÁRIO DINÂMICO' , '512296547583375724080b7028326320' ) ;</p>
-                <p>}</p>
-                <p>Este gatilho é definido para ser executado após o Formulário Dinâmico.</p>
-                <p>O código do acionador primeiro verifica se o botão "Pesquisar" foi clicado. Em seguida, ele constrói uma consulta SQL com base nos valores selecionados nos campos "selectProcess", "selectTask" e "selectUser". Em seguida, ele usa executeQuery() para pesquisar na tabela APP_CACHE_VIEW todas as tarefas nos casos que correspondem aos critérios de pesquisa. Em seguida, cria uma matriz para conter o conteúdo da grid "caseList" e a preenche fazendo um loop pelos registros retornados pela consulta. Para cada tarefa, ele calcula o número de horas decorridas e constrói a URL para abrir a tarefa no caso. Observe que, se a tarefa já estiver concluída, essa URL direcionará para o resumo do caso. Se o usuário logado não tiver permissões de processopara abrir o caso, ele será direcionado para a caixa de entrada.</p>
-                <p>Por fim, json_encode() é chamado para converter o conteúdo da grid em uma string JSON e colocá-los no campo oculto "caseListJson". A função PMFRedirectToStep() é usada para redirecionar o navegador da Web de volta para o Formulário Dinâmico e exibir a grid preenchida.</p>
-                <p>Se este Formulário Dinâmico for usado em um processo, ele poderá ser executado repetidamente sem nunca encerrar o caso, portanto, apenas um novo caso precisa ser criado. Após selecionar os critérios de pesquisa e clicar no botão "Pesquisar", a grid será preenchida:</p>
-                <p>Para testar esse processo, baixe e importe o processo Show Task Times ( clique com o botão direito do mouse no link e selecione "Salvar link como").</p>
 
+                    <figure>
+
+                    </figure>
+
+                <p>Este Formulário Dinâmico possui os seguintes controles:</p>
+
+                <ul>
+                    <li>Lista suspensa associada à variável <code>selectProcessosos</code> de string. Ele é preenchido com a seguinte consulta SQL:<br>
+                        <code><span style="color: darkred">SELECT</span> <span style="color: red">''</span><span style="color: green">,</span> <span style="color: red">'Todos processos'</span> <span style="color: darkred">UNION SELECT</span> PRO_UID, PRO_TITLE <span style="color: darkred">FROM</span> PROCESSOS</code>
+                    </li>
+                    <li>Lista suspensa associada à variável string <code>selectTarefa</code>. É um campo dependente, que é preenchido com as tarefas do processo selecionado. Ele usa a seguinte consulta SQL:<br>
+
+                        <code><span style="color: darkred">SELECT</span> <span style="color: red">''</span><span style="color: green">,</span> <span style="color: red">'Qualquer Tarefa'</span> <span style="color: darkred">UNION SELECT</span> TAS_UID<span style="color: green">,</span> TAS_TITLE <span style="color: darkred">FROM</span> TAREFA <span style="color: darkred">WHERE</span> PRO_UID=@@selectProcessosos</code>
+                    </li>
+
+                    <li>Caixa de sugestões associada à variável <code>selectUsuario</code>. Ele é preenchido com a seguinte consulta SQL:
+                        <code><span style="color: darkred">SELECT</span> USR_UID<span style="color: green">,</span> concat(USR_FIRSTNAME<span style="color: green">,</span> <span style="color: red">' '</span><span style="color: green">,</span> USR_LASTNAME<span style="color: green">,</span> <span style="color: red">' ('</span><span style="color: green">,</span> USR_USERNAME<span style="color: green">,</span> <span style="color: red">')'</span>) <span style="color: darkred">FROM</span> USUARIOS</code>
+                    </li>
+                    <li>botão Enviar com o ID "pesquisar". Se clicado, um gatilho subsequente usará os termos de pesquisa inseridos para preencher a grid.</li>
+                    <li>Grid com o ID "listaCaso", que está associado à variável <code>listaCaso</code>. Possui os seguintes campos de grid que estão todos no modo "visualizar":</li>
+                    <ul type="disc">
+                        <li>Link com o ID "NoCaso", que vincula ao caso.</p>
+                        <li>Caixa de texto com o ID "processo", que exibe o título do processo.</li>
+                        <li>Caixa de texto com o ID "tarefa", que exibe o título da tarefa.</li>
+                        <li>Caixa de texto com o ID "usuário", que exibe o nome e sobrenome do usuário atribuído à tarefa.</li>
+                        <li>Caixa de texto com o ID "dataInicio", que exibe a data e hora em que a tarefa foi atribuída ao usuário.</li>
+                        <li>Caixa de texto com o ID "dataLimite", que exibe a data e hora do vencimento da tarefa.</p>
+                        <li>Caixa de texto com o ID "dataFinal", que exibe a data e hora em que a tarefa foi concluída. Se não terminar, então está em branco.</li>
+                        <li>Caixa de texto com o ID "tempoTotal", que exibe o número de horas que levou para concluir a tarefa. Se a tarefa ainda não foi concluída, o número de horas até o presente decorrido.</li>
+                    </ul>
+                    <li>Botão Enviar com o ID "enviar". Se clicado, o caso continuará normalmente para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa).</li>
+                </ul>
+
+                <p>Este Formulário Dinâmico possui o seguinte código JavaScript:</p>
+
+                <codeblock>
+                    <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#form<span style="color: #000099; font-weight: bold;">\</span>[pesquisar<span style="color: #000099; font-weight: bold;">\</span>]&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">on</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;click&quot;</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#botaoEnviar&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;pesquisar&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <br />
+                    <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#listaCasoJson&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">getValue</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">!=</span> <span style="color: #3366CC;">''</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; <span style="color: #003366; font-weight: bold;">var</span> oListaCaso <span style="color: #339933;">=</span> JSON.<span style="color: #660066;">parse</span><span style="color: #009900;">&#40;</span><span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#listaCasoJson&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">getValue</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; <span style="color: #003366; font-weight: bold;">var</span> nRows <span style="color: #339933;">=</span> <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#listaCaso&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">getNumberRows</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <br />
+                    &nbsp; <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span>i <span style="color: #339933;">=</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;=</span> nRows<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; <span style="color: #003366; font-weight: bold;">var</span> noCaso <span style="color: #339933;">=</span> oListaCaso<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #3366CC;">'noCaso'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; <span style="color: #003366; font-weight: bold;">var</span> url &nbsp; &nbsp;<span style="color: #339933;">=</span> oListaCaso<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #3366CC;">'url'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#form<span style="color: #000099; font-weight: bold;">\</span>[listaCaso<span style="color: #000099; font-weight: bold;">\</span>]<span style="color: #000099; font-weight: bold;">\</span>[&quot;</span> <span style="color: #339933;">+</span>i<span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot;<span style="color: #000099; font-weight: bold;">\</span>]<span style="color: #000099; font-weight: bold;">\</span>[noCaso<span style="color: #000099; font-weight: bold;">\</span>]&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">find</span></a><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;span&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">html</span></a><span style="color: #009900;">&#40;</span>noCaso<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#form<span style="color: #000099; font-weight: bold;">\</span>[listaCaso<span style="color: #000099; font-weight: bold;">\</span>]<span style="color: #000099; font-weight: bold;">\</span>[&quot;</span> <span style="color: #339933;">+</span>i<span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot;<span style="color: #000099; font-weight: bold;">\</span>]<span style="color: #000099; font-weight: bold;">\</span>[noCaso<span style="color: #000099; font-weight: bold;">\</span>]&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">prop</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;href&quot;</span><span style="color: #339933;">,</span> url<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #009900;">&#125;</span>
+                </codeblock>
+
+                <p>Quando o botão "Pesquisar" é clicado, o valor "pesquisar" é colocado no campo oculto "botaoEnviar", para que o gatilho subsequente saiba que o botão "Pesquisar" foi clicado para fechar o formulário.</p>
+
+                <p>Quando o Formulário Dinâmico é carregado, o código JavaScript verifica se há um valor no campo "listaCasoJson". Este campo oculto contém o conteúdo da grid no formato JSON. Essas informações são usadas para definir os links nos campos "noCaso" na grid. O código primeiro converte a string JSON em um objeto de objetos que contém os dados de cada linha na grid. Em seguida, ele percorre cada linha na grid e define os links "noCaso".</p>
+
+                <p>Em seguida, crie o seguinte gatilho que usará os termos de pesquisa selecionados no Formulário Dinâmico para consultar a tabela APP_CACHE_VIEW no banco de dados:</p>
+                
+                <codeblock>
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>botaoEnviar <span style="color: #339933;">==</span> <span style="color: #0000ff;">'search'</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@@</span>botaoEnviar <span style="color: #339933;">=</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #000088;">$where</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>selectProcessos<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span> <br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$where</span> <span style="color: #339933;">.=</span> <span style="color: #0000ff;">&quot;PRO_UID='&quot;</span><span style="color: #339933;">.@@</span>selectProcessos<span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;'&quot;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span> &nbsp;<br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>selectTarefa<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$where</span> <span style="color: #339933;">.=</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$where</span><span style="color: #009900;">&#41;</span> ? <span style="color: #0000ff;">''</span> <span style="color: #339933;">:</span> <span style="color: #0000ff;">' AND '</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">&quot;TAS_UID='&quot;</span><span style="color: #339933;">.@@</span>selectTarefa<span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;'&quot;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span> &nbsp;<br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>selectUsuario<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$where</span> <span style="color: #339933;">.=</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$where</span><span style="color: #009900;">&#41;</span> ? <span style="color: #0000ff;">''</span> <span style="color: #339933;">:</span> <span style="color: #0000ff;">' AND '</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">&quot;USR_UID='&quot;</span><span style="color: #339933;">.@@</span>selectUsuario<span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;'&quot;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    &nbsp; &nbsp;<br />
+                    &nbsp; &nbsp;<span style="color: #000088;">$where</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$where</span><span style="color: #009900;">&#41;</span> ? <span style="color: #0000ff;">''</span> <span style="color: #339933;">:</span> <span style="color: #0000ff;">'WHERE '</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">.</span> <span style="color: #000088;">$where</span><span style="color: #339933;">;</span><br />
+                    <br />
+                    &nbsp; &nbsp;<span style="color: #000088;">$sql</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;SELECT APP_UID, DEL_INDEX, APP_NUMBER, APP_STATUS,<br />
+                    &nbsp; &nbsp; &nbsp; USR_UID, PREVIOUS_USR_UID, TAS_UID, PRO_UID, DEL_DELEGATE_DATE, <br />
+                    &nbsp; &nbsp; &nbsp; DEL_INIT_DATE, DEL_FINISH_DATE, DEL_TAREFA_DUE_DATE, DEL_RISK_DATE, <br />
+                    &nbsp; &nbsp; &nbsp; APP_TITLE, APP_PRO_TITLE, APP_TAS_TITLE, APP_CURRENT_USER, <br />
+                    &nbsp; &nbsp; &nbsp; APP_CREATE_DATE, APP_FINISH_DATE, APP_UPDATE_DATE FROM APP_CACHE_VIEW <br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #006699; font-weight: bold;">$where</span> ORDER BY APP_NUMBER DESC&quot;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #000088;">$aCases</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #000088;">$sql</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@=</span>listaCaso <span style="color: #339933;">=</span> <span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">foreach</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$aCases</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$dataInicial</span> &nbsp;<span style="color: #339933;">=</span> <span style="color: #990000;">strtotime</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_INIT_DATE'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$dataFinal</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_FINISH_DATE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$horaFinal</span> <span style="color: #339933;">=</span> <span style="color: #990000;">strtotime</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$dataFinal</span> <span style="color: #339933;">==</span> <span style="color: #009900; font-weight: bold;">null</span> ? <span style="color: #990000;">date</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'Y-m-d H:i:s'</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">:</span> <span style="color: #000088;">$dataFinal</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$horas</span> &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$horaFinal</span> <span style="color: #339933;">-</span> <span style="color: #000088;">$horaInicial</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">/</span><span style="color: #cc66cc;">60</span><span style="color: #339933;">/</span><span style="color: #cc66cc;">60</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$url</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;../cases/open?APP_UID=&quot;</span><span style="color: #339933;">.</span><span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_UID'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;&amp;DEL_INDEX=&quot;</span><span style="color: #339933;">.</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_INDEX'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">.</span><span style="color: #0000ff;">&quot;&amp;action=draft&quot;</span><span style="color: #339933;">;</span><br />
+                    <br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #339933;">@=</span>listaCaso<span style="color: #009900;">&#91;</span><span style="color: #000088;">$i</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'noCaso'</span> &nbsp; &nbsp; <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_NUMBER'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'url'</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$url</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'processo'</span> &nbsp; &nbsp;<span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_PRO_TITLE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'tarefa'</span> &nbsp; &nbsp; &nbsp; <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_TAS_TITLE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'usuario'</span> &nbsp; &nbsp; &nbsp; <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_CURRENT_USER'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'dataInicial'</span> &nbsp;<span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_INIT_DATE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'dataLimite'</span><span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_TAREFA_DUE_DATE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> <br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'dataFinal'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aCase</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DEL_FINISH_DATE'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'tempoTotal'</span> &nbsp;<span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$horas</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$i</span><span style="color: #339933;">++;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    &nbsp; &nbsp;<span style="color: #666666; font-style: italic;">//descomente para depurar:</span><br />
+                    &nbsp; &nbsp;<span style="color: #666666; font-style: italic;">//imprime &quot;&lt;pre&gt;&quot;; var_dump(@=listaCaso); die;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@@</span>listaCasoJson <span style="color: #339933;">=</span> <span style="color: #990000;">json_encode</span></a><span style="color: #009900;">&#40;</span><span style="color: #339933;">@=</span>listaCaso<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'DYNAFORM'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'512296547583375724080b7028326320'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span>
+                </codeblock>
+
+                <p>Este gatilho é definido para ser executado após o Formulário Dinâmico.</p>
+
+                <p>O código do primeiro gatilho verifica se o botão "Pesquisar" foi clicado. Em seguida, ele constrói uma consulta SQL com base nos valores selecionados nos campos "selectProcessos", "selectTarefa" e "selectUsuario". Em seguida, ele usa executeQuery() para pesquisar na tabela APP_CACHE_VIEW todas as tarefas nos casos que correspondem aos critérios de pesquisa. Em seguida, cria uma matriz para conter o conteúdo da grid "listaCaso" e a preenche fazendo um loop pelos registros retornados pela consulta. Para cada tarefa, ele calcula o número de horas decorridas e constrói a URL para abrir a tarefa no caso. Observe que, se a tarefa já estiver concluída, essa URL direcionará para o resumo do caso. Se o usuário logado não tiver permissões de processopara abrir o caso, ele será direcionado para a caixa de entrada.</p>
+
+                <p>Por fim, json_encode() é chamado para converter o conteúdo da grid em uma string JSON e colocá-los no campo oculto "listaCasoJson". A função PMFRedirectToStep() é usada para redirecionar o navegador da Web de volta para o Formulário Dinâmico e exibir a grid preenchida.</p>
+                
+                <p>Se este Formulário Dinâmico for usado em um processo, ele poderá ser executado repetidamente sem nunca encerrar o caso, portanto, apenas um novo caso precisa ser criado. Após selecionar os critérios de pesquisa e clicar no botão "Pesquisar", a grid será preenchida:</p>
+
+                <p>Para testar esse processo, baixe e importe o processo Mostrar Tempos de Tarefas (clique com o botão direito do mouse no link e selecione "Salvar link como").</p>
 
         </article>
 
