@@ -26,7 +26,29 @@
             <h1>Imagem</h1>
             <h2>Conteúdo:</h2>
             <ol>
-
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href=#item2"">Propriedades</a>
+                    <ol type="A">
+                        <li><a href="#item2a">Src</a></li>
+                        <li><a href="#item2b">Forma</a></li>
+                        <li><a href="#item2c">Texto alternativo</a></li>
+                        <li><a href="#item2d">Legenda</a></li>
+                        <li><a href="#item2e">Título (passe o mouse)</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item3">Exemplo de controle de imagem</a></li>
+                <li><a href="#item4">Manipulando imagens com JavaScript</a>
+                    <ol type="A">
+                        <li><a href="#item4a">Métodos JavaScript</a></li>
+                        <li><a href="#item4b">Alterando a imagem com JavaScript</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item5">Manipulando Imagens com PHP</a>
+                    <ol type="A">
+                        <li><a href="#item5a">Configurando o URL da imagem em um gatilho</a></li>
+                        <li><a href="#item5b">Exibindo arquivos de imagem enviados</a></li>
+                    </ol>
+                </li>
             </ol>
         </section>
     </aside>
@@ -34,7 +56,434 @@
     <section id="principal">
 
         <article>
+            <h1 id="item1">Visão Geral</h1>
 
+                <p>Um controle Imagem é usado para exibir qualquer tipo de arquivo de imagem em um formulário dinâmico. Esses arquivos podem ser carregados de diferentes recursos (URL da Web, repositórios de dados, etc.). O ícone de um controle de imagem na barra de ferramentas do painel esquerdo é o seguinte:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A imagem não ficará visível ao criar um formulário dinâmico. Será representado pela figura a seguir:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A imagem só será exibida durante a execução de um caso ou visualização de um formulário dinâmico.</p>
+
+                <figure>
+
+                </figure>
+
+            <h1 id="item2">Propriedades</h1>
+
+                <p>Depois de adicionar esse controle ao design Formulário Dinâmico, defina o rótulo, a origem e outras propriedades desse controle:</p>
+
+                <table class="textbox">
+                    <thead>
+                            <tr><th>Propriedade</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Modelo</td><td><code>imagem</code>(somente leitura)</td></tr>
+                        <tr><td>ID</td><td>[Requeridos] <br>
+                        Identificador exclusivo de campo e HTML.</td></tr>
+                        <tr><td>Nome</td><td>Valor do nome do controle.</td></tr>
+                        <tr><td>Rótulo</td><td>O rótulo do controle com o qual será exibido.</td></tr>
+                        <tr><td>Dica</td><td>Usado para mostrar uma referência do que é a imagem quando ela é renderizada. É mostrado quando o ponteiro do mouse está sobre o ícone ?.</td></tr>
+                        <tr><td>Src</td><td>O caminho para uma imagem de acesso público <code>http</code> ou <code>https</code>.</td></tr>
+                        <tr><td>Forma</td><td>Esta propriedade define a forma/modo do container onde é exibida a imagem. As opções são: <code>thumbnail</code>, <code>rounded</code> e <code>circle</code></td></tr>
+                        <tr><td>Texto alternativo</td><td>[Requeridos] <br>
+                        Texto alternativo exibido se a imagem não puder ser exibida ou se o link estiver quebrado.</td></tr>
+                        <tr><td>Legenda</td><td>Texto exibido na parte inferior da imagem. Por exemplo: “Figura 1: organograma da empresa”</td></tr>
+                        <tr><td>Modo</td><td>[Requeridos] <br>
+                        Modo de exibição: <br>
+                        <ul>
+                            <li><strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (formulário/grid)</li>
+                            <li><strong>editar:</strong> o controle é habilitado para edição quando é renderizado.</li>
+                            <li><strong>visualizar:</strong> o controle só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</li>
+                            <li><strong>desativado: </strong>o controle é exibido como desabilitado. O controle é exibido em cinza para indicar o modo desabilitado. O conteúdo também não pode ser editado.</li>                            
+                        </ul>
+                        </td></tr>
+                        <tr><td>Título (passe o mouse)</td><td>Texto que é exibido quando o mouse está apontando sobre a imagem.</td></tr>                                                    
+                    </tbody>                        
+                </table>
+
+            <h2 id="item2a">Src</h2>
+
+                <p>Esta propriedade configura o endereço de URL onde a imagem está localizada. Por exemplo, se a imagem a ser mostrada neste controle for o logotipo do Gestor Express, localizado no endereço URL:</p>
+
+                <codeblock>
+                    https://gestorexpress.com.br/#home
+                </codeblock>
+
+                <p>A propriedade Src deve ser configurada com este endereço de URL.</p>
+
+                    <figure>
+
+                    </figure>
+
+                <p>A imagem não será mostrada dentro do modelo de formulário, mas ao renderizar o Formulário Dinâmico na visualização ou executar um caso:</p>
+
+                    <figure>
+
+                    </figure>
+
+            <h2 id="item2b">Forma</h2>
+
+                <p>Esta propriedade é usada para criar as seguintes formas predefinidas em imagens renderizadas: miniatura, arredondada ou círculo. Selecione a forma com a qual a imagem será mostrada no menu suspenso da propriedade do controle:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A forma de <code>miniatura</code> renderiza imagens como miniaturas que mostrarão uma versão de tamanho reduzido da imagem. A forma <code>arredondada</code> arredonda e suaviza as bordas da imagem. Finalmente, a forma do <code>círculo</code> mostra a imagem renderizada circulando a borda da imagem. Veja os exemplos abaixo:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Forma de Miniatura.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Forma arredondada.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Forma Círculo.</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item2c">Texto alternativo</h2>
+
+                <p>Essa propriedade define o texto alternativo exibido no controle "Imagem" quando a imagem não está disponível. Os navegadores que suportam o recurso de dicas de ferramentas exibem esse texto como uma dica de ferramenta.</p>
+
+                <p>Configurando a propriedade dentro do designer.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Imagens que não podem ser encontradas no endereço especificado na propriedade SRC ou outro motivo pelo qual a imagem não pode ser renderizada exibirá o texto alternativo definido para o controle</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item2d">Legendas</p>
+
+                <p>Esta propriedade adiciona uma legenda sob a imagem renderizada na visualização do formulário dinâmico ou ao executar um caso.</p>
+
+                <p>Primeiro, defina a legenda nas propriedades da imagem:</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Esta legenda ficará visível ao executar um caso:</p>
+                
+                <figure>
+
+                </figure>
+
+            <h2 id="item2e">Título (passe o mouse)</h2>
+
+                <p><scan style="color: green">Observação:</scan> Esta propriedade ainda não está funcional. Aguarde os próximos lançamentos para fazê-lo funcionar.</p>
+
+                <p>Esta propriedade define o texto que será mostrado quando o mouse passar sobre a imagem.</p>
+
+            <h1 id="item3">Exemplo de controle de imagem</h1>
+
+                <p>Para este exemplo, adicione um controle "Imagem" arrastando-o e soltando-o do painel esquerdo, onde estão os "Controles da Web", na tela do Formulário Dinâmico. O resultado desta ação é mostrado na imagem abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>Clique no espaço vazio do controle para exibir suas propriedades no painel esquerdo.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>Para este exemplo, a propriedade "id" pode ser usada com código JavaScript para adicionar funcionalidade e comportamento ao formulário.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas, localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>O código JavaScript personalizado pode ser adicionado aqui, para que o controle chame automaticamente uma imagem de um local estabelecido no código. Use uma das funções mencionadas <a href="#item1">nesta seção</a>. Para este exemplo, adicione o seguinte código:</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;image0000000001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'https://gestorexpress.com.br/#home'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;
+                    </span></codeblock>
+
+                <p>Após adicionar esta função de exemplo, clique no botão "Gravar" para armazenar todas as alterações.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Quando salvo, tente executar um caso com essa nova alteração. O resultado disso é mostrado na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>A seguir está a propriedade "rótulo" que pode ser alterada para que, ao executar um caso, ele não tenha um nome como "image_1" e, em vez disso, possa ser nomeado (para este exemplo) "Logotipo da empresa:"</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>A próxima propriedade é a propriedade "dica" que será usada para mostrar ajuda ao usuário. Para este exemplo, adicione o seguinte texto: "Este é o logotipo da empresa". Ao executar um caso um ícone aparecerá no canto direito do controle e quando o ponteiro do mouse passar sobre ele o texto adicionado será exibido conforme mostrado na ilustração abaixo.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Em seguida, a propriedade "src" define o endereço de URL onde uma imagem específica está localizada. Para este exemplo, será usado o logotipo do Gestor Express, sua URL é a seguinte: "https://gestorexpress.com.br/#home". Execute um caso e a imagem será exibida no controle.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>A propriedade "forma" envolve uma decisão estética do usuário e como ele quer que a imagem, sendo configurada neste campo, fique quando um caso real estiver rodando. Verifique <a href="#item2a">esta seção</a> para saber como essa propriedade funciona.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Agora, a propriedade "texto alternativo" define o texto alternativo que será mostrado se a imagem for apagada de sua fonte ou não estiver mais disponível. Para este exemplo, adicione o seguinte texto: "não disponível" e o resultado desta ação é mostrado na ilustração abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>O recurso a seguir é a propriedade "legenda" que adiciona um comentário na imagem renderizada conforme observado na imagem abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>Para a propriedade "modo de exibição" o usuário tem diferentes opções para dar funcionalidade ao controle como pode ser visto na imagem abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p><span style="color: green">Observação:</span> Esta propriedade ainda não está funcional. Aguarde os próximos lançamentos para fazê-la funcionar.</p>
+
+                <p>Quando esta propriedade estiver funcionando corretamente, o resultado deverá ficar parecido com a imagem abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+
+            <h1 id="item4">Manipulando imagens com JavaScript</h1>
+
+                <p>Para saber como manipular controles do Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+
+                <p>As imagens no Gestor Express têm os seguintes componentes de campo:</p>
+
+                <ul>
+                    <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda da imagem, que a identifica.</li>
+                    <li><strong>Valor:</strong> A URL (endereço) onde a imagem está localizada.</li>
+                    <li><strong>Texto:</strong> A URL (endereço) onde a imagem está localizada. Este é o mesmo valor.</li>
+                </ul>
+
+            <h2 id="item4a">Métodos JavaScript</h2>
+
+                <p>Alguns dos métodos JavaScript para manipular imagens incluem:</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Método</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>jQuery("#fieldID").<code>getValue</code>()</td><td>Retorna a URL (endereço) onde a imagem está localizada.</td></tr>
+                        <tr><td>jQuery("#fieldID").<code>getText</code>()</td><td>Retorna a URL (endereço) onde a imagem está localizada.</td></tr>
+                        <tr><td>jQuery("#fieldID").<code>getLabel</code>()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                        <tr><td>jQuery("#fieldID").<code>setValue</code>("URL")</td><td>Define a URL (endereço) onde a imagem está localizada.</td></tr>
+                        <tr><td>jQuery("#fieldID").<code>setText</code>("URL")</td><td>Define a URL (endereço) onde a imagem está localizada.</td></tr>
+                        <tr><td>jQuery("#fieldID").<code>setLabel</code>("novoRotulo")</td><td>Define o rótulo do campo, que é o texto exibido acima ou à esquerda do campo para identificá-lo.</td></tr>
+                    </tbody>
+                </table>
+                                    
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript .</p>
+                
+            <h2 id="item4b">Alterando a imagem com JavaScript</h2>
+
+                <p>As propriedades de uma imagem podem ser alteradas com JavaScript. No exemplo a seguir, quando o valor de uma caixa suspensa com o ID "tipoTeto" muda para "Teto_Verde", uma imagem de um telhado coberto de vegetação é mostrada em uma imagem com o ID "tetoImagem". Quando o valor do menu suspenso muda para "Teto_Solar", uma imagem de painéis solares em um telhado é exibida no campo de imagem.</p>
+
+                <codeblock>
+                    <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#tipoTeto&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setOnchange</span><span style="color: #009900;">&#40;</span> <span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>newVal<span style="color: #339933;">,</span> oldVal<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>newVal <span style="color: #339933;">==</span> <span style="color: #3366CC;">&quot;Teto_Verde&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#tetoImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;http://examplo.com.br/imagens/tetoVerde.jpg&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#tetoImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setLabel</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Teto Verde&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    &nbsp; &nbsp;elseif <span style="color: #009900;">&#40;</span>newVal <span style="color: #339933;">==</span> <span style="color: #3366CC;">&quot;Teto_Solar&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#tetoImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;http://examplo.com/imagens/tetoSolar.jpg&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#tetoImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setLabel</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Teto Solar&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #009900;">&#125;</span>
+                </codeblock>
+
+            <h1 id="item5">Manipulando Imagens com PHP</h1>
+
+            <h2 id="item5a">Configurando o URL da imagem em um gatilho</h2>
+
+                <p>Um gatilho disparado antes de um formulário dinâmico pode ser usado para definir a URL de um campo de imagem. Primeiro, crie uma variável string na interface do Gestor Express. Em seguida, crie um gatilho que definirá a URL nessa variável. Finalmente, adicione essa variável ao As propriedades de uma imagem podem ser alteradas com JavaScript.</p>
+
+                <p>Por exemplo, um Formulário Dinâmico anterior tem uma caixa suspensa associada à variável <code>@@tipoTeto</code>. Um gatilho disparado após este formulário dinâmico determinará qual URL exibir em um formulário dinâmico subsequente que contém um campo de imagem para mostrar uma imagem do tipo de telhado.</p>
+
+                <codeblock>
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">unset</span></a><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>tipoTeto<span style="color: #009900;">&#41;</span><span style="color: #990000;">empty</span></a><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>tipoTeto<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@@</span>tetoUrl <span style="color: #339933;">=</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>tipoTeto <span style="color: #339933;">==</span> <span style="color: #0000ff;">'Teto_Verde'</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@@</span>tetoUrl <span style="color: #339933;">=</span> <span style="color: #0000ff;">'http://example.com.br/imagens/tetoVerde.jpg'</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>tipoTeto <span style="color: #339933;">==</span> <span style="color: #0000ff;">'Teto_Solar'</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #339933;">@@</span>tetoUrl <span style="color: #339933;">=</span> <span style="color: #0000ff;">'http://example.com.br/imagens/tetoSolar.jpg'</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #009900;">&#125;</span>
+                </codeblock>
+
+                <p>Então, no Formulário Dinâmico subsequente que tem o campo de imagem para mostrar uma imagem do telhado, coloque a variável <code>@@imagemUrl</code> em sua propriedade <strong>src</strong>.</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item5b">Exibindo arquivos de imagem enviados</h2>
+
+                <p>O código de gatilho pode ser usado para pesquisar um arquivo de imagem que foi carregado em um controle de arquivo ou um documento de entrada e construir a URL para exibi-lo em um controle de imagem. Neste exemplo, um formulário dinâmico tem um controle de arquivo e um controle de imagem abaixo dele. Se o usuário fizer upload de um arquivo, a imagem será exibida abaixo no formulário dinâmico.</p>
+
+                <ol type="1">
+                    <li>Crie um Documento de Entrada, cujas <strong>Extensões de arquivo permitidas</strong> estejam configuradas para <code>*.jpg, *.jpeg, *.png, *.tiff</code>, assim isso aceitará apenas arquivos de imagem.
+                        <figure>
+                        </figure>
+                    </li>
+                    <li>Crie uma nova variável cujo nome seja "arquivoImagem" e cujo tipo seja "Arquivo". Associe esta variável ao Documento de Entrada que acabou de ser criado.
+                        <figure>
+                        </figure>
+                    </li>
+                    <li>Crie um formulário dinâmico com os seguintes controles:</li>
+                        <ul type="disc">
+                            <li>Adicione um controle de arquivo cujo ID e variável seja "arquivoImagem".
+                                <figure>
+
+                                </figure>
+                            </li>
+                            <li>Adicione um controle Image cujo ID seja "mostrarImagem" e coloque-o abaixo do controle Arquivo. Defina a propriedade <strong>src</strong> do Link como <code>@@imagemUrl</code> e sua propriedade de texto alternativo <code>@@nomeArquivoimagem</code>, assim eles podem ser definidos por variáveis quando o formulário dinâmico for renderizado.
+                                <figure>
+
+                                </figure>
+                            </li>
+                            <li>Adicione um botão Enviar cujo ID e nome seja "mostrarImagem". Se este botão for clicado, o arquivo de imagem carregado será exibido abaixo.
+                                <figure>
+
+                                </figure>
+                            </li>
+                            <li>Adicione um controle oculto cujo ID seja "ocultoVar001" e crie uma nova variável string chamada "ocultoVar001" para esse controle.
+                                <figure>
+
+                                </figure>
+                            </li>
+                            <li>Por fim, adicione um segundo botão Enviar cujo ID e nome seja "submit0000000001". Se este botão for clicado, o formulário será enviado.
+                                <figure>
+                                    
+                                </figure>
+                            </li>
+                        </ul>
+                    <li>Clique na borda do Formulário Dinâmico para ver suas propriedades e adicione o seguinte código JavaScript ao Formulário Dinâmico:</li>
+       
+                        <codeblock>
+                            <span style="color: #000066; font-weight: bold;">var</span> src <span style="color: #339933;">=</span> $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#PMD-mostrarImagem.img-responsivo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">attr</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'src'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>src <span style="color: #339933;">==</span> <span style="color: #3366CC;">'@@imagemUrl'</span> <span style="color: #339933;">||</span> src <span style="color: #339933;">==</span> <span style="color: #3366CC;">''</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#mostrarImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">hide</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <span style="color: #009900;">&#125;</span><br />
+                            <br />
+                            $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#mostrarImagem&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#ocultoVar001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;show&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> &nbsp;<br />
+                            <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <br />
+                            $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#submit0000000001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#ocultoVar001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                        </codeblock>
+
+                        <p>Quando o Formulário Dinâmico é carregado, esse código verifica se o controle de imagem possui uma URL em sua propriedade src. Caso contrário, ele ocultará o controle Imagem. A segunda parte do código define um valor no controle oculto quando o usuário clica nele. Isso permite que o código do gatilho verifique se o botão "mostrarImagem" foi clicado pelo usuário. A terceira parte do código limpa o valor do controle oculto quando o usuário clica no botão "Enviar" para pular o gatilho e enviar o formulário dinâmico.</p>
+
+                    <li>Adicione um gatilho com o seguinte código:</li>
+                
+                        <codeblock>
+                            <span style="color: #000088;">$fileField</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'imageFile'</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//definir a propriedade Nome do controle Arquivo</span><br />
+                            <span style="color: #000088;">$taskUID</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@@</span>TASK<span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//definir o ID da tarefa onde o Formulário Dinâmico está atribuído</span><br />
+                            <span style="color: #000088;">$stepPosition</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//definir o número da posição do passo do Formulário Dinâmico na tarefa (o primeiro passo é 1, o segundo passo é 2, etc)</span><br />
+                            <br />
+                            <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">isset</span><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>hiddenVar001<span style="color: #009900;">&#41;</span> and <span style="color: #339933;">!</span><span style="color: #990000;">empty</span><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>hiddenVar001<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; <span style="color: #000088;">$caseId</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">;</span> &nbsp;<span style="color: #666666; font-style: italic;">//ID of the current case</span><br />
+                            <br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #666666; font-style: italic;">//Use ORDER BY APP_DOC_INDEX DESC para obter o último arquivo carregado no controle Arquivo</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;SELECT APP_DOC_UID, DOC_VERSION FROM APP_DOCUMENT<br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE APP_UID='<span style="color: #006699; font-weight: bold;">$caseId</span>' AND APP_DOC_FIELDNAME='<span style="color: #006699; font-weight: bold;">$fileField</span>' AND<br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; APP_DOC_STATUS = 'ACTIVE' ORDER BY APP_DOC_INDEX DESC&quot;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$results</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">is_array</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#41;</span> and<span style="color: #990000;">count</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">&gt;</span> <span style="color: #cc66cc;">0</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$fileId</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$results</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_DOC_UID'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$fileVersion</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$results</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DOC_VERSION'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$d</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> AppDocument<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$aFileInfo</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$d</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">load</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$fileId</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$aData</span> <span style="color: #339933;">=</span><span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">'imagemUrl'</span> &nbsp; &nbsp; &nbsp;<span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">&quot;../cases/cases_ShowDocument?a=<span style="color: #006699; font-weight: bold;">$fileId</span>&amp;v=<span style="color: #006699; font-weight: bold;">$versãoArquivo/span>&quot;</span><span style="color: #339933;">,</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #0000ff;">'nomeArquivoimagem'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$aFileInfo</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">&quot;APP_DOC_FILENAME&quot;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span><br />
+                            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">'mostrarImagem'</span> &nbsp; &nbsp; <span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">''</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PMFSendVariables<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #000088;">$aData</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #666666; font-style: italic;">//remove todos os arquivos enviados anteriormente:</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$i</span> <span style="color: #339933;">=</span> <span style="color: #cc66cc;">2</span><span style="color: #339933;">;</span> <span style="color: #000088;">$i</span> <span style="color: #339933;">&lt;=</span><span style="color: #990000;">count</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #000088;">$i</span><span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$d</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">Remove</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#91;</span><span style="color: #000088;">$i</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'APP_DOC_UID'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> <span style="color: #000088;">$results</span><span style="color: #009900;">&#91;</span><span style="color: #000088;">$i</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'DOC_VERSION'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+                            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+                            <br />
+                            &nbsp; <span style="color: #000088;">$result</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;SELECT STEP_UID_OBJ FROM STEP WHERE TAS_UID='<span style="color: #006699; font-weight: bold;">$taskUID</span>' and STEP_POSITION = '<span style="color: #006699; font-weight: bold;">$stepPosition</span>'&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            &nbsp; <span style="color: #339933;">@@</span>stepUIDObj<span style="color: #339933;">=</span> <span style="color: #000088;">$result</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">&quot;STEP_UID_OBJ&quot;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                            <br />
+                            &nbsp; PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'Formulário Dinâmico'</span><span style="color: #339933;">,</span> <span style="color: #339933;">@@</span>stepUIDObj<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                            <span style="color: #009900;">&#125;</span>
+                        </codeblock>
+                </ol>
+
+                <p>Defina esse gatilho para disparar antes da etapa que segue o formulário dinâmico ou antes da atribuição se o formulário dinâmico for a última etapa em sua tarefa. Neste exemplo, o Formulário Dinâmico é o único passo, portanto, o gatilho será colocado antes da atribuição .</p>
+                <p>NÃO defina este gatilho para disparar imediatamente após o Formulário Dinâmico porque, nesse ponto, o arquivo selecionado no controle de arquivo ainda não foi salvo no banco de dados e armazenado no sistema de arquivos do servidor.</p>
+                <p>Este código de disparo primeiro verifica se a variável de controle "Oculto" tem um valor. Se estiver vazio ou não definido, o usuário não clicou no botão de envio "showImage". O código do gatilho usa:</p>
+                <p>A função executeQuery() para procurar o registro do arquivo carregado, que é armazenado na tabela APP_DOCUMENT no banco de dados.</p>
+                <p>O método AppDocument::Load() é chamado para obter o nome do arquivo carregado. A variável "imageUrl" é definida como a URL relativa ao arquivo de imagem carregado e a variável "arquivoImagemname" é definida como seu nome de arquivo.</p>
+                <p>A função PMFSendVariables() é usada para armazenar essas variáveis no caso atual.</p>
+                <p>Em seguida, o gatilho percorre todos os arquivos carregados anteriormente e chama AppDocument::remove() para excluí-los.</p>
+                <p>Por fim, o gatilho chama o PMFRedirectToStep para redirecionar de volta ao formulário dinâmico e exibir a imagem do arquivo carregado.</p>
+                <p>Quando um caso é executado, o usuário pode selecionar um arquivo de imagem no controle Arquivo:</p>
+                <p>Quando o usuário clicar no botão "Exibir imagem", o formulário dinâmico será reexibido com o arquivo de imagem selecionado exibido abaixo do controle Arquivo:</p>
+                <p>Para ver um exemplo de processo contendo este exemplo de código, baixe e importe Display_image-1.pmx (clique com o botão direito neste link e selecione "Salvar como...").</p>
 
         </article>
 
