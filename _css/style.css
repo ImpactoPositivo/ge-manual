@@ -195,6 +195,11 @@ div#ladoalado {
     color: black;
 }
 
+.linkBlue li a {
+    text-decoration: underline !important; 
+    color: blue !important; 
+}
+
 #principal ol > li a:hover {
     text-decoration: underline;
     color: var(--cor2);

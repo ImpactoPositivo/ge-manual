@@ -25,8 +25,28 @@
         <section id="lado">
             <h1>Links</h1>
             <h2>Conteúdo:</h2>
-            <ol>
-
+            
+                <ol>
+                <li><a href="#item1">Links</a></li>
+                <li><a href="#item2">Propriedades</a>
+                        <ol type="A">
+                            <li><a href="#item2a">A propriedade Href</a></li>
+                        </ol>
+                </li>
+                <li><a href="#item3">Atribuindo links dinamicamente ao controle</a></li>
+                <li><a href="#item4">Exemplo de controle de link</a>
+                    <ol type="A">
+                        <li><a href="#item4a">Vinculando dentro do Gestor Express</a></li>
+                    </ol>
+                </li>    
+                <li><a href="#item5">JavaScript em links</a>
+                    <ol type="A">
+                        <li><a href="#item5a">Métodos JavaScript</a></li>
+                        <li><a href="#item5b">Executando JavaScript em Links</a></li>
+                        <li><a href="#item5c">Configurando Links Relativos</a></li>
+                    </ol>
+                </li>
+                <li><a href="">Manipulando links em gatilhos</a></li>
             </ol>
         </section>
     </aside>
@@ -34,6 +54,331 @@
     <section id="principal">
 
         <article>
+            <h1 id="item1">Links</h1>
+
+                <p>Os links são usados para exibir um hiperlink em formulários dinâmicos. Defina a URL (endereço web) para onde o link irá redirecionar na propriedade <a href="#">Href</a>. Se necessário, adicione uma dica de onde o link redireciona na <a href="#">dica</a> de propriedade. Por fim, adicione um valor ao link na propriedade <a href="#">valor</a>.</p>
+
+                <p>O ícone deste elemento dentro da Ferramenta de Desenho do Formulário Dinâmico é o seguinte</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para adicionar um link ao design do formulário dinâmico, arraste e solte-o em qualquer uma das linhas existentes.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Defina a URL para a qual o link será redirecionado dentro de suas propriedades.</p>
+
+                <figure>
+
+                </figure>
+
+            <h1 id="item2">Propriedades</h1>
+
+                <p>A seguir estão as propriedades disponíveis para este controle. Para acessá-las, clique no controle após adicioná-lo ao modelo de formulário.</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Propriedade</th><th>Descrição</th></th>
+                    </thead>
+                    <tbody>
+                        <tr><td>Modelo</td><td><code>link</code>(somente leitura)</td></td>
+                        <tr><td>ID</td><td>[Requeridos] <br>
+                        Identificador exclusivo de campo e HTML.</td></td>
+                        <tr><td>Nome</td><td>Nome do campo HTML</td></td>
+                        <tr><td>Rótulo</td><td>O rótulo do campo com o qual o controle será renderizado.</td></td>
+                        <tr><td>Exibir texto</td><td>O texto que é exibido como link (azul e sublinhado).</td></td>
+                        <tr><td>href</td><td>[Requeridos] <br>
+                        Defina nesta propriedade o valor padrão href que será mostrado e armazenado ao usar o link.</td></td>
+                        <tr><td>Dica</td><td>Usado para mostrar ajuda quando o controle de link é renderizado. É mostrado quando o ponteiro do mouse está sobre o ? ícone.</td></td>
+                    </tbody>                        
+                </table>
+                                
+                <p><span style="color: green">Observação:</span> Siga o link das propriedades para saber como trabalhar com cada uma delas.</p>
+
+                <p>O comportamento do controle, bem como seu escopo, é definido em suas propriedades. Por exemplo, se definir o seguinte:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "Tipo" é definida por padrão indicando o tipo de controle que neste caso é "Link". A propriedade <strong>"ID"</strong> também é definida por padrão com o formato "link000000000X" onde x representa a numeração dos controles de link adicionados ao modelo, começando em 1. Ao trabalhar com JavaScript no formulário, o controle pode ser referenciado usando este ID ( por exemplo <code>$("#link0000000001")...)</code>. O mesmo acontece com a propriedade <strong>"Nome"</strong> que tem o mesmo formato da propriedade ID.</p>
+
+                <p>A propriedade "Rótulo" define o rótulo do controle que será a seguinte parte ao renderizar:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "Valor" define o texto da propriedade <a href="#">href</a> que será clicado pelo usuário para abrir o link. Essas propriedades estão diretamente relacionadas umas às outras.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "Dica" exibirá dicas úteis do campo de link no formulário</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item2a">A propriedade Href</h2>
+
+                <p>Esta propriedade define o endereço de um link. Quando o link for clicado, o navegador da web abrirá uma nova guia ou janela (dependendo da configuração do navegador da web) que direciona para esse endereço.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Se um endereço não tiver um protocolo, como <code>https://</code> ou <code>ftp://</code>, <code>http://</code> será automaticamente anexado ao endereço, portanto, um endereço como <code>www.gestorexpress.com.br</code> se tornará <code>http://www.gestorexpress.com.br</code>.</p>
+
+                <p>Ao renderizar o Formulário Dinâmico na visualização ou executar um caso, o texto na cor azul será o link para a URL especificada nesta propriedade. Os usuários devem clicar neles para abrir a página da web.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Qualquer <a href="#">tipo de URL</a> pode ser usado, como:</p>
+
+                <ul>
+                    <li>Exemplo <code>http</code>: <code>http://www.example.com.br</code>/</li>
+                    <li>Exemplo <code>https</code>: <code>https://pt.wikipedia.org</code></li>
+                    <li>Exemplo <code>mailto</code>: <code>mailto:silvia.alvarado@gestorexpress.com.br</code></li>
+                    <li>Exemplo <code>ftp</code>: <code>ftp://192.168.1.20</code></li>
+                </ul>
+
+                <p>Além disso, endereços IP podem ser adicionados nesta propriedade, como <code>127.0.0.1</code>, <code>http://192.168.1.77</code>, etc.</p>
+
+            <h1 id="item3">Atribuindo links dinamicamente ao controle</h1>
+
+                <p>A propriedade <strong>"Href"</strong> do link também pode ser recuperada de uma variável de caso usando o prefixo <code>@@</code>. Por exemplo, se tiver um formulário no qual um URL é inserido em uma caixa de texto relacionada a uma variável como <code>@@linkVariavel</code>:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Então, na outra forma, esse valor é recuperado apenas definindo o valor <code>@@linkVariavel</code> na propriedade href:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Também é possível redirecionar páginas dinamicamente usando variáveis de caso no código JavaScript. Por exemplo:</p>
+                
+                <ul>
+                    <li>Crie a variável casehrefRedirect</li>
+                    <li>Crie um novo gatilho e defina a url para onde a página será redirecionada usando o código</li>
+                    <codeblock>
+                        @@hrefRedirect = "http://www.gestorexpress.com.br";
+                    </codeblock>
+                    <li>Atribua o gatilho antes do Formulário Dinâmico nas etapas da tarefa.</li>
+                    <li>Adicione o nome da variável na propriedade "Href" do Formulário Dinâmico: <code>@@hrefRedirect</code>.</li>
+                    <p>Ou adicione o seguinte código JavaScript para abrir o URL em uma nova página:</p>
+                    <codeblock>
+                        javascript<span style="color: #339933;">:</span> window.<span style="color: #660066;">open</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'@#href'</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">'_blank'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                    </codeblock>
+                    <p><span style="color: green">Observação:</span> Leve em consideração as <a href="#">Regras de Digitação</a> das variáveis de caso para usá-las no código.</p>
+                    <li>Execute um caso e clique no link do Formulário Dinâmico. Outra guia será aberta e redirecionará para a página inicial do Gestor Express.</li>
+                </ul>
+
+            <h1 id="item4">Exemplo do controle link</h1>
+                
+                <p>Para este exemplo, arraste e solte um controle "Link" na tela do Formulário Dinâmico. O resultado da adição do controle será o seguinte.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Clique no espaço vazio do controle para exibir suas propriedades no painel do lado esquerdo na guia "Controles da Web".</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A primeira propriedade é a propriedade "id" que é o identificador exclusivo do controle. Para este exemplo, a propriedade "id" será usada com código JavaScript para adicionar funcionalidade e comportamento ao controle.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Para isso, clique na borda cinza claro do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico no painel esquerdo. Vá para a propriedade "javascript" que possui um botão "editar" que abrirá um editor de JavaScript.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>No editor, adicione o seguinte código que definirá o texto do link:</p>
+
+                <codeblock>
+                    jQuery("#link0000000001").setValue('http://www.gestorexpress.com.br');
+                </codeblock>
+                
+                <p>Observe que o "id" está sendo usado na consulta para definir o valor no controle. A propriedade "id" pode ter um nome diferente em vez de "link0000000001".</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Se renderizado neste ponto, o controle não mostrará nada, portanto, a propriedade "exibir texto" deve ter um nome apropriado para o link. Por exemplo, o texto adicionado na propriedade "exibir texto" pode ser: "Clique aqui". Quando renderizado, o controle terá o texto adicionado e levará ao link colocado no código JavaScript.</p>
+               
+                <figure>
+
+                </figure>
+ 
+                <p>A propriedade "nome" é uma referência de nome de campo HTML para o controle.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Agora, a propriedade "rótulo" mudará o nome do controle. Em vez de ter "link_1" o nome do controle pode ser: "Para mais informações visite". Observe a imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "exibir texto" mostra o texto que é exibido como link (azul e sublinhado) conforme a imagem abaixo.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>A propriedade a seguir é a propriedade "dica". Usada para mostrar ajuda quando o controle de link é renderizado. Exiba a dica passando o ponteiro do mouse sobre o ícone ?. Nesse caso a dica pode ser: "Clique no link para mais informações.".</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Por fim, a propriedade "href" é o link que redirecionará o usuário para a página específica. Use a propriedade "exibir texto" para exibir o texto de acordo com o link adicionado na propriedade "href" como visto na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item4a">"Linkando" dentro do Gestor Express</h2>
+                
+                <p><span style="color:green">Observação:</span> Lembre-se que o usuário que acessa esses links deve ter as devidas permissões para acessar o <a href="#">Caso</a>, <a href="#">Tarefa</a>, <a href="#">Documento de Entrada</a> ou <a href="#">Documento de Saída</a> referido no link. Além disso, as etapas só podem ser acessadas a partir da mesma tarefa.</p>
+
+                <p>Links relativos podem ser usados ao vincular a outra página dentro do Gestor Express. Veja a função <a href="#">G::header()</a> e como chamar esta função interna para uma explicação das diferentes variáveis GET a serem passadas nos links a seguir:</p>
+
+                <ul>
+                    <li>A tela de login: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/login/login</code></li>
+                    <li>A seção inicial: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/main</code></li>
+                    <li>A lista de casos: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/casesListExtJs</code></li>
+                    <li>Iniciar um novo caso: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_New</code></li>
+                    <li>Abrir um caso existente sem menu e barra lateral: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Open?APP_UID=<font color="#FF8800"><strong>&lt;CASE-UID&gt;</strong></font>&amp;DEL_INDEX=<font color="#FF8800"><strong>&lt;INDEX&gt;</strong></font></code></li>
+                    <li>Abrir um caso existente com menu e barra lateral: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62; /&#60;SKIN&#62;/cases/opencase/<font color="#FF8800"><strong>&lt;CASE-UID&gt;</strong></font></code></li>
+                    <li>Abrir o resumo do caso: <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Open?APP_UID=<font color="#FF8800"><strong>&lt;CASE-UID&gt;</strong></font>&amp;DEL_INDEX=<font color="#FF8800"><strong>&lt;INDEX&gt;</strong></font>&amp;action=sent</code></li>
+                    <li>Abrir uma etapa na mesma tarefa:</li>
+                        <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=<font color="#FF8800"><strong>&lt;TYPE&gt;</strong></font>&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=<font color="#FF8800"><strong>&lt;ACTION&gt;</strong></font></code>
+                    
+                        <ul type="disc">
+                            <li>Etapa do formulário dinâmico:</li>
+                                <ul type="disc">
+                                    <li>Para edição:</li>
+                                        <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=DYNAFORM&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=EDIT</code>
+                                    
+                                    <li>Para visualização:</li>
+                                        <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=DYNAFORM&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=VIEW</code>
+                                </ul>
+                            <li>Etapa do documento de entrada:</li>
+                                <ul type="disc">
+                                    <li>Para anexar:</li>
+                                        <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=INPUT_DOCUMENT&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=ATTACH</code>
+                                </ul>
+                            <li>Etapa do documento de saída:</li>
+                                <ul type="disc">
+                                    <li>Para gerar e visualizar:</li>
+                                        <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=OUTPUT_DOCUMENT&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=GENERATE</code>
+                                 </ul>
+                            <li>Etapa externa:</li>
+                                <code>http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=EXTERNAL&UID=<font color="#FF8800"><strong>&lt;EXT-STEP-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=EDIT</code>
+                            <li>Notificação (e-mail):</li>
+                                <code>"http://&#60;DOMAIN&#62;/sys&#60;WORKSPACE&#62;/&#60;LANG&#62;/&#60;SKIN&#62;/cases/cases_Step?TYPE=MESSAGE&UID=<font color="#FF8800"><strong>&lt;OBJECT-UID&gt;</strong></font>&POSITION=<font color="#FF8800"><strong>&lt;STEP-NUMBER&gt;</strong></font>&ACTION=</code>
+                             <li>Fim da tarefa para roteamento:</li>
+                                <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_Step?TYPE=ASSIGN_TASK&UID=-1&POSITION=10000&ACTION=ASSIGN</code>
+                            
+                        </ul>
+                    <li>Reatribuir um caso a outro usuário:</li>
+                        <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_Reassign?APP_UID=<CASE-UID>&DEL_INDEX=<INDEX></code>
+                    
+                    <li>Abrir um arquivo de Documento de Entrada específico:</li>
+                        <ul type="disc">
+                            <li>Última versão:</li>
+                                <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_ShowDocument?a=<APP-DOC-UID>&ext=<EXTENSION></code>
+                            
+                            <li>Versão especificada:</li>
+                                <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_ShowDocument?a=<APP-DOC-UID>&v=<VERSION-NUMBER></code>
+                            
+                        </ul>
+                    <li>Abrir um Documento de Saída gerado:</li>
+                        <ul type="disc">
+                            <li>Última versão:</li>
+                                    <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_ShowOutputDocument?a=<APP-DOC-UID>&ext=<EXTENSION></code>
+                            
+                            <li>Versão especificada:</li>
+                                    <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/cases/cases_ShowOutputDocument?a=<APP-DOC-UID>&ext=>EXTENSION>&v=<VERSION-NUMBER></code>
+                            
+                        </ul>
+                    <li>Abrir um <a href="#">arquivo público</a>:
+                        <code>http://<DOMAIN>/sys<WORKSPACE>/<LANG>/<SKIN>/<PROCESS-UID>/<FILENAME></code>
+                    </li>
+                </ul>
+                
+                    JavaScript em links
+                Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.
+
+                Os links no Gestor Express têm os seguintes componentes de campo:
+
+                Rótulo: O texto exibido acima ou à esquerda do link, que o identifica.
+                Valor: A referência do hiperlink, que é a URL (endereço) do link, para onde o navegador da web é direcionado quando o usuário clica no link.
+                Texto: O texto exibido para o link.
+                Href: A referência do hiperlink, que é a URL (endereço) do link, para onde o navegador da web é direcionado quando o usuário clica no link.
+                Métodos JavaScript
+                Alguns dos métodos JavaScript para manipular imagens incluem:
+
+                MétodoDescrição
+                jQuery(#fieldID""). getValue()"</p>
+                <p>jQuery("#fieldID"). getText()</p>
+                <p>jQuery("#fieldID"). getLabel()</p>
+                <p>jQuery("#fieldID"). getHref()</p>
+                <p>jQuery("#fieldID"). setValue("novoTexto")</p>
+                <p>jQuery("#fieldID"). setText("novoTexto")</p>
+                <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
+                <p>jQuery("#fieldID"). setHref("URL")</p>
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                <p>Executando JavaScript em Links</p>
+                <p>Até o Gestor Express 3.2.2, a propriedade "href" dos links pode ser definida com o método setHref(). No entanto, esse método adiciona automaticamente "http://"se não tiver um protocolo, o que é um problema ao tentar executar o código JavaScript em um link. Para contornar esse problema, use jQuery padrão para definir a propriedade "href":</p>
+                <p>$("# link-id ").find("a").prop("href", "javascript: código ")</p>
+                <p>Por exemplo, um formulário dinâmico tem um link com o ID "clientLink". Quando esse link é clicado, ele deve executar uma função JavaScript personalizada chamada redirectPage(), que possui código para primeiro chamar saveForm() para salvar o conteúdo atual do Formulário Dinâmico e, em seguida, definir o local para redirecionar para um Formulário Dinâmico na mesma tarefa cujo UID é "95038966757f286de4cc9f6008453249 " e cuja posição de passo é 2.</p>
+                <p>Para redirecionar para outra etapa em uma tarefa, o redirecionamento deve ocorrer dentro do mesmo quadro que o Formulário Dinâmico atual, portanto, a propriedade de destino do link é alterada de "_blank"(que abre uma nova janela ou guia) para "".</p>
+                <p>$ ( "#clientLink" ). encontre ( "um" ). prop ( "href", "javascript: redirectPage()" ) ;</p>
+                <p>$ ( "#clientLink" ). encontre ( "um" ). prop ( "destino", "" ) ;</p>
+                <p>function redirectPage ( ) {</p>
+                <p>  $ ( "form" ). salvarFormulário ( ) ;</p>
+                <p>  location = "../cases/cases_Step?TYPE=FORMULÁRIO DINÂMICO&UID=95038966757f286de4cc9f6008453249&POSITION=2&ACTION=EDIT" ;</p>
+                <p>}</p>
+                <p>Configurando Links Relativos</p>
+                <p>Até o Gestor Express 3.2.2, por padrão, os controles Link adicionam "http://" ao usar o método setHref(). Se precisar usar um link relativo, como../login/loginaquele que não contém o endereço completo, procure a tag "a" dentro de um link dive use o método.prop() do jQuery para definir sua propriedade "href" para o endereço relativo.</p>
+                <p>Por exemplo, o código JavaScript a seguir redireciona o navegador da web para o endereço relativo..login/loginem uma nova guia ou janela (dependendo da configuração do navegador da web):</p>
+                <p>$ ( "#clientLink" ). encontre ( "um" ). prop ( "href", "../login/login" ) ;</p>
+                <p>Manipulando links em gatilhos</p>
+                <p>O Gestor Express 3 não permite que variáveis sejam associadas a campos de link, como outros campos, portanto, o valor de um link não pode ser definido por meio de sua variável associada. No entanto, as propriedades href e de texto exibido de um campo de link podem ser definidas com variáveis. Na Ferramenta de Desenho do Formulário Dinâmico, clique no campo link e coloque as variáveis nas propriedades.</p>
+                <p>Neste exemplo, a @@productNamevariável é colocada na propriedade de texto exibido do link e a @@productUrlvariável é colocada na propriedade href do link.</p>
+                <p>Se as variáveis @@productNamee @@productUrlforem definidas em algum ponto anterior no caso, o campo de link conterá os valores nas variáveis. As variáveis @@productNamee @@productUrlpodem ser definidas por campos em um Formulário Dinâmico anterior ou podem ser definidas com código PHP em um gatilho.</p>
+                <p>Por exemplo, o seguinte código de gatilho pode ser usado para definir as variáveis @@productNamee:@@productUrl</p>
+                <p>if ( @@ job == 'sprocket' ) {</p>
+                <p>    @@ productName = '3cm flanged sprocket' ;</p>
+                <p>    @@ productUrl = 'http://www.toolworld.com/products/3cm_flanged_sprocket.html' ;</p>
+                <p>}</p>
+                <p>else {</p>
+                <p>    @@ productName = 'porca de 20 mm' ;</p>
+                <p>    @@ productUrl = 'http://www.toolworld.com/products/20mm_lug_nut.html' ;</p>
+                <p>}</p>
+                <p>O gatilho acima deve ser configurado para ser executado antes do Formulário Dinâmico ou em algum ponto anterior.</p>
 
 
         </article>

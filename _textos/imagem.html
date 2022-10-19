@@ -473,17 +473,37 @@
                         </codeblock>
                 </ol>
 
-                <p>Defina esse gatilho para disparar antes da etapa que segue o formulário dinâmico ou antes da atribuição se o formulário dinâmico for a última etapa em sua tarefa. Neste exemplo, o Formulário Dinâmico é o único passo, portanto, o gatilho será colocado antes da atribuição .</p>
-                <p>NÃO defina este gatilho para disparar imediatamente após o Formulário Dinâmico porque, nesse ponto, o arquivo selecionado no controle de arquivo ainda não foi salvo no banco de dados e armazenado no sistema de arquivos do servidor.</p>
-                <p>Este código de disparo primeiro verifica se a variável de controle "Oculto" tem um valor. Se estiver vazio ou não definido, o usuário não clicou no botão de envio "showImage". O código do gatilho usa:</p>
-                <p>A função executeQuery() para procurar o registro do arquivo carregado, que é armazenado na tabela APP_DOCUMENT no banco de dados.</p>
-                <p>O método AppDocument::Load() é chamado para obter o nome do arquivo carregado. A variável "imageUrl" é definida como a URL relativa ao arquivo de imagem carregado e a variável "arquivoImagemname" é definida como seu nome de arquivo.</p>
-                <p>A função PMFSendVariables() é usada para armazenar essas variáveis no caso atual.</p>
-                <p>Em seguida, o gatilho percorre todos os arquivos carregados anteriormente e chama AppDocument::remove() para excluí-los.</p>
-                <p>Por fim, o gatilho chama o PMFRedirectToStep para redirecionar de volta ao formulário dinâmico e exibir a imagem do arquivo carregado.</p>
+                <p>Defina esse gatilho para disparar antes da etapa que segue o formulário dinâmico ou antes da atribuição se o formulário dinâmico for a última etapa em sua tarefa. Neste exemplo, o Formulário Dinâmico é o único passo, portanto, o gatilho será colocado <strong>antes da atribuição</strong>/p>
+
+                    <figure>
+
+                    </figure>
+
+                <p><strong>NÃO</strong> defina este gatilho para disparar imediatamente após o Formulário Dinâmico porque, nesse ponto, o arquivo selecionado no controle de arquivo ainda não foi salvo no banco de dados e armazenado no sistema de arquivos do servidor.</p>
+
+                <p>Este código de disparo primeiro verifica se a variável de controle "Oculto" tem um valor. Se estiver vazio ou não definido, o usuário não clicou no botão de envio "mostrarImagem". O código do gatilho usa:</p>
+
+                <ul class="linkBlue">
+                    <li>A função <a href="#">executeQuery()</a> para procurar o registro do arquivo carregado, que é armazenado na tabela APP_DOCUMENT no banco de dados.</li>
+                    <li>O método <a href="#">AppDocument::Load()</a> é chamado para obter o nome do arquivo carregado. A variável "imagemUrl" é definida como a URL relativa ao arquivo de imagem carregado e a variável "nomeArquivoimagem" é definida como seu nome de arquivo.</li>
+                    <li>A função <a href="#">PMFSendVariables()</a> é usada para armazenar essas variáveis no caso atual.</li>
+                    <li>Em seguida, o gatilho percorre todos os arquivos carregados anteriormente e chama <a href="#">AppDocument::remove()</a> para excluí-los.</li>
+                    <li>Por fim, o gatilho chama o <a href="#">PMFRedirectToStep</a> para redirecionar de volta ao formulário dinâmico e exibir a imagem do arquivo carregado.</li>
+                </ul>
+
                 <p>Quando um caso é executado, o usuário pode selecionar um arquivo de imagem no controle Arquivo:</p>
-                <p>Quando o usuário clicar no botão "Exibir imagem", o formulário dinâmico será reexibido com o arquivo de imagem selecionado exibido abaixo do controle Arquivo:</p>
-                <p>Para ver um exemplo de processo contendo este exemplo de código, baixe e importe Display_image-1.pmx (clique com o botão direito neste link e selecione "Salvar como...").</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Quando o usuário clicar no botão "Exibir imagem", o Formulário Dinâmico será reexibido com o arquivo de imagem selecionado exibido abaixo do controle Arquivo:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para ver um exemplo de processo contendo este exemplo de código, baixe e importe <a href="#">Mostrar_imagem-1.pmx</a> clique com o botão direito neste link e selecione "Salvar como...").</p>
 
         </article>
 
