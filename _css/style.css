@@ -235,7 +235,7 @@ div#ladoalado {
 
 #principal code {
     background-color: #e7eefc;
-    font-size: .9rem;
+    font-size: .95rem;
 }
 
 code#sozinho {
@@ -291,6 +291,18 @@ pre code {
     padding: 5px 5px;
     font-size: .95rem;
     text-align: justify;
+}
+
+.textbox td code {
+    font-size: 1.1rem !important;
+}
+
+.textbox td a {
+    text-decoration: none;
+}
+
+.textbox td a:hover {
+    color: black;
 }
 
 .textbox ul {
