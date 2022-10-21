@@ -26,7 +26,40 @@
             <h1>Arquivos/h1>
             <h2>Conteúdo:</h2>
             <ol>
-
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Propriedades</a>
+                    <ol type="A">
+                        <li><a href="#item2a">Extensões de arquivo</a></li>
+                        <li><a href="#item2b">Tamanho máximo do arquivo</a>
+                            <ol type="i">
+                                <li><a href="#item2bi">Validação de tamanho máximo de arquivo com configuração PHP</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#item2c">Unidade de tamanho</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item3">Exemplo de controle de arquivo</a></li>
+                <li><a href="#item4">Associando um documento de entrada a um arquivo</a></li>
+                <li><a href="#item5">Acessando arquivos com JavaScript</a>
+                    <ol type="A">
+                        <li><a href="#item5a">Métodos JavaScript</a></li>
+                        <li><a href="#item5b">Limpando controles de arquivo</a></li>
+                        <li><a href="#item5c">Estrutura de controles de arquivo</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item6">Armazenamento de arquivo</a>
+                    <ol type="A">
+                        <li><a href="#item6a">Armazenamento de arquivos no banco de dados</a></li>
+                        <li><a href="#item6b">Armazenamento Variável</a></li>
+                        <li><a href="#item6c">Armazenamento de arquivos em grades</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item7">Acessando arquivos com PHP</a>
+                    <ol type="A">
+                        <li><a href="#item7a">Link para arquivo</a></li>
+                        <li><a href="#item7b">Obtendo informações do arquivo</a></li>
+                    </ol>
+                </li>      
             </ol>
         </section>
     </aside>
@@ -34,6 +67,423 @@
     <section id="principal">
 
         <article>
+            <h1 id="item1">Visão geral</h1>
+
+                <p><span style="color: red">Aviso:</span> a partir do Gestor Express 3.4.0, o controle Arquivo não é mais suportado. Por favor, use o controle Carregador de de Múltiplos Arqjuivos em vez disso.</p>
+
+                <p>Este controle permite que os arquivos sejam carregados em um Formulário Dinâmico e anexados ao caso atual. Para anexar arquivos, use o botão <strong>Escolher Arquivos</strong> quando esse controle for renderizado. Selecione os arquivos a serem anexados seguindo as instruções fornecidas pelo navegador. Depois de anexados, os arquivos serão listados no campo de controle do Formulário Dinâmico. O ícone deste controle na barra da ferramentas de desenho é o seguinte:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Ao projetar um Formulário Dinâmico, não é possível fazer upload de nenhum arquivo ou visualizá-lo. Quando o Formulário Dinâmico for renderizado, o usuário final poderá fazer upload e visualizar arquivos usando o campo de controle. Quando o controle Arquivo for adicionado ao Formulário Dinâmico, ele ficará assim:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Este controle permite que os usuários anexem um arquivo. Ao executar um caso ou visualizar um Formulário Dinâmico, ele é exibido da seguinte forma:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>É possível baixar um arquivo previamente anexado a um Formulário Dinâmico após o envio ou envio do formulário clicando no link do arquivo.</p>
+  
+                <figure>
+
+                </figure>
+              
+                <p><span style="color: red">Aviso:</span> Se o sinalizador <a href="#">disable_download_documents_session_validation</a> estiver definido como "0" ou não estiver incluído no arquivo env.ini, o usuário será impedido de fazer o download do arquivo se não for quem fez o upload do arquivo. Portanto, ele precisará de uma permissão de processo de Documento de Entrada para baixar o arquivo.</p>
+
+            <h1 id="item2">Propriedades</h1>
+
+                <p>É possível personalizar a funcionalidade e o comportamento de um controle de arquivo configurando suas propriedades:</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>PROPRIEDADES</th><th>DESCRIÇÃO</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tipo</td><td><code>arquivo</code>(somente leitura) <br></td></tr>
+                        <tr><td>Variável</td><td>Clique na opção ... para selecionar uma variável da lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle. <br>
+                        O tipo de variável suportado por este controle é o seguinte:
+                        <li>Arquivo</li>
+                        </td></tr>
+                        <tr><td>Tipo de dados da variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (somente leitura).</td></tr>
+                        <tr><td>ID</td><td>[Requeridos] <br>
+                        Identificador exclusivo de campo e HTML.</td></tr>
+                        <tr><td>Nome</td><td>Nome do campo HTML</td></tr>
+                        <tr><td>Rótulo</td><td>A etiqueta do controle</td></tr>
+                        <tr><td>Dica</td><td>Usado para mostrar ajuda quando o controle é renderizado (na visualização ou ao executar casos). É mostrado quando o ponteiro do mouse está sobre o ? ícone.</td></tr>
+                        <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório, o que significa que um arquivo deve ser carregado no campo. <br>
+                        <span style="color:green">Observação:</span> A propriedade Required apenas valida que existe um arquivo anexado ao controle da web, e não que o usuário atual anexa um novo arquivo.</td></tr>
+                        <tr><td>Extensões de arquivo</td><td>Use esta propriedade para definir as extensões de arquivo permitidas. Use uma vírgula para separar todas as extensões que serão habilitadas para o controle. Por exemplo “<code>.jpg</code>, <code>.png</code>, <code>.pdf</code>” <br>
+                        Se esta propriedade não for definida, qualquer extensão de arquivo será permitida.</td></tr>
+                        <tr><td>Tamanho máximo do arquivo</td><td>Defina o tamanho máximo permitido do arquivo a ser carregado. Por padrão, o tamanho máximo do arquivo é <strong>1024 KB</strong>.</td></tr>
+                        <tr><td>Unidade de tamanho</td><td>Defina a unidade (KB ou MB) do tamanho máximo do arquivo.</td></tr>
+                        <tr><td>Modo de exibição</td><td>[Requeridos] <br>
+                        Modo de exibição: <br>
+                        <ul>
+                            <li><strong>mestre:</strong> Herda o modo de exibição definido no contêiner pai (form/grade).</li>
+                            <li><strong>editar:</strong> O controle é habilitado para edição quando é renderizado.</li>
+                            <li><strong>visualizar:</strong> O controle só pode ser visualizado quando é renderizado e o conteúdo não pode ser editado.</li>
+                            <li><strong>desativado:</strong> O controle é exibido em cinza para indicar que o modo desabilitado está ativado. O conteúdo também não pode ser editado.</li>
+                        </ul>
+                        </td></tr>
+                    </tbody>
+                </table>
+
+            <h2 id="item2a">Extensões de arquivo</h2>
+
+                <p>A propriedade Extensões de Arquivo define as extensões de arquivo que podem ser carregadas no campo:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As extensões permitidas são definidas no formato <code><span style="color: blue">nomearquivo.extensao</span></code>. Use <code>*</code> (asterisco) como curinga.<code>*</code> sozinho permite todos os tipos de arquivos. Use <code>*.<span style="color: blue">extensao</span></code> para permitir um tipo específico de arquivo, como <code>*.pdf</code> ou <code>*.doc</code>. Para permitir vários tipos de arquivos, separe-os com <code>,</code> (vírgulas). Por exemplo, <code>*.png, *.jpg, *.jpeg, *.tif, *.tiff, *.gif</code> só permite arquivos de imagem.</p>
+
+                <p>Por exemplo, se apenas arquivos PDF puderem ser anexados ao controle de arquivo, defina essa propriedade como <code>*.pdf</code>. Ao executar casos, o controle Arquivo indicará que tipo de arquivo pode ser carregado:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Se um arquivo chamado <code>ge_ListaParticipantes.pdf</code> for carregado, o controle de arquivos o validará à medida que o formulário dinâmico estiver sendo enviado.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Se um arquivo com uma extensão diferente for anexado, uma mensagem de erro de validação será exibida:</p>
+                
+                <figure>
+
+                </figure>
+
+                <p><span style="color:green">Observação:</span> o Gestor Express verificará se os arquivos correspondem à sua extensão e permitirá que apenas determinados tipos de arquivos sejam carregados. Para permitir que mais tipos de extensões de arquivo sejam carregados, consulte <a href="#">Conteúdo compatível e extensões de arquivo</a>.</p>
+
+                <p><span style="text-decoration: underline; font-weight: bold;">Considerações:</span></p>
+
+                <ul>
+                    <li><strong>Para campos de arquivo que NÃO são obrigatórios</strong></li>
+                    <ul type="disc">
+                        <li>Se o campo aceitar todas as extensões de arquivo e nenhum arquivo for anexado ao executar um caso, a validação será aprovada e o formulário poderá ser enviado ou enviado sem restrições.</li>
+                        <li>Se o campo aceitar todas as extensões de arquivo e um arquivo for anexado ao executar um caso, a validação passará, a menos que tenha o limite de tamanho, nesse caso outra validação, explicada na próxima propriedade, será avaliada. No entanto, se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação será aprovada.</li>
+                        <li>Se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação será aprovada e o formulário poderá ser enviado ou enviado sem restrições.</li>
+                        <li>Se o campo aceitar apenas determinados tipos de extensões e um arquivo for anexado, a validação será aprovada, a menos que o usuário anexe um arquivo com uma extensão inválida. Nesse caso, uma mensagem é exibida com um aviso que indica que a extensão do arquivo não é suportada. No entanto, se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação será aprovada.</li>
+                    </ul>
+                    <li><strong>Para campos de arquivo obrigatórios</strong></li>
+                    <ul type="disc">
+                        <li>Se o campo aceitar todas as extensões de arquivo e nenhum arquivo for anexado, a validação FALHA porque o campo é obrigatório e o formulário NÃO pode ser enviado ou enviado.</li>
+                        <li>Se o campo aceitar todas as extensões de arquivo e um arquivo com uma dessas extensões estiver anexado, a validação PASSA a menos que tenha um limite de tamanho; nesse caso, outra validação, explicada na próxima propriedade, é avaliada.</li>
+                        <li>Se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação FALHA porque o campo é obrigatório e o formulário NÃO pode ser enviado ou submetido.</li>
+                        <li>Se o campo aceitar apenas alguns tipos de extensões e um arquivo com a extensão correta for anexado, a validação será aprovada, a menos que o usuário anexe um arquivo com uma extensão inválida. Nesse caso, uma mensagem é exibida com um aviso que indica que a extensão do arquivo não é suportada. Nesse caso, o formulário NÃO pode ser enviado até que um arquivo válido seja anexado.</li>
+                    </ul>
+                    <li><strong>Caso especial</strong></li>
+                    <ul type="disc">
+                        <li>Ao executar casos, se um arquivo for anexado a um campo obrigatório e o formulário for enviado para a próxima etapa, mas o usuário voltar à etapa anterior, o arquivo será mostrado como um link sob o botão de anexo do campo do arquivo. Não será necessário anexar outro arquivo, pois o arquivo anexado anterior ainda contará para o campo obrigatório, de modo que o formulário pode ser submetido ou enviado sem nenhuma restrição.</li>
+                    </ul>
+                    <li><strong>Campo de arquivo em uma grid</strong></li>
+                    <ul type="disc">
+                        <li>Os arquivos em grades têm as mesmas considerações explicadas acima, mas nos casos em que a grade não está associada a uma variável e um arquivo válido é anexado e enviado, os novos dados não são adicionados ao banco de dados. Isso ocorre porque a grade DEVE ter uma variável associada para salvar corretamente os dados.</li>
+                    </ul>
+                </ul>
+
+            <h2 id="item2b">Tamanho máximo do arquivo</h2>
+
+                <p>Esta propriedade define o tamanho máximo permitido de arquivos carregados. Por padrão, essa propriedade é definida como 1024 KB. Para definir esta propriedade, insira um número positivo maior que zero:</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Deixe o campo em branco para permitir que o tamanho do arquivo seja ilimitado.</p>
+
+                <p>Ao executar um caso, o campo de arquivo validará o tamanho do arquivo antes de anexá-lo ao campo. Caso o tamanho do arquivo ultrapasse o tamanho definido nesta propriedade, uma mensagem é exibida e o arquivo não é anexado ao campo:</p>
+
+                <figure>
+
+                </figure>
+
+                <p><span style="text-decoration: underline; font-weight: bold;">Considerações:</span></p>
+
+                <ul>
+                    <li><strong>Para campos de arquivo que NÃO são obrigatórios</strong></li>
+                    <ul type="disc">
+                        <li>Se a validação do limite de tamanho máximo do arquivo anexado FALHAR, o arquivo não será anexado ao campo. No entanto, como o campo não é obrigatório, o formulário pode ser submetido ou enviado.</p>
+                    </ul>
+                    <li><strong>Para campos de arquivo obrigatórios</strong></li>
+                    <ul type="disc">
+                        <li>Se a validação do limite de tamanho máximo do arquivo anexado FALHAR, o arquivo não será anexado ao campo e o formulário NÃO PODERÁ ser enviado ou enviado.</li>
+                    </ul>
+                    <li><strong>Caso especial</strong></li>
+                    <ul type="disc">
+                        <li>Ao executar casos, se um arquivo for anexado a um campo obrigatório e o formulário for enviado para a próxima etapa, mas o usuário voltar à etapa anterior, o arquivo enviado será mostrado como um link sob o botão de anexo do campo de arquivo. Não será necessário anexar outro arquivo, pois o arquivo anexado anterior ainda contará para o campo obrigatório, de modo que o formulário pode ser submetido ou enviado sem nenhuma restrição.</li>
+                    </ul>
+                    <li><strong>Campo de arquivo em uma grade</strong></li>
+                    <ul type="disc">
+                        <li>Os arquivos em grades têm as mesmas considerações explicadas acima, mas nos casos em que a grade não está associada a uma variável e um arquivo válido é anexado e enviado, os novos dados não são adicionados ao banco de dados. Isso ocorre porque a grade DEVE ter uma variável associada para salvar corretamente os dados.</li>
+                    </ul>
+                </ul>
+
+            <p>Validação de tamanho máximo de arquivo com configuração PHP</p>
+
+                <p>A partir do Gestor Express 3.3.6, a propriedade Max File Size valida de acordo com as configurações post_max_size e upload_max_filesize no arquivo php.ini. Leve em consideração as seguintes considerações ao validar o tamanho máximo do arquivo em controles de arquivo:</p>
+                <p>As configurações post_max_size e upload_max_filesize no arquivo php.ini devem ser respeitadas. Isso significa que nenhuma configuração deve substituir esses parâmetros para aceitar arquivos maiores.</p>
+                <p>A validação aplica o menor valor entre o Max File Size do controle e os valores do arquivo php.ini.</p>
+                <p>A Ferramenta de Desenho do Formulário Dinâmico valida se o valor da propriedade de controle Max File Size é maior que os valores no arquivo php.ini. Se os valores forem maiores que os valores em php.ini, o alerta " O valor máximo deste campo é XX Mbytes " é exibido. Onde XX é o valor máximo permitido pelo arquivo PHP.</p>
+                <p>Os endpoints REST para criar e atualizar um documento de entrada devem retornar o erro correspondente se o tamanho do arquivo for maior que o valor permitido no arquivo PHP.</p>
+                <p>{</p>
+                <p>  "error": {</p>
+                <p>"code":    400,</p>
+                <p>"message": "" O tamanho do arquivo é maior que o máximo permitido, o tamanho máximo permitido é XX Mbytes ""</p>
+                <p>  }</p>
+                <p>}</p>
+                <p>Nota: O post_max_size considera o tamanho de todos os arquivos enviados. Portanto, é recomendado que cada arquivo carregado com os controles de arquivo múltiplo e único no formulário não seja maior que o parâmetro post_max_size no arquivo PHP.</p>
+                <p>Unidade de tamanho</p>
+                <p>Esta propriedade define a unidade (KB, MB) do tamanho definido na propriedade Max File Size.</p>
+                <p>Ao executar um caso, o controle validará o tamanho do arquivo antes de anexá-lo ao campo. Se o tamanho do arquivo ultrapassar o tamanho definido neste controle, uma mensagem como a seguinte é mostrada:</p>
+                <p>Exemplo de controle de arquivo</p>
+                <p>Para este exemplo, adicione um controle Arquivo ao Formulário Dinâmico arrastando-o e soltando-o na Ferramenta de Desenho do Formulário Dinâmico a partir do painel Controles da Web. Depois que o controle Arquivo for solto no Formulário Dinâmico, o campo de controle ficará como a imagem abaixo:</p>
+                <p>Imediatamente após adicionar o controle, aparecerá a janela Criar Variável, onde pode ser criada uma variável ou selecionada uma variável criada anteriormente para armazenar as informações inseridas no campo de controle pelo usuário final. Uma variável também pode ser criada usando a interface de variáveis clicando no botão Variáveis. Para este exemplo, uma nova variável será criada, portanto, selecione a opção Criar variável. Mantenha o nome da variável como "filevar", mas esse nome pode ser alterado simplesmente apagando esse nome e adicionando um novo. Clique na opção Configurações sublinhada para exibir mais configurações para a variável.</p>
+                <p>O controle Arquivo tem apenas duas configurações: Tipo e Documento de entrada (campo obrigatório). A configuração Tipo tem apenas uma opção, "Arquivo". Para a configuração Documento de entrada, um documento de entrada deve ser escolhido. Para saber como criar um documento de entrada, leia esta documentação. Para adicionar um documento de entrada, basta clicar nas reticências sublinhadas, como pode ser visto na imagem abaixo.</p>
+                <p>Uma nova janela de Documentos de Entrada dentro da janela Criar Variável aparecerá. Selecione um documento de entrada da lista clicando nele. Em seguida, na janela Criar variável, clique no botão Salvar para finalizar esta configuração.</p>
+                <p>Clique no espaço vazio do controle e suas propriedades serão exibidas no painel do lado esquerdo.</p>
+                <p>Outra forma de adicionar uma variável é saindo da janela Criar Variável e nas propriedades, clique nas reticências sublinhadas ao lado da propriedade Variável conforme mostrado na imagem.</p>
+                <p>A janela Criar variável aparecerá, onde uma variável pode ser criada selecionando o botão de opção "Criar variável" ou escolhida de uma lista de variáveis existentes selecionando o botão de opção "Selecionar variável". Uma vez que uma variável é escolhida, o tipo de dados da variável e as propriedades id terão o mesmo nome da variável adicionada.</p>
+                <p>Agora, a propriedade id pode ser usada com código JavaScript. Para adicionar código JavaScript à variável, clique na borda cinza clara do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas, localize a propriedade javascript e clique no botão editar... para abrir o editor.</p>
+                <p>No editor JavaScript, adicione o código que define o rótulo do controle. Leia esta seção para obter mais informações. Para este exemplo, adicione o seguinte código:</p>
+                <p>jQuery ( "#fileVar" ). setLabel ( "Gestor Express" ) ;</p>
+                <p>Quando o controle for renderizado, o rótulo será então definido como "Gestor Express", como pode ser visto na imagem abaixo.</p>
+                <p>A propriedade a seguir é a propriedade Name, que é o nome do campo HTML. Por padrão, a propriedade name é igual ao ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
+                <p>Continuando, a propriedade label altera o label do controle exibido no Formulário Dinâmico. Adicione um rótulo, como "Carregar um arquivo:", para rotular o controle no formulário dinâmico.</p>
+                <p>A propriedade Hint é usada para mostrar ajuda quando o controle é renderizado. Para este exemplo, adicione a seguinte frase à propriedade: "Selecione um arquivo para carregar". Quando o controle estiver renderizado, passe o ponteiro do mouse sobre o ícone (i) para mostrar a dica adicionada.</p>
+                <p>Para a propriedade Obrigatória há apenas uma caixa de seleção disponível. Quando marcado, um asterisco é adicionado ao lado do campo de controle para indicar que o campo é obrigatório e o usuário não poderá enviar o formulário até que o campo seja preenchido corretamente.</p>
+                <p>A propriedade de extensões de arquivo valida as extensões dos arquivos carregados no controle. Para este exemplo adicione ".doc ", isso significa que o controle não aceitará outras extensões além daquela especificada nesta propriedade.</p>
+                <p>Agora, as propriedades do tamanho máximo do arquivo e da unidade de tamanho determinarão o tamanho máximo de arquivo permitido e definirão a unidade de tamanho (KB, MB) do arquivo carregado.</p>
+                <p>Finalmente, o controle do modo de exibição terá efeitos diferentes ao renderizar uma forma dinâmica. Use a ilustração abaixo como guia para a funcionalidade da propriedade.</p>
+                <p>Nota: O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle de arquivo, consulte Arquivos no iOS.</p>
+                <p>Associando um documento de entrada a um arquivo</p>
+                <p>A partir da versão 3.0.1.5, é possível associar um documento de entrada a um campo de arquivo dentro de um formulário dinâmico usando uma variável de arquivo. Isso significa que os arquivos carregados em um campo de arquivo em um formulário dinâmico podem ser exibidos posteriormente em uma etapa de documento de entrada. Uma vantagem de associar um campo de arquivo a um documento de entrada é que a interface do documento de entrada pode ser usada para visualizar todos os arquivos carregados (assim como excluir arquivos e adicionar novas versões se o usuário tiver as permissões de processo adequadas e o controle de versão estiver ativado). Outra vantagem é que em Documentos de Entrada, todos os arquivos carregados possuem tags e são colocados em uma pasta específica em Home > Documentos, assim fica mais fácil encontrar os arquivos carregados posteriormente.</p>
+                <p>Carregar um arquivo para um documento de entrada por meio de um campo Arquivo em um formulário dinâmico é útil ao carregar apenas um arquivo para um documento de entrada. Para garantir que o usuário carregue um arquivo para um Documento de Entrada, torne o campo Arquivo obrigatório. Não é possível associar campos de Arquivo em uma grade a um Documento de Entrada, pois os campos dentro de grades não possuem variável. Para carregar mais de um arquivo em um Documento de Entrada, uma etapa normal de Documento de Entrada deve ser usada.</p>
+                <p>Para associar um Documento de Entrada a um campo Arquivo, é recomendável primeiro criar o Documento de Entrada no projeto. Em seguida, crie a variável que será relacionada ao controle Arquivo. Para fazer isso, vá para a caixa de ferramentas Process Objects e passe o ponteiro do mouse sobre o ícone + ao lado da opção Variables. Clique em Criar. Na janela que se abre, digite o nome da variável no campo Nome da variável e selecione a opção "Arquivo" no menu suspenso no campo Tipo de variável. (Consulte Definindo variáveis .)</p>
+                <p>Associe a variável ao documento de entrada criado anteriormente no campo Documento de entrada relacionado selecionando-o na caixa suspensa ou criando um novo documento de entrada.</p>
+                <p>Para editar o Documento de Entrada selecionado no campo Documento de Entrada Relacionado, clique no botão Editar.</p>
+                <p>Após criar a variável Arquivo, abra um Formulário Dinâmico onde será colocado o controle Arquivo. Adicione um campo Arquivo ao desenho e clique nele para ver suas propriedades. Vá para a propriedade Variável e clique no...botão.</p>
+                <p>Selecione a variável Arquivo que será associada ao controle Arquivo na lista de variáveis File disponíveis.</p>
+                <p>Após selecionar a variável, o Documento de Entrada será associado ao controle.</p>
+                <p>Após associar a variável Arquivo ao controle, as propriedades File Extensions, Max File Size e Size Unit serão desabilitadas. Essas propriedades são definidas automaticamente para as configurações do documento de entrada. Certifique-se de definir um tamanho máximo de arquivo maior que zero para o documento de entrada.</p>
+                <p>Nota: Os campos do arquivo não respeitam a configuração feita no PATH do Documento de Entrada. Esta consideração será resolvida em versões futuras.</p>
+                <p>Atenção: A propriedade name do campo Arquivo deve ter o mesmo nome da variável associada ao campo. Se forem diferentes, os arquivos carregados não serão associados ao Documento de Entrada e serão tratados como arquivos anexados normais.</p>
+                <p>Acessando arquivos com JavaScript</p>
+                <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+                <p>Os arquivos no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                <p>Rótulo: O texto exibido acima ou à esquerda do campo no Formulário Dinâmico que o identifica.</p>
+                <p>Valor: O nome de arquivo do último arquivo selecionado no controle de arquivo.</p>
+                <p>Texto: Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</p>
+                <p>Métodos JavaScript</p>
+                <p>Alguns dos métodos JavaScript usados para manipular campos de arquivo incluem:</p>
+                <p>Método</p>
+                <p>jQuery("#fieldID"). getValue()</p>
+                <p>jQuery("#fieldID"). getText()</p>
+                <p>jQuery("#fieldID"). getLabel()</p>
+                <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
+                <p>jQuery("#fieldID").clear()</p>
+                <p>Nota: Os métodos setValue() e setText () existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                <p>Limpando controles de arquivo</p>
+                <p>O arquivo selecionado em um controle de arquivo não pode ser definido usando JavaScript, pois isso requer ação do usuário. No entanto, é possível usar JavaScript para limpar o arquivo selecionado em um controle de arquivo.</p>
+                <p>Para remover o arquivo selecionado, use a função file.clear().</p>
+                <p>Por exemplo, se o usuário clicar no botão com o ID "ClearFile", a função.clear() excluirá o arquivo carregado/selecionado no controle.</p>
+                <p>$ ( "#LimparArquivo" ). encontre ( "botão" ). clique ( function ( ) {</p>
+                <p>$ ( "#FileID" ). clear ( ) ;</p>
+                <p>} ) ;</p>
+                <p>Estrutura de controles de arquivo</p>
+                <p>Um controle de arquivo consiste em:</p>
+                <p>Um visível <button>que está dentro de uma tag DIV com o ID do controle de arquivo que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido neste botão.</p>
+                <p>Um campo de arquivo oculto com o ID, onde o arquivo selecionado é armazenado temporariamente."form[id]"</p>
+                <p>Um campo de entrada oculto com o ID, que contém uma matriz dos arquivos que foram carregados anteriormente no Documento de entrada associado ao controle de arquivo, além do último arquivo selecionado com o controle de arquivo."form[id_label]"</p>
+                <p>Por exemplo, um controle de arquivo com o ID "recibos" pode ter a seguinte estrutura HTML:</p>
+                <p>< div id = "recibos" name = "field-recipts" class = "pmFormulário Dinâmico-field-file form-group col-sm-12 col-md-12 col-lg-12 pmFormulário Dinâmico-edit-file pmFormulário Dinâmico-field" ></p>
+                <p>  < label for = "recibos" class = "col-md-2 col-lg-2 control-label pmFormulário Dinâmico-label" ></p>
+                <p>< span class = "textlabel" > Recibos < / span ></p>
+                <p>  < / label ></p>
+                <p>  < div class ="pmFormulário Dinâmico-file-control col-md-10 col-lg-10 pmFormulário Dinâmico-field-control" ></p>
+                <p>< div class = "pmFormulário Dinâmico-file-container col-xs-12 col-sm-12 col-md-12 col- lg-12" ></p>
+                <p>  < div class = "pmFormulário Dinâmico-file-btn-container" ></p>
+                <p>    < button title = "receipt_2015-02-25.doc" type = "button" class = "pmFormulário Dinâmico-control-file form-control" > recibo_2015-02-25.doc < / button ></p>
+                <p>  < / div ></p>
+                <p>  <ID de entrada ="form[recibos]" name = "form[recibos]" style = "visibility:hidden;" type = "arquivo" ></p>
+                <p>  < valor de entrada = "["lunchReceipt_2015-02-25.jpg"]" id = "form[receipts_label]" name = "form[receipts_label]" type = "hidden" ></p>
+                <p>  < div name = "button-all" class = "btn-group btn-group-justified" style = "display: none;" ></p>
+                <p>    "pmFormulário Dinâmico-file-buttonup btn-group" ></p>
+                <p>      < button class = "glyphicon glyphicon-upload btn btn-success btn-sm" ></p>
+                <p>        All</p>
+                <p>      < / button ></p>
+                <p>    < / div ></p>
+                <p>    < div class = "pmFormulário Dinâmico-file-buttoncancel btn- group" style = "exibir: nenhum;" ></p>
+                <p>      < button class = "glyphicon glyphicon-remove btn btn-danger btn-sm" ></p>
+                <p>        Todos</p>
+                <p>      < / button ></p>
+                <p>    <</p>
+                <p>    div class = "pmFormulário Dinâmico-file-buttonremove btn-group" ></p>
+                <p>      < button class = "glyphicon glyphicon-trash btn btn-danger btn-sm" ></p>
+                <p>        All</p>
+                <p>      < / button ></p>
+                <p>    < / div ></p>
+                <p>  < / div ></p>
+                <p>< div class = " pmFormulário Dinâmico-file-list" style = "display:none" >< / div ></p>
+                <p>< / div ></p>
+                <p>  < / div ></p>
+                <p></ div ></p>
+                <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "pmFormulário Dinâmico-control-file". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de arquivo "recibos":</p>
+                <p>$ ( "#recibos" ). find ( "button.pmFormulário Dinâmico-control-file" ). css ( "borda", "1px vermelho sólido" ) ;</p>
+                <p>O método setOnchange() não funciona com controles de arquivo, mas o campo de arquivo oculto pode ser usado para definir um manipulador de eventos de alteração. Por exemplo, o seguinte manipulador de eventos verifica se o arquivo enviado corresponde ao padrão, para que seu nome de arquivo contenha a data: receipt_YYYY-MM-DD.doc</p>
+                <p>function checkFilename ( ) {</p>
+                <p>//se o nome do arquivo não corresponder a "receipt_YYYY-MM-DD.doc":</p>
+                <p>var n = this. valor. pesquisar ( /recibo_20[0-9][0-9]-[0-1][0-9]-[0-2][0-9]\.doc$/g ) ;</p>
+                <p>alerta ( n ) ;</p>
+                <p>    if ( n === - 1 ) {</p>
+                <p>    alert ( "Renomeie o arquivo '" + this. value + "' para corresponder ao padrão 'receipt_YYYY-MM-DD.doc' e faça o upload novamente." ) ;</p>
+                <p>    }</p>
+                <p>}</p>
+                <p>$ ( "#recibos" ). find ( 'input[type=file]' ). alteração ( checkFilename ) ;</p>
+                <p>Armazenamento de arquivo</p>
+                <p>Quando um arquivo é carregado em um campo de arquivo durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
+                <p>Os arquivos são armazenados no seguinte local no servidor:</p>
+                <p>INSTALL-DIRECTORY /shared/sites/ WORKSPACE/files/ / _.XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXCASE-DOCUMENT-UIDVERSIONEXT</p>
+                <p>Onde:</p>
+                <p>WORKSPACEé o nome do espaço de trabalho, que é denominado "fluxo de trabalho" por padrão e pode ser especificado com a @@SYS_SYSvariável do sistema em um acionador.</p>
+                <p>XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXrepresenta o ID exclusivo do caso. Por padrão, isso é dividido em uma série de 4 subdiretórios para evitar os limites de arquivo de 32K do sistema de arquivos ext3 do Linux, mas pode ser um único diretório se estiver usando um espaço de trabalho atualizado do Gestor Express 2. Em um gatilho, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos APPLICATION.APP_UID, APP_CACHE_VIEW.APP_UID ou APP_DOCUMENT.APP_UID no banco de dados. O método G::getPathFromUID() pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</p>
+                <p>CASE-DOCUMENT-UIDé o ID exclusivo do documento do caso, que é armazenado no campo APP_DOCUMENT.APP_DOC_UID no banco de dados.</p>
+                <p>VERSIONé o número da versão do documento e é sempre definido como 1, exceto quando o campo de arquivo está associado a um documento de entrada que tenha ativado o controle de versão e o usuário tenha carregado uma nova versão do arquivo (cujos campos de campo não permitem). A nova versão pode ser encontrada no campo APP_DOCUMENT.DOC_VERSION no banco de dados.</p>
+                <p>EXTé a extensão do arquivo carregado, como docou jpg. A extensão do arquivo pode ser encontrada usando o método AppDocument::Load() ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:</p>
+                <p>SELECT APP_DOC_FILENAME AS FILENAME FROM APP_DOCUMENT WHERE APP_DOC_UID=' CASE-UID '</p>
+                <p>Exemplo de caminho no Linux/UNIX:</p>
+                <p>/opt/Gestor Express/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png</p>
+                <p>Exemplo de caminho no Windows Vista e posterior:</p>
+                <p>C:\User\Bob\AppData\Roaming\Gestor Express-3_0_1_7\Gestor Express\shared\sites\workflow\files\905\262\500\57158b1b439014072150115\74863719957158b39af56d2076904431_1.png</p>
+                <p>Em um gatilho, o caminho para um arquivo pode ser determinado usando as constantes definidas PATH_DOCUMENT(que contém um caminho como "/opt/Gestor Express/shared/sites/workflow/files/") e PATH_SEP(que é "/"ou "\"dependendo do sistema operacional).</p>
+                <p>Por exemplo, o código de gatilho a seguir gera o mesmo caminho dos exemplos acima:</p>
+                <p>$g = novo G ( ) ;</p>
+                <p>$path = PATH_DOCUMENT. $g -> getPathFromUID ( '90526250057158b1b439014072150115' ). PATH_SEP. '74863719957158b39af56d2076904431_1.png' ;</p>
+                <p>Armazenamento de arquivos no banco de dados</p>
+                <p>Quando um formulário dinâmico que contém um campo de arquivo é enviado, um novo registro é criado para o arquivo carregado na tabela APP_DOCUMENT no banco de dados, que contém os seguintes campos:</p>
+                <p>APP_DOC_UID: o ID exclusivo do documento do caso, que identifica o arquivo carregado.</p>
+                <p>APP_DOC_FILENAME: O nome do arquivo do documento do caso.</p>
+                <p>APP_DOC_TITLE: o título do documento do caso.</p>
+                <p>APP_DOC_COMMENT: O comentário do documento do caso.</p>
+                <p>DOC_VERSION: a versão do arquivo de documento do caso, que é um número inteiro contando a versão a partir de 1. Só pode ser maior do que 1se o arquivo estiver associado a uma variável para um Documento de Entrada que tenha o controle de versão habilitado.</p>
+                <p>APP_UID: o ID exclusivo do caso em que o arquivo foi carregado.</p>
+                <p>DEL_INDEX: o índice de delegação da tarefa no caso em que o arquivo foi carregado.</p>
+                <p>DOC_UID: O ID exclusivo do Documento de Entrada que contém o arquivo, se o campo do arquivo estiver associado a um Documento de Entrada. Se o arquivo não estiver associado a um documento de entrada, ele será definido como '-1'.</p>
+                <p>USR_UID: o ID exclusivo do usuário que carregou o arquivo.</p>
+                <p>APP_DOC_TYPE: O tipo de documento de caso, que é 'ATTACHED'se o campo de arquivo não estiver associado a um Documento de Entrada ou 'INPUT'se estiver associado a um Documento de Entrada.</p>
+                <p>APP_DOC_CREATE_DATE: A data e hora no 'YYYY-MM-DD HH:MM:SS'formato em que o arquivo foi carregado.</p>
+                <p>APP_DOC_INDEX: o índice do documento do arquivo, que conta a ordem pela qual os arquivos são adicionados a um caso, independentemente de ser um arquivo de documento de entrada, arquivo de documento de saída ou anexado em um campo de arquivo. O primeiro arquivo é 1, o segundo arquivo é 2, etc.</p>
+                <p>FOLDER_UID: O ID exclusivo da pasta onde o arquivo está localizado na interface em Home > Documents. Se o campo de arquivo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, esse campo será definido como ''(string vazia).</p>
+                <p>APP_DOC_PLUGIN: Sempre defina como ''(string vazia) se não estiver usando um plug-in para gerenciar os arquivos.</p>
+                <p>APP_DOC_TAGS: se o campo de arquivo estiver associado a um documento de entrada, esse campo conterá as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a tag de 'INPUT', mas outras tags personalizadas podem ser definidas. Se o campo de arquivo não estiver associado a um documento de entrada, esse campo será definido como NULL.</p>
+                <p>APP_DOC_STATUS: O status do arquivo, que é 'ACTIVE' ou 'DELETED'. Observe que os campos de arquivo não fornecem uma maneira de excluir arquivos enviados, mas o arquivo pode ser excluído por um usuário que tenha a permissão PM_FOLDERS_ADD_FILE em sua função. Ele também pode ser excluído se o campo de arquivo estiver associado a um documento de entrada que seja uma etapa da tarefa e o usuário tiver recebido Permissões de processo para excluir arquivos no documento de entrada.</p>
+                <p>APP_DOC_STATUS_DATE: Sempre definido como NULL.</p>
+                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo de arquivo onde o arquivo foi carregado. Se carregado em um campo de arquivo em uma grade, ele será definido como. Por exemplo, um valor de, significa que o arquivo foi carregado na segunda linha de uma grade cuja variável é "clientList" e cujo campo de arquivo tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo de arquivo), ele será definido como.'grid-variable_row-number_file-field-name''clientList_2_contractFile'NULL</p>
+                <p>APP_DOC_DRIVE_DOWNLOAD: o ID serializado do arquivo carregado quando o Gestor Express é sincronizado com o Google Drive. Se o arquivo enviado não estiver sincronizado com o Google Drive, este campo será sempre definido como 'a:0:{}'.</p>
+                <p>Além disso, os registros que contêm informações sobre o arquivo carregado são adicionados à tabela APP_DOCUMENT.</p>
+                <p>Por exemplo, o banco de dados contém as seguintes informações sobre um arquivo carregado com o ID exclusivo '74863719957158b39af56d2076904431':</p>
+                <p>mysql> SELECT APP_DOC_FILENAME, APP_DOC_TITLE, APP_DOC_COMMENT, APP_DOC_CREATE_DATE, APP_DOC_TYPE de APP_DOCUMENT onde APP_DOC_UID='74863719957158b39af56d2076904431'; </p>
+                <p>+------------------+---------------+-------------- --------------+---------------------+------------- --+ | APP_DOC_FILENAME | APP_DOC_TITLE | APP_DOC_COMMENT | APP_DOC_CREATE_DATE | APP_DOC_TYPE | +------------------+---------------+-------------- ------</p>
+                <p>O nome do arquivo carregado é encontrado no APP_DOC_FILENAMEcampo. Os campos de arquivo não permitem que o usuário adicione um comentário ao fazer upload de um arquivo, mas a interface para Documentos de entrada permite que o usuário adicione um comentário sobre um arquivo enviado.</p>
+                <p>Armazenamento Variável</p>
+                <p>Quando um formulário dinâmico contendo um campo de arquivo é enviado, uma variável de caso chamada será criada. Lembre-se de que o nome da variável case é baseado no nome do campo de campo, não em seu ID e não em sua variável associada. A variável case será criada quando o Formulário Dinâmico for submetido, mesmo que o campo de arquivo não tenha nenhum arquivo selecionado para upload. O campo de arquivo não precisa ser associado a uma variável de arquivo. Na verdade, nenhuma variável de caso é criada para variáveis de arquivo ao executar casos.@@file-field-name_label</p>
+                <p>A variável case conterá uma string JSON que contém uma matriz com o nome do arquivo selecionado dentro de: Se nenhum arquivo foi selecionado, a string JSON será uma matriz vazia: Na versão 3.0.1.6 e anteriores, os campos de arquivo eram capazes de exibindo vários arquivos, para que a matriz possa conter vários nomes de arquivos. Na versão 3.0.1.7 e posterior, os campos de arquivo são capazes de exibir apenas um único arquivo, portanto, o array conterá apenas um nome de arquivo. A função json_decode() pode ser usada para converter a string em um array e obter o nome do arquivo dentro do array.@@file-field-name_label'["filename"]'</p>
+                <p>'[]'</p>
+                <p>Por exemplo, se um campo de arquivo tiver o nome "receiptFile" e um arquivo chamado "monthlyReport.doc" for selecionado, sua variável case será nomeada @@receiptFile_labele conterá o array '["monthlyReport.doc"]'. O seguinte código de gatilho pode ser usado para obter o nome do arquivo selecionado:</p>
+                <p>$aReceipt = json_decode ( @@ reciboFile_label ) ;</p>
+                <p>$filename = vazio ( $aReceipt ) ? '': $aRecibo [ 0 ] ;</p>
+                <p>Quando um controle de arquivo em um formulário dinâmico é enviado, o ID exclusivo do arquivo carregado é colocado em uma matriz e convertido em uma string JSON, que é armazenada na variável associada ao campo de arquivo. Por exemplo, se o controle de arquivo estiver associado @@contractFilee o usuário fizer upload de um arquivo, a @@contractFilevariável poderá ter um valor como:'["16820977557c7577c2e5c42054010817"]'</p>
+                <p>O ID exclusivo do arquivo carregado pode ser obtido com o seguinte código de gatilho:</p>
+                <p>if ( isset ( @@ contractFile ) e @@ contractFile != '[]' ) {</p>
+                <p>   $fileId = json_decode ( @@ contractFile ) [ 0 ] ;</p>
+                <p>}</p>
+                <p>Se nenhum arquivo foi selecionado, então @@contractFile_labelserá definido como '[]'e @@contractFileserá indefinido. Para lidar com isso, use isset() para verificar se @@contractFileestá definido antes de tentar acessá-lo.</p>
+                <p>Com o ID do arquivo carregado, outras informações sobre o arquivo podem ser consultadas usando o método AppDocument::Load(). Consulte Obtendo informações do arquivo na v.3.0.1.8 e posterior abaixo.</p>
+                <p>Armazenamento de arquivos em grades</p>
+                <p>Quando um campo de arquivo é colocado em uma grade, um arquivo pode ser selecionado para cada linha na grade para ser carregado quando o formulário dinâmico for enviado. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela APP_DOCUMENT. A única diferença de um campo de arquivo normal é que o campo APP_DOCUMENT.APP_DOC_FIELDNAME conterá.'grid-variable_row-number_file-name'</p>
+                <p>Por exemplo, uma grade cuja variável é denominada "recibos" é enviada e possui três linhas com um campo de arquivo denominado "arquivo de recibos". As seguintes informações sobre os três arquivos podem ser armazenadas na tabela APP_DOCUMENT:</p>
+                <p>mysql> select APP_DOC_UID, DOC_VERSION, APP_UID, DOC_UID, APP_DOC_TYPE, APP_DOC_INDEX, APP_DOC_FIELDNAME from APP_DOCUMENT;</p>
+                <p>APP_DOC_UID</p>
+                <p>9981562705718050e816959058033346</p>
+                <p>9208148915718050e921ba1095027176</p>
+                <p>6366198845716e982128ba0053902036</p>
+                <p>Nota: Se uma grade contendo um campo de arquivo não tiver uma variável de matriz associada, os arquivos selecionados na grade não serão salvos quando o formulário dinâmico for enviado.</p>
+                <p>Infelizmente, o Gestor Express atualmente não salva os nomes dos arquivos selecionados na variável case da grade quando uma grade contendo arquivos é enviada. A única maneira de encontrar os nomes dos arquivos em uma grade é fazer uma pesquisa na tabela APP_DOCUMENT pelo ID do caso e por APP_DOC_FIELDNAME, que contém o nome da variável da grade e o nome do campo de arquivo na grade usada para obtenha o ID do arquivo no campo APP_DOC_UID. Com o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela APP_DOCUMENT ou chamando o método AppDocument::Load().</p>
+                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grade cuja variável é denominada "clientList" e seu campo de arquivo é denominado "contractFile":</p>
+                <p>$caseId    = @@ APLICATIVO ;</p>
+                <p>$gridVar   = 'clientList' ;</p>
+                <p>$fileField = 'contractFile' ;</p>
+                <p>$aArquivos    = array ( ) ;</p>
+                <p>$query = "SELECT</p>
+                <p>      AD.APP_DOC_FILENAME AS FILENAME,</p>
+                <p>      AD.*</p>
+                <p>      FROM</p>
+                <p>      APP_DOCUMENT AD</p>
+                <p>      WHERE</p>
+                <p>      AD.APP_UID=' $caseId ' AND</p>
+                <p>      APP_DOC_FIELDNAME LIKE ' {$gridVar} _%_ {$fileField} ' AND</p>
+                <p>      AD.APP_DOC_STATUS = 'ACTIVE'</p>
+                <p>      ORDER BY AD.APP_DOC_FIELDNAME" ;</p>
+                <p>$results = executeQuery ( $query ) ;</p>
+                <p>if ( is_array ( $ resultados ) ) {</p>
+                <p>   for ( $ i = 1 ; $i <= contagem ( $ resultados ) ; $i ++ ) {</p>
+                <p>  $ aFiles [ ] = $resultados [ $i ] [ 'FILENAME' ] ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>Acessando arquivos com PHP</p>
+                <p>Link para arquivo</p>
+                <p>Se um arquivo foi carregado em um campo Arquivo que não está associado a um Documento de entrada, na próxima vez que o campo Arquivo for exibido em um caso, haverá links abaixo do campo Arquivo para os arquivos que foram carregados anteriormente para o campo. No entanto, o Gestor Express atualmente tem um bug que impede que campos de arquivo associados a documentos de entrada exibam links para arquivos carregados anteriormente.</p>
+                <p>O código de disparo pode ser usado para pesquisar um arquivo que foi carregado em um campo Arquivo no banco de dados e construir sua URL para baixá-lo em um campo Link subsequente em um formulário dinâmico. Neste exemplo, o "nome" do campo Arquivo é "receiptFile". O código de gatilho a seguir usa o nome do arquivo carregado na variável @@receiptFile_label para pesquisar o arquivo no banco de dados para que ele possa criar a URL e atribuí-la à variável @@receiptUrl. Ele também procura o nome do arquivo desse arquivo e o atribui à variável @@receiptFilename.</p>
+                <p>$arquivoCampo = 'ArquivoRecibo' ; //definir o nome do campo de arquivo</p>
+                <p>$aReceipt = json_decode ( @@ reciboFile_label ) ;</p>
+                <p>@@ reciboFilename = vazio ( $aReceipt ) ? '': $aRecibo [ 0 ] ;</p>
+                <p>@@ reciboUrl = '' ;</p>
+                <p>if ( ! empty ( @@ reciboFilename ) ) {</p>
+                <p>   $caseId = @@ APPLICATION ;  //ID do caso atual</p>
+                <p>   //Use ORDER BY APP_DOC_INDEX DESC para obter o último arquivo carregado no campo File</p>
+                <p>   $query = "SELECT APP_DOC_UID, DOC_VERSION FROM APP_DOCUMENT</p>
+                <p>  WHERE APP_UID=' $caseId ' AND APP_DOC_FIELDNAME=' $fileField ' AND</p>
+                <p>  APP_DOC_STATUS = 'ATIVO' ORDEM POR APP_DOC_INDEX DESC" ;</p>
+                <p>   $resultados = executeQuery ( $query ) ou die ( "Erro na consulta: $query " ) ;</p>
+                <p>   if ( is_array ( $ resultados ) e contagem ($resultados ) > 0 ) {</p>
+                <p>  $g = new G ( ) ;</p>
+                <p>  @@ receiveUrl = ( $g -> is_https ( ) ? 'https://': 'http://' ). $_SERVER [ 'HTTP_HOST' ].</p>
+                <p>     '/sys'. @@ SYS_SYS. '/'. @@ SYS_LANG. '/'. @@ SYS_SKIN. '/cases/cases_ShowDocument?a='. $resultados[ 1 ] [ 'APP_DOC_UID' ].</p>
+                <p>     '&v='. $resultados [ 1 ] [ 'DOC_VERSION' ] ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>Defina este gatilho para disparar após o Formulário Dinâmico que contém o campo Arquivo. Em seguida, adicione um campo Link a um formulário dinâmico subsequente. Nas propriedades desse campo de link, defina a propriedade de texto de exibição como @@receiptFilename e a propriedade href como @@receiptUrl.</p>
+                <p>Obtendo informações do arquivo</p>
+                <p>É muito mais fácil obter informações sobre um arquivo carregado em um controle Arquivo porque é criada uma variável que contém uma matriz com o ID exclusivo do arquivo em uma string JSON. Consulte Armazenamento de Variáveis acima. Este exemplo de gatilho mostra como usar o método AppDocument::Load() para obter informações sobre o arquivo carregado e construir uma URL para baixar o arquivo e o caminho para abrir o arquivo.</p>
+                <p>if ( isset ( @@ contractFile ) e @@ contractFile != '[]' ) {</p>
+                <p>$fileId = json_decode ( @= contractFile ) [ 0 ] ;</p>
+                <p>$d = new AppDocument ( ) ;</p>
+                <p>$aFile = $d -> Carregar ( $fileId ) ; //obtém a versão mais recente do arquivo</p>
+                <p>$aUser = userInfo ( $aFile [ 'USR_UID' ]) ;</p>
+                <p>@@ fileUploader = " {$aUser['firstname']} {$aUser['lastname']} ( {$aUser['username']} )" ;</p>
+                <p>@@ nomedoarquivo = $aFile [ 'APP_DOC_FILENAME' ] ;</p>
+                <p>@@ fileComment = $aFile [ 'APP_DOC_COMMENT' ] ;</p>
+                <p>@@ dateUploaded = $aFile [ 'APP_DOC_CREATE_DATE' ] ;</p>
+                <p>//para modelos de e-mail e documento de saída:</p>
+                <p>@@ fileUrl   = ( ( !$_SERVER [ 'HTTPS' ] ) && $ _SERVER [ 'HTTPS' ] != 'off' ) ? "https://": "http://" ).</p>
+                <p>     $_SERVER [ 'HTTP_HOST' ]. '/sys'. @@ SYS_SYS. '/'. @@ SYS_LANG. '/'. @@ SYS_SKIN.</p>
+                <p>     "/cases/cases_ShowDocument?a= $fileId &v= {$aFile['DOC_VERSION']} " ;</p>
+                <p>= novo G ( ) ;</p>
+                <p>@@ filePath = PATH_DOCUMENT. $g -> getPathFromUID ( $aFile [ "APP_UID" ] ). PATH_SEP. $fileId.</p>
+                <p>     '_'. $aFile [ 'DOC_VERSION' ]. '.'. pathinfo ( @@ nomedoarquivo, PATHINFO_EXTENSION ) ;</p>
+                <p>}</p>
+                <p>As variáveis @@fileUploader, @@filename, @@fileComment, @@dateUploaded e @@fileUrl podem ser usadas em um arquivo de modelo para um email ou documento de saída ou podem ser as variáveis associadas a controles em um formulário dinâmico. Para exibir um link em um formulário dinâmico para baixar o arquivo, coloque @@fileUrlna propriedade src (costumava ser chamada href ) do controle Link. Consulte Manipulando links em gatilhos.</p>
 
 
         </article>
