@@ -32,7 +32,7 @@
                         <li><a href="#item2a">Extensões de arquivo</a></li>
                         <li><a href="#item2b">Tamanho máximo do arquivo</a>
                             <ol type="i">
-                                <li><a href="#item2bi">Validação de tamanho máximo de arquivo com configuração PHP</a></li>
+                                <li><a href="#item2bi">Validação de Tamanho Máximo de Arquivo com configuração PHP</a></li>
                             </ol>
                         </li>
                         <li><a href="#item2c">Unidade de tamanho</a></li>
@@ -229,129 +229,337 @@
                     </ul>
                 </ul>
 
-            <p>Validação de tamanho máximo de arquivo com configuração PHP</p>
+            <h2 id="item2bi">Validação de Tamanho Máximo de Arquivo com configuração PHP</h2>
 
-                <p>A partir do Gestor Express 3.3.6, a propriedade Max File Size valida de acordo com as configurações post_max_size e upload_max_filesize no arquivo php.ini. Leve em consideração as seguintes considerações ao validar o tamanho máximo do arquivo em controles de arquivo:</p>
-                <p>As configurações post_max_size e upload_max_filesize no arquivo php.ini devem ser respeitadas. Isso significa que nenhuma configuração deve substituir esses parâmetros para aceitar arquivos maiores.</p>
-                <p>A validação aplica o menor valor entre o Max File Size do controle e os valores do arquivo php.ini.</p>
-                <p>A Ferramenta de Desenho do Formulário Dinâmico valida se o valor da propriedade de controle Max File Size é maior que os valores no arquivo php.ini. Se os valores forem maiores que os valores em php.ini, o alerta " O valor máximo deste campo é XX Mbytes " é exibido. Onde XX é o valor máximo permitido pelo arquivo PHP.</p>
-                <p>Os endpoints REST para criar e atualizar um documento de entrada devem retornar o erro correspondente se o tamanho do arquivo for maior que o valor permitido no arquivo PHP.</p>
-                <p>{</p>
-                <p>  "error": {</p>
-                <p>"code":    400,</p>
-                <p>"message": "" O tamanho do arquivo é maior que o máximo permitido, o tamanho máximo permitido é XX Mbytes ""</p>
-                <p>  }</p>
-                <p>}</p>
-                <p>Nota: O post_max_size considera o tamanho de todos os arquivos enviados. Portanto, é recomendado que cada arquivo carregado com os controles de arquivo múltiplo e único no formulário não seja maior que o parâmetro post_max_size no arquivo PHP.</p>
-                <p>Unidade de tamanho</p>
-                <p>Esta propriedade define a unidade (KB, MB) do tamanho definido na propriedade Max File Size.</p>
+                <p>A propriedade Tamanho Máximo de Arquivo valida de acordo com as configurações <code>post_max_size</code> e <code>upload_max_filesize</code> no arquivo <a href="#">php.ini</a>. Leve em conta as seguintes considerações ao validar o tamanho máximo do arquivo em controles de arquivo:</p>
+
+                <ul>
+                    <li>As configurações <code>post_max_size</code> e <code>upload_max_filesize</code> no arquivo <a href="#">php.ini</a> devem ser respeitadas. Isso significa que nenhuma configuração deve substituir esses parâmetros para aceitar arquivos maiores.</li>
+                    <li>A validação aplica o menor valor entre o Tamanho Máximo de Arquivo do controle e os valores do arquivo <a href="#">php.ini</a>.</li>
+                    <li>A Ferramenta de Desenho do Formulário Dinâmico valida se o valor da propriedade de controle Tamanho Máximo de Arquivo é maior que os valores no arquivo <a href="#">php.ini</a>. Se os valores forem maiores que os valores em <a href="#">php.ini</a>, o alerta "<strong>O valor máximo deste campo é XX Mbytes</strong>" é exibido. Onde XX é o valor máximo permitido pelo arquivo PHP.
+                    
+                        <figure>
+
+                        </figure>
+
+                    </li>
+                    <li>Os endpoints REST para criar e atualizar um documento de entrada devem retornar o erro correspondente se o tamanho do arquivo for maior que o valor permitido no arquivo PHP.
+                         <codeblock>
+                            <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; <span style="color: #3366CC;">&quot;error&quot;</span><span style="color: #339933;">:</span> <span style="color: #009900;">&#123;</span><br />
+                            &nbsp; &nbsp; <span style="color: #3366CC;">&quot;code&quot;</span><span style="color: #339933;">:</span> &nbsp; &nbsp;<span style="color: #CC0000;">400</span><span style="color: #339933;">,</span><br />
+                            &nbsp; &nbsp; <span style="color: #3366CC;">&quot;message&quot;</span><span style="color: #339933;">:</span> <span style="color: #3366CC;">&quot;&quot;</span>O tamanho do arquivo é maior que o máximo permitido<span style="color: #339933;">,</span> o tamanho máximo permitido é XX Mbytes<span style="color: #3366CC;">&quot;&quot;</span><br />
+                            &nbsp; <span style="color: #009900;">&#125;</span><br />
+                            <span style="color: #009900;">&#125;</span>
+                        </codeblock>
+
+                        <p><span style="color: green">Observação:</span> O <code>post_max_size</code> considera o tamanho de todos os arquivos enviados. Portanto, é recomendado que cada arquivo carregado com os controles de arquivo múltiplo e único no formulário não seja maior que o parâmetro <code>post_max_size</code> no arquivo PHP.</p>
+                    </li>
+                </ul>
+            <h2 id="item2c">Unidade de tamanho</h2>
+
+                <p>Esta propriedade define a unidade (KB, MB) do tamanho definido na propriedade Tamanho Máximo de Arquivo.</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Ao executar um caso, o controle validará o tamanho do arquivo antes de anexá-lo ao campo. Se o tamanho do arquivo ultrapassar o tamanho definido neste controle, uma mensagem como a seguinte é mostrada:</p>
-                <p>Exemplo de controle de arquivo</p>
+
+                <figure>
+
+                </figure>
+
+            <h1 id="item3">Exemplo de controle de arquivo</h1>
+
                 <p>Para este exemplo, adicione um controle Arquivo ao Formulário Dinâmico arrastando-o e soltando-o na Ferramenta de Desenho do Formulário Dinâmico a partir do painel Controles da Web. Depois que o controle Arquivo for solto no Formulário Dinâmico, o campo de controle ficará como a imagem abaixo:</p>
-                <p>Imediatamente após adicionar o controle, aparecerá a janela Criar Variável, onde pode ser criada uma variável ou selecionada uma variável criada anteriormente para armazenar as informações inseridas no campo de controle pelo usuário final. Uma variável também pode ser criada usando a interface de variáveis clicando no botão Variáveis. Para este exemplo, uma nova variável será criada, portanto, selecione a opção Criar variável. Mantenha o nome da variável como "filevar", mas esse nome pode ser alterado simplesmente apagando esse nome e adicionando um novo. Clique na opção Configurações sublinhada para exibir mais configurações para a variável.</p>
-                <p>O controle Arquivo tem apenas duas configurações: Tipo e Documento de entrada (campo obrigatório). A configuração Tipo tem apenas uma opção, "Arquivo". Para a configuração Documento de entrada, um documento de entrada deve ser escolhido. Para saber como criar um documento de entrada, leia esta documentação. Para adicionar um documento de entrada, basta clicar nas reticências sublinhadas, como pode ser visto na imagem abaixo.</p>
-                <p>Uma nova janela de Documentos de Entrada dentro da janela Criar Variável aparecerá. Selecione um documento de entrada da lista clicando nele. Em seguida, na janela Criar variável, clique no botão Salvar para finalizar esta configuração.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Imediatamente após adicionar o controle, aparecerá a janela Criar Variável, onde pode ser criada uma variável ou selecionada uma variável criada anteriormente para armazenar as informações inseridas no campo de controle pelo usuário final. Uma variável também pode ser criada usando a interface de variáveis clicando no botão Variáveis. Para este exemplo, uma nova variável será criada, portanto, selecione a opção <strong>Criar variável</strong>. Mantenha o nome da variável como "Arquivovar", mas esse nome pode ser alterado simplesmente apagando esse nome e adicionando um novo. <strong>Clique na opção Configurações</strong> sublinhada para exibir mais configurações para a variável.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>O controle Arquivo tem apenas duas configurações: Tipo e Documento de entrada (campo obrigatório). A configuração Tipo tem apenas uma opção, "Arquivo". Para a configuração Documento de entrada, um documento de entrada deve ser escolhido. Para saber como criar um documento de entrada, leia esta <a href="#">documentação</a>. Para adicionar um documento de entrada, basta clicar nas reticências sublinhadas, como pode ser visto na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>Uma nova janela de Documentos de Entrada dentro da janela Criar Variável aparecerá. Selecione um documento de entrada da lista clicando nele. Em seguida, na janela Criar variável, clique no botão <strong>Gravar</strong> para finalizar esta configuração.</p>
+                
+                <figure>
+
+                </figure>
+                
                 <p>Clique no espaço vazio do controle e suas propriedades serão exibidas no painel do lado esquerdo.</p>
+                
+                <figure>
+
+                </figure>
+                
                 <p>Outra forma de adicionar uma variável é saindo da janela Criar Variável e nas propriedades, clique nas reticências sublinhadas ao lado da propriedade Variável conforme mostrado na imagem.</p>
+                
+                <figure>
+
+                </figure>
+                
                 <p>A janela Criar variável aparecerá, onde uma variável pode ser criada selecionando o botão de opção "Criar variável" ou escolhida de uma lista de variáveis existentes selecionando o botão de opção "Selecionar variável". Uma vez que uma variável é escolhida, o tipo de dados da variável e as propriedades id terão o mesmo nome da variável adicionada.</p>
-                <p>Agora, a propriedade id pode ser usada com código JavaScript. Para adicionar código JavaScript à variável, clique na borda cinza clara do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas, localize a propriedade javascript e clique no botão editar... para abrir o editor.</p>
-                <p>No editor JavaScript, adicione o código que define o rótulo do controle. Leia esta seção para obter mais informações. Para este exemplo, adicione o seguinte código:</p>
-                <p>jQuery ( "#fileVar" ). setLabel ( "Gestor Express" ) ;</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Agora, a propriedade id pode ser usada com código JavaScript. Para adicionar código JavaScript à variável, clique na borda cinza clara do Formulário Dinâmico (que é o espaço fora dos controles) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas, localize a propriedade javascript e clique no botão <strong>editar</strong>... para abrir o editor.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>No editor JavaScript, adicione o código que define o rótulo do controle. Leia esta <a href="#">seção</a> para obter mais informações. Para este exemplo, adicione o seguinte código:</p>
+
+                <codeblock>
+                    jQuery<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#fileVar&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setLabel</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Gestor Express&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <figure>
+
+                </figure>
+
                 <p>Quando o controle for renderizado, o rótulo será então definido como "Gestor Express", como pode ser visto na imagem abaixo.</p>
-                <p>A propriedade a seguir é a propriedade Name, que é o nome do campo HTML. Por padrão, a propriedade name é igual ao ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
-                <p>Continuando, a propriedade label altera o label do controle exibido no Formulário Dinâmico. Adicione um rótulo, como "Carregar um arquivo:", para rotular o controle no formulário dinâmico.</p>
-                <p>A propriedade Hint é usada para mostrar ajuda quando o controle é renderizado. Para este exemplo, adicione a seguinte frase à propriedade: "Selecione um arquivo para carregar". Quando o controle estiver renderizado, passe o ponteiro do mouse sobre o ícone (i) para mostrar a dica adicionada.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade a seguir é a propriedade Nome, que é o nome do campo HTML. Por padrão, a propriedade name é igual ao ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Continuando, a propriedade rótulo altera o rótulo do controle exibido no Formulário Dinâmico. Adicione um rótulo, como "Carregar um arquivo:", para rotular o controle no formulário dinâmico.</p>
+                  
+                <figure>
+
+                </figure>
+
+                <p>A propriedade Dica é usada para mostrar ajuda quando o controle é renderizado. Para este exemplo, adicione a seguinte frase à propriedade: "Selecione um arquivo para carregar". Quando o controle estiver renderizado, passe o ponteiro do mouse sobre o ícone (i) para mostrar a dica adicionada.</p>
+  
+                <figure>
+
+                </figure>
+
                 <p>Para a propriedade Obrigatória há apenas uma caixa de seleção disponível. Quando marcado, um asterisco é adicionado ao lado do campo de controle para indicar que o campo é obrigatório e o usuário não poderá enviar o formulário até que o campo seja preenchido corretamente.</p>
+                  
+                <figure>
+
+                </figure>
+
                 <p>A propriedade de extensões de arquivo valida as extensões dos arquivos carregados no controle. Para este exemplo adicione ".doc ", isso significa que o controle não aceitará outras extensões além daquela especificada nesta propriedade.</p>
-                <p>Agora, as propriedades do tamanho máximo do arquivo e da unidade de tamanho determinarão o tamanho máximo de arquivo permitido e definirão a unidade de tamanho (KB, MB) do arquivo carregado.</p>
-                <p>Finalmente, o controle do modo de exibição terá efeitos diferentes ao renderizar uma forma dinâmica. Use a ilustração abaixo como guia para a funcionalidade da propriedade.</p>
-                <p>Nota: O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle de arquivo, consulte Arquivos no iOS.</p>
-                <p>Associando um documento de entrada a um arquivo</p>
-                <p>A partir da versão 3.0.1.5, é possível associar um documento de entrada a um campo de arquivo dentro de um formulário dinâmico usando uma variável de arquivo. Isso significa que os arquivos carregados em um campo de arquivo em um formulário dinâmico podem ser exibidos posteriormente em uma etapa de documento de entrada. Uma vantagem de associar um campo de arquivo a um documento de entrada é que a interface do documento de entrada pode ser usada para visualizar todos os arquivos carregados (assim como excluir arquivos e adicionar novas versões se o usuário tiver as permissões de processo adequadas e o controle de versão estiver ativado). Outra vantagem é que em Documentos de Entrada, todos os arquivos carregados possuem tags e são colocados em uma pasta específica em Home > Documentos, assim fica mais fácil encontrar os arquivos carregados posteriormente.</p>
+                  
+                <figure>
+
+                </figure>
+
+                <p>Agora, as propriedades do tamanho máximo do arquivo e da unidade de tamanho determinarão o Tamanho Máximo de Arquivo permitido e definirão a unidade de tamanho (KB, MB) do arquivo carregado.</p>
+                  
+                <figure>
+
+                </figure>
+
+                <p>Finalmente, o controle do modo de exibição terá efeitos diferentes ao renderizar um formulário dinâmico. Use a ilustração abaixo como guia para a funcionalidade da propriedade.</p>
+                  
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Mestre</font></p>
+                    
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Editar</font></p>
+            
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Visualizar</font></p>
+            
+                <figure>
+
+                </figure>
+
+                <p><font color="red">Desativado</font></p>
+            
+                <figure>
+
+                </figure>
+
+                <p><span style="color: green">Observação:</span> O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle de arquivo, consulte Arquivos no iOS.</p>
+
+            <h1 id="item4">Associando um documento de entrada a um arquivo</h1>
+
+                <p>É possível associar um documento de entrada a um campo de arquivo dentro de um formulário dinâmico usando uma variável de arquivo. Isso significa que os arquivos carregados em um campo de arquivo em um formulário dinâmico podem ser exibidos posteriormente em uma etapa de documento de entrada. Uma vantagem de associar um campo de arquivo a um documento de entrada é que a interface do documento de entrada pode ser usada para visualizar todos os arquivos carregados (assim como excluir arquivos e adicionar novas versões se o usuário tiver as <a href="#">permissões de processo</a> adequadas e o controle de versão estiver ativado). Outra vantagem é que em Documentos de Entrada, todos os arquivos carregados possuem tags e são colocados em uma pasta específica em <strong>Início => Documentos</strong>, assim fica mais fácil encontrar os arquivos carregados posteriormente.</p>
+
                 <p>Carregar um arquivo para um documento de entrada por meio de um campo Arquivo em um formulário dinâmico é útil ao carregar apenas um arquivo para um documento de entrada. Para garantir que o usuário carregue um arquivo para um Documento de Entrada, torne o campo Arquivo obrigatório. Não é possível associar campos de Arquivo em uma grade a um Documento de Entrada, pois os campos dentro de grades não possuem variável. Para carregar mais de um arquivo em um Documento de Entrada, uma etapa normal de Documento de Entrada deve ser usada.</p>
-                <p>Para associar um Documento de Entrada a um campo Arquivo, é recomendável primeiro criar o Documento de Entrada no projeto. Em seguida, crie a variável que será relacionada ao controle Arquivo. Para fazer isso, vá para a caixa de ferramentas Process Objects e passe o ponteiro do mouse sobre o ícone + ao lado da opção Variables. Clique em Criar. Na janela que se abre, digite o nome da variável no campo Nome da variável e selecione a opção "Arquivo" no menu suspenso no campo Tipo de variável. (Consulte Definindo variáveis .)</p>
-                <p>Associe a variável ao documento de entrada criado anteriormente no campo Documento de entrada relacionado selecionando-o na caixa suspensa ou criando um novo documento de entrada.</p>
-                <p>Para editar o Documento de Entrada selecionado no campo Documento de Entrada Relacionado, clique no botão Editar.</p>
-                <p>Após criar a variável Arquivo, abra um Formulário Dinâmico onde será colocado o controle Arquivo. Adicione um campo Arquivo ao desenho e clique nele para ver suas propriedades. Vá para a propriedade Variável e clique no...botão.</p>
-                <p>Selecione a variável Arquivo que será associada ao controle Arquivo na lista de variáveis File disponíveis.</p>
+
+                <p>Para associar um Documento de Entrada a um campo Arquivo, é recomendável primeiro <a href="#">criar o Documento de Entrada</a> no projeto. Em seguida, crie a variável que será relacionada ao controle Arquivo. Para fazer isso, vá para a caixa de ferramentas Objetos do Processo e passe o ponteiro do mouse sobre o ícone + ao lado da opção Variáveis. Clique em Criar. Na janela que se abre, digite o nome da variável no campo Nome da variável e selecione a opção "Arquivo" no menu suspenso no campo Tipo de variável.(Consulte <a href="#">Definindo variáveis</a>).</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Associe a variável ao documento de entrada criado anteriormente no campo Documento de Entrada relacionado selecionando-o na caixa suspensa ou criando um novo documento de entrada.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Para editar o Documento de Entrada selecionado no campo Documento de Entrada Relacionado, clique no botão <strong>Editar</strong>.</p>
+
+                <p>Após criar a variável Arquivo, abra um Formulário Dinâmico onde será colocado o controle Arquivo. Adicione um campo Arquivo ao desenho e clique nele para ver suas propriedades. Vá para a propriedade Variável e clique no botão <code><span style="text-decoration: underline;">...</span></code>.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Selecione a variável Arquivo que será associada ao controle Arquivo na lista de variáveis Arquivo disponíveis.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Após selecionar a variável, o Documento de Entrada será associado ao controle.</p>
-                <p>Após associar a variável Arquivo ao controle, as propriedades File Extensions, Max File Size e Size Unit serão desabilitadas. Essas propriedades são definidas automaticamente para as configurações do documento de entrada. Certifique-se de definir um tamanho máximo de arquivo maior que zero para o documento de entrada.</p>
-                <p>Nota: Os campos do arquivo não respeitam a configuração feita no PATH do Documento de Entrada. Esta consideração será resolvida em versões futuras.</p>
-                <p>Atenção: A propriedade name do campo Arquivo deve ter o mesmo nome da variável associada ao campo. Se forem diferentes, os arquivos carregados não serão associados ao Documento de Entrada e serão tratados como arquivos anexados normais.</p>
-                <p>Acessando arquivos com JavaScript</p>
+
+                <p>Após associar a variável Arquivo ao controle, as propriedades Extensões de Arquivo, <strong>Tamanho Máximo de Arquivo</strong> e <strong>Unidade de Tamanho</strong> serão desabilitadas. Essas propriedades são definidas automaticamente para as <a href="#">configurações do documento de entrada</a>. Certifique-se de definir um Tamanho Máximo de Arquivo maior que zero para o documento de entrada.</p>
+                
+                <p><span style="color: green">Observação:</span> campos do arquivo não respeitam a configuração feita no PATH do Documento de Entrada. Esta consideração será resolvida em versões futuras.</p>
+                
+                <p><span style="color: green">Atenção:</span> A propriedade nome do campo Arquivo deve ter o mesmo nome da variável associada ao campo. Se forem diferentes, os arquivos carregados não serão associados ao Documento de Entrada e serão tratados como arquivos anexados normais.</p>
+
+            <h1 id="item5">Acessando arquivos com JavaScript</h1>
+                
                 <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
-                <p>Os arquivos no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                <p>Rótulo: O texto exibido acima ou à esquerda do campo no Formulário Dinâmico que o identifica.</p>
-                <p>Valor: O nome de arquivo do último arquivo selecionado no controle de arquivo.</p>
-                <p>Texto: Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</p>
-                <p>Métodos JavaScript</p>
+
+                <p>Os arquivos no Gestor Express têm os seguintes componentes de campo:</p>
+
+                <ul>
+                    <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo no Formulário Dinâmico que o identifica.</li>
+                    <li><strong>Valor:</strong> O nome de arquivo do último arquivo selecionado no controle de arquivo.</li>
+                    <li><strong>Texto:</strong> Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</li>
+                </ul>
+
+            <h2 id="item5a">Métodos JavaScript</h2>
+            
                 <p>Alguns dos métodos JavaScript usados para manipular campos de arquivo incluem:</p>
-                <p>Método</p>
-                <p>jQuery("#fieldID"). getValue()</p>
-                <p>jQuery("#fieldID"). getText()</p>
-                <p>jQuery("#fieldID"). getLabel()</p>
-                <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
-                <p>jQuery("#fieldID").clear()</p>
-                <p>Nota: Os métodos setValue() e setText () existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Método</th><th>Descrição</th></tr>
+                    <t/head>
+                    <tbody>
+                        <tr><td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">getValue</a></code>()</td><td>Retorna o nome de arquivo do último arquivo selecionado no controle de arquivo ou o último arquivo adicionado ao documento de entrada associado se nenhum arquivo tiver sido selecionado.</td></tr>
+                        <tr><td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">getText</a></code>()</td><td>Retorna uma matriz de nomes de arquivos de arquivos que foram adicionados anteriormente ao Documento de entrada associado ao controle de arquivo, mais o nome de arquivo do último arquivo selecionado no controle de arquivo (se houver). Os nomes dos arquivos estão na ordem em que os arquivos foram adicionados. Lembre-se de que apenas um arquivo pode ser adicionado usando o controle de arquivos, mas vários arquivos podem ser adicionados ao documento de entrada.</td></tr>
+                        <tr><td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">getLabel</a></code>()</td><td>Retorna o rótulo do campo, que é o texto exibido acima ou à esquerda do campo no Formulário Dinâmico para identificá-lo.</td></tr>
+                        <tr><td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">setLabel</a></code>("novorotulo")</td><td>Define o rótulo do campo, que é o texto exibido acima ou à esquerda do campo no Formulário Dinâmico para identificá-lo.</td></tr>
+                        <tr><td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">clear()</a></code></td><td>Exclui o arquivo selecionado/carregado em um controle de arquivo.</td></tr>
+                    </tbody>
+                </table>
+            
+                <p><span style="color: green">Observação:</span> Os métodos <a href="#">setValue()</a> e <a href="#">setText()</a> existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
+
                 <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
-                <p>Limpando controles de arquivo</p>
+
+            <h2 id="item5b">Limpando controles de arquivo</h2>
+            
                 <p>O arquivo selecionado em um controle de arquivo não pode ser definido usando JavaScript, pois isso requer ação do usuário. No entanto, é possível usar JavaScript para limpar o arquivo selecionado em um controle de arquivo.</p>
-                <p>Para remover o arquivo selecionado, use a função file.clear().</p>
-                <p>Por exemplo, se o usuário clicar no botão com o ID "ClearFile", a função.clear() excluirá o arquivo carregado/selecionado no controle.</p>
-                <p>$ ( "#LimparArquivo" ). encontre ( "botão" ). clique ( function ( ) {</p>
-                <p>$ ( "#FileID" ). clear ( ) ;</p>
-                <p>} ) ;</p>
-                <p>Estrutura de controles de arquivo</p>
+
+                <p>Para remover o arquivo selecionado, use a função <a href="#">file.clear()</a>.</p>
+
+                <p>Por exemplo, se o usuário clicar no botão com o ID "LimpaArquivo", a função .clear() excluirá o arquivo carregado/selecionado no controle.</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#LimpaArquivo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;botão&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#ArquivoID&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">clear</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+            <h2 id="item5c">Estrutura de controles de arquivo</h2>
+
                 <p>Um controle de arquivo consiste em:</p>
-                <p>Um visível <button>que está dentro de uma tag DIV com o ID do controle de arquivo que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido neste botão.</p>
-                <p>Um campo de arquivo oculto com o ID, onde o arquivo selecionado é armazenado temporariamente."form[id]"</p>
-                <p>Um campo de entrada oculto com o ID, que contém uma matriz dos arquivos que foram carregados anteriormente no Documento de entrada associado ao controle de arquivo, além do último arquivo selecionado com o controle de arquivo."form[id_label]"</p>
+
+                <ul>
+                    <li>Um &lsaquo;botão&rsaquo; visível que está dentro de uma tag DIV com o ID do controle de arquivo que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido neste botão.</li>
+                    <li>Um campo de arquivo oculto com o ID <code>"form[id]"</code>, onde o arquivo selecionado é armazenado temporariamente.</li>
+                    <li>Um campo de entrada oculto com o ID <code>"form[id_label]"</code>, que contém uma matriz dos arquivos que foram carregados anteriormente no Documento de entrada associado ao controle de arquivo, além do último arquivo selecionado com o controle de arquivo.</li>
+                </ul>
+
                 <p>Por exemplo, um controle de arquivo com o ID "recibos" pode ter a seguinte estrutura HTML:</p>
-                <p>< div id = "recibos" name = "field-recipts" class = "pmFormulário Dinâmico-field-file form-group col-sm-12 col-md-12 col-lg-12 pmFormulário Dinâmico-edit-file pmFormulário Dinâmico-field" ></p>
-                <p>  < label for = "recibos" class = "col-md-2 col-lg-2 control-label pmFormulário Dinâmico-label" ></p>
-                <p>< span class = "textlabel" > Recibos < / span ></p>
-                <p>  < / label ></p>
-                <p>  < div class ="pmFormulário Dinâmico-file-control col-md-10 col-lg-10 pmFormulário Dinâmico-field-control" ></p>
-                <p>< div class = "pmFormulário Dinâmico-file-container col-xs-12 col-sm-12 col-md-12 col- lg-12" ></p>
-                <p>  < div class = "pmFormulário Dinâmico-file-btn-container" ></p>
-                <p>    < button title = "receipt_2015-02-25.doc" type = "button" class = "pmFormulário Dinâmico-control-file form-control" > recibo_2015-02-25.doc < / button ></p>
-                <p>  < / div ></p>
-                <p>  <ID de entrada ="form[recibos]" name = "form[recibos]" style = "visibility:hidden;" type = "arquivo" ></p>
-                <p>  < valor de entrada = "["lunchReceipt_2015-02-25.jpg"]" id = "form[receipts_label]" name = "form[receipts_label]" type = "hidden" ></p>
-                <p>  < div name = "button-all" class = "btn-group btn-group-justified" style = "display: none;" ></p>
-                <p>    "pmFormulário Dinâmico-file-buttonup btn-group" ></p>
-                <p>      < button class = "glyphicon glyphicon-upload btn btn-success btn-sm" ></p>
-                <p>        All</p>
-                <p>      < / button ></p>
-                <p>    < / div ></p>
-                <p>    < div class = "pmFormulário Dinâmico-file-buttoncancel btn- group" style = "exibir: nenhum;" ></p>
-                <p>      < button class = "glyphicon glyphicon-remove btn btn-danger btn-sm" ></p>
-                <p>        Todos</p>
-                <p>      < / button ></p>
-                <p>    <</p>
-                <p>    div class = "pmFormulário Dinâmico-file-buttonremove btn-group" ></p>
-                <p>      < button class = "glyphicon glyphicon-trash btn btn-danger btn-sm" ></p>
-                <p>        All</p>
-                <p>      < / button ></p>
-                <p>    < / div ></p>
-                <p>  < / div ></p>
-                <p>< div class = " pmFormulário Dinâmico-file-list" style = "display:none" >< / div ></p>
-                <p>< / div ></p>
-                <p>  < / div ></p>
-                <p></ div ></p>
+
+                <codeblock>
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;recibos&quot;</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;campo-recibos&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-field-file &nbsp;form-group col-sm-12 col-md-12 col-lg-12 &nbsp;pmdynaform-edit-file pmdynaform-field&quot;</span>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">label</span></a> <span style="color: #000066;">for</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;recibos&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;col-md-2 col-lg-2 control-label pmdynaform-label&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">span</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;textlabel&quot;</span>&gt;</span>recibos<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">span</span></a>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">label</span></a>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-control col-md-10 col-lg-10 pmdynaform-field-control&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-container col-xs-12 col-sm-12 col-md-12 col-lg-12&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-btn-container&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">title</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;receipt_2015-02-25.doc&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;button&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-control-file form-control&quot;</span>&gt;</span>receipt_2015-02-25.doc<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[recibos]&quot;</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[recibos]&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;visibility:hidden;&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;file&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;[&amp;quot;lunchReceipt_2015-02-25.jpg&amp;quot;]&quot;</span> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[recibos_rótulo]&quot;</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[recibos_rótulo]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;button-all&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;btn-group btn-group-justified&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display: none;&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-buttonup btn-group&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;glyphicon glyphicon-upload btn btn-success btn-sm&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; All<br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-buttoncancel btn-group&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display: none;&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;glyphicon glyphicon-remove btn btn-danger btn-sm&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; All<br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-buttonremove btn-group&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;glyphicon glyphicon-trash btn btn-danger btn-sm&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; All<br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-file-list&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display:none&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span>
+                </codeblock>
+
                 <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "pmFormulário Dinâmico-control-file". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de arquivo "recibos":</p>
-                <p>$ ( "#recibos" ). find ( "button.pmFormulário Dinâmico-control-file" ). css ( "borda", "1px vermelho sólido" ) ;</p>
-                <p>O método setOnchange() não funciona com controles de arquivo, mas o campo de arquivo oculto pode ser usado para definir um manipulador de eventos de alteração. Por exemplo, o seguinte manipulador de eventos verifica se o arquivo enviado corresponde ao padrão, para que seu nome de arquivo contenha a data: receipt_YYYY-MM-DD.doc</p>
-                <p>function checkFilename ( ) {</p>
-                <p>//se o nome do arquivo não corresponder a "receipt_YYYY-MM-DD.doc":</p>
-                <p>var n = this. valor. pesquisar ( /recibo_20[0-9][0-9]-[0-1][0-9]-[0-2][0-9]\.doc$/g ) ;</p>
-                <p>alerta ( n ) ;</p>
-                <p>    if ( n === - 1 ) {</p>
-                <p>    alert ( "Renomeie o arquivo '" + this. value + "' para corresponder ao padrão 'receipt_YYYY-MM-DD.doc' e faça o upload novamente." ) ;</p>
-                <p>    }</p>
-                <p>}</p>
-                <p>$ ( "#recibos" ). find ( 'input[type=file]' ). alteração ( checkFilename ) ;</p>
-                <p>Armazenamento de arquivo</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#recibos&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button.pmdynaform-control-file&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">css</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;border&quot;</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">&quot;1px solid red&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>O método <code>setOnchange()</code> não funciona com controles de arquivo, mas o campo de arquivo oculto pode ser usado para definir um manipulador de eventos de alteração. Por exemplo, o seguinte manipulador de eventos verifica se o arquivo enviado corresponde ao padrão <code>recibo_DD-MM-YYYY.doc</code>, para que seu nome de arquivo contenha a data:</p>
+
+                <codeblock>
+                    <span style="color: #000066; font-weight: bold;">function</span> checkFilename<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; <span style="color: #006600; font-style: italic;">//se o nome do arquivo não corresponder a &quot;recibo_DD-MM-YYYY.doc&quot;:</span><br />
+                    &nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">var</span> n <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">value</span>.<span style="color: #660066;">search</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/recibo_20[0-9][0-9]-[0-1][0-9]-[0-2][0-9]\.doc$/g</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; alert <span style="color: #009900;">&#40;</span>n<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>n <span style="color: #339933;">===</span> <span style="color: #339933;">-</span><span style="color: #CC0000;">1</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; alert<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Renomeie o arquivo '&quot;</span> <span style="color: #339933;">+</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">value</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot;' para corresponder ao padrão 'recibo_DD-MM-YYYY.doc' e faça o upload novamente.&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#recibo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'input[type=file]'</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">change</span><span style="color: #009900;">&#40;</span>checkFilename<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+            <h1 id="item6">Armazenamento de arquivo</h1>
+                
                 <p>Quando um arquivo é carregado em um campo de arquivo durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
                 <p>Os arquivos são armazenados no seguinte local no servidor:</p>
                 <p>INSTALL-DIRECTORY /shared/sites/ WORKSPACE/files/ / _.XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXCASE-DOCUMENT-UIDVERSIONEXT</p>
