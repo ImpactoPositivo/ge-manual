@@ -561,50 +561,88 @@
             <h1 id="item6">Armazenamento de arquivo</h1>
                 
                 <p>Quando um arquivo é carregado em um campo de arquivo durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
+
                 <p>Os arquivos são armazenados no seguinte local no servidor:</p>
-                <p>INSTALL-DIRECTORY /shared/sites/ WORKSPACE/files/ / _.XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXCASE-DOCUMENT-UIDVERSIONEXT</p>
+
+                <p>&nbsp; &nbsp; <tt><a href="#"><i>INSTALL-DIRECTORY</i></a>/shared/sites/<code><font color=green><i>WORKSPACE</i></font></code>/files/<code><font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXXXXXXXXXXXXXXXXXXXXXX</i></font></code>/<code><font color=green><i>CASE-DOCUMENT-UID</i></font></code>_<code><font color=green><i>VERSION</i></font></code>.<code><font color=green><i>EXT</i></font></code></tt></p></p>
+
                 <p>Onde:</p>
-                <p>WORKSPACEé o nome do espaço de trabalho, que é denominado "fluxo de trabalho" por padrão e pode ser especificado com a @@SYS_SYSvariável do sistema em um acionador.</p>
-                <p>XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXrepresenta o ID exclusivo do caso. Por padrão, isso é dividido em uma série de 4 subdiretórios para evitar os limites de arquivo de 32K do sistema de arquivos ext3 do Linux, mas pode ser um único diretório se estiver usando um espaço de trabalho atualizado do Gestor Express 2. Em um gatilho, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos APPLICATION.APP_UID, APP_CACHE_VIEW.APP_UID ou APP_DOCUMENT.APP_UID no banco de dados. O método G::getPathFromUID() pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</p>
-                <p>CASE-DOCUMENT-UIDé o ID exclusivo do documento do caso, que é armazenado no campo APP_DOCUMENT.APP_DOC_UID no banco de dados.</p>
-                <p>VERSIONé o número da versão do documento e é sempre definido como 1, exceto quando o campo de arquivo está associado a um documento de entrada que tenha ativado o controle de versão e o usuário tenha carregado uma nova versão do arquivo (cujos campos de campo não permitem). A nova versão pode ser encontrada no campo APP_DOCUMENT.DOC_VERSION no banco de dados.</p>
-                <p>EXTé a extensão do arquivo carregado, como docou jpg. A extensão do arquivo pode ser encontrada usando o método AppDocument::Load() ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:</p>
-                <p>SELECT APP_DOC_FILENAME AS FILENAME FROM APP_DOCUMENT WHERE APP_DOC_UID=' CASE-UID '</p>
-                <p>Exemplo de caminho no Linux/UNIX:</p>
-                <p>/opt/Gestor Express/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png</p>
-                <p>Exemplo de caminho no Windows Vista e posterior:</p>
-                <p>C:\User\Bob\AppData\Roaming\Gestor Express-3_0_1_7\Gestor Express\shared\sites\workflow\files\905\262\500\57158b1b439014072150115\74863719957158b39af56d2076904431_1.png</p>
-                <p>Em um gatilho, o caminho para um arquivo pode ser determinado usando as constantes definidas PATH_DOCUMENT(que contém um caminho como "/opt/Gestor Express/shared/sites/workflow/files/") e PATH_SEP(que é "/"ou "\"dependendo do sistema operacional).</p>
+                
+                <ul>
+                    <li><code><font color=green><i>WORKSPACE</i></font></code> é o nome do espaço de trabalho, que é denominado "workflow" por padrão e pode ser especificado com a variável do sistema <code>@@SYS_SYS</code> em um gatilho.</li>
+                    <li><code><font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXXXXXXXXXXXXXXXXXXXXXX</i></font></code> representa o ID exclusivo do caso. Por padrão, isso é dividido em uma série de 4 subdiretórios para evitar os limite de 32K do arquivos de sistema ext3 do Linux, mas pode ser um único diretório se estiver usando um espaço de trabalho atualizado do Gestor Express. Em um gatilho, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos <strong>APPLICATION.APP_UID</strong>, <strong>APP_CACHE_VIEW.APP_UID</strong> ou <strong>APP_DOCUMENT.APP_UID</strong> no banco de dados. O método <a href="#">G::getPathFromUID()</a> pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</p>
+                    <li><code><font color=green><i>CASE-DOCUMENT-UID</i></font></code> é o ID exclusivo do documento do caso, que é armazenado no campo <strong>APP_DOCUMENT.APP_DOC_UID</strong> no banco de dados.</li>
+                    <li><code><font color=green><i>VERSION</i></font></code> é o número da versão do documento e é sempre definido como 1, exceto quando o campo de arquivo está associado a um documento de entrada que tenha ativado o controle de versão e o usuário tenha carregado uma nova versão do arquivo (cujos campos de campo não permitem). A nova versão pode ser encontrada no campo <strong>APP_DOCUMENT.DOC_VERSION</strong> no banco de dados.</li>
+                    <li><code><font color=green><i>EXT</i></font></code> é a extensão do arquivo carregado, como <code>doc</code> ou <code>jpg</code>. A extensão do arquivo pode ser encontrada usando o método <a href="#">AppDocument::Load()</a> ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:
+                    <codeblock>
+                        SELECT APP_DOC_FILENAME AS FILENAME FROM APP_DOCUMENT WHERE APP_DOC_UID='<font color=green><i>CASE-UID</i></font>'
+                    </codeblock>
+
+                    </li>
+                </ul>
+
+                <p><strong>Exemplo de caminho no Linux/UNIX:</strong></p>
+
+                <p><span style="font-family: IBM Plex Mono; font-size: 1rem;">/opt/gestorexpress/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png</span></p>
+
+                <p><strong>Exemplo de caminho no Windows:</strong></p>
+                
+                <p><span style="font-family: IBM Plex Mono; font-size: 1rem;">C:\user\bob\AppData\Roaming\gestorexpress\gestorexpress\shared\sites\workflow\files\905\262\500\57158b1b439014072150115\74863719957158b39af56d2076904431_1.png</span></p>
+                
+                <p>Em um gatilho, o caminho para um arquivo pode ser determinado usando as constantes definidas <code>PATH_DOCUMENT</code>(que contém um caminho como <code>"/opt/gestorexpress/shared/sites/workflow/files/"</code>) e <code>PATH_SEP</code> (que é <code>"/"</code> ou <code>"\"</code> dependendo do sistema operacional).</p>
+
                 <p>Por exemplo, o código de gatilho a seguir gera o mesmo caminho dos exemplos acima:</p>
-                <p>$g = novo G ( ) ;</p>
-                <p>$path = PATH_DOCUMENT. $g -> getPathFromUID ( '90526250057158b1b439014072150115' ). PATH_SEP. '74863719957158b39af56d2076904431_1.png' ;</p>
-                <p>Armazenamento de arquivos no banco de dados</p>
-                <p>Quando um formulário dinâmico que contém um campo de arquivo é enviado, um novo registro é criado para o arquivo carregado na tabela APP_DOCUMENT no banco de dados, que contém os seguintes campos:</p>
-                <p>APP_DOC_UID: o ID exclusivo do documento do caso, que identifica o arquivo carregado.</p>
-                <p>APP_DOC_FILENAME: O nome do arquivo do documento do caso.</p>
-                <p>APP_DOC_TITLE: o título do documento do caso.</p>
-                <p>APP_DOC_COMMENT: O comentário do documento do caso.</p>
-                <p>DOC_VERSION: a versão do arquivo de documento do caso, que é um número inteiro contando a versão a partir de 1. Só pode ser maior do que 1se o arquivo estiver associado a uma variável para um Documento de Entrada que tenha o controle de versão habilitado.</p>
-                <p>APP_UID: o ID exclusivo do caso em que o arquivo foi carregado.</p>
-                <p>DEL_INDEX: o índice de delegação da tarefa no caso em que o arquivo foi carregado.</p>
-                <p>DOC_UID: O ID exclusivo do Documento de Entrada que contém o arquivo, se o campo do arquivo estiver associado a um Documento de Entrada. Se o arquivo não estiver associado a um documento de entrada, ele será definido como '-1'.</p>
-                <p>USR_UID: o ID exclusivo do usuário que carregou o arquivo.</p>
-                <p>APP_DOC_TYPE: O tipo de documento de caso, que é 'ATTACHED'se o campo de arquivo não estiver associado a um Documento de Entrada ou 'INPUT'se estiver associado a um Documento de Entrada.</p>
-                <p>APP_DOC_CREATE_DATE: A data e hora no 'YYYY-MM-DD HH:MM:SS'formato em que o arquivo foi carregado.</p>
-                <p>APP_DOC_INDEX: o índice do documento do arquivo, que conta a ordem pela qual os arquivos são adicionados a um caso, independentemente de ser um arquivo de documento de entrada, arquivo de documento de saída ou anexado em um campo de arquivo. O primeiro arquivo é 1, o segundo arquivo é 2, etc.</p>
-                <p>FOLDER_UID: O ID exclusivo da pasta onde o arquivo está localizado na interface em Home > Documents. Se o campo de arquivo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, esse campo será definido como ''(string vazia).</p>
-                <p>APP_DOC_PLUGIN: Sempre defina como ''(string vazia) se não estiver usando um plug-in para gerenciar os arquivos.</p>
-                <p>APP_DOC_TAGS: se o campo de arquivo estiver associado a um documento de entrada, esse campo conterá as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a tag de 'INPUT', mas outras tags personalizadas podem ser definidas. Se o campo de arquivo não estiver associado a um documento de entrada, esse campo será definido como NULL.</p>
-                <p>APP_DOC_STATUS: O status do arquivo, que é 'ACTIVE' ou 'DELETED'. Observe que os campos de arquivo não fornecem uma maneira de excluir arquivos enviados, mas o arquivo pode ser excluído por um usuário que tenha a permissão PM_FOLDERS_ADD_FILE em sua função. Ele também pode ser excluído se o campo de arquivo estiver associado a um documento de entrada que seja uma etapa da tarefa e o usuário tiver recebido Permissões de processo para excluir arquivos no documento de entrada.</p>
-                <p>APP_DOC_STATUS_DATE: Sempre definido como NULL.</p>
-                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo de arquivo onde o arquivo foi carregado. Se carregado em um campo de arquivo em uma grade, ele será definido como. Por exemplo, um valor de, significa que o arquivo foi carregado na segunda linha de uma grade cuja variável é "clientList" e cujo campo de arquivo tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo de arquivo), ele será definido como.'grid-variable_row-number_file-field-name''clientList_2_contractFile'NULL</p>
-                <p>APP_DOC_DRIVE_DOWNLOAD: o ID serializado do arquivo carregado quando o Gestor Express é sincronizado com o Google Drive. Se o arquivo enviado não estiver sincronizado com o Google Drive, este campo será sempre definido como 'a:0:{}'.</p>
+
+                <codeblock>
+                    <span style="color: #000088;">$g</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> G<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$path</span> <span style="color: #339933;">=</span> PATH_DOCUMENT <span style="color: #339933;">.</span> <span style="color: #000088;">$g</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">getPathFromUID</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'90526250057158b1b439014072150115'</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">.</span> PATH_SEP <span style="color: #339933;">.</span> <span style="color: #0000ff;">'74863719957158b39af56d2076904431_1.png'</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+            <h2 id="item6a">Armazenamento de arquivos no banco de dados</h2>
+
+                    <p>Quando um formulário dinâmico que contém um campo de arquivo é enviado, um novo registro é criado para o arquivo carregado na tabela <strong>APP_DOCUMENT</strong> no banco de dados, que contém os seguintes campos:</p>
+
+                <ul>
+                    <li><code><strong>APP_DOC_UID:</strong></code> o ID exclusivo do documento do caso, que identifica o arquivo carregado.</li>
+                    <li><code><strong>APP_DOC_FILENAME:</strong></code> O nome do arquivo do documento do caso.</li>
+                    <li><code><strong>APP_DOC_TITLE:</strong></code> o título do documento do caso.</li>
+                    <li><code><strong>APP_DOC_COMMENT:</strong></code> O comentário do documento do caso.</li>
+                    <li><code><strong>DOC_VERSION:</strong></code> a versão do arquivo de documento do caso, que é um número inteiro contando a versão a partir de <code>1</code>. Só pode ser maior do que <code>1</code>, se o arquivo estiver associado a uma variável para um Documento de Entrada que tenha o controle de versão habilitado.</li>
+                    <li><code><strong>APP_UID:</strong></code> o ID exclusivo do caso em que o arquivo foi carregado.</li>
+                    <li><code><strong>DEL_INDEX:</strong></code> o índice de delegação da tarefa no caso em que o arquivo foi carregado.</li>
+                    <li><code><strong>DOC_UID:</strong></code> O ID exclusivo do Documento de Entrada que contém o arquivo, se o campo do arquivo estiver associado a um Documento de Entrada. Se o arquivo não estiver associado a um documento de entrada, ele será definido como <code>'-1'</code>.</li>
+                    <li><code><strong>USR_UID:</strong></code> o ID exclusivo do usuário que carregou o arquivo.</li>
+                    <li><code><strong>APP_DOC_TYPE:</strong></code> O tipo de documento de caso, que é <code>'ANEXO'</code> se o campo de arquivo não estiver associado a um Documento de Entrada ou <code>'INPUT'</code> se estiver associado a um Documento de Entrada.</li>
+                    <li><code><strong>APP_DOC_CREATE_DATE:</strong></code> A data e hora no formato <code>'DD-MM-YYYY HH:MM:SS'</code> em que o arquivo foi carregado.</li>
+                    <li><code><strong>APP_DOC_INDEX:</strong></code> o índice do documento do arquivo, que conta a ordem pela qual os arquivos são adicionados a um caso, independentemente de ser um arquivo de documento de entrada, arquivo de documento de saída ou anexado em um campo de arquivo. O primeiro arquivo é <code>1</code>, o segundo arquivo é <code>2</code>, etc.</li>
+                    <li><code><strong>FOLDER_UID:</strong></code> O ID exclusivo da pasta onde o arquivo está localizado na interface em <strong>Início => Documentos</strong>. Se o campo de arquivo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, esse campo será definido como <code>''</code> (string vazia).</li>
+                    <li><code><strong>APP_DOC_PLUGIN:</strong></code> Sempre defina como <code>''</code> (string vazia) se não estiver usando um plug-in para gerenciar os arquivos.</li>
+                    <li><code><strong>APP_DOC_TAGS:</strong></code> se o campo de arquivo estiver associado a um documento de entrada, esse campo conterá as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a tag de <code>'INPUT'</code>, mas outras tags personalizadas podem ser definidas. Se o campo de arquivo não estiver associado a um documento de entrada, esse campo será definido como <code>NULL</code>.</li>
+                    <li><code><strong>APP_DOC_STATUS:</strong></code> O status do arquivo, que é 'ATIVO' ou 'DELETADO'. Observe que os campos de arquivo não fornecem uma maneira de excluir arquivos enviados, mas o arquivo pode ser excluído por um usuário que tenha a permissão <a href="#">PM_FOLDERS_ADD_FILE</a> em sua função. Ele também pode ser excluído se o campo de arquivo estiver associado a um documento de entrada que seja uma etapa da tarefa e o usuário tiver recebido Permissões de processo para excluir arquivos no documento de entrada.</li>
+                    <li><code><strong>APP_DOC_STATUS_DATE:</strong></code> Sempre definido como <code>NULL</code>.</li>
+                    <li><code><strong>APP_DOC_FIELDNAME:</strong></code> O nome (não seu id ) do campo de arquivo onde o arquivo foi carregado. Se carregado em um campo de arquivo em uma grade, ele será definido como <code><font color="green">'grid-variable_row-number_file-field-name'</font></code>. Por exemplo, um valor de <code>'listaCliente_2_arquivoContrato'</code>, significa que o arquivo foi carregado na segunda linha de uma grade cuja variável é "listaCliente" e cujo campo de arquivo tem o nome "arquivoContrato". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo de arquivo), ele será definido como <code>NULL</code>.</li>
+
+                    <li><code><strong>APP_DOC_DRIVE_DOWNLOAD:</strong></code> o ID seriado do arquivo carregado quando o Gestor Express é sincronizado com o Google Drive. Se o arquivo enviado não estiver sincronizado com o Google Drive, este campo será sempre definido como <code>'a:0:{}'</code>.</li>
+                </ul>
+                
                 <p>Além disso, os registros que contêm informações sobre o arquivo carregado são adicionados à tabela APP_DOCUMENT.</p>
+                
                 <p>Por exemplo, o banco de dados contém as seguintes informações sobre um arquivo carregado com o ID exclusivo '74863719957158b39af56d2076904431':</p>
-                <p>mysql> SELECT APP_DOC_FILENAME, APP_DOC_TITLE, APP_DOC_COMMENT, APP_DOC_CREATE_DATE, APP_DOC_TYPE de APP_DOCUMENT onde APP_DOC_UID='74863719957158b39af56d2076904431'; </p>
-                <p>+------------------+---------------+-------------- --------------+---------------------+------------- --+ | APP_DOC_FILENAME | APP_DOC_TITLE | APP_DOC_COMMENT | APP_DOC_CREATE_DATE | APP_DOC_TYPE | +------------------+---------------+-------------- ------</p>
-                <p>O nome do arquivo carregado é encontrado no APP_DOC_FILENAMEcampo. Os campos de arquivo não permitem que o usuário adicione um comentário ao fazer upload de um arquivo, mas a interface para Documentos de entrada permite que o usuário adicione um comentário sobre um arquivo enviado.</p>
-                <p>Armazenamento Variável</p>
+                
+                <codeblock>
+                    mysql> <b>SELECT APP_DOC_FILENAME, APP_DOC_TITLE, APP_DOC_COMMENT, APP_DOC_CREATE_DATE, APP_DOC_TYPE de APP_DOCUMENT onde APP_DOC_UID='74863719957158b39af56d2076904431';</b>
+                    +------------------+---------------+------------------------+---------------------+---------------+
+                    | APP_DOC_FILENAME | APP_DOC_TITLE | APP_DOC_COMMENT        | APP_DOC_CREATE_DATE | APP_DOC_TYPE  |
+                    +------------------+---------------+------------------------+---------------------+---------------+
+                    | resume.png       | Retomar       | Este comentário é para currículo | 2019-11-28 18:36:06 | ANEXO      |
+                    +------------------+---------------+------------------------+---------------------+---------------+
+                    3 rows in set (0.00 sec)
+                </codeblock>
+                
+                <p>O nome do arquivo carregado é encontrado no campo <code>APP_DOC_FILENAME</code>. Os campos de arquivo não permitem que o usuário adicione um comentário ao fazer upload de um arquivo, mas a interface para Documentos de entrada permite que o usuário adicione um comentário sobre um arquivo enviado.</p>
+                
+            <p>Armazenamento Variável</p>
+
                 <p>Quando um formulário dinâmico contendo um campo de arquivo é enviado, uma variável de caso chamada será criada. Lembre-se de que o nome da variável case é baseado no nome do campo de campo, não em seu ID e não em sua variável associada. A variável case será criada quando o Formulário Dinâmico for submetido, mesmo que o campo de arquivo não tenha nenhum arquivo selecionado para upload. O campo de arquivo não precisa ser associado a uma variável de arquivo. Na verdade, nenhuma variável de caso é criada para variáveis de arquivo ao executar casos.@@file-field-name_label</p>
                 <p>A variável case conterá uma string JSON que contém uma matriz com o nome do arquivo selecionado dentro de: Se nenhum arquivo foi selecionado, a string JSON será uma matriz vazia: Na versão 3.0.1.6 e anteriores, os campos de arquivo eram capazes de exibindo vários arquivos, para que a matriz possa conter vários nomes de arquivos. Na versão 3.0.1.7 e posterior, os campos de arquivo são capazes de exibir apenas um único arquivo, portanto, o array conterá apenas um nome de arquivo. A função json_decode() pode ser usada para converter a string em um array e obter o nome do arquivo dentro do array.@@file-field-name_label'["filename"]'</p>
                 <p>'[]'</p>
