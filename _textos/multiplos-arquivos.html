@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+item6b<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,54 @@
             <h1>Carregador de Múltiplos Arquivos</h1>
             <h2>Conteúdo:</h2>
             <ol>
-
+                <a href="#item1">Visão geral</a><br>
+                <a href="#item2">Propriedades</a>
+                    <ol type="A">
+                        <a href="#item2a">Extensões de arquivo</a><br>
+                        <a href="#item2b">Tamanho máximo do arquivo</a>
+                            <ol type="i">
+                                <a href="#item2bi">Validação de tamanho máximo de arquivo com configuração PHP</a><br>
+                            </ol>
+                        <br>
+                        <a href="#item2c">Unidade de tamanho</a><br>
+                        <a href="#item2d">Número máximo de arquivo</a><br>
+                        <a href="#item2e">Controle de versão</a><br>
+                    </ol>
+                <br>
+                <a href="#item3">Exemplo de controle de upload de múltiplos arquivos</a>
+                    <ol type="A">
+                        <a href="#item3a">Restrição</a><br>
+                    </ol>
+                <br>
+                <a href="#item4">Carregando múltiplos arquivos no modo offline</a>
+                    <ol type="A">
+                        <a href="#item4a">Exemplo de upload de múltiplos arquivos quando offline</a><br>
+                    </ol>
+                <br>
+                <a href="#item5">Anexando um arquivo de documento de entrada usando o carregador de múltiplos arquivos</a>
+                    <ol type="A">
+                        <a href="#item5a">Campo de upload de múltiplos arquivos em uma grid</a><br>
+                    </ol>
+                <br>
+                <a href="#item6">Acessando arquivos com JavaScript</a>
+                    <ol type="A">
+                        <a href="#item6a">Métodos JavaScript</a><br>
+                        <a href="#item6b">Estrutura de controles de upload de múltiplos arquivos</a><br>
+                    </ol>
+                <br>
+                <a href="#item7">Armazenamento de arquivo</a>
+                    <ol type="A">
+                        <a href="#item7a">Armazenamento de arquivos no banco de dados</a><br>
+                        <a href="#item7b">Armazenamento de arquivos em grids</a><br>
+                    </ol>
+                <br>
+                <a href="#item8">Acessando múltiplos arquivos com PHP</a>
+                    <ol type="A">
+                        <a href="#item8a">Acessando a variável de caso Multiplo Arqjuivo</a><br>
+                        <a href="#item8b">Adicionando Arquivos Únicos a múltiplos Controles de Arquivos</a><br>
+                        <a href="#item8c">Limpando todos os arquivos em um controle de múltiplos arquivos</a><br>
+                    </ol>
+                <br>
             </ol>
         </section>
     </aside>
@@ -34,6 +81,492 @@
     <section id="principal">
 
         <article>
+            <h1 id="item1">Visão geral</h1>
+                <p>O controle de Arquivos Múltiplos permite que mais de um arquivo seja carregado e anexado ao caso atual. Para selecionar e carregar arquivos, clique no botão <strong>Escolher Arquivos</strong> do controle. A caixa de diálogo para selecionar os arquivos varia de acordo com o navegador. Após ser selecionado, o arquivo será listado abaixo do campo. O processo de upload é imediato, ou seja, assim que o usuário selecionar o arquivo, uma barra de progresso mostrará a porcentagem do upload concluído. Ele ficará verde para indicar que o arquivo foi completamente carregado no servidor do Gestor Express. Isso permite economizar tempo ao enviar o formulário. O ícone deste controle na barra de ferramentas do designer é o seguinte:</p>
+
+                <figure>
+
+                </figure>
+
+                <p><span style="color:red">Aviso:</span> o controle Carregador de Múltiplos Arquivos não é suportado no Formulário Dinâmico de Entrada Web ou no Registro Externo. A Entrada web é compatível com a Entrada Web de várias etapas no Gestor Express.</p>
+
+                <p>Quando o controle é solto na Ferramenta de Desenho do Formulário Dinâmico, a janela Criar/Selecionar Variável é exibida para criar ou selecionar uma variável.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Depois que uma variável é atribuída ao controle, o campo de controle ficará como a imagem abaixo:</p>
+
+                <figure>
+
+                </figure>
+
+                <p><span style="color:red">Aviso:</span> A variável atribuída ao controle Carregador de Múltiplos Arquivos é independente do documento de entrada relacionado ao controle. Portanto, quaisquer alterações feitas no Documento de Entrada NÃO serão refletidas no controle.</p>
+
+                <p>Ao projetar um Formulário Dinâmico ou no modo de visualização, não é possível carregar um arquivo, mas é possível visualizar como os arquivos carregados serão listados.</p>
+
+                <p><span style="color: green">Observação:</span> O carregamento de múltiplos arquivos é compatível com o App Gestor Express.</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Área de Trabalho</th><th>Mobile</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><figure></figure></td><td><figure></figure></td></tr>
+                    </tbody>
+                </table>
+
+                <p>Ao executar um caso, o controle Carregador de Múltiplos Arquivos tem uma barra de progresso que indica quanto tempo um arquivo levará para ser carregado.</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Área de Trabalho</th><th>Mobile</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><figure></figure></td><td><figure></figure></td></tr>
+                    </tbody>
+                </table>
+
+                <p>O controle Carregador de Múltiplos Arquivos permite que os usuários anexem múltiplos arquivos ao Formulário Dinâmico ao executar um caso ou visualizar um Formulário Dinâmico da seguinte forma:</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Área de Trabalho</th><th>Mobile</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><figure></figure></td><td><figure></figure></td></tr>
+                    </tbody>
+                </table>
+
+                <p>Após o upload dos arquivos, um novo ícone será exibido para fazer o download dos arquivos, conforme mostrado na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p><span style="color:red">Aviso:</span> Observe que se o sinalizador <a href="#">disable_download_documents_session_validation</a> estiver definido como "0" ou não estiver incluído no arquivo env.ini, o usuário será impedido de fazer download do arquivo se não for quem fez o upload do arquivo. Portanto, ele precisará de uma <a href="#">permissão de processo de Documento de Entrada</a> para baixar o arquivo.</p>
+
+            <h1 id="item2">Propriedades</h1>
+                
+                <p>É possível personalizar a funcionalidade e o comportamento de um controle de arquivo configurando suas <a href="#">propriedades</a>:</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Propriedade</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Modelo</td><td><code>multipleFile</code>(Somente leitura)</td></tr>
+                        <tr><td>Variável</td><td>Clique na opção ... para selecionar uma variável de vários arquivos na lista de variáveis disponíveis. Consulte esta seção para saber mais sobre como relacionar uma variável a um controle. <br>
+                        O tipo de variável suportado por este controle é o seguinte:<br>
+                        <span style="color: blue">&#9679;</span> &nbsp; Arquivo múltiplo</td></tr>
+                        <tr><td>Tipo de dados variável</td><td>Após uma variável ter sido relacionada ao controle, esta propriedade mostra o tipo de dado da variável (Somente leitura).</td></tr>
+                        <tr><td>ID</td><td>[Requeridos]<br>
+                        Identificador exclusivo de campo e HTML.</td></tr>
+                        <tr><td>Rótulo</td><td>Rótulo do controle</td></tr>
+                        <tr><td>Documento de entrada</td><td>Usado para vincular um Documento de Entrada ao controle.<br>
+                        Ao criar um controle de Múltiplos Arquivos, as propriedades Extensões de Arquivo , Tamanho Máximo de Arquivo e Unidade de Tamanho são desabilitadas, para habilitar essas propriedades clique no botão ( X ) ao lado da propriedade Documento de Entrada .
+                        <figure></figure></td></tr>
+                        <tr><td>Obrigatório</td><td>Ao marcar esta opção, um asterisco é adicionado ao rótulo para indicar que o campo é obrigatório , o que significa que um arquivo deve ser carregado no campo.<br>
+                        Nota: A propriedade Obrigatório apenas verifica se existe um arquivo anexado ao controle, mas não verifica se o usuário atual anexou outro arquivo novo.<br>
+                        
+                        <code><span style="font-size: .95rem; background-color: #e7eefc; font-family: IBM Plex monospace; border: 1px solid rgb(190, 190, 190);">O formulário não pode ser enviado porque os arquivos {file_name} (são/é) inválidos</span></code></td></tr>
+                        <tr><td>Mensagem de erro de campo obrigatório</td><td>Ao marcar a opção Obrigatório , esta propriedade fica disponível para customizar a mensagem que será exibida caso o usuário não anexe um arquivo ao controle. O resultado para adicionar "Anexe seu currículo a este formulário de inscrição" é o seguinte:<br>
+                        
+                        Área de TrabalhoMóvel
+                        </td></tr>
+                        <tr><td>Extensões de arquivo</td><td>Configure as extensões de arquivo permitidas nesta propriedade. Use uma vírgula para separar todas as extensões que serão habilitadas para o controle. Por exemplo “ .jpg, .png, .pdf”
+                        Se esta propriedade for deixada em branco, qualquer extensão de arquivo será permitida.</td></tr>
+                        <tr><td>Tamanho máximo do arquivo</td><td>Defina o tamanho máximo permitido do arquivo a ser carregado. Por padrão, o tamanho máximo do arquivo é 1024 KB.</td></tr>
+                        <tr><td>Unidade de tamanho</td><td>Defina a unidade (KB ou MB) do tamanho máximo do arquivo.</td></tr>
+                        <tr><td>Controle de versão</td><td>Se o controle Multiple File Uploader estiver relacionado a um Documento de Entrada com a propriedade de versionamento habilitada, esta propriedade será definida como "Sim", o que significa que cada campo carregado no controle pode ser substituído por um novo. Caso contrário, esta propriedade será definida como "Não".</td></tr>
+                        <tr><td>Modo de exibição</td><td>[Requeridos] <br>
+                        Modo de exibição:<br>
+                        <span style="color: blue">&#9679;</span>&nbsp;<strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grade).<br>
+                        <span style="color: blue">&#9679;</span>&nbsp;<strong>editar:</strong> o campo de controle pode ser editado pelo usuário final quando o Formulário Dinâmico é renderizado.<br>
+                        <span style="color: blue">&#9679;</span>&nbsp;<strong>visualizar:</strong> o controle só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.<br>
+                        <span style="color: blue">&#9679;</span>&nbsp;<strong>desativado:</strong> o campo de controle será desabilitado e exibido em cinza quando o Formulário Dinâmico for renderizado. O conteúdo também não pode ser editado.</td></tr>
+                    </tbody>
+                </table>
+               
+            <p>Extensões de arquivo</p>
+
+                <p>A propriedade File extensions define as extensões permitidas dos arquivos que podem ser carregados no campo Carregador de Múltiplos Arquivos:</p>
+                <p>As extensões permitidas são definidas no formato. Use * (asterisco) como curinga; * sozinho permite todos os tipos de arquivos. Use para permitir um tipo específico de arquivo, como ou. Para permitir vários tipos de arquivos, separe-os com (vírgulas). Por exemplo, permite apenas arquivos de imagem.filename.extension*.extension*.pdf*.doc,*.png, *.jpg, *.jpeg, *.tif, *.tiff, *.gif</p>
+                <p>Por exemplo, se apenas arquivos de texto simples puderem ser anexados ao controle de arquivo, defina essa propriedade como *.txt. Ao executar casos, a caixa de diálogo Controle de arquivos indicará que tipo de arquivo pode ser carregado:</p>
+                <p>Se um arquivo chamado TextLetter.txt for carregado, o controle de arquivos verificará se é um arquivo.txt e permitirá que o formulário dinâmico seja enviado.</p>
+                <p>Se um arquivo com uma extensão diferente for anexado, uma mensagem de erro de validação será exibida. Observe que, mesmo que um arquivo seja modificado para ter a extensão de arquivo permitida, o controle de múltiplos arquivos verificará o tipo de arquivo real e exibirá a seguinte mensagem se o arquivo não for permitido.</p>
+                <p>Observação: se estiver usando a versão 3.3.1 ou posterior, o Gestor Express verificará se os arquivos correspondem à sua extensão e permitirá que apenas determinados tipos de arquivos sejam carregados. Para permitir que mais tipos de extensões de arquivo sejam carregados, consulte Conteúdo compatível e extensões de arquivo.</p>
+                <p>Considerações:</p>
+                <p>Para vários campos de arquivo que NÃO são obrigatórios</p>
+                <p>Se o campo aceitar todas as extensões de arquivo e nenhum arquivo for anexado ao executar um caso, a validação será aprovada e o formulário poderá ser enviado ou enviado sem restrições.</p>
+                <p>Se o campo aceitar todas as extensões de arquivo e um arquivo for anexado ao executar um caso, a validação será aprovada, a menos que tenha um limite de tamanho; nesse caso, outra validação, explicada na próxima propriedade, será avaliada. No entanto, se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação será aprovada.</p>
+                <p>Se o campo aceitar apenas determinados tipos de extensões e um arquivo for anexado, a validação será aprovada, a menos que o usuário anexe um arquivo com uma extensão inválida. Nesse caso, uma mensagem é exibida com um aviso que indica que a extensão do arquivo não é suportada. No entanto, se o campo aceitar apenas determinados tipos de extensões e nenhum arquivo for anexado, a validação será aprovada.</p>
+                <p>Para campos de múltiplos arquivos obrigatórios</p>
+                <p>Ao executar um caso, se o campo aceitar todas as extensões de arquivo (*) e não houver nenhum arquivo anexado ao caso, a validação falhará porque o campo é obrigatório e, portanto, o formulário não pode ser enviado.</p>
+                <p>Ao executar casos, se o campo aceitar todas as extensões de arquivo e um arquivo estiver anexado, a validação PASSA, a menos que tenha um limite de tamanho; nesse caso será realizada outra validação, conforme explicado na próxima propriedade.</p>
+                <p>Se o campo aceitar apenas alguns tipos de extensões e nenhum arquivo for anexado, a validação FALHA porque o campo é obrigatório e o formulário NÃO pode ser enviado nem submetido.</p>
+                <p>Se o campo aceitar apenas alguns tipos de extensões e um arquivo com a extensão correta for anexado, a validação será aprovada, a menos que o usuário anexe um arquivo com uma extensão inválida. Nesse caso, é mostrada uma mensagem de erro que indica que a extensão do arquivo não é suportada. Nesse caso, o formulário NÃO pode ser enviado até que um arquivo válido seja anexado.</p>
+                <p>Caso especial</p>
+                <p>Ao executar casos, se um arquivo for anexado a um campo obrigatório e o formulário for enviado para a próxima etapa, mas o usuário voltar para a etapa anterior, o arquivo já enviado será mostrado como um link no controle de múltiplos arquivos .</p>
+                <p>Se o campo for obrigatório e o usuário remover todos os arquivos anexados, é necessário fazer upload de pelo menos um arquivo novamente.</p>
+                <p>Tamanho máximo do arquivo</p>
+                <p>Esta propriedade define o tamanho máximo permitido de arquivos carregados. Por padrão, essa propriedade é definida como 1024 KB. Para definir esta propriedade, insira um número positivo maior que zero:</p>
+                <p>Se definido como zero (0), o tamanho do arquivo é ilimitado.</p>
+                <p>Ao executar um caso, o campo de múltiplos arquivos validará o tamanho do arquivo antes de anexá-lo ao campo. Se o tamanho do arquivo ultrapassar o tamanho definido neste controle, uma mensagem de erro será exibida explicando que o arquivo está excedendo o tamanho máximo do arquivo. A mensagem de erro está disponível a partir do Gestor Express 3.2.2.</p>
+                <p>Área de Trabalho</p>
+                <p>O tamanho do arquivo excede o limite permitido de {1 MB}</p>
+                <p>Considerações:</p>
+                <p>Para campos de múltiplos arquivos que NÃO são obrigatórios</p>
+                <p>Se a validação do limite de tamanho máximo do arquivo anexado FALHAR, o arquivo não será carregado no campo. No entanto, como o campo não é obrigatório, o formulário ainda pode ser submetido ou enviado.</p>
+                <p>Para campos de múltiplos arquivos obrigatórios</p>
+                <p>Se a validação do limite de tamanho máximo do arquivo anexado FALHAR, o arquivo não será carregado no campo e o formulário NÃO PODERÁ ser enviado ou enviado.</p>
+                <p>Campo de upload de múltiplos arquivos em uma grade</p>
+                <p>Os arquivos em grades possuem as mesmas características explicadas anteriormente, mas nos casos em que a grade não está associada a uma variável da grade, e um arquivo válido é anexado e enviado, os novos dados não são inseridos no banco de dados. Isso porque a grade DEVE estar relacionada a uma variável para que os dados sejam enviados corretamente.</p>
+                <p>Validação de tamanho máximo de arquivo com configuração PHP</p>
+                <p>A partir do Gestor Express 3.3.6, a propriedade Max File Size valida de acordo com as configurações post_max_size e upload_max_filesize no arquivo php.ini. Leve em consideração as seguintes considerações ao validar o tamanho máximo do arquivo em controles de múltiplos arquivos :</p>
+                <p>As configurações post_max_size e upload_max_filesize no arquivo php.ini devem ser respeitadas. Isso significa que nenhuma configuração deve substituir esses parâmetros para aceitar arquivos maiores.</p>
+                <p>A validação aplica o menor valor entre o Max File Size do controle e os valores do arquivo php.ini.</p>
+                <p>O designer Formulário Dinâmico valida se o valor da propriedade de controle Max File Size é maior que os valores no arquivo php.ini. Se os valores forem maiores que os valores em php.ini, o alerta " O valor máximo deste campo é XX Mbytes " é exibido. Onde XX é o valor máximo permitido pelo arquivo PHP.</p>
+                <p>Os endpoints REST para criar e atualizar um documento de entrada devem retornar o erro correspondente se o tamanho do arquivo for maior que o valor permitido no arquivo PHP.</p>
+                <p>{</p>
+                <p>  "error": {</p>
+                <p>    "code":    400,</p>
+                <p>    "message": "" O tamanho do arquivo é maior que o máximo permitido, o tamanho máximo permitido é XX Mbytes ""</p>
+                <p>  }</p>
+                <p>}</p>
+                <p>Nota: O post_max_size considera o tamanho de todos os arquivos enviados. Portanto, é recomendado que cada arquivo carregado com os controles de arquivo múltiplo e único no formulário não seja maior que o parâmetro post_max_size no arquivo PHP.</p>
+                <p>Unidade de tamanho</p>
+                <p>Esta propriedade define a unidade (KB, MB) do tamanho definido na propriedade Max File Size explicada anteriormente.</p>
+                <p>Número máximo de arquivo</p>
+                <p>Versão disponível: A partir do Gestor Express 3.7.0</p>
+                <p>A propriedade Número máximo de arquivos define o número máximo de arquivos que podem ser carregados em um campo Carregador de múltiplos arquivos . Se definido como zero ( 0), o número do arquivo é ilimitado. Por padrão, essa propriedade é definida como 0. Para definir esta propriedade, insira um número inteiro positivo igual ou maior que zero ou insira uma variável case ( @@, @%, @=).</p>
+                <p>Caso contrário, se você inserir um valor inválido, a propriedade será definida como zero ( 0) e uma mensagem de erro será exibida: Configuração inválida: o valor "Número máximo do arquivo" deve ser inteiro.</p>
+                <p>Ao executar um caso, o campo de múltiplos arquivos valida o número de arquivos permitidos antes de anexá-lo ao campo. Se o número ultrapassar o número de arquivos permitidos definidos neste controle, uma mensagem será exibida: O número máximo de arquivos permitidos foi atingido</p>
+                <p>Se surgir um problema, leve em consideração o seguinte:</p>
+                <p>Variáveis de caso com Nullvalor são inválidas.</p>
+                <p>As variáveis de caso não funcionam com o controle Carregador de Múltiplos Arquivos em Grids. Em seguida, a propriedade Max file number com variáveis case não funciona em um controle Grid.</p>
+                <p>Se o controle de versão estiver habilitado e a propriedade Número máximo do arquivo contiver um valor inteiro, esse número de instâncias ocorrerá. Por exemplo, se a propriedade Max file number for 3, ela poderá fazer upload de três arquivos com N versões de cada um:</p>
+                <p>Arquivo 1: versão 2, versão 3,...</p>
+                <p>Arquivo 2: versão 2, versão 3,...</p>
+                <p>Arquivo 3: versão 2, versão 3,...</p>
+                <p>O arquivo 4 não pode ser carregado a menos que um dos arquivos anteriores e suas versões sejam removidos.</p>
+                <p>Quando um arquivo inválido é carregado e sua referência permanece no campo Carregador de Múltiplos Arquivos, é uma restrição fazer upload de novos arquivos enquanto essa referência não for removida.</p>
+                <p>Controle de versão</p>
+                <p>Versão disponível: A propriedade a seguir está disponível a partir da versão 3.2.2 do Gestor Express.</p>
+                <p>Se o controle Carregador de Múltiplos Arquivos estiver relacionado a um documento de entrada com versionamento habilitado, a propriedade Versioning do controle Multiple será definida como "Sim", conforme mostrado na imagem abaixo.</p>
+                <p>Isso significa que é possível fazer upload de várias versões de cada arquivo para o controle. Para fazer isso, o Controle de Múltiplos Arquivos exibirá as quatro opções a seguir:</p>
+                <p>Baixar o arquivo: Baixe o arquivo selecionado. Observe que cada versão do arquivo tem seu próprio botão Download.</p>
+                <p>Carregar uma nova versão: Abre a janela de navegação para selecionar uma nova versão do arquivo. Apenas um arquivo pode ser carregado por vez.</p>
+                <p>Excluir o arquivo: Exclui o arquivo e todas as suas versões. Uma única versão NÃO pode ser excluída.</p>
+                <p>Mostrar versões: Mostra todas as versões do arquivo.</p>
+                <p>As mesmas opções são exibidas no Gestor Express Mobile:</p>
+                <p>Para carregar uma nova versão do arquivo, clique no ícone de lápis e selecione a nova versão do arquivo na janela de navegação que se abre. A nova versão substituirá a versão anterior e a versão anterior será listada no botão Mostrar versões. Versões mais antigas podem ser baixadas, mas não editadas.</p>
+                <p>As versões anteriores de um arquivo são exibidas no Gestor Express Mobile da seguinte forma:</p>
+                <p>A lista de versões está disponível em todos os modos de exibição. Os usuários podem fazer upload de uma nova versão ou excluir o arquivo apenas no modo Editar. No modo Exibir ou Desativado, os usuários podem baixar apenas os arquivos que carregaram.</p>
+                <p>Se o arquivo selecionado não atender aos requisitos (tamanho ou extensão do arquivo), uma mensagem de erro será exibida. Para fechá-la, clique na pequena cruz no canto superior direito da mensagem.</p>
+                <p>As versões de um arquivo também podem ser vistas se o Carregador de Múltiplos Arquivos estiver incluído em uma grade.</p>
+                <p>Observação: o controle de versão é compatível com o Gestor Express Mobile.</p>
+                <p>Exemplo de controle de upload de múltiplos arquivos </p>
+                <p>Para este exemplo, adicione um controle "fileupload" arrastando-o e soltando-o no Formulário Dinâmico Designer a partir do painel Web Controls. A imagem abaixo mostra como o controle ficará quando renderizado no Formulário Dinâmico.</p>
+                <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Uma variável pode ser criada nesta janela ou pode ser selecionada a partir das variáveis de processo existentes. Uma variável também pode ser criada clicando no botão Variáveis. Uma nova variável precisará ser criada para este exemplo, portanto, permaneça na janela Criar/Selecionar Variável. Mesmo que o nome da variável possa ser editado, mantenha-o como "multipleFileVar001". Clique na opção Configurações sublinhada para exibir mais configurações de variáveis.</p>
+                <p>As opções disponíveis na configuração mudam dependendo do tipo de controle. Por exemplo, o controle de múltiplos arquivos tem apenas uma configuração: "Tipo". A configuração Tipo tem apenas uma opção, "Arquivo Múltiplo". Para saber como atribuir um documento de entrada, leia esta documentação. Em seguida, na janela Criar variável, clique no botão Salvar para finalizar esta configuração.</p>
+                <p>Clique no espaço vazio no campo de controle para exibir suas propriedades no painel do lado esquerdo.</p>
+                <p>Outra forma de adicionar uma variável é clicando nas reticências sublinhadas ao lado da propriedade Variável, conforme observado na imagem.</p>
+                <p>A janela Criar variável aparecerá, onde uma variável pode ser criada ou selecionada a partir de variáveis existentes. Uma vez escolhida uma variável, as propriedades Tipo de Dados da Variável e ID serão preenchidas automaticamente com o nome da variável.</p>
+                <p>A propriedade ID pode ser usada com código JavaScript. Para adicionar JavaScript à propriedade ID, clique na borda cinza claro do Formulário Dinâmico (que é o espaço fora dos campos de controle) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas, localize a propriedade javascript e clique no botão editar... para abrir o editor JavaScript.</p>
+                <p>No editor JavaScript, adicione código para definir o rótulo do controle (leia esta seção para obter mais informações). Para este exemplo, adicione o seguinte código:</p>
+                <p>jQuery ( "#multipleFileVar001" ). setLabel ( "Gestor Express" ) ;</p>
+                <p>Quando o controle for renderizado, o rótulo será então definido como "Gestor Express", como pode ser visto na imagem abaixo.</p>
+                <p>A propriedade a seguir é a propriedade Name, que é um nome de campo HTML. Por padrão, um controle com essa propriedade tem o mesmo nome do ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
+                <p>Continuando, a propriedade Label altera o rótulo do controle, que será exibido no campo do controle quando o Formulário Dinâmico for renderizado.</p>
+                <p>Para a propriedade Obrigatório, há apenas uma caixa de seleção disponível. Quando marcado, um asterisco é adicionado ao lado do campo de controle para indicar que o campo é obrigatório e o formulário não poderá ser enviado até que o campo seja preenchido corretamente.</p>
+                <p>A propriedade Modo de exibição determina se o controle é editável, visualizável, desabilitado ou usa o mesmo modo de exibição definido para todo o formulário dinâmico. A imagem abaixo mostra a aparência do controle em cada modo de visualização.</p>
+                <p>Nota 1: O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle Carregador de Múltiplos Arquivos, consulte Arquivos no iOS.</p>
+                <p>Observação 2: se você receber mensagens de formato inválido/arquivo corrompido ao tentar fazer download de arquivos em um campo Carregador de Múltiplos Arquivos, verifique se configurou corretamente display_errorse error_reportingde acordo com as pilhas suportadas instaladas em seu servidor.</p>
+                <p>Restrição</p>
+                <p>Considere as seguintes restrições antes de fazer upload de arquivos em um controle Carregador de Múltiplos Arquivos:</p>
+                <p>Como prática recomendada, não carregue arquivos no controle Carregador de Múltiplos Arquivos antes de definir as variáveis no caso do Gestor Express. Dessa forma, os nomes das variáveis serão exibidos corretamente no Caminho de Destino. Revise Definindo Variáveis para definir variáveis de caso dentro de um processo.</p>
+                <p>Se houver mais de um Carregador de Múltiplos Arquivos em um Formulário Dinâmico, como um problema conhecido, ele poderá criar pastas duplicadas ao carregar arquivos durante a execução de um caso. O recurso Meus Documentos exibe as pastas duplicadas.</p>
+                <p>Carregador de múltiplos arquivos no modo offline</p>
+                <p>Versão disponível: A partir do Gestor Express Mobile 2.3.0</p>
+                <p>Contanto que você tenha habilitado o suporte offline para a Tarefa que inclui o Carregador de Múltiplos Arquivos, você poderá usá-lo. Os arquivos carregados são enviados ao servidor quando a conexão é restabelecida junto com o caso roteado.</p>
+                <p>Exemplo de upload de múltiplos arquivos quando offline</p>
+                <p>Este é um exemplo sobre como usar o Carregador de Múltiplos Arquivos no modo offline. Por favor, siga os próximos passos:</p>
+                <p>Acesse as Configurações de Administração.</p>
+                <p>Certifique-se de que em Offline você possa Sincronizar casos e tabelas.</p>
+                <p>Desative o Wi-Fi.</p>
+                <p>A opção Trabalhando offline é exibida.</p>
+                <p>Acesse um caso e certifique-se de que ele tenha a opção Disponível offline.</p>
+                <p>Observação: para configurar um processo que permite que seus casos fiquem offline, veja como habilitar o suporte offline para uma tarefa.</p>
+                <p>Para este exemplo, considere as entradas a serem selecionadas da imagem a seguir.</p>
+                <p>Selecione múltiplos arquivos e continue o caso. Lembre-se que os arquivos carregados são enviados ao servidor quando a conexão é restabelecida junto com o caso roteado.</p>
+                <p>A mensagem O caso será enviado quando voltar a ficar online.</p>
+                <p>Anexando um arquivo de documento de entrada usando o uploader de múltiplos arquivos </p>
+                <p>É possível anexar um documento de entrada a um formulário dinâmico usando o campo Carregador de Múltiplos Arquivos, acessando as propriedades do controle Multiple File. Isso significa que os arquivos carregados no campo Carregador de Múltiplos Arquivos em um Formulário Dinâmico podem ser exibidos posteriormente em uma etapa de entrada de documento. Uma vantagem de associar esses campos a um documento de entrada é que a interface Documento de entrada pode ser usada para visualizar todos os arquivos carregados. O usuário também pode excluir ou adicionar novas versões dos arquivos se tiver as permissões de processo corretas e o controle de versão estiver habilitado. Outra vantagem é que os Documentos de Entrada permitem que o arquivo carregado seja marcado e colocado em uma pasta específica em Meus Documentos, para que seja mais fácil encontrar os arquivos carregados posteriormente.</p>
+                <p>Para associar um Documento de Entrada ao campo Carregador de Arquivos Múltiplos, é recomendável primeiro criar o Documento de Entrada.</p>
+                <p>Em seguida, basta clicar nas reticências sublinhadas nas propriedades de controle do Carregador de Múltiplos Arquivos, conforme visto na imagem abaixo.</p>
+                <p>Uma nova janela de entrada de documentos aparecerá. Selecione o Documento de Entrada disponível clicando nele.</p>
+                <p>Fazer upload de arquivos para um documento de entrada por meio do campo Carregador de Múltiplos Arquivos em um formulário dinâmico é útil para fazer upload de mais de um arquivo ao mesmo tempo para um documento de entrada. Para garantir que o usuário carregue um arquivo em um documento de entrada, torne o campo Carregador de múltiplos arquivos obrigatório.</p>
+                <p>Para carregar mais de um arquivo em um Documento de Entrada, uma etapa normal de Documento de Entrada deve ser usada.</p>
+                <p>Depois de associar a variável Arquivo Múltiplo ao Documento de Entrada, as propriedades de Arquivo Múltiplo terão precedência sobre as propriedades do Documento de Entrada.</p>
+                <p>Campo de upload de múltiplos arquivos em uma grade</p>
+                <p>Os campos do Carregador de Arquivos Múltiplos nas grades têm as mesmas características explicadas acima, mas nos casos em que a grade não está associada a nenhuma variável da grade e um arquivo válido é anexado e enviado, os novos dados não são inseridos no banco de dados. Isso ocorre porque a grade DEVE ter uma variável associada para salvar corretamente os dados.</p>
+                <p>O controle Carregador de Múltiplos Arquivos tem uma aparência diferente nas grades. Para fazer upload de um arquivo, clique no ícone verde.</p>
+                <p>Uma nova janela de diálogo será exibida para fazer o upload dos arquivos.</p>
+                <p>Clique no botão Escolher arquivos para fazer upload de múltiplos arquivos . Para editar um arquivo, basta excluí-lo e enviá-lo novamente. Uma vez feito o upload dos arquivos, feche a caixa de diálogo.</p>
+                <p>Os arquivos carregados serão listados no campo Carregador de Múltiplos Arquivos dentro da grade.</p>
+                <p>Acessando arquivos com JavaScript</p>
+                <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+                <p>Os arquivos no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                <p>Rótulo: O texto exibido acima ou à esquerda do campo no Formulário Dinâmico, que o identifica.</p>
+                <p>Valor: O nome de arquivo do último arquivo selecionado no controle de arquivo.</p>
+                <p>Texto: Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</p>
+                <p>Métodos JavaScript</p>
+                <p>Alguns dos métodos JavaScript usados para manipular vários campos de arquivo incluem:</p>
+                <p>Método</p>
+                <p>jQuery("#fieldID"). getValue()</p>
+                <p>jQuery("#fieldID"). getText()</p>
+                <p>jQuery("#fieldID"). getLabel()</p>
+                <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
+                <p>Nota: Os métodos setValue() e setText() existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                <p>Estrutura de controles de upload de múltiplos arquivos </p>
+                <p>Um controle do Carregador de Múltiplos Arquivos consiste em:</p>
+                <p>Um visível <button>com o ID do controle de múltiplos arquivos , que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido sob este botão.</p>
+                <p>Um campo oculto com o ID de cada arquivo selecionado, onde o arquivo selecionado é armazenado temporariamente."form[id]"</p>
+                <p>Um campo de entrada oculto com o ID, que contém uma matriz dos arquivos que foram carregados anteriormente para o Documento de entrada associado ao controle Carregador de Múltiplos Arquivos, além do último arquivo selecionado com o controle de arquivo. "form[id_label]"</p>
+                <p>Por exemplo, um controle de arquivo com o ID "recibos" pode ter a seguinte estrutura HTML:</p>
+                <p>< div ></p>
+                <p>  < div id = "multipleFileVar001" name = "field-multipleFileVar001" class = "pmFormulário Dinâmico-field-multipleFile pmFormulário Dinâmico-edit-multipleFile form-group col-sm-12 col-md-12 col-lg-12 pmFormulário Dinâmico- field" > < div class = "row" > < label for = "multipleFileVar001" class = "col-md-2 col-lg-2 control-label pmFormulário Dinâmico-label" > < span data-toggle = "tooltip"data-placement = classe "inferior"</p>
+                <p>        = "textlabel" > multipleFile < / span ></p>
+                <p>        < span class = "pmFormulário Dinâmico-field-required" > * < / span ></p>
+                <p>      < / label ></p>
+                <p>      < div class = "col-md-10 col-lg-10 pmFormulário Dinâmico-field- control" ></p>
+                <p>        < div class = "pmFormulário Dinâmico-multiplefile-control" ></p>
+                <p>          < tipo de botão = "button" class = "btn btn-uploadfile" > Escolha os arquivos < /button ></p>
+                <p>          < input type = "file" multiple = "multiple" accept = "" style = "display:none" ></p>
+                <p>        < / div ></p>
+                <p>      < / div ></p>
+                <p>    < / div ></p>
+                <p>    < div class = "pmFormulário Dinâmico-multiplefile-box" > < div class = "multiplefile-row row" ></p>
+                <p>      < div class = "multiplefile-container col-xs-12"></p>
+                <p>        < classe div = "multiplefile-icon col-xs-1" ></p>
+                <p>          < span class = "multiplefile-icon" ></p>
+                <p>            < i class = "fa fa-file-image-o" aria- hidden = "true" >< / i ></p>
+                <p>          < / span ></p>
+                <p>        < / div ></p>
+                <p>        < div class = "pm-multiplefile-download col-xs-8" ></p>
+                <p>          < div class = "multiplefile-title" ></p>
+                <p>            < div >94f5432c6216e8141daa5980891fc766.jpg </ div ></p>
+                <p>          < / div ></p>
+                <p>        < / div ></p>
+                <p>        < div class = "multiplefile-buttons col-xs-3" ></p>
+                <p>          < div class = "multiplefile-button-delete col-xs-5" ></p>
+                <p>            < i class = "fa fa -trash" aria- hidden = "true" >< / i ></p>
+                <p>          < / div ></p>
+                <p>          < div class = "multiplefile-button-download col-xs-5" ></p>
+                <p>            < a href= "http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=86931799257ec16530e59c7069364091&v=1" ></p>
+                <p>              < i class = "fa fa-download" aria - hidden = "true" >< / i ></p>
+                <p>            < / a ></p>
+                <p>            < a >< / a ></p>
+                <p>          < / div ></p>
+                <p>          < a ></p>
+                <p>            < div class = "multiplefile-button-pencil col-xs-5" style = "display: none" ></p>
+                <p>              < classe = _ "fa fa-pencil" aria- hidden = "true" >< / i ></p>
+                <p>            < / div ></p>
+                <p>          < / a ></p>
+                <p>        < / div ></p>
+                <p>        < a >< / a ></p>
+                <p>      < / div ></p>
+                <p>    < / div ></p>
+                <p>    < div class = " linha de múltiplos arquivos " ></p>
+                <p>      < div class = "contêiner de múltiplos arquivos col-xs-12" ></p>
+                <p>        <classe div ="multiplefile-icon col-xs-1" ></p>
+                <p>          < span class = "multiplefile-icon" ></p>
+                <p>            < i class = "fa fa-file-image-o" aria- hidden = "true" >< / i ></p>
+                <p>          < / span ></p>
+                <p>        < / div ></p>
+                <p>        < div class = "pm-multiplefile-download col-xs-8" ></p>
+                <p>          < div class = "multiplefile-title" ></p>
+                <p>            < div >3c5c332d7f8018d4447a771dcb284447.jpg < /div ></p>
+                <p>          < / div ></p>
+                <p>        < / div ></p>
+                <p>        < div class = "multiplefile-buttons col-xs-3" ></p>
+                <p>          < div class = "multiplefile-button-delete col-xs-5" ></p>
+                <p>            < i class = "fa fa- trash" aria- hidden = "true" >< / i ></p>
+                <p>          < / div ></p>
+                <p>          < div class = "multiplefile-button-download col-xs-5" ></p>
+                <p>            <a href ="http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=21786185157ec168f6d4e05077370210&v=1" ></p>
+                <p>              < i class = "fa fa-download" aria - hidden = "true" >< / i ></p>
+                <p>            < / a ></p>
+                <p>            < a >< / a ></p>
+                <p>          < / div ></p>
+                <p>          < a ></p>
+                <p>            < div class = "multiplefile-button-pencil col-xs-5" style = "display: none" ></p>
+                <p>              <eu classe ="fa fa-pencil" aria- hidden = "true" >< / i ></p>
+                <p>            < / div ></p>
+                <p>          < / a ></p>
+                <p>        < / div ></p>
+                <p>        < a >< / a ></p>
+                <p>      < / div ></p>
+                <p>    < / div ></p>
+                <p>  < / div ></p>
+                <p>< / div ></p>
+                <p>< input name = "form[multipleFileVar001][0][appDocUid]" type = "hidden" valor ="86931799257ec16530e59c7069364091" ></p>
+                <p>< nome de entrada = "form[multipleFileVar001][0][nome]" tipo = valor "oculto" = "94f5432c6216e8141daa5980891fc766.jpg" ></p>
+                <p>< nome de entrada = "form[multipleFileVar001][0][versão]" tipo = "oculto" value = "1" ></p>
+                <p>< input name = "form[multipleFileVar001][1][appDocUid]" type = "hidden" value = "21786185157ec168f6d4e05077370210" ></p>
+                <p>< nome de entrada = "form[multipleFileVar001][1][name]" type = "hidden" value = "3c5c332d7f8018d4447a771dcb284447.jpg" ></p>
+                <p>< input name = "form[multipleFileVar001][1][version]" type = "hidden" value = " 1" ></p>
+                <p>< / div ></p>
+                <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "pmFormulário Dinâmico-multiplefile-control". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de múltiplos arquivos "recibos":</p>
+                <p>$ ( "#recibos" ). find ( "button.pmFormulário Dinâmico-control-file" ). css ( "borda", "1px vermelho sólido" ) ;</p>
+                <p>Armazenamento de arquivo</p>
+                <p>Quando um arquivo é carregado em um controle de múltiplos arquivos durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
+                <p>Os arquivos são armazenados no seguinte local no servidor:</p>
+                <p>    INSTALL-DIRECTORY /shared/sites/ WORKSPACE/files/ / _.XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXCASE-DOCUMENT-UIDVERSIONEXT</p>
+                <p>Onde:</p>
+                <p>WORKSPACEé o nome do espaço de trabalho, que é denominado "fluxo de trabalho" por padrão e pode ser especificado com a @@SYS_SYSvariável do sistema em um acionador.</p>
+                <p>XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXrepresenta o ID exclusivo do caso. Por padrão, o ID é dividido em uma série de 4 subdiretórios para evitar os limites de arquivo de 32K do sistema de arquivos ext3 do Linux. Em um acionador, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos APPLICATION.APP_UID, APP_CACHE_VIEW.APP_UID ou APP_DOCUMENT.APP_UID no banco de dados. O método G::getPathFromUID() pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</p>
+                <p>CASE-DOCUMENT-UIDé o ID exclusivo do documento do caso, que é armazenado no campo APP_DOCUMENT.APP_DOC_UID no banco de dados.</p>
+                <p>VERSIONé o número da versão do documento, que é sempre definido como 1, exceto quando o campo Carregador de múltiplos arquivos estiver relacionado a um documento de entrada que tenha o controle de versão ativado e o usuário tenha carregado uma nova versão do arquivo (cujos campos de arquivo não permitem). A nova versão pode ser encontrada no campo APP_DOCUMENT.DOC_VERSION no banco de dados.</p>
+                <p>EXTé a extensão do arquivo carregado, como docou jpg. A extensão do arquivo pode ser encontrada usando o método AppDocument::Load() ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:</p>
+                <p>SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID=' CASE-UID ' AND CON_CATEGORY='APP_DOC_FILENAME'</p>
+                <p>Exemplo de caminho no Linux/UNIX:</p>
+                <p>    /opt/Gestor Express/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png</p>
+                <p>Exemplo de caminho na instalação do Bitnami no Windows:</p>
+                <p>Nota: Bitnami não é mais usado no Gestor Express a partir da versão 3.4.0. Isso deve ser considerado ao acessar o diretório do Gestor Express.</p>
+                <p>C:\Bitnami\Gestor Express-3.3.0-1\apps\Gestor Express\htdocs\shared\sites\workflow\files\905\262\500\57158b1b439014072150115\74863719957158b39af56d2076904431_1.png</p>
+                <p>Em um gatilho, o caminho do arquivo para um arquivo pode ser determinado usando as constantes definidas PATH_DOCUMENT(que contém um caminho como "/opt/Gestor Express/shared/sites/workflow/files/") e PATH_SEP(que é "/" ou "\"dependendo do sistema operacional).</p>
+                <p>Por exemplo, o código de gatilho a seguir gera o mesmo caminho que os exemplos acima:</p>
+                <p>$g = novo G ( ) ;</p>
+                <p>$path = PATH_DOCUMENT. $g -> getPathFromUID ( '90526250057158b1b439014072150115' ). PATH_SEP. '74863719957158b39af56d2076904431_1.png' ;</p>
+                <p>Armazenamento de arquivos no banco de dados</p>
+                <p>Quando um formulário dinâmico que contém um campo Carregador de Múltiplos Arquivos é enviado, um novo registro é criado para o arquivo carregado na tabela APP_DOCUMENT no banco de dados, que contém os seguintes campos:</p>
+                <p>APP_DOC_UID: o ID exclusivo do documento do caso, que identifica o arquivo carregado.</p>
+                <p>DOC_VERSION: a versão do arquivo de documento do caso, que é um número inteiro contando a versão a partir de 1. Só pode ser maior do que 1se o arquivo estiver associado a uma variável de um Documento de Entrada que tenha o controle de versão habilitado.</p>
+                <p>APP_UID: o ID exclusivo do caso em que o arquivo foi carregado.</p>
+                <p>DEL_INDEX: o índice de delegação da tarefa no caso em que o arquivo foi carregado.</p>
+                <p>DOC_UID: o ID exclusivo do Documento de Entrada que contém o arquivo, se o campo Carregador de Arquivos Múltiplos estiver associado a um Documento de Entrada. Se não houver Documento de entrada associado ao campo Carregador de Múltiplos Arquivos, ele será definido como '-1'.</p>
+                <p>USR_UID: o ID exclusivo do usuário que carregou o arquivo.</p>
+                <p>APP_DOC_TYPE: O tipo de documento de caso, que é 'ATTACHED'se o campo Carregador de Múltiplos Arquivos não estiver associado a um Documento de Entrada ou 'INPUT'se estiver associado a um Documento de Entrada.</p>
+                <p>APP_DOC_CREATE_DATE: A data e hora no 'YYYY-MM-DD HH:MM:SS'formato em que o arquivo foi carregado.</p>
+                <p>APP_DOC_INDEX: o índice do documento do arquivo.</p>
+                <p>FOLDER_UID: O ID exclusivo da pasta onde o arquivo está localizado na interface gráfica em Meus Documentos. Se o campo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, este campo será definido como ''(string vazia).</p>
+                <p>APP_DOC_PLUGIN: Sempre definido como ''(string vazia). Não é mais usado no Gestor Express 3.</p>
+                <p>APP_DOC_TAGS: se o campo estiver associado a um documento de entrada, esse campo listará as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a 'INPUT'tag, mas outras tags personalizadas podem ser definidas. Se não estiver associado a um documento de entrada, defina como NULL.</p>
+                <p>APP_DOC_STATUS: O status do arquivo, que é 'ACTIVE' ou 'DELETED'. Observe que os campos do Carregador de Múltiplos Arquivos não fornecem uma maneira de excluir arquivos carregados, mas o arquivo pode ser excluído por um usuário que tenha a permissão PM_FOLDERS_ADD_FILE em sua função em Meus documentos. Ele também pode ser excluído se o campo estiver associado a um Documento de Entrada que seja uma etapa de uma tarefa e o usuário tiver recebido Permissões de Processo para excluir arquivos no Documento de Entrada.</p>
+                <p>APP_DOC_STATUS_DATE: Sempre definido como NULL.</p>
+                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo onde o arquivo foi carregado. Se carregado em um campo de múltiplos arquivos em uma grade, ele será definido como. Por exemplo, um valor de significa que o arquivo foi carregado na segunda linha de uma grade cuja variável é "clientList" e cujo campo Multiple File tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo Carregador de Múltiplos Arquivos), ele será definido como.'[grid-variable][row-number][file-field-name]''[clientList][2][contractFile]'NULL</p>
+                <p>APP_DOC_DRIVE_DOWNLOAD: informações serializadas, que são sempre definidas como 'a:0:{}'.</p>
+                <p>Além disso, os registros são adicionados à tabela CONTENT, que contém informações sobre o arquivo carregado.</p>
+                <p>Por exemplo, o banco de dados tem as seguintes informações sobre um arquivo carregado com o ID exclusivo '74863719957158b39af56d2076904431':</p>
+                <p>mysql> selecione * de CONTENT onde CON_ID='74863719957158b39af56d2076904431'; </p>
+                <p>+------------------+------------+----------------- ---+----------+--------------------- + | CON_CATEGORY | CON_PARENT | CON_ID | CON_LANG | CON_VALUE | +------------------+------------+----------------- ---+----------+--------------------- + | APP_DOC_COM</p>
+                <p>O nome do arquivo carregado é encontrado com a consulta:</p>
+                <p>SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID='XXXXXXXXXXXXXXXXXXXXXXXXX' AND CON_CATEGORY='APP_DOC_FILENAME'</p>
+                <p>Aviso: se um usuário carregar um arquivo no controle de múltiplos arquivos , mas o formulário dinâmico que contém o controle não for enviado, os arquivos carregados no controle de múltiplos arquivos não serão relacionados à variável atribuída e não estarão visíveis nas próximas etapas do processo. Esse comportamento é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
+                <p>Armazenamento de arquivos em grades</p>
+                <p>Quando um campo Carregador de Múltiplos Arquivos é colocado em uma grade, os arquivos podem ser selecionados para cada linha na grade para serem carregados quando o formulário dinâmico for enviado. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela APP_DOCUMENT. A única diferença de um campo normal do Carregador de Múltiplos Arquivos é que o campo APP_DOCUMENT.APP_DOC_FIELDNAME conterá.'grid-variable_row-number_file-name'</p>
+                <p>Por exemplo, uma grade cuja variável é denominada "recibos" é enviada e tem três linhas com um campo de múltiplos arquivos chamado "receiptFile". As informações a seguir podem ser armazenadas na tabela APP_DOCUMENT sobre os três arquivos:</p>
+                <p>mysql> select APP_DOC_UID, DOC_VERSION, APP_UID, DOC_UID, APP_DOC_TYPE, APP_DOC_INDEX, APP_DOC_FIELDNAME from APP_DOCUMENT;</p>
+                <p>APP_DOC_UID</p>
+                <p>9981562705718050e816959058033346</p>
+                <p>9208148915718050e921ba1095027176</p>
+                <p>6366198845716e982128ba0053902036</p>
+                <p>Nota: Se uma grade contendo um campo de múltiplos arquivos não tiver uma variável de matriz associada, os arquivos selecionados na grade não serão salvos quando o formulário dinâmico for enviado.</p>
+                <p>Após o envio do Formulário Dinâmico, os nomes dos arquivos selecionados na variável case do grid podem ser encontrados fazendo uma busca na tabela APP_DOCUMENT pelo case ID e por APP_DOC_FIELDNAME, que contém o nome da variável grid e o nome do Multiple File campo na grade, para obter o ID do arquivo no campo APP_DOC_UID. Usando o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela CONTENT.</p>
+                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grade cuja variável é denominada "clientList" e o campo Multiple File é denominado "contractFile":</p>
+                <p>$caseId    = @@ APLICATIVO ;</p>
+                <p>$gridVar   = 'clientList' ;</p>
+                <p>$fileField = 'contractFile' ;</p>
+                <p>$aArquivos    = array ( ) ;</p>
+                <p>$query = "SELECT C.CON_VALUE AS FILENAME, AD.* FROM CONTENT C, APP_DOCUMENT AD</p>
+                <p>   WHERE AD.APP_UID=' $caseId ' AND APP_DOC_FIELDNAME LIKE ' {$gridVar} _%_ {$fileField} ' AND</p>
+                <p>   AD.APP_DOC_STATUS = 'ACTIVE' AND AD.APP_DOC_UID = C.CON_ID AND</p>
+                <p>   C.CON_CATEGORY = 'APP_DOC_FILENAME' ORDEM POR AD.APP_DOC_FIELDNAME" ;</p>
+                <p>$resultados =executeQuery ( $consulta ) ;</p>
+                <p>if ( is_array ( $ resultados ) ) {</p>
+                <p>   for ( $ i = 0 ; $ i < contagem ( $ resultados ) ; $ i ++ ) {</p>
+                <p>      $ aFiles [ ] = $ resultados [ $ i ] [ 'FILENAME' ] ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>Acessando múltiplos arquivos com PHP</p>
+                <p>Quando o usuário seleciona arquivos em um controle de múltiplos arquivos , os arquivos são imediatamente carregados e salvos no sistema de arquivos do servidor onde o Gestor Express está instalado. Os arquivos também são armazenados na tabela APP_DOCUMENT no banco de dados. Quando o formulário dinâmico que contém um controle de múltiplos arquivos é enviado, uma variável de caso é criada para o controle de múltiplos arquivos com informações sobre os arquivos carregados em uma matriz de matrizes.</p>
+                <p>Acessando a variável de caso MultipleFile</p>
+                <p>Os arquivos carregados para controles de múltiplos arquivos são armazenados em uma variável de caso com o seguinte formato:</p>
+                <p>@= MultipleFileVariable = array( array( "appDocUid" => ' Unique_ID_AppDocument ', "name" => ' filename.ext ', "version" => "1" ),... );</p>
+                <p>O número da versão será sempre "1", a menos que o campo multipleFile esteja associado a um Documento de Entrada que tenha a opção Habilitar Controle de Versão selecionada.</p>
+                <p>Por exemplo, o seguinte controle de múltiplos arquivos associado à @=multipleContractFilesvariável tem dois arquivos:</p>
+                <p>@= multipleContractFiles = array (</p>
+                <p>   array (</p>
+                <p>      "appDocUid" => "6994902925858ad7e22e275057848393",</p>
+                <p>      "name"      => "CateringServiceContract.docx",</p>
+                <p>      "version"   => "1"</p>
+                <p>   ),</p>
+                <p>   array (</p>
+                <p>      "appDocUid" => "9230004935858ad85ed6a21022202980",</p>
+                <p>      " nome"      => "NewServiceContract.pdf",</p>
+                <p>      "versão"   => "1"</p>
+                <p>   )</p>
+                <p>) ;</p>
+                <p>Para obter o ID e o nome de arquivo do primeiro arquivo no controle multipleContractFiles, crie um gatilho definido para ser executado após o envio do Formulário Dinâmico que contém o controle multipleContractFile, com o seguinte código PHP:</p>
+                <p>if ( isset ( @= multipleContractFiles ) e ! empty ( @= multipleContractFiles ) ) {</p>
+                <p>   @@ firstFileId = @= multipleContractFiles [ 0 ] [ 'appDocUid' ] ;</p>
+                <p>   @@ firstFilename = @= multipleContractFiles [ 0 ] [ 'name' ] ;</p>
+                <p>}</p>
+                <p>Antes de tentar acessar uma variável Multiple File, é uma boa ideia usar isset() para verificar se a variável Multiple File foi definida (caso o usuário tenha usado o menu Steps para pular o Formulário Dinâmico), e use empty() para verifique se pelo menos um arquivo foi carregado.</p>
+                <p>Adicionando Arquivos Únicos a Vários Controles de Arquivos</p>
+                <p>Um arquivo que foi carregado para um controle de arquivo tradicional pode ser transferido para um controle de MultipleFile. No exemplo a seguir, um Formulário Dinâmico contém um controle File associado à @@contractFilevariável, onde um arquivo pode ser carregado.</p>
+                <p>O arquivo que foi carregado pelo usuário é então transferido para um controle Multiple File localizado em um segundo Formulário Dinâmico:</p>
+                <p>Um gatilho que é disparado antes do segundo Formulário Dinâmico copia as informações sobre o arquivo carregado do primeiro Formulário Dinâmico e o adiciona ao controle MultipleFile associado à variável @=multipleContractFiles. O código de gatilho a seguir verifica primeiro se um arquivo foi selecionado no controle File e, em seguida, obtém seu ID e nome de arquivo exclusivos. Em seguida, ele verifica se o arquivo já foi adicionado ao controle MultipleFile. Caso contrário, ele adiciona uma matriz associativa de informações sobre o arquivo ao controle MultipleFile:</p>
+                <p>//se um arquivo selecionado no controle File:</p>
+                <p>if ( isset ( @@ contractFile ) e @@ contractFile != '[]' ) {</p>
+                <p>   $fileId = json_decode ( @@ contractFile ) [ 0 ] ;</p>
+                <p>   $filename = json_decode ( @@ contractFile_label ) [ 0 ] ;</p>
+                <p>   //se o multipleFile ainda não existir, crie-o:</p>
+                <p>   if ( ! isset ( @= multipleContractFiles) ) {</p>
+                <p>      @= multipleContractFiles = array ( ) ;</p>
+                <p>   }</p>
+                <p>   //verifica se o arquivo já foi adicionado:</p>
+                <p>   $addFile = true ;</p>
+                <p>   foreach ( @= multipleContractFiles as $aFile ) {</p>
+                <p>      if ( $aFile [ 'appDocUid' ] == $fileId ) {</p>
+                <p>         $addFile = false ;</p>
+                <p>         quebrar ;</p>
+                <p>      }</p>
+                <p>   }</p>
+                <p>   if ( $addFile ) {</p>
+                <p>      //adiciona um arquivo adicional:</p>
+                <p>      @= multipleContractFiles [ ] = array (</p>
+                <p>        "appDocUid" => $fileId,</p>
+                <p>        "name"      => $filename,</p>
+                <p>        "version"   => "1"</p>
+                <p>      ) ;</p>
+                <p>   }</p>
+                <p>}</p>
+                <p>Para testar um processo de amostra que adiciona o arquivo selecionado em um controle File a um controle MultipleFile, baixe e importe o processo Add_File_to_MultipleFile_control-1.pmx ( clique com o botão direito do mouse no link e selecione "Salvar link como").</p>
+                <p>Limpando todos os arquivos em um controle de múltiplos arquivos </p>
+                <p>Para limpar todos os arquivos em um controle de múltiplos arquivos usando um gatilho, use forpara percorrer todos os arquivos na variável de múltiplos arquivos . Para cada arquivo, use o método AppDocument::Remove() para marcar o arquivo como excluído no banco de dados e unlink() para excluir o arquivo do sistema de arquivos do servidor. Em seguida, defina a variável Multiple File como (uma matriz vazia) para remover seu conteúdo. array()</p>
+                <p>Por exemplo, se a variável associada ao controle de múltiplos arquivos for denominada "productSpecFiles", o gatilho a seguir excluirá os arquivos no controle se a caixa de seleção "cancelProduct" estiver marcada.</p>
+                <p>if ( isset ( @= cancelProduct ) e @@ cancelProduct == array ( 1 ) e</p>
+                <p>   isset ( @= productSpecFiles ) e ! empty ( @= productSpecFiles ) ) {</p>
+                <p>   $ad = new AppDocument ( ) ;</p>
+                <p>   for ( @= productSpecFiles as $aFile ) {</p>
+                <p>      //marca como excluído na tabela APP_DOCUMENT no banco de dados:</p>
+                <p>      $ad ->remove ( $aFile [ 'appDocUid' ], $aFile [ 'version' ] ) ;</p>
+                <p>      //construir o caminho para o arquivo armazenado no sistema de arquivos do servidor:</p>
+                <p>      $ext = pathinfo ( $aFile [ 'name' ], PATHINFO_EXTENSION ) ;</p>
+                <p>      $g = novo G ( ) ;</p>
+                <p>      $path = PATH_DOCUMENT. $g -> getPathFromUID ( @@ APPLICATION ). PATH_SEP.</p>
+                <p>         $aFile [ 'appDocUid' ]. '_'. $aFile [ 'versão' ]. '.'. $ext ;</p>
+                <p>      //excluir arquivo no sistema de arquivos do servidor:</p>
+                <p>      unlink ( $path ) ;</p>
+                <p>   }</p>
+                <p>   //limpa arquivos na variável de múltiplos arquivos </p>
+                <p>   @= productSpecFiles = array ( ) ;</p>
+                <p>}</p>
 
 
         </article>
@@ -49,7 +582,7 @@
                     <h4>Selo de Qualidade</h4>
 
                     <figure>
-                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                        <img src="../_imagens/impacto-logo-branco.png" alt="#ITEM">
                     </figure>
 
                 </div>
