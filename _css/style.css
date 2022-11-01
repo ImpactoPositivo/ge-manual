@@ -60,8 +60,61 @@ header {
 }
 
 .indice {
+    width: 60vw;
+    background-color: rgb(252, 250, 228);
     position: relative;
-    margin: 5px auto;
+    padding: 10px;
+    margin: auto;
+}
+
+.indice h1 {
+    color: #1D438A;  
+    font-size: 1.2rem;
+    padding: 10px 20px 5px 20px;
+    font-weight: bolder;
+    line-height: 1.8rem;
+}
+
+.indice ol {
+    padding-left: 45px;
+}
+
+.indice ul {
+    padding: 0px 0px 10px 35px;
+    list-style-position: outside;
+    margin-left: 10px;
+}
+
+.indice ol li {
+    font-size: .95rem;
+    line-height: 1.5rem;
+}
+
+.indice ul li {
+    font-size: .95rem;
+    line-height: 1.5rem;
+}
+
+.indice ol li a {
+    text-decoration: none;
+    color: black;
+}
+
+.indice ol li a:hover {
+    text-decoration: underline;
+    color: #00BFB2;
+    font-weight: bold;
+}
+
+.indice ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.indice ul li a:hover {
+    text-decoration: underline;
+    color: #00BFB2;
+    font-weight: bold;
 }
 
 #lado {
@@ -128,8 +181,8 @@ header {
 }
 
 #principal h1 {
-    color: #1D438A;
-    font-size: 1,2rem;
+    color: #1D438A;  
+    font-size: 1.2rem;
     padding: 10px 20px 5px 20px;
     font-weight: bolder;
     line-height: 1.8rem;
