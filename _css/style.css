@@ -541,6 +541,10 @@ div#caixa {
         padding: 10px; 
     }
 
+    .indice {
+        width: 100vw;
+    }
+
    #lado{
         width: 100%;
         position: relative;
