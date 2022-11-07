@@ -395,47 +395,182 @@
                 </figure>
 
                 <p>Para carregar uma nova versão do arquivo, clique no ícone de lápis e selecione a nova versão do arquivo na janela de navegação que se abre. A nova versão substituirá a versão anterior e a versão anterior será listada no botão Mostrar versões. Versões mais antigas podem ser baixadas, mas não editadas.</p>
+
+                <figure>
+
+                </figure>
+
                 <p>As versões anteriores de um arquivo são exibidas no Gestor Express Mobile da seguinte forma:</p>
+
+                <figure>
+
+                </figure>
+
                 <p>A lista de versões está disponível em todos os modos de exibição. Os usuários podem fazer upload de uma nova versão ou excluir o arquivo apenas no modo Editar. No modo Exibir ou Desativado, os usuários podem baixar apenas os arquivos que carregaram.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Se o arquivo selecionado não atender aos requisitos (tamanho ou extensão do arquivo), uma mensagem de erro será exibida. Para fechá-la, clique na pequena cruz no canto superior direito da mensagem.</p>
-                <p>As versões de um arquivo também podem ser vistas se o Carregador de Múltiplos Arquivos estiver incluído em uma grade.</p>
-                <p>Observação: o controle de versão é compatível com o Gestor Express Mobile.</p>
-                <p>Exemplo de controle de upload de múltiplos arquivos </p>
-                <p>Para este exemplo, adicione um controle "fileupload" arrastando-o e soltando-o no Formulário Dinâmico Designer a partir do painel Web Controls. A imagem abaixo mostra como o controle ficará quando renderizado no Formulário Dinâmico.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>As versões de um arquivo também podem ser vistas se o Carregador de Múltiplos Arquivos estiver incluído em uma grid.</p>
+
+                <figure>
+
+                </figure>
+
+                <p><span style="color:green">Observação:</span> o controle de versão é compatível com o Gestor Express Mobile.</p>
+
+            <h1 id="item3">Exemplo de controle de upload de múltiplos arquivos </h1>
+
+                <p>Para este exemplo, adicione um controle "arquivoupload" arrastando-o e soltando-o na Ferramenta de Desenho do Formulário Dinâmico a partir do painel Controles Web. A imagem abaixo mostra como o controle ficará quando renderizado no Formulário Dinâmico.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Imediatamente após adicionar o controle, a janela Criar variável aparecerá. Uma variável pode ser criada nesta janela ou pode ser selecionada a partir das variáveis de processo existentes. Uma variável também pode ser criada clicando no botão Variáveis. Uma nova variável precisará ser criada para este exemplo, portanto, permaneça na janela Criar/Selecionar Variável. Mesmo que o nome da variável possa ser editado, mantenha-o como "multipleFileVar001". Clique na opção Configurações sublinhada para exibir mais configurações de variáveis.</p>
-                <p>As opções disponíveis na configuração mudam dependendo do tipo de controle. Por exemplo, o controle de múltiplos arquivos tem apenas uma configuração: "Tipo". A configuração Tipo tem apenas uma opção, "Arquivo Múltiplo". Para saber como atribuir um documento de entrada, leia esta documentação. Em seguida, na janela Criar variável, clique no botão Salvar para finalizar esta configuração.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>As opções disponíveis na configuração mudam dependendo do tipo de controle. Por exemplo, o controle de múltiplos arquivos tem apenas uma configuração: "Tipo". A configuração Tipo tem apenas uma opção, "Arquivo Múltiplo". Para saber como atribuir um documento de entrada, leia esta <a href="#"> documentação </a>. Em seguida, na janela Criar variável, clique no botão Gravar para finalizar esta configuração.</p>
+
                 <p>Clique no espaço vazio no campo de controle para exibir suas propriedades no painel do lado esquerdo.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>Outra forma de adicionar uma variável é clicando nas reticências sublinhadas ao lado da propriedade Variável, conforme observado na imagem.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>A janela Criar variável aparecerá, onde uma variável pode ser criada ou selecionada a partir de variáveis existentes. Uma vez escolhida uma variável, as propriedades Tipo de Dados da Variável e ID serão preenchidas automaticamente com o nome da variável.</p>
+                
+                <figure>
+
+                </figure>
+
                 <p>A propriedade ID pode ser usada com código JavaScript. Para adicionar JavaScript à propriedade ID, clique na borda cinza claro do Formulário Dinâmico (que é o espaço fora dos campos de controle) para exibir as propriedades do Formulário Dinâmico. Quando as propriedades forem exibidas, localize a propriedade javascript e clique no botão editar... para abrir o editor JavaScript.</p>
-                <p>No editor JavaScript, adicione código para definir o rótulo do controle (leia esta seção para obter mais informações). Para este exemplo, adicione o seguinte código:</p>
-                <p>jQuery ( "#multipleFileVar001" ). setLabel ( "Gestor Express" ) ;</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>No editor JavaScript, adicione código para definir o rótulo do controle (leia esta <a href="#"> seção </a> para obter mais informações). Para este exemplo, adicione o seguinte código:</p>
+
+                <codeblock>
+                    jQuery<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#multipleFileVar001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setLabel</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Gestor Express&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+                
+                <figure>
+
+                </figure>
+
                 <p>Quando o controle for renderizado, o rótulo será então definido como "Gestor Express", como pode ser visto na imagem abaixo.</p>
-                <p>A propriedade a seguir é a propriedade Name, que é um nome de campo HTML. Por padrão, um controle com essa propriedade tem o mesmo nome do ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
-                <p>Continuando, a propriedade Label altera o rótulo do controle, que será exibido no campo do controle quando o Formulário Dinâmico for renderizado.</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>A propriedade a seguir é a propriedade Nome, que é um nome de campo HTML. Por padrão, um controle com essa propriedade tem o mesmo nome do ID. Quando o ID é alterado pelo usuário, o nome não muda e mantém sua configuração original. O nome também pode ser alterado inserindo um novo valor na propriedade.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p>Continuando, a propriedade Rótulo altera o rótulo do controle, que será exibido no campo do controle quando o Formulário Dinâmico for renderizado.</p>
+
                 <p>Para a propriedade Obrigatório, há apenas uma caixa de seleção disponível. Quando marcado, um asterisco é adicionado ao lado do campo de controle para indicar que o campo é obrigatório e o formulário não poderá ser submetido até que o campo seja preenchido corretamente.</p>
+                                
+                <figure>
+
+                </figure>
+
                 <p>A propriedade Modo de exibição determina se o controle é editável, visualizável, desabilitado ou usa o mesmo modo de exibição definido para todo o formulário dinâmico. A imagem abaixo mostra a aparência do controle em cada modo de visualização.</p>
-                <p>Nota 1: O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle Carregador de Múltiplos Arquivos, consulte Arquivos no iOS.</p>
-                <p>Observação 2: se você receber mensagens de formato inválido/arquivo corrompido ao tentar fazer download de arquivos em um campo Carregador de Múltiplos Arquivos, verifique se configurou corretamente display_errorse error_reportingde acordo com as pilhas suportadas instaladas em seu servidor.</p>
-                <p>Restrição</p>
+                                
+                <figure>
+
+                </figure>
+
+                <p><span style="color: green">Observação 1:</span> O gerenciamento de arquivos é diferente no sistema iOS móvel. Para saber mais sobre como fazer upload de arquivos em um controle Carregador de Múltiplos Arquivos, consulte <a href="#">Arquivos no iOS</a>.</p>
+
+                <p><span style="color: green">Observação 2:</span> Se você receber mensagens de formato inválido/arquivo corrompido ao tentar fazer download de arquivos em um campo Carregador de Múltiplos Arquivos, verifique se configurou corretamente <code>display_errors</code> e <code>error_reporting</code> de acordo com as <a href="#">Pilhas Suportadas</a> instaladas em seu servidor.</p>
+
+            <h2 id="item3a">Restrição</h2>
+
                 <p>Considere as seguintes restrições antes de fazer upload de arquivos em um controle Carregador de Múltiplos Arquivos:</p>
-                <p>Como prática recomendada, não carregue arquivos no controle Carregador de Múltiplos Arquivos antes de definir as variáveis no caso do Gestor Express. Dessa forma, os nomes das variáveis serão exibidos corretamente no Caminho de Destino. Revise Definindo Variáveis para definir variáveis de caso dentro de um processo.</p>
-                <p>Se houver mais de um Carregador de Múltiplos Arquivos em um Formulário Dinâmico, como um problema conhecido, ele poderá criar pastas duplicadas ao carregar arquivos durante a execução de um caso. O recurso Meus Documentos exibe as pastas duplicadas.</p>
-                <p>Carregador de múltiplos arquivos no modo offline</p>
-                <p>Versão disponível: A partir do Gestor Express Mobile 2.3.0</p>
-                <p>Contanto que você tenha habilitado o suporte offline para a Tarefa que inclui o Carregador de Múltiplos Arquivos, você poderá usá-lo. Os arquivos carregados são submetidos ao servidor quando a conexão é restabelecida junto com o caso roteado.</p>
-                <p>Exemplo de upload de múltiplos arquivos quando offline</p>
+
+                <ul>
+                    <li>Como prática recomendada, não carregue arquivos no controle <strong>Carregador de Múltiplos Arquivos</strong> antes de definir as variáveis no caso do Gestor Express. Dessa forma, os nomes das variáveis serão exibidos corretamente no <strong>Caminho de Destino</strong>. Revise <a href="#"> Definindo Variáveis</a> para definir variáveis de caso dentro de um processo.</li>
+                    <li>Se houver mais de um <strong>Carregador de Múltiplos Arquivos</strong> em um Formulário Dinâmico, como um problema conhecido, ele poderá criar pastas duplicadas ao carregar arquivos durante a execução de um caso. O recurso <a href="#">Meus Documentos</a> exibe as pastas duplicadas.</li>
+                </ul>
+
+            <h1 id="item4">Carregador de múltiplos arquivos no modo offline</h1>
+                
+                <p>Contanto que você tenha <a href="#">habilitado o suporte offline para a Tarefa</a> que inclui o Carregador de Múltiplos Arquivos, você poderá usá-lo. Os arquivos carregados são submetidos ao servidor quando a conexão é restabelecida junto com o caso roteado.</p>
+
+            <h2 id="item4a">Exemplo de upload de múltiplos arquivos quando offline</h2>
+                
                 <p>Este é um exemplo sobre como usar o Carregador de Múltiplos Arquivos no modo offline. Por favor, siga os próximos passos:</p>
-                <p>Acesse as Configurações de Administração.</p>
-                <p>Certifique-se de que em Offline você possa Sincronizar casos e tabelas.</p>
-                <p>Desative o Wi-Fi.</p>
-                <p>A opção Trabalhando offline é exibida.</p>
-                <p>Acesse um caso e certifique-se de que ele tenha a opção Disponível offline.</p>
-                <p>Observação: para configurar um processo que permite que seus casos fiquem offline, veja como habilitar o suporte offline para uma tarefa.</p>
-                <p>Para este exemplo, considere as entradas a serem selecionadas da imagem a seguir.</p>
-                <p>Selecione múltiplos arquivos e continue o caso. Lembre-se que os arquivos carregados são submetidos ao servidor quando a conexão é restabelecida junto com o caso roteado.</p>
-                <p>A mensagem O caso será submetido quando voltar a ficar online.</p>
-                <p>Anexando um arquivo de documento de entrada usando o uploader de múltiplos arquivos </p>
+
+                <ol>
+                    <li>Acesse as Configurações de Administração.</li>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <li>Certifique-se de que em Offline você possa Sincronizar casos e tabelas.</li>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <li>Desative o Wi-Fi.<br>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <p>A opção Trabalhando offline é exibida.</p>
+                    </li>
+                    <li>Acesse um caso e certifique-se de que ele tenha a opção Disponível offline.<br>
+
+                        <p><span style="color:green">Observação:</span> para configurar um processo que permite que seus casos fiquem offline, veja como habilitar o suporte offline para uma tarefa.</p>
+                      
+                        <figure>
+
+                        </figure>
+                        
+                    </li>
+                    <li>Para este exemplo, considere as entradas a serem selecionadas da imagem a seguir.</li>
+                    
+                    <figure>
+
+                    </figure>
+                    
+                    <li>Selecione múltiplos arquivos e continue o caso. Lembre-se que os arquivos carregados são submetidos ao servidor quando a conexão é restabelecida junto com o caso roteado.<br>
+
+                        <figure>
+
+                        </figure>
+
+                    <p>A mensagem <strong>O caso será submetido quando voltar a ficar online</strong> será mostrada.</p>
+                    </li>
+                </ol>
+
+            <h1 id="item5">Anexando um arquivo de documento de entrada usando o Carregador de múltiplos arquivos</h1>
+
                 <p>É possível anexar um documento de entrada a um formulário dinâmico usando o campo Carregador de Múltiplos Arquivos, acessando as propriedades do controle Multiple File. Isso significa que os arquivos carregados no campo Carregador de Múltiplos Arquivos em um Formulário Dinâmico podem ser exibidos posteriormente em uma etapa de entrada de documento. Uma vantagem de associar esses campos a um documento de entrada é que a interface Documento de entrada pode ser usada para visualizar todos os arquivos carregados. O usuário também pode excluir ou adicionar novas versões dos arquivos se tiver as permissões de processo corretas e o controle de versão estiver habilitado. Outra vantagem é que os Documentos de Entrada permitem que o arquivo carregado seja marcado e colocado em uma pasta específica em Meus Documentos, para que seja mais fácil encontrar os arquivos carregados posteriormente.</p>
                 <p>Para associar um Documento de Entrada ao campo Carregador de Arquivos Múltiplos, é recomendável primeiro criar o Documento de Entrada.</p>
                 <p>Em seguida, basta clicar nas reticências sublinhadas nas propriedades de controle do Carregador de Múltiplos Arquivos, conforme visto na imagem abaixo.</p>
