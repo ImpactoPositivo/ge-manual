@@ -201,6 +201,11 @@ header {
     color: black;
     padding: 0px 10px 10px 30px;
     line-height: 1.5rem;
+    text-align: justify;
+}
+
+#principal strong {
+    font-size: .95rem;
 }
 
 #principal img {
@@ -236,11 +241,13 @@ div#ladoalado {
 #principal ol > li {
     font-size: .95rem;
     line-height: 1.5rem;
+    text-align: justify;
 }
 
 #principal ul > li {
     font-size: .95rem;
     line-height: 1.5rem;
+    text-align: justify;
 }
 
 #principal ol > li a {
@@ -430,21 +437,24 @@ pre code {
 }
 
 .tab4 {
-    width: 550px;
-    max-width: 61%;
+    width: 65vw;
+    margin: 2px;
+    border-collapse: collapse;
+    
 }
 
 .tab4 th {
-    background-color:  rgb(233, 233, 233);
-    color: black;
-    border: 1px solid rgb(189, 186, 186);
+    background-color: #1D438A;
+    border: 1px solid #1D438A;
+    font-size: 1rem;
+    color: white;
     padding: 2px 5px;  
 }
 
 .tab4 td {
     background-color:  rgb(252, 250, 228);
     color: black;
-    border: 1px solid rgb(189, 186, 186);
+    border: 1px solid #1D438A;
     text-align: justify;
     padding: 2px 5px;
 }
