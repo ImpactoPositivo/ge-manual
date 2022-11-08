@@ -191,7 +191,7 @@
                         <tr><td>Controle de versão</td><td>Se o controle Multiple File Uploader estiver relacionado a um Documento de Entrada com a propriedade de versionamento habilitada, esta propriedade será definida como "Sim", o que significa que cada campo carregado no controle pode ser substituído por um novo. Caso contrário, esta propriedade será definida como "Não".</td></tr>
                         <tr><td>Modo de exibição</td><td>[Requeridos] <br>
                         Modo de exibição:<br>
-                        <span style="color: rgb(28, 137, 226)">&#9679;</span>&nbsp;<strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grade).<br>
+                        <span style="color: rgb(28, 137, 226)">&#9679;</span>&nbsp;<strong>mestre:</strong> herda o modo de exibição definido no contêiner pai (form/grid).<br>
                         <span style="color: rgb(28, 137, 226)">&#9679;</span>&nbsp;<strong>editar:</strong> o campo de controle pode ser editado pelo usuário final quando o Formulário Dinâmico é renderizado.<br>
                         <span style="color: rgb(28, 137, 226)">&#9679;</span>&nbsp;<strong>visualizar:</strong> o controle só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.<br>
                         <span style="color: rgb(28, 137, 226)">&#9679;</span>&nbsp;<strong>desativado:</strong> o campo de controle será desabilitado e exibido em cinza quando o Formulário Dinâmico for renderizado. O conteúdo também não pode ser editado.</td></tr>
@@ -571,124 +571,206 @@
 
             <h1 id="item5">Anexando um arquivo de documento de entrada usando o Carregador de múltiplos arquivos</h1>
 
-                <p>É possível anexar um documento de entrada a um formulário dinâmico usando o campo Carregador de Múltiplos Arquivos, acessando as propriedades do controle Multiple File. Isso significa que os arquivos carregados no campo Carregador de Múltiplos Arquivos em um Formulário Dinâmico podem ser exibidos posteriormente em uma etapa de entrada de documento. Uma vantagem de associar esses campos a um documento de entrada é que a interface Documento de entrada pode ser usada para visualizar todos os arquivos carregados. O usuário também pode excluir ou adicionar novas versões dos arquivos se tiver as permissões de processo corretas e o controle de versão estiver habilitado. Outra vantagem é que os Documentos de Entrada permitem que o arquivo carregado seja marcado e colocado em uma pasta específica em Meus Documentos, para que seja mais fácil encontrar os arquivos carregados posteriormente.</p>
-                <p>Para associar um Documento de Entrada ao campo Carregador de Arquivos Múltiplos, é recomendável primeiro criar o Documento de Entrada.</p>
+                <p>É possível anexar um documento de entrada a um formulário dinâmico usando o campo Carregador de Múltiplos Arquivos, acessando as propriedades do controle Múltiplos Arquivos. Isso significa que os arquivos carregados no campo Carregador de Múltiplos Arquivos em um Formulário Dinâmico podem ser exibidos posteriormente em uma etapa de entrada de documento. Uma vantagem de associar esses campos a um documento de entrada é que a interface Documento de entrada pode ser usada para visualizar todos os arquivos carregados. O usuário também pode excluir ou adicionar novas versões dos arquivos se tiver as permissões de processo corretas e o controle de versão estiver habilitado. Outra vantagem é que os Documentos de Entrada permitem que o arquivo carregado seja marcado e colocado em uma pasta específica em Meus Documentos, para que seja mais fácil encontrar os arquivos carregados posteriormente.</p>
+
+                <p>Para associar um Documento de Entrada ao campo Carregador de Múltiplos Arquivos, é recomendável primeiro criar o Documento de Entrada.</p>
+
                 <p>Em seguida, basta clicar nas reticências sublinhadas nas propriedades de controle do Carregador de Múltiplos Arquivos, conforme visto na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Uma nova janela de entrada de documentos aparecerá. Selecione o Documento de Entrada disponível clicando nele.</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Fazer upload de arquivos para um documento de entrada por meio do campo Carregador de Múltiplos Arquivos em um formulário dinâmico é útil para fazer upload de mais de um arquivo ao mesmo tempo para um documento de entrada. Para garantir que o usuário carregue um arquivo em um documento de entrada, torne o campo Carregador de múltiplos arquivos obrigatório.</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Para carregar mais de um arquivo em um Documento de Entrada, uma etapa normal de Documento de Entrada deve ser usada.</p>
+
                 <p>Depois de associar a variável Arquivo Múltiplo ao Documento de Entrada, as propriedades de Arquivo Múltiplo terão precedência sobre as propriedades do Documento de Entrada.</p>
-                <p>Campo de upload de múltiplos arquivos em uma grade</p>
-                <p>Os campos do Carregador de Arquivos Múltiplos nas grades têm as mesmas características explicadas acima, mas nos casos em que a grade não está associada a nenhuma variável da grade e um arquivo válido é anexado e submetido, os novos dados não são inseridos no banco de dados. Isso ocorre porque a grade DEVE ter uma variável associada para salvar corretamente os dados.</p>
-                <p>O controle Carregador de Múltiplos Arquivos tem uma aparência diferente nas grades. Para fazer upload de um arquivo, clique no ícone verde.</p>
-                <p>Uma nova janela de diálogo será exibida para fazer o upload dos arquivos.</p>
-                <p>Clique no botão Escolher arquivos para fazer upload de múltiplos arquivos . Para editar um arquivo, basta excluí-lo e enviá-lo novamente. Uma vez feito o upload dos arquivos, feche a caixa de diálogo.</p>
-                <p>Os arquivos carregados serão listados no campo Carregador de Múltiplos Arquivos dentro da grade.</p>
-                <p>Acessando arquivos com JavaScript</p>
-                <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
-                <p>Os arquivos no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                <p>Rótulo: O texto exibido acima ou à esquerda do campo no Formulário Dinâmico, que o identifica.</p>
-                <p>Valor: O nome de arquivo do último arquivo selecionado no controle de arquivo.</p>
-                <p>Texto: Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</p>
-                <p>Métodos JavaScript</p>
+
+                <h2 id="item5a">Campo de upload de múltiplos arquivos em uma grid</h2>
+                
+                <p>Os campos do Carregador de Arquivos Múltiplos nas grids têm as mesmas características explicadas acima, mas nos casos em que a grid não está associada a nenhuma variável da grid e um arquivo válido é anexado e submetido, os novos dados não são inseridos no banco de dados. Isso ocorre porque a grid DEVE ter uma variável associada para salvar corretamente os dados.</p>
+                
+                <p>O controle Carregador de Múltiplos Arquivos tem uma aparência diferente nas grids. Para fazer upload de um arquivo, clique no ícone verde.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Uma nova caixa de diálogo será exibida para fazer o upload dos arquivos.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Clique no botão Escolher arquivos para fazer upload de múltiplos arquivos. Para editar um arquivo, basta excluí-lo e enviá-lo novamente. Uma vez feito o upload dos arquivos, feche a caixa de diálogo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Os arquivos carregados serão listados no campo Carregador de Múltiplos Arquivos dentro da grid.</p>
+
+                <figure>
+
+                </figure>
+
+            <h1 id="item6">Acessando arquivos com JavaScript</h1>
+                
+                <p>Para aprender a manipular controles Formulário Dinâmico usando JavaScript, consulte <a href="#"> JavaScript em Formulários Dinâmicos</a>.</p>
+
+                <p>Os arquivos no Gestor Express têm os seguintes componentes de campo:</p>
+
+                <ul>
+                    <li><strong>Rótulo:</strong> O texto exibido acima ou à esquerda do campo no Formulário Dinâmico, que o identifica.</li>
+                    <li><strong>Valor:</strong> O nome de arquivo do último arquivo selecionado no controle de arquivo.</li>
+                    <li><strong>Texto:</strong> Uma matriz do(s) nome(s) de arquivo no controle de arquivo.</li>
+                </ul>
+
+            <h2 id="item6a">Métodos JavaScript</h2>
+                
                 <p>Alguns dos métodos JavaScript usados para manipular vários campos de arquivo incluem:</p>
-                <p>Método</p>
-                <p>jQuery("#fieldID"). getValue()</p>
-                <p>jQuery("#fieldID"). getText()</p>
-                <p>jQuery("#fieldID"). getLabel()</p>
-                <p>jQuery("#fieldID"). setLabel("novoEtiqueta")</p>
-                <p>Nota: Os métodos setValue() e setText() existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
-                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
-                <p>Estrutura de controles de upload de múltiplos arquivos </p>
+
+                <table class="textbox">
+                    <tr>
+                        <th>Metodo</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tr>
+                        <td><a href="#">jQuery("#fieldID")</a>.<code><a href = "#">getValue</code></a>()</td>
+                        <td>Retorna o nome de arquivo do último arquivo selecionado no controle de arquivo ou o último arquivo adicionado ao documento de entrada associado se nenhum arquivo tiver sido selecionado..</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">jQuery("#fieldID")</a>.<code><a href = "#">getText</code></a>()</td>
+                        <td>Retorna uma matriz dos nomes de arquivo dos arquivos que foram adicionados anteriormente ao Documento de entrada associado ao controle de arquivo, mais o nome de arquivo do último arquivo selecionado no controle de arquivo (se houver). Os nomes dos arquivos são listados na ordem em que os arquivos foram adicionados. Lembre-se de que apenas um arquivo pode ser adicionado pelo controle File, mas pode haver vários arquivos que já foram adicionados ao documento de entrada.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">getLabel</code></a>()</td>
+                        <td>Retorna o rótulo do campo de controle, que é o texto exibido acima ou à esquerda do campo para identificá-lo no Dynaform.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">jQuery("#fieldID")</a>.<code><a href="#">setLabel</code></a>("novoRotulo")</td>
+                        <td>Define o rótulo do campo de controle, que é o texto exibido acima ou à esquerda do campo para identificá-lo no Formulário Dinâmico.</td>
+                    </tr>
+                </table>
+                
+                <p><span style="color:green">Observação:</span> Os métodos setValue() e setText() existem para controles de arquivos, mas não têm nenhum efeito, pois os arquivos só podem ser selecionados manualmente pelo usuário.</p>
+
+                <p>Para ver exemplos de código para esses métodos, consulte <a href="#">Funções e métodos JavaScript</a>.</p>
+
+            <h2 id="item6b">Estrutura de controles de upload de múltiplos arquivos </h2>
+                
                 <p>Um controle do Carregador de Múltiplos Arquivos consiste em:</p>
-                <p>Um visível <button>com o ID do controle de múltiplos arquivos , que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido sob este botão.</p>
-                <p>Um campo oculto com o ID de cada arquivo selecionado, onde o arquivo selecionado é armazenado temporariamente."form[id]"</p>
-                <p>Um campo de entrada oculto com o ID, que contém uma matriz dos arquivos que foram carregados anteriormente para o Documento de entrada associado ao controle Carregador de Múltiplos Arquivos, além do último arquivo selecionado com o controle de arquivo. "form[id_label]"</p>
+
+                <ul>
+                    <li>Um <code><botão></code> visível com o ID do controle de múltiplos arquivos, que é clicado para selecionar um arquivo a ser carregado. Depois que um arquivo é selecionado, o nome do arquivo selecionado é exibido sob este botão.</li>
+                    <li>Um campo oculto com o ID de cada arquivo selecionado, onde o arquivo selecionado é armazenado temporariamente.<code>"form[id]"</code></li>
+                    <li>Um campo de entrada oculto com o ID, que contém uma matriz dos arquivos que foram carregados anteriormente para o Documento de entrada associado ao controle Carregador de Múltiplos Arquivos, além do último arquivo selecionado com o controle de arquivo. <code>"form[id_label]"</code></li>
+                </ul>
+
                 <p>Por exemplo, um controle de arquivo com o ID "recibos" pode ter a seguinte estrutura HTML:</p>
-                <p>< div ></p>
-                <p>  < div id = "multipleFileVar001" name = "field-multipleFileVar001" class = "pmFormulário Dinâmico-field-multipleFile pmFormulário Dinâmico-edit-multipleFile form-group col-sm-12 col-md-12 col-lg-12 pmFormulário Dinâmico- field" > < div class = "row" > < label for = "multipleFileVar001" class = "col-md-2 col-lg-2 control-label pmFormulário Dinâmico-label" > < span data-toggle = "tooltip"data-placement = classe "inferior"</p>
-                <p>        = "textlabel" > multipleFile < / span ></p>
-                <p>        < span class = "pmFormulário Dinâmico-field-required" > * < / span ></p>
-                <p>      < / label ></p>
-                <p>      < div class = "col-md-10 col-lg-10 pmFormulário Dinâmico-field- control" ></p>
-                <p>        < div class = "pmFormulário Dinâmico-multiplefile-control" ></p>
-                <p>          < tipo de botão = "button" class = "btn btn-uploadfile" > Escolha os arquivos < /button ></p>
-                <p>          < input type = "file" multiple = "multiple" accept = "" style = "display:none" ></p>
-                <p>        < / div ></p>
-                <p>      < / div ></p>
-                <p>    < / div ></p>
-                <p>    < div class = "pmFormulário Dinâmico-multiplefile-box" > < div class = "multiplefile-row row" ></p>
-                <p>      < div class = "multiplefile-container col-xs-12"></p>
-                <p>        < classe div = "multiplefile-icon col-xs-1" ></p>
-                <p>          < span class = "multiplefile-icon" ></p>
-                <p>            < i class = "fa fa-file-image-o" aria- hidden = "true" >< / i ></p>
-                <p>          < / span ></p>
-                <p>        < / div ></p>
-                <p>        < div class = "pm-multiplefile-download col-xs-8" ></p>
-                <p>          < div class = "multiplefile-title" ></p>
-                <p>            < div >94f5432c6216e8141daa5980891fc766.jpg </ div ></p>
-                <p>          < / div ></p>
-                <p>        < / div ></p>
-                <p>        < div class = "multiplefile-buttons col-xs-3" ></p>
-                <p>          < div class = "multiplefile-button-delete col-xs-5" ></p>
-                <p>            < i class = "fa fa -trash" aria- hidden = "true" >< / i ></p>
-                <p>          < / div ></p>
-                <p>          < div class = "multiplefile-button-download col-xs-5" ></p>
-                <p>            < a href= "http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=86931799257ec16530e59c7069364091&v=1" ></p>
-                <p>              < i class = "fa fa-download" aria - hidden = "true" >< / i ></p>
-                <p>            < / a ></p>
-                <p>            < a >< / a ></p>
-                <p>          < / div ></p>
-                <p>          < a ></p>
-                <p>            < div class = "multiplefile-button-pencil col-xs-5" style = "display: none" ></p>
-                <p>              < classe = _ "fa fa-pencil" aria- hidden = "true" >< / i ></p>
-                <p>            < / div ></p>
-                <p>          < / a ></p>
-                <p>        < / div ></p>
-                <p>        < a >< / a ></p>
-                <p>      < / div ></p>
-                <p>    < / div ></p>
-                <p>    < div class = " linha de múltiplos arquivos " ></p>
-                <p>      < div class = "contêiner de múltiplos arquivos col-xs-12" ></p>
-                <p>        <classe div ="multiplefile-icon col-xs-1" ></p>
-                <p>          < span class = "multiplefile-icon" ></p>
-                <p>            < i class = "fa fa-file-image-o" aria- hidden = "true" >< / i ></p>
-                <p>          < / span ></p>
-                <p>        < / div ></p>
-                <p>        < div class = "pm-multiplefile-download col-xs-8" ></p>
-                <p>          < div class = "multiplefile-title" ></p>
-                <p>            < div >3c5c332d7f8018d4447a771dcb284447.jpg < /div ></p>
-                <p>          < / div ></p>
-                <p>        < / div ></p>
-                <p>        < div class = "multiplefile-buttons col-xs-3" ></p>
-                <p>          < div class = "multiplefile-button-delete col-xs-5" ></p>
-                <p>            < i class = "fa fa- trash" aria- hidden = "true" >< / i ></p>
-                <p>          < / div ></p>
-                <p>          < div class = "multiplefile-button-download col-xs-5" ></p>
-                <p>            <a href ="http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=21786185157ec168f6d4e05077370210&v=1" ></p>
-                <p>              < i class = "fa fa-download" aria - hidden = "true" >< / i ></p>
-                <p>            < / a ></p>
-                <p>            < a >< / a ></p>
-                <p>          < / div ></p>
-                <p>          < a ></p>
-                <p>            < div class = "multiplefile-button-pencil col-xs-5" style = "display: none" ></p>
-                <p>              <eu classe ="fa fa-pencil" aria- hidden = "true" >< / i ></p>
-                <p>            < / div ></p>
-                <p>          < / a ></p>
-                <p>        < / div ></p>
-                <p>        < a >< / a ></p>
-                <p>      < / div ></p>
-                <p>    < / div ></p>
-                <p>  < / div ></p>
-                <p>< / div ></p>
-                <p>< input name = "form[multipleFileVar001][0][appDocUid]" type = "hidden" valor ="86931799257ec16530e59c7069364091" ></p>
-                <p>< nome de entrada = "form[multipleFileVar001][0][nome]" tipo = valor "oculto" = "94f5432c6216e8141daa5980891fc766.jpg" ></p>
-                <p>< nome de entrada = "form[multipleFileVar001][0][versão]" tipo = "oculto" value = "1" ></p>
-                <p>< input name = "form[multipleFileVar001][1][appDocUid]" type = "hidden" value = "21786185157ec168f6d4e05077370210" ></p>
-                <p>< nome de entrada = "form[multipleFileVar001][1][name]" type = "hidden" value = "3c5c332d7f8018d4447a771dcb284447.jpg" ></p>
-                <p>< input name = "form[multipleFileVar001][1][version]" type = "hidden" value = " 1" ></p>
-                <p>< / div ></p>
+
+                <codeblock>
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">id</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multipleFileVar001&quot;</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;field-multipleFileVar001&quot;</span></span><br />
+                    <span style="color: #009900;"> &nbsp; &nbsp; &nbsp;<span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-field-multipleFile pmdynaform-edit-multipleFile &nbsp;form-group col-sm-12 col-md-12 col-lg-12 &nbsp;pmdynaform-field&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;row&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">label</span></a> <span style="color: #000066;">for</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multipleFileVar001&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;col-md-2 col-lg-2 control-label pmdynaform-label&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">span</span></a> data-toggle<span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;tooltip&quot;</span> data-placement<span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;bottom&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;textlabel&quot;</span>&gt;</span>multipleFile<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">span</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">span</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-field-required&quot;</span>&gt;</span>*<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">span</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">label</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;col-md-10 col-lg-10 pmdynaform-field-control&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-multiplefile-control&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">button</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;button&quot;</span> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;btn btn-uploadfile&quot;</span>&gt;</span>Choose Files<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">button</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;file&quot;</span> <span style="color: #000066;">multiple</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiple&quot;</span> <span style="color: #000066;">accept</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display:none&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pmdynaform-multiplefile-box&quot;</span>&gt;&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-row row&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-container col-xs-12&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-icon col-xs-1&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">span</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-icon&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-file-image-o&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">span</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pm-multiplefile-download col-xs-8&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-title&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span> 94f5432c6216e8141daa5980891fc766.jpg<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-buttons col-xs-3&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-delete col-xs-5&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-trash&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-download col-xs-5&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a> <span style="color: #000066;">href</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=86931799257ec16530e59c7069364091&amp;amp;v=1&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-download&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-pencil col-xs-5&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display: none&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-pencil&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-row row&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-container col-xs-12&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-icon col-xs-1&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">span</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-icon&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-file-image-o&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">span</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;pm-multiplefile-download col-xs-8&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-title&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span> 3c5c332d7f8018d4447a771dcb284447.jpg<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-buttons col-xs-3&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-delete col-xs-5&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-trash&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-download col-xs-5&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a> <span style="color: #000066;">href</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;http://192.168.51.113/sysdani31/en/{skin}/cases/cases_ShowDocument?a=21786185157ec168f6d4e05077370210&amp;amp;v=1&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-download&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">div</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;multiplefile-button-pencil col-xs-5&quot;</span> <span style="color: #000066;">style</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;display: none&quot;</span>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">i</span></a> <span style="color: #000066;">class</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;fa fa-pencil&quot;</span> aria-<span style="color: #000066;">hidden</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;true&quot;</span>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">i</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">a</span></a>&gt;&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">a</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    &nbsp; <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][0][appDocUid]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;86931799257ec16530e59c7069364091&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][0][name]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;94f5432c6216e8141daa5980891fc766.jpg&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][0][version]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;1&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][1][appDocUid]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;21786185157ec168f6d4e05077370210&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][1][name]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;3c5c332d7f8018d4447a771dcb284447.jpg&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">input</span></a> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;form[multipleFileVar001][1][version]&quot;</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;hidden&quot;</span> <span style="color: #000066;">value</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;1&quot;</span>&gt;</span><br />
+                    <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span>
+                </codeblock>
+
                 <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "pmFormulário Dinâmico-multiplefile-control". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de múltiplos arquivos "recibos":</p>
+                
                 <p>$ ( "#recibos" ). find ( "button.pmFormulário Dinâmico-control-file" ). css ( "borda", "1px vermelho sólido" ) ;</p>
                 <p>Armazenamento de arquivo</p>
                 <p>Quando um arquivo é carregado em um controle de múltiplos arquivos durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
@@ -726,7 +808,7 @@
                 <p>APP_DOC_TAGS: se o campo estiver associado a um documento de entrada, esse campo listará as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a 'INPUT'tag, mas outras tags personalizadas podem ser definidas. Se não estiver associado a um documento de entrada, defina como NULL.</p>
                 <p>APP_DOC_STATUS: O status do arquivo, que é 'ACTIVE' ou 'DELETED'. Observe que os campos do Carregador de Múltiplos Arquivos não fornecem uma maneira de excluir arquivos carregados, mas o arquivo pode ser excluído por um usuário que tenha a permissão PM_FOLDERS_ADD_FILE em sua função em Meus documentos. Ele também pode ser excluído se o campo estiver associado a um Documento de Entrada que seja uma etapa de uma tarefa e o usuário tiver recebido Permissões de Processo para excluir arquivos no Documento de Entrada.</p>
                 <p>APP_DOC_STATUS_DATE: Sempre definido como NULL.</p>
-                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo onde o arquivo foi carregado. Se carregado em um campo de múltiplos arquivos em uma grade, ele será definido como. Por exemplo, um valor de significa que o arquivo foi carregado na segunda linha de uma grade cuja variável é "clientList" e cujo campo Multiple File tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo Carregador de Múltiplos Arquivos), ele será definido como.'[grid-variable][row-number][file-field-name]''[clientList][2][contractFile]'NULL</p>
+                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo onde o arquivo foi carregado. Se carregado em um campo de múltiplos arquivos em uma grid, ele será definido como. Por exemplo, um valor de significa que o arquivo foi carregado na segunda linha de uma grid cuja variável é "clientList" e cujo campo Multiple File tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo Carregador de Múltiplos Arquivos), ele será definido como.'[grid-variable][row-number][file-field-name]''[clientList][2][contractFile]'NULL</p>
                 <p>APP_DOC_DRIVE_DOWNLOAD: informações serializadas, que são sempre definidas como 'a:0:{}'.</p>
                 <p>Além disso, os registros são adicionados à tabela CONTENT, que contém informações sobre o arquivo carregado.</p>
                 <p>Por exemplo, o banco de dados tem as seguintes informações sobre um arquivo carregado com o ID exclusivo '74863719957158b39af56d2076904431':</p>
@@ -735,17 +817,17 @@
                 <p>O nome do arquivo carregado é encontrado com a consulta:</p>
                 <p>SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID='XXXXXXXXXXXXXXXXXXXXXXXXX' AND CON_CATEGORY='APP_DOC_FILENAME'</p>
                 <p>Aviso: se um usuário carregar um arquivo no controle de múltiplos arquivos , mas o formulário dinâmico que contém o controle não for submetido, os arquivos carregados no controle de múltiplos arquivos não serão relacionados à variável atribuída e não estarão visíveis nas próximas etapas do processo. Esse comportamento é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
-                <p>Armazenamento de arquivos em grades</p>
-                <p>Quando um campo Carregador de Múltiplos Arquivos é colocado em uma grade, os arquivos podem ser selecionados para cada linha na grade para serem carregados quando o formulário dinâmico for submetido. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela APP_DOCUMENT. A única diferença de um campo normal do Carregador de Múltiplos Arquivos é que o campo APP_DOCUMENT.APP_DOC_FIELDNAME conterá.'grid-variable_row-number_file-name'</p>
-                <p>Por exemplo, uma grade cuja variável é denominada "recibos" é enviada e tem três linhas com um campo de múltiplos arquivos chamado "receiptFile". As informações a seguir podem ser armazenadas na tabela APP_DOCUMENT sobre os três arquivos:</p>
+                <p>Armazenamento de arquivos em grids</p>
+                <p>Quando um campo Carregador de Múltiplos Arquivos é colocado em uma grid, os arquivos podem ser selecionados para cada linha na grid para serem carregados quando o formulário dinâmico for submetido. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela APP_DOCUMENT. A única diferença de um campo normal do Carregador de Múltiplos Arquivos é que o campo APP_DOCUMENT.APP_DOC_FIELDNAME conterá.'grid-variable_row-number_file-name'</p>
+                <p>Por exemplo, uma grid cuja variável é denominada "recibos" é enviada e tem três linhas com um campo de múltiplos arquivos chamado "receiptFile". As informações a seguir podem ser armazenadas na tabela APP_DOCUMENT sobre os três arquivos:</p>
                 <p>mysql> select APP_DOC_UID, DOC_VERSION, APP_UID, DOC_UID, APP_DOC_TYPE, APP_DOC_INDEX, APP_DOC_FIELDNAME from APP_DOCUMENT;</p>
                 <p>APP_DOC_UID</p>
                 <p>9981562705718050e816959058033346</p>
                 <p>9208148915718050e921ba1095027176</p>
                 <p>6366198845716e982128ba0053902036</p>
-                <p>Nota: Se uma grade contendo um campo de múltiplos arquivos não tiver uma variável de matriz associada, os arquivos selecionados na grade não serão salvos quando o formulário dinâmico for submetido.</p>
-                <p>Após o envio do Formulário Dinâmico, os nomes dos arquivos selecionados na variável case do grid podem ser encontrados fazendo uma busca na tabela APP_DOCUMENT pelo case ID e por APP_DOC_FIELDNAME, que contém o nome da variável grid e o nome do Multiple File campo na grade, para obter o ID do arquivo no campo APP_DOC_UID. Usando o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela CONTENT.</p>
-                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grade cuja variável é denominada "clientList" e o campo Multiple File é denominado "contractFile":</p>
+                <p>Nota: Se uma grid contendo um campo de múltiplos arquivos não tiver uma variável de matriz associada, os arquivos selecionados na grid não serão salvos quando o formulário dinâmico for submetido.</p>
+                <p>Após o envio do Formulário Dinâmico, os nomes dos arquivos selecionados na variável case do grid podem ser encontrados fazendo uma busca na tabela APP_DOCUMENT pelo case ID e por APP_DOC_FIELDNAME, que contém o nome da variável grid e o nome do Multiple File campo na grid, para obter o ID do arquivo no campo APP_DOC_UID. Usando o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela CONTENT.</p>
+                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grid cuja variável é denominada "clientList" e o campo Multiple File é denominado "contractFile":</p>
                 <p>$caseId    = @@ APLICATIVO ;</p>
                 <p>$gridVar   = 'clientList' ;</p>
                 <p>$fileField = 'contractFile' ;</p>
