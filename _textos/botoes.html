@@ -147,7 +147,7 @@
                 <p>   $c = new Casos ( );</p>
                 <p>   $c -> cancelCase ( @@ APPLICATION, @% INDEX, @@ USER_LOGGED );</p>
                 <p>   //redireciona de volta para a caixa de entrada:</p>
-                <p>   echo '<script> top.location = "../cases/main" </script>';</p>
+
                 <p>   morrer ( );</p>
                 <p>};</p>
                 <p>O gatilho acima verifica se o botão "CancelarCase" foi clicado quando o formulário foi enviado. Se sim, cancela o caso. Em seguida, ele redireciona o navegador da Web de volta para a caixa de entrada. Observe que os casos são executados dentro de um quadro, portanto, o Javascript é usado para redirecionar o navegador da Web para o quadro superior. A função die() é chamada para parar o Gestor Express e evitar que o caso passe para a próxima etapa do processo.</p>
@@ -165,7 +165,7 @@
                 <p>O seguinte código JavaScript é adicionado ao Formulário Dinâmico para adicionar manipuladores de eventos aos botões quando eles são clicados:</p>
                 <p>$ ( "#salvarTrabalho" ). encontre ( "botão" ). clique ( function ( ) {</p>
                 <p>   $ ( "form " ).saveForm ( ); } ); $ ( "#caixa de entrada" ). encontre ( "botão" ). clique ( function ( ) {    $ ( "form" ). saveForm ( );    top.</p>
-                <p>local = "../cases/main"; //redireciona para a caixa de entrada no quadro superior</p>
+               
                 <p>} );</p>
                 <p>$ ( "#fimTask" ). encontre ( "botão" ). click ( function ( ) {</p>
                 <p>   $ ( "form" ). saveForm ( );</p>
@@ -217,7 +217,7 @@
                 <p>$ação = @@ ação;</p>
                 <p>PMFSendVariables ( @@ APPLICATION, array ( 'action' => '' ) ); //reinicia a ação</p>
                 <p>if ( $action == "INBOX" ) {</p>
-                <p>   echo '<script> top.location = "../cases/main" </script>';</p>
+               
                 <p>   morrer ( ); //previne o próximo passo</p>
                 <p>}</p>
                 <p>elseif ( $action == "END_TASK" ) {</p>
