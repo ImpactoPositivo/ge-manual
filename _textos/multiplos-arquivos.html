@@ -769,87 +769,160 @@
                     <span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">div</span></a>&gt;</span>
                 </codeblock>
 
-                <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "pmFormulário Dinâmico-multiplefile-control". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de múltiplos arquivos "recibos":</p>
+                <p>O usuário interage com o botão visível, que não possui um ID, mas pode ser pesquisado usando sua classe "FormularioDinamico-controle-multiplosArquivos". Por exemplo, o código a seguir altera a cor da borda do botão usado pelo controle de múltiplos arquivos "recibos":</p>
                 
-                <p>$ ( "#recibos" ). find ( "button.pmFormulário Dinâmico-control-file" ). css ( "borda", "1px vermelho sólido" ) ;</p>
-                <p>Armazenamento de arquivo</p>
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#recibos&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;botao.FormularioDinamico-controle-multiplosArquivos&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">css</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;border&quot;</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">&quot;1px solid red&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+            <h1 id="item7">Armazenamento de arquivo</h1>
+
                 <p>Quando um arquivo é carregado em um controle de múltiplos arquivos durante a execução de um caso, ele é armazenado no sistema de arquivos do servidor Gestor Express. Ele é renomeado com seu ID exclusivo para o documento do caso e seu número de versão, mas mantém sua extensão original.</p>
+
                 <p>Os arquivos são armazenados no seguinte local no servidor:</p>
-                <p>    INSTALL-DIRECTORY /shared/sites/ WORKSPACE/files/ / _.XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXCASE-DOCUMENT-UIDVERSIONEXT</p>
+
+                <p><tt><a href="#"><i>INSTALL-DIRECTORY</i></a>/shared/sites/<code><font color=green><i>WORKSPACE</i></font></code>/files/<code><font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXX</i></font>/<font color=green><i>XXXXXXXXXXXXXXXXXXXXXXX</i></font></code>/<code><font color=green><i>CASE-DOCUMENT-UID</i></font></code>_<code><font color=green><i>VERSION</i></font></code>.<code><font color=green><i>EXT</i></font></code></tt></p>
+
                 <p>Onde:</p>
-                <p>WORKSPACEé o nome do espaço de trabalho, que é denominado "fluxo de trabalho" por padrão e pode ser especificado com a @@SYS_SYSvariável do sistema em um acionador.</p>
-                <p>XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXXrepresenta o ID exclusivo do caso. Por padrão, o ID é dividido em uma série de 4 subdiretórios para evitar os limites de arquivo de 32K do sistema de arquivos ext3 do Linux. Em um acionador, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos APPLICATION.APP_UID, APP_CACHE_VIEW.APP_UID ou APP_DOCUMENT.APP_UID no banco de dados. O método G::getPathFromUID() pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</p>
-                <p>CASE-DOCUMENT-UIDé o ID exclusivo do documento do caso, que é armazenado no campo APP_DOCUMENT.APP_DOC_UID no banco de dados.</p>
-                <p>VERSIONé o número da versão do documento, que é sempre definido como 1, exceto quando o campo Carregador de múltiplos arquivos estiver relacionado a um documento de entrada que tenha o controle de versão ativado e o usuário tenha carregado uma nova versão do arquivo (cujos campos de arquivo não permitem). A nova versão pode ser encontrada no campo APP_DOCUMENT.DOC_VERSION no banco de dados.</p>
-                <p>EXTé a extensão do arquivo carregado, como docou jpg. A extensão do arquivo pode ser encontrada usando o método AppDocument::Load() ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:</p>
-                <p>SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID=' CASE-UID ' AND CON_CATEGORY='APP_DOC_FILENAME'</p>
-                <p>Exemplo de caminho no Linux/UNIX:</p>
-                <p>    /opt/Gestor Express/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png</p>
-                <p>Exemplo de caminho na instalação do Bitnami no Windows:</p>
-                <p>Nota: Bitnami não é mais usado no Gestor Express a partir da versão 3.4.0. Isso deve ser considerado ao acessar o diretório do Gestor Express.</p>
-                <p>C:\Bitnami\Gestor Express-3.3.0-1\apps\Gestor Express\htdocs\shared\sites\workflow\files\905\262\500\57158b1b439014072150115\74863719957158b39af56d2076904431_1.png</p>
-                <p>Em um gatilho, o caminho do arquivo para um arquivo pode ser determinado usando as constantes definidas PATH_DOCUMENT(que contém um caminho como "/opt/Gestor Express/shared/sites/workflow/files/") e PATH_SEP(que é "/" ou "\"dependendo do sistema operacional).</p>
-                <p>Por exemplo, o código de gatilho a seguir gera o mesmo caminho que os exemplos acima:</p>
-                <p>$g = novo G ( ) ;</p>
-                <p>$path = PATH_DOCUMENT. $g -> getPathFromUID ( '90526250057158b1b439014072150115' ). PATH_SEP. '74863719957158b39af56d2076904431_1.png' ;</p>
-                <p>Armazenamento de arquivos no banco de dados</p>
-                <p>Quando um formulário dinâmico que contém um campo Carregador de Múltiplos Arquivos é submetido, um novo registro é criado para o arquivo carregado na tabela APP_DOCUMENT no banco de dados, que contém os seguintes campos:</p>
-                <p>APP_DOC_UID: o ID exclusivo do documento do caso, que identifica o arquivo carregado.</p>
-                <p>DOC_VERSION: a versão do arquivo de documento do caso, que é um número inteiro contando a versão a partir de 1. Só pode ser maior do que 1se o arquivo estiver associado a uma variável de um Documento de Entrada que tenha o controle de versão habilitado.</p>
-                <p>APP_UID: o ID exclusivo do caso em que o arquivo foi carregado.</p>
-                <p>DEL_INDEX: o índice de delegação da tarefa no caso em que o arquivo foi carregado.</p>
-                <p>DOC_UID: o ID exclusivo do Documento de Entrada que contém o arquivo, se o campo Carregador de Arquivos Múltiplos estiver associado a um Documento de Entrada. Se não houver Documento de entrada associado ao campo Carregador de Múltiplos Arquivos, ele será definido como '-1'.</p>
-                <p>USR_UID: o ID exclusivo do usuário que carregou o arquivo.</p>
-                <p>APP_DOC_TYPE: O tipo de documento de caso, que é 'ATTACHED'se o campo Carregador de Múltiplos Arquivos não estiver associado a um Documento de Entrada ou 'INPUT'se estiver associado a um Documento de Entrada.</p>
-                <p>APP_DOC_CREATE_DATE: A data e hora no 'YYYY-MM-DD HH:MM:SS'formato em que o arquivo foi carregado.</p>
-                <p>APP_DOC_INDEX: o índice do documento do arquivo.</p>
-                <p>FOLDER_UID: O ID exclusivo da pasta onde o arquivo está localizado na interface gráfica em Meus Documentos. Se o campo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, este campo será definido como ''(string vazia).</p>
-                <p>APP_DOC_PLUGIN: Sempre definido como ''(string vazia). Não é mais usado no Gestor Express 3.</p>
-                <p>APP_DOC_TAGS: se o campo estiver associado a um documento de entrada, esse campo listará as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a 'INPUT'tag, mas outras tags personalizadas podem ser definidas. Se não estiver associado a um documento de entrada, defina como NULL.</p>
-                <p>APP_DOC_STATUS: O status do arquivo, que é 'ACTIVE' ou 'DELETED'. Observe que os campos do Carregador de Múltiplos Arquivos não fornecem uma maneira de excluir arquivos carregados, mas o arquivo pode ser excluído por um usuário que tenha a permissão PM_FOLDERS_ADD_FILE em sua função em Meus documentos. Ele também pode ser excluído se o campo estiver associado a um Documento de Entrada que seja uma etapa de uma tarefa e o usuário tiver recebido Permissões de Processo para excluir arquivos no Documento de Entrada.</p>
-                <p>APP_DOC_STATUS_DATE: Sempre definido como NULL.</p>
-                <p>APP_DOC_FIELDNAME: O nome (não seu id ) do campo onde o arquivo foi carregado. Se carregado em um campo de múltiplos arquivos em uma grid, ele será definido como. Por exemplo, um valor de significa que o arquivo foi carregado na segunda linha de uma grid cuja variável é "clientList" e cujo campo Multiple File tem o nome "contractFile". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo Carregador de Múltiplos Arquivos), ele será definido como.'[grid-variable][row-number][file-field-name]''[clientList][2][contractFile]'NULL</p>
-                <p>APP_DOC_DRIVE_DOWNLOAD: informações serializadas, que são sempre definidas como 'a:0:{}'.</p>
+
+                <ul>
+                    <li><code><span style="color: green; font-style: italic;">WORKSPACE</span></code> é o nome do espaço de trabalho, que é denominado "workflow" por padrão e pode ser especificado com a variável do sistema <code>@@SYS_SYS</code> em um gatilho.</li>
+                    <li><code><span style="color: green; font-style: italic;">XXX/XXX/XXX/XXXXXXXXXXXXXXXXXXXXXXX</span></code> representa o ID exclusivo do caso. Por padrão, o ID é dividido em uma série de 4 subdiretórios para evitar o <a href="#">limite de arquivo de 32K</a> do sistema de arquivos ext3 do Linux. Em um gatilho, o ID do caso atual é armazenado na variável de sistema @@APPLICATION ou pode ser consultado nos campos <strong>APPLICATION.APP_UID</strong>, <strong>APP_CACHE_VIEW.APP_UID</strong> ou <strong>APP_DOCUMENT.APP_UID</strong> no banco de dados. O método <a href="#">G::getPathFromUID()</a> pode ser usado em um gatilho para gerar automaticamente o caminho correto a partir do ID do caso.</li>
+                    <li><code><font color=green><i>CASE-DOCUMENT-UID</i></font></code> é o ID exclusivo do documento do caso, que é armazenado no campo <strong>APP_DOCUMENT.APP_DOC_UID</strong> no banco de dados.</li>
+                    
+                    <li><code><font color=green><i>VERSION</i></font></code> é o número da versão do documento, que é sempre definido como 1, exceto quando o campo Carregador de múltiplos arquivos estiver relacionado a um documento de entrada que tenha o controle de versão ativado e o usuário tenha carregado uma nova versão do arquivo (cujos campos de arquivo não permitem). A nova versão pode ser encontrada no campo <strong>APP_DOCUMENT.DOC_VERSION</strong> no banco de dados.</li>
+                    <li><code><font color=green><i>EXT</i></font></code> é a extensão do arquivo carregado, como <code>doc</code> ou <code>jpg</code>. A extensão do arquivo pode ser encontrada usando o método <a href="#"> AppDocument::Load()</a> ou procurando o nome do arquivo carregado com a seguinte consulta de banco de dados:</li>
+                </ul>
+
+                <codeblock>
+                    SELECT CON_VALUE AS FILENAME FROM CONTENT <br>
+                    WHERE CON_ID='<font color=green><i>CASE-UID</i></font>' AND CON_CATEGORY='APP_DOC_FILENAME'
+                </codeblock>
+
+                <p><strong>Exemplo de caminho no Linux/UNIX:</strong></p>
+
+                <codeblock>
+                    /opt/GestorExpress/shared/sites/workflow/files/905/262/500/57158b1b439014072150115/74863719957158b39af56d2076904431_1.png
+                </codeblock>
+
+           
+            <h2 id="item7a">Armazenamento de arquivos no banco de dados</h2>
+
+                <p>Quando um formulário dinâmico que contém um campo Carregador de Múltiplos Arquivos é submetido, um novo registro é criado para o arquivo carregado na tabela <strong>APP_DOCUMENT</strong> no banco de dados, que contém os seguintes campos:</p>
+
+                <ul>
+                    <li><code><strong>APP_DOC_UID:</strong></code> o ID exclusivo do documento do caso, que identifica o arquivo carregado.</li>
+
+                    <li><code><strong>DOC_VERSION:</strong></code> a versão do arquivo de documento do caso, que é um número inteiro, contando a versão a partir de 1. Só pode ser maior do que 1 se o arquivo estiver associado a uma variável de um Documento de Entrada que tenha o controle de versão habilitado.</li>
+
+                    <li><code><strong>APP_UID:</strong></code> o ID exclusivo do caso em que o arquivo foi carregado.</li>
+
+                    <li><code><strong>DEL_INDEX:</strong></code> o índice de delegação da tarefa no caso em que o arquivo foi carregado.</li>
+
+                    <li><code><strong>DOC_UID:</strong></code> o ID exclusivo do Documento de Entrada que contém o arquivo, se o campo Carregador de Múltiplos Arquivos estiver associado a um Documento de Entrada. Se não houver Documento de entrada associado ao campo Carregador de Múltiplos Arquivos, ele será definido como <code>'-1'</code>.</p>
+
+                    <li><code><strong>USR_UID:</strong></code> o ID exclusivo do usuário que carregou o arquivo.</li>
+
+                    <li><code><strong>APP_DOC_TYPE:</strong></code> O tipo de documento de caso, que é <code>'ANEXADO'</code> se o campo Carregador de Múltiplos Arquivos não estiver associado a um Documento de Entrada ou <code>'INPUT'</code> se estiver associado a um Documento de Entrada.</li>
+
+                    <li><code><strong>APP_DOC_CREATE_DATE:</strong></code> A data e hora no formato <code>'YYYY-MM-DD HH:MM:SS'</code> em que o arquivo foi carregado.</li>
+
+                    <li><code><strong>APP_DOC_INDEX:</strong></code> o índice do documento do arquivo.</li>
+
+                    <li><code><strong>FOLDER_UID:</strong></code> O ID exclusivo da pasta onde o arquivo está localizado na interface gráfica em Meus Documentos. Se o campo não estiver associado a um Documento de Entrada ou o Documento de Entrada não tiver uma pasta especificada, este campo será definido como ''(string vazia).</li>
+                    <li><code><strong>APP_DOC_PLUGIN:</strong></code>  Sempre definido como <code>''</code>(string vazia). Não é mais usado no Gestor Express.</li>
+
+                    <li><code><strong>APP_DOC_TAGS:</strong></code> se o campo estiver associado a um documento de entrada, esse campo listará as tags do documento de entrada, separadas por vírgulas. Por padrão, todos os Documentos de Entrada têm a tag <code>'INPUT'</code>, mas outras tags personalizadas podem ser definidas. Se não estiver associado a um documento de entrada, defina como <code>NULL</code>.</li>
+
+                    <li><code><strong>APP_DOC_STATUS:</strong></code> O status do arquivo, que é 'ATIVO' ou 'DELETED'. Observe que os campos do Carregador de Múltiplos Arquivos não fornecem uma maneira de excluir arquivos carregados, mas o arquivo pode ser excluído por um usuário que tenha a permissão <a href="#">PM_FOLDERS_ADD_FILE</a> em sua função em <a href="#">Meus documentos</a>. Ele também pode ser excluído se o campo estiver associado a um Documento de Entrada que seja uma etapa de uma tarefa e o usuário tiver recebido <a href="#">Permissões de Processo</a> para excluir arquivos no Documento de Entrada.</li>
+
+                    <li><code><strong>APP_DOC_STATUS_DATE:</strong></code> Sempre definido como <code>NULL</code>.</li>
+
+                    <li><code><strong>APP_DOC_FIELDNAME:</strong></code> O nome (não seu id ) do campo onde o arquivo foi carregado. Se carregado em um campo de múltiplos arquivos em uma grid, ele será definido como <code>'[<span style="color:green">grid-variable</span>][<span style="color:green">row-number</span>][<span style="color:green">file-field-name</span>]'</code>. Por exemplo, um valor de <code>'[listaCliente][2][arquivoContrato]'</code> significa que o arquivo foi carregado na segunda linha de uma grid cuja variável é "listaCliente" e cujo campo Multiplos Arquivos tem o nome "arquivoContrato". Se o arquivo foi carregado em uma etapa de Documento de entrada (não em um campo Carregador de Múltiplos Arquivos), ele será definido como <code>NULL</code>.</li>
+
+                    <li><code><strong>APP_DOC_DRIVE_DOWNLOAD:</strong></code> informações serializadas, que são sempre definidas como <code>'a:0:{}'</code>.</li>
+                </ul>
+
                 <p>Além disso, os registros são adicionados à tabela CONTENT, que contém informações sobre o arquivo carregado.</p>
+
                 <p>Por exemplo, o banco de dados tem as seguintes informações sobre um arquivo carregado com o ID exclusivo '74863719957158b39af56d2076904431':</p>
-                <p>mysql> selecione * de CONTENT onde CON_ID='74863719957158b39af56d2076904431'; </p>
-                <p>+------------------+------------+----------------- ---+----------+--------------------- + | CON_CATEGORY | CON_PARENT | CON_ID | CON_LANG | CON_VALUE | +------------------+------------+----------------- ---+----------+--------------------- + | APP_DOC_COM</p>
+
+                <codeblock>mysql> <strong>select * from CONTENT where CON_ID='74863719957158b39af56d2076904431';</strong> <br>
+                    +------------------+------------+----------------------------------+----------+---------------------+ <br>
+                    | CON_CATEGORY &nbsp;&nbsp;&nbsp;&nbsp;| CON_PARENT | CON_ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| CON_LANG | CON_VALUE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+                    +------------------+------------+----------------------------------+----------+---------------------+ <br>
+                    | APP_DOC_COMMENT &nbsp;| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 74863719957158b39af56d2076904431 | en &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br>
+                    | APP_DOC_FILENAME | 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 74863719957158b39af56d2076904431 | en &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | scannedContract.png&nbsp;| <br>
+                    | APP_DOC_TITLE &nbsp;&nbsp;&nbsp;| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 74863719957158b39af56d2076904431 | en &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+                    +------------------+------------+----------------------------------+----------+---------------------+ <br>
+                    3 rows in set (0.00 sec)
+
+                </codeblock>
+
+
                 <p>O nome do arquivo carregado é encontrado com a consulta:</p>
-                <p>SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID='XXXXXXXXXXXXXXXXXXXXXXXXX' AND CON_CATEGORY='APP_DOC_FILENAME'</p>
-                <p>Aviso: se um usuário carregar um arquivo no controle de múltiplos arquivos , mas o formulário dinâmico que contém o controle não for submetido, os arquivos carregados no controle de múltiplos arquivos não serão relacionados à variável atribuída e não estarão visíveis nas próximas etapas do processo. Esse comportamento é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
-                <p>Armazenamento de arquivos em grids</p>
-                <p>Quando um campo Carregador de Múltiplos Arquivos é colocado em uma grid, os arquivos podem ser selecionados para cada linha na grid para serem carregados quando o formulário dinâmico for submetido. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela APP_DOCUMENT. A única diferença de um campo normal do Carregador de Múltiplos Arquivos é que o campo APP_DOCUMENT.APP_DOC_FIELDNAME conterá.'grid-variable_row-number_file-name'</p>
-                <p>Por exemplo, uma grid cuja variável é denominada "recibos" é enviada e tem três linhas com um campo de múltiplos arquivos chamado "receiptFile". As informações a seguir podem ser armazenadas na tabela APP_DOCUMENT sobre os três arquivos:</p>
-                <p>mysql> select APP_DOC_UID, DOC_VERSION, APP_UID, DOC_UID, APP_DOC_TYPE, APP_DOC_INDEX, APP_DOC_FIELDNAME from APP_DOCUMENT;</p>
-                <p>APP_DOC_UID</p>
-                <p>9981562705718050e816959058033346</p>
-                <p>9208148915718050e921ba1095027176</p>
-                <p>6366198845716e982128ba0053902036</p>
-                <p>Nota: Se uma grid contendo um campo de múltiplos arquivos não tiver uma variável de matriz associada, os arquivos selecionados na grid não serão salvos quando o formulário dinâmico for submetido.</p>
-                <p>Após o envio do Formulário Dinâmico, os nomes dos arquivos selecionados na variável case do grid podem ser encontrados fazendo uma busca na tabela APP_DOCUMENT pelo case ID e por APP_DOC_FIELDNAME, que contém o nome da variável grid e o nome do Multiple File campo na grid, para obter o ID do arquivo no campo APP_DOC_UID. Usando o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela CONTENT.</p>
-                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grid cuja variável é denominada "clientList" e o campo Multiple File é denominado "contractFile":</p>
-                <p>$caseId    = @@ APLICATIVO ;</p>
-                <p>$gridVar   = 'clientList' ;</p>
-                <p>$fileField = 'contractFile' ;</p>
-                <p>$aArquivos    = array ( ) ;</p>
-                <p>$query = "SELECT C.CON_VALUE AS FILENAME, AD.* FROM CONTENT C, APP_DOCUMENT AD</p>
-                <p>   WHERE AD.APP_UID=' $caseId ' AND APP_DOC_FIELDNAME LIKE ' {$gridVar} _%_ {$fileField} ' AND</p>
-                <p>   AD.APP_DOC_STATUS = 'ACTIVE' AND AD.APP_DOC_UID = C.CON_ID AND</p>
-                <p>   C.CON_CATEGORY = 'APP_DOC_FILENAME' ORDEM POR AD.APP_DOC_FIELDNAME" ;</p>
-                <p>$resultados =executeQuery ( $consulta ) ;</p>
-                <p>if ( is_array ( $ resultados ) ) {</p>
-                <p>   for ( $ i = 0 ; $ i < contagem ( $ resultados ) ; $ i ++ ) {</p>
-                <p>      $ aFiles [ ] = $ resultados [ $ i ] [ 'FILENAME' ] ;</p>
-                <p>   }</p>
-                <p>}</p>
-                <p>Acessando múltiplos arquivos com PHP</p>
+
+                <codeblock>
+                    SELECT CON_VALUE AS FILENAME FROM CONTENT WHERE CON_ID='XXXXXXXXXXXXXXXXXXXXXXXXX' AND CON_CATEGORY='APP_DOC_FILENAME'
+                </codeblock>                    
+
+                <p><span style="color: red">Aviso:</span> se um usuário carregar um arquivo no controle de múltiplos arquivos, mas o formulário dinâmico que contém o controle não for submetido, os arquivos carregados no controle de múltiplos arquivos não serão relacionados à variável atribuída e não estarão visíveis nas próximas etapas do processo. Esse comportamento é um problema conhecido que será corrigido nas próximas versões do Gestor Express.</p>
+
+            <h2 id="item7b">Armazenamento de arquivos em grids</h2>
+                
+                <p>Quando um campo Carregador de Múltiplos Arquivos é colocado em uma grid, os arquivos podem ser selecionados para cada linha na grid para serem carregados quando o formulário dinâmico for submetido. Cada arquivo é armazenado separadamente no sistema de arquivos do servidor e um registro separado é criado para cada arquivo na tabela <strong>APP_DOCUMENT</strong>. A única diferença de um campo normal do Carregador de Múltiplos Arquivos é que o campo <strong>APP_DOCUMENT.APP_DOC_FIELDNAME</strong> conterá <code>'<span style="color:green">grid-variable</span>_<span style="color:green">row-number</span>_<span style="color:green">file-name</span>'</code>>
+
+                <p>Por exemplo, uma grid cuja variável é denominada "recibos" é enviada e tem três linhas com um campo de múltiplos arquivos chamado "arquivoRecibo". As informações a seguir podem ser armazenadas na tabela <code>APP_DOCUMENT</code> sobre os três arquivos:</p>
+
+                <codeblock>
+                    mysql> select APP_DOC_UID, DOC_VERSION, APP_UID, DOC_UID, APP_DOC_TYPE, APP_DOC_INDEX, APP_DOC_FIELDNAME from APP_DOCUMENT;
+                </codeblock>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th style="font-size: .67rem;">APP_DOC_UID</th><th style="font-size: .67rem;">DOC_VERSION</th><th style="font-size: .67rem;">APP_UID</th><th style="font-size: .67rem;">DOC_UID</th><th style="font-size: .67rem;">APP_DOC_TYPE</th><th style="font-size: .67rem;">APP_DOC_INDEX</th><th style="font-size: .67rem;">APP_DOC_FIELDNAME</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="font-size: .67rem;">9981562705718050e816959058033346</td><td style="font-size: .67rem; text-align: center;">1</td><td style="font-size: .67rem;">2490631975717ff351ccda1005474345</td><td style="font-size: .67rem; text-align: center;">-1</td><td style="font-size: .67rem; text-align: center;">EM ANEXO</td><td style="font-size: .67rem; text-align: center;">1</td><td style="font-size: .67rem;">[recibos][1][arquivorecibo]</td></tr>
+                        <tr><td style="font-size: .67rem;">9208148915718050e921ba1095027176</td><td style="font-size: .67rem; text-align: center;">1</td><td style="font-size: .67rem;">2490631975717ff351ccda1005474345</td><td style="font-size: .67rem; text-align: center;">-1</td><td style="font-size: .67rem; text-align: center;">EM ANEXO</td><td style="font-size: .67rem; text-align: center;">2</td><td style="font-size: .67rem;">[recibos][2][arquivorecibo]</td></tr>
+                        <tr><td style="font-size: .67rem;">6366198845716e982128ba0053902036</td><td style="font-size: .67rem; text-align: center;">1</td><td style="font-size: .67rem;">3202231885716e94385eca5078684093</td><td style="font-size: .67rem; text-align: center;">-1</td><td style="font-size: .67rem; text-align: center;">EM ANEXO</td><td style="font-size: .67rem; text-align: center;">3</td><td style="font-size: .67rem;">[recibos][3][arquivorecibo]</td></tr>
+                    </tbody>
+                 </table>
+
+
+                <p><span style="color:green">Observação:</span> Se uma grid contendo um campo de múltiplos arquivos não tiver uma variável de matriz associada, os arquivos selecionados na grid não serão salvos quando o formulário dinâmico for submetido.</p>
+
+                <p>Após o envio do Formulário Dinâmico, os nomes dos arquivos selecionados na variável de caso do grid podem ser encontrados fazendo uma busca na tabela <strong>APP_DOCUMENT</strong> pelo ID do caso e por <strong>APP_DOC_FIELDNAME</strong>, me da variável grid e o nome do campo de Multiplos Arquivos na grid, para obter o ID do arquivo no campo APP_DOC_UID. Usando o ID do arquivo, seu nome de arquivo pode ser encontrado consultando a tabela CONTENT.</p>
+
+                <p>O exemplo de gatilho a seguir cria uma matriz dos nomes de arquivo carregados no caso atual para uma grid cuja variável é denominada "listaCliente e o campo Multiplos Arquivos é denominado "arquivoContrato":</p>
+                
+                <codeblock>
+                    <span style="color: #000088;">$caseId</span> &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$gridVar</span> &nbsp; <span style="color: #339933;">=</span> <span style="color: #0000ff;">'listaCliente'</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$fileField</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">'arquivoContrato'</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$aFiles</span> &nbsp; &nbsp;<span style="color: #339933;">=</span> <span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$query</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">&quot;SELECT C.CON_VALUE AS FILENAME, AD.* FROM CONTENT C, APP_DOCUMENT AD<br />
+                    &nbsp; &nbsp;WHERE AD.APP_UID='<span style="color: #006699; font-weight: bold;">$caseId</span>' AND APP_DOC_FIELDNAME LIKE '<span style="color: #006699; font-weight: bold;">{$gridVar}</span>_%_<span style="color: #006699; font-weight: bold;">{$fileField}</span>' AND<br />
+                    &nbsp; &nbsp;AD.APP_DOC_STATUS = 'ACTIVE' AND AD.APP_DOC_UID = C.CON_ID AND<br />
+                    &nbsp; &nbsp;C.CON_CATEGORY = 'APP_DOC_FILENAME' ORDER BY AD.APP_DOC_FIELDNAME&quot;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #000088;">$results</span> <span style="color: #339933;">=</span> executeQuery<span style="color: #009900;">&#40;</span><span style="color: #000088;">$query</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <br />
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #990000;">is_array</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">for</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$i</span><span style="color: #339933;">=</span><span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> <span style="color: #000088;">$i</span> <span style="color: #339933;">&lt;</span><span style="color: #990000;">count</span></a><span style="color: #009900;">&#40;</span><span style="color: #000088;">$results</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #000088;">$i</span><span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp; &nbsp; <span style="color: #000088;">$aFiles</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$results</span><span style="color: #009900;">&#91;</span><span style="color: #000088;">$i</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'FILENAME'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #009900;">&#125;</span>
+                </codeblock>
+
+            <h1 id="item8">Acessando múltiplos arquivos com PHP</h1>
+
                 <p>Quando o usuário seleciona arquivos em um controle de múltiplos arquivos , os arquivos são imediatamente carregados e salvos no sistema de arquivos do servidor onde o Gestor Express está instalado. Os arquivos também são armazenados na tabela APP_DOCUMENT no banco de dados. Quando o formulário dinâmico que contém um controle de múltiplos arquivos é submetido, uma variável de caso é criada para o controle de múltiplos arquivos com informações sobre os arquivos carregados em uma matriz de matrizes.</p>
                 <p>Acessando a variável de caso MultipleFile</p>
                 <p>Os arquivos carregados para controles de múltiplos arquivos são armazenados em uma variável de caso com o seguinte formato:</p>
                 <p>@= MultipleFileVariable = array( array( "appDocUid" => ' Unique_ID_AppDocument ', "name" => ' filename.ext ', "version" => "1" ),... );</p>
                 <p>O número da versão será sempre "1", a menos que o campo multipleFile esteja associado a um Documento de Entrada que tenha a opção Habilitar Controle de Versão selecionada.</p>
-                <p>Por exemplo, o seguinte controle de múltiplos arquivos associado à @=multipleContractFilesvariável tem dois arquivos:</p>
-                <p>@= multipleContractFiles = array (</p>
+                <p>Por exemplo, o seguinte controle de múltiplos arquivos associado à @=multiplearquivoContratosvariável tem dois arquivos:</p>
+                <p>@= multiplearquivoContratos = array (</p>
                 <p>   array (</p>
                 <p>      "appDocUid" => "6994902925858ad7e22e275057848393",</p>
                 <p>      "name"      => "CateringServiceContract.docx",</p>
@@ -861,27 +934,27 @@
                 <p>      "versão"   => "1"</p>
                 <p>   )</p>
                 <p>) ;</p>
-                <p>Para obter o ID e o nome de arquivo do primeiro arquivo no controle multipleContractFiles, crie um gatilho definido para ser executado após o envio do Formulário Dinâmico que contém o controle multipleContractFile, com o seguinte código PHP:</p>
-                <p>if ( isset ( @= multipleContractFiles ) e ! empty ( @= multipleContractFiles ) ) {</p>
-                <p>   @@ firstFileId = @= multipleContractFiles [ 0 ] [ 'appDocUid' ] ;</p>
-                <p>   @@ firstFilename = @= multipleContractFiles [ 0 ] [ 'name' ] ;</p>
+                <p>Para obter o ID e o nome de arquivo do primeiro arquivo no controle multiplearquivoContratos, crie um gatilho definido para ser executado após o envio do Formulário Dinâmico que contém o controle multiplearquivoContrato, com o seguinte código PHP:</p>
+                <p>if ( isset ( @= multiplearquivoContratos ) e ! empty ( @= multiplearquivoContratos ) ) {</p>
+                <p>   @@ firstFileId = @= multiplearquivoContratos [ 0 ] [ 'appDocUid' ] ;</p>
+                <p>   @@ firstFilename = @= multiplearquivoContratos [ 0 ] [ 'name' ] ;</p>
                 <p>}</p>
                 <p>Antes de tentar acessar uma variável Multiple File, é uma boa ideia usar isset() para verificar se a variável Multiple File foi definida (caso o usuário tenha usado o menu Steps para pular o Formulário Dinâmico), e use empty() para verifique se pelo menos um arquivo foi carregado.</p>
                 <p>Adicionando Arquivos Únicos a Vários Controles de Arquivos</p>
-                <p>Um arquivo que foi carregado para um controle de arquivo tradicional pode ser transferido para um controle de MultipleFile. No exemplo a seguir, um Formulário Dinâmico contém um controle File associado à @@contractFilevariável, onde um arquivo pode ser carregado.</p>
+                <p>Um arquivo que foi carregado para um controle de arquivo tradicional pode ser transferido para um controle de MultipleFile. No exemplo a seguir, um Formulário Dinâmico contém um controle File associado à @@arquivoContratovariável, onde um arquivo pode ser carregado.</p>
                 <p>O arquivo que foi carregado pelo usuário é então transferido para um controle Multiple File localizado em um segundo Formulário Dinâmico:</p>
-                <p>Um gatilho que é disparado antes do segundo Formulário Dinâmico copia as informações sobre o arquivo carregado do primeiro Formulário Dinâmico e o adiciona ao controle MultipleFile associado à variável @=multipleContractFiles. O código de gatilho a seguir verifica primeiro se um arquivo foi selecionado no controle File e, em seguida, obtém seu ID e nome de arquivo exclusivos. Em seguida, ele verifica se o arquivo já foi adicionado ao controle MultipleFile. Caso contrário, ele adiciona uma matriz associativa de informações sobre o arquivo ao controle MultipleFile:</p>
+                <p>Um gatilho que é disparado antes do segundo Formulário Dinâmico copia as informações sobre o arquivo carregado do primeiro Formulário Dinâmico e o adiciona ao controle MultipleFile associado à variável @=multiplearquivoContratos. O código de gatilho a seguir verifica primeiro se um arquivo foi selecionado no controle File e, em seguida, obtém seu ID e nome de arquivo exclusivos. Em seguida, ele verifica se o arquivo já foi adicionado ao controle MultipleFile. Caso contrário, ele adiciona uma matriz associativa de informações sobre o arquivo ao controle MultipleFile:</p>
                 <p>//se um arquivo selecionado no controle File:</p>
-                <p>if ( isset ( @@ contractFile ) e @@ contractFile != '[]' ) {</p>
-                <p>   $fileId = json_decode ( @@ contractFile ) [ 0 ] ;</p>
-                <p>   $filename = json_decode ( @@ contractFile_label ) [ 0 ] ;</p>
+                <p>if ( isset ( @@ arquivoContrato ) e @@ arquivoContrato != '[]' ) {</p>
+                <p>   $fileId = json_decode ( @@ arquivoContrato ) [ 0 ] ;</p>
+                <p>   $filename = json_decode ( @@ arquivoContrato_label ) [ 0 ] ;</p>
                 <p>   //se o multipleFile ainda não existir, crie-o:</p>
-                <p>   if ( ! isset ( @= multipleContractFiles) ) {</p>
-                <p>      @= multipleContractFiles = array ( ) ;</p>
+                <p>   if ( ! isset ( @= multiplearquivoContratos) ) {</p>
+                <p>      @= multiplearquivoContratos = array ( ) ;</p>
                 <p>   }</p>
                 <p>   //verifica se o arquivo já foi adicionado:</p>
                 <p>   $addFile = true ;</p>
-                <p>   foreach ( @= multipleContractFiles as $aFile ) {</p>
+                <p>   foreach ( @= multiplearquivoContratos as $aFile ) {</p>
                 <p>      if ( $aFile [ 'appDocUid' ] == $fileId ) {</p>
                 <p>         $addFile = false ;</p>
                 <p>         quebrar ;</p>
@@ -889,7 +962,7 @@
                 <p>   }</p>
                 <p>   if ( $addFile ) {</p>
                 <p>      //adiciona um arquivo adicional:</p>
-                <p>      @= multipleContractFiles [ ] = array (</p>
+                <p>      @= multiplearquivoContratos [ ] = array (</p>
                 <p>        "appDocUid" => $fileId,</p>
                 <p>        "name"      => $filename,</p>
                 <p>        "version"   => "1"</p>

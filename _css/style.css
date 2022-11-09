@@ -233,7 +233,7 @@ div#ladoalado {
 }
 
 #principal ul {
-    padding: 0px 0px 10px 35px;
+    padding: 0px 5px 10px 35px;
     list-style-position: outside;
     margin-left: 10px;
 }
@@ -335,7 +335,7 @@ pre code {
     border-collapse: collapse;
     width: 90vw;
     max-width: 900px;
-    margin: 5px 10px 10px 30px;
+    margin: 5px 5px 5px 30px;
 }
 
 .textbox th {
