@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Express - Botões</title>
+    <link rel="stylesheet" href="../_css/style.css">
+    <link rel="shortcut icon" href="../_imagens/ge-favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/316dcb45b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <header>
+        <figure>
+            <a href="../index.html"><img id="logo" src="../_imagens/logo.png" alt="Logotipo Gestor Express"></a>
+        </figure>
+        <div id="cabecario">
+            <h1>Gestor Express</h1>
+            <h2>Gerenciamento de Fluxo de Trabalho</h2>
+        </div>
+    </header>
+
+ <aside>
+        <section id="lado">
+            <h1>Botões (enviar e submeter)</h1>
+            <h2>Conteúdo:</h2>
+            <ol>
+                <li><a href="#item1">Visão Geral</a></li>
+                <li><a href="#item2">Enviar</a>
+                    <ol type="A">
+                        <li><a href="#item2a">Propriedades do botão Enviar</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item3">Botão</a>
+                    <ol type="A">
+                        <li><a href="#item3a">Propriedades do botão</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item4">JavaScript em botões</a>
+                    <ol type="A">
+                        <li><a href="#item4a">Métodos JavaScript</a></li>
+                    </ol>
+                </li>
+                <li><a href="#item5">Exemplos</a>
+                    <ol type="A">
+                        <li><a href="#item5a">Exemplo de botão Enviar</a></li>
+                        <li><a href="#item5b">Exemplo de controle de botão</a></li>
+                        <li><a href="#item5c">Alterar a cor do campo</a></li>
+                        <li><a href="#item5d">Cancelar caso</a></li>
+                        <li><a href="#item5e">Redirecionar para outra etapa</a></li>
+                        <li><a href="#item5f">Redirecionamento em gatilhos</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+    </aside>
+
+    <section id="principal">
+
+        <article>
+            <p>Visão geral</p>
+                <p>Os botões são um objeto de interface que pode ser clicado pelos usuários para executar uma ação. Se for um botão enviar, o formulário dinâmico é enviado, significando que o formulário é fechado e os dados inseridos nos campos são armazenados em variáveis ​​de caso e salvos no banco de dados. O caso continuará para a próxima etapa na tarefa atual ou roteará para a próxima tarefa se for a última etapa. Se for um botão genérico, o código JavaScript personalizado pode ser adicionado ao formulário dinâmico, que será executado quando o botão for clicado.</p>
+                <p> Enviar</p>
+                <p>Um botão de envio no designer Formulário Dinâmico tem a seguinte aparência:</p>
+                <p>Ao executar um caso ou visualizar um formulário dinâmico, um botão de envio tem a seguinte aparência:</p>
+                <p>Propriedades do botão Enviar</p>
+                <p>As propriedades associadas a este controle são:</p>
+                <p>Propriedade</p>
+                <p>Modelo</p>
+                <p>EU IRIA</p>
+                <p>Nome</p>
+                <p>Etiqueta</p>
+                <p> Botão</p>
+                <p>Este controle adiciona um botão ao formulário. É possível adicionar funcionalidade personalizada a esse controle incluindo código JavaScript no formulário dinâmico (veja o exemplo abaixo).</p>
+                <p>Propriedades do botão</p>
+                <p>As propriedades deste controle são:</p>
+                <p>Propriedade</p>
+                <p>Modelo</p>
+                <p>EU IRIA</p>
+                <p>Nome</p>
+                <p>Etiqueta</p>
+                <p>JavaScript em botões</p>
+                <p>Para saber como manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
+                <p>Botões genéricos e botões de envio no Gestor Express 3 têm os seguintes componentes de campo:</p>
+                <p>Rótulo: O texto no botão.</p>
+                <p>Valor: o valor é o mesmo do rótulo.</p>
+                <p>Texto: O texto é o mesmo do rótulo.</p>
+                <p>Métodos JavaScript</p>
+                <p>Alguns dos métodos JavaScript para manipular botões genéricos e botões de envio incluem:</p>
+                <p>Método</p>
+                <p>jQuery("#fieldID"). getValue()</p>
+                <p>jQuery("#fieldID"). getText()</p>
+                <p>jQuery("#fieldID"). getLabel()</p>
+                <p>jQuery("#fieldID"). setValue("novoTexto")</p>
+                <p>jQuery("#fieldID"). setText("novoTexto")</p>
+                <p>jQuery("#fieldID"). setLabel("novoTexto")</p>
+                <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+                <p>Observação: chamar setText(), setLabel()ou setValue()para um botão genérico ou botão de envio redefinirá suas propriedades e removerá quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar setText(), setLabel()ou setValue(), essas propriedades precisarão ser redefinidas.</p>
+                <p>Nota: getControl() não funciona com botões, mas um botão pode ser obtido usando o.find()método. Por exemplo:</p>
+                <p>$ ( "#submitForm" ). encontre ( "botão" ). css ( "borda", "1px vermelho sólido" );</p>
+                <p>Exemplos</p>
+                <p>Exemplo de botão Enviar</p>
+                <p>Para este exemplo, adicione um controle "enviar" arrastando e soltando-o dos controles da Web localizados no painel esquerdo. O resultado da adição do controle será semelhante à imagem abaixo.</p>
+                <p>Clique em qualquer espaço vazio do controle para exibir suas propriedades no painel do lado esquerdo. As propriedades são as mostradas na imagem abaixo.</p>
+                <p>A propriedade "type" é um campo readonly que mostra apenas o tipo de controle que é.</p>
+                <p>A propriedade "id" pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
+                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas na seção JavaScript desta página. Para este exemplo, adicione o seguinte código:</p>
+                <p>jQuery ( "#submit0000000001" ). encontre ( "botão" ). setValue ( "www.google.com" );</p>
+                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
+                <p>E o resultado da adição desse código alterará o nome do valor do controle "enviar".</p>
+                <p>A propriedade a seguir é a propriedade "name" que é o nome do controle. Esta propriedade deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
+                <p>A propriedade "label" alterará o rótulo do controle. Se o código JavaScript foi adicionado e o valor deseja ser definido manualmente. Apague o código Javascript e altere o rótulo com um nome como "ENVIAR" como visto na imagem abaixo.</p>
+                <p>Uma nova tela rápida ao enviar um caso aparecerá, não permitindo que os usuários cliquem no botão "Enviar" mais de uma vez, em vez de várias vezes, o que pode resultar em avançar um passo no processo e não concluir algumas etapas. Agora, o botão "Enviar" só pode ser clicado uma vez, portanto, indo para a tarefa a seguir, conforme o esperado. A tela que será mostrada quando o botão "Enviar" for clicado seria a mostrada na imagem abaixo, não permitindo que o usuário clique mais de uma vez.</p>
+                <p>Exemplo de controle de botão</p>
+                <p>Para este exemplo, adicione um controle "botão" arrastando-o e soltando-o do Controle da Web para o Formulário Dinâmico Designer. O resultado desta ação é mostrado na imagem abaixo.</p>
+                <p>Clique em qualquer espaço vazio no controle para exibir suas propriedades no painel esquerdo.</p>
+                <p>A primeira propriedade que é a propriedade "type" é somente leitura, exibindo o tipo de controle que é.</p>
+                <p>Agora, para a propriedade "id", ela pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
+                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas nesta seção. Para este exemplo, adicione o seguinte código:</p>
+                <p>jQuery ( "#button0000000001" ). setValue ( "Gestor Express" );</p>
+                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
+                <p>E o resultado de adicionar o código quando o controle for renderizado será o seguinte:</p>
+                <p>A propriedade "nome" deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
+                <p>Por fim, a propriedade "label" é usada para alterar o rótulo do controle. Para este exemplo, altere-o para "Botão". Leve em consideração que se o código JavaScript foi adicionado a propriedade "label" não terá nenhum efeito, então volte para o editor de Javascript e apague o código e então esta propriedade terá efeito.</p>
+                <p>Alterar a cor do campo</p>
+                <p>Como exemplo de como usar o controle de botão, adicione uma caixa de texto e um controle de botão no design do formulário. Em seguida, altere o ID dos controles para "text1" e "button123", respectivamente.</p>
+                <p>Agora, adicione o seguinte JavaScript na propriedade JavaScript do formulário.</p>
+                <p>$ ( "#botão123" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "#text1" ) [ 0 ]. style. backgroundColor = "blue";</p>
+                <p>  if ( $ ( "#text1 " ) [ 0 ]. style. display == "none" )</p>
+                <p>    $ ( " #text1" ). mostrar ( );</p>
+                <p>  else</p>
+                <p>    $ ( "#text1" ). esconder ( );</p>
+                <p>} );</p>
+                <p>Em seguida, experimente a funcionalidade do botão renderizando-o na opção Visualizar</p>
+                <p>Verifique como adicionar código JavaScript ao formulário.</p>
+                <p>Cancelar caso</p>
+                <p>Um formulário dinâmico pode conter vários botões de envio com finalidades diferentes. Este exemplo mostra como criar um formulário dinâmico que tem um botão chamado "Enviar" que continua o caso e outro botão chamado "Cancelar caso", que cancela o caso atual. O código JavaScript é usado para atribuir um valor a um campo oculto quando o botão de envio "Cancelar caso" é clicado. Em seguida, um gatilho disparado após o Formulário Dinâmico verificar esse valor para determinar se deve chamar Case::cancelCase().</p>
+                <p>Primeiro, crie um formulário dinâmico com um botão de envio normal e um segundo botão de envio com o ID "cancelCase". Além disso, adicione um campo oculto cujo ID seja "ação" e esteja associado à actionvariável.</p>
+                <p>Em seguida, adicione o seguinte código JavaScript para atribuir o valor "CANCELLED" ao botão "cancelCase" se clicado:</p>
+                <p>$ ( "#cancelCase" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>  $ ( "#action" ). setValue ( "CANCEL" );</p>
+                <p>} );</p>
+                <p>Em seguida, crie o seguinte gatilho definido para disparar após o formulário dinâmico:</p>
+                <p>if ( @@ ação == "CANCELAR" ) {</p>
+                <p>   $c = new Casos ( );</p>
+                <p>   $c -> cancelCase ( @@ APPLICATION, @% INDEX, @@ USER_LOGGED );</p>
+                <p>   //redireciona de volta para a caixa de entrada:</p>
+                <p>   echo '<script> top.location = "../cases/main" </script>';</p>
+                <p>   morrer ( );</p>
+                <p>};</p>
+                <p>O gatilho acima verifica se o botão "CancelarCase" foi clicado quando o formulário foi enviado. Se sim, cancela o caso. Em seguida, ele redireciona o navegador da Web de volta para a caixa de entrada. Observe que os casos são executados dentro de um quadro, portanto, o Javascript é usado para redirecionar o navegador da Web para o quadro superior. A função die() é chamada para parar o Gestor Express e evitar que o caso passe para a próxima etapa do processo.</p>
+                <p>Nota: Nas versões 3.0 - 3.0.1.8, as variáveis ​​de caso foram criadas para os botões de envio em um formulário dinâmico quando ele foi enviado. Foi possível atribuir um valor a esses botões de envio que poderiam ser examinados em um acionador posterior. Vários exemplos nesta página usados ​​para atribuir valores aos botões de envio. Na versão 3.1 e posterior, no entanto, as variáveis ​​de caso não são mais criadas para botões de envio, portanto, esses exemplos foram alterados para atribuir um valor a campos ocultos, que podem ser examinados em um acionador subsequente. Se estiver atualizando de 3.0.X para 3.1.X, certifique-se de alterar qualquer código personalizado que dependa de variáveis ​​de caso criadas a partir de botões de envio em formulários dinâmicos.</p>
+                <p>Redirecionar para outra etapa</p>
+                <p>Quando um botão de envio é clicado, os dados no formulário dinâmico são salvos e o caso passa para a próxima etapa (formulário dinâmico, documento de entrada ou documento de saída) na tarefa atual. Se for a última etapa, o Gestor Express roteará para a próxima tarefa no processo. O código JavaScript pode ser adicionado a um botão para redirecionar para uma etapa diferente na tarefa atual ou para o final da tarefa quando o botão for clicado.</p>
+                <p>Este exemplo mostra como redirecionar o navegador da Web quando os botões são clicados. Um formulário dinâmico que é o primeiro passo da tarefa tem os seguintes 6 botões:</p>
+                <p>Um botão com o ID "saveWork" que salva os dados no formulário dinâmico atual quando clicado.</p>
+                <p>Um botão com o ID "caixa de entrada" que redireciona o navegador de volta para a caixa de entrada.</p>
+                <p>Um botão com o ID "endTask", que direciona o navegador para o final da tarefa atual.</p>
+                <p>Um botão com o ID "moreInfo" que redireciona o navegador web para a 3ª etapa da tarefa, que é um Formulário Dinâmico com o UID "140382730582d22af0d1c24018284816" para inserir mais informações.</p>
+                <p>Um botão com o ID "uploadContract" que redireciona o navegador para a quarta etapa da tarefa, que é um Documento de Entrada com o UID "77782079956a7de25a125c5065741006" para fazer upload de arquivos de contrato.</p>
+                <p>Um botão com o ID "generateInvoice" que redireciona o navegador web para a quinta etapa da tarefa, que é um Documento de Saída com o UID "13321001556d6125088d942072818002".</p>
+                <p>Um botão de envio normal, que continuará para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa da tarefa atual).</p>
+                <p>O seguinte código JavaScript é adicionado ao Formulário Dinâmico para adicionar manipuladores de eventos aos botões quando eles são clicados:</p>
+                <p>$ ( "#salvarTrabalho" ). encontre ( "botão" ). clique ( function ( ) {</p>
+                <p>   $ ( "form " ).saveForm ( ); } ); $ ( "#caixa de entrada" ). encontre ( "botão" ). clique ( function ( ) {    $ ( "form" ). saveForm ( );    top.</p>
+                <p>local = "../cases/main"; //redireciona para a caixa de entrada no quadro superior</p>
+                <p>} );</p>
+                <p>$ ( "#fimTask" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "form" ). saveForm ( );</p>
+                <p>   //redireciona para o final da tarefa para roteamento</p>
+                <p>   location = "../cases/cases_Step?TYPE=ASSIGN_TASK&UID=-1&POSITION=10000&ACTION=ASSIGN";</p>
+                <p>} );</p>
+                <p>$ ("#moreInfo" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "form" ). saveForm ( );</p>
+                <p>   //redireciona para um Formulário Dinâmico que é a 3ª etapa no</p>
+                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=Formulário Dinâmico&UID=140382730582d22af0d1c24018284816&POSITION=3&ACTION= EDITAR";</p>
+                <p>} );</p>
+                <p>$ ( "#uploadContract" ). encontre ( "botão" ).function ( ) {</p>
+                <p>   $ ( "formulário" ). salvarFormulário ( );</p>
+                <p>   //redireciona para o Documento de Entrada que é a 4ª etapa no</p>
+                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=INPUT_DOCUMENT&UID=77782079956a7de25a125c5065741006&POSITION=4&ACTION=ATTACH";</p>
+                <p>} );</p>
+                <p>$ ( "#gerarFatura" ). encontre ( "botão" ). clique ( function ( ) {</p>
+                <p>   $ ( "form" ).salvarFormulário ( );</p>
+                <p>   //redireciona para o Documento de Saída que é a 5ª etapa no</p>
+                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=OUTPUT_DOCUMENT&UID=13321001556d6125088d942072818002&POSITION=5&ACTION=GENERATE";</p>
+                <p>} );</p>
+                <p>Para entender melhor como o redirecionamento funciona no Gestor Express, consulte a documentação de Links e a função G::header().</p>
+                <p>Nota: Não é possível redirecionar para um formulário dinâmico, documento de entrada ou documento de saída que não esteja atribuído como uma etapa na tarefa atual. Também não é possível redirecionar para uma etapa específica em outra tarefa.</p>
+                <p>Redirecionamento em gatilhos</p>
+                <p>Aviso: Os exemplos a seguir NÃO funcionam na versão do Gestor Express Mobile.</p>
+                <p>O exemplo anterior chama o método.saveForm() do formulário para salvar os dados atuais inseridos no formulário dinâmico quando um botão normal é clicado. No entanto, um botão de envio salvará automaticamente os dados do Formulário Dinâmico quando clicado, portanto, não é necessário usar a saveForm()função. Se precisar salvar os dados do formulário e depois fechar o Formulário Dinâmico, é recomendável usar botões de envio em vez de botões normais. Além disso, adicione um campo oculto ao formulário dinâmico cujo ID seja "ação" e esteja associado a uma variável denominada "ação". Este campo oculto indicará qual botão foi clicado para fechar o formulário.</p>
+                <p>Em seguida, crie um gatilho que use PMFRedirectToStep() para redirecionar para uma etapa (Formulário Dinâmico, Documento de entrada ou Documento de saída) ou use o método G::header() para redirecionar para a Caixa de entrada ou o final da tarefa para roteamento.</p>
+                <p>O seguinte código JavaScript pode ser adicionado ao formulário dinâmico para indicar qual botão de envio foi clicado:</p>
+                <p>$ ( "#salvarTrabalho" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   //salva o trabalho e retorna para o mesmo</p>
+                <p>Formulário Dinâmico    $ ( "#action" ). setValue ( "SAVE_WORK" );</p>
+                <p>} );</p>
+                <p>$ ( "#caixa de entrada" ). encontre ( "botão" ). clique ( function ( ) {</p>
+                <p>   $ ( "#ação"setValue ( "CAIXA DE ENTRADA" );</p>
+                <p>} );</p>
+                <p>$ ( "#fimTask" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "#action" ).setValue ( "END_TASK" ); // ir para o roteamento no final da tarefa } ); $ ( "#moreInfo" ). encontre ( "botão" ).</p>
+                <p>) {</p>
+                <p>   $ ( "#ação" ). setValue ( "MORE_INFO" ); //ir para outro Formulário Dinâmico</p>
+                <p>} );</p>
+                <p>$ ( "#uploadContract" ). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "#action" ).setValue ( "UPLOAD_CONTRACT" ); //ir para o documento de entrada } ); $ ( "#gerarFatura"</p>
+                <p>). encontre ( "botão" ). click ( function ( ) {</p>
+                <p>   $ ( "#action" ).setValue ( "GENERATE_INVOICE" ); //ir para o documento de saída } );  </p>
+                <p>Em seguida, crie o seguinte gatilho para lidar com o redirecionamento do navegador da web:</p>
+                <p>if ( ! isset ( @@ action ) ) {</p>
+                <p>   goto triggerEnd;</p>
+                <p>}</p>
+                <p>$ação = @@ ação;</p>
+                <p>PMFSendVariables ( @@ APPLICATION, array ( 'action' => '' ) ); //reinicia a ação</p>
+                <p>if ( $action == "INBOX" ) {</p>
+                <p>   echo '<script> top.location = "../cases/main" </script>';</p>
+                <p>   morrer ( ); //previne o próximo passo</p>
+                <p>}</p>
+                <p>elseif ( $action == "END_TASK" ) {</p>
+                <p>   G:: header ( "Location: cases_Step?TYPE=ASSIGN_TASK&UID=-1&POSITION=10000&ACTION=ASSIGN" );</p>
+                <p>   morrer ( ); //evitar a próxima etapa</p>
+                <p>}</p>
+                <p>elseif ( $action == "SAVE_WORK" ) {</p>
+                <p>   //redirecionar de volta para o Formulário Dinâmico anterior para continuar trabalhando nele:  </p>
+                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'Formulário Dinâmico', '60422430056a69386a2a885087313352' );</p>
+                <p>}</p>
+                <p>elseif ( $action == "MORE_INFO" ) {  </p>
+                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'Formulário Dinâmico', '140382730582d22af0d1c24018284816' );</p>
+                <p>}</p>
+                <p>elseif ( $action == "UPLOAD_CONTRACT" ) {</p>
+                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'INPUT_DOCUMENT', '77782079956a7de25a125c5065741006' );</p>
+                <p>}</p>
+                <p>senão ( $action == "GENERATE_INVOICE" ) {</p>
+                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'OUTPUT_DOCUMENT', '13321001556d6125088d942072818002' );</p>
+                <p>}</p>
+                <p>triggerEnd:</p>
+                <p>Esse gatilho deve ser definido para ser acionado antes da próxima etapa que segue o formulário dinâmico (ou antes da atribuição, se for a última etapa da tarefa). NÃO defina esse gatilho para disparar imediatamente após o formulário dinâmico, pois a chamada die()nesse ponto impedirá que os dados nos campos do formulário dinâmico sejam adicionados ao campo wf_WORKSPACE.APPLICATION.APP_DATA no banco de dados e impedirá que quaisquer arquivos selecionados sejam salvos no sistema de arquivos do servidor.</p>
+
+        </article>
+
+    </section>
+
+   
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Selo de Qualidade</h4>
+
+                    <figure>
+                        <img src="../_imagens/impacto-logo-branco.png" alt="">
+                    </figure>
+
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Endereço</h4>
+                    <p>Impacto Positivo Com e Serv Inf Ltda</p>
+                    <p>Avenida Nações Unidas, 17-17</p>
+                    <p>Vila Santo Antônio</p>
+                    <p>17015-903, Bauru, SP</p>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Mídias Sociais</h4>
+                    <div class="medias-sociais">
+                        <a href="http://gestorexpress.com.br/" target="_blank"><i class="fa-solid fa-globe"></i></a>                        
+                        <a href="https://www.facebook.com/gestorexpress.bpm" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/showcase/gestorexpress/?viewAsMember=true" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCo1oOgyK-VSr3ntT7FFjAOw" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <!--end footer-col-->
+                <!-- footer col -->
+                <div class="footer-col">
+                    <h4>Subescreva-se</h4>
+                    <!-- form sub -->             
+                    <div class="form-sub">
+                        <form>
+                            <input type="email" aria-placeholder="Digite o seu e-mail" required>
+                            <button>Subescrever</button>
+                        </form>
+                    </div>
+                    <!-- form sub -->        
+
+                </div> 
+                <!--end footer-col-->
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
