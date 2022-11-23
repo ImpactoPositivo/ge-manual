@@ -59,46 +59,104 @@
     <section id="principal">
 
         <article>
-            <p>Visão geral</p>
+            <h1 id="item1">Visão geral</h1>
+
                 <p>Os botões são um objeto de interface que pode ser clicado pelos usuários para executar uma ação. Se for um botão enviar, o formulário dinâmico é enviado, significando que o formulário é fechado e os dados inseridos nos campos são armazenados em variáveis ​​de caso e salvos no banco de dados. O caso continuará para a próxima etapa na tarefa atual ou roteará para a próxima tarefa se for a última etapa. Se for um botão genérico, o código JavaScript personalizado pode ser adicionado ao formulário dinâmico, que será executado quando o botão for clicado.</p>
-                <p> Enviar</p>
+
+            <h1 id="item2">Enviar</h1>
+
                 <p>Um botão de envio no designer Formulário Dinâmico tem a seguinte aparência:</p>
+
+                <figure>
+
+                </figure>
+
                 <p>Ao executar um caso ou visualizar um formulário dinâmico, um botão de envio tem a seguinte aparência:</p>
-                <p>Propriedades do botão Enviar</p>
+
+                <figure>
+
+                </figure>
+
+                <h2 id="item2a">Propriedades do botão Enviar</h2>
+
                 <p>As propriedades associadas a este controle são:</p>
-                <p>Propriedade</p>
-                <p>Modelo</p>
-                <p>EU IRIA</p>
-                <p>Nome</p>
-                <p>Etiqueta</p>
-                <p> Botão</p>
+                
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Propriedade</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tipo</td><td><code>submit</code>(somente leitura)</td></tr>
+                        <tr><td>ID</td><td>Controla identificador exclusivo. Definido por padrão como <code>submit000000000X</code>, onde "X" representa a numeração correspondente do controle no projeto. Essa numeração começa em 1. Porém, é possível definir um novo ID para trabalhar com o controle usando JavaScript.</td></tr>
+                        <tr><td>Nome</td><td>Nome do controle. Esta propriedade deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</td></tr>
+                        <tr><td>Rótulo</td><td>Rótulo do botão enviar, que pode ser "Enviar"</td></tr>
+                    </tbody>
+                </table>
+
+            <h1 id="item3">Botão</h1>
+
                 <p>Este controle adiciona um botão ao formulário. É possível adicionar funcionalidade personalizada a esse controle incluindo código JavaScript no formulário dinâmico (veja o exemplo abaixo).</p>
-                <p>Propriedades do botão</p>
+
+            <h2 id="item3a">Propriedades do botão</h2>
+
                 <p>As propriedades deste controle são:</p>
-                <p>Propriedade</p>
-                <p>Modelo</p>
-                <p>EU IRIA</p>
-                <p>Nome</p>
-                <p>Etiqueta</p>
-                <p>JavaScript em botões</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Propriedade</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tipo</td><td><code>button</code>(somente leitura)</td></tr>
+                        <tr><td>ID</td><td>Controla identificador exclusivo. Definido por padrão como <code>button000000000X</code>, onde "X" representa a numeração correspondente do controle no formulário. Essa numeração começa em 1. Porém, é possível definir um novo ID para trabalhar com o controle usando JavaScript.</td></tr>
+                        <tr><td>Nome</td><td>Nome do controle. Esta propriedade deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</td></tr>
+                        <tr><td>Rótulo</td><td>Rótulo do botão</td></tr>
+                    </tbody>
+                </table>
+                 
+            <h1 id="item4">JavaScript em botões</h1>
+
                 <p>Para saber como manipular controles Formulário Dinâmico usando JavaScript, consulte JavaScript em Formulários Dinâmicos.</p>
-                <p>Botões genéricos e botões de envio no Gestor Express 3 têm os seguintes componentes de campo:</p>
-                <p>Rótulo: O texto no botão.</p>
-                <p>Valor: o valor é o mesmo do rótulo.</p>
-                <p>Texto: O texto é o mesmo do rótulo.</p>
-                <p>Métodos JavaScript</p>
+
+                <p>Botões genéricos e botões de envio no Gestor Express têm os seguintes componentes de campo:</p>
+                
+                <ul>
+                    <li><strong>Rótulo:</strong> O texto no botão.</li>
+                    <li><strong>Valor:</strong> o valor é o mesmo do <i>rótulo</i>.</li>
+                    <li><strong>Texto:</strong> O texto é o mesmo do <i>rótulo</i>.</li>
+                </ul>
+
+                <figure>
+
+                </figure>
+
+            <h2 id="item4a">Métodos JavaScript</h2>
+
                 <p>Alguns dos métodos JavaScript para manipular botões genéricos e botões de envio incluem:</p>
-                <p>Método</p>
-                <p>jQuery("#fieldID"). getValue()</p>
-                <p>jQuery("#fieldID"). getText()</p>
-                <p>jQuery("#fieldID"). getLabel()</p>
-                <p>jQuery("#fieldID"). setValue("novoTexto")</p>
-                <p>jQuery("#fieldID"). setText("novoTexto")</p>
-                <p>jQuery("#fieldID"). setLabel("novoTexto")</p>
+
+                <table class="textbox">
+                    <thead>
+                        <tr><th>Método</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getValue</a>()</td><td>Retorna o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getText</a>()</td><td>getText() atualmente tem um bug e não funciona com controles de botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getLabel</a>()</td><td>Retorna o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setValue</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setText</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setLabel</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
+                    </tbody>
+                </table>
+     
                 <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
-                <p>Observação: chamar setText(), setLabel()ou setValue()para um botão genérico ou botão de envio redefinirá suas propriedades e removerá quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar setText(), setLabel()ou setValue(), essas propriedades precisarão ser redefinidas.</p>
-                <p>Nota: getControl() não funciona com botões, mas um botão pode ser obtido usando o.find()método. Por exemplo:</p>
-                <p>$ ( "#submitForm" ). encontre ( "botão" ). css ( "borda", "1px vermelho sólido" );</p>
+
+                <p><span style="color: green">Observação:</span> chamar <code>setText()</code>, <code>setLabel()</code> ou <code>setValue()</code> para um botão genérico ou botão de envio redefinirá suas propriedades e removerá quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar <code>setText()</code>, <code>setLabel()</code> ou <code>setValue()</code>, essas propriedades precisarão ser redefinidas.</p>
+
+                <p>><span style="color: green">Observação:</span> getControl() não funciona com botões, mas um botão pode ser obtido usando o método <code>.find()</code>. Por exemplo:</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#submitForm&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">css</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;border&quot;</span><span style="color: #339933;">,</span><span style="color: #3366CC;">&quot;1px solid red&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
                 <p>Exemplos</p>
                 <p>Exemplo de botão Enviar</p>
                 <p>Para este exemplo, adicione um controle "enviar" arrastando e soltando-o dos controles da Web localizados no painel esquerdo. O resultado da adição do controle será semelhante à imagem abaixo.</p>
