@@ -140,162 +140,328 @@
                     <tbody>
                         <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getValue</a>()</td><td>Retorna o texto do botão.</td></tr>
                         <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getText</a>()</td><td>getText() atualmente tem um bug e não funciona com controles de botão.</td></tr>
-                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getLabel</a>()</td><td>Retorna o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">getrótulo</a>()</td><td>Retorna o texto do botão.</td></tr>
                         <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setValue</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
                         <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setText</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
-                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setLabel</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
+                        <tr><td><a href="#">jQuery("#campoID")</a>.<a href="#">setrótulo</a>("novoTexto")</td><td>Define o texto do botão.</td></tr>
                     </tbody>
                 </table>
      
                 <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
 
-                <p><span style="color: green">Observação:</span> chamar <code>setText()</code>, <code>setLabel()</code> ou <code>setValue()</code> para um botão genérico ou botão de envio redefinirá suas propriedades e removerá quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar <code>setText()</code>, <code>setLabel()</code> ou <code>setValue()</code>, essas propriedades precisarão ser redefinidas.</p>
+                <p><span style="color: green; font-weight: bold;">Observação:</span> chamar <code>setText()</code>, <code>setrótulo()</code> ou <code>setValue()</code> para um botão genérico ou botão de envio redefinirá suas propriedades e removerá quaisquer propriedades personalizadas definidas pelo JavaScript. Após chamar <code>setText()</code>, <code>setrótulo()</code> ou <code>setValue()</code>, essas propriedades precisarão ser redefinidas.</p>
 
-                <p>><span style="color: green">Observação:</span> getControl() não funciona com botões, mas um botão pode ser obtido usando o método <code>.find()</code>. Por exemplo:</p>
+                <p><span style="color: green; font-weight: bold;">Observação:</span> getControl() não funciona com botões, mas um botão pode ser obtido usando o método <code>.find()</code>. Por exemplo:</p>
 
                 <codeblock>
                     $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#submitForm&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">css</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;border&quot;</span><span style="color: #339933;">,</span><span style="color: #3366CC;">&quot;1px solid red&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
                 </codeblock>
 
-                <p>Exemplos</p>
-                <p>Exemplo de botão Enviar</p>
-                <p>Para este exemplo, adicione um controle "enviar" arrastando e soltando-o dos controles da Web localizados no painel esquerdo. O resultado da adição do controle será semelhante à imagem abaixo.</p>
-                <p>Clique em qualquer espaço vazio do controle para exibir suas propriedades no painel do lado esquerdo. As propriedades são as mostradas na imagem abaixo.</p>
-                <p>A propriedade "type" é um campo readonly que mostra apenas o tipo de controle que é.</p>
-                <p>A propriedade "id" pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
-                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas na seção JavaScript desta página. Para este exemplo, adicione o seguinte código:</p>
-                <p>jQuery ( "#submit0000000001" ). encontre ( "botão" ). setValue ( "www.google.com" );</p>
-                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
-                <p>E o resultado da adição desse código alterará o nome do valor do controle "enviar".</p>
-                <p>A propriedade a seguir é a propriedade "name" que é o nome do controle. Esta propriedade deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
-                <p>A propriedade "label" alterará o rótulo do controle. Se o código JavaScript foi adicionado e o valor deseja ser definido manualmente. Apague o código Javascript e altere o rótulo com um nome como "ENVIAR" como visto na imagem abaixo.</p>
-                <p>Uma nova tela rápida ao enviar um caso aparecerá, não permitindo que os usuários cliquem no botão "Enviar" mais de uma vez, em vez de várias vezes, o que pode resultar em avançar um passo no processo e não concluir algumas etapas. Agora, o botão "Enviar" só pode ser clicado uma vez, portanto, indo para a tarefa a seguir, conforme o esperado. A tela que será mostrada quando o botão "Enviar" for clicado seria a mostrada na imagem abaixo, não permitindo que o usuário clique mais de uma vez.</p>
-                <p>Exemplo de controle de botão</p>
-                <p>Para este exemplo, adicione um controle "botão" arrastando-o e soltando-o do Controle da Web para o Formulário Dinâmico Designer. O resultado desta ação é mostrado na imagem abaixo.</p>
-                <p>Clique em qualquer espaço vazio no controle para exibir suas propriedades no painel esquerdo.</p>
-                <p>A primeira propriedade que é a propriedade "type" é somente leitura, exibindo o tipo de controle que é.</p>
-                <p>Agora, para a propriedade "id", ela pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
-                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas nesta seção. Para este exemplo, adicione o seguinte código:</p>
-                <p>jQuery ( "#button0000000001" ). setValue ( "Gestor Express" );</p>
-                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
-                <p>E o resultado de adicionar o código quando o controle for renderizado será o seguinte:</p>
-                <p>A propriedade "nome" deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
-                <p>Por fim, a propriedade "label" é usada para alterar o rótulo do controle. Para este exemplo, altere-o para "Botão". Leve em consideração que se o código JavaScript foi adicionado a propriedade "label" não terá nenhum efeito, então volte para o editor de Javascript e apague o código e então esta propriedade terá efeito.</p>
-                <p>Alterar a cor do campo</p>
-                <p>Como exemplo de como usar o controle de botão, adicione uma caixa de texto e um controle de botão no design do formulário. Em seguida, altere o ID dos controles para "text1" e "button123", respectivamente.</p>
-                <p>Agora, adicione o seguinte JavaScript na propriedade JavaScript do formulário.</p>
-                <p>$ ( "#botão123" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "#text1" ) [ 0 ]. style. backgroundColor = "blue";</p>
-                <p>  if ( $ ( "#text1 " ) [ 0 ]. style. display == "none" )</p>
-                <p>    $ ( " #text1" ). mostrar ( );</p>
-                <p>  else</p>
-                <p>    $ ( "#text1" ). esconder ( );</p>
-                <p>} );</p>
-                <p>Em seguida, experimente a funcionalidade do botão renderizando-o na opção Visualizar</p>
-                <p>Verifique como adicionar código JavaScript ao formulário.</p>
-                <p>Cancelar caso</p>
-                <p>Um formulário dinâmico pode conter vários botões de envio com finalidades diferentes. Este exemplo mostra como criar um formulário dinâmico que tem um botão chamado "Enviar" que continua o caso e outro botão chamado "Cancelar caso", que cancela o caso atual. O código JavaScript é usado para atribuir um valor a um campo oculto quando o botão de envio "Cancelar caso" é clicado. Em seguida, um gatilho disparado após o Formulário Dinâmico verificar esse valor para determinar se deve chamar Case::cancelCase().</p>
-                <p>Primeiro, crie um formulário dinâmico com um botão de envio normal e um segundo botão de envio com o ID "cancelCase". Além disso, adicione um campo oculto cujo ID seja "ação" e esteja associado à actionvariável.</p>
-                <p>Em seguida, adicione o seguinte código JavaScript para atribuir o valor "CANCELLED" ao botão "cancelCase" se clicado:</p>
-                <p>$ ( "#cancelCase" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>  $ ( "#action" ). setValue ( "CANCEL" );</p>
-                <p>} );</p>
-                <p>Em seguida, crie o seguinte gatilho definido para disparar após o formulário dinâmico:</p>
-                <p>if ( @@ ação == "CANCELAR" ) {</p>
-                <p>   $c = new Casos ( );</p>
-                <p>   $c -> cancelCase ( @@ APPLICATION, @% INDEX, @@ USER_LOGGED );</p>
-                <p>   //redireciona de volta para a caixa de entrada:</p>
+            <h1 id="item5">Exemplos</h1>
 
-                <p>   morrer ( );</p>
-                <p>};</p>
-                <p>O gatilho acima verifica se o botão "CancelarCase" foi clicado quando o formulário foi enviado. Se sim, cancela o caso. Em seguida, ele redireciona o navegador da Web de volta para a caixa de entrada. Observe que os casos são executados dentro de um quadro, portanto, o Javascript é usado para redirecionar o navegador da Web para o quadro superior. A função die() é chamada para parar o Gestor Express e evitar que o caso passe para a próxima etapa do processo.</p>
-                <p>Nota: Nas versões 3.0 - 3.0.1.8, as variáveis ​​de caso foram criadas para os botões de envio em um formulário dinâmico quando ele foi enviado. Foi possível atribuir um valor a esses botões de envio que poderiam ser examinados em um acionador posterior. Vários exemplos nesta página usados ​​para atribuir valores aos botões de envio. Na versão 3.1 e posterior, no entanto, as variáveis ​​de caso não são mais criadas para botões de envio, portanto, esses exemplos foram alterados para atribuir um valor a campos ocultos, que podem ser examinados em um acionador subsequente. Se estiver atualizando de 3.0.X para 3.1.X, certifique-se de alterar qualquer código personalizado que dependa de variáveis ​​de caso criadas a partir de botões de envio em formulários dinâmicos.</p>
-                <p>Redirecionar para outra etapa</p>
+            <h2 id="item5a">Exemplo de Controle de botão Enviar</h2>
+
+                <p>Para este exemplo, adicione um controle "botão" arrastando e soltando-o dos controles da Web localizados no painel esquerdo. O resultado da adição do controle será semelhante à imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>Clique em qualquer espaço vazio do controle para exibir suas propriedades no painel do lado esquerdo. As propriedades são as mostradas na imagem abaixo.</p>
+    
+                <figure>
+
+                </figure>
+            
+                <p>A propriedade "tipo" é um campo somente leitura que mostra apenas o tipo de controle que é.</p>
+
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "id" pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas na seção JavaScript desta página. Para este exemplo, adicione o seguinte código:</p>
+
+                <codeblock>
+                    jQuery<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#submit0000000001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;www.google.com&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>E o resultado da adição desse código alterará o nome do valor do controle "enviar".</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>A propriedade a seguir é a propriedade "nome" que é o nome do controle. Esta propriedade deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>A propriedade "rótulo" alterará o rótulo do controle. Se o código JavaScript foi adicionado e o valor deseja ser definido manualmente. Apague o código Javascript e altere o rótulo com um nome como "ENVIAR" como visto na imagem abaixo.</p>
+
+                <figure>
+
+                </figure>
+                
+                <p>Uma nova tela rápida ao enviar um caso aparecerá, não permitindo que os usuários cliquem no botão "Enviar" mais de uma vez, em vez de várias vezes, o que pode resultar em avançar um passo no processo e não concluir algumas etapas. Agora, o botão "Enviar" só pode ser clicado uma vez, portanto, indo para a tarefa a seguir, conforme o esperado. A tela que será mostrada quando o botão "Enviar" for clicado seria a mostrada na imagem abaixo, não permitindo que o usuário clique mais de uma vez.</p>
+                
+                <figure>
+
+                </figure>
+                
+            <h2 id="item5b">Exemplo de controle botão</h2>
+
+                <p>Para este exemplo, adicione um controle "botão" arrastando-o e soltando-o do Controle da Web para o Formulário Dinâmico Designer. O resultado desta ação é mostrado na imagem abaixo.</p>
+                                
+                <figure>
+
+                </figure>
+             
+                <p>Clique em qualquer espaço vazio no controle para exibir suas propriedades no painel esquerdo.</p>
+                                
+                <figure>
+
+                </figure>
+             
+                <p>A primeira propriedade que é a propriedade "Tipo" é somente leitura, exibindo o tipo de controle que é.</p>
+                                
+                <figure>
+
+                </figure>
+             
+                <p>Agora, para a propriedade "id", ela pode ser usada com código JavaScript. Para isso, clique na borda cinza claro do formulário dinâmico (que é o espaço fora dos controles) para exibir as propriedades do formulário dinâmico. Quando as propriedades forem exibidas localize a propriedade "javascript" e clique no botão "editar" para abrir um editor.</p>
+                                
+                <figure>
+
+                </figure>
+             
+                <p>No editor de javascript, adicione código para definir o rótulo do controle, leia esta seção para obter mais informações. Use uma das funções mencionadas nesta seção. Para este exemplo, adicione o seguinte código:</p>
+
+                <codeblock>
+                    jQuery<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#button0000000001&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;GestorExpress&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>O código será parecido com a imagem abaixo uma vez no editor.</p>
+                                   
+                <figure>
+
+                </figure>
+
+                <p>E o resultado de adicionar o código quando o controle for renderizado será o seguinte:</p>
+                                   
+                <figure>
+
+                </figure>
+
+                <p>A propriedade "nome" deve começar com uma letra. O nome é usado ao enviar dados em um envio de formulário.</p>
+                                                   
+                <figure>
+
+                </figure>
+
+                <p>Por fim, a propriedade "rótulo" é usada para alterar o rótulo do controle. Para este exemplo, altere-o para "Botão". Leve em consideração que se o código JavaScript foi adicionado a propriedade "rótulo" não terá nenhum efeito, então volte para o editor de Javascript e apague o código e então esta propriedade terá efeito.</p>
+                                   
+                <figure>
+
+                </figure>
+
+            <h2 id="item5c">Alterar a cor do campo</h2>
+
+                <p>Como exemplo de como usar o controle de botão, adicione uma caixa de texto e um controle de botão na ferramenta de desenho do formulário. Em seguida, altere o ID dos controles para "texto1" e "botão123", respectivamente.</p>
+                                   
+                <figure>
+
+                </figure>
+
+                <p>Agora, adicione o seguinte JavaScript na propriedade JavaScript do formulário.</p>
+
+                <codeblock>
+                    $</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#botao123&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">find</span></a><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">click</span></a><span style="color: #009900;">&#40;</span><span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#texto1&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#91;</span><span style="color: #CC0000;">0</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">style</span>.<span style="color: #660066;">backgroundColor</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;blue&quot;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; <span style="color: #000066; font-weight: bold;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#texto1&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#91;</span><span style="color: #CC0000;">0</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">style</span>.<span style="color: #660066;">display</span> <span style="color: #339933;">==</span> <span style="color: #3366CC;">&quot;none&quot;</span><span style="color: #009900;">&#41;</span><br />
+                    &nbsp; &nbsp; <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#texto1&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">show</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; <span style="color: #000066; font-weight: bold;">else</span><br />
+                    &nbsp; &nbsp; <span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#texto1&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">hide</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>Em seguida, experimente a funcionalidade do botão renderizando-o na opção Visualizar</p>
+                
+                <figure>
+
+                </figure>
+                
+                <p>Verifique <a href="#">como adicionar código JavaScript ao formulário</a>.</p>
+
+            <h2 id="item5d">Cancelar caso</h2>
+
+                <p>Um formulário dinâmico pode conter vários botões de envio com finalidades diferentes. Este exemplo mostra como criar um formulário dinâmico que tem um botão chamado "Enviar" que continua o caso e outro botão chamado "Cancelar caso", que cancela o caso atual. O código JavaScript é usado para atribuir um valor a um campo oculto quando o botão de envio "Cancelar caso" é clicado. Em seguida, um gatilho disparado após o Formulário Dinâmico verificar esse valor para determinar se deve chamar <a href="#">Case::cancelCase()</a>.</p>
+
+                <p>Primeiro, crie um formulário dinâmico com um botão de envio normal e um segundo botão de envio com o ID "cancelarCaso". Além disso, adicione um campo oculto cujo ID seja "ação" e esteja associado à variável <code>acao</code>.</p>
+                
+                <figure>
+
+                </figure>
+
+                <p>Em seguida, adicione o seguinte código JavaScript para atribuir o valor "CANCELLED" ao botão "cancelarCaso" se clicado:</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#cancelarCaso&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#acao&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;CANCEL&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></div></div>
+                </codeblock>
+
+                <p>Em seguida, crie o seguinte gatilho que é definido para disparar após o formulário dinâmico:</p>
+
+
+                    <codeblock>
+                        <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>acao <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;CANCEL&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                        &nbsp; &nbsp;<span style="color: #000088;">$c</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">novo</span> Casos<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                        &nbsp; &nbsp;<span style="color: #000088;">$c</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">cancelarCaso</span><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #339933;">@@</span>USER_LOGGED<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                        &nbsp; &nbsp;<span style="color: #666666; font-style: italic;">//redireciona de volta para a caixa de entrada:</span><br />
+                        &nbsp; &nbsp;<span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">'&lt;script&gt; top.location = &quot;../cases/main&quot; &lt;/script&gt;'</span><span style="color: #339933;">;</span><br />
+                        &nbsp; &nbsp;<span style="color: #990000;">die</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                        <span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+                    </codeblock>
+
+ 
+                <p>O gatilho acima verifica se o botão "CancelarCaso" foi clicado quando o formulário foi enviado. Se sim, cancela o caso. Em seguida, ele redireciona o navegador da Web de volta para a caixa de entrada. Observe que os casos são executados dentro de um quadro, portanto, o Javascript é usado para redirecionar o navegador da Web para o quadro superior. A função die() é chamada para parar o Gestor Express e evitar que o caso passe para a próxima etapa do processo.</p>
+
+                <p><span style="color: green; font-weight: bold;">Observação:</span> As variáveis de caso não são mais criadas para botões de envio, portanto, esses exemplos foram alterados para atribuir um valor a campos ocultos, que podem ser examinados em um acionador subsequente.</p>
+
+            <h2 id="item5e">Redirecionar para outra etapa</h2>
+
                 <p>Quando um botão de envio é clicado, os dados no formulário dinâmico são salvos e o caso passa para a próxima etapa (formulário dinâmico, documento de entrada ou documento de saída) na tarefa atual. Se for a última etapa, o Gestor Express roteará para a próxima tarefa no processo. O código JavaScript pode ser adicionado a um botão para redirecionar para uma etapa diferente na tarefa atual ou para o final da tarefa quando o botão for clicado.</p>
+
                 <p>Este exemplo mostra como redirecionar o navegador da Web quando os botões são clicados. Um formulário dinâmico que é o primeiro passo da tarefa tem os seguintes 6 botões:</p>
-                <p>Um botão com o ID "saveWork" que salva os dados no formulário dinâmico atual quando clicado.</p>
-                <p>Um botão com o ID "caixa de entrada" que redireciona o navegador de volta para a caixa de entrada.</p>
-                <p>Um botão com o ID "endTask", que direciona o navegador para o final da tarefa atual.</p>
-                <p>Um botão com o ID "moreInfo" que redireciona o navegador web para a 3ª etapa da tarefa, que é um Formulário Dinâmico com o UID "140382730582d22af0d1c24018284816" para inserir mais informações.</p>
-                <p>Um botão com o ID "uploadContract" que redireciona o navegador para a quarta etapa da tarefa, que é um Documento de Entrada com o UID "77782079956a7de25a125c5065741006" para fazer upload de arquivos de contrato.</p>
-                <p>Um botão com o ID "generateInvoice" que redireciona o navegador web para a quinta etapa da tarefa, que é um Documento de Saída com o UID "13321001556d6125088d942072818002".</p>
-                <p>Um botão de envio normal, que continuará para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa da tarefa atual).</p>
+
+                <ul>
+                    <li>Um botão com o ID "salvaTrabalho" que salva os dados no formulário dinâmico atual quando clicado.</li>
+                    <li>Um botão com o ID "caixaDeEntrada" que redireciona o navegador de volta para a caixa de entrada.</li>
+                    <li>Um botão com o ID "fimTarefa", que direciona o navegador para o final da tarefa atual.</li>
+                    <li>Um botão com o ID "maisInfo" que redireciona o navegador web para a 3ª etapa da tarefa, que é um Formulário Dinâmico com o UID "140382730582d22af0d1c24018284816" para inserir mais informações.</li>
+                    <li>Um botão com o ID "uploadContrato" que redireciona o navegador para a quarta etapa da tarefa, que é um Documento de Entrada com o UID "77782079956a7de25a125c5065741006" para fazer upload de arquivos de contrato.</li>
+                    <li>Um botão com o ID "geraNota" que redireciona o navegador web para a quinta etapa da tarefa, que é um Documento de Saída com o UID "13321001556d6125088d942072818002".</li>
+                    <li>Um botão de envio normal, que continuará para a próxima etapa da tarefa (ou roteará para a próxima tarefa se for a última etapa da tarefa atual).</li>
+                </ul>
+
+                <figure>
+
+                </figure>
+
                 <p>O seguinte código JavaScript é adicionado ao Formulário Dinâmico para adicionar manipuladores de eventos aos botões quando eles são clicados:</p>
-                <p>$ ( "#salvarTrabalho" ). encontre ( "botão" ). clique ( function ( ) {</p>
-                <p>   $ ( "form " ).saveForm ( ); } ); $ ( "#caixa de entrada" ). encontre ( "botão" ). clique ( function ( ) {    $ ( "form" ). saveForm ( );    top.</p>
-               
-                <p>} );</p>
-                <p>$ ( "#fimTask" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "form" ). saveForm ( );</p>
-                <p>   //redireciona para o final da tarefa para roteamento</p>
-                <p>   location = "../cases/cases_Step?TYPE=ASSIGN_TASK&UID=-1&POSITION=10000&ACTION=ASSIGN";</p>
-                <p>} );</p>
-                <p>$ ("#moreInfo" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "form" ). saveForm ( );</p>
-                <p>   //redireciona para um Formulário Dinâmico que é a 3ª etapa no</p>
-                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=Formulário Dinâmico&UID=140382730582d22af0d1c24018284816&POSITION=3&ACTION= EDITAR";</p>
-                <p>} );</p>
-                <p>$ ( "#uploadContract" ). encontre ( "botão" ).function ( ) {</p>
-                <p>   $ ( "formulário" ). salvarFormulário ( );</p>
-                <p>   //redireciona para o Documento de Entrada que é a 4ª etapa no</p>
-                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=INPUT_DOCUMENT&UID=77782079956a7de25a125c5065741006&POSITION=4&ACTION=ATTACH";</p>
-                <p>} );</p>
-                <p>$ ( "#gerarFatura" ). encontre ( "botão" ). clique ( function ( ) {</p>
-                <p>   $ ( "form" ).salvarFormulário ( );</p>
-                <p>   //redireciona para o Documento de Saída que é a 5ª etapa no</p>
-                <p>   local da tarefa atual = "../cases/cases_Step?TYPE=OUTPUT_DOCUMENT&UID=13321001556d6125088d942072818002&POSITION=5&ACTION=GENERATE";</p>
-                <p>} );</p>
-                <p>Para entender melhor como o redirecionamento funciona no Gestor Express, consulte a documentação de Links e a função G::header().</p>
-                <p>Nota: Não é possível redirecionar para um formulário dinâmico, documento de entrada ou documento de saída que não esteja atribuído como uma etapa na tarefa atual. Também não é possível redirecionar para uma etapa específica em outra tarefa.</p>
-                <p>Redirecionamento em gatilhos</p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#salvaTrabalho&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#caixaDeEntrada&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;top.<span style="color: #660066;">location</span><span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;../cases/main&quot;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//redireciona para a caixa de entrada no quadro superior</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#fimTarefa&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//redireciona para o final da tarefa para roteamento </span><br />
+                    &nbsp; &nbsp;location<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;../cases/cases_Step?TYPE=ASSIGN_TASK&amp;UID=-1&amp;POSITION=10000&amp;ACTION=ASSIGN&quot;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#maisInfo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//redireciona para um Formulário dinâmico que é a 3ª etapa no local atual da tarefa</span><br />
+                    &nbsp; &nbsp;location<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;../cases/cases_Step?TYPE=DYNAFORM&amp;UID=140382730582d22af0d1c24018284816&amp;POSITION=3&amp;ACTION=EDIT&quot;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#uploadContrato&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//redireciona para o documento de entrada que é a 4ª etapa no local da tarefa atual</span><br />
+                    &nbsp; &nbsp;location<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;../cases/cases_Step?TYPE=INPUT_DOCUMENT&amp;UID=77782079956a7de25a125c5065741006&amp;POSITION=4&amp;ACTION=ATTACH&quot;</span><span style="color: #339933;">;</span> <br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#geraNota&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;form&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">saveForm</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//redirecionar para o documento de saída que é a 5ª etapa no local da tarefa atual</span><br />
+                    &nbsp; &nbsp;location<span style="color: #339933;">=</span><span style="color: #3366CC;">&quot;../cases/cases_Step?TYPE=OUTPUT_DOCUMENT&amp;UID=13321001556d6125088d942072818002&amp;POSITION=5&amp;ACTION=GENERATE&quot;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
+                <p>Para entender melhor como o redirecionamento funciona no Gestor Express, consulte a documentação de <a href="#">Links</a> e a função <a href="#">G::header()</a>.</p>
+
+                <p><span style="color: green; font-weight: bold;">Observação:</span> Não é possível redirecionar para um formulário dinâmico, documento de entrada ou documento de saída que não esteja atribuído como uma etapa na tarefa atual. Também não é possível redirecionar para uma etapa específica em outra tarefa.</p>
+
+                <h2 id="item5f">Redirecionamento em gatilhos</h2>
+
                 <p>Aviso: Os exemplos a seguir NÃO funcionam na versão do Gestor Express Mobile.</p>
+
                 <p>O exemplo anterior chama o método.saveForm() do formulário para salvar os dados atuais inseridos no formulário dinâmico quando um botão normal é clicado. No entanto, um botão de envio salvará automaticamente os dados do Formulário Dinâmico quando clicado, portanto, não é necessário usar a saveForm()função. Se precisar salvar os dados do formulário e depois fechar o Formulário Dinâmico, é recomendável usar botões de envio em vez de botões normais. Além disso, adicione um campo oculto ao formulário dinâmico cujo ID seja "ação" e esteja associado a uma variável denominada "ação". Este campo oculto indicará qual botão foi clicado para fechar o formulário.</p>
+
                 <p>Em seguida, crie um gatilho que use PMFRedirectToStep() para redirecionar para uma etapa (Formulário Dinâmico, Documento de entrada ou Documento de saída) ou use o método G::header() para redirecionar para a Caixa de entrada ou o final da tarefa para roteamento.</p>
+
                 <p>O seguinte código JavaScript pode ser adicionado ao formulário dinâmico para indicar qual botão de envio foi clicado:</p>
-                <p>$ ( "#salvarTrabalho" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   //salva o trabalho e retorna para o mesmo</p>
-                <p>Formulário Dinâmico    $ ( "#action" ). setValue ( "SAVE_WORK" );</p>
-                <p>} );</p>
-                <p>$ ( "#caixa de entrada" ). encontre ( "botão" ). clique ( function ( ) {</p>
-                <p>   $ ( "#ação"setValue ( "CAIXA DE ENTRADA" );</p>
-                <p>} );</p>
-                <p>$ ( "#fimTask" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "#action" ).setValue ( "END_TASK" ); // ir para o roteamento no final da tarefa } ); $ ( "#moreInfo" ). encontre ( "botão" ).</p>
-                <p>) {</p>
-                <p>   $ ( "#ação" ). setValue ( "MORE_INFO" ); //ir para outro Formulário Dinâmico</p>
-                <p>} );</p>
-                <p>$ ( "#uploadContract" ). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "#action" ).setValue ( "UPLOAD_CONTRACT" ); //ir para o documento de entrada } ); $ ( "#gerarFatura"</p>
-                <p>). encontre ( "botão" ). click ( function ( ) {</p>
-                <p>   $ ( "#action" ).setValue ( "GENERATE_INVOICE" ); //ir para o documento de saída } );  </p>
+
+                <codeblock>
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#saveWork&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #006600; font-style: italic;">//salva o trabalho e volta para o mesmo Formulário Dinâmico</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;SAVE_WORK&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#inbox&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;INBOX&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#endTask&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;END_TASK&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//ir para roteamento no final da tarefa</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#moreInfo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;MORE_INFO&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//ir para outro formulário dinâmico</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#uploadContract&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;UPLOAD_CONTRACT&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #006600; font-style: italic;">//ir para o documento de entrada</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    $<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#generateInvoice&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">find</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">click</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;$<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#action&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setValue</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;GENERATE_INVOICE&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> &nbsp;<span style="color: #006600; font-style: italic;">//ir para o documento de saída</span><br />
+                    <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                </codeblock>
+
                 <p>Em seguida, crie o seguinte gatilho para lidar com o redirecionamento do navegador da web:</p>
-                <p>if ( ! isset ( @@ action ) ) {</p>
-                <p>   goto triggerEnd;</p>
-                <p>}</p>
-                <p>$ação = @@ ação;</p>
-                <p>PMFSendVariables ( @@ APPLICATION, array ( 'action' => '' ) ); //reinicia a ação</p>
-                <p>if ( $action == "INBOX" ) {</p>
-               
-                <p>   morrer ( ); //previne o próximo passo</p>
-                <p>}</p>
-                <p>elseif ( $action == "END_TASK" ) {</p>
-                <p>   G:: header ( "Location: cases_Step?TYPE=ASSIGN_TASK&UID=-1&POSITION=10000&ACTION=ASSIGN" );</p>
-                <p>   morrer ( ); //evitar a próxima etapa</p>
-                <p>}</p>
-                <p>elseif ( $action == "SAVE_WORK" ) {</p>
-                <p>   //redirecionar de volta para o Formulário Dinâmico anterior para continuar trabalhando nele:  </p>
-                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'Formulário Dinâmico', '60422430056a69386a2a885087313352' );</p>
-                <p>}</p>
-                <p>elseif ( $action == "MORE_INFO" ) {  </p>
-                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'Formulário Dinâmico', '140382730582d22af0d1c24018284816' );</p>
-                <p>}</p>
-                <p>elseif ( $action == "UPLOAD_CONTRACT" ) {</p>
-                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'INPUT_DOCUMENT', '77782079956a7de25a125c5065741006' );</p>
-                <p>}</p>
-                <p>senão ( $action == "GENERATE_INVOICE" ) {</p>
-                <p>   PMFRedirectToStep ( @@ APPLICATION, @% INDEX, 'OUTPUT_DOCUMENT', '13321001556d6125088d942072818002' );</p>
-                <p>}</p>
-                <p>triggerEnd:</p>
+                
+                <codeblock>
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span><span style="color: #990000;">isset</span></a><span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>action<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;goto triggerEnd<span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #000088;">$action</span> <span style="color: #339933;">=</span> <span style="color: #339933;">@@</span>action<span style="color: #339933;">;</span><br />
+                    PMFSendVariables<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #990000;">array</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'action'</span> <span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">''</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//redefinir ação</span><br />
+                    <br />
+                    <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;INBOX&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">'&lt;script&gt; top.location = &quot;../cases/main&quot; &lt;/script&gt;'</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #990000;">die</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//impedir próximo passo</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;END_TASK&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;G<span style="color: #339933;">::</span><span style="color: #990000;">header</span></a><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;Location: cases_Step?TYPE=ASSIGN_TASK&amp;UID=-1&amp;POSITION=10000&amp;ACTION=ASSIGN&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    &nbsp; &nbsp;<span style="color: #990000;">die</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//impede a próxima etapa</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;SAVE_WORK&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;<span style="color: #666666; font-style: italic;">//redireciona de volta ao Formulário Dinâmico anterior para continuar trabalhando nele: &nbsp; </span><br />
+                    &nbsp; &nbsp;PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'DYNAFORM'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'60422430056a69386a2a885087313352'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;MORE_INFO&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span> &nbsp;<br />
+                    &nbsp; &nbsp;PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'DYNAFORM'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'140382730582d22af0d1c24018284816'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;UPLOAD_CONTRACT&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'INPUT_DOCUMENT'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'77782079956a7de25a125c5065741006'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    <span style="color: #b1b100;">elseif</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$action</span> <span style="color: #339933;">==</span> <span style="color: #0000ff;">&quot;GENERATE_INVOICE&quot;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span><br />
+                    &nbsp; &nbsp;PMFRedirectToStep<span style="color: #009900;">&#40;</span><span style="color: #339933;">@@</span>APPLICATION<span style="color: #339933;">,</span> <span style="color: #339933;">@%</span>INDEX<span style="color: #339933;">,</span> <span style="color: #0000ff;">'OUTPUT_DOCUMENT'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'13321001556d6125088d942072818002'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+                    <span style="color: #009900;">&#125;</span><br />
+                    triggerEnd<span style="color: #339933;">:</span>
+                </codeblock>
+                
                 <p>Esse gatilho deve ser definido para ser acionado antes da próxima etapa que segue o formulário dinâmico (ou antes da atribuição, se for a última etapa da tarefa). NÃO defina esse gatilho para disparar imediatamente após o formulário dinâmico, pois a chamada die()nesse ponto impedirá que os dados nos campos do formulário dinâmico sejam adicionados ao campo wf_WORKSPACE.APPLICATION.APP_DATA no banco de dados e impedirá que quaisquer arquivos selecionados sejam salvos no sistema de arquivos do servidor.</p>
 
         </article>
