@@ -26,7 +26,10 @@
             <h1>Subformulários</h1>
             <h2>Conteúdo:</h2>
             <ol>
-
+                <li>Visão geral</li>
+                <li>Propriedades</li>
+                <li>Propriedades do subformulário</li>
+                <li>Exemplo de controle de subformulário</li>
             </ol>
         </section>
     </aside>
@@ -34,7 +37,76 @@
     <section id="principal">
 
         <article>
+            <p>Visão geral</p>
+                <p>Um controle Subformulários insere um formulário dinâmico que já foi criado no projeto em um formulário dinâmico mestre, adicionando-o como outra linha do design e exibindo seu design completo ao executar um caso. Para adicionar esse controle ao formulário dinâmico, arraste o ícone a seguir do painel esquerdo e solte-o na Ferramenta de Desenho.</p>
 
+                <p>A caixa de mensagem Selecione Controle será aberta com uma lista de todos os Formulários Dinâmicos existentes no projeto. Selecione o Formulário Dinâmico que será adicionado ao design na lista.</p>
+                <p>O Subformulário Dinâmico será incluído no design com todas as suas linhas exibidas.</p>
+
+                <p>O controle de subformulário não permite que o formulário inserido no design seja editado. O formulário dinâmico original deve ser alterado para fazer alterações em todos os subformulários que usam o formulário dinâmico.</p>
+
+                <p>Quando o formulário dinâmico é renderizado (na visualização ou durante a execução de casos), os subformulários são exibidos como conteúdo de formulário normal.</p>
+
+                <p>Ao trabalhar com subformulários, leve em consideração os seguintes pontos:</p>
+
+                <p>O mesmo formulário só pode ser usado uma vez no mesmo formulário dinâmico (para evitar a duplicação do uso de variáveis e IDs).</p>
+
+                <p>O subformulário não pode ser editado no formulário dinâmico mestre. Ele é exibido como somente leitura. Para modificar o subformulário, abra-o no designer Formulário Dinâmico. As alterações feitas no formulário serão refletidas automaticamente em todos os campos do subformulário do dinâmico formulário mestre.</p>
+
+                <p>Apenas um nível de aninhamento é permitido. Um subformulário não pode conter subformulários.</p>
+                <p>Um formulário pode conter vários subformulários (que devem ser diferentes).</p>
+
+                <p>Para evitar a duplicação de variáveis e IDs com subformulários, uma validação deve ser executada para alertar o usuário sobre quaisquer variáveis/IDs duplicados existentes. O designer deve decidir se o design pode continuar com as variáveis/IDs duplicados.</p>
+                
+                <p>Aviso: Tome cuidado ao atualizar o ProcessMaker. Devido às alterações feitas na funcionalidade dos subformulários, não é mais possível personalizar os subformulários quando eles são adicionados ao formulário dinâmico mestre (suas propriedades estarão no modo de exibição, portanto nenhuma alteração poderá ser feita). Se você personalizou os subformulários em versões anteriores do ProcessMaker (como adicionar JavaScript personalizado, modificar os controles etc.), essas alterações serão perdidas.</p>
+                
+                <p>Nota: Na versão 3.0.1.4 é possível deletar linhas e controles do subformulário, mas lembre-se que se o formulário original for modificado depois que as linhas e controles foram deletados do subformulário no formulário dinâmico mestre, o subformulário será renderizado no Dyanform mestre apenas aplicando as alterações feitas no formulário original, portanto as alterações no subformulário não terão efeito.</p>
+                
+            <p>Propriedades</p>
+            
+                <p>Clique em qualquer espaço cinza claro no subformulário para visualizar e trabalhar com suas propriedades.</p>
+                <p>Propriedade</p>
+                <p>Modelo</p>
+                <p>Loja de grade</p>
+                <p>Versão disponível: Da versão 3.0.1.5 à 3.0.1.7.</p>
+                <p>Nota: Esta propriedade não está mais disponível a partir da versão 3.0.1.8 em diante.</p>
+                <p>EU IRIA</p>
+                <p>Nome</p>
+                <p>[Somente leitura]</p>
+                <p>O mesmo nome do formulário pai.</p>
+                <p>Descrição</p>
+                <p>[Somente leitura]</p>
+                <p>A mesma descrição definida quando o formulário pai foi criado. Esta propriedade descreve o que é o Formulário Dinâmico.</p>
+                <p>Modo</p>
+                <p>[Somente leitura]</p>
+                <p>Modo de exibição do formulário pai:</p>
+                <p>editar: o subformulário é habilitado para edição pelo usuário final quando o formulário dinâmico mestre é renderizado.</p>
+                <p>view: o controle só pode ser visualizado quando for renderizado. O conteúdo não pode ser editado.</p>
+                <p>desativado: o controle é exibido em cinza para indicar que está desativado. O conteúdo também não pode ser editado.</p>
+                <p>JavaScript</p>
+                <p>[Somente leitura]</p>
+                <p>Em subformulários, o código JavaScript é concatenado ao formulário pai, portanto, essa propriedade é readonly .</p>
+                <p>Bibliotecas Externas</p>
+                <p>[somente leitura]</p>
+                <p>Área onde são mostradas as bibliotecas externas do formulário pai.</p>
+                <p>Observação: Leve em consideração que se o subformulário possuir código JavaScript em sua configuração, ele será executado toda vez que o formulário dinâmico for carregado.</p>
+                <p>Propriedades do subformulário</p>
+                <p>Subformulários são basicamente formulários dinâmicos embutidos em outro formulário. As propriedades de um subformulário são herdadas do formulário dinâmico original e não podem ser modificadas. No entanto, os controles de subformulário têm uma propriedade adicional explicada na próxima seção.</p>
+                <p>Loja de grade</p>
+                <p>Disponível em: ProcessMaker 3.0.1.5 a 3.0.1.7. Esta propriedade não está mais disponível a partir da versão 3.0.1.8 em diante.</p>
+                <p>Esta propriedade permite que um controle de subformulário seja relacionado a uma variável de grid, então muitas instâncias do subformulário podem ser adicionadas ao formulário - uma linha após a outra - como linhas de uma grade.</p>
+                <p>Nota: No momento, esta propriedade relaciona apenas uma variável de grade a um controle de subformulário. Esta opção foi adicionada para fins experimentais na versão 3.0.1.5, mas foi removida a partir da versão 3.0.1.8 em diante.</p>
+                <p>Para relacionar a variável de grade ao controle do subformulário, selecione o subformulário no designer.</p>
+                <p>Verifique a propriedade de armazenamento de grade e as propriedades de tipo de dados variável e variável serão exibidas abaixo.</p>
+                <p>Selecione ou crie uma nova variável de grid para associar ao subformulário.</p>
+                <p>Exemplo de controle de subformulário</p>
+                <p>Para este exemplo, adicione um controle de subformulário arrastando e soltando-o do painel esquerdo.</p>
+                <p>Imediatamente após o controle ser adicionado, uma janela aparecerá onde todos os Formulários Dinâmicos criados podem ser encontrados. Selecione um dos formulários dinâmicos para ser um subformulário.</p>
+                <p>Uma vez selecionado um subformulário, ele será adicionado ao formulário dinâmico conforme a imagem abaixo. Às vezes, adicionar um subformulário pode ser mais fácil do que exportar e importar um formulário dinâmico. O formulário não será renderizado se houver controles com o mesmo ID, portanto, leve isso em consideração ao usar subformulários.</p>
+                <p>Clique em qualquer espaço cinza no subformulário para exibir suas propriedades no painel esquerdo. As propriedades deste controle estão em sua maioria desabilitadas, como pode ser visto na imagem abaixo.</p>
+                <p>Depois que as propriedades são exibidas, a única propriedade que pode ser alterada é a propriedade de armazenamento de grade. Quando esta propriedade estiver marcada, uma variável pode ser adicionada clicando nas reticências sublinhadas .... Uma nova janela será mostrada.</p>
+                <p>Crie uma variável do tipo grid chamada "subformulário", conforme a imagem abaixo.</p>
+                <p>O resultado desta ação é o seguinte:</p>
 
         </article>
 

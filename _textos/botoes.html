@@ -399,11 +399,15 @@
 
                 <h2 id="item5f">Redirecionamento em gatilhos</h2>
 
-                <p>Aviso: Os exemplos a seguir NÃO funcionam na versão do Gestor Express Mobile.</p>
+                <p><span style="color: red; font-weight: bold">Aviso:</span> Os exemplos a seguir NÃO funcionam na versão do Gestor Express Mobile.</p>
 
-                <p>O exemplo anterior chama o método.saveForm() do formulário para salvar os dados atuais inseridos no formulário dinâmico quando um botão normal é clicado. No entanto, um botão de envio salvará automaticamente os dados do Formulário Dinâmico quando clicado, portanto, não é necessário usar a saveForm()função. Se precisar salvar os dados do formulário e depois fechar o Formulário Dinâmico, é recomendável usar botões de envio em vez de botões normais. Além disso, adicione um campo oculto ao formulário dinâmico cujo ID seja "ação" e esteja associado a uma variável denominada "ação". Este campo oculto indicará qual botão foi clicado para fechar o formulário.</p>
+                <p>O exemplo anterior chama o método <a href="#">form.saveForm()</a> para salvar os dados atuais inseridos no formulário dinâmico quando um botão normal é clicado. No entanto, um botão de envio salvará automaticamente os dados do Formulário Dinâmico quando clicado, portanto, não é necessário usar a função <code>saveForm()</code>. Se precisar salvar os dados do formulário e depois fechar o Formulário Dinâmico, é recomendável usar botões de envio em vez de botões normais. Além disso, adicione um campo oculto ao formulário dinâmico cujo ID seja "ação" e esteja associado a uma variável denominada "ação". Este campo oculto indicará qual botão foi clicado para fechar o formulário.</p>
 
-                <p>Em seguida, crie um gatilho que use PMFRedirectToStep() para redirecionar para uma etapa (Formulário Dinâmico, Documento de entrada ou Documento de saída) ou use o método G::header() para redirecionar para a Caixa de entrada ou o final da tarefa para roteamento.</p>
+                <figure>
+
+                </figure>
+
+                <p>Em seguida, crie um gatilho que use <a href="#">PMFRedirectToStep()</a> para redirecionar para uma etapa (Formulário Dinâmico, Documento de entrada ou Documento de saída) ou use o método <a href="#">G::header()</a> para redirecionar para a Caixa de entrada ou o final da tarefa para roteamento.</p>
 
                 <p>O seguinte código JavaScript pode ser adicionado ao formulário dinâmico para indicar qual botão de envio foi clicado:</p>
 
@@ -462,7 +466,7 @@
                     triggerEnd<span style="color: #339933;">:</span>
                 </codeblock>
                 
-                <p>Esse gatilho deve ser definido para ser acionado antes da próxima etapa que segue o formulário dinâmico (ou antes da atribuição, se for a última etapa da tarefa). NÃO defina esse gatilho para disparar imediatamente após o formulário dinâmico, pois a chamada die()nesse ponto impedirá que os dados nos campos do formulário dinâmico sejam adicionados ao campo wf_WORKSPACE.APPLICATION.APP_DATA no banco de dados e impedirá que quaisquer arquivos selecionados sejam salvos no sistema de arquivos do servidor.</p>
+                <p>Esse gatilho deve ser definido para ser acionado antes da próxima etapa que segue o formulário dinâmico (ou antes da atribuição, se for a última etapa da tarefa). NÃO defina esse gatilho para disparar imediatamente após o formulário dinâmico, pois chamar <code>die()</code> nesse ponto impedirá que os dados nos campos do formulário dinâmico sejam adicionados ao campo <b><tt>wf_<font color=blue><i>WORKSPACE</i></font>.APPLICATION.APP_DATA</tt></b> no banco de dados e impedirá que quaisquer arquivos selecionados sejam salvos no sistema de arquivos do servidor.</p>
 
         </article>
 
