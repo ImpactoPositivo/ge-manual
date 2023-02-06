@@ -23,10 +23,19 @@
 
  <aside>
         <section id="lado">
-            <h1>Rótulo</h1>
+            <h1>Controle de Rótulo</h1>
             <h2>Conteúdo:</h2>
             <ol>
-
+                <li><a href="#item1">Visão geral</a></li>
+                <li><a href="#item2">Propriedades do Rótulo</a></li>
+                <ol type="A">
+                    <li><a href="#item3">Texto</a></li>
+                </ol>
+                <li><a href="#item4">Exemplo de controle de etiqueta</a></li>
+                <li><a href="#item5">JavaScript em rótulos</a></li>
+                <ol type="A">
+                    <li><a href="#item6">Métodos JavaScript</a></li>
+                </ol>
             </ol>
         </section>
     </aside>
@@ -34,8 +43,119 @@
     <section id="principal">
 
         <article>
+        <h1 id="item1">Visão geral</h1>
+            <p>Esse controle adiciona campos semelhantes a comentários que contêm qualquer texto.</p>
+            <p>Um comentário na Ferramenta de desenho do Formulário Dinâmico tem a seguinte aparência:</p>
 
+            <figure>
 
+            </figure>
+
+            <p>Ao visualizar um formulário dinâmico ou executar um caso, um comentário se parece com o seguinte:</p>
+
+            <figure>
+
+            </figure>
+
+        <h1 id="item2">Propriedades do Rótulo</h1>
+            <p>Depois de adicionar um rótulo ao projeto, defina o texto que representa seu conteúdo. As propriedades deste controle são as seguintes:</p>
+
+            <table class="textbox">
+                <thead>
+                    <tr><th width="30%">Propriedade</th><th>Descrição</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tipo</td><td><code>rótulo</code>(somente leitura)</td></tr>
+                    <tr><td>ID</td><td>Identificador exclusivo de controle (definido por padrão como label000000000X onde X representa a numeração dos controles de rótulo adicionados no projeto) que pode ser alterado</td></tr>
+                    <tr><td>Texto</td><td>Conteúdo do Rótulo</td></tr>
+                </tbody>
+            </table>
+            
+            <p><strong><font color="green">Observação:</font></strong> Siga o link das propriedades para aprender a trabalhar com cada uma delas.</p>
+
+        <h2 id="item3">Texto</h2>
+            <p>O texto definido neste campo textarea será o conteúdo do comentário.</p>
+
+            <figure>
+
+            </figure>
+
+        <h1 id="item4">Exemplo de controle de rótulo</h1>
+
+            <p>Para este exemplo, arraste e solte um controle "rótulo" na tela do Formulário Dinâmico.</p>
+                                
+                <figure>
+
+                </figure>
+        
+            <p>Clique em qualquer espaço vazio dentro do controle para exibir suas propriedades no painel lateral esquerdo.</p>
+                            
+                <figure>
+
+                </figure>
+            
+            <p>A propriedade "id" é definida por padrão, mas pode ser usada com código Javascript para adicionar funcionalidade adicional ao controle. Por exemplo, clique na borda cinza do formulário dinâmico para exibir as propriedades do formulário dinâmico no painel esquerdo. Clique no botão "editar" na propriedade "javascript". Isso abrirá um editor de JavaScript.</p>
+                                
+                <figure>
+
+                </figure>
+
+                <figure>
+
+                </figure>
+        
+            <p>Uma vez no editor, adicione o seguinte código para retornar um valor específico:</p>
+
+            <codeblock>jQuery<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'#label0000000001'</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">setLabel</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'www.google.com'</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></codeblock>
+
+            <p>Observe que, como resultado desse código, o texto do rótulo foi modificado para 'www.google.com'.</p>
+
+                <figure>
+
+                </figure>
+                
+            <p>A propriedade final neste controle é a propriedade "texto" que se tornará seu conteúdo. Por exemplo, tente adicionar um texto semelhante a uma política de "Termos e Condições". Além disso, pode ser adicionada uma caixa de seleção para que o usuário possa clicar nela se concordar com as condições lidas no controle "rótulo".</p>
+
+            <figure>
+
+            </figure>
+
+        <h1 id="item5">JavaScript em rótulos</h1>
+            <p>Para aprender a manipular controles de formulários dinâmicos usando JavaScript, consulte JavaScript em formulários dinâmicos.</p>
+
+            <p>Os controles de rótulo no Gestor Express têm os seguintes componentes de campo:</p>
+
+            <ul>
+                <li><b>Rótulo</b>: O texto no rótulo, que é exibido para o usuário.</li>
+                <li><b>Valor</b>: O mesmo que o <i>rótulo</i>.</li>
+                <li><b>Texto</b>: O mesmo que o <i>rótulo</i>.</li>
+            </ul>
+
+            <figure>
+
+            </figure>
+
+        <h2 id="item6">Métodos JavaScript</h2>
+            <p>Alguns dos métodos JavaScript para manipular controles de rótulos incluem:</p>
+
+            <table class="textbox">
+                <thead>
+                    <tr><th width="40%">Método</th><th>Descrição</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>jQuery("#campoID") . getValue()</td><td>Retorna o texto do rótulo.</td></tr>
+                    <tr><td>jQuery("#campoID") . getText()</td><td>Retorna o texto do rótulo.</td></tr>
+                    <tr><td>jQuery("#campoID") . getLabel()</td><td>Retorna o texto do rótulo.</td></tr>
+                    <tr><td>jQuery("#campoID") . setValue("novo valor")</td><td>Define o texto do rótulo.</td></tr>
+                </tbody>
+            </table>
+
+            <p>Para ver exemplos de código para esses métodos, consulte Funções e métodos JavaScript.</p>
+
+            <p><strong><font color="green">Observação:</font></strong> Se precisar incluir o código HTML no rótulo, procure um <code>&#10092p&#10093</code> dentro do div do rótulo com a classe "geformdin-controle-rotulo" e defina o conteúdo do <code>&#10092span&#10093</code> interior com a função <a href="https://api.jquery.com/html/" target="_blank">html()</a>. Por exemplo, este código JavaScript define um texto grande e vermelho dentro de um rótulo com o ID "meurotulo":</p>
+
+                <codeblock><span style="color: #000066;">$</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#meurotulo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">find</span></a><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;p.geformdin-controle-rotulo&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">find</span></a><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;span&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #000066;">html</span></a><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;&lt;big&gt;&lt;font color=red&gt;Warning:&lt;/font&gt; Use at your own risk.&lt;/big&gt;&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></codeblock>
+            
         </article>
 
     </section>
